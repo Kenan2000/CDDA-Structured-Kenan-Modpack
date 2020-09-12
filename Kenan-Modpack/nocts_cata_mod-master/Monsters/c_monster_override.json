@@ -1,0 +1,90 @@
+[
+  {
+    "id": "mon_secubot",
+    "copy-from": "mon_secubot",
+    "type": "MONSTER",
+    "aggression": 50,
+    "anger_triggers": [ "PLAYER_CLOSE", "HURT", "FRIEND_ATTACKED", "FRIEND_DIED" ]
+  },
+  {
+    "id": "mon_talon_m202a1",
+    "copy-from": "mon_talon_m202a1",
+    "type": "MONSTER",
+    "aggression": 50,
+    "anger_triggers": [ "PLAYER_CLOSE", "HURT", "FRIEND_ATTACKED", "FRIEND_DIED" ]
+  },
+  {
+    "id": "mon_dispatch_military",
+    "copy-from": "mon_dispatch_military",
+    "type": "MONSTER",
+    "aggression": 50,
+    "anger_triggers": [ "PLAYER_CLOSE", "HURT", "FRIEND_ATTACKED", "FRIEND_DIED" ]
+  },
+  {
+    "id": "mon_turret_searchlight",
+    "copy-from": "mon_turret_searchlight",
+    "type": "MONSTER",
+    "aggression": 50,
+    "anger_triggers": [ "PLAYER_CLOSE", "HURT", "FRIEND_ATTACKED", "FRIEND_DIED" ]
+  },
+  {
+    "id": "mon_laserturret",
+    "//": "Full override retained because this monster was obsoleted, and there's no guarantee that the monster will stay in the JSON or even remain functional long-term.",
+    "type": "MONSTER",
+    "name": { "str": "laser turret" },
+    "description": "The TX-5LR Cerberus is an upgrade to its predecessors.  It features a state of the art revolving laser cannon system with three barrels that charge from solar cells embedded in its hull.",
+    "default_faction": "military",
+    "species": [ "ROBOT" ],
+    "diff": 20,
+    "volume": "30000 ml",
+    "weight": "40750 g",
+    "hp": 30,
+    "speed": 100,
+    "material": [ "steel" ],
+    "symbol": "2",
+    "color": "white",
+    "aggression": 50,
+    "morale": 100,
+    "armor_bash": 14,
+    "armor_cut": 16,
+    "armor_bullet": 13,
+    "vision_day": 50,
+    "revert_to_itype": "bot_laserturret",
+    "special_attacks": [
+      {
+        "type": "gun",
+        "cooldown": 1,
+        "gun_type": "laser_cannon",
+        "fake_skills": [ [ "gun", 4 ], [ "rifle", 8 ] ],
+        "ranges": [ [ 0, 30, "DEFAULT" ] ],
+        "require_sunlight": true
+      }
+    ],
+    "special_when_hit": [ "RETURN_FIRE", 100 ],
+    "death_drops": {  },
+    "death_function": [ "BROKEN" ],
+    "flags": [ "SEES", "NOHEAD", "ELECTRONIC", "COLDPROOF", "IMMOBILE", "NO_BREATHE" ],
+    "anger_triggers": [ "PLAYER_CLOSE", "HURT", "FRIEND_ATTACKED", "FRIEND_DIED" ]
+  },
+  {
+    "id": "mon_turret_bmg",
+    "copy-from": "mon_turret_bmg",
+    "type": "MONSTER",
+    "aggression": 50,
+    "anger_triggers": [ "PLAYER_CLOSE", "HURT", "FRIEND_ATTACKED", "FRIEND_DIED" ]
+  },
+  {
+    "id": "mon_turret_rifle",
+    "copy-from": "mon_turret_rifle",
+    "type": "MONSTER",
+    "aggression": 50,
+    "anger_triggers": [ "PLAYER_CLOSE", "HURT", "FRIEND_ATTACKED", "FRIEND_DIED" ]
+  },
+  {
+    "id": "mon_crows_m240",
+    "copy-from": "mon_crows_m240",
+    "type": "MONSTER",
+    "aggression": 50,
+    "anger_triggers": [ "PLAYER_CLOSE", "HURT", "FRIEND_ATTACKED", "FRIEND_DIED" ]
+  }
+]

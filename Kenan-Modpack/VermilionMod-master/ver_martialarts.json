@@ -1,0 +1,58 @@
+[
+  {
+    "type": "martial_art",
+    "id": "style_augsword",
+    "name": "Augmented Swordplay",
+    "description": "You've poured through the technical binder and have become one with the high-frequency blade. Furthermore, you've learned how to block using bionic arms and legs.",
+    "initiate": [ "You steady your blade and become one with it.", "%s enters a steadied stance." ],
+    "arm_block": 95,
+    "leg_block": 95,
+    "arm_block_with_bio_armor_arms": true,
+    "leg_block_with_bio_armor_legs": true,
+    "static_buffs": [
+      {
+        "id": "augsword_passive",
+        "name": "Heightened Focus",
+        "melee_allowed": true,
+        "min_melee": 5,
+        "description": "Time seems to slow down as you ready your blade.",
+        "bonus_dodges": 2,
+        "bonus_blocks": 1
+      },
+      {
+        "id": "augsword_passive_soul",
+        "name": "Lucid Stance",
+        "melee_allowed": true,
+        "min_melee": 10,
+        "throw_immune": true,
+        "bonus_dodges": 2,
+        "bonus_blocks": 2,
+        "description": "A soul can't be cut."
+      }
+    ],
+    "onattack_buffs": [
+      {
+        "id": "augsword_block",
+        "name": "Augmented Block",
+        "description": "Blocking any counter attack done by the enemy.",
+        "min_melee": 5,
+        "buff_duration": 1,
+        "melee_allowed": true,
+        "bonus_blocks": 100
+      },
+      {
+        "id": "augsword_parry",
+        "name": "Augmented Parry",
+        "description": "Parried and stunned the enemy. Next attack will deal increased damage.",
+        "min_melee": 7,
+        "melee_allowed": true,
+        "mult_bonuses": [ { "stat": "damage", "type": "cut", "scale": 1.2 } ],
+        "max_stacks": 1,
+        "stun_dur": 1,
+        "buff_duration": 1
+      }
+    ],
+    "techniques": [ "augsword_ripper", "augsword_shadow", "augsword_zandatsu", "augsword_legsweep" ],
+    "weapons": [ "hf_blade" ]
+  }
+]

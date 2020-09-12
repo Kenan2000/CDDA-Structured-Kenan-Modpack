@@ -1,0 +1,104 @@
+[
+  {
+    "type": "mapgen",
+    "om_terrain": [ "sky_vortex" ],
+    "method": "json",
+    "weight": 100,
+    "object": {
+      "fill_ter": "t_open_air",
+      "rows": [
+        "                        ",
+        "                        ",
+        "          v             ",
+        "         o              ",
+        "      v            v    ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                   o    ",
+        "   o     v              ",
+        "                 o      ",
+        "                        ",
+        "                  v     ",
+        "                        ",
+        "     v                  ",
+        "      v                 ",
+        "                        ",
+        "                        ",
+        "     o        v         ",
+        "                        ",
+        "                   v    ",
+        "                o       ",
+        "                        ",
+        "                        "
+      ],
+      "terrain": { "v": "t_open_air" },
+      "furniture": { "#": "f_rubble_rock" },
+      "set": [ { "point": "radiation", "amount": [ 20, 30 ], "x": [ 0, 23 ], "y": [ 0, 23 ], "repeat": [ 100, 200 ] } ],
+      "place_fields": [
+        { "field": "fd_shock_vent", "x": [ 1, 22 ], "y": [ 1, 22 ], "density": 3, "repeat": [ 1, 3 ] },
+        { "field": "fd_shock_vent", "x": [ 1, 22 ], "y": [ 1, 22 ], "density": 2, "repeat": [ 1, 5 ] },
+        { "field": "fd_fatigue", "x": [ 1, 22 ], "y": [ 1, 22 ], "density": 3, "repeat": [ 2, 7 ] },
+        { "field": "fd_fatigue", "x": [ 1, 22 ], "y": [ 1, 22 ], "density": 2, "repeat": [ 2, 7 ] }
+      ],
+      "monster": { "o": { "monster": "mon_stemcell_nether" }, "v": { "monster": "mon_vortex" } }
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [ "sky_vortex_ground" ],
+    "method": "json",
+    "weight": 100,
+    "object": {
+      "fill_ter": "t_dirt",
+      "rows": [
+        "                       1",
+        "    1  1              1 ",
+        "     1         1        ",
+        "                     o  ",
+        "       o   1            ",
+        "                   1    ",
+        "        1               ",
+        "   1         1       1  ",
+        "                    1   ",
+        "         1     1        ",
+        "   1                    ",
+        "             o          ",
+        "       1          1     ",
+        "        1     1    1    ",
+        "       11           o   ",
+        "         1              ",
+        "                     o  ",
+        "     1        1     1   ",
+        "            1           ",
+        "       1          1     ",
+        "      o                 ",
+        "   1        1           ",
+        "                     1  ",
+        "                        "
+      ],
+      "terrain": {
+        " ": [ "t_dirt", "t_dirt", "t_dirt", "t_dirt", "t_grass" ],
+        "1": [ "t_underbrush", "t_shrub", "t_dirt", "t_dirt", "t_dirt", "t_dirt", "t_dirt", "t_dirt", "t_grass", "t_grass" ]
+      },
+      "furniture": { "o": [ "f_boulder_small", "f_boulder_small", "f_boulder_medium", "f_boulder_medium", "f_boulder_large" ] },
+      "set": [ { "point": "radiation", "amount": [ 8, 20 ], "x": [ 0, 23 ], "y": [ 0, 23 ], "repeat": [ 35, 165 ] } ],
+      "monster": { "o": { "monster": "mon_stemcell_nether" }, "v": { "monster": "mon_vortex" } },
+      "place_fields": [
+        { "field": "fd_shock_vent", "x": [ 1, 22 ], "y": [ 1, 22 ], "density": 3, "chance": 10, "repeat": [ 0, 1 ] },
+        { "field": "fd_shock_vent", "x": [ 1, 22 ], "y": [ 1, 22 ], "density": 2, "repeat": [ 0, 2 ] },
+        { "field": "fd_fatigue", "x": [ 1, 22 ], "y": [ 1, 22 ], "density": 3, "repeat": [ 0, 6 ] },
+        { "field": "fd_fatigue", "x": [ 1, 22 ], "y": [ 1, 22 ], "density": 2, "repeat": [ 4, 9 ] }
+      ],
+      "place_items": [
+        { "item": "corpses_human", "chance": 75, "x": [ 1, 22 ], "y": [ 1, 22 ], "repeat": [ 1, 3 ] },
+        { "item": "toxic_dump_equipment", "chance": 65, "x": [ 1, 22 ], "y": [ 1, 22 ], "repeat": [ 1, 2 ] },
+        { "item": "science", "chance": 65, "x": [ 1, 22 ], "y": [ 1, 22 ] },
+        { "item": "military", "chance": 45, "x": [ 1, 22 ], "y": [ 1, 22 ] },
+        { "item": "vault_wanderer", "chance": 45, "x": [ 1, 22 ], "y": [ 1, 22 ] },
+        { "item": "spider", "chance": 35, "x": [ 1, 22 ], "y": [ 1, 22 ] },
+        { "item": "survivorzed_extra", "chance": 35, "x": [ 1, 22 ], "y": [ 1, 22 ] }
+      ]
+    }
+  }
+]

@@ -1,0 +1,116 @@
+[
+  {
+    "type": "terrain",
+    "id": "t_nano_floor",
+    "name": "nanotech floor",
+    "description": "A perfectly smooth floor with matching roof composed of nanites, can easily withstand almost anything.",
+    "symbol": ".",
+    "max_volume": 4000,
+    "color": "light_gray",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "ROAD" ],
+    "bash": {
+      "str_min": 500,
+      "str_max": 1500,
+      "sound": "sssssssss!",
+      "sound_fail": "whump!",
+      "sound_vol": 2,
+      "sound_fail_vol": 7,
+      "ter_set": "t_null",
+      "items": [ { "item": "nanite_cluster", "count": [ 2, 12 ] } ]
+    },
+    "deconstruct": { "ter_set": "t_pit_shallow", "items": [ { "item": "xl_nanite_cluster" } ] }
+  },
+  {
+    "type": "terrain",
+    "id": "t_nano_wall",
+    "name": "nanotech wall",
+    "description": "An incredibly durable and perfectly uniform wall composed of nanites.  More than capable of supporting a roof, as well as keeping out most practically anything.",
+    "symbol": "LINE_OXOX",
+    "color": "light_gray",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_nano_roof",
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL", "BLOCK_WIND" ],
+    "connects_to": "WALL",
+    "bash": {
+      "str_min": 500,
+      "str_max": 1500,
+      "sound": "sssssssss!",
+      "sound_fail": "whump!",
+      "sound_vol": 2,
+      "sound_fail_vol": 7,
+      "ter_set": "t_pit_shallow",
+      "items": [ { "item": "nanite_cluster", "count": [ 2, 12 ] } ]
+    },
+    "deconstruct": { "ter_set": "t_pit_shallow", "items": [ { "item": "xl_nanite_cluster" } ] }
+  },
+  {
+    "type": "terrain",
+    "id": "t_nano_door_c",
+    "name": "sealed nanotech iris",
+    "description": "A sealed iris composed of nanites, this door is capable of withstanding nearly anything.",
+    "symbol": "+",
+    "color": "light_gray",
+    "move_cost": 0,
+    "roof": "t_nano_roof",
+    "flags": [ "DOOR", "NOITEM", "CONNECT_TO_WALL" ],
+    "open": "t_nano_door_o",
+    "bash": {
+      "str_min": 500,
+      "str_max": 1500,
+      "sound": "sssssssss!",
+      "sound_fail": "whump!",
+      "sound_vol": 2,
+      "sound_fail_vol": 7,
+      "ter_set": "t_pit_shallow",
+      "items": [ { "item": "nanite_cluster", "count": [ 2, 12 ] } ]
+    },
+    "deconstruct": { "ter_set": "t_pit_shallow", "items": [ { "item": "xl_nanite_cluster" } ] }
+  },
+  {
+    "type": "terrain",
+    "id": "t_nano_door_o",
+    "name": "open nanotech iris",
+    "description": "An opened iris composed of nanites, this door is capable of withstanding nearly anything.",
+    "symbol": "'",
+    "color": "light_gray",
+    "move_cost": 2,
+    "roof": "t_nano_roof",
+    "flags": [ "TRANSPARENT", "FLAT", "CONNECT_TO_WALL", "ROAD" ],
+    "close": "t_nano_door_c",
+    "bash": {
+      "str_min": 500,
+      "str_max": 1500,
+      "sound": "sssssssss!",
+      "sound_fail": "whump!",
+      "sound_vol": 2,
+      "sound_fail_vol": 7,
+      "ter_set": "t_pit_shallow",
+      "items": [ { "item": "nanite_cluster", "count": [ 2, 12 ] } ]
+    },
+    "deconstruct": { "ter_set": "t_pit_shallow", "items": [ { "item": "xl_nanite_cluster" } ] }
+  },
+  {
+    "type": "terrain",
+    "id": "t_nano_roof",
+    "name": "nanotech roof",
+    "description": "A perfectly smooth roof composed of nanites, can easily withstand almost anything.",
+    "symbol": ".",
+    "color": "light_gray",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "FLAT" ],
+    "bash": {
+      "str_min": 500,
+      "str_max": 1500,
+      "sound": "sssssssss!",
+      "sound_fail": "whump!",
+      "sound_vol": 2,
+      "sound_fail_vol": 7,
+      "ter_set": "t_open_air",
+      "bash_below": true,
+      "items": [ { "item": "nanite_cluster", "count": [ 2, 12 ] } ]
+    },
+    "deconstruct": { "ter_set": "t_open_air", "items": [ { "item": "xl_nanite_cluster" } ] }
+  }
+]

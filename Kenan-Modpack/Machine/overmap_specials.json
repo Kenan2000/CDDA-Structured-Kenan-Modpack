@@ -1,0 +1,147 @@
+[
+  {
+    "type": "monstergroup",
+    "name": "GROUP_ROBOT1",
+    "default": "mon_null",
+    "monsters": [
+      { "monster": "mon_broken_cyborg", "freq": 10, "cost_multiplier": 5 },
+      { "monster": "mon_molebot", "freq": 50, "cost_multiplier": 1 },
+      { "monster": "mon_eyebot", "freq": 50, "cost_multiplier": 5 },
+      { "monster": "mon_copbot", "freq": 30, "cost_multiplier": 10 },
+      { "monster": "mon_riotbot", "freq": 30, "cost_multiplier": 10 }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_ROBOT2",
+    "default": "mon_null",
+    "monsters": [
+      { "monster": "mon_broken_cyborg", "freq": 10, "cost_multiplier": 5 },
+      { "monster": "mon_turret", "freq": 10, "cost_multiplier": 20 },
+      { "monster": "mon_manhack", "freq": 50, "cost_multiplier": 5 },
+      { "monster": "mon_grenade_hack", "freq": 50, "cost_multiplier": 10 },
+      { "monster": "mon_mininuke_hack", "freq": 1, "cost_multiplier": 50 },
+      { "monster": "mon_gasbomb_hack", "freq": 50, "cost_multiplier": 5 },
+      { "monster": "mon_EMP_hack", "freq": 30, "cost_multiplier": 5 },
+      { "monster": "mon_c4_hack", "freq": 30, "cost_multiplier": 10 },
+      { "monster": "mon_flashbang_hack", "freq": 50, "cost_multiplier": 5 },
+      { "monster": "mon_skitterbot", "freq": 50, "cost_multiplier": 5 },
+      { "monster": "mon_secubot", "freq": 10, "cost_multiplier": 20 }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_ROBOT3",
+    "default": "mon_null",
+    "monsters": [
+      { "monster": "mon_broken_cyborg", "freq": 10, "cost_multiplier": 5 },
+      { "monster": "mon_laserturret", "freq": 50, "cost_multiplier": 20 },
+      { "monster": "mon_turret_rifle", "freq": 30, "cost_multiplier": 20 },
+      { "monster": "mon_turret_bmg", "freq": 10, "cost_multiplier": 30 },
+      { "monster": "mon_turret_searchlight", "freq": 50, "cost_multiplier": 1 },
+      { "monster": "mon_exploder", "freq": 50, "cost_multiplier": 5 },
+      { "monster": "mon_tripod", "freq": 30, "cost_multiplier": 10 },
+      { "monster": "mon_chickenbot", "freq": 10, "cost_multiplier": 20 },
+      { "monster": "mon_tankbot", "freq": 5, "cost_multiplier": 30 }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "name": "GROUP_GOMI",
+    "default": "mon_null",
+    "monsters": [
+      { "monster": "mon_broken_cyborg", "freq": 30, "cost_multiplier": 5 },
+      { "monster": "mon_hazmatbot", "freq": 50, "cost_multiplier": 1 },
+      { "monster": "mon_muskrat", "freq": 100, "cost_multiplier": 1 },
+      { "monster": "mon_black_rat", "freq": 100, "cost_multiplier": 1 },
+      { "monster": "mon_sewer_rat", "freq": 50, "cost_multiplier": 1 },
+      { "monster": "mon_rat_king", "freq": 5, "cost_multiplier": 30 },
+      { "monster": "mon_giant_cockroach", "freq": 100, "cost_multiplier": 1 },
+      { "monster": "mon_giant_cockroach_nymph", "freq": 30, "cost_multiplier": 1 },
+      { "monster": "mon_pregnant_giant_cockroach", "freq": 30, "cost_multiplier": 1 }
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "lab1",
+    "overmaps": [
+      { "point": [ 0, 0, 0 ], "overmap": "lab1_north" },
+      { "point": [ 0, 0, -1 ], "overmap": "lab2_north" },
+      { "point": [ 1, 1, -1 ], "overmap": "dummymap_north" },
+      { "point": [ -1, 1, -1 ], "overmap": "dummymap_north" }
+    ],
+    "connections": [ { "point": [ 0, 1, -1 ], "terrain": "subway" } ],
+    "locations": [ "forest" ],
+    "//": "What special locations does it spawn.How far from a city it should be.What city sizes should it spawn in.How many per overmap",
+    "city_distance": [ 10, -1 ],
+    "city_sizes": [ 4, 12 ],
+    "occurrences": [ 0, 0 ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "gomi",
+    "overmaps": [
+      { "point": [ 0, 0, 0 ], "overmap": "gomi1_north" },
+      { "point": [ 1, 0, 0 ], "overmap": "gomi2_north" },
+      { "point": [ 0, 1, 0 ], "overmap": "gomi3_north" },
+      { "point": [ 1, 1, 0 ], "overmap": "gomi4_north" }
+    ],
+    "connections": [
+      { "point": [ 0, -1, 0 ], "terrain": "road", "existing": true },
+      { "point": [ 1, -1, 0 ], "terrain": "road", "existing": true }
+    ],
+    "locations": [ "wilderness" ],
+    "//": "What special locations does it spawn.How far from a city it should be.What city sizes should it spawn in.How many per overmap",
+    "city_distance": [ 0, 5 ],
+    "city_sizes": [ 4, 12 ],
+    "occurrences": [ 0, 0 ],
+    "spawns": { "group": "GROUP_GOMI", "population": [ 800, 1300 ], "radius": [ 20, 30 ] }
+  },
+  {
+    "type": "overmap_special",
+    "id": "factory1",
+    "overmaps": [
+      { "point": [ 0, 0, 0 ], "overmap": "machinen_north" },
+      { "point": [ 0, 0, -1 ], "overmap": "machine2_north" },
+      { "point": [ 0, 0, -2 ], "overmap": "machine3_north" },
+      { "point": [ -1, 0, -3 ], "overmap": "machineb1_north" },
+      { "point": [ 0, 0, -3 ], "overmap": "machineb2_north" },
+      { "point": [ 1, 0, -3 ], "overmap": "machineb3_north" },
+      { "point": [ -1, -1, -3 ], "overmap": "machineb4_north" },
+      { "point": [ 0, -1, -3 ], "overmap": "machineb5_north" },
+      { "point": [ 1, -1, -3 ], "overmap": "machineb6_north" },
+      { "point": [ -1, -2, -3 ], "overmap": "machineb7_north" },
+      { "point": [ 0, -2, -3 ], "overmap": "machineb8_north" },
+      { "point": [ 1, -2, -3 ], "overmap": "machineb9_north" }
+    ],
+    "connections": [ { "point": [ 0, -1, 0 ], "terrain": "road" } ],
+    "locations": [ "wilderness" ],
+    "//": "What special locations does it spawn.How far from a city it should be.What city sizes should it spawn in.How many per overmap",
+    "city_distance": [ 5, 10 ],
+    "city_sizes": [ 4, 12 ],
+    "occurrences": [ 0, 8 ],
+    "spawns": { "group": "GROUP_ROBOT1", "population": [ 600, 1000 ], "radius": [ 20, 30 ] }
+  },
+  {
+    "type": "overmap_special",
+    "id": "factory2",
+    "copy-from": "factory1",
+    "locations": [ "forest" ],
+    "//": "What special locations does it spawn.How far from a city it should be.What city sizes should it spawn in.How many per overmap",
+    "city_distance": [ 8, -1 ],
+    "city_sizes": [ 4, 12 ],
+    "occurrences": [ 0, 8 ],
+    "spawns": { "group": "GROUP_ROBOT2", "population": [ 400, 700 ], "radius": [ 12, 20 ] }
+  },
+  {
+    "type": "overmap_special",
+    "id": "factory3",
+    "copy-from": "factory1",
+    "locations": [ "forest" ],
+    "//": "What special locations does it spawn.How far from a city it should be.What city sizes should it spawn in.How many per overmap",
+    "city_distance": [ 8, -1 ],
+    "city_sizes": [ 4, 12 ],
+    "occurrences": [ 0, 1 ],
+    "spawns": { "group": "GROUP_ROBOT3", "population": [ 400, 700 ], "radius": [ 12, 20 ] }
+  }
+]

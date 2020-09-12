@@ -1,0 +1,366 @@
+[
+  {
+    "type": "terrain",
+    "id": "t_cave_moss",
+    "name": "cave moss",
+    "description": "A sprawling bed of strange blueish moss, growing over a flat stone surface.  Digging it up will expose the rock enough to mine deeper, if need be.",
+    "looks_like": "t_grass",
+    "symbol": ".",
+    "color": "cyan",
+    "move_cost": 2,
+    "roof": "t_flat_roof",
+    "flags": [ "TRANSPARENT", "INDOORS", "FLAT" ],
+    "bash": { "ter_set": "t_null", "str_min": 75, "str_max": 400, "str_min_supported": 100, "bash_below": true }
+  },
+  {
+    "type": "terrain",
+    "id": "t_shrub_helmet_plump",
+    "name": "patch of dark truffles",
+    "description": "A patch of squat, dull purple mushrooms.",
+    "looks_like": "t_underbrush",
+    "symbol": "#",
+    "color": "magenta_green",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT" ],
+    "transforms_into": "t_shrub_helmet_plump_harvested",
+    "examine_action": "harvest_ter",
+    "harvest_by_season": [
+      {
+        "seasons": [ "spring", "summer", "autumn", "winter" ],
+        "entries": [
+          { "drop": "caveyot_helmet_plump", "base_num": [ 1, 3 ], "scaled_num": [ 0.1, 0.3 ] },
+          { "drop": "withered", "base_num": [ 0, 1 ] }
+        ]
+      }
+    ],
+    "bash": {
+      "str_min": 4,
+      "str_max": 60,
+      "sound": "crunch.",
+      "sound_fail": "brush.",
+      "ter_set": "t_cave_moss",
+      "items": [ { "item": "withered", "prob": 50, "count": [ 1, 2 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_shrub_helmet_plump_harvested",
+    "name": "uprooted cavern patch",
+    "description": "A torn-up patch of bruised pink stalks.",
+    "looks_like": "t_underbrush_harvested_spring",
+    "symbol": "#",
+    "color": "light_red_green",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "HARVESTED" ],
+    "transforms_into": "t_shrub_helmet_plump",
+    "examine_action": "harvested_plant",
+    "bash": {
+      "str_min": 4,
+      "str_max": 60,
+      "sound": "crunch.",
+      "sound_fail": "brush.",
+      "ter_set": "t_cave_moss",
+      "items": [ { "item": "withered", "prob": 50, "count": [ 1, 2 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_shrub_pod_sweet",
+    "name": "patch of vibrant bulbs",
+    "description": "A patch of bright red plants resembling onions.",
+    "looks_like": "t_underbrush",
+    "symbol": "#",
+    "color": [ "red_green", "red_green", "brown_green", "brown_green" ],
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT" ],
+    "transforms_into": "t_shrub_pod_sweet_harvested",
+    "examine_action": "harvest_ter",
+    "harvest_by_season": [
+      {
+        "seasons": [ "spring", "summer" ],
+        "entries": [
+          { "drop": "caveyot_pod_sweet", "base_num": [ 2, 5 ], "scaled_num": [ 0.2, 0.5 ] },
+          { "drop": "withered", "base_num": [ 1, 3 ] }
+        ]
+      }
+    ],
+    "bash": {
+      "str_min": 4,
+      "str_max": 60,
+      "sound": "crunch.",
+      "sound_fail": "brush.",
+      "ter_set": "t_cave_moss",
+      "items": [ { "item": "withered", "prob": 50, "count": [ 1, 2 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_shrub_pod_sweet_harvested",
+    "name": "uprooted cavern patch",
+    "description": "An uprooted patch of leaves, leaking sweet-smelling sap.",
+    "looks_like": "t_underbrush_harvested_spring",
+    "symbol": "#",
+    "color": "green",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "HARVESTED" ],
+    "transforms_into": "t_shrub_pod_sweet",
+    "examine_action": "harvested_plant",
+    "bash": {
+      "str_min": 4,
+      "str_max": 60,
+      "sound": "crunch.",
+      "sound_fail": "brush.",
+      "ter_set": "t_cave_moss",
+      "items": [ { "item": "withered", "prob": 50, "count": [ 1, 2 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_shrub_wheat_cave",
+    "name": "patch of cloudy brush",
+    "description": "A patch of upright stalks covered in fluffy, cotton-like clumps.",
+    "looks_like": "t_underbrush",
+    "symbol": "#",
+    "color": [ "brown_green", "white_green", "white_green", "brown_green" ],
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT" ],
+    "transforms_into": "t_shrub_wheat_cave_harvested",
+    "examine_action": "harvest_ter",
+    "harvest_by_season": [
+      {
+        "seasons": [ "summer", "autumn" ],
+        "entries": [
+          { "drop": "caveyot_wheat_cave", "base_num": [ 2, 5 ], "scaled_num": [ 0.2, 0.5 ] },
+          { "drop": "straw_pile", "base_num": [ 1, 3 ] }
+        ]
+      }
+    ],
+    "bash": {
+      "str_min": 4,
+      "str_max": 60,
+      "sound": "crunch.",
+      "sound_fail": "brush.",
+      "ter_set": "t_cave_moss",
+      "items": [ { "item": "straw_pile", "count": [ 1, 2 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_shrub_wheat_cave_harvested",
+    "name": "uprooted cavern patch",
+    "description": "A patch of upright stalks, stripped bare.",
+    "looks_like": "t_underbrush_harvested_spring",
+    "symbol": "#",
+    "color": "green",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "HARVESTED" ],
+    "transforms_into": "t_shrub_wheat_cave",
+    "examine_action": "harvested_plant",
+    "bash": {
+      "str_min": 4,
+      "str_max": 60,
+      "sound": "crunch.",
+      "sound_fail": "brush.",
+      "ter_set": "t_cave_moss",
+      "items": [ { "item": "straw_pile", "count": [ 1, 2 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_shrub_tails_pig",
+    "name": "patch of spiral stalks",
+    "description": "A patch of twisting, greenish stalks with short leaves.",
+    "looks_like": "t_underbrush",
+    "symbol": "#",
+    "color": [ "green", "light_green", "light_green", "green" ],
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT" ],
+    "transforms_into": "t_shrub_tails_pig_harvested",
+    "examine_action": "harvest_ter",
+    "harvest_by_season": [
+      {
+        "seasons": [ "summer", "autumn" ],
+        "entries": [
+          { "drop": "caveyot_tails_pig", "base_num": [ 2, 5 ], "scaled_num": [ 0.2, 0.5 ] },
+          { "drop": "plant_fibre", "base_num": [ 1, 4 ] }
+        ]
+      }
+    ],
+    "bash": {
+      "str_min": 4,
+      "str_max": 60,
+      "sound": "crunch.",
+      "sound_fail": "brush.",
+      "ter_set": "t_cave_moss",
+      "items": [ { "item": "plant_fibre", "count": [ 1, 4 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_shrub_tails_pig_harvested",
+    "name": "uprooted cavern patch",
+    "description": "A thin patch of slightly-curled fungal shoots.",
+    "looks_like": "t_underbrush_harvested_spring",
+    "symbol": "#",
+    "color": "green",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "HARVESTED" ],
+    "transforms_into": "t_shrub_tails_pig",
+    "examine_action": "harvested_plant",
+    "bash": {
+      "str_min": 4,
+      "str_max": 60,
+      "sound": "crunch.",
+      "sound_fail": "brush.",
+      "ter_set": "t_cave_moss",
+      "items": [ { "item": "plant_fibre", "count": [ 1, 4 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_shrub_bush_quarry",
+    "name": "patch of hardened bramble",
+    "description": "A patch of tangled, woody bramble laden with small growths.",
+    "looks_like": "t_underbrush",
+    "symbol": "#",
+    "color": [ "green", "green", "green", "brown" ],
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "SHARP" ],
+    "transforms_into": "t_shrub_bush_quarry_harvested",
+    "examine_action": "harvest_ter",
+    "harvest_by_season": [
+      {
+        "seasons": [ "spring", "summer", "autumn", "winter" ],
+        "entries": [
+          { "drop": "caveyot_bush_quarry", "base_num": [ 2, 5 ], "scaled_num": [ 0.2, 0.5 ] },
+          { "drop": "stick", "base_num": [ 2, 3 ] },
+          { "drop": "stick_long", "base_num": [ 1, 2 ] },
+          { "drop": "log", "base_num": [ 0, 2 ] }
+        ]
+      }
+    ],
+    "bash": {
+      "str_min": 4,
+      "str_max": 60,
+      "sound": "crunch.",
+      "sound_fail": "brush.",
+      "ter_set": "t_cave_moss",
+      "items": [ { "item": "stick", "count": [ 0, 2 ] }, { "item": "splinter", "count": [ 1, 4 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_shrub_bush_quarry_harvested",
+    "name": "uprooted cavern patch",
+    "description": "A patch of broken, tangled bramble stripped of its bounty.",
+    "looks_like": "t_underbrush_harvested_spring",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "HARVESTED", "SHARP" ],
+    "transforms_into": "t_shrub_bush_quarry",
+    "examine_action": "harvested_plant",
+    "bash": {
+      "str_min": 4,
+      "str_max": 60,
+      "sound": "crunch.",
+      "sound_fail": "brush.",
+      "ter_set": "t_cave_moss",
+      "items": [ { "item": "stick", "count": [ 0, 2 ] }, { "item": "splinter", "count": [ 1, 4 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_breach_stone_fake",
+    "name": "smoothed rock?",
+    "description": "A block of stone that's been smoothed and shaped, commonly granite or marble.  Something seems suspicious here...",
+    "symbol": "LINE_OXOX",
+    "looks_like": "t_rock_smooth",
+    "color": "white",
+    "move_cost": 0,
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL", "CONNECT_TO_WALL", "MINEABLE", "BLOCK_WIND" ],
+    "roof": "t_rock_floor",
+    "connects_to": "WALL",
+    "bash": {
+      "str_min": 120,
+      "str_max": 400,
+      "sound": "crash!",
+      "sound_fail": "a hollow-sounding whump!",
+      "ter_set": "t_rock_floor",
+      "items": [ { "item": "rock", "count": [ 6, 12 ] }, { "item": "material_rocksalt", "count": [ 0, 1 ], "prob": 10 } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_breach_stone_fake_lowered",
+    "name": "rock floor?",
+    "description": "A relatively flat area of rock and stone.  Wasn't there a wall here previously?",
+    "looks_like": "t_rock_floor",
+    "symbol": ".",
+    "color": "light_gray",
+    "move_cost": 2,
+    "roof": "t_flat_roof",
+    "flags": [ "TRANSPARENT", "INDOORS", "COLLAPSES", "SUPPORTS_ROOF", "FLAT", "ROAD" ],
+    "bash": {
+      "str_min": 120,
+      "str_max": 400,
+      "sound": "crash!",
+      "sound_fail": "whump!",
+      "ter_set": "t_rock_floor",
+      "items": [ { "item": "rock", "count": [ 6, 12 ] }, { "item": "material_rocksalt", "count": [ 0, 1 ], "prob": 10 } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_breach_lever",
+    "name": "stone lever",
+    "description": "A heavy lever carved out of and set into the surrounding natural stone.  Wonder what it does...",
+    "looks_like": "t_gates_control_concrete",
+    "symbol": "6",
+    "color": "cyan_red",
+    "move_cost": 0,
+    "flags": [ "NOITEM", "INDOORS", "PERMEABLE" ],
+    "examine_action": "controls_gate"
+  },
+  {
+    "type": "terrain",
+    "id": "t_breach_concrete_fake_c",
+    "name": "reinforced concrete wall?",
+    "description": "An extremely resilient wall, filled with concrete and rebar.  Something seems suspicious here...",
+    "looks_like": "t_strconc_wall",
+    "symbol": "LINE_OXOX",
+    "color": "light_gray",
+    "move_cost": 0,
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "DOOR", "WALL", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND" ],
+    "open": "t_breach_concrete_fake_o",
+    "connects_to": "WALL",
+    "bash": {
+      "str_min": 120,
+      "str_max": 460,
+      "sound": "scrrrash!",
+      "sound_fail": "a hollow-sounding whump!",
+      "ter_set": "t_reb_cage",
+      "items": [ { "item": "rock", "count": [ 10, 22 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_breach_concrete_fake_o",
+    "name": "reinforced concrete floor?",
+    "description": "Extremely resilient floor made from carefully placed rebar and poured concrete.  Turns out it was a secret door all along.",
+    "looks_like": "t_strconc_floor",
+    "symbol": ".",
+    "color": "cyan",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "ROAD" ],
+    "close": "t_breach_concrete_fake_c",
+    "bash": {
+      "str_min": 120,
+      "str_max": 460,
+      "sound": "scrrrash!",
+      "sound_fail": "whump!",
+      "ter_set": "t_reb_cage",
+      "items": [ { "item": "rock", "count": [ 10, 22 ] } ]
+    }
+  }
+]

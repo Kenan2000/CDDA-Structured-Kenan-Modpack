@@ -1,0 +1,102 @@
+[
+  {
+    "type": "mutation",
+    "id": "hypostasis",
+    "name": "Hypostasis",
+    "points": -1,
+    "description": "Your body continuously struggles to keep up with your physiology.  You often feel less than perfect; and in need of remedy.",
+    "starting_trait": true,
+    "category": [ "ALPHA", "MEDICAL" ],
+    "changes_to": [ "growpangs" ],
+    "healing_awake": -0.001,
+    "healing_resting": -0.15,
+    "fatigue_modifier": 0.01,
+    "stamina_regen_modifier": -0.04
+  },
+  {
+    "type": "mutation",
+    "id": "growpangs",
+    "name": "Growing Pangs",
+    "points": -2,
+    "description": "The molding of perfection is becoming a success, though the clay of the past still remains.  Your body's more vestigial parts occassionally spur minor 'stimulation' within you.  A minor side effect.",
+    "category": [ "ALPHA", "MEDICAL" ],
+    "healing_awake": -0.0015,
+    "healing_resting": -0.2,
+    "fatigue_modifier": 0.025,
+    "metabolism_modifier": 0.025,
+    "thirst_modifier": 0.025,
+    "stamina_regen_modifier": -0.05
+  },
+  {
+    "type": "mutation",
+    "id": "20_15",
+    "name": "20/15 Vision",
+    "points": 2,
+    "visibility": -1,
+    "ugliness": -1,
+    "description": "Your eyes are rated at perfect human levels - just like the rest of you.  You gain +1 perception",
+    "starting_trait": true,
+    "cancels": [
+      "BIRD_EYE",
+      "LIZ_EYE",
+      "FEL_EYE",
+      "URSINE_EYE",
+      "COMPOUND_EYES",
+      "ELFAEYES",
+      "CEPH_EYES",
+      "HYPEROPIC",
+      "MYOPIC",
+      "NIGHTVISION2"
+    ],
+    "category": [ "ALPHA", "MEDICAL" ],
+    "passive_mods": { "per_mod": 1 }
+  },
+  {
+    "type": "mutation",
+    "id": "CHEMREBALANCE",
+    "name": "Calm Mind",
+    "points": 1,
+    "description": "Your mind is clear and directed outwards, and you find it easier to experience the world and raw emotions.  You gain a +1 to your perception.",
+    "starting_trait": true,
+    "cancels": [ "SAVANT", "CHEMIMBALANCE" ],
+    "changes_to": [ "CHEMREBALANCE2" ],
+    "category": [ "ALPHA", "ELFA", "RAPTOR", "URSINE", "LIZARD" ],
+    "passive_mods": { "per_mod": 1 }
+  },
+  {
+    "type": "mutation",
+    "id": "CHEMREBALANCE2",
+    "name": "Tranquil Mind",
+    "points": 3,
+    "description": "Your mind is a deep well of reflective wisdom and tranquility.  You gain a +1 to intelligence and +2 to perception.",
+    "cancels": [ "SAVANT", "CHEMIMBALANCE" ],
+    "category": [ "ELFA", "URSINE" ],
+    "passive_mods": { "per_mod": 2, "int_mod": 1 }
+  },
+  {
+    "type": "mutation",
+    "id": "LUNGS",
+    "name": "Strong Lungs",
+    "points": 2,
+    "visibility": 0,
+    "ugliness": 0,
+    "description": "Your lungs are well-built; your diaphragm as well.  Breathing comes easier to you, allowing for faster stamina recovery.",
+    "starting_trait": true,
+    "cancels": [ "GILLS", "GILLS_CEPH" ],
+    "changes_to": [ "LUNGS_2" ],
+    "category": [ "BEAST", "LUPINE", "FELINE", "ALPHA", "CHIMERA", "BIRD" ],
+    "stamina_regen_modifier": 0.15
+  },
+  {
+    "type": "mutation",
+    "id": "LUNGS_2",
+    "name": "Robust Lungs",
+    "points": 3,
+    "visibility": 0,
+    "ugliness": 0,
+    "description": "Your lungs are now fit for ROARING!  Combat is much easier as well.",
+    "cancels": [ "GILLS", "GILLS_CEPH" ],
+    "category": [ "BEAST", "FELINE", "CHIMERA" ],
+    "stamina_regen_modifier": 0.25
+  }
+]

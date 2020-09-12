@@ -1,0 +1,61 @@
+[
+  {
+    "id": "Emergency_Trauma_Foam",
+    "type": "COMESTIBLE",
+    "comestible_type": "MED",
+    "name": { "str": "Emergency Trauma Foam", "str_pl": "Emergency Trauma Foam" },
+    "description": "A can full of water-soluble ETF, or Emergency Trauma Foam. When sprayed on a wound ETF rapidly expands, stopping bleeding, acting as a local painkiller, and also disinfecting the wound.",
+    "weight": "135 g",
+    "volume": "1 L",
+    "price": 1500,
+    "charges": 5,
+    "symbol": "~",
+    "color": "light_cyan",
+    "use_action": {
+      "type": "heal",
+      "activation_message": "You shake the can and spray the foam in the wound. Ouch.",
+      "effects": [ { "id": "pkill1", "duration": 180 } ],
+      "disinfectant_power": 5,
+      "bite": 0.95,
+      "bandages_power": 5,
+      "bleed": 1,
+      "move_cost": 250
+    }
+  },
+  {
+    "id": "XE037_Emergency_Injection",
+    "type": "COMESTIBLE",
+    "comestible_type": "MED",
+    "name": { "str": "XE037 Emergency Injection", "str_pl": "XE037 Emergency Injection" },
+    "description": "The cutting edge of publicly avalible medicine pre-cataclysm. Inscirbed along the case is [WARNING RAPID DOSES MAY CAUSE PAIN, NAUSEA, HUNGER, THIRST, AND DEATH]",
+    "weight": "50 g",
+    "volume": "250 ml",
+    "price": 10000,
+    "charges": 5,
+    "symbol": "!",
+    "color": "light_cyan",
+    "use_action": {
+      "type": "heal",
+      "activation_message": "You slam the needle in and begin to feel the sensation of flesh crawling together...",
+      "effects": [ { "id": "XE037", "duration": 450 } ],
+      "limb_power": 10,
+      "torso_power": 10,
+      "head_power": 10,
+      "move_cost": 100
+    }
+  },
+  {
+    "id": "Nausea_Medication",
+    "type": "COMESTIBLE",
+    "comestible_type": "MED",
+    "name": { "str": "Nausea Medication" },
+    "description": "A bottle of pills meant for relieving nasuea and preventing vomitting.",
+    "weight": "50 g",
+    "volume": "250 ml",
+    "price": 10000,
+    "charges": 5,
+    "symbol": "!",
+    "color": "light_cyan",
+    "use_action": { "type": "consume_drug", "effects": [ { "id": "Nausea_Medicine", "duration": 300 } ], "move_cost": 100 }
+  }
+]

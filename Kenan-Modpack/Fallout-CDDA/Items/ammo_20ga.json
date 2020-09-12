@@ -1,0 +1,55 @@
+[
+  {
+    "id": "20ga_shot",
+    "type": "AMMO",
+    "name": { "str": "20 gauge shot" },
+    "description": "A shell filled with metal pellets.  Very damaging, plus the spread makes it very accurate at short range. 20 gauge shots are less powerful than 12 gauge, but make up for it with reduced recoil..",
+    "weight": "28 g",
+    "volume": "250 ml",
+    "price": 3500,
+    "material": [ "plastic", "powder" ],
+    "symbol": "=",
+    "color": "red",
+    "count": 20,
+    "stack_size": 20,
+    "ammo_type": "20ga",
+    "casing": "20ga_hull",
+    "range": 12,
+    "damage": { "damage_type": "stab", "amount": 40 },
+    "recoil": 1500,
+    "loudness": 160,
+    "effects": [ "COOKOFF", "SHOT" ]
+  },
+  {
+    "id": "20ga_bird",
+    "copy-from": "20ga_shot",
+    "type": "AMMO",
+    "name": { "str": "20 gauge birdshot" },
+    "description": "Weak shotgun ammunition.  Designed for hunting birds and other small game, its applications in combat are very limited. I guess its good for practice?",
+    "price": 2400,
+    "proportional": { "damage": { "damage_type": "stab", "amount": 0.3 }, "recoil": 0.6, "loudness": 0.8 },
+    "extend": { "effects": [ "NOGIB" ] }
+  },
+  {
+    "id": "20ga_flechette",
+    "copy-from": "20ga_shot",
+    "type": "AMMO",
+    "name": { "str": "20 gauge flechette shell" },
+    "description": "A shotgun shell filled with tiny steel darts.  Extremely damaging, plus the spread makes it very accurate at short range.  Slices through most forms of armor with ease.",
+    "price": 10000,
+    "count": 10,
+    "relative": { "damage": { "damage_type": "stab", "amount": -6, "armor_penetration": 12 } }
+  },
+  {
+    "id": "20ga_slug",
+    "copy-from": "20ga_shot",
+    "type": "AMMO",
+    "name": { "str": "20 gauge slug" },
+    "description": "A heavy metal slug used with shotguns to give them the range capabilities of a rifle.  Extremely damaging but rather inaccurate.",
+    "price": 4500,
+    "dispersion": 100,
+    "relative": { "range": 12, "damage": { "armor_penetration": 6 } },
+    "proportional": { "recoil": 1.4 },
+    "delete": { "effects": [ "SHOT" ] }
+  }
+]

@@ -1,0 +1,79 @@
+[
+  {
+    "type": "martial_art",
+    "id": "style_maid",
+    "name": "Servant's fighting technique",
+    "description": "A secret assassination technique taught to first-class servants. It gives you an elegant appearance, allowing you to dodge and counterattack with style.",
+    "initiate": [ "You steady yourself, ready to strike with poise and grace.", "%s appears more steady and composed." ],
+    "arm_block": 99,
+    "leg_block": 99,
+    "static_buffs": [
+      {
+        "id": "maid_evade",
+        "name": "Silent presence",
+        "description": "By staying still, you get +2 to dodging.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "flat_bonuses": [ { "stat": "dodge", "scale": 2.0 } ]
+      }
+    ],
+    "onmove_buffs": [
+      {
+        "id": "maid_moved",
+        "name": "Assault",
+        "description": "You receive a penalty to dodging when moving, but your chances of hitting and damage dealt are increased in accordance with your perception.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "min_unarmed": 0,
+        "buff_duration": 2,
+        "flat_bonuses": [
+          { "stat": "hit", "scale": 1 },
+          { "stat": "damage", "type": "bash", "scale": 0.2 },
+          { "stat": "damage", "type": "cut", "scale": 0.2 },
+          { "stat": "damage", "type": "stab", "scale": 0.2 },
+          { "stat": "dodge", "scale": -4.0 }
+        ]
+      }
+    ],
+    "ondodge_buffs": [
+      {
+        "id": "maid_evaded_bonus",
+        "name": "Counterattack",
+        "description": "Avoided attacks with minimal movement. You have a chance of landing a counterattack.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "min_unarmed": 0,
+        "buff_duration": 2,
+        "max_stacks": 1,
+        "mult_bonuses": [
+          { "stat": "damage", "type": "bash", "scale": 1.2 },
+          { "stat": "damage", "type": "cut", "scale": 1.2 },
+          { "stat": "damage", "type": "stab", "scale": 1.2 }
+        ]
+      }
+    ],
+    "techniques": [ "tec_maid_precise", "tec_maid_counter", "tec_maid_meleecounter", "tec_maid_miyage", "tec_maid_kyusyu" ],
+    "weapons": [
+      "battle_mop",
+      "maid_claw",
+      "shikomi_stick_draw",
+      "shikomi_stick",
+      "shikomi_kasa_draw",
+      "shikomi_kasa",
+      "spiked_whip",
+      "brutal_broom",
+      "slaying_pan_on",
+      "slaying_pan",
+      "vorpal_kitchen_knife_on",
+      "vorpal_kitchen_knife",
+      "broom",
+      "mop",
+      "knife_butter",
+      "knife_steak",
+      "spoon",
+      "fork",
+      "pan",
+      "vibrator"
+    ]
+  }
+]

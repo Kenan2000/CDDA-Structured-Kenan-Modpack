@@ -1,0 +1,49 @@
+[
+  {
+    "id": "TALK_SCIENCE_REP",
+    "type": "talk_topic",
+    "dynamic_line": { "u_has_any_trait": [ "PROF_FED" ], "yes": "Marshal…", "no": "Citizen…" },
+    "responses": [
+      {
+        "text": "I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
+        "condition": {
+          "and": [
+            { "u_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" },
+            {
+              "not": { "npc_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" }
+            },
+            {
+              "not": { "u_has_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
+            }
+          ]
+        },
+        "topic": "TALK_SCIENCE_REP_GM_PRELUDE"
+      },
+      {
+        "text": "[MISSION] I've been asked to help attract work for another community of survivors.  Know of anyone who could help with that?",
+        "topic": "TALK_SCIENCE_REP_MISSION_4",
+        "condition": {
+          "and": [
+            { "not": { "u_has_var": "sofia_allies_secured", "type": "mission", "context": "rural_church", "value": "yes" } },
+            { "u_has_mission": "MISSION_CF_REP_4" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "TALK_SCIENCE_REP_GM_PRELUDE",
+    "type": "talk_topic",
+    "dynamic_line": "I would be reluctant to describe it as supernatural or any such, but anomalous is perhaps appropriate.  Indeed, recent information suggests that there may be a new rash of attacks by some unknown xenoforms.  I haven't had the opportunity to gather extensive data on this, but I did recently discuss something with my superiors regarding a recent patrol fending off creatures that don't fit the usual patterns.  I'll relay that information to your benefactors, I guess."
+  },
+  {
+    "id": "TALK_SCIENCE_REP_MISSION_4",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "PROF_FED",
+      "yes": "I'm afraid I don't know anything about that, Marshal.  The representative sent here by the military might be able to help, otherwise asking around.",
+      "no": "I'm afraid I don't know anything about that.  The representative sent here by the military might be able to help, but they've been stretched thin as of late.  Might be better to just ask around if you're looking to find work."
+    },
+    "responses": [ { "text": "Oh, okay.", "topic": "TALK_SCIENCE_REP" } ]
+  }
+]

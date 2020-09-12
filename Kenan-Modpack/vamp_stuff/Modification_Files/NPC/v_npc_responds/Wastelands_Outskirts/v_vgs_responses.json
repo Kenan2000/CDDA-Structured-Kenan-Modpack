@@ -1,0 +1,118 @@
+[
+  {
+    "id": "TALK_VAMP_GUNSHOP_talkme",
+    "type": "talk_topic",
+    "dynamic_line": "Mortal! Struggling to live?",
+    "responses": [ { "text": "Yes, and true.", "topic": "TALK_VAMP_GUNSHOP_maintalk" } ]
+  },
+  {
+    "id": "TALK_VAMP_GUNSHOP_maintalk",
+    "type": "talk_topic",
+    "dynamic_line": "Now, you want something from me?",
+    "responses": [
+      { "text": "Who are you?", "topic": "TALK_VAMP_GUNSHOP_whoisme" },
+      { "text": "Where did these guns came from?", "topic": "TALK_VAMP_GUNSHOP_gunthere" },
+      { "text": "I want to buy.", "effect": "start_trade", "topic": "TALK_VAMP_GUNSHOP_maintalk" },
+      { "text": "Maybe later.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_GUNSHOP_whoisme",
+    "type": "talk_topic",
+    "dynamic_line": "I am the gun trader here... If you're not interested with my trades, just go outside.",
+    "responses": [ { "text": "Thanks for your info.", "topic": "TALK_VAMP_GUNSHOP_maintalk" } ]
+  },
+  {
+    "id": "TALK_VAMP_GUNSHOP_gunthere",
+    "type": "talk_topic",
+    "dynamic_line": "These are reserved from decades 'till now. Since there's no gunsmith on our side, we only got few of them.",
+    "responses": [
+      {
+        "text": "Can I get something from you for free?",
+        "topic": "TALK_VAMP_GUNSHOP_freegun",
+        "condition": { "not": { "u_has_trait": "wvgssupp" } }
+      },
+      { "text": "Sound hard-to-get.", "topic": "TALK_VAMP_GUNSHOP_maintalk" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_GUNSHOP_freegun",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "commandovampmark",
+      "yes": "I see that you've met my commander... What do you want?",
+      "no": "Ofcourse not! You want it, then buy it."
+    },
+    "responses": [
+      {
+        "text": "Well, okay...",
+        "topic": "TALK_VAMP_GUNSHOP_maintalk",
+        "condition": { "not": { "u_has_trait": "commandovampmark" } }
+      },
+      {
+        "text": "Nothing...",
+        "topic": "TALK_VAMP_GUNSHOP_maintalk",
+        "condition": { "u_has_trait": "commandovampmark" }
+      },
+      {
+        "text": "The commando told me about the supplies...",
+        "topic": "TALK_VAMP_GUNSHOP_givesupplies",
+        "condition": { "u_has_trait": "commandovampmark" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_GUNSHOP_givesupplies",
+    "type": "talk_topic",
+    "dynamic_line": "The supplies that were stocked in here are some spare draw kits, a bag and blood powders. Will you take them?",
+    "note": "One time free supplies which are not that valuable, but atleast you've been given with something as rewards...",
+    "responses": [
+      {
+        "text": "But he told me to get some guns from you?",
+        "topic": "TALK_VAMP_GUNSHOP_gun",
+        "condition": { "and": [ { "u_is_wearing": "blood_cring" }, { "not": { "u_has_trait": "wvgsgun" } } ] }
+      },
+      {
+        "text": "But he told me to get some guns from you?",
+        "topic": "TALK_VAMP_GUNSHOP_nogunforu",
+        "condition": { "and": [ { "not": { "u_is_wearing": "blood_cring" } }, { "not": { "u_has_trait": "wvgsgun" } } ] }
+      },
+      {
+        "text": "Okay, I'll take them!",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "u_buy_item": "vacutainer", "count": 6 },
+          { "u_buy_item": "bloodpack" },
+          { "u_buy_item": "bloodpowder", "count": 44 },
+          { "u_add_trait": "wvgssupp" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_GUNSHOP_gun",
+    "type": "talk_topic",
+    "note": "Totally a trashy handgun with very low damage output.",
+    "dynamic_line": "Umm... I could give you the oldest prototype of vampiric guns I got here:\nThe blood slinger.",
+    "responses": [
+      {
+        "text": "Seems legit. I'll take it!",
+        "topic": "TALK_VAMP_GUNSHOP_givesupplies",
+        "effect": [ { "u_buy_item": "blood_slinger" }, { "u_add_trait": "wvgsgun" } ]
+      },
+      {
+        "text": "I guess not... Its like a garbaged project you vampires been doing for these days.",
+        "topic": "TALK_VAMP_GUNSHOP_givesupplies",
+        "opinion": { "fear": -1, "anger": 5 },
+        "effect": { "u_add_trait": "wvgsgun" }
+      },
+      { "text": "I guess not...", "topic": "TALK_VAMP_GUNSHOP_givesupplies", "effect": { "u_add_trait": "wvgsgun" } }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_GUNSHOP_nogunforu",
+    "type": "talk_topic",
+    "dynamic_line": "Tell him that we don't have any spare guns to give.",
+    "responses": [ { "text": "Sorry...", "topic": "TALK_VAMP_GUNSHOP_givesupplies", "effect": { "u_add_trait": "wvgsgun" } } ]
+  }
+]

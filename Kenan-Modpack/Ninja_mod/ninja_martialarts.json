@@ -1,0 +1,153 @@
+[
+  {
+    "id": "tec_ninja_ninjutsu_precise",
+    "type": "technique",
+    "name": "surprise attack",
+    "min_melee": 3,
+    "unarmed_allowed": true,
+    "melee_allowed": false,
+    "crit_tec": true,
+    "messages": [ "You surprise attack %s", "<npcname> surprise attacks %s" ]
+  },
+  {
+    "id": "tec_ninja_ninjutsu_slay",
+    "type": "technique",
+    "name": "Assassination",
+    "req_buffs": [
+      "buff_ninja_ninjutsu_as_the_wind",
+      "buff_ninja_ninjutsu_as_the_forest",
+      "buff_ninja_ninjutsu_as_the_fire",
+      "buff_ninja_ninjutsu_as_the_mountain"
+    ],
+    "min_melee": 5,
+    "unarmed_allowed": false,
+    "melee_allowed": false,
+    "crit_tec": true,
+    "grab_break": true,
+    "messages": [ "A merciless blow from the back to %s", "<npcname> gets a merciless blow" ],
+    "mult_bonuses": [
+      { "stat": "damage", "type": "cut", "scaling-stat": "dex", "scale": 1.0 },
+      { "stat": "damage", "type": "bash", "scaling-stat": "dex", "scale": 0.5 }
+    ]
+  },
+  {
+    "id": "tec_ninja_ninjutsu_foresight",
+    "type": "technique",
+    "name": "Abandonment",
+    "req_buffs": [
+      "buff_ninja_ninjutsu_as_the_wind",
+      "buff_ninja_ninjutsu_as_the_forest",
+      "buff_ninja_ninjutsu_as_the_fire",
+      "buff_ninja_ninjutsu_as_the_mountain"
+    ],
+    "min_melee": 5,
+    "unarmed_allowed": true,
+    "melee_allowed": false,
+    "dodge_counter": true,
+    "grab_break": true,
+    "down_dur": 2,
+    "messages": [ "%s dodged by abandonment", "<npcname>%s dodged by abandonment" ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.0 },
+      { "stat": "damage", "type": "bash", "scale": 0.5 },
+      { "stat": "damage", "type": "cut", "scale": 0.0 }
+    ],
+    "flat_bonuses": [ { "stat": "movecost", "scale": 20 } ]
+  },
+  {
+    "id": "style_ninjutsu",
+    "type": "martial_art",
+    "name": "Ninjutsu",
+    "description": "Ninjutsu is a traditional art of combining martial arts and tactics used by ninja from the Kamakura period to the Edo period. We focus on quick and accurate covert attacks. It makes the superhuman battle possible by using the behavior principle of Sun Tzu Feng Shima Volcano.",
+    "initiate": [  ],
+    "arm_block": 3,
+    "leg_block": 99,
+    "static_buffs": [
+      {
+        "id": "buff_ninja_ninjutsu_as_the_forest",
+        "name": "Ninjitsu (Forest)",
+        "description": "Triggering condition: \nAutomatic.\nUsing melee attacks does not make noise.",
+        "min_melee": 1,
+        "unarmed_allowed": true,
+        "melee_allowed": false,
+        "buff_duration": 2,
+        "max_stacks": 1,
+        "quiet": true
+      }
+    ],
+    "ondodge_buffs": [
+      {
+        "id": "buff_ninja_ninjutsu_as_the_wind",
+        "name": "Ninjitsu (Wind)",
+        "description": "Activation condition: Avoid attack +1 ",
+        "min_melee": 2,
+        "unarmed_allowed": true,
+        "melee_allowed": false,
+        "buff_duration": 8,
+        "max_stacks": 1,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "speed", "scaling-stat": "per", "scale": 2.0 } ]
+      }
+    ],
+    "onhit_buffs": [
+      {
+        "id": "buff_ninja_ninjutsu_as_the_fire",
+        "name": "Ninjitsu (Fire)",
+        "description": "Activation condition: Attack hits \n Depending on deftly bonus to hit rate and damage ",
+        "min_melee": 3,
+        "unarmed_allowed": true,
+        "melee_allowed": false,
+        "buff_duration": 8,
+        "max_stacks": 1,
+        "flat_bonuses": [
+          { "stat": "damage", "type": "bash", "scaling-stat": "dex", "scale": 0.2 },
+          { "stat": "damage", "type": "cut", "scaling-stat": "dex", "scale": 0.2 },
+          { "stat": "damage", "type": "stab", "scaling-stat": "dex", "scale": 0.2 },
+          { "stat": "hit", "scaling-stat": "dex", "scale": 0.1 }
+        ]
+      }
+    ],
+    "onblock_buffs": [
+      {
+        "id": "buff_ninja_ninjutsu_as_the_mountain",
+        "name": "Ninjitsu (Mountain)",
+        "description": "発動条件:攻撃をブロック\n投げ技を無効化 / 筋力に応じて防御ボーナス\n\"風林火山\"成立で見切りと暗殺攻撃が可能",
+        "min_melee": 4,
+        "unarmed_allowed": true,
+        "melee_allowed": false,
+        "throw_immune": true,
+        "buff_duration": 8,
+        "max_stacks": 1,
+        "flat_bonuses": [
+          { "stat": "armor", "type": "bash", "scaling-stat": "str", "scale": 0.25 },
+          { "stat": "armor", "type": "cut", "scaling-stat": "str", "scale": 0.25 },
+          { "stat": "armor", "type": "stab", "scaling-stat": "str", "scale": 0.25 }
+        ]
+      }
+    ],
+    "weapons": [
+      "bio_blade_weapon",
+      "bio_claws_weapon",
+      "bagh_nakha",
+      "knuckle_nail",
+      "knuckle_katar",
+      "punch_dagger",
+      "knuckle_steel",
+      "cestus",
+      "knuckle_brass",
+      "fake_razor",
+      "makeshift_machete",
+      "machete",
+      "survivor_machete",
+      "kukri",
+      "tanto",
+      "knife_rm42",
+      "ninja_katana",
+      "ninja_kusari_gama",
+      "ninja_nunchuk",
+      "ninja_shuriken",
+      "ninja_shuriken_star"
+    ],
+    "techniques": [ "tec_ninja_ninjutsu_precise", "tec_ninja_ninjutsu_slay", "tec_ninja_ninjutsu_foresight" ]
+  }
+]

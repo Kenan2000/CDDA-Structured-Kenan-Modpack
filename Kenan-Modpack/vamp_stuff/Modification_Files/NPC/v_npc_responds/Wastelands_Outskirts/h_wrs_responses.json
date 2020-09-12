@@ -1,0 +1,72 @@
+[
+  {
+    "id": "TALK_HUMAN_RS_talk",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "wrsgo",
+      "yes": {
+        "u_has_trait": "wrsgoing",
+        "yes": {
+          "u_has_trait": "wrsdone",
+          "yes": "Bye now...",
+          "no": "Don't waste your time talking to me at this point, just focus on the road!"
+        },
+        "no": "Are you going to bring me there now?"
+      },
+      "no": "Well hi there? Its been a while since I see a living human walking in this damned world!"
+    },
+    "responses": [
+      {
+        "text": "We need your help in operating a radio tower.",
+        "topic": "TALK_HUMAN_RS_talked",
+        "condition": { "not": { "u_has_trait": "wrsgo" } }
+      },
+      {
+        "text": "Yes. I will.",
+        "topic": "TALK_MISSION_LIST",
+        "condition": {
+          "and": [ { "u_has_trait": "wrsgo" }, { "not": { "u_has_trait": "wrsgoing" } }, { "not": { "u_has_trait": "wrsdone" } } ]
+        }
+      },
+      {
+        "text": "Okay! I'll do it!",
+        "topic": "TALK_DONE",
+        "condition": { "and": [ { "u_has_trait": "wrsgoing" }, { "not": { "u_has_trait": "wrsdone" } } ] }
+      },
+      {
+        "text": "Bye.",
+        "topic": "TALK_DONE",
+        "effect": { "npc_change_class": "HUMAN_RADIOSPEC_WORKING" },
+        "condition": { "u_has_trait": "wrsdone" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_HUMAN_RS_talked",
+    "type": "talk_topic",
+    "dynamic_line": "Radios are too simple to use, why'd would you want me to do it myself?",
+    "responses": [
+      { "text": "To ease the job?", "topic": "TALK_HUMAN_RS_nvm" },
+      { "text": "Increase the efficiency of our radio?", "topic": "TALK_HUMAN_RS_nvm" },
+      { "text": "Its a complicated thing for us...", "topic": "TALK_HUMAN_RS_nvm" }
+    ]
+  },
+  {
+    "id": "TALK_HUMAN_RS_nvm",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "wrsgo",
+      "yes": "We better get going.",
+      "no": "Forget it, I will come for as long as I gain benefits from doing this crap! Besides, I am grateful that you've came to pick me up."
+    },
+    "responses": [
+      { "text": "Lets go!", "topic": "TALK_DONE", "condition": { "u_has_trait": "wrsgo" } },
+      {
+        "text": "Okay.",
+        "topic": "TALK_MISSION_OFFER",
+        "effect": { "u_add_trait": "wrsgo" },
+        "condition": { "not": { "u_has_trait": "wrsgo" } }
+      }
+    ]
+  }
+]

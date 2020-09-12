@@ -1,0 +1,108 @@
+[
+  {
+    "id": "mon_ant_queen_firebug",
+    "type": "MONSTER",
+    "//": "Obsolete, kept for savegame compatibility.",
+    "copy-from": "mon_ant_queen",
+    "name": "queen ant",
+    "description": "A colossal red ant with a bulging, bloated thorax.  It moves slowly and deliberately, tending to nearby eggs and continually laying more.  Its antennae seem almost aesthetic, or at the least not used for sensing . . ."
+  },
+  {
+    "id": "acidbomb_micro",
+    "type": "AMMO",
+    "category": "weapons",
+    "name": "micro acidbomb",
+    "description": "A single glass flask filled with caustic chemicals.  When exposed to the air they will spray out in every direction, creating a modest field of acid.",
+    "weight": "285 g",
+    "volume": "250 ml",
+    "price": 4500,
+    "to_hit": -1,
+    "bashing": 8,
+    "material": [ "glass" ],
+    "symbol": "*",
+    "color": "light_green",
+    "ammo_type": "thrown",
+    "flags": [ "ACT_ON_RANGED_HIT", "RECOVER_9" ],
+    "emits": [ "emit_acid_trail_slow" ],
+    "countdown_interval": 18,
+    "countdown_destroy": true,
+    "countdown_action": { "type": "explosion", "no_deactivate_msg": "The acid bubbles caustically.", "explosion": {  } }
+  },
+  {
+    "type": "recipe",
+    "result": "acidbomb_micro",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_EXPLOSIVE",
+    "skill_used": "fabrication",
+    "difficulty": 10,
+    "time": 900,
+    "reversible": true,
+    "autolearn": true,
+    "components": [ [ [ "clay_canister", 1 ], [ "flask_glass", 1 ] ], [ [ "acid", 1 ] ], [ [ "string_6", 1 ] ], [ [ "rag", 1 ] ] ]
+  },
+  {
+    "id": "acidbomb_medium",
+    "type": "AMMO",
+    "category": "weapons",
+    "name": "large acidbomb",
+    "description": "There is enough frothing fluid inside this acidbomb to coat a relatively large area with fields of acid.",
+    "weight": "1640 g",
+    "volume": "500 ml",
+    "price": 10000,
+    "to_hit": -1,
+    "bashing": 8,
+    "material": [ "glass" ],
+    "symbol": "*",
+    "color": "i_green",
+    "ammo_type": "thrown",
+    "flags": [ "ACT_ON_RANGED_HIT", "RECOVER_9" ],
+    "emits": [ "emit_acid_large" ],
+    "countdown_interval": 8,
+    "countdown_destroy": true,
+    "countdown_action": { "type": "explosion", "no_deactivate_msg": "The acid bubbles caustically.", "explosion": {  } }
+  },
+  {
+    "id": "emit_acid_medium",
+    "type": "emit",
+    "//": "A medium spray of acid. (example: acidbomb medium)",
+    "field": "fd_acid",
+    "density": 2,
+    "qty": 9
+  },
+  {
+    "type": "recipe",
+    "result": "acidbomb_medium",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_EXPLOSIVE",
+    "skill_used": "fabrication",
+    "difficulty": 3,
+    "time": 1800,
+    "reversible": true,
+    "autolearn": true,
+    "components": [
+      [ [ "bottle_glass", 1 ] ],
+      [ [ "clay_canister", 1 ], [ "flask_glass", 1 ] ],
+      [ [ "acid", 4 ] ],
+      [ [ "string_36", 1 ] ],
+      [ [ "rag", 2 ] ]
+    ]
+  },
+  {
+    "type": "recipe",
+    "result": "acidbomb_medium",
+    "id_suffix": "jar",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_EXPLOSIVE",
+    "skill_used": "fabrication",
+    "difficulty": 10,
+    "time": 1800,
+    "reversible": true,
+    "autolearn": true,
+    "components": [
+      [ [ "jar_glass_sealed", 2 ], [ "clay_canister", 4 ], [ "flask_glass", 4 ] ],
+      [ [ "acid", 4 ] ],
+      [ [ "string_36", 1 ] ],
+      [ [ "rag", 3 ] ]
+    ]
+  }
+]

@@ -1,0 +1,189 @@
+[
+  {
+    "id": "milk_curdling",
+    "type": "TOOL",
+    "category": "food",
+    "name": "small batch of curdling milk",
+    "name_plural": "small batches of curdling milk",
+    "description": "A sealed small waterskin filled with milk that is undergoing the process to become a crude form of cheese, having had vinegar and natural rennet added.",
+    "weight": "1870 g",
+    "volume": "1750 ml",
+    "price": 2000,
+    "to_hit": -1,
+    "bashing": 1,
+    "material": [ "milk", "leather" ],
+    "symbol": ")",
+    "color": "white",
+    "use_action": {
+      "target": "milk_curdled",
+      "msg": "The milk appears to have finished curdling, and is ready for further processing.  Checking on it has exposed the mixture to the atmosphere.",
+      "container": "waterskin",
+      "target_charges": 6,
+      "moves": 150,
+      "type": "delayed_transform",
+      "transform_age": 28800,
+      "not_ready_msg": "The milk is still curdling."
+    }
+  },
+  {
+    "id": "milk_curdling2",
+    "type": "TOOL",
+    "category": "food",
+    "name": "batch of curdling milk",
+    "name_plural": "batches of curdling milk",
+    "description": "A sealed waterskin filled with milk that is undergoing the process to become a crude form of cheese, having had vinegar and natural rennet added.",
+    "weight": "3617 g",
+    "volume": "3500 ml",
+    "price": 4000,
+    "to_hit": -1,
+    "bashing": 2,
+    "material": [ "milk", "leather" ],
+    "symbol": ")",
+    "color": "white",
+    "use_action": {
+      "target": "milk_curdled",
+      "msg": "The milk appears to have finished curdling, and is ready for further processing.  Checking on it has exposed the mixture to the atmosphere.",
+      "container": "waterskin2",
+      "target_charges": 12,
+      "moves": 150,
+      "type": "delayed_transform",
+      "transform_age": 36000,
+      "not_ready_msg": "The milk is still curdling."
+    }
+  },
+  {
+    "id": "milk_curdling3",
+    "type": "TOOL",
+    "category": "food",
+    "name": "large batch of curdling milk",
+    "name_plural": "large batches of curdling milk",
+    "description": "A sealed large waterskin filled with milk that is undergoing the process to become a crude form of cheese, having had vinegar and natural rennet added.",
+    "weight": "5241 g",
+    "volume": "5250 ml",
+    "price": 6000,
+    "to_hit": -1,
+    "bashing": 3,
+    "material": [ "milk", "leather" ],
+    "symbol": ")",
+    "color": "white",
+    "use_action": {
+      "target": "milk_curdled",
+      "msg": "The milk appears to have finished curdling, and is ready for further processing.  Checking on it has exposed the mixture to the atmosphere.",
+      "container": "waterskin3",
+      "target_charges": 18,
+      "moves": 150,
+      "type": "delayed_transform",
+      "transform_age": 43200,
+      "not_ready_msg": "The milk is still curdling."
+    }
+  },
+  {
+    "type": "GENERIC",
+    "id": "cured_hide_small",
+    "copy-from": "cured_hide",
+    "looks_like": "leather",
+    "name": "cured hide patch",
+    "name_plural": "cured hide patches",
+    "description": "A scrap of animal hide, scraped of extraneous hair and flesh and treated to prevent decay.",
+    "price": 500,
+    "weight": "120 g",
+    "volume": "150 ml"
+  },
+  {
+    "type": "GENERIC",
+    "id": "cured_pelt_small",
+    "copy-from": "cured_pelt",
+    "looks_like": "leather",
+    "name": "cured hide patch",
+    "name_plural": "cured hide patches",
+    "description": "A scrap of animal hide, scraped of extraneous hair and flesh and treated to prevent decay.",
+    "price": 500,
+    "weight": "135 g",
+    "volume": "200 ml"
+  },
+  {
+    "type": "recipe",
+    "result": "tanning_hide_small",
+    "obsolete": true
+  },
+  {
+    "type": "recipe",
+    "result": "cured_hide_small",
+    "obsolete": true
+  },
+  {
+    "type": "recipe",
+    "result": "cured_hide_small",
+    "id_suffix": "scraped",
+    "obsolete": true
+  },
+  {
+    "type": "recipe",
+    "result": "cured_pelt_small",
+    "obsolete": true
+  },
+  {
+    "type": "recipe",
+    "result": "cured_hide_small",
+    "id_suffix": "drying",
+    "obsolete": true
+  },
+  {
+    "type": "recipe",
+    "result": "cured_pelt_small",
+    "id_suffix": "drying",
+    "obsolete": true
+  },
+  {
+    "type": "recipe",
+    "result": "bolt_bone",
+    "obsolete": true
+  },
+  {
+    "id": "bolt_bone",
+    "type": "MIGRATION",
+    "replace": "bolt_crude"
+  },
+  {
+    "id": "resin_cord",
+    "type": "MIGRATION",
+    "replace": "slime_scrap"
+  },
+  {
+    "type": "recipe",
+    "result": "resin_cord",
+    "obsolete": true
+  },
+  {
+    "id": "jar_clay_sealed",
+    "copy-from": "jar_clay",
+    "type": "GENERIC",
+	"category": "container",
+    "name": "sealed clay jar",
+    "description": "A half-liter clay jar, glazed for waterproofing with a tight-fitting wooden stopper.  Sealed tightly with wax, to preserve contents from rot.",
+    "symbol": ")",
+    "color": "brown",
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "rigid": true,
+        "watertight": true,
+        "max_contains_volume": "500 ml",
+        "max_contains_weight": "1 kg",
+        "sealed_data": { "spoil_multiplier": 0.0 }
+      }
+    ]
+  },
+  {
+    "type": "recipe",
+    "result": "spear_stone",
+    "id_suffix": "realism",
+    "obsolete": true
+  },
+  {
+    "type": "recipe",
+    "result": "water_clean",
+    "id_suffix": "distillation",
+    "obsolete": true
+  }
+]

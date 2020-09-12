@@ -1,0 +1,102 @@
+[
+  {
+    "note": "A monster that appears as a humanoid creature (and is friendly to that specie... before dying). It has several disorienting abilities with a chance to immobilize nearby creatures, while draining the stamina of the target.",
+    "id": "mon_shifter",
+    "type": "MONSTER",
+    "name": "shapeshifter",
+    "description": "An inhumane creature, shrouded in disorienting atmosphere. Its appearance is a complete mystery, neither its true nature.",
+    "default_faction": "shifter",
+    "species": [ "ABERRATION", "SECROSPEC" ],
+    "volume": "62500 ml",
+    "weight": "81500 g",
+    "hp": 360,
+    "speed": 85,
+    "material": [ "secro_null" ],
+    "symbol": "@",
+    "color": "dark_gray",
+    "aggression": 100,
+    "morale": 100,
+    "melee_skill": 10,
+    "melee_dice": 4,
+    "melee_dice_sides": 6,
+    "melee_cut": 4,
+    "attack_cost": 150,
+    "dodge": 2,
+    "harvest": "exempt",
+    "armor_bash": 10,
+    "armor_cut": 10,
+    "armor_stab": 10,
+    "armor_acid": 1,
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_shifter_target" },
+        "cooldown": 10,
+        "monster_message": "<color_red>The air surrounding %1$s intensifies!</color>"
+      }
+    ],
+    "death_function": [ "DISAPPEAR" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "BASHES", "POISON", "ATTACKMON", "NO_BREATHE", "STUN_IMMUNE", "PUSH_MON" ]
+  },
+  {
+    "note": "Illusionary copies have 1/4 stats, except for speed. They have a life span for up to 18 turns if remained untouched.",
+    "looks_like": "mon_shifter",
+    "id": "mon_shifter_illu",
+    "type": "MONSTER",
+    "name": "shapeshifter",
+    "description": "An inhumane creature, shrouded in disorienting atmosphere. Its appearance is a complete mystery, neither its true nature.",
+    "default_faction": "shifter",
+    "species": [ "ABERRATION", "SECROSPEC" ],
+    "diff": 30,
+    "volume": "62500 ml",
+    "weight": "81500 g",
+    "hp": 90,
+    "speed": 90,
+    "material": [ "secro_null" ],
+    "emit_fields": [ "emit_shifter_illu_limiter" ],
+    "symbol": "@",
+    "color": "dark_gray",
+    "aggression": 100,
+    "morale": 100,
+    "melee_skill": 3,
+    "melee_dice": 1,
+    "melee_dice_sides": 2,
+    "melee_cut": 1,
+    "attack_cost": 100,
+    "harvest": "exempt",
+    "armor_bash": 3,
+    "armor_cut": 3,
+    "armor_stab": 3,
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_shifter_illu_target" },
+        "cooldown": 10,
+        "monster_message": "<color_yellow>%1$s shifts erratically!</color>"
+      }
+    ],
+    "death_function": [ "DISAPPEAR" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "BASHES", "POISON", "NO_BREATHE" ]
+  },
+  {
+    "note": "We copy some of the vanilla zeds.",
+    "id": "mon_shifter_zombie",
+    "type": "MONSTER",
+    "name": "zombie",
+    "description": "A human body, swaying as it moves, an unstoppable rage visible in its oily black eyes. Within a closer look, its visage blurs occasionally.",
+    "copy-from": "mon_zombie",
+    "looks_like": "mon_zombie",
+    "death_function": [ "MELT" ],
+    "death_drops": { "subtype": "collection", "groups": [ "default_zombie_death_drops", "mon_shifter_fakeform_death_drop" ] }
+  },
+  {
+    "id": "mon_shifter_zombie_rot",
+    "type": "MONSTER",
+    "name": "decayed zombie",
+    "description": "A once-dead human corpse. Its discolored swollen flesh is riddled with festering wounds and open sores. Within a closer look, its visage blurs occasionally.",
+    "copy-from": "mon_zombie_rot",
+    "looks_like": "mon_zombie_rot",
+    "death_function": [ "MELT" ],
+    "death_drops": { "subtype": "collection", "groups": [ "default_zombie_death_drops", "mon_shifter_fakeform_death_drop" ] }
+  }
+]

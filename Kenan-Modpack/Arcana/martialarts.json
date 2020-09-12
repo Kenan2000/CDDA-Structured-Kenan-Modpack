@@ -1,0 +1,229 @@
+[
+  {
+    "id": "style_aikido",
+    "copy-from": "style_aikido",
+    "type": "martial_art",
+    "name": "Aikido",
+    "extend": { "weapons": [ "hand_of_armok" ] }
+  },
+  {
+    "id": "style_judo",
+    "copy-from": "style_judo",
+    "type": "martial_art",
+    "name": "Judo",
+    "extend": { "weapons": [ "hand_of_armok" ] }
+  },
+  {
+    "id": "style_silat",
+    "copy-from": "style_silat",
+    "type": "martial_art",
+    "name": "Silat",
+    "extend": {
+      "weapons": [
+        "blood_athame",
+        "moonstone_fang",
+        "staff_druidic",
+        "verge_meteoric",
+        "bloodscourge",
+        "scourge_staff",
+        "spear_pestilence"
+      ]
+    }
+  },
+  {
+    "id": "style_krav_maga",
+    "copy-from": "style_krav_maga",
+    "type": "martial_art",
+    "name": "Krav Maga",
+    "extend": { "weapons": [ "blood_athame", "moonstone_fang", "staff_druidic", "verge_meteoric" ] }
+  },
+  {
+    "id": "style_fencing",
+    "copy-from": "style_fencing",
+    "type": "martial_art",
+    "name": "Fencing",
+    "extend": { "weapons": [ "sun_sword", "sun_sword_on", "staff_druidic", "verge_meteoric" ] }
+  },
+  {
+    "id": "style_swordsmanship",
+    "copy-from": "style_swordsmanship",
+    "type": "martial_art",
+    "name": "Medieval Swordsmanship",
+    "extend": { "weapons": [ "sun_sword", "sun_sword_on", "veilblade", "stormbringer" ] }
+  },
+  {
+    "id": "style_ninjutsu",
+    "copy-from": "style_ninjutsu",
+    "type": "martial_art",
+    "name": "Ninjutsu",
+    "extend": { "weapons": [ "sun_sword", "sun_sword_on", "blood_athame", "moonstone_fang", "bloodscourge", "scourge_staff" ] }
+  },
+  {
+    "id": "style_eskrima",
+    "copy-from": "style_eskrima",
+    "type": "martial_art",
+    "name": "Eskrima",
+    "extend": {
+      "weapons": [
+        "graboid_fang",
+        "dermatik_sting",
+        "monster_fang",
+        "blood_athame",
+        "moonstone_fang",
+        "staff_druidic",
+        "verge_meteoric"
+      ]
+    }
+  },
+  {
+    "id": "style_sojutsu",
+    "copy-from": "style_sojutsu",
+    "type": "martial_art",
+    "name": "Sōjutsu",
+    "extend": { "weapons": [ "spear_pestilence" ] }
+  },
+  {
+    "type": "martial_art",
+    "id": "style_cleansingflame",
+    "name": "Via Gladium et Malleo",
+    "description": "The style of combatives developed by an arcane order, dedicated to fighting in defense of humanity.  Focuses on preserving momentum and fighting multiple opponents, using their fury in different ways depending on their weapon of choice.  The full extent of the style requires proper armament.",
+    "initiate": [
+      "You whisper a prayer to the gods, and ready yourself in a fluid stance.  Dii vult!",
+      "%s whispers something, entering a fluid stance."
+    ],
+    "learn_difficulty": 6,
+    "primary_skill": "magic",
+    "onmove_buffs": [
+      {
+        "id": "buff_cleansingflame_onmove1",
+        "name": "Hunter's Advance (Hammer)",
+        "description": "Every step brings confidence.\n+1.0 Dodge skill, +2 Dodge attempts.\nLasts 2 turns.",
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "bashing", "level": 2 }, { "name": "magic", "level": 4 } ],
+        "weapon_damage_requirements": [ { "type": "bash", "min": 20 } ],
+        "buff_duration": 2,
+        "max_stacks": 1,
+        "bonus_dodges": 2,
+        "flat_bonuses": [ { "stat": "dodge", "scale": 1.0 } ]
+      },
+      {
+        "id": "buff_cleansingflame_onmove2",
+        "name": "Hunter's Advance (Sword)",
+        "description": "Every step brings confidence.\n+5 damage blocked, +2 Block attempts.\nLasts 2 turns.",
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "cutting", "level": 2 }, { "name": "magic", "level": 4 } ],
+        "weapon_damage_requirements": [ { "type": "cut", "min": 20 } ],
+        "buff_duration": 2,
+        "max_stacks": 1,
+        "bonus_blocks": 2,
+        "flat_bonuses": [ { "stat": "block", "scale": 5 } ]
+      },
+      {
+        "id": "buff_cleansingflame_onmove3",
+        "name": "Hunter's Advance (Unarmed)",
+        "description": "Every step brings confidence.\n+1.0 Dodge skill, +2 Dodge attempts.\nLasts 2 turns.",
+        "unarmed_allowed": true,
+        "skill_requirements": [ { "name": "unarmed", "level": 2 }, { "name": "magic", "level": 4 } ],
+        "buff_duration": 2,
+        "max_stacks": 1,
+        "bonus_dodges": 2,
+        "flat_bonuses": [ { "stat": "dodge", "scale": 1.0 } ]
+      }
+    ],
+    "onattack_buffs": [
+      {
+        "id": "buff_cleansingflame_onattack",
+        "name": "Righteous Momentum",
+        "description": "Your own fury hastens that of your weapon.\n+1 Accuracy, -5 move cost.\nLasts 1 turn.  Stacks 4 times.",
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "melee", "level": 3 } ],
+        "buff_duration": 2,
+        "max_stacks": 4,
+        "flat_bonuses": [ { "stat": "hit", "scale": 1 }, { "stat": "movecost", "scale": -5.0 } ]
+      }
+    ],
+    "onhit_buffs": [
+      {
+        "id": "buff_cleansingflame_onhit1",
+        "name": "Prudence (Hammer)",
+        "description": "With cautious ferocity, no blade may mark you.\n+1 armor.\nLasts 2 turns.  Stacks 4 times.",
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "bashing", "level": 4 }, { "name": "magic", "level": 3 } ],
+        "weapon_damage_requirements": [ { "type": "bash", "min": 20 } ],
+        "buff_duration": 2,
+        "max_stacks": 4,
+        "flat_bonuses": [
+          { "stat": "armor", "type": "bash", "scale": 1 },
+          { "stat": "armor", "type": "cut", "scale": 1 },
+          { "stat": "armor", "type": "stab", "scale": 1 }
+        ]
+      },
+      {
+        "id": "buff_cleansingflame_onhit2",
+        "name": "Pursuit (Sword)",
+        "description": "Every strike only further illuminates their weakness.\n+3 armor penetration.\nLasts 2 turns.  Stacks 4 times.",
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "cutting", "level": 4 }, { "name": "magic", "level": 3 } ],
+        "weapon_damage_requirements": [ { "type": "cut", "min": 20 } ],
+        "buff_duration": 2,
+        "max_stacks": 4,
+        "flat_bonuses": [ { "stat": "arpen", "type": "cut", "scale": 3 } ]
+      }
+    ],
+    "onkill_buffs": [
+      {
+        "id": "buff_cleansingflame_onkill1",
+        "name": "Regain Composure (Hammer)",
+        "description": "Mortal blows drain the momentum you've built up.\n-1 Accuracy, +5 move cost, +1.0 Dodge skill.\nLasts 3 turns.  Stacks 4 times.",
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "melee", "level": 3 } ],
+        "weapon_damage_requirements": [ { "type": "bash", "min": 20 } ],
+        "buff_duration": 3,
+        "max_stacks": 4,
+        "flat_bonuses": [ { "stat": "dodge", "scale": 1.0 }, { "stat": "hit", "scale": -1 }, { "stat": "movecost", "scale": 5.0 } ]
+      },
+      {
+        "id": "buff_cleansingflame_onkill2",
+        "name": "Regain Composure (Sword)",
+        "description": "Mortal blows drain the momentum you've built up.\n-1 Accuracy, +5 move cost, +5 damage blocked.\nLasts 2 turns.  Stacks 4 times.",
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "melee", "level": 3 } ],
+        "weapon_damage_requirements": [ { "type": "cut", "min": 20 } ],
+        "buff_duration": 3,
+        "max_stacks": 4,
+        "flat_bonuses": [ { "stat": "block", "scale": 5 }, { "stat": "hit", "scale": -1 }, { "stat": "movecost", "scale": 5.0 } ]
+      }
+    ],
+    "techniques": [
+      "tec_cleansingflame_interial_sweep",
+      "tec_cleansingflame_sundering_strike",
+      "tec_cleansingflame_illusory_counter",
+      "tec_cleansingflame_lightning_riposte",
+      "tec_cleansingflame_shifting_takedown",
+      "tec_cleansingflame_break"
+    ],
+    "//": "morningstar_inferior isn't permitted because it's so light that it falls under the minimum bashing damage used to screen for which type of weapon you're using.  Same reason 2-by-swords and other makeshift swords aren't allowed, their cutting damage is too low.",
+    "weapons": [
+      "hexenhammer",
+      "warhammer",
+      "mace",
+      "mace_inferior",
+      "morningstar",
+      "shillelagh",
+      "shillelagh_weighted",
+      "sun_sword",
+      "sun_sword_on",
+      "broadsword",
+      "broadsword_inferior",
+      "broadfire_off",
+      "broadfire_on",
+      "arming_sword",
+      "arming_sword_inferior",
+      "jian",
+      "jian_inferior",
+      "scimitar",
+      "scimitar_inferior",
+      "sword_xiphos"
+    ]
+  }
+]

@@ -1,0 +1,759 @@
+[
+  {
+    "type": "monstergroup",
+    "name": "GROUP_BS",
+    "default": "mon_null",
+    "monsters": [
+      { "monster": "mon_dementia", "freq": 200, "cost_multiplier": 0, "pack_size": [ 1, 2 ] },
+      { "monster": "mon_cult_churl", "freq": 100, "cost_multiplier": 2 },
+      { "monster": "mon_cult_slave", "freq": 100, "cost_multiplier": 1 },
+      { "monster": "mon_blood_sacrifice", "freq": 75, "cost_multiplier": 1 },
+      { "monster": "mon_shadow", "freq": 75, "cost_multiplier": 2, "pack_size": [ 1, 4 ] },
+      {
+        "monster": "mon_cult_churl",
+        "freq": 75,
+        "cost_multiplier": 3,
+        "pack_size": [ 1, 5 ],
+        "conditions": [ "DAWN", "DUSK", "NIGHT" ]
+      },
+      {
+        "monster": "mon_cult_slave",
+        "freq": 75,
+        "cost_multiplier": 2,
+        "pack_size": [ 1, 5 ],
+        "conditions": [ "DAWN", "DUSK", "NIGHT" ]
+      },
+      {
+        "monster": "mon_flesh_angel",
+        "freq": 50,
+        "cost_multiplier": 5,
+        "pack_size": [ 1, 2 ],
+        "conditions": [ "DUSK", "NIGHT", "DAWN" ]
+      },
+      { "monster": "mon_homunculus", "freq": 50, "cost_multiplier": 5, "conditions": [ "DAWN", "DUSK", "NIGHT" ] },
+      {
+        "monster": "mon_bat_vampire",
+        "freq": 50,
+        "cost_multiplier": 0,
+        "conditions": [ "SPRING", "SUMMER", "AUTUMN" ],
+        "pack_size": [ 4, 7 ]
+      },
+      { "monster": "mon_darkman", "freq": 25, "cost_multiplier": 9, "conditions": [ "DUSK", "NIGHT" ] }
+    ]
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_strange" ],
+    "//": "Hardcoded or mission sensative.  Coor: [0,0,0]",
+    "weight": 10000,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "........................",
+        "........................",
+        "........................",
+        "...1---1---1---1-??-1---",
+        "...-                    ",
+        "...-                    ",
+        "...1                    ",
+        "...-                    ",
+        "...-    c c           c ",
+        "...-   _____G__+_+__G___",
+        "...1   _cttc    ^   ctc ",
+        "...-   Gcttc            ",
+        "...?   _                ",
+        "...-   +                ",
+        "...1   +                ",
+        "...-   _                ",
+        "...-   G                ",
+        "...1--1_cttc            ",
+        "......._cttc        ctc ",
+        "......._______x_x_______",
+        "......._       t        ",
+        "......._                ",
+        "......._         *      ",
+        "......._______   _______"
+      ],
+      "mapping": { ".": { "items": { "item": "trash", "chance": 2 } }, " ": { "items": { "item": "subway", "chance": 4 } } },
+      "terrain": {
+        ".": [ "t_grass", "t_grass", "t_grass", "t_dirt", "t_dirt" ],
+        "-": "t_fence_h",
+        "G": "t_window_boarded",
+        "1": "t_column",
+        "+": "t_door_boarded",
+        "x": "t_door_locked_interior",
+        "?": "t_fencegate_c",
+        "_": "t_wall"
+      },
+      "furniture": { "c": "f_chair", "t": "f_table" },
+      "place_monster": [ { "monster": "mon_darkman", "x": 16, "y": 16 } ],
+      "place_monsters": [
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_strange_100" ],
+    "weight": 100,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "........................",
+        "........................",
+        "........................",
+        "1---1---1--??--1--1.....",
+        "                  -.....",
+        "                  -.....",
+        "  *               -.....",
+        "                  -.....",
+        "      c  c      c 1.....",
+        "__G_________+G_____.....",
+        " ctc t_wWC_   _ff&_.....",
+        "     t_   x   x  &_.....",
+        " c c t_____   _____.....",
+        "_CCC?C_bbD_ * _bbD_.....",
+        "_C   U_bb _   _bb _.....",
+        "_O C U_t  _   _t  _.....",
+        "_O & C_c  x   x  c_.....",
+        "_C C F_____   _____.....",
+        "_&   F_bbD_   _bbD_.....",
+        "__xx___bb _   _bb _.....",
+        "      _t  _   _t  _.....",
+        "    * _c  x   x  c_.....",
+        "      _____   _____.....",
+        "___   _bbD_   _bbD_....."
+      ],
+      "mapping": {
+        ".": { "items": { "item": "trash", "chance": 2 } },
+        " ": { "items": { "item": "subway", "chance": 4 } },
+        "b": { "items": { "item": "bed", "chance": 35 } },
+        "f": { "furniture": "f_rack", "items": [ { "item": "cleaning", "chance": 60 }, { "item": "home_hw", "chance": 35 } ] },
+        "D": { "furniture": "f_dresser", "items": { "item": "dresser", "chance": 40 } },
+        "O": { "furniture": "f_oven", "items": { "item": "oven", "chance": 50 } },
+        "U": { "furniture": "f_cupboard", "items": [ { "item": "knifeblock", "chance": 60 }, { "item": "kitchen", "chance": 60 } ] },
+        "F": { "furniture": "f_fridge", "items": { "item": "fridgesnacks", "chance": 30 } },
+        "&": { "furniture": "f_sink", "items": { "item": "trash", "chance": 45 } }
+      },
+      "terrain": {
+        ".": [ "t_grass", "t_grass", "t_grass", "t_dirt" ],
+        "1": "t_column",
+        "+": "t_door_boarded",
+        "x": "t_door_locked_interior",
+        "G": "t_window_boarded",
+        "?": "t_fencegate_c",
+        ">": "t_stairs_down",
+        "_": "t_wall",
+        "-": "t_fence_v"
+      },
+      "furniture": { "b": "f_bed", "C": "f_counter", "c": "f_chair", "t": "f_table" },
+      "monster": { "*": { "monster": "mon_shadow" } },
+      "place_monsters": [
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_strange_010" ],
+    "weight": 10000,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "......._^ BBB_   _      ",
+        "......._ c  B_   _  >>  ",
+        ".......GDD  L_   x  >>  ",
+        "......._    L_   _  * b ",
+        ".......__x____   _______",
+        "......._     S   S     _",
+        "......._              B_",
+        ".......G  CCCC        B_",
+        ".......GB*   D        B_",
+        "......._B   cD        B_",
+        "......._B    C        B_",
+        "......._ CCCCC        B_",
+        "......._               _",
+        ".......G               _",
+        "......._           bbb _",
+        "......._ A  A        b _",
+        "......._T         TT b _",
+        "......._Tssss          _",
+        ".......__GG___+_+___GG__",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................"
+      ],
+      "mapping": {
+        "B": { "furniture": "f_bookcase", "items": [ { "item": "mansion_books", "chance": 15 } ] },
+        "T": { "furniture": "f_table", "items": [ { "item": "waitingroom", "chance": 35 } ] },
+        "D": { "furniture": "f_desk", "items": [ { "item": "office", "chance": 50 } ] },
+        "L": {
+          "furniture": "f_locker",
+          "items": [ { "item": "office", "chance": 40, "repeat": [ 1, 3 ] }, { "item": "antique", "chance": 50 } ]
+        },
+        ".": { "items": { "item": "trash", "chance": 2 } },
+        " ": { "items": { "item": "subway", "chance": 4 } }
+      },
+      "terrain": {
+        ".": [ "t_grass", "t_grass", "t_dirt" ],
+        "G": "t_window_boarded",
+        "+": "t_door_boarded",
+        "x": "t_door_locked_interior",
+        "?": "t_fencegate_c",
+        ">": "t_stairs_down",
+        "_": "t_wall"
+      },
+      "furniture": { "S": [ "f_statue", "f_rubble" ], "b": "f_bench", "C": "f_counter", "c": "f_chair", "A": "f_armchair", "s": "f_sofa" },
+      "monster": { "*": { "monster": "mon_shadow" } },
+      "place_monsters": [
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_strange_110" ],
+    "weight": 10000,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "___   _bb _   _bb _.....",
+        "___   _t  _   _t  _.....",
+        "___   _c  x   x  c_.....",
+        "___   _____   _____.....",
+        "_vV               G.....",
+        "                  G.....",
+        "                  G.....",
+        "  _________   _____.....",
+        "  x C&_c  x * x  c_.....",
+        "  _  T_  t_   _  t_.....",
+        "  _   _ bb_   _ bb_.....",
+        "  _## _Dbb_   _Dbb_.....",
+        "  _________   _____.....",
+        "  _________   _____.....",
+        "  x C&_c  x   x  c_.....",
+        "  _  T_  t_   _  t_.....",
+        "  _   _ bb_   _ bb_.....",
+        " *_## _Dbb_   _Dbb_.....",
+        "___________G_G_____.....",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................"
+      ],
+      "mapping": {
+        "V": { "items": { "item": "vending_food", "repeat": [ 2, 7 ] } },
+        "v": { "items": { "item": "vending_drink", "repeat": [ 2, 5 ] } },
+        ".": { "items": { "item": "trash", "chance": 2 } },
+        " ": { "items": { "item": "subway", "chance": 4 } },
+        "b": { "items": { "item": "bed", "chance": 35 } },
+        "f": { "furniture": "f_rack", "items": [ { "item": "cleaning", "chance": 60 }, { "item": "home_hw", "chance": 35 } ] },
+        "D": { "furniture": "f_dresser", "items": { "item": "dresser", "chance": 40 } },
+        "#": { "furniture": "f_bathtub", "items": { "item": "softdrugs", "chance": 20 } }
+      },
+      "terrain": {
+        ".": [ "t_grass", "t_grass", "t_dirt" ],
+        "-": "t_fence_h",
+        "G": "t_window_boarded",
+        "1": "t_column",
+        "+": "t_door_boarded",
+        "x": "t_door_locked_interior",
+        "?": "t_fencegate_c",
+        ">": "t_stairs_down",
+        "_": "t_wall"
+      },
+      "furniture": {
+        "&": "f_sink",
+        "#": "f_bathtub",
+        "b": "f_bed",
+        "c": "f_chair",
+        "C": "f_counter",
+        "t": "f_table",
+        "V": "f_vending_c",
+        "v": "f_vending_c"
+      },
+      "toilets": { "T": {  } },
+      "monster": { "*": { "monster": "mon_shadow" } },
+      "place_monsters": [
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_strange_b" ],
+    "//": " the boss basment, the original basement id.  Here, a manhole goes to boss chamber.",
+    "weight": 30000,
+    "object": {
+      "fill_ter": "t_dirtfloor",
+      "rows": [
+        "########################",
+        "########################",
+        "###$   $###^  ffffff####",
+        "###     ##    %     % ##",
+        "####&####%            ##",
+        "####       b b b b  n  #",
+        "###        b b b b  n 1#",
+        "##f        b b b b  0  #",
+        "##ff  fff%          %  #",
+        "####++##################",
+        "##XXxxxXXXXXXXXXXXXXXXX#",
+        "##XXxxxxxxxxxxxxxxxxxxxx",
+        "##XXxxxxxxxxxxxxxxxxxxxx",
+        "##XXXXXXXXXXXXXXXXXXXXX#",
+        "##XXXXXXXXX||XXXXXXXXXX#",
+        "##XXXXXXXXX||XXXXXXXXXX#",
+        "##XXXXXXXXXXXXXXXXXXXXX#",
+        "##XXXXXXXXXXXXXXXXXXXXX#",
+        "##XXXXXXXXXXXXXXXXXXXX##",
+        "###XXXXXXXXXXXXXXXXXXX##",
+        "#####+###XXXXXXXXXXX####",
+        "###    @################",
+        "###DD  @################",
+        "###Bc* L################"
+      ],
+      "mapping": {
+        " ": { "items": { "item": "subway", "chance": 6 } },
+        "X": {
+          "items": [
+            { "item": "art", "chance": 1 },
+            { "item": "medieval", "chance": 1 },
+            { "item": "dresser", "chance": 15 },
+            { "item": "church", "chance": 10 }
+          ]
+        },
+        "B": { "furniture": "f_bookcase", "items": { "item": "novels", "chance": 40 } },
+        "f": { "items": { "item": "cannedfood", "chance": 30 } },
+        "D": { "furniture": "f_desk", "items": { "item": "art", "chance": 25 } },
+        "n": { "furniture": "f_slab", "item": { "item": "etched_skull" } }
+      },
+      "terrain": {
+        " ": [ "t_dirtfloor", "t_rock_floor", "t_rock_floor", "t_rock_floor", "t_rock_floor" ],
+        "#": "t_rock",
+        "+": "t_door_c",
+        "0": "t_manhole",
+        "|": "t_column",
+        "&": "t_door_bar_locked"
+      },
+      "furniture": {
+        "$": "f_shackle",
+        "@": "f_bed",
+        "b": "f_bench",
+        "c": "f_chair",
+        "t": "f_table",
+        "f": [ "f_rack", "f_null", "f_null", "f_null", "f_null", "f_null", "f_null" ],
+        "X": [
+          "f_crate_c",
+          "f_crate_c",
+          "f_crate_c",
+          "f_crate_o",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null"
+        ],
+        "x": [
+          "f_crate_c",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null",
+          "f_null"
+        ],
+        "L": "f_locker",
+        "1": "f_grave_monument",
+        "#": "f_brazier"
+      },
+      "monster": { "*": { "monster": "mon_flesh_angel" }, "^": { "monster": "mon_blood_sacrifice" } },
+      "place_monsters": [
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_strange_b_101" ],
+    "weight": 10000,
+    "object": {
+      "fill_ter": "t_dirtfloor",
+      "rows": [
+        "########################",
+        "########################",
+        "##S cD  ll SS=BB BB BB##",
+        "##  DD       =   LL  L##",
+        "##           =BB BB BB##",
+        "##           =   LL  L##",
+        "##|&|##|&|#  =BB BB BB##",
+        "##   ##   #  =   LL  L##",
+        "##s b##s b#  =BB BB BB##",
+        "##T b##T b#  =   LL  L##",
+        "###########  =BB BB BB##",
+        " +       +           L##",
+        " +       +           L##",
+        "###########  =BB BB BB##",
+        "##.b#.b#.b#  =   LL  L##",
+        "##  #  #  #  =BB BB BB##",
+        "##&|#&|#&|#  =   LL  L##",
+        "##           =BB BB BB##",
+        "##           =   LL  L##",
+        "##&|#&|#&|#  =BB BB BB##",
+        "##  #  #  #  =   LL  L##",
+        "##.b#.b#.b#  =BB BB BB##",
+        "###########  ###########",
+        "###########  ###########"
+      ],
+      "mapping": {
+        " ": { "items": { "item": "trash", "chance": 3 } },
+        "B": { "furniture": "f_makeshift_bed", "items": { "item": "bed", "chance": 10 } },
+        "D": { "furniture": "f_desk", "items": [ { "item": "office", "chance": 50 } ] },
+        "L": {
+          "furniture": "f_locker",
+          "items": [ { "item": "npc_misc", "chance": 10 }, { "item": "dresser", "chance": 30 }, { "item": "church", "chance": 25 } ]
+        },
+        "l": { "furniture": "f_locker", "items": [ { "item": "office", "chance": 50, "repeat": [ 1, 3 ] } ] },
+        ".": { "item": { "item": "bucket" } }
+      },
+      "terrain": {
+        " ": [ "t_dirtfloor", "t_rock_floor", "t_rock_floor", "t_rock_floor", "t_rock_floor" ],
+        "#": "t_rock",
+        "+": "t_door_c",
+        "&": "t_door_bar_locked",
+        "=": "t_floor",
+        "|": "t_bars"
+      },
+      "furniture": { "S": "f_statue", "=": "f_large_canvas_wall", "c": "f_chair", "s": "f_sink", "b": "f_straw_bed" },
+      "toilets": { "T": {  } },
+      "place_monsters": [
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_strange_b_011" ],
+    "weight": 10000,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "###################____#",
+        "###################_>>_#",
+        "###################_>>__",
+        "###################_  f_",
+        "##################__++__",
+        "###############____   _#",
+        "##______________fff   _#",
+        "##_                   _#",
+        "##_                   _#",
+        "##_  cccccc  cccccc   _#",
+        "##_                   _#",
+        "##_  cccccc  cccccc   _#",
+        "##_                   _#",
+        "##_  cccccc  cccccc   _#",
+        "##_                   _#",
+        "##_  cccccc  cccccc   _#",
+        "##_                   _#",
+        "##_  cccccc  cccccc   _#",
+        "##_..................._#",
+        "##_...................__",
+        "##_...................=+",
+        "##_..ttt..............=+",
+        "##_____________________-",
+        "########################"
+      ],
+      "mapping": {
+        " ": { "items": { "item": "subway", "chance": 6 } },
+        "f": { "items": { "item": "museum_misc", "chance": 20 } },
+        "t": { "items": { "item": "museum_misc", "chance": 35 } }
+      },
+      "terrain": {
+        " ": [ "t_dirtfloor", "t_rock_floor", "t_rock_floor", "t_rock_floor", "t_rock_floor" ],
+        "#": "t_rock",
+        "+": "t_door_c",
+        ">": "t_stairs_up",
+        "=": "t_floor",
+        "C": "t_column",
+        "_": "t_rock_smooth",
+        ".": "t_rock_floor",
+        "t": "t_rock_floor"
+      },
+      "furniture": { "=": "f_large_canvas_wall", "f": "f_rack", "c": "f_chair", "t": "f_table" },
+      "place_monsters": [
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_strange_b_111" ],
+    "weight": 10000,
+    "object": {
+      "fill_ter": "t_dirtfloor",
+      "rows": [
+        "##########==############",
+        "##########==############",
+        "##            cccccc  ##",
+        "##            tttttt  ##",
+        "## bbbbbb     tttttt  ##",
+        "## tttttt     bbbbbb  ##",
+        "## tttttt             ##",
+        "## bbbbbb             ##",
+        "##               cttc ##",
+        "##               cttc ##",
+        "##                 c  ##",
+        "#_--------------------_#",
+        "#_]] ]]]]  ct         _#",
+        "#_f           ct      _#",
+        "#_f     ]  ct     nn  _#",
+        "#_]     ]     ct  nn  _#",
+        "#_s     ]  ct     nn  _#",
+        "#_s           ct      _#",
+        "#_]]CC]]   ct         _#",
+        "__=======             _#",
+        "                      _#",
+        "                   ccc_#",
+        "_______________________#",
+        "########################"
+      ],
+      "mapping": {
+        " ": { "items": { "item": "subway", "chance": 6 } },
+        "t": { "items": { "item": "fridge", "chance": 4 } },
+        "]": { "items": { "item": "cannedfood", "chance": 10 } },
+        "C": { "items": { "item": "cannedfood", "chance": 60 } }
+      },
+      "terrain": {
+        " ": [ "t_dirtfloor", "t_rock_floor", "t_rock_floor", "t_rock_floor", "t_rock_floor" ],
+        "#": "t_rock",
+        "+": "t_door_c",
+        "<": "t_stairs_up",
+        "=": "t_floor",
+        "C": "t_column",
+        "D": "t_door_locked_interior",
+        "G": "t_door_bar_locked",
+        "_": "t_rock_smooth",
+        ".": "t_rock_floor",
+        "-": [
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_wall_half",
+          "t_rock_wall_half",
+          "t_rock_smooth"
+        ]
+      },
+      "furniture": {
+        "=": "f_large_canvas_wall",
+        "A": "f_armchair",
+        "b": "f_bench",
+        "c": "f_chair",
+        "t": "f_table",
+        "C": "f_cupboard",
+        "s": "f_sink",
+        "]": "f_counter",
+        "f": "f_oven",
+        "n": "f_slab"
+      },
+      "place_monsters": [
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 3 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_strange_b2" ],
+    "//": "Actual Boss Room",
+    "weight": 250,
+    "object": {
+      "fill_ter": "t_dirtfloor",
+      "rows": [
+        "########################",
+        "########################",
+        "########################",
+        "######............######",
+        "#######...............##",
+        "######................##",
+        "####................   #",
+        "#######............. < #",
+        "######..............   #",
+        "####................  ##",
+        "######..............####",
+        "#####...............####",
+        "#####...............####",
+        "#######..............###",
+        "#####................###",
+        "#######...^...........##",
+        "######..   .........####",
+        "#####... & ..........###",
+        "####....   ..........###",
+        "#####.................##",
+        "####................####",
+        "########################",
+        "########################",
+        "########################"
+      ],
+      "mapping": { ".": { "items": { "item": "doom_lootpack", "chance": 1 } } },
+      "terrain": {
+        " ": [ "t_dirtfloor", "t_rock_floor", "t_rock_floor", "t_rock_floor", "t_rock_floor" ],
+        ".": [
+          "t_dirtfloor",
+          "t_dirtfloor",
+          "t_dirtfloor",
+          "t_dirtfloor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock",
+          "t_rock_smooth"
+        ],
+        "#": "t_rock",
+        "<": "t_ladder_up"
+      },
+      "furniture": { "c": "f_chair" },
+      "monster": { "&": { "monster": "mon_legion" }, "^": { "monster": "mon_blood_sacrifice" } },
+      "place_monsters": [
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 6 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 6 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 6 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_strange_b2" ],
+    "//": "Actual Boss Room",
+    "weight": 150,
+    "object": {
+      "fill_ter": "t_dirtfloor",
+      "rows": [
+        "########################",
+        "########################",
+        "########################",
+        "######............######",
+        "#######...............##",
+        "######................##",
+        "####................   #",
+        "#######............. < #",
+        "######..............   #",
+        "####................  ##",
+        "######..............####",
+        "#####...............####",
+        "#####...............####",
+        "#######..............###",
+        "#####................###",
+        "#######...^...........##",
+        "######..   .........####",
+        "#####... & ..........###",
+        "####....   ..........###",
+        "#####.................##",
+        "####................####",
+        "########################",
+        "########################",
+        "########################"
+      ],
+      "mapping": { ".": { "items": { "item": "doom_lootpack", "chance": 1 } } },
+      "terrain": {
+        " ": [ "t_dirtfloor", "t_rock_floor", "t_rock_floor", "t_rock_floor", "t_rock_floor" ],
+        ".": [
+          "t_dirtfloor",
+          "t_dirtfloor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock_floor",
+          "t_rock",
+          "t_rock_smooth"
+        ],
+        "#": "t_rock",
+        "<": "t_ladder_up"
+      },
+      "furniture": { "c": "f_chair" },
+      "monster": { "&": { "monster": "mon_nuculais" }, "^": { "monster": "mon_blood_sacrifice" } },
+      "place_monsters": [
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 6 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 6 },
+        { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 6 }
+      ]
+    }
+  }
+]

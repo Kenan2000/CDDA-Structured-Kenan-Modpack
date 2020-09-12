@@ -1,0 +1,123 @@
+[
+  {
+    "id": "TALK_MISSION_INQUIRE",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "Here's your corrupted bloodrune stones.",
+        "topic": "TALK_MISSION_SUCCESS",
+        "effect": [ "mission_success", { "u_consume_item": "corruptbloodrune", "count": 2 } ],
+        "condition": { "and": [ { "u_has_item": "corruptbloodrune", "count": 2 }, { "u_has_mission": "VAMP_UNDERTRADER_quest" } ] }
+      }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERTRADER",
+    "type": "talk_topic",
+    "dynamic_line": { "u_is_wearing": "blood_necklace", "yes": "Do you need something, mortal?.", "no": "Want something?" },
+    "responses": [
+      {
+        "condition": { "not": { "npc_has_trait": "undertradertalkedhim" } },
+        "text": "Who are you?",
+        "topic": "TALK_VAMP_UNDERTRADER_introduce"
+      },
+      {
+        "condition": { "not": { "npc_has_trait": "undertradertalkedhappened" } },
+        "text": "Tell me what happened outside.",
+        "topic": "TALK_VAMP_UNDERTRADER_happened"
+      },
+      { "text": "I'll trade with ya...", "effect": "start_trade", "topic": "TALK_VAMP_UNDERTRADER" },
+      {
+        "text": "You need help? I'm here to do it.",
+        "topic": "TALK_MISSION_LIST",
+        "condition": { "and": [ "has_available_mission", { "not": { "u_has_trait": "undertradervampmark" } } ] }
+      },
+      {
+        "text": "You need help? I'm here to do it.",
+        "topic": "TALK_VAMP_UNDERTRADER_testsdone",
+        "condition": { "and": [ { "npc_has_trait": "undertradertestsdone" }, { "not": { "u_has_trait": "undertradervampmark" } } ] }
+      },
+      { "text": "About your quest...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "Bye, see you later.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERTRADER_introduce",
+    "type": "talk_topic",
+    "dynamic_line": "I am assigned as a trader by my master. I sell our artifact materials used in forging vampiric stuff. Or buy an already forged ones for a higher trade value.",
+    "responses": [
+      { "text": "Wait. Why are you selling artifacts?", "topic": "TALK_VAMP_UNDERTRADER_artifact" },
+      { "text": "Why the hell are you accepting human stuff in trading?", "topic": "TALK_VAMP_UNDERTRADER_trading" },
+      { "text": "Okay!.", "topic": "TALK_VAMP_UNDERTRADER" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERTRADER_happened",
+    "type": "talk_topic",
+    "dynamic_line": "I have no idea what's happening outside right now. I came here without sunburn after taking orders from HIM.",
+    "responses": [
+      {
+        "text": "Well, I expected nothing...",
+        "topic": "TALK_VAMP_UNDERTRADER",
+        "effect": { "npc_add_trait": "undertradertalkedhappened" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERTRADER_artifact",
+    "type": "talk_topic",
+    "dynamic_line": "Our master wants to help the last, surviving humans in our utmost solution... Share our power with you all. But he still wants an official trading, so you need lots of valuables or cash buying our items.",
+    "responses": [ { "text": "Oh... Just great.", "topic": "TALK_VAMP_UNDERTRADER" } ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERTRADER_trading",
+    "type": "talk_topic",
+    "dynamic_line": "I don't know. Our master said we have to accept any valuables you humans got in your trip.",
+    "responses": [
+      {
+        "text": "Master? Could you tell me anything about this HIM?",
+        "topic": "TALK_VAMP_UNDERTRADER_himdetail",
+        "condition": { "u_is_wearing": "blood_necklace" },
+        "effect": { "npc_add_trait": "undertradertalkedhim" }
+      },
+      {
+        "text": "Master? Could you tell me anything about this HIM?",
+        "topic": "TALK_VAMP_UNDERTRADER_him",
+        "condition": { "not": { "u_is_wearing": "blood_necklace" } },
+        "effect": { "npc_add_trait": "undertradertalkedhim" }
+      },
+      { "text": "Okay...", "topic": "TALK_VAMP_UNDERTRADER" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERTRADER_him",
+    "type": "talk_topic",
+    "dynamic_line": "Nope. HE remains a mystery to all of you.",
+    "responses": [ { "text": "Damn... You can't tell even HIS face.", "topic": "TALK_VAMP_UNDERTRADER" } ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERTRADER_himdetail",
+    "type": "talk_topic",
+    "dynamic_line": "HIM is our master, the reason of our immortality and existence in this damned world.",
+    "responses": [
+      { "text": "Okay...", "topic": "TALK_VAMP_UNDERTRADER" },
+      {
+        "text": "So, where is HE?",
+        "topic": "TALK_VAMP_UNDERTRADER_himwhere",
+        "effect": [ { "u_add_trait": "undertradertalkedhim" } ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERTRADER_himwhere",
+    "type": "talk_topic",
+    "dynamic_line": "Don't even try to know...",
+    "responses": [ { "text": "...", "topic": "TALK_VAMP_UNDERTRADER" } ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERTRADER_testsdone",
+    "type": "talk_topic",
+    "dynamic_line": "No. I guess those problems are enough to help us out...",
+    "responses": [ { "text": "Okay...", "topic": "TALK_VAMP_UNDERTRADER", "effect": [ { "u_add_trait": "undertradervampmark" } ] } ]
+  }
+]

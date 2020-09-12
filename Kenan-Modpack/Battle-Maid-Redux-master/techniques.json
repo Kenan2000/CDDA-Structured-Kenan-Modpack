@@ -1,0 +1,83 @@
+[
+  {
+    "type": "technique",
+    "id": "tec_maid_precise",
+    "name": "Assassination",
+    "min_melee": 3,
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "crit_tec": true,
+    "messages": [ "You strike %s from the shadows", "<npcname> strikes %s from the shadows" ],
+    "stun_dur": 2,
+    "mult_bonuses": [
+      { "stat": "damage", "type": "bash", "scale": 1.2 },
+      { "stat": "damage", "type": "cut", "scale": 1.2 },
+      { "stat": "damage", "type": "stab", "scale": 1.2 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_maid_counter",
+    "name": "Abandonment",
+    "min_unarmed": 5,
+    "dodge_counter": true,
+    "unarmed_allowed": true,
+    "stun_dur": 1,
+    "messages": [ "You cancelled the strike from %s", "<npcname> cancles the strike from %s" ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 } ],
+    "flat_bonuses": [ { "stat": "movecost", "scale": 33 } ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_maid_meleecounter",
+    "name": "Removal",
+    "min_melee": 5,
+    "dodge_counter": true,
+    "block_counter": true,
+    "melee_allowed": true,
+    "down_dur": 1,
+    "knockback_dist": 1,
+    "aoe": "spin",
+    "messages": [
+      "You dodged the strike and hit %s and everything around it",
+      "<npcname> dodges the strike from %s and hits everything around it"
+    ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 } ],
+    "flat_bonuses": [ { "stat": "movecost", "scale": 50 } ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_maid_miyage",
+    "name": "Maid's Offering",
+    "min_melee": 6,
+    "melee_allowed": true,
+    "req_buffs": [ "maid_evaded_bonus" ],
+    "crit_tec": true,
+    "down_dur": 1,
+    "knockback_dist": 1,
+    "messages": [ "%s receives the offering of pain", "<npcname> offers %s pain" ],
+    "mult_bonuses": [
+      { "stat": "damage", "type": "bash", "scale": 2.5 },
+      { "stat": "damage", "type": "cut", "scale": 2.5 },
+      { "stat": "damage", "type": "stab", "scale": 2.5 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_maid_kyusyu",
+    "name": "Assault",
+    "min_unarmed": 6,
+    "unarmed_allowed": true,
+    "crit_tec": true,
+    "req_buffs": [ "maid_moved" ],
+    "down_dur": 3,
+    "knockback_dist": 2,
+    "messages": [ "You assault %s", "<npcname> assaults %s" ],
+    "flat_bonuses": [ { "stat": "arpen", "type": "bash", "scale": 5 } ],
+    "mult_bonuses": [
+      { "stat": "damage", "type": "bash", "scale": 1.75 },
+      { "stat": "damage", "type": "cut", "scale": 1.75 },
+      { "stat": "damage", "type": "stab", "scale": 1.75 }
+    ]
+  }
+]

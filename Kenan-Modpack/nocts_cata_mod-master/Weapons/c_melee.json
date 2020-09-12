@@ -1,0 +1,163 @@
+[
+  {
+    "type": "TOOL",
+    "id": "unbio_bladed_weapon",
+    "name": { "str": "monomolecular knife" },
+    "category": "weapons",
+    "description": "A foot-long knife made from high-tech alloy and edged with bonded nanocrystals.  A welded metal handle and handguard allow you to hold it without slicing your hand open.",
+    "weight": "250 g",
+    "volume": "1 L",
+    "longest_side": "30 cm",
+    "price": 420000,
+    "color": "dark_gray",
+    "symbol": "{",
+    "material": [ "superalloy", "steel" ],
+    "techniques": [ "WBLOCK_1" ],
+    "bashing": 4,
+    "cutting": 32,
+    "to_hit": 2,
+    "flags": [ "STAB", "UNBREAKABLE_MELEE", "SHEATH_KNIFE" ],
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 22 ] ],
+    "gunmod_data": {
+      "location": "underbarrel",
+      "mod_targets": [ "shotgun", "rifle", "smg", "crossbow" ],
+      "dispersion_modifier": 8,
+      "mode_modifier": [ [ "REACH", "bayonet", 2, [ "MELEE" ] ] ],
+      "min_skills": [ [ "weapon", 2 ], [ "melee", 1 ] ]
+    }
+  },
+  {
+    "type": "TOOL",
+    "id": "unbio_sword_weapon",
+    "name": { "str": "monomolecular sword" },
+    "category": "weapons",
+    "description": "A yard-long sword made from high-tech alloy and edged with bonded nanocrystals.  A welded metal handle and handguard allow you to hold it without slicing your hand open.",
+    "weight": "450 g",
+    "volume": "2500 ml",
+    "longest_side": "91 cm",
+    "price": 420000,
+    "color": "dark_gray",
+    "symbol": "{",
+    "material": [ "superalloy", "steel" ],
+    "techniques": [ "RAPID", "WBLOCK_2" ],
+    "bashing": 4,
+    "cutting": 44,
+    "to_hit": 2,
+    "flags": [ "STAB", "UNBREAKABLE_MELEE", "SHEATH_SWORD" ],
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 20 ] ],
+    "gunmod_data": {
+      "location": "underbarrel",
+      "mod_targets": [ "shotgun", "rifle" ],
+      "dispersion_modifier": 10,
+      "mode_modifier": [ [ "REACH", "bayonet", 2, [ "MELEE" ] ] ],
+      "min_skills": [ [ "weapon", 2 ], [ "melee", 1 ] ]
+    }
+  },
+  {
+    "type": "TOOL",
+    "id": "unbio_claws_weapon",
+    "category": "weapons",
+    "name": { "str_sp": "bionic claw knuckles" },
+    "description": "Short and sharp claws made from a high-tech metal welded to metal knuckles.  Lightweight and fast, wielding them feels as if you were bare-handed.",
+    "weight": "200 g",
+    "volume": "750 ml",
+    "longest_side": "10 cm",
+    "price": 420000,
+    "color": "light_gray",
+    "symbol": "{",
+    "material": [ "superalloy", "steel" ],
+    "bashing": 10,
+    "cutting": 14,
+    "to_hit": 3,
+    "flags": [ "STAB", "UNARMED_WEAPON", "UNBREAKABLE_MELEE" ],
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 12 ] ]
+  },
+  {
+    "type": "TOOL",
+    "id": "flesh_knife",
+    "category": "weapons",
+    "name": { "str": "biological blade" },
+    "description": "A foot-long knife made from metal enclosed with flesh and bone.  Its blade consists of razor sharp saw-like protrusions, with a bone handle that fits well in the hand.  Holding it brings strange whispers to the back of your mind, as though it has a will of its own.",
+    "weight": "220 g",
+    "volume": "500 ml",
+    "longest_side": "30 cm",
+    "price": 580000,
+    "color": "red",
+    "symbol": "/",
+    "looks_like": "flesh_blade",
+    "material": [ "flesh", "superalloy" ],
+    "techniques": [ "WBLOCK_1", "PRECISE", "RAPID" ],
+    "bashing": 2,
+    "cutting": 18,
+    "to_hit": 3,
+    "flags": [ "UNBREAKABLE_MELEE", "UNARMED_WEAPON", "MAGIC_FOCUS", "SHEATH_KNIFE" ],
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 10 ] ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "mutations": [ "SCHIZOPHRENIC", "ROT1", "PRED1" ],
+          "hit_you_effect": [
+            {
+              "id": "c_lifedrain_1",
+              "once_in": 10,
+              "message": "A strange mist covers %2$s in the wake of your swing.",
+              "npc_message": "A strange mist covers %2$s as %1$s swings at them."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "TOOL",
+    "id": "flesh_blade",
+    "category": "weapons",
+    "name": { "str": "biological sword" },
+    "description": "A yard-long sword of metal, enclosed in flesh and bone, including a protective hilt framed with tough sinews.  Grown from a smaller sample, holding it brings a strange sense of power beyond what it used to.  It feels almost like a living being with a mind of its own, one that lusts for blood.",
+    "weight": "680 g",
+    "volume": "1500 ml",
+    "longest_side": "91 cm",
+    "price": 580000,
+    "color": "red",
+    "symbol": "/",
+    "material": [ "flesh", "superalloy" ],
+    "techniques": [ "WBLOCK_2", "PRECISE", "RAPID" ],
+    "bashing": 2,
+    "cutting": 25,
+    "to_hit": 2,
+    "flags": [ "UNBREAKABLE_MELEE", "UNARMED_WEAPON", "MAGIC_FOCUS", "SHEATH_SWORD" ],
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 10 ] ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STRENGTH", "add": 2 },
+            { "value": "DEXTERITY", "add": 2 },
+            { "value": "INTELLIGENCE", "add": -2 },
+            { "value": "PERCEPTION", "add": -2 },
+            { "value": "SPEED", "add": 20 }
+          ],
+          "mutations": [ "SCHIZOPHRENIC", "ROT3", "KILLER", "PRED2", "HUNGER2", "CHAOTIC" ],
+          "hit_you_effect": [
+            {
+              "id": "c_lifedrain_1",
+              "once_in": 3,
+              "message": "A strange mist covers %2$s in the wake of your swing.",
+              "npc_message": "A strange mist covers %2$s as %1$s swings at them."
+            },
+            {
+              "id": "c_flesh_hit_effect",
+              "once_in": 3,
+              "message": "A surge of energy courses from your weapon, empowering you further!",
+              "npc_message": "A jolt of strange energy envelops %1$s!"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

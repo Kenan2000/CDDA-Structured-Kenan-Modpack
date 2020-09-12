@@ -1,0 +1,380 @@
+[
+  {
+    "type": "construction",
+    "id": "constr_mst_door_frame",
+    "description": "Build Door",
+    "//": "Step 1: door frame",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 1 ] ],
+    "time": "60 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 2 } ], [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ] ],
+    "components": [ [ [ "2x4", 6 ] ], [ [ "nail", 12 ] ] ],
+    "pre_terrain": "t_window_empty",
+    "post_terrain": "t_door_frame"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_door_frame_2",
+    "description": "Build Door",
+    "//": "Step 1: door frame",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 2 ], [ "survival", 2 ] ],
+    "time": "80 m",
+    "qualities": [
+      [ { "id": "HAMMER", "level": 2 } ],
+      [ { "id": "CUT", "level": 1 } ],
+      [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ]
+    ],
+    "components": [ [ [ "2x4", 6 ], [ "stick", 6 ] ], [ [ "adhesive", 4, "LIST" ] ] ],
+    "pre_terrain": "t_window_empty",
+    "post_terrain": "t_door_frame"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_door_frame_3",
+    "description": "Build Door",
+    "//": "Step 1: door frame",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 2 ], [ "survival", 2 ] ],
+    "time": "80 m",
+    "qualities": [
+      [ { "id": "HAMMER", "level": 2 } ],
+      [ { "id": "CUT", "level": 1 } ],
+      [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ]
+    ],
+    "components": [ [ [ "2x4", 12 ], [ "stick", 12 ] ], [ [ "adhesive", 4, "LIST" ] ] ],
+    "pre_special": "check_empty",
+    "post_terrain": "t_door_frame"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_window_empty",
+    "description": "Build Window",
+    "//": "Step 1: window frame",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 3 ], [ "survival", 3 ] ],
+    "time": "90 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 2 } ] ],
+    "components": [ [ [ "2x4", 15 ], [ "stick", 15 ], [ "log", 2 ] ], [ [ "adhesive", 2, "LIST" ] ] ],
+    "pre_special": "check_empty",
+    "post_terrain": "t_window_empty"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_beehive",
+    "description": "Build Beehive",
+    "//": "Hive lure includes classic of sweet water, or a few other substitutes.  Bee balm tea however is because we don't have lemongrass.",
+    "category": "FURN",
+    "required_skills": [ [ "survival", 2 ] ],
+    "time": "30 m",
+    "qualities": [ [ { "id": "DIG", "level": 1 } ] ],
+    "components": [
+      [ [ "beehive_empty", 1 ] ],
+      [
+        [ "sweet_water", 1 ],
+        [ "bee_balm_tea", 1 ],
+        [ "honey_bottled", 3 ],
+        [ "honey_glassed", 3 ],
+        [ "syrup", 3 ],
+        [ "beet_syrup", 5 ]
+      ]
+    ],
+    "pre_flags": "DIGGABLE",
+    "post_terrain": "t_hive_young"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_cpurifier",
+    "description": "Build Charcoal Purifier",
+    "category": "FURN",
+    "required_skills": [ [ "survival", 2 ] ],
+    "time": "25 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 1 } ], [ { "id": "CUT", "level": 1 } ] ],
+    "components": [
+      [ [ "stick", 6 ], [ "2x4", 6 ] ],
+      [ [ "birchbark", 12 ], [ "withered", 24 ], [ "straw_pile", 24 ], [ "string_36", 2 ] ]
+    ],
+    "pre_note": "Can be deconstructed without tools.",
+    "pre_special": "check_empty",
+    "post_terrain": "f_char_purifier"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_leather_curtain",
+    "description": "Build Leather Door Curtain",
+    "//": "Door frame not required",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "tailor", 1 ] ],
+    "time": "30 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 2 } ] ],
+    "components": [
+      [ [ "nail", 4 ], [ "pointy_stick", 2 ], [ "spike", 2 ] ],
+      [ [ "leather_tarp", 1 ] ],
+      [ [ "stick", 1 ] ],
+      [ [ "withered", 12 ], [ "straw_pile", 12 ], [ "string_36", 1 ] ]
+    ],
+    "pre_note": "Can be deconstructed without tools.",
+    "pre_special": "check_empty",
+    "post_terrain": "t_door_curtain_leather_c"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_makeshift_sill_dirt",
+    "description": "Build Makeshift Still",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 2 ], [ "survival", 2 ] ],
+    "time": "30 m",
+    "qualities": [ [ { "id": "DIG", "level": 1 } ] ],
+    "components": [ [ [ "bottle_glass", 2 ] ] ],
+    "pre_note": "Can be deconstructed without tools.",
+    "pre_terrain": "t_dirtmound",
+    "post_terrain": "f_still_mounds"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_makeshift_sill_sand",
+    "description": "Build Makeshift Still",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 2 ], [ "survival", 2 ] ],
+    "time": "30 m",
+    "qualities": [ [ { "id": "DIG", "level": 1 } ] ],
+    "components": [ [ [ "bottle_glass", 2 ] ] ],
+    "pre_terrain": "t_sandmound",
+    "post_terrain": "f_still_mounds"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_pulley_lifter",
+    "description": "Build Pulley Lifter",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 5 ], [ "mechanics", 2 ] ],
+    "time": "60 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 2 } ] ],
+    "components": [
+      [ [ "rope_makeshift_30", 1 ], [ "rope_30", 1 ], [ "vine_30", 1 ] ],
+      [ [ "stick", 8 ], [ "2x4", 8 ] ],
+      [ [ "nail", 10 ] ]
+    ],
+    "pre_note": "Can be deconstructed without tools.",
+    "pre_flags": [ "INDOORS", "SUPPORTS_ROOF" ],
+    "post_terrain": "f_pulley_lifter"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_wood_windbreak",
+    "description": "Build Wooden Windbreak",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 0 ] ],
+    "time": "50 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 1 } ] ],
+    "components": [ [ [ "stick_long", 8 ] ], [ [ "stick_long", 4 ] ] ],
+    "pre_note": "Can be deconstructed without tools.",
+    "pre_special": "check_empty",
+    "post_terrain": "f_barricade_windbreak"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_tarp_leanto",
+    "skill": "survival",
+    "description": "Build Leather Tarp Lean-To",
+    "category": "CONSTRUCT",
+    "difficulty": 1,
+    "time": "50 m",
+    "qualities": [ { "id": "HAMMER", "level": 1 } ],
+    "components": [ [ [ "pointy_stick", 4 ] ], [ [ "cordage_short", 4, "LIST" ] ], [ [ "leather_tarp", 1 ] ] ],
+    "pre_note": "Can be deconstructed without tools.",
+    "pre_flags": [ "DIGGABLE", "FLAT" ],
+    "post_terrain": "t_tarptent_leather"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_makeshift_rack",
+    "description": "Build Wooden Rack",
+    "category": "FURN",
+    "required_skills": [ [ "fabrication", 2 ], [ "survival", 2 ] ],
+    "time": "160 m",
+    "qualities": [
+      [ { "id": "HAMMER", "level": 2 } ],
+      [ { "id": "CUT", "level": 1 } ],
+      [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ]
+    ],
+    "components": [ [ [ "2x4", 14 ], [ "stick", 14 ] ], [ [ "adhesive", 3, "LIST" ] ] ],
+    "pre_special": "check_empty",
+    "post_terrain": "f_rack_wood_makeshift"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_makeshift_counter",
+    "description": "Build Counter",
+    "category": "FURN",
+    "required_skills": [ [ "fabrication", 2 ], [ "survival", 2 ] ],
+    "time": "60 m",
+    "qualities": [
+      [ { "id": "HAMMER", "level": 2 } ],
+      [ { "id": "CUT", "level": 1 } ],
+      [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ]
+    ],
+    "components": [ [ [ "2x4", 6 ], [ "stick", 6 ] ], [ [ "adhesive", 2, "LIST" ] ] ],
+    "pre_special": "check_empty",
+    "post_terrain": "f_counter_makeshift"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_makeshift_table",
+    "description": "Build Table",
+    "category": "FURN",
+    "required_skills": [ [ "fabrication", 2 ], [ "survival", 2 ] ],
+    "time": "60 m",
+    "qualities": [
+      [ { "id": "HAMMER", "level": 2 } ],
+      [ { "id": "CUT", "level": 1 } ],
+      [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ]
+    ],
+    "components": [ [ [ "2x4", 6 ], [ "stick", 6 ] ], [ [ "adhesive", 2, "LIST" ] ] ],
+    "pre_special": "check_empty",
+    "post_terrain": "f_table_makeshift"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_makeshift_chair",
+    "description": "Build Chair",
+    "category": "FURN",
+    "required_skills": [ [ "fabrication", 3 ], [ "survival", 3 ] ],
+    "time": "60 m",
+    "qualities": [
+      [ { "id": "HAMMER", "level": 2 } ],
+      [ { "id": "CUT", "level": 1 } ],
+      [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ]
+    ],
+    "components": [ [ [ "2x4", 4 ], [ "stick", 4 ] ], [ [ "adhesive", 1, "LIST" ] ] ],
+    "pre_special": "check_empty",
+    "post_terrain": "f_chair_makeshift"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_makeshift_bench",
+    "description": "Build Bench",
+    "category": "FURN",
+    "required_skills": [ [ "fabrication", 3 ], [ "survival", 3 ] ],
+    "time": "60 m",
+    "qualities": [
+      [ { "id": "HAMMER", "level": 2 } ],
+      [ { "id": "CUT", "level": 1 } ],
+      [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ]
+    ],
+    "components": [ [ [ "2x4", 4 ], [ "stick", 4 ] ], [ [ "adhesive", 1, "LIST" ] ] ],
+    "pre_special": "check_empty",
+    "post_terrain": "f_bench_makeshift"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_wood_stairs_up_half",
+    "description": "Build Wooden Staircase",
+    "//": "Step 1: stairs frame in an empty space",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 5 ], [ "survival", 5 ] ],
+    "time": "360 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 2 } ], [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ] ],
+    "components": [ [ [ "2x4", 8 ], [ "stick", 8 ] ], [ [ "log", 1 ] ] ],
+    "pre_special": "check_empty_up_OK",
+    "post_terrain": "t_wood_stairs_up_half"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_wood_stairs_up",
+    "description": "Build Wooden Staircase",
+    "//": "Step 2: complete the half made stairs with timber framework",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 5 ], [ "survival", 5 ] ],
+    "time": "360 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 2 } ], [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ] ],
+    "components": [ [ [ "log", 4 ] ] ],
+    "pre_terrain": "t_wood_stairs_up_half",
+    "post_terrain": "t_wood_stairs_up",
+    "post_special": "done_wood_stairs"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_wooden_platform_1",
+    "description": "Build Wooden Platform",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 2 ], [ "survival", 2 ] ],
+    "time": "120 m",
+    "qualities": [ [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ] ],
+    "components": [ [ [ "log", 1 ] ], [ [ "2x4", 12 ], [ "stick", 12 ] ] ],
+    "pre_note": "Must be built over ledges or other open space.  Limited constructions can be built on top of it.",
+    "pre_flags": "NO_FLOOR",
+    "post_terrain": "t_wooden_scaffolding"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_wooden_platform_2",
+    "description": "Build Wooden Platform",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 2 ], [ "survival", 2 ] ],
+    "time": "100 m",
+    "qualities": [ [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ], [ { "id": "HAMMER", "level": 2 } ] ],
+    "components": [ [ [ "2x4", 4 ], [ "stick", 4 ] ], [ [ "2x4", 12 ], [ "wood_panel", 3 ] ] ],
+    "pre_note": "Must be built over ledges or other open space.  Limited constructions can be built on top of it.",
+    "pre_flags": "NO_FLOOR",
+    "post_terrain": "t_wooden_scaffolding"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_wall_wattle_half_platform",
+    "description": "Build Wattle-and-Daub Wall",
+    "//": "Step 1: half of a wall on a wooden platform",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 3 ], [ "survival", 3 ] ],
+    "time": "50 m",
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "HAMMER", "level": 1 } ],
+    "components": [
+      [ [ "2x4", 5 ], [ "stick", 10 ] ],
+      [ [ "material_quicklime", 4 ], [ "material_limestone", 4 ], [ "clay_lump", 4 ] ],
+      [ [ "pebble", 10 ], [ "material_sand", 10 ] ],
+      [ [ "straw_pile", 4 ], [ "cattail_stalk", 4 ], [ "dogbane", 4 ], [ "pine_bough", 4 ] ],
+      [ [ "water", 5 ], [ "water_clean", 5 ] ]
+    ],
+    "pre_terrain": "t_wooden_scaffolding",
+    "post_terrain": "t_wall_wattle_half"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_wall_half_platform",
+    "description": "Build Wood Wall",
+    "//": "frame wall on a wooden platform",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 2 ] ],
+    "time": "60 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 2 } ] ],
+    "components": [ [ [ "2x4", 10 ] ], [ [ "nail", 20 ] ] ],
+    "pre_terrain": "t_wooden_scaffolding",
+    "post_terrain": "t_wall_half"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_wall_log_half_platform",
+    "description": "Build Log Wall",
+    "//": "Step 1: half of a log wall on a wooden platform",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 3 ] ],
+    "time": "60 m",
+    "qualities": [ [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ] ],
+    "components": [ [ [ "log", 2 ] ], [ [ "stick", 3 ], [ "2x4", 6 ] ] ],
+    "pre_terrain": "t_wooden_scaffolding",
+    "post_terrain": "t_wall_log_half"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_floor_noroof_platform",
+    "description": "Build Wooden Floor",
+    "//": "Makes an outside wooden paving, similar to what would be used in patios.",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 1 ] ],
+    "time": "100 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 2 } ] ],
+    "components": [ [ [ "2x4", 14 ] ], [ [ "nail", 28 ] ] ],
+    "pre_terrain": "t_wooden_scaffolding",
+    "post_terrain": "t_floor_noroof"
+  }
+]

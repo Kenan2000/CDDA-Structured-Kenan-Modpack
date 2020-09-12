@@ -1,0 +1,106 @@
+[
+  {
+    "type": "technique",
+    "id": "heavy_blow",
+    "name": "Hammerblow",
+    "description": "Heavy Knockback Attack",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "crit_tec": true,
+    "stun_dur": 3,
+    "knockback_dist": 1,
+    "weighting": -2,
+    "messages": [ "You hammer on %s", "<npcname> hammers at %s" ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.75 },
+      { "stat": "damage", "type": "bash", "scale": 1.66 },
+      { "stat": "damage", "type": "cut", "scale": 0.75 },
+      { "stat": "damage", "type": "stab", "scale": 1.33 }
+    ]
+  },
+  {
+    "id": "repose",
+    "type": "technique",
+    "name": "Repose",
+    "description": "Grab Breaking Attack",
+    "min_melee": 0,
+    "weighting": -3,
+    "crit_tec": true,
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "grab_break": true,
+    "stun_dur": 1,
+    "messages": [ "You defensively repose yourself as you attack", "<npcname>%s defensively reposes themself and damages" ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.1 },
+      { "stat": "damage", "type": "bash", "scale": 0.8 },
+      { "stat": "damage", "type": "cut", "scale": 1.0 },
+      { "stat": "damage", "type": "stab", "scale": 0.8 }
+    ]
+  },
+  {
+    "id": "stuck_in_1",
+    "type": "technique",
+    "name": "Lodge-in risk",
+    "description": "Slow Attack [66%]",
+    "min_melee": 0,
+    "max_melee": 3,
+    "weighting": -5,
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "stun_dur": 1,
+    "messages": [
+      "Your weapon gets well-lodged in the wound and takes time to remove!  It strikes for",
+      "<npcname>%s weapon gets well-lodged in the wound and takes time to remove!  It strikes for"
+    ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.67 },
+      { "stat": "damage", "type": "bash", "scale": 1.67 },
+      { "stat": "damage", "type": "cut", "scale": 1.2 },
+      { "stat": "damage", "type": "stab", "scale": 1.3 }
+    ]
+  },
+  {
+    "id": "stuck_in_2",
+    "type": "technique",
+    "name": "Stuck-in risk",
+    "description": "Slightly Slower Attack [33%]",
+    "min_melee": 0,
+    "max_melee": 6,
+    "weighting": -5,
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "messages": [
+      "Your weapon gets stuck in the wound and takes some time to remove!  It strikes for",
+      "<npcname>%s weapon gets stuck in the wound and takes some time to remove!  It strikes for"
+    ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.33 },
+      { "stat": "damage", "type": "bash", "scale": 1.1 },
+      { "stat": "damage", "type": "cut", "scale": 1.2 },
+      { "stat": "damage", "type": "stab", "scale": 1.1 }
+    ]
+  },
+  {
+    "id": "stuck_in_3",
+    "type": "technique",
+    "name": "Wedge-in chance",
+    "description": "Slow Attack to Down and Stun an Enemy",
+    "min_melee": 4,
+    "weighting": -5,
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "down_dur": 1,
+    "stun_dur": 1,
+    "messages": [
+      "Your weapon leverages your opponent off-balance!  It strikes for",
+      "<npcname>%s leverages their opponent off-balance!  It strikes for"
+    ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.25 },
+      { "stat": "damage", "type": "bash", "scale": 1.2 },
+      { "stat": "damage", "type": "cut", "scale": 1.25 },
+      { "stat": "damage", "type": "stab", "scale": 1.2 }
+    ]
+  }
+]

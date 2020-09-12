@@ -1,0 +1,95 @@
+[
+  {
+    "type": "ammunition_type",
+    "id": "blood_clearn_vo",
+    "name": "Blood transfusion pack",
+    "default": "blood_clearn_vo"
+  },
+  {
+    "type": "AMMO",
+    "id": "blood_clearn_vo",
+    "name": { "str": "Blood for transfusion", "str_pl": "Blood for transfusion" },
+    "color": "red",
+    "symbol": "~",
+    "description": "It is cleaned blood.",
+    "price": 40000,
+    "weight": "50 g",
+    "volume": "250 ml",
+    "category": "spare_parts",
+    "ammo_type": "blood_clearn_vo",
+    "phase": "liquid",
+    "damage": { "damage_type": "stab", "amount": 0 },
+    "range": 0,
+    "dispersion": 0,
+    "recoil": 0,
+    "count": 20,
+    "effects": [ "NEVER_MISFIRES" ]
+  },
+  {
+    "type": "TOOL",
+    "id": "blood_clean_off_vo",
+    "category": "drugs",
+    "name": { "str": "Blood transfusion pack (off)", "str_pl": "Blood transfusion pack (off)" },
+    "description": "It is a transfusion pack kept clean. It can be used as it is.",
+    "weight": "30 g",
+    "symbol": "%",
+    "color": "red",
+    "addiction_type": "none",
+    "flags": [ "NO_UNLOAD" ],
+    "price": 100,
+    "material": [ "plastic" ],
+    "tool": "blood_transfusion_off_vo",
+    "volume": "250 ml",
+    "charges": 10,
+    "max_charges": 10,
+    "initial_charges": 10,
+    "ammo": [ "blood_clearn_vo" ],
+    "use_action": [
+      {
+        "type": "transform",
+        "msg": "I started blood transfusion.",
+        "active": true,
+        "target": "blood_clean_on_vo",
+        "need_charges": 1
+      }
+    ]
+  },
+  {
+    "id": "blood_clean_on_vo",
+    "type": "TOOL",
+    "category": "drugs",
+    "symbol": "%",
+    "color": "red",
+    "name": { "str": "Blood transfusion pack (on)" },
+    "description": "It is a transfusion pack kept clean. It is strange to see blood coming inside of me.",
+    "price": 100,
+    "material": [ "plastic" ],
+    "weight": "30 g",
+    "volume": "250 ml",
+    "flags": [ "NO_UNLOAD" ],
+    "max_charges": 10,
+    "turns_per_charge": 1,
+    "ammo": [ "blood_clearn_vo" ],
+    "revert_to": "blood_clean_empty_vo",
+    "use_action": [
+      "ARTIFACT",
+      { "type": "transform", "msg": "I stopped transfusing.", "target": "blood_clean_off_vo", "need_charges": 0 }
+    ],
+    "artifact_data": { "effects_activated": [ "AEA_HEAL" ] }
+  },
+  {
+    "id": "blood_clean_empty_vo",
+    "type": "TOOL",
+    "category": "spare_parts",
+    "symbol": "%",
+    "color": "white",
+    "name": { "str": "Blood transfusion pack (empty)", "str_pl": "Blood transfusion pack (empty)" },
+    "description": "It is an empty transfusion pack. It can be reused if it washes cleanly. Probably it will be okay.",
+    "price": 100,
+    "material": [ "plastic" ],
+    "weight": "30 g",
+    "volume": "250 ml",
+    "flags": [ "NO_UNLOAD" ],
+    "ammo": [ "blood_clearn_vo" ]
+  }
+]

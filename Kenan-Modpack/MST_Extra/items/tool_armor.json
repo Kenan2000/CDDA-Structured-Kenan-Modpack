@@ -1,0 +1,68 @@
+[
+  {
+    "type": "TOOL_ARMOR",
+    "id": "side_drum_makeshift",
+    "name": { "str": "side drum" },
+    "category": "tools",
+    "weight": "1800 g",
+    "color": "brown",
+    "covers": [ "torso" ],
+    "initial_charges": 1,
+    "use_action": {
+      "type": "musical_instrument",
+      "speed_penalty": 15,
+      "volume": 20,
+      "fun": 2,
+      "fun_bonus": 2,
+      "description_frequency": 20,
+      "player_descriptions": [
+        "You play a simple rhythm on the drum.",
+        "You strike a steady beat on the side drum.",
+        "Your drum beats with the cadence of an army on the march."
+      ],
+      "npc_descriptions": [
+        "play a simple rhythm on the drum.",
+        "strike a steady beat on the side drum.",
+        "sound the cadence of an army on the march."
+      ]
+    },
+    "symbol": "-",
+    "description": "A handmade side drum with a shoulder strap, allowing you to wear it while playing.",
+    "price": 500,
+    "material": [ "wood", "leather" ],
+    "volume": "2500 ml",
+    "encumbrance": 10,
+    "bashing": 4,
+    "flags": [ "WAIST" ],
+    "coverage": 10,
+    "material_thickness": 2
+  },
+  {
+    "id": "mask_gas_makeshift",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "makeshift gas hood" },
+    "looks_like": "balclava",
+    "category": "clothing",
+    "//": "Realistically it would be always on, but there's no way to make it only deplete charges in gas without the use action.",
+    "description": "A hood with added lenses and pockets for filter material sewn between layers of fabric, similar to designs common in WWI.  It is designed to be worn over a helmet.  More breathable than a modern gas mask but not as effective, it still must be prepared before use.",
+    "weight": "850 g",
+    "volume": "1500 ml",
+    "price": 4000,
+    "to_hit": -1,
+    "material": [ "cotton", "plastic" ],
+    "symbol": "[",
+    "color": "light_gray",
+    "covers": [ "head", "mouth", "eyes" ],
+    "coverage": 100,
+    "encumbrance": 20,
+    "warmth": 15,
+    "material_thickness": 2,
+    "environmental_protection": 1,
+    "environmental_protection_with_filter": 10,
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "gasfilter_m": 100 } } ],
+    "max_charges": 100,
+    "ammo": [ "gasfilter_m" ],
+    "use_action": "GASMASK",
+    "flags": [ "OUTER", "HELMET_COMPAT", "NO_UNLOAD", "NO_RELOAD" ]
+  }
+]

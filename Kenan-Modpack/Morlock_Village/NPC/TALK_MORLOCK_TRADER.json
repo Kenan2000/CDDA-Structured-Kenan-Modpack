@@ -1,0 +1,99 @@
+[
+  {
+    "id": "TALK_MORLOCK_TRADER",
+    "type": "talk_topic",
+    "dynamic_line": "What's up, cool breeze?",
+    "responses": [
+      { "text": "Nice place ya got here.  Cozy.", "topic": "TALK_MORLOCK_TRADER_INTRO" },
+      { "text": "Who are you people anyway?", "topic": "TALK_MORLOCK_TRADER_FACTION" },
+      { "text": "Is there any way I can join your group?", "topic": "TALK_MORLOCK_TRADER_NO_JOIN" },
+      { "text": "What sort of things do you trade?", "topic": "TALK_MORLOCK_TRADER_REQUEST" },
+      { "text": "Let's trade then.", "topic": "TALK_MORLOCK_TRADER_TRADE" },
+      { "text": "Later, man.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_MORLOCK_TRADER_INTRO",
+    "type": "talk_topic",
+    "dynamic_line": "Fuck off, <name_g>.  It's not like we chose to live in the sewer.",
+    "responses": [ { "text": "Well, it kept you alive.  So it can't be that bad.", "topic": "TALK_MORLOCK_TRADER" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_TRADER_FACTION",
+    "type": "talk_topic",
+    "dynamic_line": "We're the morlocks, a bunch of bums and losers who live underground.  We aren't organized and we don't have leaders, but we stick together.",
+    "responses": [ { "text": "Nice.", "topic": "TALK_MORLOCK_TRADER" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_TRADER_NO_JOIN",
+    "type": "talk_topic",
+    "dynamic_line": "Why the hell would you want join us?  Most of us don't want to join us.  Unless you grow a rat tail or fish-gills you probably won't fit in down here.",
+    "responses": [ { "text": "I'll see what I can do.", "topic": "TALK_MORLOCK_TRADER" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_TRADER_REQUEST",
+    "type": "talk_topic",
+    "dynamic_line": "We're always in the market for raw mutagen and purifier.  I can pay you a whopping 500 old world credits for each flask of standard mutagen or purifier you bring in.  I can also exchange unflavored mutagen for more advanced types, if you're interested in such things.",
+    "responses": [ { "text": "Got it.  Mutagen.  Purifier.", "topic": "TALK_MORLOCK_TRADER" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_TRADER_TRADE",
+    "type": "talk_topic",
+    "dynamic_line": "What'll it be then?",
+    "responses": [
+      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_MORLOCK_TRADER_TRADE" },
+      {
+        "text": "[10] Got some fresh-squeezed mutagens for ya.",
+        "topic": "TALK_MORLOCK_TRADER_TRADE",
+        "condition": { "u_has_item": "mutagen", "count": 10 },
+        "effect": { "u_sell_item": "mutagen", "count": 10, "cost": 500000 }
+      },
+      {
+        "text": "[1] Got a bottle of mutagen for ya.",
+        "topic": "TALK_MORLOCK_TRADER_TRADE",
+        "condition": { "u_has_item": "mutagen", "count": 1 },
+        "effect": { "u_sell_item": "mutagen", "count": 1, "cost": 50000 }
+      },
+      {
+        "text": "[10] Got a batch of purifier for ya.",
+        "topic": "TALK_MORLOCK_TRADER_TRADE",
+        "condition": { "u_has_item": "purifier", "count": 10 },
+        "effect": { "u_sell_item": "purifier", "count": 10, "cost": 500000 }
+      },
+      {
+        "text": "[1] Got a bottle of purifier for ya.",
+        "topic": "TALK_MORLOCK_TRADER_TRADE",
+        "condition": { "u_has_item": "purifier", "count": 1 },
+        "effect": { "u_sell_item": "purifier", "count": 1, "cost": 50000 }
+      },
+      {
+        "text": "[10] Have anything rat-flavored?",
+        "topic": "TALK_MORLOCK_TRADER_TRADE",
+        "condition": { "u_has_item": "mutagen", "count": 10 },
+        "effect": [
+          { "u_sell_item": "mutagen", "count": 10 },
+          { "u_buy_item": "iv_mutagen_rat", "count": 1, "container": "bottle_glass" }
+        ]
+      },
+      {
+        "text": "[10] I'd like a hit of trog-serum, <name_g>.",
+        "topic": "TALK_MORLOCK_TRADER_TRADE",
+        "condition": { "u_has_item": "mutagen", "count": 10 },
+        "effect": [
+          { "u_sell_item": "mutagen", "count": 10 },
+          { "u_buy_item": "iv_mutagen_troglobite", "count": 1, "container": "bottle_glass" }
+        ]
+      },
+      {
+        "text": "[10] Gimme some of that sweet fish-juice.",
+        "topic": "TALK_MORLOCK_TRADER_TRADE",
+        "condition": { "u_has_item": "mutagen", "count": 10 },
+        "effect": [
+          { "u_sell_item": "mutagen", "count": 10 },
+          { "u_buy_item": "iv_mutagen_fish", "count": 1, "container": "bottle_glass" }
+        ]
+      },
+      { "text": "Later, man.", "topic": "TALK_DONE" }
+    ]
+  }
+]

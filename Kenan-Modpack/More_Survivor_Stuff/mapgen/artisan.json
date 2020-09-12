@@ -1,0 +1,127 @@
+[
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "mss_artisan_metalworks" ],
+    "weight": 100,
+    "object": {
+      "fill_ter": "t_thconc_floor",
+      "rows": [
+        "|pppppppppppppppppppppp|",
+        "|ppp//*/:::/======//ppp|",
+        "|ppp/......e......./ppp|",
+        "|ppp/............../ppp|",
+        "|ppp/............../ppp|",
+        "|ppp/............../ppp|",
+        "|ppp/MC.m.......xxx/ppp|",
+        "|ppp/(..c........../ppp|",
+        "|ppp/(..c......LLLL/ppp|",
+        "|ppp/MC.m....../////ppp|",
+        "|ppp/(..c....../.df/ppp|",
+        "|ppp/(..c....../.d#/ppp|",
+        "|ppp/MC.m....T./.../ppp|",
+        "|ppp/(..c......*.../ppp|",
+        "|ppp/(..c....../////ppp|",
+        "|ppp/MC.m........../ppp|",
+        "|ppp/......##....../ppp|",
+        "|pp4/......tt../*///ppp|",
+        "|ppp/........../.../ppp|",
+        "|ppp/...lhbbbww/&.s/ppp|",
+        "|ppp//*///:::///////ppp|",
+        "|pppppppUUUpppppp<ppppp|",
+        "|pppppppppppppppppppppp|",
+        "|----------------------|"
+      ],
+      "terrain": {
+        ".": "t_floor",
+        "p": "t_pavement",
+        "-": "t_chainfence",
+        "|": "t_chainfence",
+        "/": "t_concrete_wall",
+        "+": "t_chaingate_l",
+        "*": "t_door_c",
+        "=": "t_door_metal_locked",
+        "e": "t_gates_mech_control",
+        "(": "t_conveyor",
+        "M": "t_machinery_heavy",
+        "m": "t_machinery_light",
+        "C": "t_console_broken",
+        ":": "t_window",
+        "4": "t_gutter_downspout",
+        "<": "t_ladder_up"
+      },
+      "furniture": {
+        "#": "f_chair",
+        "c": "f_counter",
+        "b": "f_counter",
+        "t": "f_table",
+        "f": "f_filing_cabinet",
+        "d": "f_desk",
+        "&": "f_toilet",
+        "L": "f_locker",
+        "w": "f_locker",
+        "x": "f_crate_c",
+        "h": "f_hydraulic_press",
+        "l": "f_heavy_lathe",
+        "s": "f_sink",
+        "U": [ "f_dumpster", "f_recycle_bin" ]
+      },
+      "items": {
+        "L": { "item": "tools_artisan", "chance": 60, "repeat": [ 1, 2 ] },
+        "w": { "item": "clothing_work_set", "chance": 55 },
+        "b": { "item": "SUS_welding_gear", "chance": 80, "repeat": [ 1, 2 ] },
+        "d": { "item": "office", "chance": 70, "repeat": [ 1, 6 ] },
+        "f": { "item": "artisan_logs", "chance": 70 },
+        "x": { "item": "supplies_metal", "chance": 70, "repeat": [ 3, 10 ] }
+      },
+      "toilets": { "&": {  } },
+      "monster": {
+        ".": [ { "monster": "mon_zombie_technician", "chance": 1 } ],
+        "T": [ { "monster": "mss_mon_zombie_monstroustechnician", "chance": 100 } ]
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": "mss_artisan_metalworks_roof",
+    "object": {
+      "fill_ter": "t_flat_roof",
+      "rows": [
+        "                        ",
+        "    |222222222222223    ",
+        "    |..............3    ",
+        "    |..............3    ",
+        "    |..............3    ",
+        "    |..............3    ",
+        "    |&.............3    ",
+        "    |..............3    ",
+        "    |..............3    ",
+        "    |&.............3    ",
+        "    |..............3    ",
+        "    |..............3    ",
+        "    |&.............3    ",
+        "    |..............3    ",
+        "    |..............3    ",
+        "    |..............3    ",
+        "    |..............3    ",
+        "    5..............3    ",
+        "    |........AA....3    ",
+        "    |.=....&.......3    ",
+        "    |----------#####    ",
+        "                 >      ",
+        "                        ",
+        "                        "
+      ],
+      "palettes": [ "roof_palette" ],
+      "terrain": { ">": "t_ladder_down" },
+      "place_nested": [
+        {
+          "chunks": [ [ "null", 20 ], [ "roof_2x2_utilities_b", 40 ], [ "roof_2x2_utilities_c", 40 ] ],
+          "x": [ 3, 15 ],
+          "y": [ 8, 12 ]
+        }
+      ]
+    }
+  }
+]

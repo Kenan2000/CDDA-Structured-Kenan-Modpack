@@ -1,0 +1,69 @@
+[
+  {
+    "abstract": "turret_tank",
+    "type": "vehicle_part",
+    "copy-from": "turret",
+    "color": "green",
+    "broken_symbol": "#",
+    "broken_color": "green",
+    "durability": 800,
+    "requirements": { "removal": { "skills": [ [ "mechanics", 3 ] ] } }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "mounted_tank_manual",
+    "copy-from": "turret_tank",
+    "name": "120mm tank gun",
+    "range": 25,
+    "item": "tank_gun_manual",
+    "size": 10,
+    "breaks_into": [ { "item": "tank_gun_manual", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 5 ], [ "launcher", 2 ] ] } }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "mounted_tank_manual_105mm",
+    "looks_like": "mounted_tank_manual",
+    "copy-from": "turret_tank",
+    "name": "105mm tank gun",
+    "range": 25,
+    "item": "tank_gun_manual_105mm",
+    "size": 10,
+    "breaks_into": [ { "item": "tank_gun_manual_105mm", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 5 ], [ "launcher", 2 ] ] } }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "mounted_howitzer",
+    "copy-from": "turret_tank",
+    "name": "155mm howitzer",
+    "range": 50,
+    "item": "howitzer_gun",
+    "size": 15,
+    "breaks_into": [ { "item": "howitzer_gun", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 5 ], [ "launcher", 3 ] ] } }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "tow_turret",
+    "copy-from": "turret_tank",
+    "name": "ATGM turret",
+    "range": 50,
+    "item": "atgm_turret",
+    "size": 35,
+    "breaks_into": [ { "item": "atgm_turret", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 5 ], [ "launcher", 3 ], [ "electronics", 3 ] ] } }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "mounted_25mm_autocannon",
+    "looks_like": "mounted_30mm_autocannon",
+    "copy-from": "turret_tank",
+    "name": "25mm chaingun",
+    "range": 25,
+    "item": "25mm_autocannon",
+    "size": 50,
+    "breaks_into": [ { "item": "25mm_autocannon", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 5 ], [ "rifle", 3 ] ] } }
+  }
+]

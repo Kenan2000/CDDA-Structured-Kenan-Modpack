@@ -1,0 +1,107 @@
+[
+  {
+    "note": "Support-type zed that manipulates the stats of targeted creatures.",
+    "id": "mon_zombie_revenant",
+    "type": "MONSTER",
+    "name": "revenant",
+    "description": "Enveloped in odd stench, this severely diluted corpse has became an overseer for its fiendish undeads.",
+    "default_faction": "zombie",
+    "species": [ "ZOMBIE", "SECROZED_2", "HUMAN" ],
+    "volume": "62500 ml",
+    "weight": "81500 g",
+    "harvest": "zombie",
+    "hp": 65,
+    "diff": 1,
+    "speed": 60,
+    "material": [ "flesh" ],
+    "symbol": "♀",
+    "color": "magenta",
+    "aggression": 50,
+    "morale": 50,
+    "emit_fields": [ "emit_revenant_trigger_immunity" ],
+    "melee_skill": 0,
+    "melee_dice": 0,
+    "melee_dice_sides": 0,
+    "melee_cut": 0,
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_revenant_target" },
+        "cooldown": 12,
+        "monster_message": "<color_red>%1$s snaps the potent prowess of nearby monsters!</color>"
+      }
+    ],
+    "death_drops": "default_zombie_death_drops",
+    "death_function": [ "NORMAL" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "REVIVES", "BONES", "FILTHY" ]
+  },
+  {
+    "id": "mon_zombie_revenant_forsaken",
+    "type": "MONSTER",
+    "name": "forsaken revenant",
+    "description": "Filled with dread and hatred, a gloomy aura enshrouds this corpse's fragile body, as its eyes glare wickedly into the void.",
+    "default_faction": "zombie",
+    "species": [ "ZOMBIE", "SECROZED_2", "HUMAN" ],
+    "volume": "62500 ml",
+    "weight": "81500 g",
+    "harvest": "zombie",
+    "diff": 15,
+    "hp": 75,
+    "speed": 45,
+    "material": [ "flesh" ],
+    "symbol": "♁",
+    "color": "dark_gray",
+    "aggression": 50,
+    "morale": 50,
+    "melee_skill": 0,
+    "melee_dice": 0,
+    "melee_dice_sides": 0,
+    "melee_cut": 0,
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_revenant_forsaken_target" },
+        "cooldown": 12,
+        "monster_message": "<color_red>%1$s glares at %3$s submissively!</color>"
+      }
+    ],
+    "death_drops": "default_zombie_death_drops",
+    "death_function": [ "NORMAL" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "REVIVES", "BONES", "FILTHY" ]
+  },
+  {
+    "id": "mon_zombie_revenant_allure",
+    "type": "MONSTER",
+    "name": "alluring revenant",
+    "description": "Concealed beneath a thick, eerie fog, a slim, humanoid figure stands firm. Mischievous, its claws drip with peculiar black goo.",
+    "default_faction": "zombie",
+    "species": [ "ZOMBIE", "SECROZED_2", "HUMAN" ],
+    "volume": "62500 ml",
+    "weight": "81500 g",
+    "harvest": "zombie",
+    "hp": 70,
+    "diff": 15,
+    "speed": 50,
+    "material": [ "flesh" ],
+    "symbol": "♂",
+    "color": "red",
+    "emit_fields": [ "emit_revenant_allure_induce_immunity" ],
+    "aggression": 50,
+    "morale": 50,
+    "melee_skill": 0,
+    "melee_dice": 0,
+    "melee_dice_sides": 0,
+    "melee_cut": 0,
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_revenant_allure_target" },
+        "cooldown": 12,
+        "monster_message": "<color_red>%1$s spreads its goo into the surroundings!</color>"
+      }
+    ],
+    "death_drops": "default_zombie_death_drops",
+    "death_function": [ "NORMAL" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "REVIVES", "BONES", "FILTHY", "HARDTOSHOOT" ]
+  }
+]

@@ -1,0 +1,211 @@
+[
+  {
+    "id": "TALK_MORLOCK_LIBRARIAN",
+    "type": "talk_topic",
+    "dynamic_line": "Hello.  Can I help you find something?",
+    "responses": [
+      { "text": "So what's your deal?  You're like a book guy or something?", "topic": "TALK_MORLOCK_LIBRARIAN_INTRO" },
+      {
+        "text": "I'm desperate for a specific book. Can you help me?",
+        "topic": "TALK_MORLOCK_LIBRARIAN_REQUEST",
+        "condition": {
+          "and": [
+            { "not": { "npc_has_effect": "bookhunter_searching" } },
+            { "not": { "npc_has_effect": "remove_bookhunter_hasbook" } },
+            { "not": { "npc_has_effect": "bookhunter_hasbook" } }
+          ]
+        }
+      },
+      {
+        "text": "How's the hunt, <name_g>?",
+        "condition": { "npc_has_effect": "bookhunter_searching" },
+        "topic": "TALK_MORLOCK_LIBRARIAN_IMPATIENT"
+      },
+      {
+        "text": "Is my order in?",
+        "topic": "TALK_MORLOCK_LIBRARIAN_DELIVER",
+        "condition": { "and": [ { "not": { "npc_has_effect": "bookhunter_searching" } }, { "npc_has_effect": "bookhunter_hasbook" } ] }
+      },
+      { "text": "Later, book man.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_MORLOCK_LIBRARIAN_INTRO",
+    "type": "talk_topic",
+    "dynamic_line": "Precisely.  I gather books to preserve the memories of human civilization.  Sometimes, when I have extra copies, I distribute them to the public.  Feel free to checkout what you like from the shelves.",
+    "responses": [ { "text": "Sounds reasonable.", "topic": "TALK_MORLOCK_LIBRARIAN" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_LIBRARIAN_REQUEST",
+    "type": "talk_topic",
+    "dynamic_line": "I often search for rare books.  I can sell you a specific book, but it will take several days for my field agents to locate it.  And then there's the price-- I charge for my time, not the value of the book.  It will be $10,000 paid up front.  If you're still interested, we can make a deal.",
+    "responses": [
+      {
+        "text": "[$10k] I want to locate a book on glass-blowing.",
+        "topic": "TALK_MORLOCK_LIBRARIAN_DEAL",
+        "condition": { "u_has_cash": 1000000 },
+        "effect": [
+          { "u_spend_cash": 1000000 },
+          { "npc_add_effect": "bookhunter_searching", "duration": 43200 },
+          { "npc_add_effect": "bookhunter_glassblowing", "duration": 1008000 },
+          { "npc_add_effect": "bookhunter_hasbook", "duration": 1008000 }
+        ]
+      },
+      {
+        "text": "[$10k] A robot-hacking manual is my first priority.",
+        "topic": "TALK_MORLOCK_LIBRARIAN_DEAL",
+        "condition": { "u_has_cash": 1000000 },
+        "effect": [
+          { "u_spend_cash": 1000000 },
+          { "npc_add_effect": "bookhunter_searching", "duration": 43200 },
+          { "npc_add_effect": "bookhunter_robots", "duration": 1008000 },
+          { "npc_add_effect": "bookhunter_hasbook", "duration": 1008000 }
+        ]
+      },
+      {
+        "text": "[$10k] I need info on crafting katanas. Lots of 'em.",
+        "topic": "TALK_MORLOCK_LIBRARIAN_DEAL",
+        "condition": { "u_has_cash": 1000000 },
+        "effect": [
+          { "u_spend_cash": 1000000 },
+          { "npc_add_effect": "bookhunter_searching", "duration": 43200 },
+          { "npc_add_effect": "bookhunter_weapeast", "duration": 1008000 },
+          { "npc_add_effect": "bookhunter_hasbook", "duration": 1008000 }
+        ]
+      },
+      {
+        "text": "[$10k] I would literally kill a man for a sushi cookbook.",
+        "topic": "TALK_MORLOCK_LIBRARIAN_DEAL",
+        "condition": { "u_has_cash": 1000000 },
+        "effect": [
+          { "u_spend_cash": 1000000 },
+          { "npc_add_effect": "bookhunter_searching", "duration": 43200 },
+          { "npc_add_effect": "bookhunter_sushi", "duration": 1008000 },
+          { "npc_add_effect": "bookhunter_hasbook", "duration": 1008000 }
+        ]
+      },
+      {
+        "text": "[$10k] I have a burning passion for chemical warfare.",
+        "topic": "TALK_MORLOCK_LIBRARIAN_DEAL",
+        "condition": { "u_has_cash": 1000000 },
+        "effect": [
+          { "u_spend_cash": 1000000 },
+          { "npc_add_effect": "bookhunter_searching", "duration": 43200 },
+          { "npc_add_effect": "bookhunter_gaswarfare", "duration": 1008000 },
+          { "npc_add_effect": "bookhunter_hasbook", "duration": 1008000 }
+        ]
+      },
+      {
+        "text": "[$10k+CANNIBAL] For no particular reason, I would like a human cookbook.",
+        "topic": "TALK_MORLOCK_LIBRARIAN_DEAL",
+        "condition": { "and": [ { "u_has_cash": 1000000 }, { "u_has_trait_flag": "CANNIBAL" } ] },
+        "effect": [
+          { "u_spend_cash": 1000000 },
+          { "npc_add_effect": "bookhunter_searching", "duration": 43200 },
+          { "npc_add_effect": "bookhunter_cookhuman", "duration": 1008000 },
+          { "npc_add_effect": "bookhunter_hasbook", "duration": 1008000 }
+        ]
+      },
+      {
+        "text": "[$10k] I would like anything you can find on fake fur.",
+        "topic": "TALK_MORLOCK_LIBRARIAN_DEAL",
+        "condition": { "and": [ { "u_has_cash": 1000000 } ] },
+        "effect": [
+          { "u_spend_cash": 1000000 },
+          { "npc_add_effect": "bookhunter_searching", "duration": 43200 },
+          { "npc_add_effect": "bookhunter_fauxfur", "duration": 1008000 },
+          { "npc_add_effect": "bookhunter_hasbook", "duration": 1008000 }
+        ]
+      },
+      {
+        "text": "[$1k] I, like you, also hope to preserve human civilization.  I'm collecting every back issue of Playboy and I will pay ANY price to make that dream a reality.",
+        "topic": "TALK_MORLOCK_LIBRARIAN_DEAL",
+        "condition": { "u_has_cash": 100000 },
+        "effect": [
+          { "u_spend_cash": 100000 },
+          { "npc_add_effect": "bookhunter_searching", "duration": 43200 },
+          { "npc_add_effect": "bookhunter_playboy", "duration": 1008000 },
+          { "npc_add_effect": "bookhunter_hasbook", "duration": 1008000 }
+        ]
+      },
+      {
+        "text": "I'm a little short on funds right now.  Maybe later..",
+        "topic": "TALK_DONE",
+        "condition": { "not": { "u_has_cash": 1000000 } }
+      },
+      { "text": "Nevermind.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_MORLOCK_LIBRARIAN_DEAL",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "npc_has_effect": "bookhunter_playboy",
+      "yes": "Ugh.  Fine.  Come back in three days for your 'articles'.",
+      "no": "We have a deal then.  Return in three days and I will have your book."
+    },
+    "responses": [ { "text": "I'll be here!", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_LIBRARIAN_IMPATIENT",
+    "type": "talk_topic",
+    "dynamic_line": "We haven't found it yet.  Come back in a few days. (ooc note: Currently NPCs must be in your reality bubble for their effect timer to count down.)",
+    "responses": [ { "text": "I need that book!", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_LIBRARIAN_DELIVER",
+    "type": "talk_topic",
+    "dynamic_line": "We've located a copy of your book.  Happy reading.",
+    "responses": [
+      {
+        "text": "*The Art of Glassblowing*",
+        "condition": { "npc_has_effect": "bookhunter_glassblowing" },
+        "effect": [ { "u_buy_item": "glassblowing_book" }, { "npc_add_effect": "remove_bookhunter_glassblowing", "duration": 1 } ],
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "*Robots for Fun & Profit*",
+        "condition": { "npc_has_effect": "bookhunter_robots" },
+        "effect": [ { "u_buy_item": "textbook_robots" }, { "npc_add_effect": "remove_bookhunter_hasbook", "duration": 1 } ],
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "*Swords of the Samurai*",
+        "condition": { "npc_has_effect": "bookhunter_weapeast" },
+        "effect": [ { "u_buy_item": "textbook_weapeast" }, { "npc_add_effect": "remove_bookhunter_hasbook", "duration": 1 } ],
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "*Sushi Made Easy*",
+        "condition": { "npc_has_effect": "bookhunter_sushi" },
+        "effect": [ { "u_buy_item": "cookbook_sushi" }, { "npc_add_effect": "remove_bookhunter_hasbook", "duration": 1 } ],
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "*Art and Science of Chemical Warfare*",
+        "condition": { "npc_has_effect": "bookhunter_gaswarfare" },
+        "effect": [ { "u_buy_item": "textbook_gaswarfare" }, { "npc_add_effect": "remove_bookhunter_hasbook", "duration": 1 } ],
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "*To Serve Man*",
+        "condition": { "npc_has_effect": "bookhunter_cookhuman" },
+        "effect": [ { "u_buy_item": "cookbook_human" }, { "npc_add_effect": "remove_bookhunter_hasbook", "duration": 1 } ],
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "*Friendly, Humane Fashion*",
+        "condition": { "npc_has_effect": "bookhunter_fauxfur" },
+        "effect": [ { "u_buy_item": "recipe_fauxfur" }, { "npc_add_effect": "remove_bookhunter_hasbook", "duration": 1 } ],
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "*Playboy*",
+        "condition": { "npc_has_effect": "bookhunter_playboy" },
+        "effect": [ { "u_buy_item": "mag_porn", "count": 12 }, { "npc_add_effect": "remove_bookhunter_hasbook", "duration": 1 } ],
+        "topic": "TALK_DONE"
+      },
+      { "text": "Just a minute.", "topic": "TALK_DONE" }
+    ]
+  }
+]

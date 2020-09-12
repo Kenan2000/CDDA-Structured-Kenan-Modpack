@@ -1,0 +1,45 @@
+[
+  {
+    "id": "TALK_RANCH_FOREMAN",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
+        "condition": {
+          "and": [
+            { "u_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" },
+            {
+              "not": { "npc_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" }
+            },
+            {
+              "not": { "u_has_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
+            }
+          ]
+        },
+        "topic": "TALK_RANCH_FOREMAN_GM_PRELUDE"
+      },
+      {
+        "text": "[MISSION] I've been asked to help attract work for another community of survivors.  Know anyone who could help?",
+        "topic": "TALK_RANCH_CROP_OVERSEER_CF_REP_MISSION_4",
+        "condition": {
+          "and": [
+            { "not": { "u_has_var": "sofia_allies_secured", "type": "mission", "context": "rural_church", "value": "yes" } },
+            { "u_has_mission": "MISSION_CF_REP_4" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "TALK_RANCH_FOREMAN_GM_PRELUDE",
+    "type": "talk_topic",
+    "dynamic_line": "I've heard rumors, and I know some people trying to make the journey here have had trouble of that sort.  I'll go ahead and relay to you the most recent bit of information I've overheard regarding that, send it off to whoever you're asking on behalf of.",
+    "responses": [  ]
+  },
+  {
+    "id": "TALK_RANCH_CROP_OVERSEER_CF_REP_MISSION_4",
+    "type": "talk_topic",
+    "dynamic_line": "Afraid I can't help you with that, we have enough on our plates as it is.  Once things are a bit more set up, I guess ask around, but I've got a lot of work to deal with myself.",
+    "responses": [ { "text": "…", "topic": "TALK_RANCH_FOREMAN" } ]
+  }
+]

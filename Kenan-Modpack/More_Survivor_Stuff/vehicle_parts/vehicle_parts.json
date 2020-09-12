@@ -1,0 +1,30 @@
+[
+  {
+    "type": "vehicle_part",
+    "id": "mss_machining_rig_item",
+    "name": "machining rig",
+    "symbol": "&",
+    "color": "light_cyan",
+    "broken_symbol": "x",
+    "broken_color": "cyan",
+    "damage_modifier": 10,
+    "durability": 80,
+    "description": "A machining rig mounted to the vehicle. It has its own power supply.  If you attempt to craft an item that requires machining, this will fulfill the need.",
+    "size": 200,
+    "item": "mss_machining_rig_item",
+    "location": "center",
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 3 ] ], "time": "60 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "removal": { "skills": [ [ "mechanics", 2 ] ], "time": "30 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 4 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] }
+    },
+    "qualities": [ [ "MACHINING", 3 ] ],
+    "flags": [ "OBSTACLE", "COVERED" ],
+    "breaks_into": [
+      { "item": "steel_lump", "count": [ 6, 12 ] },
+      { "item": "steel_chunk", "count": [ 3, 6 ] },
+      { "item": "scrap", "count": [ 6, 12 ] }
+    ],
+    "damage_reduction": { "all": 24 }
+  }
+]

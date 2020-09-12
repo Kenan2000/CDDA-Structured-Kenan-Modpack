@@ -1,0 +1,121 @@
+[
+  {
+    "type": "monstergroup",
+    "name": "GROUP_YAMADOJO",
+    "default": "mon_null",
+    "monsters": [
+      { "monster": "mon_boomer_huge", "freq": 100, "cost_multiplier": 0 },
+      { "monster": "mon_zombie_brute", "freq": 100, "cost_multiplier": 0 },
+      { "monster": "mon_zombie_hunter", "freq": 100, "cost_multiplier": 0 },
+      { "monster": "mon_zombie_shady", "freq": 100, "cost_multiplier": 0 },
+      { "monster": "mon_zombie_grabber", "freq": 100, "cost_multiplier": 0 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "yamadojo_weapons",
+    "items": [ [ "tonfa_wood", 40 ], [ "bokken", 40 ], [ "q_staff", 40 ], [ "spear_wood", 40 ] ]
+  },
+  {
+    "type": "item_group",
+    "id": "yamadojo_manuals2",
+    "items": [
+      [ "manual_brawl", 20 ],
+      [ "manual_capoeira", 15 ],
+      [ "manual_zui_quan", 15 ],
+      [ "manual_centipede", 10 ],
+      [ "manual_scorpion", 10 ],
+      [ "manual_toad", 10 ],
+      [ "manual_lizard", 10 ],
+      [ "manual_venom_snake", 10 ]
+    ]
+  },
+  {
+    "method": "json",
+    "object": {
+      "add": [
+        { "item": "torch", "repeat": 1, "x": 8, "y": 12 },
+        { "item": "torch", "repeat": 1, "x": 11, "y": 12 },
+        { "item": "log", "repeat": 1, "x": 18, "y": 15 },
+        { "item": "ax", "repeat": 1, "x": 19, "y": 15 },
+        { "item": "pan", "repeat": 1, "x": 21, "y": 20 },
+        { "item": "knife_butcher", "repeat": 1, "x": 21, "y": 21 },
+        { "item": "mop", "repeat": 1, "x": 13, "y": 21 }
+      ],
+      "furniture": {
+        " ": "f_null",
+        "#": "f_tatami",
+        "&": "f_toilet",
+        "+": "f_null",
+        "-": "f_null",
+        ".": "f_null",
+        "D": "f_null",
+        "U": "f_kiln_empty",
+        "_": "f_null",
+        "a": "f_null",
+        "b": "f_bench",
+        "c": "f_null",
+        "d": "f_desk",
+        "f": "f_fireplace",
+        "m": "f_makeshift_bed",
+        "t": "f_table",
+        "|": "f_null"
+      },
+      "place_items": [
+        { "chance": 80, "item": "yamadojo_weapons", "repeat": 3, "x": 18, "y": [ 2, 9 ] },
+        { "chance": 80, "item": "yamadojo_weapons", "repeat": 3, "x": 1, "y": [ 2, 9 ] },
+        { "chance": 80, "item": "yamadojo_manuals2", "repeat": [ 1, 2 ], "x": [ 9, 10 ], "y": 1 }
+      ],
+      "place_monster": [ { "monster": "mon_zombie_master", "x": 9, "y": 3 }, { "monster": "mon_zombie_hulk", "x": 10, "y": 16 } ],
+      "place_monsters": [ { "chance": 1, "density": 0.3, "monster": "GROUP_YAMADOJO", "x": [ 5, 14 ], "y": [ 5, 9 ] } ],
+      "rows": [
+        "||||||||||||||||||||....",
+        "|__________________|.|||",
+        "|_################_|.|&|",
+        "|_################_|.|D|",
+        "|_################_|.|a|",
+        "|_################_|....",
+        "|_################_|....",
+        "|_################_|....",
+        "|_################_|....",
+        "|_################_|....",
+        "|__________________|....",
+        "|||||||||--|||||||||....",
+        "____________________....",
+        "____________________....",
+        ".|||||||................",
+        ".|m_m_m|..............c.",
+        ".|_____|................",
+        ".|m_m_m|....|||+|||||||.",
+        ".|_____+....|________U|.",
+        ".|m_m_m|....|_bbbbbb_f|.",
+        ".|_____|....|_tttttt_d|.",
+        ".|m_m_m|....|_bbbbbb_d|.",
+        ".|||||||....|||||||||||.",
+        "........................"
+      ],
+      "terrain": {
+        " ": "t_hole",
+        "#": "t_rock_floor",
+        "&": "t_dirtfloor",
+        "+": "t_door_locked",
+        "-": "t_rdoor_boarded",
+        ".": "t_dirt",
+        "D": "t_dirtfloor",
+        "U": "t_rock_floor",
+        "_": "t_rock_floor",
+        "a": "t_door_c",
+        "b": "t_rock_floor",
+        "c": "t_covered_well",
+        "d": "t_rock_floor",
+        "f": "t_rock_floor",
+        "m": "t_rock_floor",
+        "t": "t_rock_floor",
+        "|": "t_wall_wood"
+      }
+    },
+    "om_terrain": "yamadojo",
+    "type": "mapgen",
+    "weight": 100
+  }
+]

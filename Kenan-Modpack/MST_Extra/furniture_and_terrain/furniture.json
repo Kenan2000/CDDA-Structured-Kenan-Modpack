@@ -1,0 +1,298 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_char_purifier",
+    "name": "charcoal purifier",
+    "description": "A makeshift filter constructed to hold a supply of charcoal, for purifying water.",
+    "symbol": "=",
+    "looks_like": "char_purifier",
+    "bgcolor": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [ "SEALED", "CONTAINER", "NOITEM", "EASY_DECONSTRUCT" ],
+    "crafting_pseudo_item": "char_purifier_fake",
+    "examine_action": "reload_furniture",
+    "deconstruct": { "items": [ { "item": "withered", "count": 24 }, { "item": "stick", "count": 6 } ] },
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crunch!",
+      "sound_fail": "whump!",
+      "items": [ { "item": "withered", "count": [ 1, 4 ] }, { "item": "stick", "count": [ 2, 4 ] } ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_still_mounds",
+    "name": "makeshift still",
+    "symbol": "#",
+    "looks_like": "bottle_glass",
+    "description": "A pair of glass bottles insulated with dirt or sand.  With careful alignment, it serves as a crude alembic by boiling away liquid in the first container, condensing into the second.",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "crafting_pseudo_item": "mound_distillation",
+    "flags": [ "PLACE_ITEM", "TRANSPARENT", "EASY_DECONSTRUCT" ],
+    "deconstruct": { "items": [ { "item": "bottle_glass", "count": 2 } ] },
+    "max_volume": "3000 L",
+    "bash": {
+      "str_min": 12,
+      "str_max": 40,
+      "sound": "crunch!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "glass_shard", "count": [ 1, 2 ] } ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_pulley_lifter",
+    "name": "rope and pulley lifter",
+    "symbol": "|",
+    "looks_like": "vp_crane_tiny",
+    "description": "A system of ropes and pulleys hanging from the ceiling, rigged up to serve as a block and tackle for lifting vehicle components, or even light enough vehicles.  It isn't very powerful, but it'll do in a pinch.",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "crafting_pseudo_item": "pulley_lifting",
+    "flags": [ "PLACE_ITEM", "TRANSPARENT", "EASY_DECONSTRUCT", "FLAMMABLE_ASH", "NOCOLLIDE" ],
+    "deconstruct": { "items": [ { "item": "rope_makeshift_30", "count": 1 }, { "item": "2x4", "count": 8 } ] },
+    "bash": {
+      "str_min": 8,
+      "str_max": 40,
+      "sound": "crunch!",
+      "sound_fail": "whump.",
+      "items": [
+        { "item": "rope_makeshift_6", "count": [ 3, 4 ] },
+        { "item": "2x4", "count": [ 1, 4 ] },
+        { "item": "splinter", "count": [ 2, 4 ] }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_barricade_windbreak",
+    "name": "wooden windbreak",
+    "symbol": "#",
+    "bgcolor": "brown",
+    "looks_like": "f_barricade_road",
+    "description": "A waist-high barricade made of stout saplings, held in place by poles hammered into the ground.  Primarily used to keep the wind out, but also works to fence in  a campsite.",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "CLIMB_SIMPLE",
+      "TRANSPARENT",
+      "FLAMMABLE_ASH",
+      "ORGANIC",
+      "MOUNTABLE",
+      "THIN_OBSTACLE",
+      "CLIMBABLE",
+      "PERMEABLE",
+      "EASY_DECONSTRUCT",
+      "BLOCK_WIND"
+    ],
+    "examine_action": "chainfence",
+    "deconstruct": { "items": [ { "item": "stick_long", "count": 8 }, { "item": "pointy_stick", "charges": 4 } ] },
+    "bash": {
+      "str_min": 3,
+      "str_max": 40,
+      "sound": "smash!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "stick", "count": [ 2, 6 ] }, { "item": "splinter", "count": [ 2, 6 ] } ]
+    }
+  },
+  {
+    "id": "t_tarptent_leather",
+    "type": "terrain",
+    "name": "leather tarp lean-to",
+    "description": "A makeshift shelter made from a lather tarp and stakes driven into the ground.",
+    "symbol": ";",
+    "looks_like": "t_tarptent",
+    "color": [ "brown" ],
+    "move_cost": 2,
+    "bash": {
+      "str_min": 6,
+      "str_max": 12,
+      "ter_set": "t_dirt",
+      "sound": "crash!",
+      "sound_fail": "whack!",
+      "items": [
+        { "item": "stick", "count": [ 1, 2 ] },
+        { "item": "splinter", "count": [ 1, 4 ] },
+        { "item": "leather", "count": [ 4, 8 ] }
+      ]
+    },
+    "deconstruct": {
+      "ter_set": "t_dirt",
+      "items": [ { "item": "pointy_stick", "count": 4 }, { "item": "withered", "count": 8 }, { "item": "leather_tarp", "count": 1 } ]
+    },
+    "flags": [ "TRANSPARENT", "FLAMMABLE", "THIN_OBSTACLE", "INDOORS", "MOUNTABLE", "EASY_DECONSTRUCT" ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_rack_wood_makeshift",
+    "looks_like": "f_rack_wood",
+    "name": "makeshift wooden rack",
+    "symbol": "{",
+    "description": "A simple wooden rack, made using rudimentary joinery and adhesive.  Display your items on it.",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "coverage": 70,
+    "required_str": 8,
+    "flags": [ "FLAMMABLE", "PLACE_ITEM", "ORGANIC", "BLOCKSDOOR", "EASY_DECONSTRUCT" ],
+    "deconstruct": { "items": [ { "item": "2x4", "count": 12 } ] },
+    "max_volume": "6000 L",
+    "bash": {
+      "str_min": 5,
+      "str_max": 38,
+      "sound": "smash!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "2x4", "count": [ 2, 6 ] }, { "item": "splinter", "count": 12 } ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_counter_makeshift",
+    "looks_like": "f_counter",
+    "name": "makeshift counter",
+    "description": "A bit rustic for most kitchens, made from simple joinery and wood glue.",
+    "symbol": "#",
+    "color": "blue",
+    "move_cost_mod": 2,
+    "coverage": 60,
+    "required_str": 11,
+    "flags": [ "TRANSPARENT", "FLAMMABLE", "ORGANIC", "MOUNTABLE", "SHORT", "FLAT_SURF", "EASY_DECONSTRUCT" ],
+    "deconstruct": { "items": [ { "item": "2x4", "count": 6 } ] },
+    "max_volume": "4000 L",
+    "bash": {
+      "str_min": 11,
+      "str_max": 38,
+      "sound": "smash!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "2x4", "count": [ 2, 5 ] }, { "item": "splinter", "count": 3 } ]
+    },
+    "examine_action": "workbench",
+    "workbench": { "multiplier": 1.1, "mass": 200000, "volume": "75L" }
+  },
+  {
+    "type": "furniture",
+    "id": "f_table_makeshift",
+    "looks_like": "f_table",
+    "name": "makeshift table",
+    "description": "Sit down when you eat!  At least the legs seem to be joined up properly, so it probably won't fall apart if you eat off it.",
+    "symbol": "#",
+    "color": "red",
+    "move_cost_mod": 2,
+    "coverage": 50,
+    "required_str": 6,
+    "max_volume": "4000 L",
+    "flags": [ "TRANSPARENT", "FLAMMABLE", "ORGANIC", "MOUNTABLE", "SHORT", "FLAT_SURF", "EASY_DECONSTRUCT" ],
+    "deconstruct": { "items": [ { "item": "2x4", "count": 6 } ] },
+    "bash": {
+      "str_min": 12,
+      "str_max": 50,
+      "sound": "smash!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "2x4", "count": [ 2, 4 ] }, { "item": "splinter", "count": 3 } ]
+    },
+    "examine_action": "workbench",
+    "workbench": { "multiplier": 1.1, "mass": 200000, "volume": "75L" }
+  },
+  {
+    "type": "furniture",
+    "id": "f_chair_makeshift",
+    "looks_like": "f_chair",
+    "name": "makeshift chair",
+    "symbol": "#",
+    "description": "Sit down, have a drink.  It probably won't fall apart if you do, the joinery looks sturdy enough.",
+    "color": "brown",
+    "move_cost_mod": 1,
+    "coverage": 40,
+    "comfort": 1,
+    "floor_bedding_warmth": -1500,
+    "bonus_fire_warmth_feet": 1000,
+    "required_str": 5,
+    "flags": [ "TRANSPARENT", "FLAMMABLE_ASH", "ORGANIC", "MOUNTABLE", "CAN_SIT", "EASY_DECONSTRUCT" ],
+    "deconstruct": { "items": [ { "item": "2x4", "count": 3 } ] },
+    "max_volume": "4000 L",
+    "bash": {
+      "str_min": 5,
+      "str_max": 18,
+      "sound": "smash!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "2x4", "count": [ 0, 2 ] }, { "item": "splinter", "count": 1 } ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_bench_makeshift",
+    "looks_like": "f_bench",
+    "name": "makeshift bench",
+    "symbol": "#",
+    "description": "More a bed for woodsmen than hobos, or maybe guests at a feast hall.  Put together with nothing but wood joints and some glue.",
+    "color": "brown",
+    "move_cost_mod": 1,
+    "coverage": 35,
+    "comfort": 1,
+    "floor_bedding_warmth": -1500,
+    "bonus_fire_warmth_feet": 1000,
+    "required_str": 9,
+    "flags": [ "TRANSPARENT", "FLAMMABLE_ASH", "ORGANIC", "MOUNTABLE", "SHORT", "CAN_SIT", "EASY_DECONSTRUCT" ],
+    "max_volume": "4000 L",
+    "deconstruct": { "items": [ { "item": "2x4", "count": 3 } ] },
+    "bash": {
+      "str_min": 11,
+      "str_max": 38,
+      "sound": "smash!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "2x4", "count": [ 0, 2 ] }, { "item": "splinter", "count": 1 } ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_hobo_stove_placed",
+    "looks_like": "hobo_stove",
+    "name": "placed hobo stove",
+    "description": "A small improvised wood stove, placed on the ground.  It can only burn small amounts of wood at a time, but it will keep a fire safe from wind and rain.",
+    "symbol": "#",
+    "color": "red",
+    "move_cost_mod": -1,
+    "coverage": 15,
+    "required_str": 1,
+    "//": "INDOORS and BLOCK_WIND are used to ensure it doesn't go out.  Doesn't let you move onto it to prevent exploiting that.",
+    "flags": [ "PLACE_ITEM", "TRANSPARENT", "FIRE_CONTAINER", "EASY_DECONSTRUCT", "INDOORS", "BLOCK_WIND" ],
+    "deployed_item": "hobo_stove",
+    "examine_action": "fireplace",
+    "max_volume": "1 L",
+    "bash": {
+      "str_min": 4,
+      "str_max": 10,
+      "sound": "clatter!",
+      "sound_fail": "clang!",
+      "items": [ { "item": "hobo_stove", "count": 1 } ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_hobo_stove_clay_placed",
+    "looks_like": "clay_pot",
+    "name": "placed clay oven",
+    "description": "A portable clay oven, placed on the ground.  It can't hold much wood at once, but it will keep a fire safe from wind and rain.",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "coverage": 15,
+    "required_str": 1,
+    "//": "INDOORS and BLOCK_WIND are used to ensure it doesn't go out.  Doesn't let you move onto it to prevent exploiting that.",
+    "flags": [ "PLACE_ITEM", "TRANSPARENT", "FIRE_CONTAINER", "EASY_DECONSTRUCT", "INDOORS", "BLOCK_WIND" ],
+    "deployed_item": "hobo_stove_clay",
+    "examine_action": "fireplace",
+    "max_volume": "10 L",
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "whunk!",
+      "items": [ { "item": "ceramic_shard", "count": [ 1, 5 ] } ]
+    }
+  }
+]

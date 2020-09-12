@@ -1,0 +1,75 @@
+[
+  {
+    "id": "wob",
+    "type": "overmap_terrain",
+    "name": "wasteland outskirts",
+    "sym": "^",
+    "color": "dark_gray",
+    "see_cost": 5,
+    "mondensity": 0,
+    "extras": "build"
+  },
+  {
+    "type": "overmap_special",
+    "id": "Wasteland Outskirts",
+    "overmaps": [
+      { "point": [ 0, 0, 0 ], "overmap": "wo3_north" },
+      { "point": [ 1, 0, 0 ], "overmap": "wo2_north" },
+      { "point": [ 2, 0, 0 ], "overmap": "wo1_north" },
+      { "point": [ 0, 1, 0 ], "overmap": "wo6_north" },
+      { "point": [ 1, 1, 0 ], "overmap": "wo5_north" },
+      { "point": [ 2, 1, 0 ], "overmap": "wo4_north" },
+      { "point": [ 0, 2, 0 ], "overmap": "wo9_north" },
+      { "point": [ 1, 2, 0 ], "overmap": "wo8_north" },
+      { "point": [ 2, 2, 0 ], "overmap": "wo7_north" },
+      { "point": [ 1, 1, -1 ], "overmap": "wob_north" }
+    ],
+    "locations": [ "forest" ],
+    "flags": [ "UNIQUE" ],
+    "occurrences": [ 25, 100 ]
+  },
+  {
+    "//": "Basement, with temporary contents. I'm not good in designing BTW.",
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": "wob",
+    "weight": 1000,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJ;;;;;;;;;;;JJJJJ",
+        "JJJJJJJ;;NnNZNuuuo;JJJJJ",
+        "JJJJJJJ;cZZZZZZZZK;;;;;J",
+        "JJJJJJJ;;^Z^^^ZZZo;;Zi;J",
+        "JJJJJJJJ;;+;;^ZZZ$;;Z;;J",
+        "JJJJJJJJ;cZc;cZZZZ+ZZ;JJ",
+        "JJJJJJJJ;ZZZ;^ZZZZ;;;;JJ",
+        "JJJJJJJJ;Z9Z;^ZZZZ;JJJJJ",
+        "JJJJJJJJ;zfz;^Z{EE;JJJJJ",
+        "JJJJJJJJ;;;;;;;;;;;JJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ",
+        "JJJJJJJJJJJJJJJJJJJJJJJJ"
+      ],
+      "palettes": [ "wastelandoutskirts_palette" ],
+      "place_items": [
+        { "item": "elderbooks", "x": 9, "y": 11, "chance": 25 },
+        { "item": "elderbooks", "x": [ 11, 13 ], "y": [ 11, 11 ], "chance": 25 },
+        { "item": "elderbooks", "x": 13, "y": 12, "chance": 25 },
+        { "item": "elderbooks", "x": [ 13, 13 ], "y": [ 14, 16 ], "chance": 25 }
+      ],
+      "npcs": { "9": { "class": "VAMP_ASEEKER" } }
+    }
+  }
+]

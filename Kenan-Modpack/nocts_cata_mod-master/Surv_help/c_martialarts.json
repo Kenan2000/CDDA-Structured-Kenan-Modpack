@@ -1,0 +1,161 @@
+[
+  {
+    "type": "martial_art",
+    "id": "style_surv_com",
+    "name": { "str": "Survivor Combatives" },
+    "description": "You learned how to handle yourself in the cataclysm.  Whether armed or unarmed, you know how to use your wits to stay alive.  Survival is of the highest priority.",
+    "initiate": [ "You steady yourself, prepared for the fights ahead.", "%s prepares for the fights ahead." ],
+    "learn_difficulty": 7,
+    "primary_skill": "melee",
+    "arm_block": 2,
+    "leg_block": 8,
+    "arm_block_with_bio_armor_arms": true,
+    "leg_block_with_bio_armor_legs": true,
+    "allow_melee": true,
+    "onmove_buffs": [
+      {
+        "id": "buff_surv_com_onmove",
+        "name": "Elusiveness",
+        "//": "Note: Doubled percentage signs are needed for correct formatting, not a typo.",
+        "description": "Quick and fluid movements make you harder to catch.\n\n+1 Dodge attempts, Dodge skill increased by 25%% of Intelligence, immunity to knockdown.\nLasts for 1 turn.",
+        "skill_requirements": [ { "name": "melee", "level": 4 } ],
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "throw_immune": true,
+        "buff_duration": 1,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "dodge", "scaling-stat": "int", "scale": 0.25 } ]
+      }
+    ],
+    "onhit_buffs": [
+      {
+        "id": "buff_surv_com_onhit",
+        "name": "Active Defense",
+        "description": "The best defense is a good offense.\n\n+1 Block attempts, damage blocked increased by 100%% of Intelligence.\nLasts 2 turns.",
+        "skill_requirements": [ { "name": "melee", "level": 5 } ],
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "buff_duration": 2,
+        "bonus_blocks": 1,
+        "flat_bonuses": [ { "stat": "block", "scaling-stat": "int", "scale": 1.0 } ]
+      }
+    ],
+    "onkill_buffs": [
+      {
+        "id": "buff_surv_com_onkill",
+        "name": "Misdirection",
+        "description": "The shock and awe of combat gives you an opportunity to slip away.\n\n+2 Block attempts, +2 Dodge attempts, movement speed increased by 100%% of Intelligence, moving generates 1/2 as much noise.\nLast 6 turns.",
+        "skill_requirements": [ { "name": "melee", "level": 6 } ],
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "stealthy": true,
+        "buff_duration": 6,
+        "bonus_dodges": 2,
+        "bonus_blocks": 2,
+        "flat_bonuses": [ { "stat": "speed", "scaling-stat": "int", "scale": 1.0 } ]
+      }
+    ],
+    "techniques": [
+      "tec_surv_com_break",
+      "tec_surv_com_counter_dodge",
+      "tec_surv_com_counter_block",
+      "tec_surv_com_disarm",
+      "tec_surv_com_feint"
+    ]
+  },
+  {
+    "id": "style_biojutsu",
+    "copy-from": "style_biojutsu",
+    "type": "martial_art",
+    "name": "Bionic Combatives",
+    "extend": { "weapons": [ "unbio_bladed_weapon", "unbio_sword_weapon", "unbio_claws_weapon", "bio_sword_weapon" ] }
+  },
+  {
+    "id": "style_aikido",
+    "copy-from": "style_aikido",
+    "type": "martial_art",
+    "name": "Aikido",
+    "extend": { "weapons": [ "unbio_claws_weapon" ] }
+  },
+  {
+    "id": "style_judo",
+    "copy-from": "style_judo",
+    "type": "martial_art",
+    "name": "Judo",
+    "extend": { "weapons": [ "unbio_claws_weapon" ] }
+  },
+  {
+    "id": "style_silat",
+    "copy-from": "style_silat",
+    "type": "martial_art",
+    "name": "Silat",
+    "extend": { "weapons": [ "elc_bld", "elc_blds", "molded_knife", "unbio_bladed_weapon", "flesh_knife" ] }
+  },
+  {
+    "id": "style_eskrima",
+    "copy-from": "style_eskrima",
+    "type": "martial_art",
+    "name": "Eskrima",
+    "extend": { "weapons": [ "elc_bld", "elc_blds", "molded_knife", "unbio_bladed_weapon", "flesh_knife" ] }
+  },
+  {
+    "id": "style_krav_maga",
+    "copy-from": "style_krav_maga",
+    "type": "martial_art",
+    "name": "Krav Maga",
+    "extend": {
+      "weapons": [
+        "elc_bld",
+        "elc_blds",
+        "molded_knife",
+        "unbio_bladed_weapon",
+        "flesh_knife",
+        "neo_laser_pistol",
+        "neo_laser_pistol_ups",
+        "akro_laser_smg",
+        "akro_laser_smg_ups",
+        "arc_laser_rifle",
+        "arc_laser_rifle_ups"
+      ]
+    }
+  },
+  {
+    "id": "style_fencing",
+    "copy-from": "style_fencing",
+    "type": "martial_art",
+    "name": "Fencing",
+    "extend": { "weapons": [ "unbio_sword_weapon", "flesh_blade", "flesh_blade_on" ] }
+  },
+  {
+    "id": "style_swordsmanship",
+    "copy-from": "style_swordsmanship",
+    "type": "martial_art",
+    "name": "Medieval Swordsmanship",
+    "extend": { "weapons": [ "unbio_sword_weapon", "flesh_blade", "flesh_blade_on" ] }
+  },
+  {
+    "id": "style_ninjutsu",
+    "copy-from": "style_ninjutsu",
+    "type": "martial_art",
+    "name": "Ninjutsu",
+    "extend": {
+      "weapons": [
+        "elc_bld",
+        "elc_blds",
+        "molded_knife",
+        "unbio_bladed_weapon",
+        "unbio_sword_weapon",
+        "flesh_knife",
+        "flesh_blade",
+        "flesh_blade_on"
+      ]
+    }
+  },
+  {
+    "id": "style_medievalpole",
+    "copy-from": "style_medievalpole",
+    "type": "martial_art",
+    "name": "Fior Di Battaglia",
+    "extend": { "weapons": [ "molded_axe" ] }
+  }
+]

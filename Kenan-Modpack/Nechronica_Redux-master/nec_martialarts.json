@@ -1,0 +1,53 @@
+[
+  {
+    "type": "martial_art",
+    "id": "style_nec_kung_fu",
+    "name": "Kung Fu",
+    "description": "Kung Fu is a kind of martial art, but it is also means - Skill achieved through hard work - in traditional Chinese. It is characterized by hard striking and flexible body handling, it is good at knocking your opponent off their feet.",
+    "initiate": [ "You stand and become vigilant against attacks *", "%s stands tell ande become vigilant" ],
+    "arm_block": 2,
+    "leg_block": 2,
+    "static_buffs": [
+      {
+        "id": "nec_kung_fu_breath",
+        "name": "Kung fu breath",
+        "description": "You can always keep calm by a unique breathing method. Bonus for avoidance and blow",
+        "unarmed_allowed": true,
+        "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 1.1 } ],
+        "flat_bonuses": [ { "stat": "dodge", "scale": 1.0 } ]
+      }
+    ],
+    "onmove_buffs": [
+      {
+        "id": "nec_kung_fu_move",
+        "name": "Kung fu move",
+        "description": "Using footwork you can always turn to attack and avoid. Bonus to hit and avoid",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "min_unarmed": 1,
+        "buff_duration": 2,
+        "mult_bonuses": [ { "stat": "dodge", "scale": 2.0 }, { "stat": "damage", "type": "bash", "scale": 2.0 } ]
+      }
+    ],
+    "ondodge_buffs": [
+      {
+        "id": "nec_kung_fu_dodge",
+        "name": "Kung fu dodge",
+        "description": "The moment of avoiding the attack is not necessarily a chance. Always hear the gap of counterattack. Bonus for avoidance and blow. Duplicate possible",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "min_unarmed": 1,
+        "buff_duration": 2,
+        "max_stacks": 3,
+        "mult_bonuses": [ { "stat": "dodge", "scale": 2.0 }, { "stat": "damage", "type": "bash", "scale": 1.3 } ]
+      }
+    ],
+    "techniques": [ "tec_nec_hakkei", "tec_nec_senpukyaku", "tec_nec_tetsuzanko" ]
+  },
+  {
+    "type": "martial_art",
+    "copy-from": "style_niten",
+    "id": "style_niten",
+    "extend": { "weapons": [ "nec_fine_katana" ] }
+  }
+]

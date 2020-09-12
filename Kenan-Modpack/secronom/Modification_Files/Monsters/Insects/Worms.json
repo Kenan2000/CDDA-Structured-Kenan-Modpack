@@ -1,0 +1,179 @@
+[
+  {
+    "id": "mon_zombieworm_noxeater",
+    "type": "MONSTER",
+    "name": "noxious eater",
+    "description": "A large, flabby worm with hundreds of dreadful teeth aligned inside its little mouth. It has grown fond of eating necrotic flesh.",
+    "default_faction": "zombie",
+    "species": [ "ZOMBIE", "WORM", "SECROZED_1" ],
+    "volume": "30000 ml",
+    "weight": "40750 g",
+    "harvest": "zombie",
+    "hp": 40,
+    "speed": 60,
+    "material": [ "flesh" ],
+    "symbol": "⟆",
+    "color": "pink",
+    "aggression": 50,
+    "morale": 50,
+    "melee_skill": 4,
+    "melee_dice": 1,
+    "melee_dice_sides": 4,
+    "melee_cut": 2,
+    "dodge": 1,
+    "special_attacks": [
+      {
+        "type": "bite",
+        "cooldown": 12,
+        "accuracy": 4,
+        "damage_max_instance": [
+          { "damage_type": "stab", "amount": 8, "armor_multiplier": 0.3 },
+          { "damage_type": "bash", "amount": 8, "armor_multiplier": 0.3 }
+        ]
+      }
+    ],
+    "death_function": [ "NORMAL" ],
+    "anger_triggers": [ "HURT" ],
+    "upgrades": { "half_life": 6, "into_group": "GROUP_NOX_UPGRADE" },
+    "flags": [ "DIGS", "CAN_DIG", "HEARS", "GOODHEARING", "WARM" ]
+  },
+  {
+    "note": "More on dealing bite damage.",
+    "id": "mon_zombieworm_gravedigger",
+    "type": "MONSTER",
+    "name": "grave digger",
+    "description": "A huge, crimson worm with its thick skin formed like a tough rubber. Under its quad-interloping fangs hinder thousands of ravenous teeth.",
+    "default_faction": "zombie",
+    "species": [ "ZOMBIE", "SECROWORM" ],
+    "volume": "875000 ml",
+    "weight": "200000 g",
+    "harvest": "zombie",
+    "hp": 525,
+    "speed": 30,
+    "material": [ "flesh" ],
+    "symbol": "⚕",
+    "color": "red",
+    "aggression": 50,
+    "morale": 50,
+    "melee_skill": 8,
+    "melee_dice": 2,
+    "melee_dice_sides": 6,
+    "melee_cut": 6,
+    "dodge": 1,
+    "armor_bash": 18,
+    "armor_cut": 4,
+    "armor_stab": 1,
+    "special_attacks": [
+      {
+        "type": "bite",
+        "cooldown": 27,
+        "accuracy": 8,
+        "damage_max_instance": [
+          { "damage_type": "stab", "amount": 30, "armor_multiplier": 0.4 },
+          { "damage_type": "bash", "amount": 30, "armor_multiplier": 0.4 }
+        ]
+      }
+    ],
+    "anger_triggers": [ "HURT" ],
+    "death_function": [ "NORMAL" ],
+    "flags": [ "DIGS", "CAN_DIG", "HEARS", "GOODHEARING", "SMELLS", "WARM", "PLASTIC" ]
+  },
+  {
+    "note": "More on dealing ranged damage.",
+    "id": "mon_zombieworm_wriggly",
+    "type": "MONSTER",
+    "name": "writhing horror",
+    "description": "A massive worm with hundreds of tentacle outgrowths twisting incessantly from its sickly pale red skin. Under its flabby head reveals a row of sinister teeth, deeply accompanied by compact tendrils.",
+    "default_faction": "zombie",
+    "species": [ "ZOMBIE", "SECROWORM" ],
+    "volume": "875000 ml",
+    "weight": "200000 g",
+    "harvest": "zombie",
+    "hp": 710,
+    "speed": 20,
+    "material": [ "flesh" ],
+    "symbol": "☤",
+    "color": "light_red",
+    "aggression": 50,
+    "morale": 50,
+    "dodge": 1,
+    "melee_skill": 10,
+    "melee_dice": 2,
+    "melee_dice_sides": 8,
+    "melee_cut": 4,
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombieworm_wriggly_target" },
+        "cooldown": 40,
+        "monster_message": "<color_yellow>%1$s's tentacles pierces through %3$s</color>!"
+      },
+      {
+        "type": "bite",
+        "cooldown": 22,
+        "accuracy": 7,
+        "damage_max_instance": [
+          { "damage_type": "stab", "amount": 23, "armor_multiplier": 0.5 },
+          { "damage_type": "bash", "amount": 23, "armor_multiplier": 0.2 }
+        ]
+      }
+    ],
+    "armor_bash": 8,
+    "armor_cut": 1,
+    "armor_stab": 1,
+    "death_function": [ "NORMAL" ],
+    "anger_triggers": [ "HURT" ],
+    "flags": [ "DIGS", "CAN_DIG", "HEARS", "SMELLS", "GOODHEARING", "WARM" ]
+  },
+  {
+    "note": "Both deals damage and inflicts debuff.",
+    "id": "mon_zombieworm_mawy",
+    "type": "MONSTER",
+    "name": "sinister maw",
+    "description": "A colossal worm, mysterious to its origin. Its glistening white surface depicts its sly nature, but once it attempts to feast on its prey, its maw can deliver strands of web-like flesh with an inner mouth allowing to consume from a distance.",
+    "default_faction": "zombie",
+    "species": [ "ZOMBIE", "SECROWORM" ],
+    "volume": "875000 ml",
+    "weight": "200000 g",
+    "harvest": "zombie",
+    "hp": 440,
+    "speed": 35,
+    "material": [ "flesh" ],
+    "symbol": "⨛",
+    "color": "white",
+    "aggression": 50,
+    "morale": 50,
+    "emit_fields": [ "emit_mawy_web_immunity" ],
+    "melee_skill": 10,
+    "melee_dice": 4,
+    "melee_dice_sides": 6,
+    "melee_cut": 4,
+    "vision_day": 7,
+    "vision_night": 1,
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombieworm_mawy_target_random" },
+        "cooldown": 22,
+        "self": true,
+        "monster_message": "<color_yellow>%1$s points its orifice at %3$s...</color>"
+      },
+      {
+        "type": "bite",
+        "cooldown": 16,
+        "accuracy": 5,
+        "damage_max_instance": [
+          { "damage_type": "stab", "amount": 20, "armor_multiplier": 0.75, "damage_multiplier": 0.75 },
+          { "damage_type": "bash", "amount": 20, "armor_multiplier": 0.5 }
+        ]
+      }
+    ],
+    "armor_bash": 12,
+    "armor_cut": 2,
+    "armor_stab": 2,
+    "dodge": 2,
+    "death_function": [ "NORMAL" ],
+    "anger_triggers": [ "HURT" ],
+    "flags": [ "DIGS", "CAN_DIG", "SEES", "HEARS", "SMELLS", "WEBWALK", "WARM" ]
+  }
+]

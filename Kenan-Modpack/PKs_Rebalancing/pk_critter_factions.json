@@ -1,0 +1,214 @@
+[
+  {
+    "type": "MONSTER_FACTION",
+    "name": "wildlife",
+    "base_faction": "animal",
+    "neutral": [ "small_animal" ],
+    "by_mood": [ "zombie", "spore" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "fish",
+    "base_faction": "small_animal",
+    "by_mood": [ "fish", "small_animal", "spore" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "fish_predator",
+    "base_faction": "fish",
+    "by_mood": [ "small_animal", "fish" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "fungus",
+    "neutral": [ "finfected", "small_animal", "utility_bot" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "finfected",
+    "base_faction": "fungus",
+    "by_mood": [ "small_animal", "utility_bot", "spore" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "spore",
+    "base_faction": "fungus"
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "dog",
+    "by_mood": [ "small_animal", "dog" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "pidgeon",
+    "base_faction": "small_animal",
+    "friendly": [ "zombie" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "rat",
+    "by_mood": [ "zombie", "small_animal" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "wasp",
+    "base_faction": "insect",
+    "neutral": [ "small_animal", "spore" ],
+    "by_mood": [ "insect", "zombie", "triffid" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "dermatik",
+    "base_faction": "wasp"
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "ant",
+    "base_faction": "insect",
+    "neutral": [ "small_animal" ],
+    "by_mood": [ "insect", "zombie", "triffid", "spore" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "ant_hack",
+    "//": "work around the antqueen redesign, makes larvae upgrade to ants that will not devolve into larvae.  Effectively weakens queen power.",
+    "base_faction": "ant",
+    "friendly": [ "ant" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "ant_male",
+    "base_faction": "ant",
+    "by_mood": [ "ant_male" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "triffid",
+    "friendly": [ "spider", "bee" ],
+    "neutral": [ "small_animal" ],
+    "by_mood": [ "bot", "insect", "mutant_small" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "spider",
+    "base_faction": "insect",
+    "friendly": [ "triffid" ],
+    "neutral": [ "small_animal" ],
+    "by_mood": [ "insect", "spider", "spore" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "spider_wolf",
+    "base_faction": "spider",
+    "by_mood": [ "zombie" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "spider_trapdoor",
+    "base_faction": "spider",
+    "by_mood": [ "small_animal" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "spider_widow",
+    "base_faction": "spider",
+    "by_mood": [ "small_animal" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "spider_cellar",
+    "base_faction": "spider",
+    "by_mood": [ "small_animal" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "zombie",
+    "friendly": [ "blob", "cult", "zed_doom", "zombie_aquatic" ],
+    "neutral": [ "small_animal", "insect", "mutant_small", "cat", "rat" ],
+    "by_mood": [ "ant", "spider_wolf", "wasp", "spore" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "nether",
+    "neutral": [ "blob" ],
+    "by_mood": [ "cult", "small_animal", "zed_doom" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "shadow",
+    "base_faction": "nether",
+    "neutral": [ "cult" ],
+    "by_mood": [ "blob", "zombie", "zed_doom" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "doom",
+    "by_mood": [ "small_animal", "spore" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "upper_doom",
+    "base_faction": "doom",
+    "neutral": [ "small_animal", "utility_bot" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "zed_doom",
+    "base_faction": "doom",
+    "neutral": [ "zombie", "blob" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "defense_bot",
+    "base_faction": "bot",
+    "neutral": [ "bot", "small_animal", "military", "science" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "science",
+    "base_faction": "zombie",
+    "neutral": [ "bot", "small_animal", "military", "defense_bot", "utility_bot" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "military",
+    "base_faction": "bot",
+    "neutral": [ "bot", "small_animal", "science", "defense_bot" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "mutant",
+    "by_mood": [ "small_animal", "utility_bot", "mutant_omnivore", "spore" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "mutant_omnivore",
+    "neutral": [ "utility_bot", "small_animal" ],
+    "by_mood": [ "mutant_predator", "mutant" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "mutant_predator",
+    "neutral": [ "vermin" ],
+    "by_mood": [ "mutant_omnivore" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "mutant_small",
+    "base_faction": "mutant",
+    "neutral": [ "zombie", "blob", "defense_bot", "utility_bot", "mutant" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "bear",
+    "base_faction": "mutant",
+    "by_mood": [ "bear_mating" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "bear_mating",
+    "base_faction": "mutant",
+    "by_mood": [ "bear" ]
+  }
+]

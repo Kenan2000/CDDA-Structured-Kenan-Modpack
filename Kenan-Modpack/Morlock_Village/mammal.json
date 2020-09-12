@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mon_pig_piglet_mutant_cave",
+    "type": "MONSTER",
+    "copy-from": "mon_pig_piglet",
+    "name": "cave piglet",
+    "description": "A mutant omnivore descended from the domestic pig.  It has adapted to life underground by losing all skin pigment, going blind, and becoming even less picky about what it eats.",
+    "categories": [ "NULL" ],
+    "species": [ "MUTANT" ],
+    "symbol": "p",
+    "color": "white",
+    "looks_like": "mon_pig_piglet",
+    "upgrades": { "age_grow": 20, "into": "mon_pig_mutant_cave" },
+    "delete": { "flags": [ "SEES" ] }
+  },
+  {
+    "id": "mon_pig_mutant_cave",
+    "type": "MONSTER",
+    "copy-from": "mon_pig",
+    "name": "cave pig",
+    "looks_like": "mon_pig",
+    "description": "A mutant omnivore descended from the domestic pig.  It has adapted to life underground by losing all skin pigment, going blind, and becoming even less picky about what it eats.",
+    "default_faction": "pig",
+    "categories": [ "NULL" ],
+    "species": [ "MUTANT" ],
+    "symbol": "P",
+    "color": "white",
+    "aggression": -10,
+    "reproduction": { "baby_monster": "mon_pig_piglet_mutant_cave", "baby_count": 3, "baby_timer": 10 },
+    "delete": { "flags": [ "SEES" ] }
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "cbma_myomer_repair_tool",
+    "type": "TOOL",
+    "name": { "str": "myomer repair tool", "str_pl": "myomer repair tools" },
+    "description": "A complete set of tools for repairing damaged myomeric fibers. In order to repair, it is necessary to cancel the power supply to the myomer fiber.",
+    "weight": "150 g",
+    "volume": "3750 ml",
+    "price": 0,
+    "material": [ "steel" ],
+    "symbol": "=",
+    "color": "dark_gray",
+    "looks_like": "welder",
+    "ammo": [ "battery" ],
+    "max_charges": 200,
+    "charges_per_use": 5,
+    "qualities": [ [ "CUT", 1 ], [ "CUT_FINE", 3 ], [ "SEW", 1 ] ],
+    "use_action": {
+      "type": "repair_item",
+      "item_action_type": "repair_myomer",
+      "materials": [ "myomer" ],
+      "skill": "firstaid",
+      "tool_quality": 5,
+      "cost_scaling": 0.1,
+      "move_cost": 750
+    }
+  },
+  {
+    "id": "cbma_myomer_fiber_dupe",
+    "type": "TOOL",
+    "name": { "str": "myomer fiber (in culture)", "str_pl": "myomer fibers (in culture)" },
+    "description": "The core of myomer fiber is immersed in the culture solution and grown. The process will be completed in one hour.",
+    "weight": "150 g",
+    "volume": "250 ml",
+    "price": 0,
+    "material": [ "glass", "myomer_on" ],
+    "symbol": "=",
+    "color": "dark_gray",
+    "looks_like": "flask_glass",
+    "use_action": {
+      "target": "cbma_myomer_fiber_dupe_done",
+      "msg": "It seems that the culture of myomer fibers is complete.",
+      "moves": 150,
+      "type": "delayed_transform",
+      "transform_age": 14400,
+      "not_ready_msg": "It does not seem to be completed yet."
+    }
+  },
+  {
+    "id": "cbma_myomer_fiber_dupe_done",
+    "type": "GENERIC",
+    "name": { "str": "myomer fiber (done)", "str_pl": "myomer fibers (done)" },
+    "description": "The core of myomer fiber was soaked in culture medium and grown. It is possible to take out the myomer fiber by disassembling.",
+    "weight": "250 g",
+    "volume": "250 ml",
+    "price": 0,
+    "material": [ "glass", "myomer_on" ],
+    "symbol": "=",
+    "color": "dark_gray",
+    "looks_like": "flask_glass"
+  },
+  {
+    "type": "GENERIC",
+    "id": "cbma_myomer_fiber",
+    "symbol": ",",
+    "color": "brown",
+    "looks_like": "sinew",
+    "name": { "str": "myomer fiber", "str_pl": "myomer fibers" },
+    "description": "A bundle of refined myomer fibers. It can be used for making and repairing.",
+    "price": 0,
+    "material": [ "myomer_on" ],
+    "flags": [ "NO_SALVAGE" ],
+    "weight": "77 g",
+    "volume": "250 ml",
+    "category": "spare_parts"
+  }
+]

@@ -1,0 +1,333 @@
+[
+  {
+    "id": "t_ninja_secret_door_c",
+    "type": "terrain",
+    "name": "wall",
+    "description": "This is a secret door",
+    "symbol": "LINE_OXOX",
+    "color": [ "light_gray" ],
+    "move_cost": 0,
+    "roof": "t_flat_roof",
+    "open": "t_ninja_secret_door_o",
+    "bash": {
+      "str_min": 100,
+      "str_max": 300,
+      "ter_set": "t_ninja_secret_door_d",
+      "sound": "smash!",
+      "sound_fail": "whump!",
+      "items": [
+        { "item": "2x4", "prob": 40, "count": 4 },
+        { "item": "rock", "prob": 60, "count": 8 },
+        { "item": "nail", "prob": 30, "count": 10 }
+      ]
+    },
+    "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL" ]
+  },
+  {
+    "id": "t_ninja_secret_door_d",
+    "type": "terrain",
+    "name": "Damaged hidden door (wall)",
+    "description": "This is a damaged hidden door",
+    "symbol": "&",
+    "color": [ "light_gray" ],
+    "move_cost": 0,
+    "roof": "t_flat_roof",
+    "bash": {
+      "str_min": 100,
+      "str_max": 300,
+      "ter_set": "t_door_frame",
+      "sound": "crash!",
+      "sound_fail": "whump!",
+      "items": [
+        { "item": "2x4", "prob": 40, "count": 4 },
+        { "item": "rock", "prob": 60, "count": 8 },
+        { "item": "nail", "prob": 30, "count": 10 }
+      ]
+    },
+    "flags": [
+      "TRANSPARENT",
+      "FLAMMABLE_ASH",
+      "NOITEM",
+      "SUPPORTS_ROOF",
+      "REDUCE_SCENT",
+      "BARRICADABLE_DOOR_DAMAGED",
+      "PERMEABLE",
+      "CONNECT_TO_WALL"
+    ]
+  },
+  {
+    "id": "t_ninja_secret_door_o",
+    "type": "terrain",
+    "name": "Open hidden door (wall)",
+    "description": "This is an open hidden door",
+    "symbol": "'",
+    "color": [ "light_gray" ],
+    "move_cost": 2,
+    "roof": "t_flat_roof",
+    "close": "t_ninja_secret_door_c",
+    "bash": {
+      "str_min": 100,
+      "str_max": 300,
+      "ter_set": "t_door_frame",
+      "sound": "crash!",
+      "sound_fail": "whump!",
+      "items": [
+        { "item": "2x4", "prob": 40, "count": 4 },
+        { "item": "rock", "prob": 60, "count": 8 },
+        { "item": "nail", "prob": 30, "count": 10 }
+      ]
+    },
+    "deconstruct": {
+      "ter_set": "t_door_frame",
+      "items": [
+        { "item": "2x4", "prob": 40, "count": 4 },
+        { "item": "rock", "prob": 60, "count": 8 },
+        { "item": "nail", "prob": 30, "count": 10 }
+      ]
+    },
+    "flags": [ "FLAMMABLE_ASH", "TRANSPARENT", "SUPPORTS_ROOF", "FLAT", "BARRICADABLE_DOOR", "CONNECT_TO_WALL", "ROAD" ]
+  },
+  {
+    "id": "t_ninja_secret_door_metal_c",
+    "type": "terrain",
+    "name": "wall(metal)",
+    "description": "This is a ninja secret metal wall",
+    "symbol": "LINE_OXOX",
+    "color": [ "light_gray" ],
+    "move_cost": 0,
+    "roof": "t_flat_roof",
+    "open": "t_ninja_secret_door_metal_o",
+    "bash": {
+      "str_min": 200,
+      "str_max": 600,
+      "ter_set": "t_ninja_secret_door_metal_d",
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "steel_lump", "count": [ 1, 4 ] },
+        { "item": "steel_chunk", "count": [ 3, 12 ] },
+        { "item": "scrap", "count": [ 9, 36 ] }
+      ]
+    },
+    "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL" ]
+  },
+  {
+    "id": "t_ninja_secret_door_metal_d",
+    "type": "terrain",
+    "name": "Damaged secret door (metal)",
+    "description": "This is a damaged ninja secret door",
+    "symbol": "&",
+    "color": [ "light_gray" ],
+    "move_cost": 0,
+    "roof": "t_flat_roof",
+    "bash": {
+      "str_min": 200,
+      "str_max": 600,
+      "ter_set": "t_mdoor_frame",
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "steel_lump", "count": [ 1, 4 ] },
+        { "item": "steel_chunk", "count": [ 3, 12 ] },
+        { "item": "scrap", "count": [ 9, 36 ] }
+      ]
+    },
+    "flags": [
+      "TRANSPARENT",
+      "FLAMMABLE_ASH",
+      "NOITEM",
+      "SUPPORTS_ROOF",
+      "REDUCE_SCENT",
+      "BARRICADABLE_DOOR_DAMAGED",
+      "PERMEABLE",
+      "CONNECT_TO_WALL"
+    ]
+  },
+  {
+    "id": "t_ninja_secret_door_metal_o",
+    "type": "terrain",
+    "name": "Open secret door (metal)",
+    "description": "This is an open ninja secret door",
+    "symbol": "'",
+    "color": [ "light_gray" ],
+    "move_cost": 2,
+    "roof": "t_flat_roof",
+    "close": "t_ninja_secret_door_metal_c",
+    "bash": {
+      "str_min": 200,
+      "str_max": 600,
+      "ter_set": "t_mdoor_frame",
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "steel_lump", "count": [ 1, 4 ] },
+        { "item": "steel_chunk", "count": [ 3, 12 ] },
+        { "item": "scrap", "count": [ 9, 36 ] }
+      ]
+    },
+    "deconstruct": {
+      "ter_set": "t_mdoor_frame",
+      "items": [
+        { "item": "steel_lump", "count": [ 1, 4 ] },
+        { "item": "steel_chunk", "count": [ 3, 12 ] },
+        { "item": "scrap", "count": [ 9, 36 ] }
+      ]
+    },
+    "flags": [ "FLAMMABLE_ASH", "TRANSPARENT", "FLAT", "SUPPORTS_ROOF", "BARRICADABLE_DOOR", "CONNECT_TO_WALL", "ROAD" ]
+  },
+  {
+    "id": "t_ninja_secret_gate_control",
+    "type": "terrain",
+    "name": "wall",
+    "description": "This is a secret ninja gate control",
+    "symbol": "LINE_OXOX",
+    "color": [ "light_gray" ],
+    "move_cost": 0,
+    "roof": "t_flat_roof",
+    "examine_action": "controls_gate",
+    "bash": {
+      "str_min": 100,
+      "str_max": 300,
+      "ter_set": "t_ninja_secret_door_d",
+      "sound": "smash!",
+      "sound_fail": "whump!",
+      "items": [
+        { "item": "2x4", "prob": 40, "count": 4 },
+        { "item": "rock", "prob": 60, "count": 8 },
+        { "item": "nail", "prob": 30, "count": 10 }
+      ]
+    },
+    "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL" ]
+  },
+  {
+    "id": "t_ninja_secret_wall",
+    "type": "terrain",
+    "name": "wall",
+    "description": "This is a secret ninja wall",
+    "symbol": "LINE_OXOX",
+    "color": [ "light_gray" ],
+    "move_cost": 0,
+    "roof": "t_flat_roof",
+    "bash": {
+      "str_min": 100,
+      "str_max": 300,
+      "ter_set": "t_ninja_secret_door_d",
+      "sound": "smash!",
+      "sound_fail": "whump!",
+      "items": [
+        { "item": "2x4", "prob": 40, "count": 4 },
+        { "item": "rock", "prob": 60, "count": 8 },
+        { "item": "nail", "prob": 30, "count": 10 }
+      ]
+    },
+    "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL" ]
+  },
+  {
+    "id": "t_ninja_secret_rock_floor",
+    "type": "terrain",
+    "name": "Bed (rock)",
+    "description": "This is a ninja secret rock floor",
+    "symbol": ".",
+    "color": [ "light_gray" ],
+    "move_cost": 2,
+    "roof": "t_flat_roof",
+    "bash": { "str_min": 75, "str_max": 400, "str_min_supported": 100, "ter_set": "t_null", "bash_below": true },
+    "flags": [ "TRANSPARENT", "INDOORS", "FLAT", "SUPPORTS_ROOF", "ROAD" ]
+  },
+  {
+    "id": "t_ninja_secret_gate_control_metal",
+    "type": "terrain",
+    "name": "Wall (metal)",
+    "description": "This is a secret ninja metal gate control",
+    "symbol": "LINE_OXOX",
+    "color": [ "light_gray" ],
+    "move_cost": 0,
+    "roof": "t_flat_roof",
+    "examine_action": "controls_gate",
+    "bash": {
+      "str_min": 200,
+      "str_max": 600,
+      "ter_set": "t_ninja_secret_door_metal_d",
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "steel_lump", "count": [ 1, 4 ] },
+        { "item": "steel_chunk", "count": [ 3, 12 ] },
+        { "item": "scrap", "count": [ 9, 36 ] }
+      ]
+    },
+    "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL" ]
+  },
+  {
+    "id": "t_ninja_secret_wall_metal",
+    "type": "terrain",
+    "name": "Wall (metal)",
+    "description": "This is a secret ninja metal wall",
+    "symbol": "LINE_OXOX",
+    "color": [ "light_gray" ],
+    "move_cost": 0,
+    "roof": "t_flat_roof",
+    "bash": {
+      "str_min": 200,
+      "str_max": 600,
+      "ter_set": "t_ninja_secret_door_metal_d",
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "steel_lump", "count": [ 1, 4 ] },
+        { "item": "steel_chunk", "count": [ 3, 12 ] },
+        { "item": "scrap", "count": [ 9, 36 ] }
+      ]
+    },
+    "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL" ]
+  },
+  {
+    "id": "t_ninja_secret_floor",
+    "type": "terrain",
+    "name": "floor",
+    "description": "This is a ninja secret floor",
+    "symbol": ".",
+    "color": [ "light_gray" ],
+    "move_cost": 2,
+    "roof": "t_flat_roof",
+    "bash": { "str_min": 75, "str_max": 400, "str_min_supported": 100, "ter_set": "t_null", "bash_below": true },
+    "flags": [ "TRANSPARENT", "INDOORS", "FLAT", "SUPPORTS_ROOF", "ROAD" ]
+  },
+  {
+    "id": "t_ninja_secret_gate_control_air",
+    "type": "terrain",
+    "name": "bed",
+    "description": "This is a ninja secret air gate control",
+    "symbol": ".",
+    "color": [ "light_gray" ],
+    "move_cost": 2,
+    "roof": "t_flat_roof",
+    "examine_action": "controls_gate",
+    "bash": { "str_min": 75, "str_max": 400, "str_min_supported": 100, "ter_set": "t_null", "bash_below": true },
+    "flags": [ "TRANSPARENT", "INDOORS", "FLAT", "SUPPORTS_ROOF", "ROAD" ]
+  },
+  {
+    "id": "t_ninja_secret_gate_control_water",
+    "type": "terrain",
+    "name": "wall",
+    "description": "This is a ninja secret water gate control",
+    "symbol": "LINE_OXOX",
+    "color": [ "light_gray" ],
+    "move_cost": 0,
+    "roof": "t_flat_roof",
+    "examine_action": "controls_gate",
+    "bash": {
+      "str_min": 100,
+      "str_max": 300,
+      "ter_set": "t_ninja_secret_door_d",
+      "sound": "smash!",
+      "sound_fail": "whump!",
+      "items": [
+        { "item": "2x4", "prob": 40, "count": 4 },
+        { "item": "rock", "prob": 60, "count": 8 },
+        { "item": "nail", "prob": 30, "count": 10 }
+      ]
+    },
+    "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL" ]
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "name": "CAMPERS_FALLOUT",
+    "type": "monstergroup",
+    "default": "mon_null",
+    "monsters": [
+      { "monster": "mon_zombie", "freq": 100, "cost_multiplier": 1, "pack_size": [ 1, 3 ] },
+      { "monster": "mon_zombie_survivor", "freq": 100, "cost_multiplier": 3, "pack_size": [ 1, 2 ] },
+      { "monster": "mon_zombie_child", "freq": 100, "cost_multiplier": 1, "pack_size": [ 1, 2 ] },
+      { "monster": "mon_zombie_rot", "freq": 100, "cost_multiplier": 1, "pack_size": [ 1, 3 ] },
+      { "monster": "mon_zombie_dog", "freq": 200, "cost_multiplier": 1, "pack_size": [ 1, 3 ] }
+    ]
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "campsite" ],
+    "weight": 50,
+    "object": {
+      "rows": [
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        ".........###............",
+        "......t..#'#...t........",
+        ".........#+#............",
+        "....###.................",
+        "....#'+....-............",
+        "....###..-ddd-..........",
+        "..........dbd...........",
+        "....###..-ddd-..........",
+        "....#'+....-............",
+        "....###.................",
+        ".........#+#..#+#.......",
+        "....-r-..#'#..#'#.......",
+        "....-r-..###..###.......",
+        "........................",
+        "....-r-...t....t........",
+        "....-r-.............t...",
+        "........................",
+        "........................",
+        "........................",
+        "........................"
+      ],
+      "terrain": {
+        "#": "t_grass",
+        "'": "t_grass",
+        "+": "t_grass",
+        "-": "t_dirt",
+        ".": [ "t_grass", "t_grass", "t_grass", "t_grass", "t_grass", "t_dirt" ],
+        "b": "t_dirt",
+        "d": "t_dirt",
+        "r": "t_dirt",
+        "t": "t_tree"
+      },
+      "furniture": {
+        "#": "f_canvas_wall",
+        "'": "f_groundsheet",
+        "+": "f_canvas_door",
+        "-": "f_camp_chair",
+        "b": "f_firering",
+        "r": "f_tourist_table"
+      },
+      "place_items": [
+        { "item": "food_prewar_fallout", "x": [ 16, 4 ], "y": [ 21, 7 ], "chance": 75 },
+        { "item": "food_prewar_fallout", "x": [ 16, 4 ], "y": [ 21, 7 ], "chance": 75 },
+        { "item": "pasta", "x": [ 16, 4 ], "y": [ 21, 7 ], "chance": 75 },
+        { "item": "camping", "x": [ 10, 8 ], "y": [ 15, 13 ], "chance": 75 },
+        {
+          "item": "guns_fallout_rifle_common",
+          "x": [ 10, 8 ],
+          "y": [ 15, 13 ],
+          "chance": 50,
+          "ammo": 90,
+          "magazine": 100
+        },
+        { "item": "ammo_fallout_rifle_common", "x": [ 10, 8 ], "y": [ 15, 13 ], "chance": 50 }
+      ],
+      "place_monsters": [ { "monster": "CAMPERS_FALLOUT", "x": [ 0, 23 ], "y": [ 0, 23 ], "chance": 75, "repeat": [ 1, 3 ] } ]
+    }
+  }
+]

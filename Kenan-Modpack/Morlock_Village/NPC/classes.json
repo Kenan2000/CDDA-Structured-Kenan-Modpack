@@ -1,0 +1,39 @@
+[
+  {
+    "type": "npc_class",
+    "id": "NC_MORLOCK",
+    "name": "morlock",
+    "job_description": "I live in the sewer now.  That about sums it up.",
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 4, 2 ] }, { "rng": [ -3, 0 ] } ] } ] } }
+    ],
+    "traits": [ { "group": "morlock_traits" } ]
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_MORLOCK_TRADER",
+    "name": "morlock trader",
+    "job_description": "I make trade deals for the morlocks.",
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 4, 2 ] }, { "rng": [ -3, 2 ] } ] } ] } }
+    ],
+    "shopkeeper_item_group": "NC_MORLOCK_TRADER_misc",
+    "traits": [ { "group": "morlock_traits" } ]
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_MORLOCK_LIBRARIAN",
+    "name": "morlock librarian",
+    "job_description": "I gather and preserve books.",
+    "bonus_int": { "rng": [ 1, 5 ] },
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 4, 2 ] }, { "rng": [ -1, 1 ] } ] } ] } }
+    ],
+    "traits": [
+      { "group": "morlock_traits" },
+      { "trait": "FASTREADER", "prob": 100 },
+      { "trait": "LOVES_BOOKS", "prob": 100 },
+      { "trait": "INT_UP_2", "prob": 100 }
+    ]
+  }
+]

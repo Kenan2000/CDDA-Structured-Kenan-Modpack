@@ -1,0 +1,510 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_main",
+    "dynamic_line": {
+      "u_has_effect": "secro_scientist_asked_all",
+      "no": "A survivor? What are you doing here despite the raging chaos?\nAnyway, you'll be safe in here.",
+      "yes": {
+        "u_has_effect": "secro_scientist_asked_lab_secret",
+        "no": "You need to know more information?",
+        "yes": {
+          "u_has_effect": "secro_scientist_mission1_progress",
+          "no": "Perhaps I've told you everything I know...",
+          "yes": {
+            "u_has_effect": "secro_scientist_partake_mission1",
+            "no": "No, this is not the BOW chamber...",
+            "yes": {
+              "u_has_effect": "secro_scientist_udisgustcoldblood",
+              "no": "Now that we're here, we won't be bothered by those shambling maneaters... for now.",
+              "yes": [ "What do you need, survivor?", "You need something?" ]
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Who are you?",
+        "topic": "TALK_SECRO_SCIENTIST_whoisme",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_all" } }
+      },
+      {
+        "text": "What is this place?",
+        "topic": "TALK_SECRO_SCIENTIST_whereisme",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_lab_secret" } }
+      },
+      {
+        "text": "So what are your future plans?",
+        "topic": "TALK_SECRO_SCIENTIST_plans",
+        "condition": {
+          "and": [
+            { "u_has_effect": "secro_scientist_asked_all" },
+            { "u_has_effect": "secro_scientist_asked_lab_secret" },
+            { "not": { "u_has_effect": "secro_scientist_mission1_progress" } },
+            { "not": { "u_has_effect": "secro_scientist_hold_mission1" } }
+          ]
+        }
+      },
+      {
+        "text": "I'm ready to push forward.",
+        "topic": "TALK_SECRO_SCIENTIST_plans_yes",
+        "condition": {
+          "and": [
+            { "u_has_effect": "secro_scientist_hold_mission1" },
+            { "not": { "u_has_effect": "secro_scientist_mission1_progress" } }
+          ]
+        }
+      },
+      {
+        "text": "I'd like to know more about the secronom project.",
+        "topic": "TALK_SECRO_SCIENTIST_secronom_what",
+        "condition": {
+          "and": [
+            { "u_has_effect": "secro_scientist_partake_mission1" },
+            { "not": { "u_has_effect": "secro_scientist_udisgustcoldblood" } }
+          ]
+        }
+      },
+      {
+        "text": "Is there anything I can do to help?",
+        "topic": "TALK_SECRO_SCIENTIST_uhelp",
+        "condition": {
+          "and": [
+            { "u_has_effect": "secro_scientist_partake_mission1" },
+            { "not": { "u_has_effect": "secro_scientist_mission2_progress" } }
+          ]
+        }
+      },
+      {
+        "text": "I'm ready for the job.",
+        "topic": "TALK_SECRO_SCIENTIST_uhelp_turret",
+        "condition": {
+          "and": [
+            { "u_has_effect": "secro_scientist_hold_mission2" },
+            { "not": { "u_has_effect": "secro_scientist_mission1_progress" } }
+          ]
+        }
+      },
+      {
+        "text": "About the repairs...",
+        "topic": "TALK_SECRO_SCIENTIST_repair",
+        "condition": { "u_has_effect": "secro_scientist_partake_mission2" }
+      },
+      { "text": "Bye.", "topic": "TALK_DONE", "condition": { "u_has_effect": "secro_scientist_partake_mission1" } }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_whoisme",
+    "dynamic_line": "I'm a researcher.",
+    "responses": [
+      { "text": "Of what exactly?", "topic": "TALK_SECRO_SCIENTIST_whoisme_srsly" },
+      { "text": "...", "topic": "TALK_SECRO_SCIENTIST_main" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_whoisme_srsly",
+    "dynamic_line": "Its not important, but if you wish to know, I don't mind ... since everything's messed up already.",
+    "responses": [
+      { "text": "Then tell me your secrets.", "topic": "TALK_SECRO_SCIENTIST_whoisme_secret" },
+      { "text": "Lets talk about that later.", "topic": "TALK_SECRO_SCIENTIST_main" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_whoisme_secret",
+    "dynamic_line": "... Its the secronom project, a project that involves human augmentation using animal and alien genetics.",
+    "responses": [
+      {
+        "text": "And what's the purpose of the secronom project?",
+        "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_secro",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secro" }
+      },
+      {
+        "text": "Human augmentation?",
+        "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_augment",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_augment" }
+      },
+      {
+        "text": "What about genetics?",
+        "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_gene",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_gene" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_gene" }
+      },
+      {
+        "text": "I guess I've asked everything...",
+        "topic": "TALK_SECRO_SCIENTIST_main",
+        "condition": {
+          "and": [
+            { "u_has_effect": "secro_scientist_asked_secro" },
+            { "u_has_effect": "secro_scientist_asked_augment" },
+            { "u_has_effect": "secro_scientist_asked_gene" }
+          ]
+        },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_all" }
+      },
+      { "text": "...", "topic": "TALK_SECRO_SCIENTIST_main" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_whoisme_secret_secro",
+    "dynamic_line": "For military, yet I'm not sure if there's beyond that case. I don't know what it is, but the ones who can answer that are not in here anymore.",
+    "responses": [
+      {
+        "text": "Human augmentation?",
+        "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_augment",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_augment" }
+      },
+      {
+        "text": "What about genetics?",
+        "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_gene",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_gene" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_gene" }
+      },
+      {
+        "text": "I guess I've asked everything...",
+        "topic": "TALK_SECRO_SCIENTIST_main",
+        "condition": {
+          "and": [
+            { "u_has_effect": "secro_scientist_asked_secro" },
+            { "u_has_effect": "secro_scientist_asked_augment" },
+            { "u_has_effect": "secro_scientist_asked_gene" }
+          ]
+        },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_all" }
+      },
+      {
+        "text": "...",
+        "topic": "TALK_SECRO_SCIENTIST_main",
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_gene" } }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_whoisme_secret_augment",
+    "dynamic_line": "You heard it. The government permits this project to perform human experimentation. Don't worry, the subjects here are outlaws of the society.",
+    "responses": [
+      {
+        "text": "And what's the purpose of secronom?",
+        "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_secro",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secro" }
+      },
+      {
+        "text": "What about genetics?",
+        "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_gene",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_gene" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_gene" }
+      },
+      {
+        "text": "I guess I've asked everything...",
+        "topic": "TALK_SECRO_SCIENTIST_main",
+        "condition": {
+          "and": [
+            { "u_has_effect": "secro_scientist_asked_secro" },
+            { "u_has_effect": "secro_scientist_asked_augment" },
+            { "u_has_effect": "secro_scientist_asked_gene" }
+          ]
+        },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_all" }
+      },
+      {
+        "text": "... but they didn't deserve this.",
+        "topic": "TALK_SECRO_SCIENTIST_main",
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_gene" } }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_whoisme_secret_gene",
+    "dynamic_line": "We've extracted the genes of an animal, then mixed with a catalyst. The catalyst is a classified object, so I can't tell you what it is.",
+    "responses": [
+      {
+        "text": "And what's the purpose of secronom?",
+        "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_secro",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secro" }
+      },
+      {
+        "text": "Human augmentation?",
+        "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_augment",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_augment" }
+      },
+      {
+        "text": "I guess I've asked everything...",
+        "topic": "TALK_SECRO_SCIENTIST_main",
+        "condition": {
+          "and": [
+            { "u_has_effect": "secro_scientist_asked_secro" },
+            { "u_has_effect": "secro_scientist_asked_augment" },
+            { "u_has_effect": "secro_scientist_asked_gene" }
+          ]
+        },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_all" }
+      },
+      {
+        "text": "...",
+        "topic": "TALK_SECRO_SCIENTIST_main",
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_gene" } }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_whereisme",
+    "dynamic_line": "This is the secronom bunker, built solely as our last option for survival.",
+    "responses": [
+      {
+        "text": "So why won't you escape this place?",
+        "topic": "TALK_SECRO_SCIENTIST_whereisme_escape",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_escape" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_escape" }
+      },
+      {
+        "text": "Why is it connected to the lab?",
+        "topic": "TALK_SECRO_SCIENTIST_whereisme_lab",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_lab" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_lab" }
+      },
+      {
+        "text": "Well? What have you earned for doing those?",
+        "topic": "TALK_SECRO_SCIENTIST_whereisme_lab",
+        "condition": { "u_has_effect": "secro_scientist_asked_lab" }
+      },
+      { "text": "Okay.", "topic": "TALK_SECRO_SCIENTIST_main" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_whereisme_escape",
+    "dynamic_line": "I know escaping is our best option, but what lies beyond the wastelands is our main reason why we shouldn't travel.",
+    "responses": [
+      {
+        "text": "So why is it connected to the lab?",
+        "topic": "TALK_SECRO_SCIENTIST_whereisme_lab",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_lab" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_lab" }
+      },
+      {
+        "text": "Well? What have you earned for doing those?",
+        "topic": "TALK_SECRO_SCIENTIST_whereisme_lab",
+        "condition": { "u_has_effect": "TALK_SECRO_SCIENTIST_whereisme_lab_result" }
+      },
+      { "text": "(pussies)", "topic": "TALK_SECRO_SCIENTIST_main" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_whereisme_lab",
+    "dynamic_line": "That's because we work in there, and performing scientific experiments and discovering newfound technologies is our foundation.",
+    "responses": [
+      {
+        "text": "Why won't you escape this place?",
+        "topic": "TALK_SECRO_SCIENTIST_whereisme_escape",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_escape" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_escape" }
+      },
+      {
+        "text": "Well? What have you earned for doing those?",
+        "topic": "TALK_SECRO_SCIENTIST_whereisme_lab_result",
+        "condition": { "u_has_effect": "secro_scientist_asked_lab" }
+      },
+      { "text": "Okay.", "topic": "TALK_SECRO_SCIENTIST_main" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_whereisme_lab_result",
+    "dynamic_line": "Regrets. I know you have encountered those ugly bastards, but they are the result of our experiments. And the tech? All of them are incomplete.",
+    "responses": [
+      {
+        "text": "... So, is there anything else I need to know about the lab?",
+        "topic": "TALK_SECRO_SCIENTIST_whereisme_lab_secret"
+      },
+      { "text": "That's unfortunate, but there's nothing I can do.", "topic": "TALK_SECRO_SCIENTIST_main" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_whereisme_lab_secret",
+    "dynamic_line": "Well, if you're interested, I can tell you one thing... Deep below this facility is a weapon of mass destruction, created for military \"use\".",
+    "responses": [
+      {
+        "text": "Thanks for the info, I guess...",
+        "topic": "TALK_SECRO_SCIENTIST_main",
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_lab_secret" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_plans",
+    "dynamic_line": "My plan is a bit risky, and I'll need you to guide us all.",
+    "responses": [
+      { "text": "I'm in for that!", "topic": "TALK_SECRO_SCIENTIST_plans_yes" },
+      { "text": "Maybe later.", "topic": "TALK_SECRO_SCIENTIST_main" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_plans_yes",
+    "dynamic_line": {
+      "u_has_effect": "secro_scientist_mission1_progress",
+      "no": "Good. We need you to help us take over the BOW's chamber. With that, we can once again perform scientific experiments solely for our survival.",
+      "yes": "Now, let's plow through the horde!"
+    },
+    "responses": [
+      {
+        "text": "Lets go!",
+        "topic": "TALK_MISSION_OFFER",
+        "condition": { "not": { "u_has_effect": "secro_scientist_mission1_progress" } }
+      },
+      {
+        "text": "... later, I need to gear up.",
+        "topic": "TALK_SECRO_SCIENTIST_main",
+        "condition": { "not": { "u_has_effect": "secro_scientist_mission1_progress" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_hold_mission1" }
+      },
+      {
+        "text": "I'll lead the way!",
+        "topic": "TALK_DONE",
+        "condition": { "u_has_effect": "secro_scientist_mission1_progress" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_secronom_what",
+    "dynamic_line": {
+      "u_has_effect": "secro_scientist_asked_secronom_spread",
+      "no": "What's on your mind?",
+      "yes": {
+        "u_has_effect": "secro_scientist_asked_secronom_wanderers",
+        "no": "I see, you're curious about our \"unexpecting\" creations...",
+        "yes": "This is science, you see? You may think we're the gruesome ones, but what we want is to open up new discoveries for us all. Yes, we messed up, but we're still here, struggling and helping each other to survive this nightmare.\nI can't change your opinion towards us, but if you want to know more about the secronom project, talk to our researcher."
+      }
+    },
+    "responses": [
+      {
+        "text": "Are those mutants in the city were the result of secronom project?",
+        "topic": "TALK_SECRO_SCIENTIST_secronom_what_cityzeds",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_secronom_spread" } }
+      },
+      {
+        "text": "Are there some other threats this project has created that I need to be aware of?",
+        "topic": "TALK_SECRO_SCIENTIST_secronom_what_wanderers",
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_secronom_wanderers" } }
+      },
+      {
+        "truefalsetext": { "condition": { "u_has_effect": "secro_scientist_asked_secronom_wanderers" }, "true": "....", "false": "Maybe later." },
+        "trial": { "type": "CONDITION", "condition": { "u_has_trait": "secro_scientist_asked_secronom_wanderers" } },
+        "success": { "topic": "TALK_DONE", "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_udisgustcoldblood" } },
+        "failure": { "topic": "TALK_SECRO_SCIENTIST_main" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_secronom_what_cityzeds",
+    "dynamic_line": "What? That can't be good...\nYou know, secronom has an extreme potency of alteration once it comes in contact with a viable victim. If mixed with the catalyst, this will turn one's body into an adaptive living weapon, but that doesn't always end to the same result.",
+    "responses": [ { "text": "So how did it spread?", "topic": "TALK_SECRO_SCIENTIST_secronom_what_cityzeds_how" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_secronom_what_cityzeds_how",
+    "dynamic_line": "It is an unstable pathogen - evolving more by time, and due to the outbreak, this facility falls into chaos; everyone panics, and got their body ripped to shred. Secronom were doomed to spread throughout the world in that incident.",
+    "responses": [
+      {
+        "text": "...",
+        "topic": "TALK_SECRO_SCIENTIST_secronom_what",
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secronom_spread" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_secronom_what_wanderers",
+    "dynamic_line": "Actually, there are 3 that we've discovered so far and maybe there's more to appear.",
+    "responses": [
+      {
+        "text": "Where are they? And what do you mean by \"discovered\"?",
+        "topic": "TALK_SECRO_SCIENTIST_secronom_what_wanderers_wtf"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_secronom_what_wanderers_wtf",
+    "dynamic_line": "Those mutants think different than a zombified egghead, and probably they're in the woods, having a stroll.\nWe discovered them by applying a super concentrated type of mutagen into each of our subjects, and the results, few of them transformed into these abominations, while the rest died... which is unfortunate, as our team thought their masculine body can handle such potential power.",
+    "responses": [
+      {
+        "text": "Well, now I know your team did an inhumane act...",
+        "topic": "TALK_SECRO_SCIENTIST_secronom_what",
+        "effect": [
+          { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secronom_wanderers" },
+          { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secronom_spread" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_uhelp",
+    "dynamic_line": "There is something I want to work on for our defenses, but they require time and vast amounts of materials for the process.",
+    "responses": [ { "text": "Defenses? You mean turrets?", "topic": "TALK_SECRO_SCIENTIST_uhelp_turret" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_SCIENTIST_uhelp_turret",
+    "dynamic_line": {
+      "u_has_effect": "secro_scientist_mission2_progress",
+      "no": "Yes, the autonomous turrets that you saw on the bunker is what I want to acquire. Do you accept my request?",
+      "yes": "Take your time while you gather them."
+    },
+    "responses": [
+      {
+        "text": "Yes.",
+        "topic": "TALK_MISSION_OFFER",
+        "condition": { "not": { "u_has_effect": "secro_scientist_mission2_progress" } }
+      },
+      {
+        "text": "I'll do it later.",
+        "topic": "TALK_SECRO_SCIENTIST_main",
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_hold_mission2" },
+        "condition": { "not": { "u_has_effect": "secro_scientist_mission2_progress" } }
+      },
+      {
+        "text": "I will.",
+        "topic": "TALK_DONE",
+        "condition": { "u_has_effect": "secro_scientist_mission2_progress" }
+      }
+    ]
+  }
+]

@@ -1,0 +1,1278 @@
+[
+  {
+    "type": "effect_type",
+    "id": "unify_bloodslow",
+    "max_intensity": 5,
+    "int_add_val": 1,
+    "max_duration": 120,
+    "int_decay_step": -1,
+    "int_decay_tick": 15,
+    "rating": "bad",
+    "name": [ "Bloodcoated" ],
+    "desc": [ "Blood splattered.", "Drastically slowed.", "Moderately slowed.", "Severely slowed.", "Extremely slowed." ],
+    "reduced_desc": [ "Your blood coat dries a bit." ],
+    "apply_message": "You've been blood coated!",
+    "remove_message": "Bloodcoat leaves your body!",
+    "scaling_mods": { "speed_mod": [ -3.2 ], "dex_mod": [ -0.3 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "unity_bloodslow",
+    "max_intensity": 20,
+    "int_add_val": 1,
+    "max_duration": 240,
+    "int_decay_step": -1,
+    "int_decay_tick": 15,
+    "rating": "bad",
+    "name": [ "Bloodbathed" ],
+    "desc": [
+      "Blood splattered.",
+      "Slightly slowed.",
+      "Slightly slowed.",
+      "Slightly slowed.",
+      "Drastically slowed.",
+      "Drastically slowed.",
+      "Drastically slowed.",
+      "Drastically slowed.",
+      "Moderately slowed.",
+      "Moderately slowed.",
+      "Moderately slowed.",
+      "Moderately slowed.",
+      "Severely slowed.",
+      "Severely slowed.",
+      "Severely slowed.",
+      "Severely slowed.",
+      "Extremely slowed.",
+      "Extremely slowed.",
+      "Extremely slowed.",
+      "Extremely slowed."
+    ],
+    "reduced_desc": [ "Your thick blood coat dries a bit." ],
+    "apply_message": "You've been blood coated!",
+    "remove_message": "Thick bloodcoat leaves your body!",
+    "scaling_mods": { "speed_mod": [ -2.2 ], "dex_mod": [ -0.3 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "parasiteworm_pain",
+    "name": [ "Parasitic Influence" ],
+    "apply_message": "You feel your veins itch!",
+    "desc": [ "parasites are causing you pain!" ],
+    "miss_messages": [ [ "You feel bad inside.", 2 ] ],
+    "decay_messages": [ [ "The parasites were weakened!", "good" ] ],
+    "remove_message": "Your natural defenses neutralized the parasites!",
+    "int_add_val": 1,
+    "max_intensity": 3,
+    "int_decay_step": -1,
+    "int_decay_tick": 300,
+    "max_duration": 600,
+    "rating": "bad",
+    "resist_traits": [ "POISRESIST" ],
+    "pain_sizing": true,
+    "main_parts_only": true,
+    "base_mods": { "pain_min": [ 1 ], "pain_chance": [ 50 ] },
+    "scaling_mods": { "pain_min": [ 1.25 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "parasiteworm_move",
+    "name": [ "Parasitic Influence" ],
+    "apply_message": "You feel your veins itch!",
+    "desc": [ "parasites are affecting your motor reflexes!" ],
+    "miss_messages": [ [ "You feel bad inside.", 2 ] ],
+    "decay_messages": [ [ "The parasites were weakened!", "good" ] ],
+    "remove_message": "Your natural defenses neutralized the parasites!",
+    "int_add_val": 1,
+    "max_intensity": 3,
+    "int_decay_step": -1,
+    "int_decay_tick": 300,
+    "max_duration": 600,
+    "rating": "bad",
+    "resist_traits": [ "POISRESIST" ],
+    "base_mods": { "dex_mod": [ -1.55 ], "speed_mod": [ -1.15 ] },
+    "scaling_mods": { "dex_mod": [ -1.55 ], "speed_mod": [ -1.15 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "parasiteworm_int",
+    "name": [ "Parasitic Influence" ],
+    "apply_message": "You feel your veins itch!",
+    "desc": [ "parasites are affecting your thinking capabilities!" ],
+    "miss_messages": [ [ "You feel bad inside.", 2 ] ],
+    "decay_messages": [ [ "The parasites were weakened!", "good" ] ],
+    "remove_message": "Your natural defenses neutralized the parasites!",
+    "int_add_val": 1,
+    "max_intensity": 3,
+    "int_decay_step": -1,
+    "int_decay_tick": 250,
+    "max_duration": 1000,
+    "rating": "bad",
+    "resist_traits": [ "POISRESIST" ],
+    "base_mods": { "int_mod": [ -2, -1.25 ] },
+    "scaling_mods": { "int_mod": [ -2, -1.25 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "parasiteworm_stomach",
+    "name": [ "Parasitic Influence" ],
+    "apply_message": "You feel your veins itch!",
+    "desc": [ "parasites hasten both hunger and thirst!" ],
+    "miss_messages": [ [ "You feel bad inside.", 2 ] ],
+    "decay_messages": [ [ "The parasites were weakened!", "good" ] ],
+    "remove_message": "Your natural defenses neutralized the parasites!",
+    "int_add_val": 1,
+    "max_intensity": 3,
+    "int_decay_step": -1,
+    "int_decay_tick": 150,
+    "max_duration": 600,
+    "rating": "bad",
+    "resist_traits": [ "POISRESIST" ],
+    "base_mods": { "hunger_min": [ 2, 1 ], "hunger_chance": [ 275 ], "thirst_min": [ 3, 1 ], "thirst_chance": [ 325 ] },
+    "scaling_mods": { "hunger_chance": [ -1.1 ], "thirst_chance": [ -1.1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "titan_charge",
+    "name": [ "Charging" ],
+    "show_in_info": true,
+    "base_mods": { "material_thickness": [ 6 ], "speed_mod": [ 30 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "omi_curse",
+    "name": [ "Ominous Curse" ],
+    "apply_message": "You've been cursed!",
+    "desc": [ "A terrifying curse eats away your insanity!" ],
+    "decay_messages": [ [ "You withdraw from the curse!", "good" ] ],
+    "remove_message": "The curse lifts away!",
+    "int_add_val": 1,
+    "max_intensity": 5,
+    "int_decay_step": -3,
+    "int_decay_tick": 60,
+    "max_duration": 300,
+    "rating": "bad",
+    "scaling_mods": { "int_mod": [ -2 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "pedo_restraint",
+    "name": [ "Nautilus Restraint" ],
+    "apply_message": "A nautilus torpedo latches onto you!",
+    "desc": [ "You are being held in place by nautilus torpedo(s)" ],
+    "miss_messages": [ [ "You feel your limbs stiffen.", 2 ] ],
+    "decay_messages": [ [ "You're feeling free again!", "good" ] ],
+    "remove_message": "You are free from nautilus restraint!",
+    "int_add_val": 1,
+    "max_intensity": 10,
+    "int_decay_step": -2,
+    "int_decay_tick": 30,
+    "max_duration": 300,
+    "rating": "bad",
+    "show_in_info": true,
+    "scaling_mods": { "dex_mod": [ -0.25 ], "speed_mod": [ -2.5 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "rooty_grasp",
+    "name": [ "Nature's Grasp" ],
+    "desc": [ "Thick strands of roots and vines take hold of you!" ],
+    "apply_message": "Roots and vines entangle your limbs!",
+    "remove_message": "The roots and vines wither up and die.",
+    "show_in_info": true,
+    "base_mods": { "speed_mod": [ -75 ] }
+  },
+  {
+    "note": "Unlike fungal infection, this will deal damage you instead of instant death if left alone...",
+    "type": "effect_type",
+    "show_in_info": true,
+    "id": "vector_infect",
+    "apply_memorial_log": "Contracted a vector infection.",
+    "remove_memorial_log": "Stopped a vector infection.",
+    "miss_messages": [ [ "You feel something sinks deep within you.", 1 ] ],
+    "name": [ "Vector Infection", "Vector Infection", "Vector Infection" ],
+    "desc": [
+      "You are suffering from a vector infection!\nPharmaceutical drugs doesn't seem to take effect and may require something... juicy."
+    ],
+    "rating": "bad",
+    "max_intensity": 3,
+    "max_duration": 9600,
+    "resist_traits": [ "POISRESIST" ],
+    "base_mods": { "hurt_min": [ 1 ], "hurt_max": [ 2 ], "hurt_chance": [ 21 ], "hurt_tick": [ 6 ] },
+    "scaling_mods": { "str_mod": [ -0.9 ], "per_mod": [ -0.82 ], "dex_mod": [ -1.3 ], "int_mod": [ -1.65 ] }
+  },
+  {
+    "note": "And royal jelly is the only available cure (at the moment).",
+    "type": "effect_type",
+    "id": "cureall",
+    "removes_effects": [ "vector_infect" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_magic_target",
+    "name": [ "Target" ],
+    "desc": [ "An ally or foe locks its line of sight onto you!" ]
+  },
+  {
+    "note": "Screamer uses invisible fields to apply this to players with no head protection. As it is a field, it can't go through closed windows and such.",
+    "type": "effect_type",
+    "id": "secro_dissed",
+    "name": [ "Dazzled" ],
+    "apply_message": "The resonating voice dazes you!",
+    "desc": [ "You're anxious to your surroundings!" ],
+    "miss_messages": [ [ "You can't focus on your actions!", 3 ] ],
+    "remove_message": "You are no longer dazed.",
+    "int_add_val": 2,
+    "int_dur_factor": "3 seconds",
+    "max_intensity": 100,
+    "int_decay_step": -5,
+    "int_decay_tick": 10,
+    "max_duration": 300,
+    "rating": "bad",
+    "base_mods": { "pain_min": [ 1 ], "pain_max": [ 2 ], "pain_chance": [ 30 ] },
+    "scaling_mods": { "per_mod": [ -0.04 ], "dex_mod": [ -0.08 ], "speed_mod": [ -0.16 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "deaf",
+    "note": "Make players unaffected if they're deaf.",
+    "blocks_effects": [ "secro_dissed" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_uruxis_shroud",
+    "name": [ "Shadow Mended" ],
+    "desc": [ "Shadow enshrouds you that heals and protects, but burdens." ],
+    "show_in_info": true,
+    "base_mods": { "material_thickness": [ 8 ], "environmental_protection": [ 4 ], "speed_mod": [ -30 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_fleshmonger_fleshed",
+    "name": [ "Fleshed" ],
+    "desc": [ "Your body mass has increased from the excess flesh injected to you!" ],
+    "rating": "good",
+    "show_in_info": true,
+    "int_add_val": 1,
+    "int_dur_factor": "30 seconds",
+    "max_intensity": 5,
+    "int_decay_step": -1,
+    "int_decay_tick": 60,
+    "max_duration": 600,
+    "base_mods": { "size_mod": [ 0.2 ] },
+    "scaling_mods": { "size_mod": [ 0.2 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_nix_fear",
+    "name": [ "Afraid", "Scared", "Frightened", "Terrified", "Horrified" ],
+    "desc": [ "The dreadful pressence of the nix leaves your body shaking." ],
+    "apply_message": "The nix eats away your mental stability!",
+    "remove_message": "You withdraw from fear.",
+    "int_add_val": 1,
+    "int_dur_factor": "12 seconds",
+    "max_intensity": 5,
+    "int_decay_step": -1,
+    "int_decay_tick": 24,
+    "max_duration": 120,
+    "rating": "bad",
+    "scaling_mods": { "per_mod": [ -0.5 ], "dex_mod": [ -0.25 ], "speed_mod": [ -1.5 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_gorepit_wall_dmg",
+    "name": [ "unstable footing" ],
+    "desc": [ "You're standing on a dangerous terrain." ],
+    "rating": "bad",
+    "max_duration": 1,
+    "base_mods": { "hurt_min": [ 3 ], "hurt_max": [ 3 ], "speed_mod": [ -30 ], "dex_mod": [ -2 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_gorepit_dmg_immune",
+    "max_duration": 1,
+    "removes_effects": [ "secro_gorepit_wall_dmg" ],
+    "blocks_effects": [ "secro_gorepit_wall_dmg" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_cordev_corrupt",
+    "name": [ "Corrupted" ],
+    "desc": [ "Sizzling corrupt acid takes a firm hold while burning you!" ],
+    "rating": "bad",
+    "max_duration": 10,
+    "base_mods": { "hurt_min": [ 1 ], "hurt_max": [ 2 ], "hurt_tick": [ 2 ], "speed_mod": [ -20 ], "dex_mod": [ -1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_cordev_cripple",
+    "name": [ "Crippled" ],
+    "desc": [ "You suffer from the great explosion you've just did!" ],
+    "rating": "bad",
+    "show_in_info": true,
+    "base_mods": { "speed_mod": [ -1000 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_fleshysnaky_enrage",
+    "name": [ "Enraged" ],
+    "desc": [ "Feels like you want to vore someone!" ],
+    "show_in_info": true,
+    "rating": "good",
+    "int_add_val": 1,
+    "int_dur_factor": "10 seconds",
+    "max_intensity": 60,
+    "int_decay_step": -30,
+    "int_decay_tick": 120,
+    "max_duration": 900,
+    "base_mods": { "hurt_min": [ -1 ], "hurt_max": [ -1 ], "speed_mod": [ 1 ] },
+    "scaling_mods": { "speed_mod": [ 1.15 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_akin_siphon_foe",
+    "name": [ "Siphoned" ],
+    "desc": [ "The visceral tendril's influence renders you weakened!" ],
+    "show_in_info": true,
+    "rating": "bad",
+    "apply_message": "A siphoning tendril latches onto you!",
+    "miss_messages": [ [ "You feel dizzy...", 2 ] ],
+    "remove_message": "The siphoning tendril falls off.",
+    "int_add_val": 1,
+    "int_dur_factor": "5 seconds",
+    "max_intensity": 25,
+    "int_decay_step": -10,
+    "int_decay_tick": 6,
+    "max_duration": 125,
+    "base_mods": { "hurt_min": [ 1 ], "hurt_max": [ 1 ], "hurt_tick": [ 10 ], "speed_mod": [ -1 ] },
+    "scaling_mods": { "speed_mod": [ -1.5 ], "str_mod": [ -0.32 ], "dex_mod": [ -0.64 ], "per_mod": [ -0.16 ], "int_mod": [ -0.08 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_akin_siphon_ally",
+    "name": [ "Life Siphoned" ],
+    "desc": [ "The visceral tendril's influence strengthens you!" ],
+    "show_in_info": true,
+    "rating": "good",
+    "int_add_val": 1,
+    "int_dur_factor": "5 seconds",
+    "max_intensity": 25,
+    "int_decay_step": -10,
+    "int_decay_tick": 6,
+    "max_duration": 125,
+    "base_mods": { "hurt_min": [ -2 ], "hurt_max": [ -2 ], "hurt_tick": [ 10 ], "speed_mod": [ 1 ] },
+    "scaling_mods": { "speed_mod": [ 2 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_necros_para",
+    "name": [
+      "Neural Disorder",
+      "Neural Disorder",
+      "Neural Disorder",
+      "Neural Disorder",
+      "Neural Disorder",
+      "Neural Paralysis",
+      "Neural Paralysis",
+      "Neural Paralysis",
+      "Neural Paralysis",
+      "Neural Collapse"
+    ],
+    "desc": [ "You're suffering from a neurotoxin!" ],
+    "show_in_info": true,
+    "apply_message": "Your skin felt numb all of a sudden...",
+    "miss_messages": [ [ "You feel very stiff...", 3 ] ],
+    "remove_message": "The effect of the paralysing toxin leaves your body.",
+    "removes_effects": [ "paralyzepoison" ],
+    "blocks_effects": [ "paralyzepoison" ],
+    "rating": "bad",
+    "int_add_val": 1,
+    "int_dur_factor": "30 seconds",
+    "max_intensity": 10,
+    "int_decay_step": -3,
+    "int_decay_tick": 50,
+    "max_duration": 330,
+    "base_mods": { "speed_mod": [ -7.5 ], "dex_mod": [ -1 ] },
+    "scaling_mods": { "speed_mod": [ -7.5 ], "dex_mod": [ -1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "paralyzepoison",
+    "removes_effects": [ "secro_necros_para" ],
+    "blocks_effects": [ "secro_necros_para" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "charge_momentum",
+    "name": [ "on Momentum" ],
+    "int_add_val": 1,
+    "int_dur_factor": "1 seconds",
+    "max_intensity": 10,
+    "int_decay_step": -10,
+    "int_decay_tick": 1,
+    "max_duration": 11,
+    "rating": "good",
+    "show_in_info": true,
+    "base_mods": { "hurt_min": [ -1 ] },
+    "scaling_mods": { "speed_mod": [ 10 ], "bash_mod": [ 1.25 ], "hit_mod": [ 0.5 ], "hurt_min": [ -1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "charge_spike_momentum",
+    "name": [ "on Momentum" ],
+    "int_add_val": 1,
+    "int_dur_factor": "1 seconds",
+    "max_intensity": 10,
+    "int_decay_step": -10,
+    "int_decay_tick": 1,
+    "max_duration": 11,
+    "rating": "good",
+    "show_in_info": true,
+    "base_mods": { "hurt_min": [ -1.5 ] },
+    "scaling_mods": { "speed_mod": [ 10 ], "bash_mod": [ 0.25 ], "cut_mod": [ 1.25 ], "hit_mod": [ 0.5 ], "hurt_min": [ -1.5 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "charge_plate_momentum",
+    "name": [ "on Momentum" ],
+    "int_add_val": 1,
+    "int_dur_factor": "1 seconds",
+    "max_intensity": 10,
+    "int_decay_step": -10,
+    "int_decay_tick": 1,
+    "max_duration": 11,
+    "rating": "good",
+    "show_in_info": true,
+    "base_mods": { "hurt_min": [ -1.75 ] },
+    "scaling_mods": { "speed_mod": [ 10 ], "bash_mod": [ 2 ], "hit_mod": [ 0.5 ], "hurt_min": [ -1.75 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "charge_vanguard_momentum",
+    "name": [ "on Momentum" ],
+    "int_add_val": 1,
+    "int_dur_factor": "1 seconds",
+    "max_intensity": 10,
+    "int_decay_step": -10,
+    "int_decay_tick": 1,
+    "max_duration": 11,
+    "rating": "good",
+    "show_in_info": true,
+    "base_mods": { "hurt_min": [ -3 ] },
+    "scaling_mods": { "speed_mod": [ 10 ], "bash_mod": [ 3.25 ], "hit_mod": [ 0.75 ], "hurt_min": [ -3 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_mawy_web",
+    "name": [ "Webbed", "Webbed", "Webbed", "Webbed", "Webbed", "Ensnared" ],
+    "desc": [ "The flesh webs sticks firmly on you!" ],
+    "show_in_info": true,
+    "apply_message": "You've been covered in flesh webs!",
+    "miss_messages": [ [ "You can't move well with this sticky webs...", 1 ] ],
+    "remove_message": "You've got rid of the webs!",
+    "rating": "bad",
+    "int_add_val": 1,
+    "int_dur_factor": "20 seconds",
+    "max_intensity": 6,
+    "int_decay_step": -1,
+    "int_decay_tick": 5,
+    "base_mods": { "speed_mod": [ -20 ], "dex_mod": [ -2 ] },
+    "scaling_mods": { "speed_mod": [ -10 ], "dex_mod": [ -1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_mawy_web_immune",
+    "max_duration": 1,
+    "removes_effects": [ "secro_mawy_web" ],
+    "blocks_effects": [ "secro_mawy_web" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_glut_dismember",
+    "name": [ "Dismembered" ],
+    "desc": [ "You suffer from the great explosion you've just did!" ],
+    "rating": "bad",
+    "show_in_info": true,
+    "int_add_val": 1,
+    "int_dur_factor": "300 turns",
+    "base_mods": { "speed_mod": [ -10 ], "size_mod": [ -0.3 ] },
+    "scaling_mods": { "speed_mod": [ -10 ], "size_mod": [ -0.3 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_swarmer_savage_tension",
+    "name": [ "on Tension" ],
+    "desc": [ "From an ongoing lust for flesh, your muscles mutate!" ],
+    "rating": "good",
+    "int_add_val": 1,
+    "int_dur_factor": "200 turns",
+    "max_intensity": 5,
+    "show_in_info": true,
+    "base_mods": { "speed_mod": [ 0.2 ], "size_mod": [ 0.05 ], "bash_mod": [ 0.55 ], "hit_mod": [ 0.1 ] },
+    "scaling_mods": { "speed_mod": [ 0.2 ], "size_mod": [ 0.05 ], "bash_mod": [ 0.55 ], "hit_mod": [ 0.1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_swarmer_virulent_precise",
+    "name": [ "on Precision" ],
+    "desc": [ "You feel your senses sharpen!" ],
+    "rating": "good",
+    "int_add_val": 1,
+    "int_dur_factor": "30 turns",
+    "max_intensity": 20,
+    "show_in_info": true,
+    "base_mods": { "speed_mod": [ 0.12 ], "hit_mod": [ 0.08 ] },
+    "scaling_mods": { "speed_mod": [ 0.12 ], "hit_mod": [ 0.08 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_revenant_trigger",
+    "name": [ "Triggered", "Triggered", "Triggered", "Triggered", "Triggered Potency" ],
+    "desc": [ "Your hidden potential prevails!" ],
+    "rating": "good",
+    "int_add_val": 1,
+    "int_dur_factor": "20 turns",
+    "int_decay_step": -1,
+    "int_decay_tick": 20,
+    "max_intensity": 5,
+    "show_in_info": true,
+    "base_mods": { "bash_mod": [ 0.25 ], "cut_mod": [ 0.25 ], "hit_mod": [ 0.15 ] },
+    "scaling_mods": { "bash_mod": [ 0.25 ], "cut_mod": [ 0.25 ], "hit_mod": [ 0.15 ] }
+  },
+  {
+    "note": "Don't trigger the triggerer.",
+    "type": "effect_type",
+    "id": "secro_revenant_trigger_immune",
+    "max_duration": 1,
+    "removes_effects": [ "secro_revenant_trigger" ],
+    "blocks_effects": [ "secro_revenant_trigger" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_revenant_forsaken_dilute",
+    "name": [ "Weakened", "Weakened", "Weakened", "Weakened", "Severely Weakened" ],
+    "apply_message": "You feel like you've loosen the grip of fighting.",
+    "desc": [ "You feel your attacks becoming exhausted." ],
+    "rating": "bad",
+    "int_add_val": 1,
+    "int_dur_factor": "30 turns",
+    "int_decay_step": -2,
+    "int_decay_tick": 20,
+    "max_intensity": 5,
+    "show_in_info": true,
+    "base_mods": { "bash_mod": [ -0.2 ], "cut_mod": [ -0.2 ], "hit_mod": [ -0.1 ], "dex_mod": [ -0.6 ], "str_mod": [ -1.2 ] },
+    "scaling_mods": { "bash_mod": [ -0.2 ], "cut_mod": [ -0.2 ], "hit_mod": [ -0.1 ], "dex_mod": [ -0.2 ], "str_mod": [ -0.4 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_revenant_allure_induce",
+    "name": [ "Induced", "Induced", "Induced", "Induced", "Incited" ],
+    "desc": [ "Your mass increases, but makes you unstable and causes the blob to overwhelm you." ],
+    "rating": "mixed",
+    "int_add_val": 1,
+    "int_dur_factor": "25 turns",
+    "int_decay_step": -1,
+    "int_decay_tick": 10,
+    "max_intensity": 5,
+    "show_in_info": true,
+    "base_mods": { "hurt_min": [ 1 ], "hurt_tick": [ 20 ], "size_mod": [ 0.3 ], "hit_mod": [ 0.5 ] },
+    "note": "At max intensity, deals 1 hp per 10 turns.",
+    "scaling_mods": { "hurt_tick": [ -2.5 ], "size_mod": [ 0.3 ], "hit_mod": [ 0.5 ] }
+  },
+  {
+    "note": "Do not induce the inducer.",
+    "type": "effect_type",
+    "id": "secro_revenant_allure_induce_immune",
+    "max_duration": 1,
+    "removes_effects": [ "secro_revenant_allure_induce" ],
+    "blocks_effects": [ "secro_revenant_allure_induce" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_skittyweavy_skit",
+    "name": [ "Fleeing" ],
+    "desc": [ "Your body felt a sharp warning!" ],
+    "show_in_info": true,
+    "base_mods": { "speed_mod": [ 150 ], "dodge_mod": [ 3 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_skittyweavy_sickly_toxin",
+    "name": [ "Intoxicated" ],
+    "desc": [ "The toxin flows through you and hastens your reflexes!" ],
+    "int_add_val": 1,
+    "int_dur_factor": "5 turns",
+    "int_decay_step": -2,
+    "int_decay_tick": 5,
+    "max_intensity": 5,
+    "max_duration": 30,
+    "show_in_info": true,
+    "base_mods": { "speed_mod": [ 5 ] },
+    "scaling_mods": { "speed_mod": [ 5 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_fleshknot_poison",
+    "name": [
+      "Mildly Poisoned",
+      "Mildly Poisoned",
+      "Mildly Poisoned",
+      "Mildly Poisoned",
+      "Mildly Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Badly Poisoned",
+      "Badly Poisoned",
+      "Badly Poisoned",
+      "Badly Poisoned",
+      "Badly Poisoned",
+      "Severely Poisoned",
+      "Severely Poisoned",
+      "Severely Poisoned",
+      "Severely Poisoned",
+      "Severely Poisoned",
+      "Extremely Poisoned",
+      "Extremely Poisoned",
+      "Extremely Poisoned",
+      "Extremely Poisoned",
+      "Extremely Poisoned",
+      "Exceedingly Poisoned"
+    ],
+    "desc": [ "You have been poisoned!" ],
+    "rating": "bad",
+    "miss_messages": [ [ "You feel bad inside.", 1 ] ],
+    "resist_traits": [ "POISRESIST" ],
+    "int_add_val": 1,
+    "int_dur_factor": "60 turns",
+    "int_decay_step": -1,
+    "int_decay_tick": 30,
+    "max_intensity": 26,
+    "max_duration": 1560,
+    "show_in_info": true,
+    "pain_sizing": true,
+    "hurt_sizing": true,
+    "base_mods": {
+      "hurt_min": [ 1 ],
+      "hurt_tick": [ 100 ],
+      "hurt_chance": [ 100 ],
+      "pain_min": [ 1 ],
+      "pain_tick": [ 100 ],
+      "pain_chance": [ 100 ],
+      "per_mod": [ -0.25 ],
+      "dex_mod": [ -0.4 ],
+      "str_mod": [ -0.75 ]
+    },
+    "scaling_mods": {
+      "hurt_min": [ 0.1 ],
+      "hurt_tick": [ -2 ],
+      "hurt_chance": [ -4 ],
+      "pain_min": [ 0.25 ],
+      "pain_tick": [ -3 ],
+      "pain_chance": [ -5 ],
+      "per_mod": [ -0.07 ],
+      "dex_mod": [ -0.12 ],
+      "str_mod": [ -0.2 ]
+    }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_resolute_grow",
+    "name": [ "Developed" ],
+    "desc": [ "You are growing! Living for too much also increases you that amount!" ],
+    "show_in_info": true,
+    "int_add_val": 1,
+    "int_dur_factor": "20 seconds",
+    "note": "Maximum at 50, for balancing purposes",
+    "max_intensity": 50,
+    "base_mods": { "hurt_min": [ -0.2 ], "bash_mod": [ 0.075 ], "hit_mod": [ 0.01 ], "size_mod": [ 0.05 ] },
+    "scaling_mods": { "hurt_min": [ -0.2 ], "bash_mod": [ 0.075 ], "hit_mod": [ 0.01 ], "size_mod": [ 0.05 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_tree_grab",
+    "name": [ "Grabbed" ],
+    "desc": [ "You have been grabbed by an attack.\nYou are being held in place, and dodging and blocking are very difficult." ],
+    "apply_message": "You've been grabbed!",
+    "rating": "bad",
+    "max_duration": "2 s",
+    "max_intensity": 5,
+    "base_mods": { "speed_mod": [ -30 ] },
+    "scaling_mods": { "speed_mod": [ -10 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_bones",
+    "name": [ "unstable footing" ],
+    "desc": [ "You feel the bones sink deeper from underneath as you stand on it!" ],
+    "show_in_info": true,
+    "rating": "bad",
+    "max_duration": 1,
+    "base_mods": { "hurt_min": [ 1, 4 ], "hurt_tick": [ 3 ], "speed_mod": [ -4 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_tendrils",
+    "name": [ "unstable footing" ],
+    "desc": [
+      "The tendril outgrowths has constricted your feet!\nYou are being held in place, and dodging and blocking are extremely difficult!"
+    ],
+    "show_in_info": true,
+    "rating": "bad",
+    "max_duration": 1,
+    "base_mods": { "dodge_mod": [ -1 ], "speed_mod": [ -10 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_biome",
+    "name": [
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving",
+      "Dissolving"
+    ],
+    "desc": [ "This body part is being devoured by the flesh!" ],
+    "rating": "bad",
+    "miss_messages": [ [ "You feel your body succumbing to the flesh.", 1 ] ],
+    "int_add_val": 1,
+    "int_dur_factor": "2 turns",
+    "int_decay_step": -1,
+    "int_decay_tick": 1,
+    "max_intensity": 25,
+    "max_duration": 50,
+    "show_in_info": true,
+    "pain_sizing": true,
+    "hurt_sizing": true,
+    "base_mods": { "hurt_min": [ 1 ], "hurt_tick": [ 10 ], "dex_mod": [ -0.3 ], "str_mod": [ -0.85 ] },
+    "scaling_mods": { "hurt_min": [ 0.1 ], "hurt_tick": [ -0.25 ], "dex_mod": [ -0.2 ], "str_mod": [ -0.1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_biome_immune",
+    "max_duration": 1,
+    "removes_effects": [ "secro_flesh_biome", "secro_blood_acid" ],
+    "blocks_effects": [ "secro_flesh_biome", "secro_blood_acid" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_wall_limit",
+    "name": [ "Melting" ],
+    "desc": [ "You are melting as you move!" ],
+    "show_in_info": true,
+    "rating": "bad",
+    "max_duration": 1,
+    "base_mods": { "hurt_min": [ 5, 10 ], "hurt_tick": [ 1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_bio_limb",
+    "name": [ "Mending" ],
+    "desc": [ "Your broken limbs are mending!" ],
+    "max_duration": 10,
+    "main_parts_only": true,
+    "rating": "good",
+    "removes_effects": [ "disabled" ],
+    "note": "Due to the disabled effect being hardcode, we force the broken limb to block the effect.",
+    "blocks_effects": [ "disabled" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_bio_heal",
+    "name": [ "Regenerating" ],
+    "desc": [
+      "Your wounds are mending at an incredible rate and causes your body to grow exponentially, surpassing the average health cap temporarily!"
+    ],
+    "max_duration": 240,
+    "main_parts_only": true,
+    "rating": "good",
+    "base_mods": { "hurt_min": [ -1 ], "hurt_tick": [ 5 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_blood_acid",
+    "name": [ "Corroding" ],
+    "desc": [ "Sizzling blood acid is burning you!" ],
+    "rating": "bad",
+    "max_duration": 10,
+    "base_mods": { "hurt_min": [ 1 ], "hurt_max": [ 2 ], "hurt_tick": [ 3 ], "speed_mod": [ -3 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_veinstalk_limit",
+    "base_mods": { "hurt_min": [ 4 ], "hurt_max": [ 5 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_gravtur_magnet",
+    "name": [ "Magnetized" ],
+    "desc": [ "Your movements were hampered." ],
+    "apply_message": "You were magnetized!",
+    "rating": "bad",
+    "max_duration": "3 s",
+    "base_mods": { "dex_mod": [ -100 ], "speed_mod": [ -10000 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_shifter_illu_limit",
+    "base_mods": { "hurt_min": [ 5 ], "hurt_max": [ 10 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_shifter_onslaught_dmgpure_dmg",
+    "base_mods": { "hurt_min": [ 8 ], "hurt_max": [ 16 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_flesh_devouring_note",
+    "apply_message": "You body fills in with distress...",
+    "remove_message": "The flesh ceases to spread... for now.",
+    "rating": "bad",
+    "base_mods": { "hurt_min": [ 1 ], "hurt_chance": [ 20 ], "pain_min": [ 1 ], "pain_chance": [ 10 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_flesh_devouring",
+    "rating": "bad",
+    "base_mods": { "hurt_min": [ 1 ], "hurt_chance": [ 20 ], "pain_min": [ 1 ], "pain_chance": [ 10 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_flesh_linked",
+    "max_duration": "2 days",
+    "main_parts_only": true,
+    "rating": "good",
+    "remove_message": "You felt a sudden tremble.",
+    "removes_effects": [ "secro_power_armor_flesh_devouring_note", "secro_power_armor_flesh_devouring" ],
+    "blocks_effects": [ "secro_power_armor_flesh_devouring_note", "secro_power_armor_flesh_devouring" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_flesh_morphed_fite_tentacles_eff",
+    "name": [ "Injected" ],
+    "desc": [ "You have been injected with a paralyzing chemical!" ],
+    "apply_message": "You felt numb all of a sudden!",
+    "rating": "bad",
+    "max_duration": "20 s",
+    "max_intensity": 5,
+    "base_mods": { "speed_mod": [ -25 ] },
+    "scaling_mods": { "speed_mod": [ -10 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_growth",
+    "name": [ "Growing" ],
+    "desc": [ "You are growing!" ],
+    "show_in_info": true,
+    "int_add_val": 1,
+    "int_dur_factor": "1 minutes",
+    "max_intensity": 100,
+    "base_mods": { "size_mod": [ 0.05 ] },
+    "scaling_mods": { "size_mod": [ 0.05 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_satisfy",
+    "name": [ "Satisfied" ],
+    "desc": [ "You've devoured something earlier." ],
+    "max_duration": "2 minutes",
+    "rating": "good",
+    "base_mods": { "speed_mod": [ -50 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_flesh_morphed_jugg_bonespikes_skeletaloutburst_cost",
+    "rating": "bad",
+    "base_mods": { "hurt_min": [ 2 ], "pain_min": [ 0 ], "pain_max": [ 2 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_flesh_created_gun_bonerifle_cost",
+    "rating": "bad",
+    "base_mods": { "hurt_min": [ 5 ], "pain_min": [ 1 ], "pain_max": [ 7 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_fleshling_huge_limit",
+    "rating": "bad",
+    "base_mods": { "hurt_min": [ 30 ], "hurt_max": [ 60 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_fleshling_scavengy_cost",
+    "rating": "bad",
+    "base_mods": { "hurt_min": [ 2 ], "hurt_max": [ 4 ], "speed_mod": [ -1000 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_fleshling_scavengy_spawnlimits",
+    "rating": "bad",
+    "max_duration": "3 s",
+    "base_mods": { "hurt_min": [ 1 ], "hurt_tick": [ 100 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_fleshling_scavengy_sticky_stick",
+    "name": [ "Fleshed" ],
+    "apply_message": "A fleshling sticks to you!",
+    "desc": [ "Fleshling(s) hamper your movement!" ],
+    "miss_messages": [ [ "You feel your limbs sticky.", 3 ] ],
+    "decay_messages": [ [ "You're feeling free again!", "good" ] ],
+    "remove_message": "Fleshlings have melted!",
+    "int_add_val": 1,
+    "max_intensity": 15,
+    "int_decay_step": -5,
+    "int_decay_tick": 30,
+    "max_duration": 150,
+    "rating": "bad",
+    "show_in_info": true,
+    "scaling_mods": { "dex_mod": [ -0.075 ], "speed_mod": [ -0.75 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_fleshling_ravagy_fburst_pay",
+    "rating": "bad",
+    "base_mods": { "hurt_min": [ 5 ], "hurt_max": [ 15 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_fleshling_ravagy_outb_pay",
+    "rating": "bad",
+    "base_mods": { "hurt_min": [ 20 ], "hurt_max": [ 40 ] }
+  },
+  {
+    "note": "Effects for notifying the player. This method is a bit unstable...",
+    "type": "effect_type",
+    "id": "mon_zombie_swarmer_evo_savage_tension_target_random_YES",
+    "apply_message": "Then its muscles suddenly mutates!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_transmit_attack",
+    "removes_effects": [ "docile" ],
+    "blocks_effects": [ "docile" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_secrodragon_barrier_target_random_YES",
+    "apply_message": "After a brief moment, a temporary force field has been generated surrounding the secronom dragon!",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_secrodragon_edischarge_target_random_YES",
+    "apply_message": "Then several sparks of electric discharge archs through the vicinity!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombieworm_mawy_web_target_YES",
+    "apply_message": "Then spews out flesh webs at their surroundings!",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombieworm_mawy_crunch_YES",
+    "apply_message": "Then its dreadful inner mouth stretches its way to crunch at them!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_equinox_nimplode_target_random_YES",
+    "apply_message": "After a short period of time, the equinox flung its rancid flesh into the sky!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_equinox_ndischarge_YES",
+    "apply_message": "Then suddenly, a flash flood of liquidated vile flesh were sent into a direction!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_fleshysnaky_ppoint_YES",
+    "apply_message": "The flesilisk then suddenly spew its fang at them!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_fleshysnaky_hails_YES",
+    "apply_message": "The flesilisk then undulates hastily, creating a hail of bone spikes in every direction!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_fleshysnaky_sbomb_YES",
+    "apply_message": "For a short moment, the flesilisk's bone spikes shoots into the sky then swoops down towards them!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_fleshysnaky_pmissile_target_random_YES",
+    "apply_message": "Flesilisk's body then barrages its bone spikes into them!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_cordev_texplode_target_YES",
+    "apply_message": "But suddenly its volatile core explodes violently, spreading corrupted acid everywhere!\n<color_light_green>The corrupted devourer suffers from the explosion!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_cordev_corrupt_YES",
+    "apply_message": "Then its arm biters vomit a large amount of polluted acid at their location!",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_cordev_whip_target_random_YES",
+    "apply_message": "The corrupted devourer's core quickly forms numerous errant tendrils that lashes towards them!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_cordev_mincem_target_YES",
+    "apply_message": "But while the corrupted devourer looks at them, its arm biters suddenly eats away the flesh it touches!",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_insect_saddler_baby_potent_grow_YES",
+    "apply_message": "Then grows into a saddler!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_insect_saddler_baby_potent_grow_brute_YES",
+    "apply_message": "Then grows into a saddler brute!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_insect_saddler_baby_potent_grow_scout_YES",
+    "apply_message": "Then grows into a saddler scout!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_insect_saddler_baby_potent_grow_null_YES",
+    "apply_message": "Suddenly it erupts into gore!",
+    "rating": "good"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_flesh_city_fturmoil_YES",
+    "apply_message": "As the flesh trembles further, the tower's tentacle veins suddenly moves and thrashes the entire area!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_zombie_turret_adischarge_YES",
+    "apply_message": "Suddenly, the flesh heap discharges of blood acid!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_zombie_turret_aspit_target_YES",
+    "apply_message": "The flesh heap's orifice spews out globs of blood acid!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_shifter_stun_YES",
+    "apply_message": "The air thickens as the shapeshifter moves.",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_shifter_target_atk_illu_YES",
+    "apply_message": "Silhouettes were formed around the shapeshifter!",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_shifter_target_atk_onslaught_dmgcutlow_YES",
+    "apply_message": "An errant silhouette flies toward its target, then shreds them!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_shifter_target_atk_onslaught_dmgcuthigh_YES",
+    "apply_message": "An errant silhouette rakes through their target!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_shifter_target_atk_onslaught_dmgpure_YES",
+    "apply_message": "The shapeshifter sets out a harrowing shriek before reaping their target!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_shifter_target_atk_onslaught_illu_YES",
+    "apply_message": "A silhouette were formed before the shapeshifter!",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_flesh_morphed_gun_spit_as_YES",
+    "apply_message": "Your spitter armament shoots a glob of blood acid!",
+    "rating": "good"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_fleshling_stingy_sting_YES",
+    "apply_message": "The amalgam stinger thrusts its stinger at them!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_fleshling_stingy_whiplash_YES",
+    "apply_message": "The amalagam stinger slashes in a wide arc!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_fleshling_stingy_bb_YES",
+    "apply_message": "The fleshed stinger bursts a bulbous wart!",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_fleshling_ravagy_fburst_YES",
+    "apply_message": "The fleshed ravager's body bursts a chunk of flesh!",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_fleshling_ravagy_outb_YES",
+    "apply_message": "The fleshed ravager's extra appendages flings in every direction!",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_adischarge_YES",
+    "apply_message": "Suddenly, the flesh heap discharges of blood acid!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_aspit_target_YES",
+    "apply_message": "The flesh heap's orifice spews out globs of blood acid!",
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_blade_slice_YES",
+    "apply_message": "<color_yellow>The flesh heap (blade) slashes wildly!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_blade_swirl_target_YES",
+    "apply_message": "<color_light_red>The flesh heap (blade) projects several bone spikes!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_tendril_swing_YES",
+    "apply_message": "<color_yellow>The flesh heap (tendril) sweeps its tentacle veins!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_tendril_slam_YES",
+    "apply_message": "<color_light_red>The flesh heap (tendril) slams a tentacle at its target!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_tendril_thrust_YES",
+    "apply_message": "<color_pink>The flesh heap (tendril) thrusts a tentacle vein!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_mouth_crunch_YES",
+    "apply_message": "<color_pink>The flesh heap (mouthswell) crunches at its target!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_unify_form_target_YES",
+    "apply_message": "<color_pink>The flesh heap (unifier) forms blood creatures!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_hravager_swing_YES",
+    "apply_message": "<color_light_red>The ravager flesh heap swings its bladed tentacle!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_hravager_slam_YES",
+    "apply_message": "<color_magenta>The ravager flesh heap slashes!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_camp_turret_hravager_thrust_YES",
+    "apply_message": "<color_pink>The ravager flesh heap rakes at its target!</color>",
+    "rating": "mixed"
+  },
+  {
+    "note": "Effects used for immunity fields",
+    "type": "effect_type",
+    "id": "secro_down_immune",
+    "max_duration": 1,
+    "removes_effects": [ "downed" ],
+    "blocks_effects": [ "downed" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_sacrifice_effect",
+    "base_mods": { "hurt_min": [ 100000000 ], "speed_mod": [ -1000 ] }
+  },
+  {
+    "note": "Used only on tamed secronom dragon, so players would be able to ride it.",
+    "type": "effect_type",
+    "id": "pet",
+    "max_duration": 10,
+    "name": [ "Dragon" ],
+    "desc": [ "tamed secronom dragon." ]
+  },
+  {
+    "type": "effect_type",
+    "id": "pacified",
+    "max_duration": 10,
+    "name": [ "pacified" ],
+    "desc": [ "pacified" ]
+  }
+]

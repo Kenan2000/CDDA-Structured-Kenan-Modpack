@@ -1,0 +1,144 @@
+[
+  {
+    "id": "fd_puddleb",
+    "type": "field_type",
+    "intensity_levels": [
+      {
+        "name": "viscous blood",
+        "sym": "~",
+        "color": "red",
+        "effect_id": "v_spell_bloodpuddle",
+        "effect_min_duration": "1 seconds",
+        "effect_max_duration": "1 seconds"
+      },
+      { "effect_min_duration": "1 seconds", "effect_max_duration": "2 seconds" },
+      { "effect_min_duration": "1 seconds", "effect_max_duration": "3 seconds" }
+    ],
+    "priority": 3,
+    "underwater_age_speedup": "2 minutes",
+    "decay_amount_factor": 3,
+    "is_splattering": true,
+    "immunity_data": { "traits": [ "VAMP_BLOOD_spellcaster", "VAMP" ] },
+    "half_life": "20 minutes",
+    "phase": "liquid",
+    "accelerated_decay": true,
+    "display_field": true
+  },
+  {
+    "id": "fd_desolate",
+    "type": "field_type",
+    "intensity_levels": [
+      {
+        "name": "withering gloom",
+        "sym": "8",
+        "color": "light_gray",
+        "effect_id": "v_spell_desolation",
+        "effect_min_duration": "1 seconds",
+        "effect_max_duration": "1 seconds"
+      }
+    ],
+    "priority": 1,
+    "decay_amount_factor": 25,
+    "immunity_data": { "traits": [ "VAMP_BLOOD_spellcaster", "VAMP" ] },
+    "half_life": "2 seconds",
+    "phase": "gas",
+    "accelerated_decay": true,
+    "display_field": false
+  },
+  {
+    "id": "fd_firewall",
+    "type": "field_type",
+    "intensity_levels": [ { "name": "blazing aura" } ],
+    "priority": 1,
+    "half_life": "2 turns",
+    "wandering_field": "fd_fire",
+    "accelerated_decay": true,
+    "phase": "gas",
+    "display_items": true,
+    "display_field": false
+  },
+  {
+    "id": "fd_fire_curse",
+    "type": "field_type",
+    "intensity_levels": [
+      {
+        "name": "ardent blaze",
+        "sym": "4",
+        "color": "red",
+        "dangerous": true,
+        "light_emitted": 10,
+        "translucency": 0.7,
+        "convection_temperature_mod": 20,
+        "effect_id": "v_spell_elem_flame_curse",
+        "effect_min_duration": "1 seconds",
+        "effect_max_duration": "1 seconds"
+      },
+      {
+        "name": "blaze",
+        "color": "magenta",
+        "light_emitted": 30,
+        "translucency": 0.4,
+        "effect_min_duration": "1 seconds",
+        "effect_max_duration": "3 seconds"
+      },
+      {
+        "name": "profane blaze",
+        "color": "pink",
+        "light_emitted": 80,
+        "translucency": 0.1,
+        "effect_min_duration": "1 seconds",
+        "effect_max_duration": "5 seconds"
+      }
+    ],
+    "decay_amount_factor": 3,
+    "has_fire": true,
+    "priority": 4,
+    "half_life": "15 minutes",
+    "phase": "plasma",
+    "display_items": false,
+    "display_field": true,
+    "percent_spread": 5
+  },
+  {
+    "id": "fd_fire_frost",
+    "type": "field_type",
+    "intensity_levels": [
+      {
+        "name": "chilling frost",
+        "sym": "4",
+        "color": "cyan",
+        "dangerous": true,
+        "light_emitted": 3,
+        "translucency": 0.7,
+        "convection_temperature_mod": -120,
+        "effect_id": "v_spell_elem_flame_curse",
+        "effect_min_duration": "1 seconds",
+        "effect_max_duration": "1 seconds"
+      },
+      {
+        "name": "frostburn",
+        "color": "light_blue",
+        "light_emitted": 8,
+        "translucency": 0.4,
+        "effect_min_duration": "1 seconds",
+        "effect_max_duration": "2 seconds"
+      },
+      {
+        "name": "raging frostburn",
+        "color": "blue",
+        "light_emitted": 20,
+        "translucency": 0.1,
+        "effect_min_duration": "1 seconds",
+        "effect_max_duration": "3 seconds"
+      }
+    ],
+    "decay_amount_factor": 3,
+    "has_fire": true,
+    "priority": 4,
+    "half_life": "5 minutes",
+    "phase": "plasma",
+    "display_items": false,
+    "display_field": true,
+    "percent_spread": 2
+  }
+]

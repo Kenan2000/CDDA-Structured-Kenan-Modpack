@@ -1,0 +1,40 @@
+[
+  {
+    "//": "replace `use_action` to include rubber repairs",
+    "type": "TOOL",
+    "id": "soldering_iron",
+    "copy-from": "soldering_iron",
+    "name": { "str": "soldering iron" },
+    "use_action": [
+      {
+        "type": "repair_item",
+        "item_action_type": "repair_metal",
+        "materials": [ "plastic", "rubber", "lead", "tin", "zinc" ],
+        "skill": "fabrication",
+        "cost_scaling": 0.1,
+        "move_cost": 1500
+      },
+      { "type": "cauterize", "flame": false }
+    ]
+  },
+  {
+    "//": "replace `use_action` to include rubber and titanium repairs",
+    "type": "TOOL",
+    "id": "toolset_extended",
+    "copy-from": "toolset_extended",
+    "name": { "str": "extended toolset" },
+    "use_action": [
+      "HAMMER",
+      "CROWBAR",
+      {
+        "type": "repair_item",
+        "item_action_type": "repair_metal",
+        "materials": [ "kevlar", "plastic", "rubber", "iron", "steel", "hardsteel", "aluminum", "titanium", "copper", "silver", "gold" ],
+        "skill": "mechanics",
+        "cost_scaling": 0.1,
+        "move_cost": 1000
+      },
+      { "type": "cauterize", "flame": false }
+    ]
+  }
+]

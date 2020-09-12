@@ -1,0 +1,461 @@
+[
+  {
+    "type": "technique",
+    "id": "mss_tec_sledge_tap",
+    "name": "Lovetap",
+    "messages": [ "You thrust your weapon at %s", "<npcname> thrusts their weapon at %s" ],
+    "min_melee": 0,
+    "melee_allowed": true,
+    "crit_ok": false,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.5 },
+      { "stat": "damage", "type": "bash", "scale": 0.66 },
+      { "stat": "damage", "type": "cut", "scale": 0.66 },
+      { "stat": "damage", "type": "stab", "scale": 0.66 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_sledge_jab",
+    "name": "Slam Jab",
+    "messages": [ "You jab powerfully at %s with your weapon", "<npcname> jabs powerfully at %s with their weapon" ],
+    "min_melee": 1,
+    "melee_allowed": true,
+    "crit_ok": false,
+    "stun_dur": 1
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_sledge_gutbuster",
+    "name": "Gutbuster",
+    "messages": [
+      "You slam the end of your weapon into %s and drive them back",
+      "<npcname> slams the end of their weapon into %s and drives them back"
+    ],
+    "min_melee": 1,
+    "weighting": 4,
+    "melee_allowed": true,
+    "crit_tec": true,
+    "stun_dur": 2,
+    "knockback_dist": 1,
+    "knockback_follow": true
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_sledge_counter",
+    "name": "Block And Bash",
+    "messages": [ "You parry and headbutt %s", "<npcname> parries and headbutts %s" ],
+    "min_melee": 3,
+    "melee_allowed": true,
+    "block_counter": true,
+    "crit_ok": true,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0 },
+      { "stat": "damage", "type": "bash", "scale": 0.3 },
+      { "stat": "damage", "type": "cut", "scale": 0 },
+      { "stat": "damage", "type": "stab", "scale": 0 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_sledge_shove",
+    "name": "Violent Shove",
+    "messages": [ "You violently shove at %s, sending them staggering", "<npcname> violently shoves at %s, sending them staggering" ],
+    "min_melee": 2,
+    "melee_allowed": true,
+    "req_buffs": "mss_buff_sledge_onblock",
+    "crit_ok": true,
+    "weighting": 8,
+    "stun_dur": 3,
+    "knockback_dist": 3,
+    "mult_bonuses": [
+      { "stat": "damage", "type": "bash", "scale": 0.5 },
+      { "stat": "damage", "type": "cut", "scale": 0 },
+      { "stat": "damage", "type": "stab", "scale": 0 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_sledge_shoveonmiss",
+    "name": "Violent Shove",
+    "messages": [ "You violently shove at %s, sending them staggering", "<npcname> violently shoves at %s, sending them staggering" ],
+    "min_melee": 2,
+    "melee_allowed": true,
+    "req_buffs": "mss_buff_sledge_onmiss",
+    "crit_ok": true,
+    "weighting": 2,
+    "stun_dur": 3,
+    "knockback_dist": 2,
+    "mult_bonuses": [
+      { "stat": "damage", "type": "bash", "scale": 0.5 },
+      { "stat": "damage", "type": "cut", "scale": 0 },
+      { "stat": "damage", "type": "stab", "scale": 0 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_sledge_deathblow",
+    "name": "Flying Blow",
+    "messages": [
+      "You swing directly into %s, making them soar through the air",
+      "<npcname> swings directly into %s, making them soar through the air"
+    ],
+    "min_melee": 5,
+    "melee_allowed": true,
+    "req_buffs": "mss_buff_sledge_onmiss",
+    "crit_tec": true,
+    "weighting": 10,
+    "stun_dur": 2,
+    "down_dur": 2,
+    "knockback_dist": 5,
+    "knockback_spread": 1,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 1.8 } ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_sledge_deathblowstun",
+    "name": "Flying Blow",
+    "messages": [
+      "You swing directly into %s, making them soar through the air",
+      "<npcname> swings directly into %s, making them soar through the air"
+    ],
+    "min_melee": 4,
+    "melee_allowed": true,
+    "stunned_target": true,
+    "crit_tec": true,
+    "weighting": 10,
+    "stun_dur": 2,
+    "down_dur": 2,
+    "knockback_dist": 5,
+    "knockback_spread": 1,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 1.3 }, { "stat": "damage", "type": "bash", "scale": 1.8 } ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_sledge_break",
+    "name": "Grab Break",
+    "messages": [
+      "The %s tries to grab you, but you shove their grasp away!",
+      "The %s tries to grab <npcname>, but they shove their grasp away!"
+    ],
+    "min_melee": 3,
+    "melee_allowed": true,
+    "defensive": true,
+    "grab_break": true
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_sledge_feint",
+    "name": "Swing For The Fences",
+    "messages": [ "You miss %s, but keep the momentum going.", "<npcname> misses %s, but keeps the momentum going." ],
+    "min_melee": 2,
+    "melee_allowed": true,
+    "defensive": true,
+    "miss_recovery": true,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 1.3 } ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_flail_direct",
+    "name": "Directed Force",
+    "messages": [ "You direct your flail into %s", "<npcname> directs their flail into %s" ],
+    "skill_requirements": [ { "name": "bashing", "level": 6 } ],
+    "melee_allowed": true,
+    "crit_ok": false
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_flail_stunningblow",
+    "name": "Stunning Blow",
+    "messages": [ "You stun %s with a deft blow", "<npcname> stuns %s with a deft blow" ],
+    "skill_requirements": [ { "name": "bashing", "level": 6 } ],
+    "req_buffs": "mss_buff_flail_ondodge",
+    "melee_allowed": true,
+    "weighting": 4,
+    "crit_ok": false,
+    "stun_dur": 2
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_flail_heavyblow",
+    "name": "Heavy Blow",
+    "messages": [ "You overwhelm and concuss %s with a heavy blow", "<npcname> hits %s with a heavy blow" ],
+    "skill_requirements": [ { "name": "bashing", "level": 6 } ],
+    "req_buffs": "mss_buff_flail_ondodge",
+    "melee_allowed": true,
+    "weighting": 8,
+    "crit_tec": true,
+    "stun_dur": 4
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_flail_swingaround",
+    "name": "Swing And Fling",
+    "messages": [ "You wrap around %s and swing them around yourself", "<npcname> wraps around %s and swings them around" ],
+    "skill_requirements": [ { "name": "bashing", "level": 6 } ],
+    "melee_allowed": true,
+    "stunned_target": true,
+    "crit_ok": false,
+    "side_switch": true,
+    "weighting": 2,
+    "stun_dur": 3,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 0.6 } ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_flail_swingandfling",
+    "name": "Swing And Fling",
+    "messages": [ "You wrap around %s hard and swing them away", "<npcname> wraps around %s and swings them away" ],
+    "skill_requirements": [ { "name": "bashing", "level": 7 } ],
+    "melee_allowed": true,
+    "stunned_target": true,
+    "crit_tec": true,
+    "side_switch": true,
+    "weighting": 10,
+    "stun_dur": 4,
+    "down_dur": 2,
+    "knockback_dist": 2,
+    "knockback_spread": 1,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 0.6 } ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_flail_kickover",
+    "name": "Kick Over",
+    "messages": [ "You shove over %s and strike at their exposed back", "<npcname> shoves over %s and strikes at them" ],
+    "skill_requirements": [ { "name": "bashing", "level": 7 } ],
+    "melee_allowed": true,
+    "downed_target": true,
+    "crit_ok": true,
+    "weighting": 15,
+    "stun_dur": 5,
+    "knockback_dist": 1,
+    "knockback_follow": true,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 2.5 }, { "stat": "movecost", "scale": 1 } ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_flail_wrappedtrip",
+    "name": "Wrapped Trip",
+    "messages": [ "You wrap around %s and pull them to the ground", "<npcname> wraps around %s and pulls them down" ],
+    "skill_requirements": [ { "name": "bashing", "level": 6 } ],
+    "melee_allowed": true,
+    "stunned_target": true,
+    "crit_ok": false,
+    "weighting": 2,
+    "down_dur": 5,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 0.6 } ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_flail_feint",
+    "name": "Continued Mass",
+    "messages": [ "You miss %s, but your flail cares not and keeps swinging.", "<npcname> misses %s, but their flail keeps spinning." ],
+    "min_melee": 0,
+    "melee_allowed": true,
+    "defensive": true,
+    "miss_recovery": true,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.6 } ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_flail_break",
+    "name": "Grab Break",
+    "messages": [
+      "The %s tries to grab you, but you wrench their grip off!",
+      "The %s tries to grab <npcname>, but they wrench their grip off!"
+    ],
+    "min_melee": 2,
+    "melee_allowed": true,
+    "defensive": true,
+    "grab_break": true
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_counter",
+    "name": "Stop And Smack",
+    "messages": [ "You stop %s's attack and throw a violent haymaker", "<npcname> stops %s's attack and throws a violent haymaker" ],
+    "min_melee": 3,
+    "unarmed_allowed": true,
+    "block_counter": true,
+    "crit_ok": false,
+    "weighting": 2,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.0 },
+      { "stat": "damage", "type": "bash", "scale": 0.8 },
+      { "stat": "damage", "type": "cut", "scale": 0.8 },
+      { "stat": "damage", "type": "stab", "scale": 0.4 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_superiorcounter",
+    "name": "Stop And Smackdown",
+    "messages": [ "You stop %s's attack and knock them into next week", "<npcname> stops %s's attack and knocks them into next week" ],
+    "min_melee": 4,
+    "req_buffs": "mss_buff_glove_onpause",
+    "unarmed_allowed": true,
+    "block_counter": true,
+    "crit_ok": true,
+    "weighting": 1,
+    "stun_dur": 2,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.0 },
+      { "stat": "damage", "type": "bash", "scale": 1.2 },
+      { "stat": "damage", "type": "cut", "scale": 0.8 },
+      { "stat": "damage", "type": "stab", "scale": 0.4 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_bodyshotknock",
+    "name": "Bodyshot Knockback",
+    "messages": [
+      "You throw a breath-robbing bodyshot at %s and follow through",
+      "<npcname> throws a breath-robbing bodyshot at %s and follows through"
+    ],
+    "req_buffs": "mss_buff_glove_onblock",
+    "min_melee": 2,
+    "weighting": 2,
+    "unarmed_allowed": true,
+    "crit_ok": false,
+    "knockback_dist": 1,
+    "knockback_follow": true
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_superiorbodyshotknock",
+    "name": "Debilitating Bodyshot Knockback",
+    "messages": [
+      "You throw a breath-robbing bodyshot at %s, and run after them as they stumble",
+      "<npcname> throws a breath-robbing bodyshot at %s and runs after them as they stumble"
+    ],
+    "req_buffs": "mss_buff_glove_onblock",
+    "min_melee": 3,
+    "weighting": 4,
+    "unarmed_allowed": true,
+    "crit_tec": true,
+    "stun_dur": 1,
+    "knockback_dist": 2,
+    "knockback_follow": true,
+    "mult_bonuses": [
+      { "stat": "damage", "type": "bash", "scale": 1.1 },
+      { "stat": "damage", "type": "cut", "scale": 1.1 },
+      { "stat": "damage", "type": "stab", "scale": 1.1 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_bodyshot",
+    "name": "Bodyshot",
+    "messages": [ "You throw a rib-cracking bodyshot at %s", "<npcname> throws a rib-cracking bodyshot at %s" ],
+    "min_melee": 2,
+    "weighting": 1,
+    "unarmed_allowed": true,
+    "crit_ok": false
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_superiorbodyshot",
+    "name": "Debilitating Bodyshot Combo",
+    "messages": [
+      "You throw a rib-shattering bodyshot at %s, and immediately follow with a skullcracking strike",
+      "<npcname> throws a rib-shattering bodyshot at %s and immediately follows with a skullcracking strike"
+    ],
+    "min_melee": 3,
+    "weighting": 2,
+    "unarmed_allowed": true,
+    "crit_tec": true,
+    "stun_dur": 2,
+    "mult_bonuses": [
+      { "stat": "damage", "type": "bash", "scale": 1.3 },
+      { "stat": "damage", "type": "cut", "scale": 1.3 },
+      { "stat": "damage", "type": "stab", "scale": 1.3 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_knockout",
+    "name": "Knockout",
+    "messages": [
+      "You punch %s straight to the ground, dazing them further",
+      "<npcname> punches %s straight to the ground, dazing them further"
+    ],
+    "min_melee": 3,
+    "weighting": 4,
+    "stunned_target": true,
+    "unarmed_allowed": true,
+    "crit_tec": true,
+    "stun_dur": 1,
+    "down_dur": 2
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_smackdown",
+    "name": "Smackdown",
+    "messages": [
+      "You mulch %s's head into the ground with a rabid attack",
+      "<npcname> mulches %s's head into the ground with a rabid attack"
+    ],
+    "min_melee": 3,
+    "weighting": 6,
+    "downed_target": true,
+    "unarmed_allowed": true,
+    "crit_ok": false,
+    "stun_dur": 1
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_superiorsmackdown",
+    "name": "Life-ending Smackdown",
+    "messages": [
+      "You maim %s's head against the ground with all your might",
+      "<npcname> maims %s's head against the ground with all their might"
+    ],
+    "min_melee": 3,
+    "weighting": 10,
+    "downed_target": true,
+    "stunned_target": true,
+    "unarmed_allowed": true,
+    "crit_tec": true,
+    "stun_dur": 2,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.3 },
+      { "stat": "damage", "type": "bash", "scale": 1.8 },
+      { "stat": "damage", "type": "cut", "scale": 1.8 },
+      { "stat": "damage", "type": "stab", "scale": 1.8 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_wallbash",
+    "name": "Wallbash",
+    "messages": [ "You grab %s and bash them into a nearby wall", "<npcname> grabs %s and bashes them into a nearby wall" ],
+    "unarmed_allowed": true,
+    "wall_adjacent": true,
+    "crit_tec": true,
+    "stun_dur": 1,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 1.5 } ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_feint",
+    "name": "Lurch",
+    "messages": [ "You tense up at %s.", "<npcname> tenses up at %s." ],
+    "min_melee": 3,
+    "unarmed_allowed": true,
+    "defensive": true,
+    "miss_recovery": true,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.6 } ]
+  },
+  {
+    "type": "technique",
+    "id": "mss_tec_glove_break",
+    "name": "Grab Break",
+    "messages": [ "The %s tries to grab you, but you shove them off!", "The %s tries to grab <npcname>, but they shove them off!" ],
+    "min_melee": 2,
+    "unarmed_allowed": true,
+    "defensive": true,
+    "grab_break": true
+  }
+]

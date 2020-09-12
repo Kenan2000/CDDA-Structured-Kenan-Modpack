@@ -1,0 +1,47 @@
+[
+  {
+    "id": "flintlock_ammo_mine",
+    "copy-from": "flintlock_ammo",
+    "type": "AMMO",
+    "name": { "str": "paper Minie ball cartridge" },
+    "//": "meant as a companion to the Survivor's Flintlock Sniper.",
+    "description": "A paper cartridge containing black powder and a Minie ball.  A paper enclosed version of the historic projectile of the USA Civil war.  The Minie ball is still as deadly and accurate as ever.",
+    "weight": "55 g",
+    "price": 5000,
+    "proportional": { "dispersion": 0.89 },
+    "relative": { "recoil": 300, "range": 19 }
+  },
+  {
+    "id": "c_hydrogen_gas",
+    "type": "AMMO",
+    "name": { "str_sp": "hydrogen gas" },
+    "category": "chems",
+    "description": "A light, flammable gas compressed for use as fuel.  Quite energy dense, but also requiring a lot of energy to produce, even moreso without pre-cataclysm industry.",
+    "weight": "1438 mg",
+    "volume": "1500 ml",
+    "price": 50,
+    "symbol": "=",
+    "color": "white",
+    "stack_size": 24,
+    "phase": "liquid",
+    "ammo_type": "c_hydrogen",
+    "fuel": {
+      "//": "Compressed gaseous hydrogen has 9.2 MJ/L.  The solid hydrogen canisters have roughly 4 times the density, energy figure here reduced a bit to make for easier calculations.",
+      "energy": 1000,
+      "explosion_data": { "chance_hot": 2, "chance_cold": 2, "factor": 0.5, "fiery": true, "size_factor": 0.1 }
+    },
+    "flags": [ "NO_DROP", "IRREMOVABLE" ]
+  },
+  {
+    "type": "AMMO",
+    "id": "c_bioampoule",
+    "category": "other",
+    "name": { "str": "bio-ampoule" },
+    "symbol": "=",
+    "color": "cyan",
+    "description": "A thin-walled capsule formed of strange resin filled with a strange liquid, used by exotic autoinjector mechanisms.",
+    "volume": "100 ml",
+    "weight": "1 g",
+    "ammo_type": "c_bioampoule_type"
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "id": "nano_turret_pistol_weapon",
+    "type": "GUN",
+    "name": { "str": "nanotech pistol" },
+    "description": "You shouldn't see this. nano_turret_pistol_weapon",
+    "copy-from": "nano_turret_pistol"
+  },
+  {
+    "id": "nano_turret_shredder_weapon",
+    "type": "GUN",
+    "name": { "str": "nanotech shredder" },
+    "description": "You shouldn't see this. nano_turret_shredder_weapon",
+    "copy-from": "nano_turret_shredder"
+  },
+  {
+    "id": "nano_turret_rifle_weapon",
+    "type": "GUN",
+    "name": { "str": "nanotech rifle" },
+    "description": "You shouldn't see this. nano_turret_rifle_weapon",
+    "copy-from": "nano_turret_rifle"
+  },
+  {
+    "id": "nano_turret_smg_weapon",
+    "type": "GUN",
+    "name": { "str": "nanotech smg" },
+    "description": "You shouldn't see this. nano_turret_smg_weapon",
+    "copy-from": "nano_turret_smg"
+  },
+  {
+    "id": "mon_nano_turret_pistol",
+    "type": "MONSTER",
+    "name": { "str": "nanotech pistol turret" },
+    "description": "A shimmering pool of liquid metal with a small barrel sticking out, this turret specializes in accuracy, though it lacks in raw power.",
+    "default_faction": "nanotech_guards",
+    "looks_like": "mon_blob_large",
+    "species": [ "NANOTECH" ],
+    "harvest": "exempt",
+    "diff": 30,
+    "volume": "2000 ml",
+    "weight": "3627 g",
+    "hp": 150,
+    "speed": 100,
+    "material": [ "nanite" ],
+    "symbol": "2",
+    "color": "light_gray",
+    "aggression": 100,
+    "morale": 100,
+    "armor_bash": 16,
+    "armor_cut": 48,
+    "armor_stab": 64,
+    "armor_acid": 32,
+    "armor_fire": 8,
+    "luminance": 0,
+    "vision_day": 25,
+    "vision_night": 25,
+    "revert_to_itype": "nanoturret_pistol",
+    "starting_ammo": { "metal_nanopowder": 300 },
+    "special_attacks": [
+      {
+        "type": "gun",
+        "cooldown": 1,
+        "gun_type": "nano_turret_pistol_weapon",
+        "ranges": [ [ 0, 3, "AUTO" ], [ 4, 9, "BURST" ], [ 10, 16, "DEFAULT" ] ]
+      }
+    ],
+    "death_function": [ "NORMAL" ],
+    "death_drops": "nanoturret_death",
+    "flags": [ "SEES", "NOHEAD", "IMMOBILE", "NO_BREATHE", "NOGIB", "PLASTIC", "PRIORITIZE_TARGETS" ]
+  },
+  {
+    "id": "mon_nano_turret_shredder",
+    "copy-from": "mon_nano_turret_pistol",
+    "type": "MONSTER",
+    "name": { "str": "nanotech shredder turret" },
+    "description": "A shimmering pool of liquid metal with a wide barrel sticking out, this turret specializes in power, though it lacks in accuracy and range.",
+    "diff": 50,
+    "volume": "4000 ml",
+    "weight": "4375 g",
+    "revert_to_itype": "nanoturret_shredder",
+    "starting_ammo": { "metal_nanopowder": 200 },
+    "special_attacks": [
+      {
+        "type": "gun",
+        "cooldown": 1,
+        "gun_type": "nano_turret_shredder_weapon",
+        "ranges": [ [ 0, 4, "BURST" ], [ 5, 14, "DEFAULT" ] ]
+      }
+    ]
+  },
+  {
+    "id": "mon_nano_turret_rifle",
+    "copy-from": "mon_nano_turret_pistol",
+    "type": "MONSTER",
+    "name": { "str": "nanotech rifle turret" },
+    "description": "A shimmering pool of liquid metal with a long barrel sticking out, this turret specializes in accuracy, though it lacks in raw power.",
+    "diff": 40,
+    "volume": "4000 ml",
+    "weight": "4375 g",
+    "revert_to_itype": "nanoturret_rifle",
+    "starting_ammo": { "metal_nanopowder": 300 },
+    "special_attacks": [
+      {
+        "type": "gun",
+        "cooldown": 1,
+        "gun_type": "nano_turret_rifle_weapon",
+        "ranges": [ [ 0, 4, "AUTO" ], [ 5, 14, "BURST" ], [ 15, 24, "DEFAULT" ] ]
+      }
+    ]
+  },
+  {
+    "id": "mon_nano_turret_smg",
+    "copy-from": "mon_nano_turret_pistol",
+    "type": "MONSTER",
+    "name": { "str": "nanotech smg turret" },
+    "description": "A shimmering pool of liquid metal with a short barrel sticking out, this turret specializes in speed, though it lacks in range and sustainability.",
+    "diff": 50,
+    "volume": "3000 ml",
+    "weight": "4523 g",
+    "revert_to_itype": "nanoturret_smg",
+    "starting_ammo": { "metal_nanopowder": 200 },
+    "special_attacks": [
+      {
+        "type": "gun",
+        "cooldown": 1,
+        "gun_type": "nano_turret_smg_weapon",
+        "ranges": [ [ 0, 3, "FULL" ], [ 4, 7, "BURST" ], [ 8, 14, "DEFAULT" ] ]
+      }
+    ]
+  }
+]

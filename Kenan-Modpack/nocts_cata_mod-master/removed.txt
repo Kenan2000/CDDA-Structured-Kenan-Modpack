@@ -1,0 +1,300 @@
+,{
+    "result": "gasoline",
+    "type" : "recipe",
+    "category": "CC_CHEM",
+    "subcategory": "CSC_CHEM_FUEL",
+    "skill_used": "cooking",
+    "difficulty": 1,
+	"result_mult": 4,
+	"autolearn": true,
+    "time": 60,
+     "tools":[[ [ "goo_jerrycan", 24 ]]],
+	 "components":[[["water", 1]]]
+  },{
+    "result": "battery",
+    "type" : "recipe",
+    "category": "CC_CHEM",
+    "subcategory": "CSC_CHEM_FUEL",
+    "skill_used": "cooking",
+    "difficulty": 1,
+	"result_mult": 4,
+	"autolearn": true,
+    "time": 60,
+     "tools":[[ [ "solar_recharger", 100 ]]]
+  },
+  {
+    "id": "goo_jerrycan",
+    "type": "TOOL_ARMOR",
+    "covers": [
+      "TORSO"
+    ],
+    "warmth": 5,
+    "encumbrance": 30,
+    "flags": [
+      "OVERSIZE",
+      "BELTED"
+    ],
+    "coverage": 40,
+    "material_thickness": 2,
+    "symbol": ")",
+    "color": "light_red",
+    "name": "Goo jerrycan",
+    "category": "other",
+    "description": "A former plastic jerrycan taken over by the gasoline goo. Now it fills the jerry can with gasoline when exposed to the sun. Unload to enjoy!",
+    "price": 1250,
+    "weight": 1854,
+    "volume": 40,
+    "to_hit": -2,
+    "material": "plastic",
+    "max_charges": 10000,
+    "initial_charges": 0,
+    "charges_per_use": 0,
+    "turns_per_charge": 0,
+    "ammo": "gasoline",
+    "artifact_data": {
+      "charge_type": "ARTC_SOLAR"
+    }
+  },
+  {
+    "id": "solar_recharger",
+    "type": "TOOL",
+    "symbol": ",",
+    "color": "light_gray",
+    "name": "Solar Battery Recharger",
+    "description": "A makeshift solar battery recharger made from a modified rechargeable battery mod. Input batteries, put in the sun, batteries charge, take them out, simple.",
+    "price": 200,
+    "material": "steel",
+    "weight": 283,
+    "volume": 5,
+    "to_hit": 0,
+    "max_charges": 100,
+    "initial_charges": 0,
+    "charges_per_use": 0,
+    "turns_per_charge": 0,
+    "ammo": "battery",
+    "artifact_data": {
+      "charge_type": "ARTC_SOLAR"
+    }
+  },
+  {
+    "type": "recipe",
+    "result": "goo_jerrycan",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_OTHER",
+    "difficulty": 0,
+    "time": 2000,
+    "reversible": false,
+    "autolearn": true,
+    "book_learn": [
+      [
+        "recipe_surv",
+        0
+      ]
+    ],
+    "components": [
+      [
+        [
+          "jerrycan",
+          1
+        ]
+      ],
+      [
+        [
+          "gas_slime_scrap",
+          10
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "recipe",
+    "result": "solar_recharger",
+    "category": "CC_ELECTRONIC",
+    "skill_used": "electronics",
+    "skills_required": [
+      "fabrication",
+      3
+    ],
+    "difficulty": 4,
+    "time": 15000,
+    "reversible": false,
+    "autolearn": false,
+    "book_learn": [
+      [
+        "manual_electronics",
+        2
+      ],
+      [
+        "mag_electronics",
+        2
+      ],
+      [
+        "manual_electronics",
+        2
+      ],
+      [
+        "recipe_surv",
+        1
+      ]
+    ],
+    "tools": [
+      [
+        [
+          "soldering_iron",
+          25
+        ],
+        [
+          "toolset",
+          25
+        ]
+      ]
+    ],
+    "components": [
+      [
+        [
+          "sheet_metal",
+          1
+        ]
+      ],
+      [
+        [
+          "solar_cell",
+          4
+        ]
+      ],
+      [
+        [
+          "solder_wire",
+          2
+        ]
+      ],
+      [
+        [
+          "scrap",
+          2
+        ]
+      ]
+    ]
+  },
+  {
+    "type": "profession",
+    "ident": "bio_weapon_hunter",
+    "name": "Bio-Weapon Hunter",
+    "description": "The culmination of the Super Soldier project. You have been created to not only single handedly take on any mission, but to track down and take down what started it all, the Bio-Weapons. Will you follow through?",
+    "points": 18,
+    "CBMs": [
+      "bio_carbon",
+      "bio_ears",
+      "bio_sunglasses",
+      "bio_ups",
+      "bio_cqb",
+      "bio_sword",
+      "bio_shock",
+      "bio_nanobots",
+      "bio_painkiller",
+      "bio_flashlight",
+      "bio_night_vision",
+      "bio_tools"
+      "bio_evap",
+      "bio_recycler",
+      "bio_torsionratchet",
+      "bio_furnace",
+      "bio_power_storage_mkII",
+      "bio_power_storage_mkII"
+    ],
+    "traits": [ "SUPER_SOLDIER_MARKER" ],
+    "skills": [
+      { "level": 3, "name": "computer" },
+      { "level": 3, "name": "melee" },
+      { "level": 3, "name": "cutting" },
+      { "level": 3, "name": "unarmed" },
+      { "level": 3, "name": "dodge" },
+      { "level": 3, "name": "gun" },
+      { "level": 3, "name": "rifle" },
+	  { "level": 3, "name": "survival" },
+      { "level": 3, "name": "cooking" },
+      { "level": 3, "name": "tailor" },
+      { "level": 3, "name": "swimming" }
+	  { "level": 3, "name": "mechanics" },
+      { "level": 3, "name": "cooking" },
+      { "level": 3, "name": "firstaid" },
+      { "level": 3, "name": "fabrication" }
+    ],
+    "items": {
+      "both": {
+        "items": [
+          "undershirt",
+          "arm_warmers",
+          "leg_warmers",
+          "pants_army",
+          "jacket_army",
+          "balclava",
+          "tac_helmet",
+          "gloves_liner",
+          "gloves_tactical",
+          "socks",
+          "boots_combat",
+		  "molle_pack",
+          "2lcanteen",
+          "mre_veggy_box",
+		  "mil_mess_kit",
+          "e_tool",
+          "tent_kit",
+          "rollmat",
+          "militarymap",
+          "biomap",
+		  "id_military",
+		  "id_science"
+        ],
+        "entries": [ { "item": "arc_laser_rifle", "contents-item": "shoulder_strap" } ]
+      },
+      "male": [ "boxer_shorts" ],
+      "female": [ "sports_bra", "boxer_shorts" ]
+    },
+    "flags": [ "SCEN_ONLY" ]
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_BIO_WEAPON",
+    "name": "Bio-Weapon",
+    "job_description": "I am here to find answers...",
+    "common": false,
+    "bonus_str": { "rng": [ 2, 4 ] },
+    "bonus_dex": { "rng": [ 2, 4 ] },
+    "bonus_int": { "rng": [ 0, 2 ] },
+    "bonus_per": { "rng": [ 0, 2 ] },
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 3 ] }, { "constant": -2 } ] } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 2, 4 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 2, 4 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 2, 4 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 3, 6 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 3, 6 ] } },
+      { "skill": "cutting", "bonus": { "rng": [ 2, 4 ] } },
+      { "skill": "stabbing", "bonus": { "rng": [ 2, 4 ] } }
+    ],
+    "comment": "Weapon is in carry group to ensure ammo is matched up with it.",
+    "worn_override": "NC_BIO_WEAPON_worn",
+    "carry_override": "NC_BIO_WEAPON_carry",
+    "weapon_override": "EMPTY_GROUP",
+    "comment": "Not quite the bio-weapon mutations, because these are generic ones.",
+    "traits": [
+      [ "BIO_WEAPON_GENERIC", 100 ],
+      [ "THICKSKIN", 100 ],
+      [ "GOODHEARING", 100 ],
+      [ "QUICK", 80 ],
+      [ "DEFT", 80 ],
+      [ "NIGHTVISION", 100 ],
+      [ "CLAWS", 50 ],
+      [ "REGEN", 80 ],
+      [ "STR_UP", 45 ],
+      [ "PER_UP", 45 ],
+      [ "INT_UP", 45 ],
+      [ "DEX_UP", 45 ],
+      [ "STR_UP_2", 10 ],
+      [ "PER_UP_2", 10 ],
+      [ "INT_UP_2", 10 ],
+      [ "DEX_UP_2", 10 ],
+      [ "HUNGER", 100 ]
+    ]
+}

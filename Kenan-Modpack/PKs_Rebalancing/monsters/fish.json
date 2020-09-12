@@ -1,0 +1,169 @@
+[
+  {
+    "id": "mon_mutant_carp",
+    "type": "MONSTER",
+    "name": { "str": "giant carp" },
+    "copy-from": "mon_mutant_carp",
+    "default_faction": "fish_predator"
+  },
+  {
+    "id": "mon_mutant_salmon",
+    "type": "MONSTER",
+    "name": { "str": "giant carp" },
+    "copy-from": "mon_mutant_salmon",
+    "default_faction": "fish_predator"
+  },
+  {
+    "id": "mon_fish_eel_large",
+    "type": "MONSTER",
+    "name": { "str": "giant freshwater eel" },
+    "description": "A giant eel, thick as a man's torso.  Ravenous and oppurtunistic, this hook-jawed horror prowls the rivers freely.",
+    "default_faction": "rat",
+    "categories": [ "WILDLIFE" ],
+    "species": [ "FISH" ],
+    "diff": 20,
+    "size": "LARGE",
+    "harvest": "fish_large",
+    "hp": 70,
+    "speed": 140,
+    "material": [ "flesh" ],
+    "symbol": "E",
+    "color": "white",
+    "aggression": 25,
+    "morale": 65,
+    "melee_skill": 4,
+    "melee_dice": 2,
+    "melee_dice_sides": 9,
+    "melee_cut": 7,
+    "dodge": 4,
+    "armor_bash": 4,
+    "armor_cut": 1,
+    "armor_acid": 3,
+    "vision_day": 35,
+    "vision_night": 7,
+    "special_attacks": [
+      {
+        "type": "bite",
+        "cooldown": 15,
+        "accuracy": 5,
+        "moves": 75,
+        "no_infection_chance": 15,
+        "damage_max_instance": [
+          { "damage_type": "bash", "amount": 18, "armor_multiplier": 0.8 },
+          { "damage_type": "stab", "amount": 6, "armor_multiplier": 0.8 }
+        ],
+        "effects": [ { "id": "grabbed", "duration": 1000 } ]
+      }
+    ],
+    "death_function": [ "NORMAL" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "SWIMS", "AQUATIC", "PATH_AVOID_DANGER_1" ],
+    "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK", "FRIEND_ATTACKED" ],
+    "fear_triggers": [ "FRIEND_DIED" ]
+  },
+  {
+    "id": "mon_fish_flying",
+    "type": "MONSTER",
+    "name": { "str": "flying fish" },
+    "description": "A fish with an incredible ability to leap from the water; its fins and teeth are large and powerful.",
+    "default_faction": "rat",
+    "categories": [ "WILDLIFE" ],
+    "species": [ "FISH" ],
+    "diff": 15,
+    "size": "SMALL",
+    "harvest": "fish_small",
+    "hp": 18,
+    "speed": 165,
+    "material": [ "flesh" ],
+    "symbol": "F",
+    "color": "white",
+    "aggression": 35,
+    "morale": 50,
+    "melee_skill": 4,
+    "melee_dice": 1,
+    "melee_dice_sides": 6,
+    "melee_cut": 3,
+    "melee_damage": [ { "damage_type": "stab", "amount": 1 } ],
+    "dodge": 2,
+    "armor_bash": 3,
+    "armor_acid": 3,
+    "vision_day": 30,
+    "special_attacks": [
+      [ "wound_minor", 30 ],
+      { "type": "leap", "cooldown": 30, "max_range": 3 },
+      {
+        "type": "bite",
+        "cooldown": 20,
+        "accuracy": 5,
+        "moves": 75,
+        "no_infection_chance": 15,
+        "damage_max_instance": [ { "damage_type": "cut", "amount": 9, "armor_multiplier": 0.85 } ]
+      }
+    ],
+    "death_function": [ "NORMAL" ],
+    "flags": [ "SEES", "SMELLS", "WARM", "SWIMS", "AQUATIC", "HIT_AND_RUN" ],
+    "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK", "FRIEND_ATTACKED" ],
+    "fear_triggers": [ "HURT", "FRIEND_DIED" ]
+  },
+  {
+    "id": "mon_fish_lobster_giant",
+    "type": "MONSTER",
+    "name": { "str": "giant lobster" },
+    "description": "A sea cockroach, engorged to preposterous proportions.  With a large claw for crushing and a slightly smaller large claw for scooping out flesh from shells, this normally sluggish monster is surprisingly agile and predatory when a meal is nearby.",
+    "default_faction": "fish_predator",
+    "categories": [ "WILDLIFE" ],
+    "species": [ "FISH" ],
+    "diff": 25,
+    "size": "LARGE",
+    "harvest": "shellfish",
+    "hp": 190,
+    "speed": 85,
+    "material": [ "flesh" ],
+    "symbol": "f",
+    "color": "red",
+    "aggression": 0,
+    "morale": 80,
+    "melee_skill": 4,
+    "melee_dice": 2,
+    "melee_dice_sides": 11,
+    "melee_cut": 8,
+    "dodge": 1,
+    "armor_bash": 8,
+    "armor_cut": 16,
+    "armor_acid": 4,
+    "armor_fire": 6,
+    "vision_day": 35,
+    "vision_night": 7,
+    "special_attacks": [
+      [ "RANGED_PULL", 25 ],
+      [ "wound_minor", 40 ],
+      [ "slash", 25 ],
+      {
+        "id": "hammer",
+        "cooldown": 20,
+        "accuracy": 7,
+        "moves": 175,
+        "damage_max_instance": [
+          { "damage_type": "bash", "amount": 20, "armor_multiplier": 0.8 },
+          { "damage_type": "stab", "amount": 10, "armor_multiplier": 0.8 }
+        ],
+        "effects": [ { "id": "grabbed", "duration": 1000 } ]
+      },
+      {
+        "id": "scratch",
+        "cooldown": 20,
+        "accuracy": 6,
+        "moves": 175,
+        "damage_max_instance": [
+          { "damage_type": "bash", "amount": 20, "armor_multiplier": 0.75 },
+          { "damage_type": "cut", "amount": 12, "armor_multiplier": 0.75 }
+        ],
+        "effects": [ { "id": "grabbed", "duration": 1000 } ]
+      }
+    ],
+    "regen_morale": true,
+    "death_function": [ "NORMAL" ],
+    "flags": [ "SEES", "SMELLS", "SWIMS", "DESTROYS", "ARTHROPOD_BLOOD", "STUMBLES" ],
+    "anger_triggers": [ "PLAYER_CLOSE", "STALK", "FIRE", "HURT" ],
+    "placate_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "SOUND" ]
+  }
+]

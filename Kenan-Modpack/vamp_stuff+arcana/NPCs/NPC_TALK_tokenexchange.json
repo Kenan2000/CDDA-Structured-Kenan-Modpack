@@ -1,0 +1,379 @@
+[{
+        "note": "Rewards based on Cataclysm days and sorted by tiers. Basically, tier 1 and 2 are focused for your character productivity. Buy if you're desperate about the odds in RNG. VS = Vampiric Stuff and AM = Arcana and Magic items. Someday I'll tell chaosvolt about this.",
+        "id": "VAMP_ASEEKER_questinquire_tokenexc",
+        "type": "talk_topic",
+        "dynamic_line": {
+            "days_since_cataclysm": 5,
+            "no": "I don't know if I have something for you to exchange at this moment...",
+            "yes": {
+                "days_since_cataclysm": 15,
+                "note": "Supply related items, namely some recipe materials.",
+                "no": "Well, my ware is too small. Maybe you could be needing something at these stuff.",
+                "yes": {
+                    "days_since_cataclysm": 30,
+                    "note": "Tools related items, like forges.",
+                    "no": "I've got some supplies for your stock...",
+                    "yes": {
+                        "days_since_cataclysm": 60,
+                        "note": "Well-made items, like weapons and armors.",
+                        "no": "Lets see what could we exchange for your tokens...",
+                        "yes": {
+                            "days_since_cataclysm": 120,
+                            "note": "High-grade items, like guns and stronger armors.",
+                            "no": "Well... The gunshop is offering you with limited guns in exchange of tokens.",
+                            "yes": {
+                                "days_since_cataclysm": 240,
+                                "note": "Exclusive items, or those you can't get from either crafting nor in the wilds.",
+                                "no": "A set of items for your endeavors!",
+                                "yes": {
+                                    "days_since_cataclysm": 480,
+                                    "note": "Exclusive items that costs more than 500 tokens... I guess.",
+                                    "no": "For all of your pain, these items would help you out!",
+                                    "yes": {
+                                        "days_since_cataclysm": 960,
+                                        "note": "Notifies player that no more stocks will be added.",
+                                        "no": "This stock is at its finest!",
+                                        "yes": "I guess you're waiting for more contents... Don't wait for something else."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "responses": [{
+                "text": "(Inquire for tier 1 VS rewards)",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct1VS",
+                "condition": {
+                    "days_since_cataclysm": 5
+                }
+            }, {
+                "text": "(Inquire for tier 2 VS rewards)",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct2VS",
+                "condition": {
+                    "days_since_cataclysm": 15
+                }
+            }, {
+                "text": "(Inquire for tier 3 VS rewards)",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct3VS",
+                "condition": {
+                    "days_since_cataclysm": 30
+                }
+            }, {
+                "text": "(Inquire for tier 4 VS rewards)",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct3VS",
+                "condition": {
+                    "days_since_cataclysm": 60
+                }
+            }, {
+                "text": "I change my mind...",
+                "topic": "VAMP_ASEEKER_main"
+            }
+        ]
+    }, {
+        "id": "VAMP_ASEEKER_questinquire_tokenexct1VS",
+        "type": "talk_topic",
+        "dynamic_line": "Just look at this list:\n10 blood powders for 1 token\nblood draw kit with blood for 1 token\n1 blood compact sheet for 2 tokens.",
+        "responses": [{
+                "text": "I'll exchange a token for 10 blood powders",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct1VS",
+                "condition": {
+                    "u_has_item": "arcanetoken"
+                },
+                "effect": [{
+                        "u_buy_item": "bloodpowder",
+                        "count": 10
+                    }, {
+                        "u_sell_item": "arcanetoken"
+                    }
+                ]
+            }, {
+                "text": "I'll exchange a token for blood draw kit with blood",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct1VS",
+                "condition": {
+                    "u_has_item": "arcanetoken"
+                },
+                "effect": [{
+                        "u_buy_item": "blood",
+                        "container": "vacutainer"
+                    }, {
+                        "u_sell_item": "arcanetoken"
+                    }
+                ]
+            }, {
+                "text": "I'll exchange 2 tokens for a blood compact sheet",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct1VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 2
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "compactsheet"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 2
+                    }
+                ]
+            }, {
+                "text": "Okay...",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexc"
+            }
+        ]
+    }, {
+        "id": "VAMP_ASEEKER_questinquire_tokenexct2VS",
+        "type": "talk_topic",
+        "dynamic_line": "Just look at this list:\n\"Red Velvets - The Dark Fashion\" for 10 tokens\n\"Glorious Gunnery\" for 12 tokens\n\"The Vampiric Infusion\" for 15 tokens\nblood infusing forge for 30 tokens\nblood extractor for 20 tokens\nblood compressor for 30 tokens\nblood chemistry for 25 tokens.",
+        "responses": [{
+                "text": "I'll exchange 10 tokens for \"Red Velvets - The Dark Fashion\"",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct2VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 10
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "vamp_darkfashion1"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 10
+                    }
+                ]
+            }, {
+                "text": "I'll exchange 12 tokens for \"Glorious Gunnery\"",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct2VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 12
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "vamp_gunner1"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 12
+                    }
+                ]
+            }, {
+                "text": "I'll exchange 15 tokens for \"The Vampiric Infusion\"",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct2VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 15
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "vamp_upgradebook1"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 15
+                    }
+                ]
+            }, {
+                "text": "I'll exchange 30 tokens for the blood infusing forge",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct2VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 30
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "blood_forge_infuse"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 30
+                    }
+                ]
+            }, {
+                "text": "I'll exchange 20 tokens for blood extractor",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct2VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 20
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "bloodextractor"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 20
+                    }
+                ]
+            }, {
+                "text": "I'll exchange 30 tokens for blood compressor",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct2VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 30
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "bloodcompressor"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 30
+                    }
+                ]
+            }, {
+                "text": "I'll exchange 25 tokens for the blood chemistry",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct2VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 25
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "bloodchem"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 25
+                    }
+                ]
+            }, {
+                "text": "Okay...",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexc"
+            }
+        ]
+    }, {
+        "id": "VAMP_ASEEKER_questinquire_tokenexct3VS",
+        "type": "talk_topic",
+        "dynamic_line": "Just look at this list:\nfull bloodset armor for 40 tokens\nblood sipper for 20 tokens\nblood diver for 20 tokens\nhammerius for 25 tokens\nknuckle biters for 15 tokens",
+        "responses": [{
+                "text": "I'll exchange 40 tokens for the full set of blood armor",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct3VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 40
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "blood_suit"
+                    }, {
+                        "u_buy_item": "blood_hood"
+                    }, {
+                        "u_buy_item": "blood_duster"
+                    }, {
+                        "u_buy_item": "blood_gloves"
+                    }, {
+                        "u_buy_item": "blood_pants"
+                    }, {
+                        "u_buy_item": "blood_boots"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 40
+                    }
+                ]
+            }, {
+                "text": "I'll exchange 20 tokens for the blood sipper",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct3VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 20
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "sword_sip"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 20
+                    }
+                ]
+            }, {
+                "text": "I'll exchange 20 tokens for the blood diver",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct3VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 20
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "sword_dive"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 20
+                    }
+                ]
+            }, {
+                "text": "I'll exchange 25 tokens for the hammerius",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct3VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 25
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "hammerius"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 25
+                    }
+                ]
+            }, {
+                "text": "I'll exchange 15 tokens for the knuckle biters",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct3VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 15
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "punchie_bitie"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 15
+                    }
+                ]
+            }, {
+                "text": "Okay...",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexc"
+            }
+        ]
+    }, {
+        "id": "VAMP_ASEEKER_questinquire_tokenexct4VS",
+        "type": "talk_topic",
+        "dynamic_line": "Just look at this list:\nfull infused bloodset for 65 tokens",
+        "responses": [{
+                "text": "I'll exchange 65 tokens for the full set of infused blood armor",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexct4VS",
+                "condition": {
+                    "u_has_items": {
+                        "item": "arcanetoken",
+                        "count": 65
+                    }
+                },
+                "effect": [{
+                        "u_buy_item": "bloodinfused_survivorhood"
+                    }, {
+                        "u_buy_item": "bloodinfused_survivorpants"
+                    }, {
+                        "u_buy_item": "bloodinfused_survivorduster"
+                    }, {
+                        "u_buy_item": "bloodinfused_survivorgloves"
+                    }, {
+                        "u_buy_item": "bloodinfused_survivorboots"
+                    }, {
+                        "u_sell_item": "arcanetoken",
+                        "count": 65
+                    }
+                ]
+            }, {
+                "text": "Okay...",
+                "topic": "VAMP_ASEEKER_questinquire_tokenexc"
+            }
+        ]
+    }
+]

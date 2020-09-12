@@ -1,0 +1,52 @@
+[
+  {
+    "type": "GENERIC",
+    "copy-from": "mobile_memory_card",
+    "id": "sd_card",
+    "//": "local copy of the native SD card sans all the random data flags",
+    "name": { "str": "SD-Memory card" },
+    "flags": [  ]
+  },
+  {
+    "type": "GENERIC",
+    "copy-from": "software",
+    "abstract": "file",
+    "name": { "str": "a file", "str_pl": "files" },
+    "symbol": "#",
+    "container": "sd_card",
+    "flags": [ "IRREMOVABLE", "NO_DROP" ]
+  },
+  {
+    "type": "GENERIC",
+    "abstract": "cad",
+    "copy-from": "file",
+    "name": { "str": "CAD file" },
+    "//": "to be used for 3D printing recipes",
+    "symbol": "#"
+  },
+  {
+    "type": "GENERIC",
+    "abstract": "gcode",
+    "copy-from": "file",
+    "name": { "str": "GCODE file" },
+    "//": "to be used for CNC machining recipes",
+    "symbol": "#"
+  },
+  {
+    "type": "GENERIC",
+    "abstract": "qsar",
+    "copy-from": "file",
+    "name": { "str": "QSAR file" },
+    "//": "to be used for biomedical printing, particular drug printing",
+    "symbol": "#"
+  },
+  {
+    "type": "GENERIC",
+    "abstract": "xler",
+    "copy-from": "file",
+    "name": { "str": "XLER file" },
+    "//": "to be used in molecular assembly; named after K. Eric Drexler, an early pioneer of the root nanoassembly technology",
+    "container": "usb_drive",
+    "symbol": "#"
+  }
+]

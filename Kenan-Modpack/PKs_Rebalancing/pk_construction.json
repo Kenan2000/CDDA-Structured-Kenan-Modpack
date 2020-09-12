@@ -1,0 +1,94 @@
+[
+  {
+    "type": "construction",
+    "id": "pk_makeshift_post_fence",
+    "skill": "survival",
+    "description": "Construct makeshift post-fence",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "survival", 2 ], [ "fabrication", 3 ] ],
+    "time": "20 m",
+    "qualities": [ [ { "id": "CUT", "level": 1 }, { "id": "HAMMER", "level": 1 } ] ],
+    "components": [
+      [ [ "stick", 8 ], [ "2x4", 4 ] ],
+      [ [ "rock", 8 ], [ "steel_chunk", 8 ] ],
+      [ [ "pine_bough", 4 ], [ "willowbark", 8 ], [ "leather", 8 ], [ "rag", 10 ] ],
+      [ [ "pine_bough", 4 ], [ "willowbark", 8 ], [ "leather", 8 ], [ "rag", 10 ] ]
+    ],
+    "pre_terrain": "t_pit_shallow",
+    "post_terrain": "t_improvised_fence"
+  },
+  {
+    "type": "construction",
+    "id": "pk_improvised_shelter",
+    "skill": "survival",
+    "description": "Build Improvised Shelter",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "survival", 2 ] ],
+    "time": "10 m",
+    "qualities": [ [ { "id": "CUT", "level": 1 }, { "id": "HAMMER", "level": 1 } ] ],
+    "components": [
+      [ [ "stick", 12 ], [ "2x4", 6 ] ],
+      [ [ "pine_bough", 3 ], [ "willowbark", 6 ], [ "leather", 6 ] ],
+      [ [ "pine_bough", 3 ], [ "willowbark", 6 ], [ "leather", 6 ] ],
+      [ [ "pine_bough", 3 ], [ "willowbark", 6 ], [ "leather", 6 ] ]
+    ],
+    "pre_terrain": "t_dirt",
+    "post_terrain": "t_improvised_shelter"
+  },
+  {
+    "type": "construction",
+    "id": "pk_foxhole_from_mound",
+    "description": "Tunnel-Out Foxhole",
+    "category": "DIG",
+    "required_skills": [ [ "survival", 1 ] ],
+    "time": "2 m",
+    "//": "Digging a foxhole from a mound of dirt, assuming the mound is large enough to slow your passage over it, should be possible and in some ways easier than digging into the ground.  For the sake of acidic rain's current hardcoding it'll work.",
+    "qualities": [ [ { "id": "DIG", "level": 1 } ] ],
+    "components": [
+      [ [ "pine_bough", 2 ], [ "willowbark", 4 ], [ "leather", 4 ], [ "plastic_chunk", 4 ] ],
+      [ [ "pine_bough", 1 ], [ "willowbark", 2 ], [ "leather", 2 ], [ "plastic_chunk", 2 ] ]
+    ],
+    "pre_terrain": "t_dirtmound",
+    "post_terrain": "t_pit_foxhole"
+  },
+  {
+    "type": "construction",
+    "id": "pk_foxhole_from_pit",
+    "description": "Dig Foxhole",
+    "category": "DIG",
+    "required_skills": [ [ "survival", 1 ] ],
+    "time": "2 m",
+    "//": "With a few well-placed pine boughs or coverings, and some continued digging, you could make a poor shelter from rain.  For the sake of acidic rain's current hardcoding it'll work.",
+    "qualities": [ [ { "id": "DIG", "level": 1 } ] ],
+    "components": [
+      [ [ "pine_bough", 2 ], [ "willowbark", 4 ], [ "leather", 4 ], [ "plastic_chunk", 4 ] ],
+      [ [ "pine_bough", 1 ], [ "willowbark", 2 ], [ "leather", 2 ], [ "plastic_chunk", 2 ] ]
+    ],
+    "pre_terrain": "t_pit_shallow",
+    "post_terrain": "t_pit_foxhole"
+  },
+  {
+    "type": "construction",
+    "id": "pk_dig_pit_shallow",
+    "description": "Dig Pit",
+    "category": "DIG",
+    "required_skills": [ [ "survival", 0 ] ],
+    "time": "2 m",
+    "//": "Unfortunately there are a lot of rocks buried just under the topsoil in New England, and its not easy at all to dig significant holes by hand with improvised shovels.",
+    "qualities": [ [ { "id": "DIG", "level": 1 } ] ],
+    "pre_flags": "DIGGABLE",
+    "post_terrain": "t_pit_shallow"
+  },
+  {
+    "type": "construction",
+    "id": "pk_dig_pit",
+    "description": "Dig Pit",
+    "category": "DIG",
+    "required_skills": [ [ "survival", 0 ] ],
+    "time": "6 m",
+    "//": "Reduced the time req for sanity's sake.",
+    "qualities": [ [ { "id": "DIG", "level": 2 } ] ],
+    "pre_terrain": "t_pit_shallow",
+    "post_terrain": "t_pit"
+  }
+]

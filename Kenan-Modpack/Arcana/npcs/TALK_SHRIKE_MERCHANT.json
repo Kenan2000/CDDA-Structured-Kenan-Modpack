@@ -1,0 +1,109 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_SHRIKE_MERCHANT",
+    "dynamic_line": {
+      "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ],
+      "yes": "…hunter.  Greetings.",
+      "no": "Greetings."
+    },
+    "responses": [
+      {
+        "text": "I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
+        "condition": {
+          "and": [
+            { "u_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" },
+            {
+              "not": { "npc_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" }
+            },
+            {
+              "not": { "u_has_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
+            }
+          ]
+        },
+        "topic": "TALK_SHRIKE_MERCHANT_GM_PRELUDE"
+      },
+      { "text": "Who are you?", "topic": "TALK_SHRIKE_MERCHANT_WHO" },
+      { "text": "What can you tell me about this place?", "topic": "TALK_SHRIKE_MERCHANT_WHERE" },
+      { "text": "What do you do here?", "topic": "TALK_SHRIKE_MERCHANT_DO" },
+      {
+        "text": "Do you have anything to trade?",
+        "effect": "start_trade",
+        "condition": { "u_has_var": "cf_horace_traded", "type": "flag", "context": "knowledge", "value": "yes" },
+        "topic": "TALK_SHRIKE_MERCHANT"
+      },
+      { "text": "Well, bye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_SHRIKE_MERCHANT_GM_PRELUDE",
+    "type": "talk_topic",
+    "dynamic_line": "One of the other shrikes ran into those things during a hunt.  Not far from Elena's hideout, half a mile northeast at most."
+  },
+  {
+    "id": "TALK_SHRIKE_MERCHANT_WHO",
+    "type": "talk_topic",
+    "dynamic_line": "A shrike, hunter of hunters.  Now I hunt whatever else causes trouble.  Something constructive to do, I suppose.",
+    "responses": [
+      { "text": "What kind of trouble?", "topic": "TALK_SHRIKE_MERCHANT_TROUBLE" },
+      {
+        "text": "Can I do anything for you?",
+        "condition": { "not": { "u_has_var": "cf_horace_mission", "type": "flag", "context": "knowledge", "value": "yes" } },
+        "topic": "TALK_SHRIKE_MERCHANT_HELP"
+      },
+      { "text": "I see.", "topic": "TALK_SHRIKE_MERCHANT" }
+    ]
+  },
+  {
+    "id": "TALK_SHRIKE_MERCHANT_TROUBLE",
+    "type": "talk_topic",
+    "dynamic_line": "Monsters, usually.  Bandits if they're foolish enough.  If we ever hear about another blood mage still out there practicing the old ways, that should get blood pumping…",
+    "responses": [
+      {
+        "text": "I could help with that, if you'd like.",
+        "condition": { "not": { "u_has_var": "cf_horace_mission", "type": "flag", "context": "knowledge", "value": "yes" } },
+        "topic": "TALK_SHRIKE_MERCHANT_HELP"
+      },
+      { "text": "Oh, okay.", "topic": "TALK_SHRIKE_MERCHANT" }
+    ]
+  },
+  {
+    "id": "TALK_SHRIKE_MERCHANT_HELP",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ],
+      "yes": "Hah.  That is your job, isn't it?  Hunting the wicked and otherworldly.  No offense, but I prefer to deal with such matters myself.  It's a rare chance to put my talents to good use, without harming the innocent.  Feels like it brings purpose to what we called The Path.",
+      "no": "For now, I'd rather have this task all to myself.  There are few joys in this new world to be had, and these hunts of mine are a rare chance to cut loose in a way that lets me do some good for once."
+    },
+    "speaker_effect": { "effect": { "u_add_var": "cf_horace_mission", "type": "flag", "context": "knowledge", "value": "yes" } },
+    "responses": [ { "text": "…", "topic": "TALK_SHRIKE_MERCHANT" } ]
+  },
+  {
+    "id": "TALK_SHRIKE_MERCHANT_WHERE",
+    "type": "talk_topic",
+    "dynamic_line": "It's a nice place.  Quiet, but not too vulnerable to attack.  It seems the priestess, Sofia if I recall, keeps the others hunters in line.  Never thought I'd be working with mage hunters…",
+    "responses": [
+      { "text": "Any others come along with you?", "topic": "TALK_SHRIKE_MERCHANT_SURVIVORS" },
+      { "text": "Right, got it.", "topic": "TALK_SHRIKE_MERCHANT" }
+    ]
+  },
+  {
+    "id": "TALK_SHRIKE_MERCHANT_SURVIVORS",
+    "type": "talk_topic",
+    "dynamic_line": "One of the shrikes visited to discuss things with Sofia.  She ran off, I'm the only one that decided to stay.",
+    "responses": [ { "text": "I see.", "topic": "TALK_SHRIKE_MERCHANT" } ]
+  },
+  {
+    "id": "TALK_SHRIKE_MERCHANT_DO",
+    "type": "talk_topic",
+    "dynamic_line": "Hunting, mainly.  Monsters instead of people now, usually.  More productive these days.  I also have a few items I could trade around if you want.",
+    "speaker_effect": {
+      "condition": { "not": { "u_has_var": "cf_horace_traded", "type": "flag", "context": "knowledge", "value": "yes" } },
+      "effect": { "u_add_var": "cf_horace_traded", "type": "flag", "context": "knowledge", "value": "yes" }
+    },
+    "responses": [
+      { "text": "Sure, let's see what you have.", "effect": "start_trade", "topic": "TALK_SHRIKE_MERCHANT" },
+      { "text": "Maybe another time, thank you.", "topic": "TALK_SHRIKE_MERCHANT" }
+    ]
+  }
+]

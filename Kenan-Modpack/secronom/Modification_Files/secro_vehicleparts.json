@@ -1,0 +1,759 @@
+[
+  {
+    "id": "SECRO_FLESH",
+    "type": "json_flag",
+    "context": [ "vehicle_part" ]
+  },
+  {
+    "id": "NEEDS_SECRO_FLESH",
+    "type": "json_flag",
+    "context": [ "vehicle_part" ],
+    "requires_flag": "SECRO_FLESH"
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_armor",
+    "name": { "str": "bio-organic fortification" },
+    "description": "Thick slabs of meat envelops the objects underneath it. Absorbs great impacts.",
+    "symbol": ")",
+    "color": "red",
+    "broken_symbol": ")",
+    "broken_color": "light_red",
+    "durability": 575,
+    "item": "secro_flesh_plate",
+    "location": "armor",
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 20 } ],
+    "requirements": {
+      "install": { "time": "15 m", "using": [ [ "secro_flesh_vehicle_morph", 4 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] }
+    },
+    "flags": [ "ARMOR", "SHARP", "NEEDS_SECRO_FLESH" ],
+    "damage_reduction": { "all": 50, "bash": 75 }
+  },
+  {
+    "abstract": "secro_flesh_board",
+    "type": "vehicle_part",
+    "name": { "str": "bio-organic wall" },
+    "item": "secro_flesh_plate",
+    "location": "center",
+    "color": "red",
+    "durability": 400,
+    "description": "A formidable wall of conglomerated meat and bones.  Keeps zombies outside the vehicle and prevents people from seeing through it.",
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 20 } ],
+    "requirements": {
+      "install": { "time": "15 m", "using": [ [ "secro_flesh_vehicle_morph", 4 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] }
+    },
+    "flags": [ "OPAQUE", "OBSTACLE", "FULL_BOARD", "NO_ROOF_NEEDED", "NEEDS_SECRO_FLESH" ],
+    "damage_reduction": { "all": 100, "bash": 125 }
+  },
+  {
+    "abstract": "secro_flesh_halfboard",
+    "copy-from": "secro_flesh_board",
+    "type": "vehicle_part",
+    "name": { "str": "half-built bio-organic wall" },
+    "description": "A low-lying, formidable wall of conglomerated meat and bones.  Keeps zombies outside the vehicle but allows people to see over it.",
+    "proportional": { "durability": 0.8 },
+    "extend": { "flags": [ "HALF_BOARD" ] },
+    "delete": { "flags": [ "OPAQUE", "FULL_BOARD" ] },
+    "damage_reduction": { "all": 100, "bash": 125 }
+  },
+  {
+    "id": "secro_flesh_board_horizontal",
+    "copy-from": "secro_flesh_board",
+    "type": "vehicle_part",
+    "symbol": "h"
+  },
+  {
+    "id": "secro_flesh_board_ne",
+    "copy-from": "secro_flesh_board",
+    "type": "vehicle_part",
+    "symbol": "u"
+  },
+  {
+    "id": "secro_flesh_board_nw",
+    "copy-from": "secro_flesh_board",
+    "type": "vehicle_part",
+    "symbol": "y"
+  },
+  {
+    "id": "secro_flesh_board_se",
+    "copy-from": "secro_flesh_board",
+    "type": "vehicle_part",
+    "symbol": "n"
+  },
+  {
+    "id": "secro_flesh_board_sw",
+    "copy-from": "secro_flesh_board",
+    "type": "vehicle_part",
+    "symbol": "b"
+  },
+  {
+    "id": "secro_flesh_board_vertical",
+    "copy-from": "secro_flesh_board",
+    "type": "vehicle_part",
+    "symbol": "j"
+  },
+  {
+    "id": "secro_flesh_halfboard_horizontal",
+    "copy-from": "secro_flesh_halfboard",
+    "type": "vehicle_part",
+    "symbol": "h"
+  },
+  {
+    "id": "secro_flesh_halfboard_horizontal_2",
+    "copy-from": "secro_flesh_halfboard",
+    "type": "vehicle_part",
+    "symbol": "="
+  },
+  {
+    "id": "secro_flesh_halfboard_ne",
+    "copy-from": "secro_flesh_halfboard",
+    "type": "vehicle_part",
+    "symbol": "u"
+  },
+  {
+    "id": "secro_flesh_halfboard_nw",
+    "copy-from": "secro_flesh_halfboard",
+    "type": "vehicle_part",
+    "symbol": "y"
+  },
+  {
+    "id": "secro_flesh_halfboard_se",
+    "copy-from": "secro_flesh_halfboard",
+    "type": "vehicle_part",
+    "symbol": "n"
+  },
+  {
+    "id": "secro_flesh_halfboard_sw",
+    "copy-from": "secro_flesh_halfboard",
+    "type": "vehicle_part",
+    "symbol": "b"
+  },
+  {
+    "id": "secro_flesh_halfboard_vertical",
+    "copy-from": "secro_flesh_halfboard",
+    "type": "vehicle_part",
+    "symbol": "j"
+  },
+  {
+    "id": "secro_flesh_halfboard_vertical_2",
+    "copy-from": "secro_flesh_halfboard",
+    "type": "vehicle_part",
+    "symbol": "H"
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_storage_small",
+    "name": { "str": "bio-organic residue (S)" },
+    "symbol": "=",
+    "color": "red",
+    "broken_symbol": "#",
+    "broken_color": "light_red",
+    "durability": 200,
+    "description": "A small orifice with a decent storage space. Keeps item safe.",
+    "size": 2500,
+    "item": "secro_flesh_plate_small",
+    "location": "center",
+    "requirements": {
+      "install": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 1 ] ] }
+    },
+    "flags": [ "AISLE", "BOARDABLE", "CARGO", "LOCKABLE_CARGO", "COVERED", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 10 } ],
+    "damage_reduction": { "all": 15, "bash": 40 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_storage_med",
+    "name": { "str": "bio-organic residue (M)" },
+    "symbol": "=",
+    "color": "red",
+    "broken_symbol": "#",
+    "broken_color": "light_red",
+    "durability": 250,
+    "description": "An orifice with a wide storage space. Keeps item safe.",
+    "size": 25000,
+    "item": "secro_flesh_plate",
+    "location": "center",
+    "requirements": {
+      "install": { "time": "15 m", "using": [ [ "secro_flesh_vehicle_morph", 4 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] }
+    },
+    "flags": [ "BOARDABLE", "CARGO", "LOCKABLE_CARGO", "COVERED", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 20 } ],
+    "damage_reduction": { "all": 15, "bash": 40 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_storage_large",
+    "name": { "str": "bio-organic residue (L)" },
+    "symbol": "=",
+    "color": "red",
+    "broken_symbol": "#",
+    "broken_color": "light_red",
+    "durability": 300,
+    "description": "A gaping orifice with an enormous storage space. Keeps item safe.",
+    "size": 250000,
+    "item": "secro_flesh_plate_large",
+    "location": "center",
+    "requirements": {
+      "install": { "time": "25 m", "using": [ [ "secro_flesh_vehicle_morph", 8 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 4 ] ] }
+    },
+    "flags": [ "OBSTACLE", "BOARDABLE", "CARGO", "LOCKABLE_CARGO", "COVERED", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 50 } ],
+    "damage_reduction": { "all": 15, "bash": 40 }
+  },
+  {
+    "id": "secro_flesh_engine",
+    "copy-from": "steam_engine",
+    "type": "vehicle_part",
+    "item": "secro_vehicle_engine",
+    "name": { "str": "hivemind core" },
+    "durability": 525,
+    "epower": 0,
+    "fuel_type": "secro_flesh",
+    "fuel_options": [ "secro_flesh" ],
+    "power": 322500,
+    "energy_consumption": 100000,
+    "backfire_threshold": 0,
+    "backfire_freq": 0,
+    "noise_factor": 0,
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 75 } ],
+    "requirements": {
+      "install": { "time": "60 m", "using": [ [ "secro_flesh_vehicle_morph", 16 ] ] },
+      "removal": { "time": "20 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_morph", 8 ] ] }
+    },
+    "extend": { "flags": [ "NEEDS_SECRO_FLESH", "E_STARTS_INSTANTLY" ] },
+    "damage_reduction": { "all": 50, "bash": 75 }
+  },
+  {
+    "abstract": "secro_flesh_frame",
+    "type": "vehicle_part",
+    "name": { "str": "bio-organic frame" },
+    "item": "secro_flesh_frame",
+    "location": "structure",
+    "color": "light_red",
+    "durability": 500,
+    "description": "A robust conglomeration of meat.  Other vehicle components can be mounted on it, and it can be attached to other frames to increase the vehicle's size.",
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 20 } ],
+    "requirements": {
+      "install": { "time": "45 m", "using": [ [ "secro_flesh_vehicle_morph", 16 ] ] },
+      "removal": { "time": "20 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_morph", 8 ] ] }
+    },
+    "flags": [ "MOUNTABLE", "SECRO_FLESH" ],
+    "damage_reduction": { "all": 75, "bash": 100 }
+  },
+  {
+    "id": "secro_flesh_frame_cover",
+    "copy-from": "secro_flesh_frame",
+    "type": "vehicle_part",
+    "symbol": "^"
+  },
+  {
+    "id": "secro_flesh_frame_cross",
+    "copy-from": "secro_flesh_frame",
+    "type": "vehicle_part",
+    "symbol": "c",
+    "extend": { "flags": [ "INITIAL_PART" ] }
+  },
+  {
+    "id": "secro_flesh_frame_horizontal",
+    "copy-from": "secro_flesh_frame",
+    "type": "vehicle_part",
+    "symbol": "h"
+  },
+  {
+    "id": "secro_flesh_frame_horizontal_2",
+    "copy-from": "secro_flesh_frame",
+    "type": "vehicle_part",
+    "symbol": "="
+  },
+  {
+    "id": "secro_flesh_frame_ne",
+    "copy-from": "secro_flesh_frame",
+    "type": "vehicle_part",
+    "symbol": "u"
+  },
+  {
+    "id": "secro_flesh_frame_nw",
+    "copy-from": "secro_flesh_frame",
+    "type": "vehicle_part",
+    "symbol": "y"
+  },
+  {
+    "id": "secro_flesh_frame_se",
+    "copy-from": "secro_flesh_frame",
+    "type": "vehicle_part",
+    "symbol": "n"
+  },
+  {
+    "id": "secro_flesh_frame_sw",
+    "copy-from": "secro_flesh_frame",
+    "type": "vehicle_part",
+    "symbol": "b"
+  },
+  {
+    "id": "secro_flesh_frame_vertical",
+    "copy-from": "secro_flesh_frame",
+    "type": "vehicle_part",
+    "symbol": "j"
+  },
+  {
+    "id": "secro_flesh_frame_vertical_2",
+    "copy-from": "secro_flesh_frame",
+    "type": "vehicle_part",
+    "symbol": "H"
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_aisle_horizontal",
+    "name": { "str": "bio-organic aisle" },
+    "symbol": "=",
+    "color": "light_red",
+    "broken_symbol": "#",
+    "broken_color": "red",
+    "durability": 350,
+    "description": "A smooth, flesh aisle.",
+    "item": "secro_flesh_plate_small",
+    "location": "center",
+    "requirements": {
+      "install": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 1 ] ] }
+    },
+    "flags": [ "AISLE", "BOARDABLE", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 6 } ],
+    "damage_reduction": { "all": 20, "bash": 45 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_aisle_vertical",
+    "name": { "str": "bio-organic aisle" },
+    "symbol": "H",
+    "color": "light_red",
+    "broken_symbol": "#",
+    "broken_color": "red",
+    "durability": 350,
+    "description": "A smooth, flesh aisle.",
+    "item": "secro_flesh_plate_small",
+    "location": "center",
+    "requirements": {
+      "install": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 1 ] ] }
+    },
+    "flags": [ "AISLE", "BOARDABLE", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 6 } ],
+    "damage_reduction": { "all": 20, "bash": 45 }
+  },
+  {
+    "id": "secro_flesh_aisle_light",
+    "type": "vehicle_part",
+    "name": { "str": "bioluminescent lights (aisle)" },
+    "item": "secro_flesh_plate_small",
+    "location": "on_ceiling",
+    "symbol": "*",
+    "broken_symbol": "*",
+    "color": "white",
+    "durability": 15,
+    "description": "A small, light-emitting bulbous wart.",
+    "energy_consumption": 200,
+    "bonus": 30,
+    "breaks_into": [ { "item": "scrap", "count": [ 0, 2 ] } ],
+    "requirements": {
+      "install": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 1 ] ] }
+    },
+    "flags": [ "AISLE_LIGHT" ],
+    "damage_reduction": { "bash": 25 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_roof",
+    "name": { "str": "bio-organic roof" },
+    "symbol": "#",
+    "color": "red",
+    "broken_symbol": "#",
+    "broken_color": "light_red",
+    "durability": 700,
+    "description": "A thick conglomerated slabs of meat formed into a stout roof.",
+    "item": "secro_flesh_plate",
+    "location": "roof",
+    "requirements": {
+      "install": { "time": "15 m", "using": [ [ "secro_flesh_vehicle_morph", 4 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] }
+    },
+    "flags": [ "ROOF", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 20 } ],
+    "damage_reduction": { "all": 100, "bash": 125 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_seat",
+    "name": { "str": "bio-organic seat" },
+    "symbol": "#",
+    "color": "red",
+    "broken_symbol": "*",
+    "broken_color": "light_red",
+    "damage_modifier": 60,
+    "durability": 250,
+    "description": "A slab of smooth flesh, in form of a seat. Comfortable, yet provides a sticky sensation.",
+    "size": 200,
+    "item": "secro_flesh_plate",
+    "floor_bedding_warmth": 175,
+    "comfort": 2,
+    "location": "center",
+    "requirements": {
+      "install": { "time": "15 m", "using": [ [ "secro_flesh_vehicle_morph", 4 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] }
+    },
+    "flags": [ "SEAT", "BOARDABLE", "CARGO", "BELTABLE", "SIMPLE_PART", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 10 } ],
+    "damage_reduction": { "all": 5, "bash": 30 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_seatbelt",
+    "name": { "str": "tendril harness" },
+    "symbol": ",",
+    "color": "light_red",
+    "broken_symbol": ",",
+    "broken_color": "red",
+    "damage_modifier": 10,
+    "durability": 30,
+    "description": "Several slimy tentacles that keeps the driver safe.",
+    "bonus": 25,
+    "item": "secro_flesh_plate_small",
+    "location": "on_seat",
+    "requirements": {
+      "install": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 1 ] ] }
+    },
+    "flags": [ "SEATBELT", "SIMPLE_PART", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 10 } ],
+    "damage_reduction": { "bash": 25 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_door",
+    "name": { "str": "vein walls" },
+    "symbol": "+",
+    "color": "light_red",
+    "broken_symbol": "&",
+    "broken_color": "red",
+    "damage_modifier": 80,
+    "durability": 500,
+    "description": "A tough clusters of membranous tendrils. You can shove gently to open it.",
+    "size": 12,
+    "item": "secro_flesh_plate",
+    "location": "center",
+    "requirements": {
+      "install": { "time": "15 m", "using": [ [ "secro_flesh_vehicle_morph", 4 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] }
+    },
+    "flags": [ "CARGO", "OBSTACLE", "OPENABLE", "BOARDABLE", "SIMPLE_PART", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 20 } ],
+    "damage_reduction": { "all": 75, "bash": 100 }
+  },
+  {
+    "id": "secro_flesh_biglight",
+    "type": "vehicle_part",
+    "name": { "str": "bioluminescent lights (wide)" },
+    "item": "secro_flesh_plate",
+    "location": "on_roof",
+    "symbol": "*",
+    "broken_symbol": "-",
+    "color": "white",
+    "broken_color": "red",
+    "durability": 20,
+    "description": "A bulbous wart that emits light at wide ranges.",
+    "energy_consumption": 20000,
+    "bonus": 8000,
+    "damage_modifier": 10,
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 20 } ],
+    "requirements": {
+      "install": { "time": "15 m", "using": [ [ "secro_flesh_vehicle_morph", 4 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] }
+    },
+    "flags": [ "CIRCLE_LIGHT", "NEEDS_SECRO_FLESH" ]
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_vehicle_controls",
+    "name": { "str": "hivemind controls" },
+    "symbol": "$",
+    "color": "light_red",
+    "broken_symbol": "$",
+    "broken_color": "red",
+    "damage_modifier": 10,
+    "durability": 500,
+    "description": "An intricate bio-organic control system used to command a hivemind vehicle.",
+    "bonus": 10,
+    "item": "secro_vehicle_controls",
+    "requirements": {
+      "install": { "time": "45 m", "using": [ [ "secro_flesh_vehicle_morph", 16 ] ] },
+      "removal": { "time": "20 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_morph", 8 ] ] }
+    },
+    "flags": [ "CONTROLS", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 10 } ],
+    "damage_reduction": { "all": 25, "bash": 50 }
+  },
+  {
+    "id": "secro_flesh_fuel_bunker",
+    "type": "vehicle_part",
+    "name": { "str": "hivemind orifice" },
+    "item": "secro_flesh_fuel_bunker",
+    "location": "fuel_source",
+    "symbol": "O",
+    "color": "red",
+    "broken_color": "light_red",
+    "durability": 125,
+    "description": "A gaping mouth with a residue that offers storage space. If it has flesh placed in it, it'll automatically consume the flesh and brings it to the hivemind core to generate power.",
+    "size": 25000,
+    "damage_modifier": 80,
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 40 } ],
+    "requirements": {
+      "install": { "time": "30 m", "using": [ [ "secro_flesh_vehicle_morph", 16 ] ] },
+      "removal": { "time": "15 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_morph", 8 ] ] }
+    },
+    "flags": [ "NEEDS_SECRO_FLESH" ],
+    "damage_reduction": { "all": 5, "bash": 30 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_lstorage_small",
+    "name": { "str": "bio-organic container (20L)" },
+    "symbol": "=",
+    "color": "red",
+    "broken_symbol": "#",
+    "broken_color": "light_red",
+    "durability": 150,
+    "description": "A small liquid container made of amalgous flesh with a vented suction point.",
+    "size": 20000,
+    "item": "secro_flesh_plate_small",
+    "location": "fuel_source",
+    "requirements": {
+      "install": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 1 ] ] }
+    },
+    "flags": [ "FLUIDTANK", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 10 } ],
+    "damage_reduction": { "all": 15, "bash": 40 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_lstorage_med",
+    "name": { "str": "bio-organic container (60L)" },
+    "symbol": "=",
+    "color": "red",
+    "broken_symbol": "#",
+    "broken_color": "light_red",
+    "durability": 160,
+    "description": "A liquid container made of amalgous flesh with a vented suction point.",
+    "size": 60000,
+    "item": "secro_flesh_plate",
+    "location": "fuel_source",
+    "requirements": {
+      "install": { "time": "15 m", "using": [ [ "secro_flesh_vehicle_morph", 4 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 2 ] ] }
+    },
+    "flags": [ "FLUIDTANK", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 20 } ],
+    "damage_reduction": { "all": 15, "bash": 40 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "secro_flesh_lstorage_large",
+    "name": { "str": "bio-organic container (120L)" },
+    "symbol": "=",
+    "color": "red",
+    "broken_symbol": "#",
+    "broken_color": "light_red",
+    "durability": 175,
+    "description": "An enormous liquid container made of amalgous flesh with a vented suction point.",
+    "size": 120000,
+    "item": "secro_flesh_plate_large",
+    "location": "fuel_source",
+    "requirements": {
+      "install": { "time": "25 m", "using": [ [ "secro_flesh_vehicle_morph", 8 ] ] },
+      "removal": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "5 m", "using": [ [ "secro_flesh_vehicle_morph", 4 ] ] }
+    },
+    "flags": [ "FLUIDTANK", "NEEDS_SECRO_FLESH" ],
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 50 } ],
+    "damage_reduction": { "all": 15, "bash": 40 }
+  },
+  {
+    "id": "secro_flesh_wheel_leg",
+    "type": "vehicle_part",
+    "name": { "str": "bio-organic leg" },
+    "item": "secro_flesh_wheel",
+    "location": "under",
+    "symbol": "i",
+    "broken_symbol": "k",
+    "color": "red",
+    "durability": 1100,
+    "description": "A gigantic slender leg. Very tough and poses great mobility, regardless of its stiffness.",
+    "damage_modifier": 100,
+    "breaks_into": [ { "item": "meat", "prob": 50, "repeat": 50 } ],
+    "rolling_resistance": 20,
+    "wheel_type": "treads",
+    "contact_area": 1600,
+    "requirements": {
+      "install": { "time": "45 m", "using": [ [ "secro_flesh_vehicle_morph", 16 ] ] },
+      "removal": { "time": "20 m", "using": [ [ "secro_flesh_vehicle_reform", 1 ] ] },
+      "repair": { "time": "10 m", "using": [ [ "secro_flesh_vehicle_morph", 8 ] ] }
+    },
+    "flags": [ "WHEEL", "TRACKED", "VARIABLE_SIZE", "NEEDS_SECRO_FLESH" ],
+    "damage_reduction": { "all": 75, "bash": 100 }
+  },
+  {
+    "type": "GENERIC",
+    "id": "secro_flesh_frame",
+    "name": { "str": "flesh frame" },
+    "description": "A large vehicle frame made of flesh and bones.",
+    "weight": "72000 g",
+    "to_hit": -6,
+    "color": "red",
+    "material": [ "flesh", "bone" ],
+    "volume": "20 L",
+    "bashing": 20,
+    "price": 0,
+    "price_postapoc": 0,
+    "copy-from": "foldframe"
+  },
+  {
+    "id": "secro_flesh_fuel_bunker",
+    "type": "MAGAZINE",
+    "name": { "str": "hivemind residue" },
+    "description": "A bulbous residue that unifies with the hivemind core once installed to a vehicle.",
+    "symbol": "]",
+    "color": "red",
+    "material": [ "flesh" ],
+    "category": "veh_parts",
+    "weight": "17000 g",
+    "volume": "40 L",
+    "capacity": 2000,
+    "reliability": 10,
+    "ammo_type": "secro_flesh",
+    "price": 0,
+    "price_postapoc": 0
+  },
+  {
+    "type": "GENERIC",
+    "id": "secro_vehicle_controls",
+    "name": { "str": "hivemind controls", "str_pl": "sets of hivemind controls" },
+    "description": "A tall pedestal with several holes and tendrils. Used for controlling a hivemind vehicle.",
+    "weight": "14000 g",
+    "to_hit": -4,
+    "color": "light_red",
+    "symbol": "$",
+    "material": [ "flesh", "bone" ],
+    "volume": "10 L",
+    "bashing": 2,
+    "category": "veh_parts",
+    "price": 0,
+    "price_postapoc": 0
+  },
+  {
+    "type": "GENERIC",
+    "id": "secro_vehicle_engine",
+    "name": { "str": "hivemind core" },
+    "description": "A massive throbbing flesh in shape of a heart. Consumes flesh to power the vehicle it is installed on.",
+    "weight": "35500 g",
+    "to_hit": -4,
+    "color": "light_red",
+    "symbol": "*",
+    "material": [ "flesh", "bone" ],
+    "volume": "20 L",
+    "bashing": 2,
+    "category": "veh_parts",
+    "price": 0,
+    "price_postapoc": 0
+  },
+  {
+    "type": "WHEEL",
+    "id": "secro_flesh_wheel",
+    "name": { "str_sp": "ossified flesh heap" },
+    "description": "A large chunk of bio-organic flesh with higher density thanks to its additional bone growths. Although it is rigid, it can morph into large bodily forms if installed as a vehicle part.",
+    "weight": "28400 g",
+    "to_hit": -1,
+    "color": "red",
+    "symbol": "]",
+    "material": [ "flesh" ],
+    "volume": "15 L",
+    "bashing": 10,
+    "category": "veh_parts",
+    "price": 0,
+    "price_postapoc": 0,
+    "diameter": 30,
+    "width": 20
+  },
+  {
+    "type": "GENERIC",
+    "id": "secro_flesh_plate_large",
+    "name": { "str_sp": "large flesh heap" },
+    "description": "A large chunk of bio-organic flesh. Morphs into any shape you want it to be if installed as a vehicle part.",
+    "weight": "19700 g",
+    "to_hit": -1,
+    "color": "red",
+    "symbol": "]",
+    "material": [ "flesh" ],
+    "volume": "6 L",
+    "bashing": 6,
+    "category": "veh_parts",
+    "price": 0,
+    "price_postapoc": 0
+  },
+  {
+    "type": "GENERIC",
+    "id": "secro_flesh_plate",
+    "name": { "str_sp": "flesh heap" },
+    "description": "A chunk of bio-organic flesh. Morphs into any shape you want it to be if installed as a vehicle part.",
+    "weight": "10035 g",
+    "to_hit": -1,
+    "color": "red",
+    "symbol": "]",
+    "material": [ "flesh" ],
+    "volume": "3 L",
+    "bashing": 6,
+    "category": "veh_parts",
+    "price": 0,
+    "price_postapoc": 0
+  },
+  {
+    "type": "GENERIC",
+    "id": "secro_flesh_plate_small",
+    "name": { "str_sp": "small flesh heap" },
+    "description": "A small chunk of bio-organic flesh. Morphs into any shape you want it to be if installed as a vehicle part.",
+    "weight": "3200 g",
+    "to_hit": -1,
+    "color": "red",
+    "symbol": "]",
+    "material": [ "flesh" ],
+    "volume": "1 L",
+    "bashing": 6,
+    "category": "veh_parts",
+    "price": 0,
+    "price_postapoc": 0
+  }
+]

@@ -1,0 +1,599 @@
+[
+  {
+    "//": "Subgoals that you may want to complete or to keep you in the bay for moments.",
+    "id": "VAMP_UNDERCOMMANDO_quest1",
+    "type": "mission_definition",
+    "name": "Collect 30 blood",
+    "description": "Collect <color_light_red>30 human blood</color> then bring it to the commando.",
+    "goal": "MGOAL_NULL",
+    "difficulty": 0,
+    "value": 100000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "VAMP_UNDERCOMMANDO_quest2",
+    "has_generic_rewards": false,
+    "dialogue": {
+      "describe": "This errand needs you.",
+      "offer": "Blood... Our main food for darkest centuries. Even I almost forgot its taste, I'd like to drink it again. Bring me 30, too much but it is essential in many ways.",
+      "accepted": "Okay, descendant. This won't be hard and take your time.",
+      "rejected": "If only you let me shoot your chest, this will be done easily.",
+      "advice": ".",
+      "inquire": "Drinks? You have the drinks ready?",
+      "success": "These blood certainly are useful. Thanks for this treats, descendant.",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "*grins*",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_UNDERCOMMANDO_quest2",
+    "type": "mission_definition",
+    "name": "Collect 15 small leech teeth",
+    "description": "Gather <color_light_red>15 small leech teeth</color> and give them to the commando. They are rarely dropped by <color_magenta>leeches</color> that lives in the <color_light_blue>swamp</color>.",
+    "goal": "MGOAL_NULL",
+    "difficulty": 2,
+    "value": 200000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "VAMP_UNDERCOMMANDO_quest3",
+    "has_generic_rewards": false,
+    "dialogue": {
+      "describe": "I want you to slay something...",
+      "offer": "Ofcourse you know about the bloodsucking pests on the swamp, we hate those parasites squirming for blood to live. Hand over 15 of their teeth as a proof to succeed this trial.",
+      "accepted": "Slay them in any way you want.",
+      "rejected": "It's just okay.",
+      "advice": "They are blind, and depends on what they hear or smell.",
+      "inquire": "Got 'em?",
+      "success": "Nice work, I guess they won't bother us for a long time.",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "*slurping*",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_UNDERCOMMANDO_quest3",
+    "type": "mission_definition",
+    "name": "Take the blood sac from the giant \"Thing\"",
+    "description": "Get the <color_light_red>blood sac</color> by slaying the <color_magenta>giant \"Thing\"</color>, then deliver it to the commando.\n<color_red>Going unprepared is a death trap!</color>.",
+    "goal": "MGOAL_NULL",
+    "difficulty": 10,
+    "value": 300000,
+    "start": {
+      "assign_mission_target": { "om_terrain": "bloodhole", "om_special": "bhole", "reveal_radius": 1, "search_range": 50, "z": 0 },
+      "update_mapgen": {
+        "place_item": [ { "item": "bigbloodrune", "x": 13, "y": 13 } ],
+        "place_monster": [ { "monster": "mon_insect_devourerleech", "x": 13, "y": 13, "target": true } ]
+      }
+    },
+    "followup": "VAMP_UNDERCOMMANDO_quest4",
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "dialogue": {
+      "describe": "This is pretty much risky to you... Going to do it?",
+      "offer": "There is a peculiar cave with vast blood residue in it and I think its their gathering place. This giant \"thing\" on the depths, you'll need to bring it down as my command.",
+      "accepted": "Bring its blood sac, that would be a nice prize taking it down and as a proof of succeeding this test.",
+      "rejected": "Gather your courage first.",
+      "advice": "It is blind and very slow, slower than a human snail, but it'll devour you and causes deadly injuries getting near it... Now get going!",
+      "inquire": "Killed it?",
+      "success": "Damn kid, that's the mess you wanted to get. And you are still alive after that!",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "Ummm... I want to shoot you.",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_UNDERCOMMANDO_quest4",
+    "type": "mission_definition",
+    "name": "Kill 200 zombies",
+    "description": "Kill <color_light_red>200 zombies</color> then talk to the commando after completion.",
+    "goal": "MGOAL_KILL_MONSTER_SPEC",
+    "difficulty": 5,
+    "value": 400000,
+    "monster_species": "ZOMBIE",
+    "monster_kill_goal": 200,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "end": { "effect": { "npc_add_trait": "commandotestdone" } },
+    "has_generic_rewards": false,
+    "dialogue": {
+      "describe": "This is the final test I can give you... Still want to try?",
+      "offer": "I've heard that these \"blobs\" was the cause of all troubles and horrifying events worldwide. As my command, eliminate 200 of these walking corpses to succeed... Later on, I will tell you something after this.",
+      "accepted": "Prepare yourself before jumping into this mess.",
+      "rejected": "Just prepare yourself for this job.",
+      "advice": "Visit some heavily crowded areas.",
+      "inquire": "How is the hunt going?",
+      "success": "Hmm... HE appreciates your doings, my comrade. I thank you for your assistance and giving your precious time dealing with these requests I have made for you...",
+      "success_lie": "What good does this do us?",
+      "failure": "It was a lost cause anyways..."
+    }
+  },
+  {
+    "id": "VAMP_LONELY_quest1",
+    "type": "mission_definition",
+    "name": "Collect 15 blood",
+    "description": "Gather <color_light_red>15 human blood</color> then bring it to the vampire.",
+    "goal": "MGOAL_NULL",
+    "difficulty": 0,
+    "value": 100000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "followup": "VAMP_LONELY_quest2",
+    "dialogue": {
+      "describe": "I want you for this errand.",
+      "offer": "Did you know we have been using blood substitutes for decades? Well, that's a good thing for us. Now, I want you to collect a few human blood, either yours or not... 15, I suppose that will satisfy my pleasure for that taste once again.",
+      "accepted": "You better do this. Sinking my fangs onto your flimsy neck is indeed fatal.",
+      "rejected": "Talk to me again later if you want to help me.",
+      "advice": "Murder someone if you are desperate to collect them.",
+      "inquire": "Did you get my drinks?",
+      "success": "Fascinating work, mortal.",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "*smilesatyou*",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_LONELY_quest2",
+    "type": "mission_definition",
+    "name": "Take down 10 elder zombies",
+    "description": "Slay <color_magenta>10 elder zombies</color> then talk to the vampire after completion.  <color_magenta>Elder zombies</color> are depicted to their stone-like, compact blood and are rarely seen in the <color_light_blue>graveyards</color>.",
+    "goal": "MGOAL_KILL_MONSTER_SPEC",
+    "difficulty": 3,
+    "value": 300000,
+    "monster_species": "ELDERZED",
+    "monster_kill_goal": 10,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "followup": "VAMP_LONELY_quest3",
+    "dialogue": {
+      "describe": "This is a little harder...",
+      "offer": "The gravestone in this crypt were built long ago, and the dead bodies has been buried here since before I reside here. Surprisingly, they were resurrected with this odd \"magic\". I want you to take 10 of them down and let their hollow vessel for an eternal rest.",
+      "accepted": "Good. Now go outside and look for them.",
+      "rejected": "Come back later.",
+      "advice": "Their blood has calcified into a shell, and it is distinctive to their appearance.",
+      "inquire": "Now?",
+      "success": "I know you can do it...",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "*glares*",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_LONELY_quest3",
+    "type": "mission_definition",
+    "name": "Bring a bloodrune",
+    "description": "Get a <color_light_red>bloodrune</color> then deliver it to the vampire.",
+    "goal": "MGOAL_NULL",
+    "difficulty": 5,
+    "value": 400000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "followup": "VAMP_LONELY_quest4",
+    "//": "Locating a blended overmap in a world would take forever, so we WILL set a pedestal in random distances. RNG is your enemy here.",
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "bloodrune_pedestal",
+        "om_special": "Pedestal - Bloodrune",
+        "reveal_radius": 1,
+        "search_range": 180,
+        "z": 0
+      }
+    },
+    "dialogue": {
+      "describe": "This is a bit hard for you. You still want to try?",
+      "offer": "Bloodrune... The vampire's eternal soul. Merely a fact that few of us night creatures turn into an object upon death, yet most resists to that point.\nIn the dark days, bloodrunes are set in a pedestal by elder civilizations, and said that their \"god\" will accept it as a praise, which is not true. Get this rune for me, to honor its soul in a way we normally do.",
+      "accepted": "Good.",
+      "rejected": "Just do it later on.",
+      "advice": "A vampire's death is a big success to those elderly jerks. Well, it is their belief that can't be bothered in any way.",
+      "inquire": "Got it?",
+      "success": "I thank you for this rune.\n*Shatters it by hand*\n",
+      "success_lie": "Just thanks...",
+      "failure": "*smirks*",
+      "failure_lie": "I shouldn't believe you with this."
+    }
+  },
+  {
+    "id": "VAMP_LONELY_quest4",
+    "type": "mission_definition",
+    "name": "Take Vampire to the Cove",
+    "description": "Escort the vampire to the <color_light_blue>vampire cove</color>.",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "difficulty": 2,
+    "value": 500000,
+    "destination": "vampcave_corridor1",
+    "start": {
+      "assign_mission_target": { "om_terrain": "vampcave_entrance", "om_special": "Vampire Cove", "reveal_radius": 3, "search_range": 180, "z": 0 },
+      "effect": [ "follow_only" ]
+    },
+    "end": { "effect": [ "stop_following", { "npc_add_trait": "isolatedtestsdone" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "This is the last job, you want to do it?",
+      "offer": "Since you've been helping me for a while, I will need you to travel with me to the vampire cove. Being isolated for centuries is a great experience, but seeing a living community of my kind alleviates my frozen body the most.",
+      "accepted": "Good, those tests proved yourself a good descendant. As a reward, I'll protect you along the way.",
+      "rejected": "Just okay, get back later...",
+      "advice": "This may be a long journey. You know I'm a night creature, so you'll have to take care of me in daytime.",
+      "inquire": "What?",
+      "success": "I see my kindred seems alright. Well, it does matter to me, and you've been the key to this. Thank you, descendant.",
+      "success_lie": "Just thanks...",
+      "failure": "*smirks*",
+      "failure_lie": "I better have killed you, mortal."
+    }
+  },
+  {
+    "id": "VAMP_UNDERTRADER_quest",
+    "type": "mission_definition",
+    "name": "Get 2 Corrupt Bloodrune Stone",
+    "description": "Get the <color_light_red>2 corrupted bloodrune stones</color> that are dropped by killing the <color_magenta>infected vampires</color> then deliver them to the trader.",
+    "goal": "MGOAL_NULL",
+    "difficulty": 3,
+    "value": 100000,
+    "item": "corruptbloodrune",
+    "count": 2,
+    "start": {
+      "assign_mission_target": { "om_terrain": "vampcave_corridor2", "om_special": "Vampire Cove", "reveal_radius": 1, "search_range": 180, "z": -1 }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "followup": "VAMP_UNDERTRADER_quest2",
+    "dialogue": {
+      "describe": "Well, actually we have a problem...",
+      "offer": "Our kin isn't a target of diseases, but those 2 vampires at the back, they really look bad and start raging on its own, so we cage them at early state... Never knew the magic was that strong enough to kill EVEN us. I want you to end the sick vampires as your task and get their corrupted bloodrune. We know we can dispose them easily, but our beliefs prevent us from killing our own kind.",
+      "accepted": "Thank you, now go.",
+      "rejected": "You need to do that later.",
+      "advice": "Serious pain you'll get from breaking into their cage.",
+      "inquire": "What happened there?",
+      "success": "Great, mortal. This oozing bloodrune will now meet its place... Or not at all.",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "*glaressharply*",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_UNDERTRADER_quest2",
+    "type": "mission_definition",
+    "name": "Slay 10 bats",
+    "description": "Kill <color_magenta>10 bats</color> then talk to the trader after completion. <color_magenta>Bats</color> are commonly seen at <color_gray>nighttime</color> or inside a <color_light_blue>cave</color>.",
+    "goal": "MGOAL_KILL_MONSTER_SPEC",
+    "difficulty": 2,
+    "value": 200000,
+    "monster_species": "VAMPBAT",
+    "monster_kill_goal": 10,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "end": { "effect": { "npc_add_trait": "undertradertestsdone" } },
+    "dialogue": {
+      "describe": "We do appreciate your assistance with our needs.",
+      "offer": "Vampire bats became literal bloodsuckers these passing days and I want you to hunt down 10 of these vermins. We've been swarmed by these creatures lately but gladly we managed to shove them away.",
+      "accepted": "Good. Come back anytime you want.",
+      "rejected": "I guess you're afraid of bats...",
+      "advice": "Bats are nocturnal, and tends to live in dark places like caves.",
+      "inquire": "How is the hunt going?",
+      "success": "Thank you for your help in eradicating some bloodsuckers.",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "*glaressharply*",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_UNDERSEEKER_quest1",
+    "type": "mission_definition",
+    "name": "Go to a forgotten burial site",
+    "description": " Travel to a <color_light_blue>burial site</color> then talk to the seeker.",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "difficulty": 1,
+    "value": 200000,
+    "destination": "gravesite1",
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "start": {
+      "effect": [ "follow" ],
+      "assign_mission_target": {
+        "om_terrain": "gravesite1",
+        "om_special": "Gravesite - Wild",
+        "reveal_radius": 1,
+        "search_range": 90,
+        "min_distance": 10,
+        "must_see": false,
+        "z": 0
+      },
+      "update_mapgen": { "place_monsters": [ { "monster": "GROUP_CRYPTIES", "x": [ 0, 23 ], "y": [ 0, 23 ], "density": 0.25 } ] }
+    },
+    "followup": "VAMP_UNDERSEEKER_quest2",
+    "dialogue": {
+      "describe": "Before we go, the trader asked me a request on this journey.",
+      "offer": "The trader told me to observe the old graveyards we knew from the past. So before we go to the outskirts, we'll get pass through it first.",
+      "accepted": "Off we go, mortal.",
+      "rejected": "Well, that's your choice...",
+      "advice": "Its been a long time since I see those graves...",
+      "inquire": "What now?",
+      "success": "The magic took over the buried corpses? That's unfortunate and the trader would be disappointed about this...",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "*glaressharply*",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_UNDERSEEKER_quest2",
+    "type": "mission_definition",
+    "name": "Go to the wasteland outskirts",
+    "description": "Along with the seeker, travel to the <color_light_blue>wasteland outskirts</color>. Talk to them again after reaching the destination.",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "difficulty": 2,
+    "value": 400000,
+    "destination": "wo5",
+    "start": {
+      "effect": [ "follow" ],
+      "assign_mission_target": { "om_terrain": "wo5", "om_special": "Wasteland Outskirts", "reveal_radius": 5, "search_range": 180, "z": 0 }
+    },
+    "end": { "effect": [ "leave", { "u_add_trait": "underseekerdone" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "dialogue": {
+      "describe": "Are we ready for this trip?",
+      "offer": "We are now going to the outskirts, and I know the commando told you about this place.",
+      "accepted": "Good. Now off we go, mortal.",
+      "rejected": "...",
+      "advice": "I'll give you some details about the outskirts. It is a large structure with barricaded walls and tents placed outside for human survivors. It also has a barn and farm fields that provides descent food, and shopkeepers sell various stuff there.",
+      "inquire": "What?",
+      "success": "\"What else could I do for you\" you say? Don't worry, I have no more requests for you. Ask anyone here if you're curious. When you're done, talk to me.",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "Ummm....",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_WS2_quest1",
+    "type": "mission_definition",
+    "name": "Recruit Radio Specialist",
+    "description": "Ask the <color_yellow>Radio Specialist</color> to join, then talk to the guard after they did.",
+    "goal": "MGOAL_RECRUIT_NPC",
+    "difficulty": 2,
+    "value": 100000,
+    "start": {
+      "assign_mission_target": { "om_terrain": "radio_tower", "om_special": "Radio Tower", "reveal_radius": 2, "search_range": 90, "z": 0 },
+      "update_mapgen": { "place_npcs": [ { "class": "HUMAN_RADIOSPEC", "x": 10, "y": 10, "target": true } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "followup": "VAMP_WS2_quest2",
+    "dialogue": {
+      "describe": "It's easy, I think...",
+      "offer": "First things first, we have to build a radio tower that transmit signals to our fellow survivors out in the wilds which serves as their waypoint to our place. Well, building that cheap structure is simple, but what I want you to do is to find a person with expertise to operate this kind of stuff.",
+      "accepted": "Great. Now move, mortal.",
+      "rejected": "Great! Let this survivors die out of nowhere then...",
+      "advice": "Just bring them in safely.",
+      "inquire": "Where are they?",
+      "success": "I knew you can bring one. Now let this nerd go to work!",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "*glares*",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_WS2_quest2",
+    "type": "mission_definition",
+    "name": "Slay the succumbed vampire",
+    "description": "Kill the <color_magenta>succumbed vampire</color> then talk to the guard.\n<color_red>Going unprepared is a death trap!</color>",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 10,
+    "value": 100000,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "cabin",
+        "om_special": "Cabin",
+        "reveal_radius": 3,
+        "search_range": 90,
+        "min_distance": 30,
+        "must_see": false,
+        "z": 0
+      },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_zombie_succumbvampire", "x": 11, "y": 11, "target": true } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "dialogue": {
+      "describe": "It's easy, I think...",
+      "offer": "With the radio working well, we will be able to connect to the outsiders and hope for them to receive our message. Yet there's this vampire I am worried about, wandering the cursed lands and wicked to its vile nature. Our scouting patrol knows the coordinates, and I want you to put it down immediately before it brings wrath to other survivors.",
+      "accepted": "With it wielding the power of an immortal, provoking unprepared is a suicidal act.",
+      "rejected": "The monster does not rest after a kill...",
+      "advice": "Bring guns and keep your distance, us vampires will take down humans for almost instantly.",
+      "inquire": "Is it dead?",
+      "success": "Fascinating job mortal! With its death, others will be safe... A bit.",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "*glares*",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_WS2_quest3",
+    "type": "mission_definition",
+    "name": "Destroy the vampirus",
+    "description": "With the help of the <color_yellow>seeker</color>, locate and destroy the <color_light_blue>vampirus</color>, the place where <color_magenta>infected vampires</color> gather.\n<color_red>Going unprepared is a death trap!</color>",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_trait": "wsg2vampirusdone" },
+    "difficulty": 10,
+    "value": 100000,
+    "start": { "effect": { "u_add_trait": "wsg2vampirushelp" } },
+    "end": { "effect": { "u_lose_trait": "wsg2vampirushelp" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "dialogue": {
+      "describe": "It's easy, I think...",
+      "offer": "Unfortunately, that vampire is not alone.\n\nI have recently received a radio message that reveals the pinpoint location of the gathering place owned by those infected vampires. Your task is to find a way to stop and annihilate the entire army of them. I told the seeker about it and she'll help you infiltrate your objective.",
+      "accepted": "Good. Just remind her about it and she'll provide the essential information.",
+      "rejected": "Alright then, let's talk about it again later...",
+      "advice": "Be aware. If alone is dangerous, more so when they're dozen.",
+      "inquire": "Report?",
+      "success": "Unbelievable! You did it, mortal! Our master would be grateful of your doings!",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "*glares*",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_UNDERSEEKER_quest_vampirus1",
+    "type": "mission_definition",
+    "name": "Travel to the vampirus",
+    "description": "Along with the seeker, travel to the <color_light_blue>vampirus</color>.",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "difficulty": 1,
+    "value": 1000,
+    "destination": "vampirus",
+    "start": {
+      "effect": [ "follow_only" ],
+      "assign_mission_target": {
+        "om_terrain": "vampirus",
+        "om_special": "Vampirus",
+        "reveal_radius": 3,
+        "search_range": 180,
+        "min_distance": 30,
+        "must_see": false,
+        "z": 0
+      }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "followup": "VAMP_UNDERSEEKER_quest_vampirus2",
+    "dialogue": {
+      "describe": "Are we ready for this trip?",
+      "offer": "We are now going to the outskirts, and I know the commando told you about this place.",
+      "accepted": "Lead the trail, I'm right behind if you require my assistance.",
+      "rejected": "...",
+      "advice": "Keep an eye out for possible threats along the way.",
+      "inquire": "Are we in our destination?",
+      "success": "Now that we're here, we have to locate the entrance that leads to the depths.",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "Ummm....",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "VAMP_UNDERSEEKER_quest_vampirus2",
+    "type": "mission_definition",
+    "name": "Unseal the entrance",
+    "description": "Protect the seeker from the <color_magenta>zeds</color> attracted to your location.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "and": [ { "u_has_trait": "underseekerhelpvampirusunseal" }, { "not": { "npc_has_effect": "underseeker_unsealing" } } ]
+    },
+    "difficulty": 1,
+    "value": 1000,
+    "start": {
+      "effect": [
+        "leave",
+        { "u_add_trait": "underseekerhelpvampirusunseal" },
+        { "npc_add_effect": "underseeker_unsealing", "duration": 100 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_x": 2 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_x": 1, "offset_y": -2 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_x": -2 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_x": -1, "offset_y": 2 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_y": 2 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_y": -2 }
+      ]
+    },
+    "end": {
+      "effect": [
+        "follow_only",
+        { "u_add_trait": "underseekerhelpvampirus_enter" },
+        { "mapgen_update": "vampirus_unsealing", "origin_npc": true }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "dialogue": {
+      "describe": "...",
+      "offer": "Yes, I can unseal it at this point.",
+      "accepted": "I do not guarantee our safety from breaking the seal, so you'll need to guard me as I break it.",
+      "rejected": "...",
+      "advice": "With the smell of blood coming out of the vampirus, zombies are attracted towards our location.",
+      "inquire": "...",
+      "success": "And now that the seal is broken, we can go through it.",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "Ummm....",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "HUMAN_RADIOSPEC_quest",
+    "type": "mission_definition",
+    "name": "Bring Radio Specialist to the outskirts",
+    "description": "Escort the specialist to the <color_light_blue>wasteland outskirts</color>.",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "difficulty": 1,
+    "value": 10000,
+    "destination": "wo5",
+    "start": {
+      "assign_mission_target": { "om_terrain": "wo5", "reveal_radius": 2, "search_range": 80 },
+      "effect": [ "follow_only", { "u_add_trait": "wrsgoing" } ],
+      "update_mapgen": {
+        "om_terrain": "wo5",
+        "om_special": "Wasteland Outskirts",
+        "place_nested": [ { "chunks": [ "wasteland_radio_tower" ], "x": 0, "y": 0 } ]
+      }
+    },
+    "end": { "effect": [ "stop_following", { "npc_change_faction": "wastelander" }, { "u_add_trait": "wrsdone" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "dialogue": {
+      "describe": "We're going, right?",
+      "offer": "We have to go to that place and I need you to lead the way.",
+      "accepted": "Just remember to keep everything fine as we go there.",
+      "rejected": "Well, your words are useless...",
+      "advice": "From what direction did you came from? I suppose that's the right way.",
+      "inquire": "What?",
+      "success": "This place looks neat! Now that I'm here, I'll do my job as you have said earlier.",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "Ummm....",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "id": "HUMAN_VAΜPRISON_quest",
+    "type": "mission_definition",
+    "name": "Bring Prisoner to the outskirts",
+    "description": "Take the prisoner to the <color_light_blue>wasteland outskirts</color>.",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "difficulty": 3,
+    "value": 30000,
+    "destination": "wo3",
+    "start": { "assign_mission_target": { "om_terrain": "wo3", "reveal_radius": 2, "search_range": 80 }, "effect": [ "follow" ] },
+    "end": { "effect": [ "leave", { "npc_change_faction": "wastelander" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "dialogue": {
+      "describe": "We're going, right?",
+      "offer": "Lead me to that place, then...",
+      "accepted": "Awesome!",
+      "rejected": "Well, atleast you've made me happy before my fate...",
+      "advice": "You need my advice for this? I could say something if I'm already free in the wilderness...",
+      "inquire": "What?",
+      "success": "Damn! This place is like a fortress! But you should've warned me about the vampires living here... They freak me out everytime I see one...",
+      "success_lie": "Well, thank you. *smirks*",
+      "failure": "Ummm....",
+      "failure_lie_": "Do not lie!"
+    }
+  },
+  {
+    "//": "Missions obtained from starting with the 'Vampire Wannabe' scenario.",
+    "id": "SCEN_FIND_CRYPT",
+    "type": "mission_definition",
+    "name": "Reach a memorial crypt",
+    "description": "Travel to a <color_light_blue>memorial crypt</color> then inspect its surroundings.",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "destination": "crypt1_b1",
+    "difficulty": 1,
+    "value": 0,
+    "origins": [ "ORIGIN_GAME_START" ],
+    "start": {
+      "assign_mission_target": { "om_terrain": "crypt1", "om_special": "Memorial Crypt", "reveal_radius": 2, "search_range": 90, "z": 0 }
+    }
+  },
+  {
+    "//": "From this mission, players will start to progress little by little, by showing quest related structures.",
+    "id": "SCEN_RECRUIT_VAMP",
+    "type": "mission_definition",
+    "name": "Dark Descendant",
+    "description": "Ask a <color_yellow>lone vampire</color> to join your party.\nYou must earn their trust by doing their favor.",
+    "goal": "MGOAL_RECRUIT_NPC",
+    "recruit_class ": [ "VAMP_LONELY_M", "VAMP_LONELY_F" ],
+    "difficulty": 10,
+    "value": 0,
+    "origins": [ "ORIGIN_GAME_START" ]
+  }
+]

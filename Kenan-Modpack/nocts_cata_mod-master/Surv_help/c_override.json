@@ -1,0 +1,142 @@
+[
+  {
+    "id": "skirt_leather",
+    "copy-from": "skirt_leather",
+    "type": "ARMOR",
+    "name": { "str": "leather skirt" },
+    "extend": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "long_glove_white",
+    "copy-from": "long_glove_white",
+    "type": "ARMOR",
+    "name": { "str": "pair of extra long white gloves", "str_pl": "pairs of extra long white gloves" },
+    "color": "white",
+    "extend": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "knee_high_boots",
+    "copy-from": "knee_high_boots",
+    "type": "ARMOR",
+    "name": { "str": "pair of knee-high boots", "str_pl": "pairs of knee-high boots" },
+    "extend": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "thigh_high_boots",
+    "copy-from": "thigh_high_boots",
+    "type": "ARMOR",
+    "name": { "str": "pair of thigh-high boots", "str_pl": "pairs of thigh-high boots" },
+    "extend": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "bikini_bottom",
+    "copy-from": "bikini_bottom",
+    "type": "ARMOR",
+    "name": { "str": "bikini bottom" },
+    "extend": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "bikini_top",
+    "copy-from": "bikini_top",
+    "type": "ARMOR",
+    "name": { "str": "bikini top" },
+    "extend": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "bikini_top_fur",
+    "copy-from": "bikini_top_fur",
+    "type": "ARMOR",
+    "name": { "str": "fur bikini top" },
+    "extend": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "bikini_top_leather",
+    "copy-from": "bikini_top_leather",
+    "type": "ARMOR",
+    "name": { "str": "leather bikini top" },
+    "extend": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "wetsuit_spring",
+    "copy-from": "wetsuit_spring",
+    "type": "ARMOR",
+    "name": { "str": "spring suit" },
+    "extend": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "bondage_suit",
+    "copy-from": "bondage_suit",
+    "type": "ARMOR",
+    "name": { "str": "bondage suit" },
+    "extend": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "cowboy_hat",
+    "copy-from": "cowboy_hat",
+    "type": "ARMOR",
+    "name": { "str": "cowboy hat" },
+    "extend": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "nanoskirt",
+    "copy-from": "nanoskirt",
+    "type": "ARMOR",
+    "name": { "str": "nanoskirt" },
+    "extend": { "flags": [ "SUPER_FANCY" ] },
+    "delete": { "flags": [ "FANCY" ] }
+  },
+  {
+    "id": "hydrogen_tank",
+    "//": "In this case, a full override is needed to prevent bugs.",
+    "type": "MAGAZINE",
+    "category": "tools",
+    "name": { "str": "hydrogen tank" },
+    "description": "This is a tank of compressed hydrogen gas.  If you need to make water from scratch, or lift a zeppelin, it could come in handy.",
+    "weight": "2268 g",
+    "volume": "1500 ml",
+    "price": 1000,
+    "to_hit": -4,
+    "bashing": 10,
+    "material": [ "steel", "plastic" ],
+    "symbol": ";",
+    "color": "light_gray",
+    "ammo_type": "c_hydrogen",
+    "count": 24,
+    "capacity": 24,
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "watertight": true, "airtight": true, "rigid": true, "ammo_restriction": { "c_hydrogen": 24 } } ],
+    "looks_like": "oxygen_tank",
+    "flags": [ "NO_UNLOAD" ]
+  },
+  {
+    "id": "bot_laserturret",
+    "//": "A full override for this and broken_laserturret is retained due to these items being obsolete, with no guarantee that they won't simply be removed in the future.",
+    "type": "TOOL",
+    "name": { "str": "inactive laser turret" },
+    "description": "This is an inactive laser turret.  Using this item involves turning it on and placing it on the ground, where it will attach itself.  If reprogrammed and rewired successfully the turret will identify you as a friendly, and attack all enemies with its revolving laser cannons.  It requires sunlight in order to fire.",
+    "weight": "40750 g",
+    "volume": "30 L",
+    "price": 600000,
+    "price_postapoc": 12000,
+    "to_hit": -3,
+    "bashing": 8,
+    "material": [ "steel", "plastic" ],
+    "symbol": ";",
+    "color": "white",
+    "use_action": {
+      "type": "place_monster",
+      "monster_id": "mon_laserturret",
+      "difficulty": 6,
+      "moves": 100,
+      "skills": [ "electronics", "computer" ]
+    }
+  },
+  {
+    "type": "GENERIC",
+    "id": "broken_laserturret",
+    "symbol": ",",
+    "color": "green",
+    "name": { "str": "broken laser turret" },
+    "weight": "110 kg",
+    "copy-from": "broken_turret"
+  }
+]

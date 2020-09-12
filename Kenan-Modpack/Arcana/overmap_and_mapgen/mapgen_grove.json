@@ -1,0 +1,98 @@
+[
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "strange_grove" ],
+    "weight": 300,
+    "object": {
+      "rows": [
+        ",,,,,,,,,,,,,,,,,,,,,,,,",
+        ",,,TTTTTTTTTTTTTTTTTT,,,",
+        ",,TT````````````````TT,,",
+        ",TT``````````````````TT,",
+        ",T````````````````````T,",
+        ",T````````,```````````T,",
+        ",T``````T``TT``T``````T,",
+        ",T`````TT``````TT`````T,",
+        ",T````TT``#..#``TT````T,",
+        ",T```````##..##```````T,",
+        ",T````T`###..###`T````T,",
+        ",T````T`###..###`T````T,",
+        ",T```````##>>##```````T,",
+        ",T````TT``####``TT````T,",
+        ",T`````TT``````TT`````T,",
+        ",T``,```T``TT``T``````T,",
+        ",T````````````````````T,",
+        ",T````````````````````T,",
+        ",T````````````````````T,",
+        ",T```````````````,````T,",
+        ",TT``````````````````TT,",
+        ",,TT````````````````TT,,",
+        ",,,TTTTTTTT,,TTTTTTTT,,,",
+        ",,,,,,,,,,,,,,,,,,,,,,,,"
+      ],
+      "palettes": [ "arcana_palette" ],
+      "set": [
+        { "point": "trap", "id": "tr_portal", "x": 9, "y": 5 },
+        { "point": "trap", "id": "tr_portal", "x": 4, "y": 15 },
+        { "point": "trap", "id": "tr_portal", "x": 16, "y": 19 }
+      ],
+      "terrain": { ">": "t_slope_down" },
+      "place_monsters": [
+        { "monster": "GROUP_TRIFFID", "x": [ 0, 23 ], "y": [ 0, 23 ], "density": 0.1 },
+        { "monster": "GROUP_NETHER", "x": [ 0, 23 ], "y": [ 0, 23 ], "density": 0.5 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "grove_ruins" ],
+    "weight": 300,
+    "object": {
+      "rows": [
+        "########################",
+        "#---|R....R.R.{|-RR...-#",
+        "#R~R|B..R.....{|]...R..#",
+        "#~~~|BDRR..R..{|]..R...#",
+        "#~~~|~RR...R|.R|]RR..]|#",
+        "#.~.|RR.....|..|--R..]|#",
+        "#...|.......|R..R....--#",
+        "#..||..-----|..|RR..R.~#",
+        "#..|....|......|~RR..R|#",
+        "#-X|...R|.-----|R~R...|#",
+        "#......R|..............#",
+        "#--...--..----.-----...#",
+        "#.RR~RR..|R<<RRR~~~R|..#",
+        "#{.RRR..{|......~~~~|..#",
+        "#{......{|.......~~~|..#",
+        "#{.....RR|R.......~R|..#",
+        "#R....RR~|R.......RR|..#",
+        "#.----R~R.RRKAF.....X..#",
+        "#..R..R....---------|..#",
+        "#R.....RR..............#",
+        "#RR.|.....R.......RR~~R#",
+        "#{..|BB..R~RR....RR~R~R#",
+        "#-.-|-R...R.~RR.~R~R~RR#",
+        "########################"
+      ],
+      "palettes": [ "arcana_palette" ],
+      "mapping": { ".": { "items": [ { "item": "summoner_casualties", "chance": 5 } ] } },
+      "terrain": { "<": "t_slope_up", "R": "t_root_wall" },
+      "place_loot": [
+        { "item": "book_syncretism", "x": 16, "y": 2 },
+        { "item": "note_grove", "x": [ 11, 15 ], "y": [ 13, 15 ] },
+        { "item": "arcanemap", "x": 16, "y": [ 3, 4 ] },
+        { "group": "magic_consumables", "x": 14, "y": [ 1, 3 ], "chance": 40, "repeat": 9 },
+        { "group": "magic_consumables", "x": 1, "y": [ 13, 15 ], "chance": 40, "repeat": 9 },
+        { "group": "magic_crafting", "x": 8, "y": [ 13, 14 ], "chance": 50, "repeat": 5 },
+        { "group": "magic_crafting", "x": 1, "y": 21, "chance": 50, "repeat": 5 },
+        { "group": "unaligned_arcanist_books", "x": 16, "y": [ 2, 4 ], "chance": 50, "repeat": 10 },
+        { "group": "unaligned_arcanist_books", "x": 21, "y": [ 4, 5 ], "chance": 50, "repeat": 6 },
+        { "group": "unaligned_arcanist_spells", "x": 21, "y": [ 4, 5 ], "chance": 5, "repeat": 4 }
+      ],
+      "place_monsters": [ { "monster": "GROUP_GROVEBASEMENT", "x": [ 2, 22 ], "y": [ 2, 22 ], "density": 0.2 } ],
+      "place_monster": [ { "monster": "mon_moruboru", "x": 2, "y": 8 } ]
+    }
+  }
+]

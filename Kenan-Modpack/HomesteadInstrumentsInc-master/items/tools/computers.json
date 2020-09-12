@@ -1,0 +1,40 @@
+[
+  {
+    "type": "TOOL",
+    "id": "laptop_working",
+    "copy-from": "laptop",
+    "name": { "str": "laptop computer (working)", "str_pl": "laptop computers (working)" },
+    "description": "Working portable computer. Internal battery has been somewhat-crudely replaced to ensure as much. Requires an operating system installed to be useful.",
+    "symbol": ",",
+    "color": "light_gray",
+    "ammo": [ "battery" ],
+    "charges_per_use": 1,
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE_WELL",
+        "magazine_well": "300 ml",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [ "medium_battery_cell", "medium_plus_battery_cell", "medium_atomic_battery_cell", "medium_disposable_cell" ]
+      }
+    ],
+    "magazine_well": 1
+  },
+  {
+    "type": "TOOL",
+    "abstract": "laptop_working_os",
+    "copy-from": "laptop_working",
+    "name": { "str": "laptop computer with OS", "str_pl": "laptop computers with OS" },
+    "flags": [ "WATCH", "ALARMCLOCK" ],
+    "qualities": [ [ "COMPUTATION", 1 ] ]
+  },
+  {
+    "//": "This is meant to be the 'default' basic laptop for various personal purposes. Modders should create their own variations of OS if they go beyond - or below - a full-fledged personal computer.",
+    "type": "TOOL",
+    "id": "laptop_working_ubuntu",
+    "copy-from": "laptop_working_os",
+    "name": { "str": "laptop computer with Ubuntu", "str_pl": "laptop computers with Ubuntu" },
+    "description": "Working portable computer. Internal battery has been somewhat-crudely replaced to ensure as much. This one has Ubuntu - a distribution of Linux - installed."
+  }
+]

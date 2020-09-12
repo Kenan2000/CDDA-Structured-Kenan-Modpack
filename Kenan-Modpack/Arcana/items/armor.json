@@ -1,0 +1,238 @@
+[
+  {
+    "id": "halo_clairvoyance",
+    "copy-from": "spell_base",
+    "type": "ARMOR",
+    "name": { "str": "ivory halo" },
+    "description": "A strange radiance permeating your body, granting you sight beyond sight.",
+    "color": "magenta",
+    "relic_data": { "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "mutations": [ "ARCANA_CLAIRVOYANCE_LESSER" ] } ] },
+    "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
+  },
+  {
+    "id": "halo_shadowsnakes",
+    "//": "ID retained for simplicity.",
+    "copy-from": "spell_base",
+    "type": "ARMOR",
+    "name": { "str": "obsidian halo" },
+    "description": "A strange radiance permeating your body, blinding attackers with otherworldly magic.",
+    "color": "dark_gray",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "hit_me_effect": [
+            {
+              "id": "arcana_react_shadowy_shield",
+              "message": "Wisps of shadow lash out at %2$s",
+              "npc_message": "Wisps of shadow jump from %1$s to %2$s."
+            }
+          ]
+        }
+      ]
+    },
+    "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
+  },
+  {
+    "id": "halo_drainlife",
+    "copy-from": "spell_base",
+    "type": "ARMOR",
+    "name": { "str": "horned halo" },
+    "description": "A strange radiance permeating your body, granting you a life-draining touch.",
+    "color": "dark_gray",
+    "relic_data": {
+      "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "hit_you_effect": [ { "id": "arcana_react_drain_life" } ] } ]
+    },
+    "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
+  },
+  {
+    "id": "triffid_garland",
+    "type": "ARMOR",
+    "name": { "str": "triffid garland" },
+    "description": "A wreath of brightly-colored flowers from another world, worn around the neck.  Aside from the otherworldly beauty afforded by its petals, it has no practical use.",
+    "weight": "40 g",
+    "volume": "50 ml",
+    "//": "Arcanist trinkets are explicitly 100% post-cataclysm, minimal value but exotic, and have some minor crafting use.",
+    "price_postapoc": 120,
+    "material": [ "veggy" ],
+    "symbol": "[",
+    "looks_like": "holy_symbol_wood",
+    "color": "light_red",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [ { "value": "REGEN_MANA", "multiply": 0.025 }, { "value": "MAX_MANA", "multiply": 0.025 } ]
+        }
+      ]
+    },
+    "flags": [ "FANCY" ]
+  },
+  {
+    "id": "amulet_exotic",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "exotic amulet" },
+    "description": "A makeshift necklace with a single gem, a charm worked from some manner of unnatural material.",
+    "weight": "60 g",
+    "volume": "50 ml",
+    "price_postapoc": 150,
+    "material": [ "stone" ],
+    "symbol": "[",
+    "looks_like": "aquamarine_silver_pendant_necklace",
+    "color": "light_gray",
+    "flags": [ "FANCY" ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [ { "value": "REGEN_MANA", "multiply": 0.025 }, { "value": "MAX_MANA", "multiply": 0.025 } ]
+        }
+      ]
+    },
+    "use_action": "MEDITATE"
+  },
+  {
+    "id": "brooch_iridescent",
+    "type": "ARMOR",
+    "name": { "str": "iridescent brooch", "str_pl": "iridescent brooches" },
+    "description": "A hand-crafted disc brooch made from a strange, unearthly material vaguely resembling mother-of-pearl.",
+    "weight": "52 g",
+    "volume": "50 ml",
+    "price_postapoc": 200,
+    "material": [ "stone" ],
+    "symbol": "[",
+    "looks_like": "jade_brooch",
+    "color": "dark_gray",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [ { "value": "REGEN_MANA", "multiply": 0.025 }, { "value": "MAX_MANA", "multiply": 0.025 } ]
+        }
+      ]
+    },
+    "flags": [ "FANCY" ]
+  },
+  {
+    "id": "mana_gem",
+    "type": "ARMOR",
+    "name": { "str": "essence gem" },
+    "description": "A strange blue stone set in a copper talisman, worn around the neck.  It is capable of storing a considerable reserve of various sorts of magical energy, and can be used to reload magical weapons more quickly if worn.",
+    "weight": "250 g",
+    "volume": "50 ml",
+    "price_postapoc": 9000,
+    "price": 3000,
+    "material": [ "copper", "essencemat" ],
+    "symbol": "[",
+    "looks_like": "copper_locket",
+    "color": "blue",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [ { "value": "REGEN_MANA", "multiply": 0.1 }, { "value": "MAX_MANA", "multiply": 0.01 } ]
+        }
+      ]
+    },
+    "pocket_data": [
+      {
+        "ammo_restriction": { "essence_pure_type": 10, "essence_type": 100, "essence_blood_type": 300, "essence_dull_type": 3000 },
+        "moves": 10
+      }
+    ]
+  },
+  {
+    "id": "satchel_eternity",
+    "type": "ARMOR",
+    "name": { "str": "satchel of eternity", "str_pl": "satchels of eternity" },
+    "description": "A small fabric pouch decorated with ornate textile imagery depicting an otherworldly abstract pattern, further adorned with copper rings and clasps.  It is said to represent the search for greater knowledge of the unknown, focused by a drive to find utility and purpose in new discoveries.  It uses the power of a vortex to store a great volume of items that can be easily accessed, but the portal's instability can draw attention from Beyond.  You can also use it to set aside certain items for even faster access, if it serves as a magical focus.",
+    "weight": "610 g",
+    "volume": "500 ml",
+    "price": 100000,
+    "price_postapoc": 10000,
+    "to_hit": 1,
+    "bashing": 1,
+    "material": [ "cotton", "copper" ],
+    "symbol": "[",
+    "looks_like": "leather_pouch",
+    "color": "light_red",
+    "covers": [ "torso" ],
+    "coverage": 15,
+    "encumbrance": 15,
+    "material_thickness": 1,
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "hit_me_effect": [
+            {
+              "id": "arcana_react_satchel_attention",
+              "hit_self": true,
+              "once_in": 20,
+              "message": "You feel like something is watching you...",
+              "npc_message": "A strange aura of malice seems to briefly surround %1$s."
+            },
+            {
+              "id": "arcana_react_satchel_teleport",
+              "hit_self": true,
+              "once_in": 20,
+              "message": "You feel yanked in a non-existent direction!",
+              "npc_message": "%1$s suddenly vanishes!"
+            }
+          ]
+        }
+      ]
+    },
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "rigid": true,
+        "spoil_multiplier": 0.9,
+        "weight_multiplier": 0.25,
+        "max_contains_volume": "75 L",
+        "max_contains_weight": "150 kg",
+        "moves": 80
+      },
+      {
+        "max_contains_volume": "5 L",
+        "max_contains_weight": "25 kg",
+        "moves": 0,
+        "rigid": true,
+        "holster": true,
+        "flag_restriction": [ "MAGIC_FOCUS" ]
+      },
+      {
+        "max_contains_volume": "5 L",
+        "max_contains_weight": "25 kg",
+        "moves": 0,
+        "rigid": true,
+        "holster": true,
+        "flag_restriction": [ "MAGIC_FOCUS" ]
+      },
+      {
+        "max_contains_volume": "5 L",
+        "max_contains_weight": "25 kg",
+        "moves": 0,
+        "rigid": true,
+        "holster": true,
+        "flag_restriction": [ "MAGIC_FOCUS" ]
+      },
+      {
+        "max_contains_volume": "5 L",
+        "max_contains_weight": "25 kg",
+        "moves": 0,
+        "rigid": true,
+        "holster": true,
+        "flag_restriction": [ "MAGIC_FOCUS" ]
+      }
+    ],
+    "use_action": { "type": "holster", "holster_prompt": "Store what magical focus?", "holster_msg": "You store your %s" },
+    "flags": [ "WAIST", "OVERSIZE", "TRADER_KEEP_EQUIPPED", "TARDIS" ]
+  }
+]

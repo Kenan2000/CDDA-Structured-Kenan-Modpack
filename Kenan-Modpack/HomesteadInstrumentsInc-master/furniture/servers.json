@@ -1,0 +1,61 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_server",
+    "//": "override the default `f_server` for a more meaningful deconstruction recipe - should be inducted into the main game after 0.E launches",
+    "copy-from": "f_server",
+    "name": "server stack",
+    "symbol": ":",
+    "color": "blue_white",
+    "deconstruct": {
+      "items": [
+        { "item": "sheet_metal_small", "count": [ 4, 6 ] },
+        { "item": "plastic_chunk", "count": [ 8, 12 ] },
+        { "item": "pipe", "count": [ 4, 8 ] },
+        { "item": "processor", "count": [ 6, 12 ] },
+        { "item": "RAM", "count": [ 12, 24 ] },
+        { "item": "power_supply", "count": [ 6, 12 ] },
+        { "item": "cable", "charges": [ 12, 24 ] }
+      ]
+    },
+    "bash": {
+      "str_min": 16,
+      "str_max": 40,
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "items": [
+        { "item": "scrap", "count": [ 12, 18 ] },
+        { "item": "plastic_chunk", "count": [ 2, 12 ] },
+        { "item": "sheet_metal_small", "count": [ 1, 4 ] },
+        { "item": "pipe", "count": 1 },
+        { "item": "e_scrap", "count": [ 30, 80 ] },
+        { "item": "cable", "charges": [ 6, 16 ] }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_server_working",
+    "copy-from": "f_server",
+    "name": "server stack (working)",
+    "description": "This is a rack full of compact computer devices.  The indicator lights are shining and flickering. Can be used in extensive computations.",
+    "symbol": ":",
+    "color": "blue_white",
+    "move_cost_mod": -1,
+    "required_str": 1,
+    "//": "emits a little light due to the I/O lights",
+    "light_emitted": 5,
+    "crafting_pseudo_item": "server_pseudo",
+    "deconstruct": {
+      "items": [
+        { "item": "sheet_metal_small", "count": 6 },
+        { "item": "plastic_chunk", "count": 12 },
+        { "item": "pipe", "count": 8 },
+        { "item": "processor", "count": 12 },
+        { "item": "RAM", "count": 24 },
+        { "item": "power_supply", "count": 12 },
+        { "item": "cable", "charges": 24 }
+      ]
+    }
+  }
+]

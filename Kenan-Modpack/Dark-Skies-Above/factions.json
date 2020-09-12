@@ -1,0 +1,42 @@
+[
+  {
+    "type": "MONSTER_FACTION",
+    "name": "neworder",
+    "neutral": [ "small_animal", "fish", "animal", "stray" ],
+	"hate": [ "zombie", "zombie_aquatic", "fungus", "cult", "triffid", "nether" ],
+    "friendly": [ "neworder_civ", "neworder_bot" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "neworder_bot",
+    "base_faction": "neworder",
+	"neutral": [ "stray", "zombie", "zombie_aquatic" ],
+	"hate": [ "fungus", "cult", "triffid", "nether" ],
+    "friendly": [ "neworder", "neworder_civ" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "//": "human civilians belonging to the new order",
+    "name": "neworder_civ",
+	"hate": [ "zombie", "zombie_aquatic", "fungus", "cult", "triffid", "nether", "stray" ],
+    "neutral": [ "human", "animal", "fish", "neworder" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "alien_herbivore",
+    "base_faction": "small_animal"
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "lizard",
+    "neutral": [ "small_animal", "neworder_bot" ],
+    "by_mood": "lizard"
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "stray",
+    "//": "largely neutral to animals and things that don't live",
+    "neutral": [ "small_animal", "fish", "animal", "fox", "cat", "dog", "neworder_bot", "neworder" ],
+	"hate": [ "zombie", "zombie_aquatic", "fungus", "cult", "triffid", "nether" ]
+  }
+]

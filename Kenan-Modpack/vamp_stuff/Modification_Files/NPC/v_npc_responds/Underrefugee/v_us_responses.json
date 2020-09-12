@@ -1,0 +1,201 @@
+[
+  {
+    "id": "TALK_VAMP_UNDERSEEKER",
+    "type": "talk_topic",
+    "dynamic_line": "...",
+    "responses": [
+      {
+        "text": "Who are you?",
+        "topic": "TALK_VAMP_UNDERSEEKER_none",
+        "condition": {
+          "and": [
+            { "not": { "u_has_trait": "undertradervampmark" } },
+            { "not": { "u_has_trait": "commandovampmark" } },
+            { "not": { "u_has_trait": "underseekermeet" } }
+          ]
+        }
+      },
+      {
+        "text": "Who are you?",
+        "topic": "TALK_VAMP_UNDERSEEKER_notice",
+        "condition": {
+          "and": [
+            { "u_has_trait": "undertradervampmark" },
+            { "not": { "u_has_trait": "commandovampmark" } },
+            { "not": { "u_has_trait": "underseekermeet" } }
+          ]
+        }
+      },
+      {
+        "text": "Who are you?",
+        "topic": "TALK_VAMP_UNDERSEEKER_attention",
+        "condition": {
+          "and": [
+            { "u_has_trait": "undertradervampmark" },
+            { "u_has_trait": "commandovampmark" },
+            { "not": { "u_has_trait": "underseekermeet" } }
+          ]
+        }
+      },
+      {
+        "text": "Can you tell me who you are?",
+        "topic": "TALK_VAMP_UNDERSEEKER_introduce",
+        "effect": { "u_add_trait": "underseekerwhou" },
+        "condition": { "and": [ { "u_has_trait": "underseekermeet" }, { "not": { "u_has_trait": "underseekerwhou" } } ] }
+      },
+      { "text": "About our journey...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      {
+        "text": "Jobs to work?",
+        "topic": "TALK_MISSION_LIST",
+        "condition": { "and": [ { "u_has_trait": "underseekermeet" }, { "not": { "u_has_trait": "underseekerdone" } } ] }
+      },
+      {
+        "text": "They've let me help in their troubles.",
+        "topic": "TALK_VAMP_UNDERSEEKER_umehelp",
+        "effect": { "u_add_trait": "underseekerwehelp" },
+        "condition": {
+          "and": [
+            { "u_has_trait": "wsg2hired" },
+            { "not": { "u_has_trait": "underseekerwehelp" } },
+            { "not": { "u_has_trait": "underseekerhelpvampirus" } }
+          ]
+        }
+      },
+      {
+        "text": "We need to go to the vampirus.",
+        "topic": "TALK_VAMP_UNDERSEEKER_vampirus",
+        "effect": [ { "u_add_trait": "underseekerhelpvampirus" }, { "add_mission": "VAMP_UNDERSEEKER_quest_vampirus1" } ],
+        "condition": { "and": [ { "u_has_trait": "wsg2vampirushelp" }, { "not": { "u_has_trait": "underseekerhelpvampirus" } } ] }
+      },
+      {
+        "text": "About our job...",
+        "topic": "TALK_VAMP_UNDERSEEKER_vampirus_hints",
+        "condition": {
+          "and": [
+            { "u_has_trait": "underseekerhelpvampirus" },
+            { "not": { "u_has_trait": "underseekerhelpvampirusdone" } },
+            { "not": { "npc_has_effect": "underseeker_unsealing" } }
+          ]
+        }
+      },
+      { "text": "I'd be going now...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_none",
+    "type": "talk_topic",
+    "dynamic_line": "...",
+    "responses": [ { "text": "...", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_notice",
+    "type": "talk_topic",
+    "dynamic_line": "...?",
+    "responses": [ { "text": "...", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_attention",
+    "type": "talk_topic",
+    "dynamic_line": "I see you've been working hard to help us on our problems... Nice meeting you and I apologize for ignoring you from the start I glanced on your eyes.",
+    "responses": [
+      {
+        "text": "As I was saying...",
+        "topic": "TALK_DONE",
+        "note": "Rep up by 5.",
+        "effect": [ { "u_faction_rep": 5 }, { "u_add_trait": "underseekermeet" } ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_introduce",
+    "type": "talk_topic",
+    "dynamic_line": "I am the seeker of this cave, and my job is to scout the surrounding areas for possible threats.",
+    "responses": [
+      { "text": "What kind of threats?", "topic": "TALK_VAMP_UNDERSEEKER_threat" },
+      { "text": "Okay...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_threat",
+    "type": "talk_topic",
+    "dynamic_line": "Nothing dangerous, its all the same everytime.",
+    "responses": [ { "text": "Well, okay.", "topic": "TALK_VAMP_UNDERSEEKER" } ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_umehelp",
+    "type": "talk_topic",
+    "dynamic_line": "Good. If you need me to come along, just tell me and I will help you in your troubles.",
+    "responses": [
+      { "text": "Come with me.", "topic": "TALK_VAMP_UNDERSEEKER_umehelp_yes" },
+      { "text": "Job's too easy to bring you along.", "topic": "TALK_VAMP_UNDERSEEKER_umehelp_no" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_umehelp_yes",
+    "type": "talk_topic",
+    "dynamic_line": "Lead the way, descendant.",
+    "responses": [ { "text": "Let's go!", "topic": "TALK_DONE", "effect": "follow" } ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_umehelp_no",
+    "type": "talk_topic",
+    "dynamic_line": "As you say, descendant...",
+    "responses": [ { "text": "Bye.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_vampirus",
+    "type": "talk_topic",
+    "dynamic_line": "Descendant, are you sure about this?",
+    "responses": [ { "text": "Yes.", "topic": "TALK_MISSION_OFFER" } ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_vampirus_hints",
+    "type": "talk_topic",
+    "dynamic_line": "Tell me the problem, descendant.",
+    "responses": [
+      {
+        "text": "We can't go down the slope.",
+        "topic": "TALK_VAMP_UNDERSEEKER_vampirus_hints_enter",
+        "condition": { "and": [ { "u_at_om_location": "vampirus" }, { "not": { "u_has_trait": "underseekerhelpvampirus_enter" } } ] }
+      },
+      { "text": "Nevermind...", "topic": "TALK_VAMP_UNDERSEEKER" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_vampirus_hints_enter",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "underseekerhelpvampirusunseal",
+      "yes": "Doing this job takes time...",
+      "no": "Hmm, these bastards has sealed the entrance. I didn't expect for them to use a spell, even tho they're heavily influenced by the magic..."
+    },
+    "responses": [
+      {
+        "text": "So, can you unseal the entrance?",
+        "trial": {
+          "type": "CONDITION",
+          "condition": {
+            "and": [
+              { "npc_at_om_location": "vampirus" },
+              { "not": { "u_has_trait": "underseekerhelpvampirusunseal" } },
+              { "not": "is_day" }
+            ]
+          }
+        },
+        "success": { "topic": "TALK_MISSION_OFFER" },
+        "failure": { "topic": "TALK_VAMP_UNDERSEEKER_vampirus_hints_enter_not" }
+      },
+      {
+        "text": "Okay.",
+        "topic": "TALK_VAMP_UNDERSEEKER",
+        "condition": { "u_has_trait": "underseekerhelpvampirusunseal" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_UNDERSEEKER_vampirus_hints_enter_not",
+    "type": "talk_topic",
+    "dynamic_line": "I must perform this at night by the entrance.",
+    "responses": [ { "text": "Okay then...", "topic": "TALK_VAMP_UNDERSEEKER" } ]
+  }
+]

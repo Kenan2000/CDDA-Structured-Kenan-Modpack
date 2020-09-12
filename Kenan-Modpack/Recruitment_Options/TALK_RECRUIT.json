@@ -1,0 +1,259 @@
+[
+  {
+    "id": [ "TALK_SUGGEST_FOLLOW" ],
+    "type": "talk_topic",
+    "responses": [
+      {
+        "//": "two cops",
+        "text": "[POLICE] Officer, with all this trouble, I could use some assistance.",
+        "condition": {
+          "and": [
+            { "u_has_any_trait": [ "PROF_FED", "PROF_PD_DET", "PROF_CYBERCOP", "PROF_SWAT", "PROF_POLICE" ] },
+            { "npc_has_any_trait": [ "PROF_FED", "PROF_PD_DET", "PROF_CYBERCOP", "PROF_SWAT", "PROF_POLICE" ] }
+          ]
+        },
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 40,
+          "mod": [ [ "ALTRUISM", 5 ], [ "POS_FEAR", -4 ], [ "BRAVERY", 4 ], [ "ANGER", -5 ], [ "VALUE", 3 ] ]
+        },
+        "success": { "topic": "TALK_AGREE_FOLLOW", "effect": "follow", "opinion": { "value": -1 } },
+        "failure": { "topic": "TALK_DENY_FOLLOW", "effect": "deny_follow", "opinion": { "fear": -1, "value": -1, "anger": 1 } }
+      },
+      {
+        "//": "pretend to be a cop",
+        "text": "[BADGE] Well, fellow police person.  We need to team up to, like, fight crime and stuff.",
+        "condition": {
+          "and": [
+            { "not": { "u_has_any_trait": [ "PROF_FED", "PROF_PD_DET", "PROF_CYBERCOP", "PROF_SWAT", "PROF_POLICE", "PROF_FED" ] } },
+            {
+              "npc_has_any_trait": [ "PROF_FED", "PROF_PD_DET", "PROF_CYBERCOP", "PROF_SWAT", "PROF_POLICE", "PROF_FED" ]
+            },
+            {
+              "or": [
+                { "u_is_wearing": "badge_cybercop" },
+                { "u_is_wearing": "badge_deputy" },
+                { "u_is_wearing": "badge_detective" },
+                { "u_is_wearing": "badge_marshal" },
+                { "u_is_wearing": "badge_swat" }
+              ]
+            }
+          ]
+        },
+        "trial": {
+          "type": "LIE",
+          "difficulty": 10,
+          "mod": [ [ "ALTRUISM", 5 ], [ "POS_FEAR", -4 ], [ "BRAVERY", 2 ], [ "ANGER", -8 ], [ "VALUE", 2 ] ]
+        },
+        "success": { "topic": "TALK_AGREE_FOLLOW", "effect": "follow", "opinion": { "value": -1 } },
+        "failure": { "topic": "TALK_DENY_FOLLOW", "effect": "deny_follow", "opinion": { "trust": -5, "value": -3, "anger": 7 } }
+      },
+      {
+        "//": "two doctors",
+        "text": "[DOCTOR] Because we should work together to help the injured.",
+        "condition": { "and": [ { "u_has_trait": "PROF_MED" }, { "npc_has_class": "NC_DOCTOR" } ] },
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 40,
+          "mod": [ [ "ALTRUISM", 8 ], [ "BRAVERY", 2 ], [ "ANGER", -5 ], [ "VALUE", 2 ] ]
+        },
+        "success": { "topic": "TALK_AGREE_FOLLOW", "effect": "follow", "opinion": { "trust": 1, "value": -1 } },
+        "failure": { "topic": "TALK_DENY_FOLLOW", "effect": "deny_follow", "opinion": { "value": 1, "trust": 1, "anger": -2 } }
+      },
+      {
+        "//": "doctor and sick player",
+        "text": "[MEDICAL]  It's because I'm sick, doc.  You gotta help me get through this.",
+        "condition": {
+          "and": [
+            { "npc_has_class": "NC_DOCTOR" },
+            {
+              "or": [
+                { "u_has_effect": "onfire" },
+                { "u_has_effect": "infected" },
+                { "u_has_effect": "irradiated" },
+                { "u_has_effect": "fungus" },
+                { "u_has_effect": "flu" },
+                { "u_has_effect": "scurvy" },
+                { "u_has_effect": "mending" },
+                { "u_has_effect": "disabled" },
+                { "u_has_effect": "formication" },
+                { "u_has_trait": "FLIMSY2" },
+                { "u_has_trait": "FLIMSY3" },
+                { "u_has_trait": "CHAOTIC" },
+                { "u_has_trait": "SPOTS" },
+                { "u_has_trait": "SORES" }
+              ]
+            }
+          ]
+        },
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 50,
+          "mod": [ [ "ALTRUISM", 10 ], [ "POS_FEAR", -2 ], [ "ANGER", -2 ], [ "VALUE", 3 ] ]
+        },
+        "success": { "topic": "TALK_AGREE_FOLLOW", "effect": "follow", "opinion": { "trust": 21, "value": -1 } },
+        "failure": { "topic": "TALK_DENY_FOLLOW", "effect": "deny_follow", "opinion": { "value": -1, "trust": 2, "anger": -2 } }
+      },
+      {
+        "//": "two m-artists",
+        "text": "[MARTIAL ARTS] A rival school, eh?  We'll see who's the strongest.  Prepare yourself for battle!",
+        "condition": {
+          "and": [
+            { "npc_has_class": "NC_NINJA" },
+            {
+              "or": [
+                { "u_has_trait": "MARTIAL_ARTS" },
+                { "u_has_trait": "MARTIAL_ARTS2" },
+                { "u_has_trait": "MARTIAL_ARTS3" },
+                { "u_has_trait": "MARTIAL_ARTS4" }
+              ]
+            }
+          ]
+        },
+        "topic": "TALK_DONE",
+        "effect": "insult_combat",
+        "opinion": { "value": 2, "trust": 1, "anger": 1 }
+      },
+      {
+        "//": "wear fancy clothes for Stylish NPC.",
+        "text": "[FANCY] Because you seem legit.  Wanna roll with my squad?",
+        "condition": {
+          "and": [
+            { "npc_has_trait": "STYLISH" },
+            {
+              "or": [
+                { "u_is_wearing": "10gal_hat" },
+                { "u_is_wearing": "barrette" },
+                { "u_is_wearing": "beret" },
+                { "u_is_wearing": "beret_wool" },
+                { "u_is_wearing": "bowhat" },
+                { "u_is_wearing": "cowl_wool" },
+                { "u_is_wearing": "crown_golden" },
+                { "u_is_wearing": "crown_golden_survivor" },
+                { "u_is_wearing": "fur_cat_ears" },
+                { "u_is_wearing": "faux_fur_cat_ears" },
+                { "u_is_wearing": "hat_faux_fur" },
+                { "u_is_wearing": "hat_sombrero" },
+                { "u_is_wearing": "leather_cat_ears" },
+                { "u_is_wearing": "maid_hat" },
+                { "u_is_wearing": "pickelhaube" },
+                { "u_is_wearing": "porkpie" },
+                { "u_is_wearing": "tophat" },
+                { "u_is_wearing": "veil_wedding" }
+              ]
+            },
+            {
+              "or": [
+                { "u_is_wearing": "jade_brooch" },
+                { "u_is_wearing": "collarpin" },
+                { "u_is_wearing": "crown_golden_survivor" },
+                { "u_is_wearing": "diamond_dental_grill" },
+                { "u_is_wearing": "diamond_ring" },
+                { "u_is_wearing": "ear_spool" },
+                { "u_is_wearing": "fancy_sunglasses" },
+                { "u_is_wearing": "faux_fur_cat_tail" },
+                { "u_is_wearing": "faux_fur_collar" },
+                { "u_is_wearing": "fur_cat_tail" },
+                { "u_is_wearing": "fur_collar" },
+                { "u_is_wearing": "glasses_monocle" },
+                { "u_is_wearing": "gold_bracelet" },
+                { "u_is_wearing": "gold_dental_grill" },
+                { "u_is_wearing": "gold_ear" },
+                { "u_is_wearing": "gold_watch" },
+                { "u_is_wearing": "holy_symbol" },
+                { "u_is_wearing": "leather_cat_tail" },
+                { "u_is_wearing": "leather_collar" },
+                { "u_is_wearing": "silver_necklace" },
+                { "u_is_wearing": "pearl_collar" },
+                { "u_is_wearing": "purse" },
+                { "u_is_wearing": "gold_ring" },
+                { "u_is_wearing": "sf_watch" },
+                { "u_is_wearing": "silver_ear" },
+                { "u_is_wearing": "silver_bracelet" },
+                { "u_is_wearing": "tie_skinny" },
+                { "u_is_wearing": "small_relic" },
+                { "u_is_wearing": "tieclip" },
+                { "u_is_wearing": "tricorne" },
+                { "u_is_wearing": "tux" },
+                { "u_is_wearing": "waistcoat" }
+              ]
+            },
+            {
+              "or": [
+                { "u_is_wearing": "blazer" },
+                { "u_is_wearing": "breeches" },
+                { "u_is_wearing": "clown_suit" },
+                { "u_is_wearing": "coat_faux_fur" },
+                { "u_is_wearing": "coat_fur_sf" },
+                { "u_is_wearing": "corset" },
+                { "u_is_wearing": "duster_faux_fur" },
+                { "u_is_wearing": "dress" },
+                { "u_is_wearing": "dress_shirt" },
+                { "u_is_wearing": "dress_wedding" },
+                { "u_is_wearing": "gown" },
+                { "u_is_wearing": "kimono" },
+                { "u_is_wearing": "maid_dress" },
+                { "u_is_wearing": "nanoskirt" },
+                { "u_is_wearing": "peacoat" },
+                { "u_is_wearing": "sundress" },
+                { "u_is_wearing": "suit" },
+                { "u_is_wearing": "sleeveless_trenchcoat_faux_fur" },
+                { "u_is_wearing": "sleeveless_duster_faux_fur" },
+                { "u_is_wearing": "trenchcoat_faux_fur" }
+              ]
+            }
+          ]
+        },
+        "trial": { "type": "PERSUADE", "difficulty": 45, "mod": [ [ "ANGER", -1 ], [ "VALUE", 2 ] ] },
+        "success": { "topic": "TALK_AGREE_FOLLOW", "effect": "follow", "opinion": { "value": -1 } },
+        "failure": { "topic": "TALK_DENY_FOLLOW", "effect": "deny_follow", "opinion": { "value": -1 } }
+      },
+      {
+        "//": "play a guitar for a Cowboy.",
+        "text": "[GUITAR] These roads are mighty long and lonesome.",
+        "condition": {
+          "and": [ { "npc_has_class": "NC_COWBOY" }, { "u_has_effect": "playing_instrument" }, { "u_is_wearing": "acoustic_guitar" } ]
+        },
+        "trial": { "type": "PERSUADE", "difficulty": 40, "mod": [ [ "POS_FEAR", -1 ], [ "ANGER", -1 ], [ "VALUE", 4 ] ] },
+        "success": { "topic": "TALK_AGREE_FOLLOW", "effect": "follow", "opinion": { "value": 1 } },
+        "failure": { "topic": "TALK_DENY_FOLLOW", "effect": "deny_follow", "opinion": { "value": -1 } }
+      },
+      {
+        "//": "power armor for fearful or aggressive NPCs.",
+        "text": "[POWER ARMOR] Because I'm the dude in power armor.",
+        "condition": {
+          "or": [
+            { "u_is_wearing": "power_armor_basic" },
+            { "u_is_wearing": "power_armor_heavy" },
+            { "u_is_wearing": "power_armor_light" }
+          ]
+        },
+        "trial": { "type": "PERSUADE", "difficulty": 50, "mod": [ [ "FEAR", 7 ], [ "AGGRESSION", 7 ], [ "ANGER", -1 ] ] },
+        "success": { "topic": "TALK_AGREE_FOLLOW", "effect": "follow", "opinion": { "value": -1 } },
+        "failure": { "topic": "TALK_DENY_FOLLOW", "effect": "deny_follow", "opinion": { "value": -1 } }
+      },
+      {
+        "//": "meat for cannibal.",
+        "truefalsetext": {
+          "condition": { "u_has_trait": "CANNIBAL" },
+          "true": "[CANNIBAL] There's no need to be ashamed, <name_g>.  And no need to go hungry.  Bon Appetit.",
+          "false": "[PSYCHO] You can eat whoever you want as long as it's not me.  I don't really care."
+        },
+        "condition": {
+          "and": [
+            { "npc_has_trait": "CANNIBAL" },
+            { "u_has_items": { "item": "human_cooked", "count": 5 } },
+            { "or": [ { "u_has_trait_flag": "CANNIBAL" }, { "u_has_trait": "PSYCHOPATH" } ] }
+          ]
+        },
+        "trial": { "type": "PERSUADE", "difficulty": 50, "mod": [ [ "AGGRESSION", 2 ], [ "BRAVERY", 2 ], [ "ANGER", -1 ] ] },
+        "success": {
+          "topic": "TALK_AGREE_FOLLOW",
+          "effect": [ "follow", { "u_sell_item": "human_cooked", "count": 5 } ],
+          "opinion": { "value": -1 }
+        },
+        "failure": { "topic": "TALK_DENY_FOLLOW", "effect": "deny_follow", "opinion": { "value": -1 } }
+      }
+    ]
+  }
+]

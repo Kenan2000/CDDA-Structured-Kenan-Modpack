@@ -1,0 +1,80 @@
+[
+  {
+    "id": "six12",
+    "copy-from": "shotgun_base",
+    "type": "GUN",
+    "name": "Crye Six12",
+    "description": "A double action, bullpup, shotgun semi-automatic with a removable revolver cylinder.",
+    "weight": "3150 g",
+    "volume": "2000 ml",
+    "price": 280000,
+    "to_hit": -1,
+    "bashing": 10,
+    "material": [ "plastic", "steel" ],
+    "range": 1,
+    "dispersion": 350,
+    "durability": 9,
+    "reload": 100,
+    "valid_mod_locations": [
+      [ "accessories", 4 ],
+      [ "grip", 1 ],
+      [ "mechanism", 4 ],
+      [ "muzzle", 1 ],
+      [ "rail", 1 ],
+      [ "sights", 1 ],
+      [ "stock", 1 ]
+    ],
+    "magazine_well": 5,
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE_WELL",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "magazine_well": "250 ml",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [ "six12mag" ]
+      }
+    ],
+    "flags": [ "NEVER_JAMS", "RELOAD_EJECT" ]
+  },
+  {
+    "id": "six12mil",
+    "copy-from": "six12",
+    "type": "GUN",
+    "name": "Crye Six12 suppressed",
+    "description": "A double action, bullpup, shotgun semi-automatic with a removable revolver cylinder and integral shot suppressor.",
+    "price": 420000,
+    "//": "Even though this is a removable mod (IRL), it shouldn't be allowed to be used with any other shotgun.",
+    "built_in_mods": [ "six12_shot_suppressor" ]
+  },
+  {
+    "id": "st_12",
+    "copy-from": "shotgun_pump",
+    "type": "GUN",
+    "name": "Taurus ST 12",
+    "description": "A light weight, tactical, pump action shotgun for law enforcement and military users.",
+    "weight": "2900 g",
+    "volume": "2500 ml",
+    "price": 53800,
+    "to_hit": -1,
+    "bashing": 12,
+    "material": [ "aluminum", "plastic", "steel" ],
+    "dispersion": 410,
+    "durability": 9,
+    "clip_size": 8,
+	"pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "shot": 8 } } ],
+    "barrel_length": "250 ml",
+    "valid_mod_locations": [ [ "accessories", 4 ], [ "grip", 1 ], [ "mechanism", 4 ], [ "muzzle", 1 ], [ "rail", 1 ], [ "sights", 1 ] ]
+  },
+  {
+    "id": "uts_15",
+    "//": "See /data/json/items/gun/shot.json - ksg.",
+    "copy-from": "ksg",
+    "type": "GUN",
+    "name": "UTAS UTS-15",
+    "description": "A weapon built in Turkey, the UTAS Urban Tactical Shotgun is a bullpup, pump action shotgun with dual tube magazines similar to the Kel-Tec KSG.",
+    "weight": "2800 g",
+    "price": 78000,
+    "durability": 4
+  }
+]

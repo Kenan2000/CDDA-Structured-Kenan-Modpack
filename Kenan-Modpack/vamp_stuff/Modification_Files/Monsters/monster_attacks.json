@@ -1,0 +1,192 @@
+[
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "bodyslam",
+    "cooldown": 15,
+    "move_cost": 200,
+    "damage_max_instance": [ { "damage_type": "bash", "amount": 10, "armor_penetration": 18, "armor_multiplier": 0.7 } ],
+    "effects": [ { "id": "downed", "duration": 3 } ],
+    "hit_dmg_u": "The %1$s pressed you with its body!",
+    "hit_dmg_npc": "The %1$s body slammed <npcname>!",
+    "no_dmg_msg_u": "The %1$s tries to body slam you, but fails to penetrate your armor!",
+    "no_dmg_msg_npc": "The %1$s tries to body slam <npcname>, but fails to penetrate their armor!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "crunch",
+    "cooldown": 20,
+    "move_cost": 160,
+    "damage_max_instance": [
+      { "damage_type": "cut", "amount": 7, "armor_multiplier": 0.9 },
+      { "damage_type": "stab", "amount": 5, "armor_multiplier": 0.7 }
+    ],
+    "body_parts": [
+      [ "head", 3 ],
+      [ "eyes", 2 ],
+      [ "mouth", 1 ],
+      [ "torso", 4 ],
+      [ "arm_l", 3 ],
+      [ "arm_r", 3 ],
+      [ "hand_l", 2 ],
+      [ "hand_r", 2 ],
+      [ "leg_l", 3 ],
+      [ "leg_r", 3 ],
+      [ "foot_l", 2 ],
+      [ "foot_r", 2 ]
+    ],
+    "hit_dmg_u": "The %1$s latches its mouth and crunches at you!",
+    "hit_dmg_npc": "The %1$s latches its mouth and crunches <npcname>!",
+    "no_dmg_msg_u": "The %1$s crunches at you, but fails to penetrate your armor.",
+    "no_dmg_msg_npc": "The %1$s crunches <npcname>, but fails to penetrate their armor."
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "devour",
+    "cooldown": 50,
+    "move_cost": 100,
+    "damage_max_instance": [ { "damage_type": "biological", "amount": 15 } ],
+    "effects": [ { "id": "blind", "duration": 5 }, { "id": "downed", "duration": 5 } ],
+    "hit_dmg_u": "The %1$s devoured you and eventually spat out!",
+    "hit_dmg_npc": "The %1$s devoured <npcname>!",
+    "no_dmg_msg_u": "The %1$s tries to devour you, but fails to do it!",
+    "no_dmg_msg_npc": "The %1$s tries to devour <npcname>, but fails to do it!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "heavygrab",
+    "cooldown": 20,
+    "move_cost": 120,
+    "damage_max_instance": [ { "damage_type": "bash", "amount": 15, "armor_penetration": 25, "armor_multiplier": 0.6 } ],
+    "body_parts": [ [ "torso", 1 ] ],
+    "effects": [ { "id": "grabbed", "duration": 250, "bp": "torso" }, { "id": "downed", "duration": 10 } ],
+    "hit_dmg_u": "The %1$s hugs you to the floor!",
+    "hit_dmg_npc": "The %1$s is hugging <npcname>!",
+    "no_dmg_msg_u": "The %1$s tries to hug you, but fails to do it!",
+    "no_dmg_msg_npc": "The %1$s tries to hug <npcname>, but fails to do it!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "hemorrhage",
+    "cooldown": 30,
+    "move_cost": 100,
+    "damage_max_instance": [ { "damage_type": "cut", "amount": 3, "armor_penetration": 20, "armor_multiplier": 0.5 } ],
+    "body_parts": [ [ "torso", 1 ] ],
+    "effects": [ { "id": "bleed", "duration": 50000, "bp": "torso" } ],
+    "hit_dmg_u": "The %1$s bit your torso with hemorrhage!",
+    "hit_dmg_npc": "The %1$s bit <npcname>'s torso with hemorrhage!",
+    "no_dmg_msg_u": "The %1$s tries to bite your torso, but fails to penetrate your armor!",
+    "no_dmg_msg_npc": "The %1$s tries to bite <npcname>'s torso, but fails to penetrate their armor!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "leechpoisonousinject",
+    "cooldown": 15,
+    "move_cost": 200,
+    "damage_max_instance": [
+      { "damage_type": "cut", "amount": 3, "armor_multiplier": 0.6 },
+      { "damage_type": "stab", "amount": 2, "armor_multiplier": 0.5 }
+    ],
+    "effects": [ { "id": "leechpoison", "duration": 1350 } ],
+    "hit_dmg_u": "The %1$s weakens you!",
+    "hit_dmg_npc": "The %1$s weakens <npcname>!",
+    "no_dmg_msg_u": "The %1$s tries to inject you, but fails to pierce your armor.",
+    "no_dmg_msg_npc": "The %1$s tries to inject <npcname>, but fails."
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "leechvenomousinject",
+    "cooldown": 15,
+    "move_cost": 200,
+    "damage_max_instance": [
+      { "damage_type": "cut", "amount": 4, "armor_multiplier": 0.7 },
+      { "damage_type": "stab", "amount": 3, "armor_multiplier": 0.6 }
+    ],
+    "effects": [ { "id": "leechvenom", "duration": 2650 } ],
+    "hit_dmg_u": "The %1$s badly weakens you!",
+    "hit_dmg_npc": "The %1$s weakens <npcname> badly!",
+    "no_dmg_msg_u": "The %1$s tries to inject you, but fails to pierce your armor.",
+    "no_dmg_msg_npc": "The %1$s tries to inject <npcname>, but fails."
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "spikeroll",
+    "cooldown": 30,
+    "move_cost": 300,
+    "damage_max_instance": [
+      { "damage_type": "bash", "amount": 9, "armor_penetration": 15, "armor_multiplier": 0.5 },
+      { "damage_type": "cut", "amount": 8, "armor_penetration": 13, "armor_multiplier": 0.7 }
+    ],
+    "effects": [ { "id": "downed", "duration": 4 }, { "id": "stunned", "duration": 2 } ],
+    "hit_dmg_u": "The %1$s rolls through you!",
+    "hit_dmg_npc": "The %1$s rolls through <npcname>!",
+    "no_dmg_msg_u": "The %1$s rolled through you, but fails to penetrate your armor!",
+    "no_dmg_msg_npc": "The %1$s rolls through <npcname>, but fails to penetrate their armor!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "spinbite",
+    "cooldown": 50,
+    "move_cost": 500,
+    "damage_max_instance": [ { "damage_type": "cut", "amount": 15, "armor_penetration": 30, "armor_multiplier": 0.8 } ],
+    "hit_dmg_u": "The %1$s drills your flesh!",
+    "hit_dmg_npc": "The %1$s drilled <npcname>'s flesh!",
+    "no_dmg_msg_u": "The %1$s drilled you, but fails to penetrate your armor!",
+    "no_dmg_msg_npc": "The %1$s drilled <npcname>, but fails to penetrate their armor!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "sucking",
+    "cooldown": 25,
+    "move_cost": 1000,
+    "damage_max_instance": [ { "damage_type": "cut", "amount": 3, "armor_penetration": 20, "armor_multiplier": 0.5 } ],
+    "body_parts": [ [ "torso", 1 ] ],
+    "effects": [
+      { "id": "bleed", "duration": 100, "bp": "torso" },
+      { "id": "grabbed", "duration": 100, "bp": "torso" },
+      { "id": "stunned", "duration": 5 }
+    ],
+    "hit_dmg_u": "The %1$s is sucking your torso!",
+    "hit_dmg_npc": "The %1$s is sucking <npcname>'s torso!",
+    "no_dmg_msg_u": "The %1$s tries to suck your torso, but fails to penetrate your armor!",
+    "no_dmg_msg_npc": "The %1$s tries to suck <npcname>'s torso, but fails to penetrate their armor!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "tentaclebones",
+    "cooldown": 10,
+    "move_cost": 100,
+    "damage_max_instance": [
+      { "damage_type": "cut", "amount": 3, "armor_multiplier": 0.5 },
+      { "damage_type": "stab", "amount": 13, "armor_multiplier": 0.5 }
+    ],
+    "body_parts": [
+      [ "head", 3 ],
+      [ "eyes", 2 ],
+      [ "mouth", 1 ],
+      [ "torso", 4 ],
+      [ "arm_l", 3 ],
+      [ "arm_r", 3 ],
+      [ "hand_l", 2 ],
+      [ "hand_r", 2 ],
+      [ "leg_l", 3 ],
+      [ "leg_r", 3 ],
+      [ "foot_l", 2 ],
+      [ "foot_r", 2 ]
+    ],
+    "hit_dmg_u": "The %1$s tentacle bones stabs you!",
+    "hit_dmg_npc": "The %1$s tentacle bones stabs <npcname>!",
+    "no_dmg_msg_u": "The %1$s stabs you with tentacle bones, but fails to penetrate your armor.",
+    "no_dmg_msg_npc": "The %1$s stabs <npcname> with tentacle bones, but fails to penetrate their armor."
+  }
+]

@@ -1,0 +1,115 @@
+[
+  {
+    "id": "elec_razor",
+    "type": "TOOL",
+    "name": "electric razor",
+    "description": "This is a pocket-sized electric razor for fast and safe shaving.  You can use it to shave if it's supplied with batteries.  It requires 10 batteries per use.",
+    "weight": "138 g",
+    "volume": "250 ml",
+    "price": 3000,
+    "to_hit": -1,
+    "bashing": 1,
+    "material": [ "plastic", "aluminum" ],
+    "symbol": ";",
+    "color": "yellow",
+    "ammo": [ "battery" ],
+    "pocket_data": [
+      {
+        "magazine_well": "300 ml",
+        "pocket_type": "MAGAZINE_WELL",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [
+          "light_minus_disposable_cell",
+          "light_disposable_cell",
+          "light_minus_battery_cell",
+          "light_battery_cell",
+          "light_plus_battery_cell",
+          "light_atomic_battery_cell",
+          "light_minus_atomic_battery_cell"
+        ]
+      }
+    ],
+    "charges_per_use": 10,
+    "use_action": "SHAVEKIT"
+  },
+  {
+    "id": "press_large",
+    "type": "TOOL",
+    "name": "large press",
+    "description": "Large press that can be used to glue wooden parts together under pressure.",
+    "weight": "71520 g",
+    "volume": "100 L",
+    "price": 50000,
+    "to_hit": -4,
+    "bashing": 15,
+    "material": [ "steel" ],
+    "symbol": "="
+  },
+  {
+    "id": "plasma_torch",
+    "type": "TOOL",
+    "copy-from": "welder",
+    "name": "plasma torch",
+    "str_pl": "plasma torches",
+    "description": "Powerful tool that cuts through electrically conductive materials by means of an accelerated jet of hot plasma. Also has an option of arc welding. Darth Welder would be proud.",
+    "price": 20000,
+    "bashing": 22,
+    "to_hit": -6,
+    "weight": "30 kg",
+    "volume": "67 L",
+    "material": [ "steel", "copper" ],
+    "use_action": [
+      "OXYTORCH",
+      {
+        "type": "repair_item",
+        "item_action_type": "repair_metal",
+        "materials": [ "iron", "steel", "hardsteel", "aluminum", "copper", "bronze", "silver", "gold", "platinum", "superalloy" ],
+        "skill": "fabrication",
+        "tool_quality": 10,
+        "cost_scaling": 0.1,
+        "move_cost": 500
+      }
+    ],
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE_WELL",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "magazine_well": "250 ml",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [ "heavy_battery_cell", "heavy_plus_battery_cell", "heavy_atomic_battery_cell", "heavy_disposable_cell" ]
+      }
+    ],
+    "magazine_well": 4
+  },
+  {
+    "id": "lathe",
+    "type": "TOOL",
+    "name": "portable lathe",
+    "str_pl": "portable lathes",
+    "description": "A machine tool that rotates a workpiece about an axis of rotation to perform various operations such as cutting, sanding, knurling, drilling, deformation, facing, and turning, with tools that are applied to the workpiece to create an object with symmetry about that axis.",
+    "price": 100000,
+    "bashing": 24,
+    "to_hit": -6,
+    "weight": "40 kg",
+    "volume": "72 L",
+    "material": [ "steel" ],
+    "symbol": ";",
+    "color": "green",
+    "ammo": [ "battery" ],
+    "flags": [ "ALLOWS_REMOTE_USE" ],
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE_WELL",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "magazine_well": "250 ml",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [ "heavy_battery_cell", "heavy_plus_battery_cell", "heavy_atomic_battery_cell", "heavy_disposable_cell" ]
+      }
+    ],
+    "magazine_well": 4
+  }
+]

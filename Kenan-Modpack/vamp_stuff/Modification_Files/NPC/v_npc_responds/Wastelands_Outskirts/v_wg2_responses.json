@@ -1,0 +1,310 @@
+[
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_justcome",
+    "note": "Picky wasteland guard infront of the hub door.",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "wsg2meet",
+      "yes": [ "What do you seek?", "What do you want?", "What are you looking for?" ],
+      "no": "Just come in..."
+    },
+    "responses": [
+      {
+        "text": "Let's talk for a moment.",
+        "topic": "TALK_VAMP_WASTEGUARD2_ohrelly",
+        "effect": { "u_add_trait": "wsg2meet" },
+        "condition": {
+          "and": [
+            { "u_has_trait": "undertradervampmark" },
+            { "u_has_trait": "commandovampmark" },
+            { "not": { "u_has_trait": "wsg2meet" } }
+          ]
+        }
+      },
+      {
+        "truefalsetext": {
+          "condition": { "u_has_trait": "wsg2meet" },
+          "true": "I want to talk with you...",
+          "false": "Let's talk for a moment."
+        },
+        "topic": "TALK_VAMP_WASTEGUARD2_ohrelly",
+        "condition": {
+          "or": [
+            { "not": { "u_has_trait": "undertradervampmark" } },
+            { "not": { "u_has_trait": "commandovampmark" } },
+            { "u_has_trait": "wsg2meet" }
+          ]
+        }
+      },
+      { "text": "Okay. Bye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_ohrelly",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "commandovampmark",
+      "yes": { "u_has_trait": "undertradervampmark", "yes": "I guess you're important. What is it?", "no": "No..." },
+      "no": "No!"
+    },
+    "responses": [
+      {
+        "text": "Who are you?",
+        "topic": "TALK_VAMP_WASTEGUARD2_whoisyou",
+        "effect": { "u_add_trait": "wsg2who" },
+        "condition": {
+          "and": [
+            { "u_has_trait": "undertradervampmark" },
+            { "u_has_trait": "commandovampmark" },
+            { "not": { "u_has_trait": "wsg2who" } }
+          ]
+        }
+      },
+      {
+        "text": "The guard told me you need my help.",
+        "topic": "TALK_VAMP_WASTEGUARD2_wuthelp",
+        "condition": { "and": [ { "u_has_trait": "wsg2who" }, { "not": { "u_has_trait": "wsg2hired" } } ] }
+      },
+      {
+        "text": "Where am I?",
+        "topic": "TALK_VAMP_WASTEGUARD2_whereisme",
+        "effect": { "u_add_trait": "wsg2where" },
+        "condition": {
+          "and": [
+            { "u_has_trait": "undertradervampmark" },
+            { "u_has_trait": "commandovampmark" },
+            { "not": { "u_has_trait": "wsg2where" } }
+          ]
+        }
+      },
+      {
+        "text": "How's the life here?",
+        "topic": "TALK_VAMP_WASTEGUARD2_youliving",
+        "effect": { "u_add_trait": "wsg2life" },
+        "condition": {
+          "and": [
+            { "u_has_trait": "undertradervampmark" },
+            { "u_has_trait": "commandovampmark" },
+            { "not": { "u_has_trait": "wsg2life" } }
+          ]
+        }
+      },
+      { "condition": "has_assigned_mission", "text": "About that job...", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "Something I need to do?", "topic": "TALK_MISSION_LIST", "condition": { "u_has_trait": "wsg2hired" } },
+      { "text": "I better get going...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_whereisme",
+    "type": "talk_topic",
+    "dynamic_line": "You're at the wasteland outskirts, now move, mortal.",
+    "responses": [
+      { "text": "Wait. I want to know more about the places you know...", "topic": "TALK_VAMP_WASTEGUARD2_morelocs" },
+      { "text": "Okay.", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" },
+      { "text": "Okay, I'll move.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_morelocs",
+    "type": "talk_topic",
+    "dynamic_line": "Like what?",
+    "responses": [
+      {
+        "text": "About HIM's location?",
+        "topic": "TALK_VAMP_WASTEGUARD2_himloc",
+        "condition": { "u_has_trait": "undertradertalkedhim" }
+      },
+      { "text": "Actually, nevermind...", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_himloc",
+    "type": "talk_topic",
+    "dynamic_line": "I know you've been told its a deep secret, but why do you mind about our master?",
+    "responses": [
+      {
+        "text": "I'd like to meet HIM.",
+        "topic": "TALK_VAMP_WASTEGUARD2_seehimlol",
+        "effect": { "u_add_trait": "wsg2himmeet" },
+        "condition": { "not": { "u_has_trait": "wsg2himmeet" } }
+      },
+      {
+        "text": "HE looks questionable.",
+        "topic": "TALK_VAMP_WASTEGUARD2_lookhimlol",
+        "effect": { "u_add_trait": "wsg2himlook" },
+        "condition": { "not": { "u_has_trait": "wsg2himlook" } }
+      },
+      {
+        "text": "I want to know HIS upcoming actions.",
+        "topic": "TALK_VAMP_WASTEGUARD2_actshimlol",
+        "effect": { "u_add_trait": "wsg2himact" },
+        "condition": { "not": { "u_has_trait": "wsg2himact" } }
+      },
+      { "text": "Forget it...", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_seehimlol",
+    "type": "talk_topic",
+    "dynamic_line": "In which will never happen to a human.",
+    "responses": [
+      {
+        "text": "HE looks questionable.",
+        "topic": "TALK_VAMP_WASTEGUARD2_lookhimlol",
+        "effect": { "u_add_trait": "wsg2himlook" },
+        "condition": { "not": { "u_has_trait": "wsg2himlook" } }
+      },
+      {
+        "text": "I want to know HIS upcoming actions.",
+        "topic": "TALK_VAMP_WASTEGUARD2_actshimlol",
+        "effect": { "u_add_trait": "wsg2himact" },
+        "condition": { "not": { "u_has_trait": "wsg2himact" } }
+      },
+      {
+        "text": "I guess I've talked about everything...",
+        "topic": "TALK_VAMP_WASTEGUARD2_secrethim",
+        "effect": { "u_add_trait": "wsg2himsecret" },
+        "condition": {
+          "and": [
+            { "u_has_trait": "wsg2himmeet" },
+            { "u_has_trait": "wsg2himlook" },
+            { "u_has_trait": "wsg2himact" },
+            { "not": { "u_has_trait": "wsg2himsecret" } }
+          ]
+        }
+      },
+      { "text": " That sucks...", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_lookhimlol",
+    "type": "talk_topic",
+    "dynamic_line": "I know. HE's full of mysteries even me can't talk about.",
+    "responses": [
+      {
+        "text": "I'd like to meet HIM.",
+        "topic": "TALK_VAMP_WASTEGUARD2_seehimlol",
+        "effect": { "u_add_trait": "wsg2himmeet" },
+        "condition": { "not": { "u_has_trait": "wsg2himmeet" } }
+      },
+      {
+        "text": "I want to know HIS upcoming actions.",
+        "topic": "TALK_VAMP_WASTEGUARD2_actshimlol",
+        "effect": { "u_add_trait": "wsg2himact" },
+        "condition": { "not": { "u_has_trait": "wsg2himact" } }
+      },
+      {
+        "text": "I guess I've talked about everything...",
+        "topic": "TALK_VAMP_WASTEGUARD2_secrethim",
+        "effect": { "u_add_trait": "wsg2himsecret" },
+        "condition": {
+          "and": [
+            { "u_has_trait": "wsg2himmeet" },
+            { "u_has_trait": "wsg2himlook" },
+            { "u_has_trait": "wsg2himact" },
+            { "not": { "u_has_trait": "wsg2himsecret" } }
+          ]
+        }
+      },
+      { "text": "Okay...", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_actshimlol",
+    "type": "talk_topic",
+    "dynamic_line": "Trust me, human, HIS movements are for the good cause.",
+    "responses": [
+      {
+        "text": "I'd like to meet HIM.",
+        "topic": "TALK_VAMP_WASTEGUARD2_seehimlol",
+        "effect": { "u_add_trait": "wsg2himmeet" },
+        "condition": { "not": { "u_has_trait": "wsg2himmeet" } }
+      },
+      {
+        "text": "HE looks questionable.",
+        "topic": "TALK_VAMP_WASTEGUARD2_lookhimlol",
+        "effect": { "u_add_trait": "wsg2himlook" },
+        "condition": { "not": { "u_has_trait": "wsg2himlook" } }
+      },
+      {
+        "text": "I guess I've talked about everything...",
+        "topic": "TALK_VAMP_WASTEGUARD2_secrethim",
+        "effect": { "u_add_trait": "wsg2himsecret" },
+        "condition": {
+          "and": [
+            { "u_has_trait": "wsg2himmeet" },
+            { "u_has_trait": "wsg2himlook" },
+            { "u_has_trait": "wsg2himact" },
+            { "not": { "u_has_trait": "wsg2himsecret" } }
+          ]
+        }
+      },
+      { "text": "Oh, okay then...", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_secrethim",
+    "type": "talk_topic",
+    "dynamic_line": "Don't worry, mortal. Eventually, you'll meet someone to quench your thirst for deeper answers.",
+    "responses": [
+      { "text": "Uhh, okay...", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" },
+      { "text": "Uhh, okay... I'll expect that.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_whoisyou",
+    "type": "talk_topic",
+    "dynamic_line": "Nah, I'm just a guard here doing my job. If you want to know more, seek the guard in the kitchen.",
+    "responses": [
+      {
+        "text": "He told me to help you with something.",
+        "topic": "TALK_VAMP_WASTEGUARD2_wuthelp",
+        "condition": { "u_has_trait": "wsg1hire" }
+      },
+      { "text": "Okay, I'm going...", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_wuthelp",
+    "type": "talk_topic",
+    "dynamic_line": "So you're interested in helping us out with our problems... But I don't want to get you in trouble.",
+    "responses": [
+      { "text": "I'll take the risk!", "topic": "TALK_VAMP_WASTEGUARD2_helpaccept", "effect": { "u_add_trait": "wsg2hired" } },
+      { "text": "Forget it, I'm out of that!", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_helpaccept",
+    "type": "talk_topic",
+    "dynamic_line": "If you insist...",
+    "responses": [ { "text": "Okay.", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" } ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_youliving",
+    "type": "talk_topic",
+    "dynamic_line": "We've got some cows here as our food source and a water nearby for humans to quench their thirst.",
+    "responses": [
+      { "text": "I mean what are you vampires drinking?", "topic": "TALK_VAMP_WASTEGUARD2_drunk" },
+      { "text": "Cows? Where'd you get them?", "topic": "TALK_VAMP_WASTEGUARD2_moo" },
+      { "text": "Okay...", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_drunk",
+    "type": "talk_topic",
+    "dynamic_line": "Blood, ofcourse! We drink blood from the cows as our substitute to human's. Don't worry about the refugees here, we tend to protect them as ordered.",
+    "responses": [
+      { "text": "Cows? Where'd you get them?", "topic": "TALK_VAMP_WASTEGUARD2_moo" },
+      { "text": "Oh, okay...", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" }
+    ]
+  },
+  {
+    "id": "TALK_VAMP_WASTEGUARD2_moo",
+    "type": "talk_topic",
+    "dynamic_line": "We herd them from the wilderness. We don't know if they came from the nearest farm, but certainly they are free from infection.",
+    "responses": [
+      { "text": "I mean what are you vampires drinking?", "topic": "TALK_VAMP_WASTEGUARD2_drunk" },
+      { "text": "Oh, okay...", "topic": "TALK_VAMP_WASTEGUARD2_ohrelly" }
+    ]
+  }
+]

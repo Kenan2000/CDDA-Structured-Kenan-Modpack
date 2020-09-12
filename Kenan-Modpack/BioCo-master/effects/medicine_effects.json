@@ -1,0 +1,42 @@
+[
+  {
+    "type": "effect_type",
+    "id": "XE037",
+    "name": [ "XE037 Healing", "XE037 Rapid Healing", "XE037 Cell Breakdown", "XE037 Rejection" ],
+    "desc": [
+      "Flesh stiching itself together is never a fun time. Testing.",
+      "The ache of your muscles and bones mending temselves grows.",
+      "Liquified flesh stings as your bone heats. Anymore XE037 is a gamble with death himself.",
+      "Black ooze creeps from your wounds as numbness sets in..."
+    ],
+    "apply_message": "You slam the needle in and begin to feel the sensation of flesh crawling together...",
+    "remove_message": "The worst of the healing is over now.",
+    "miss_messages": [ [ "A sick squlesh is heard from your insides...", 20 ] ],
+    "int_dur_factor": 300,
+    "max_intensity": 4,
+    "rating": "mixed",
+    "base_mods": {
+      "pain_chance": [ 40 ],
+      "pain_min": [ 3 ],
+      "vomit_chance": [ -100 ],
+      "hunger_chance": [ 1 ],
+      "hunger_chance_bot": [ 4 ],
+      "hunger_min": [ 0.5 ],
+      "thirst_chance": [ 1 ],
+      "thirst_chance_bot": [ 4 ],
+      "thirst_min": [ 0.5 ]
+    },
+    "scaling_mods": { "pain_min": [ 1 ], "pain_chance": [ -9.75 ], "vomit_chance": [ 50 ], "hunger_min": [ 0.5 ], "thirst_min": [ 0.5 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "Nausea_Medicine",
+    "name": [ "Nausea Medicine" ],
+    "desc": [ "Medicine calms your sotmach and helps prevent vomitting." ],
+    "apply_message": "You pop a pill into your mouth. Bitter.",
+    "rating": "good",
+    "int_dur_factor": 200,
+    "remove_effects": [ "nausea" ],
+    "base_mods": { "vomit_chance": [ -200 ] }
+  }
+]

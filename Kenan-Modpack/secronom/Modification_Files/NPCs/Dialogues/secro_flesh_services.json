@@ -1,0 +1,171 @@
+[
+  {
+    "id": "SECRO_FLESH_HIVEMIND_service",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "and": [
+        "*sends an immediate streak of velvety pulsation towards the meatfarm.",
+        "\nThe hivemind can also fix your injuries using flesh."
+      ]
+    },
+    "responses": [
+      {
+        "text": "About the meatfarm…",
+        "topic": "SECRO_FLESH_HIVEMIND_service_meatfarm",
+        "condition": { "npc_has_effect": "secro_flesh_built_room_meatfarm" }
+      },
+      { "text": "I request mending.", "topic": "SECRO_FLESH_HIVEMIND_healme" },
+      { "text": "…", "topic": "SECRO_FLESH_HIVEMIND_main" }
+    ]
+  },
+  {
+    "id": "SECRO_FLESH_HIVEMIND_healme",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "npc_has_effect": "currently_busy",
+      "yes": "*reveals a revolting response, showing its tendrils that are currently in service.",
+      "no": "*responds with a subtle shake, as it reveals a gaping orifice."
+    },
+    "responses": [
+      {
+        "text": "[35 flesh, 30m] *feed the orifice with the flesh*",
+        "topic": "SECRO_FLESH_HIVEMIND_healing",
+        "condition": { "and": [ { "npc_service": true }, { "u_has_items": { "item": "secro_flesh", "count": 35 } } ] },
+        "effect": [ { "u_sell_item": "secro_flesh", "count": 35 }, { "npc_consume_item": "secro_flesh", "count": 35 } ]
+      },
+      {
+        "text": "[35 flesh, 30m] *feed the orifice with the flesh*",
+        "topic": "SECRO_FLESH_HIVEMIND_healing_no",
+        "condition": { "and": [ { "npc_service": true }, { "not": { "u_has_items": { "item": "secro_flesh", "count": 35 } } } ] }
+      },
+      { "text": "Nevermind...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "SECRO_FLESH_HIVEMIND_healing_no",
+    "type": "talk_topic",
+    "dynamic_line": "*refuses to ingest your flesh as it is not enough to perform the mending.",
+    "responses": [ { "text": "Okay…", "topic": "SECRO_FLESH_HIVEMIND_main" } ]
+  },
+  {
+    "id": "SECRO_FLESH_HIVEMIND_healing",
+    "type": "talk_topic",
+    "dynamic_line": "*forms a heap of flesh, which encapsulated you. It felt gross, but you know it'll fix you up.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "give_aid" } ]
+  },
+  {
+    "id": "SECRO_FLESH_HIVEMIND_service_meatfarm",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "npc_has_effect": "secro_flesh_growing_meatfarm",
+      "yes": "*is currently growing some meat.",
+      "no": "*is awaiting your orders."
+    },
+    "responses": [
+      {
+        "text": "Start \"planting\" meat.",
+        "topic": "SECRO_FLESH_HIVEMIND_service_meatfarm_grow",
+        "condition": {
+          "and": [
+            { "not": { "npc_has_effect": "secro_flesh_growing_meatfarm" } },
+            { "not": { "npc_has_effect": "secro_flesh_growing_meatfarm_low" } },
+            { "not": { "npc_has_effect": "secro_flesh_growing_meatfarm_med" } }
+          ]
+        }
+      },
+      {
+        "text": "[HARVEST] *Collect fresh chunks of meat*",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            { "not": { "npc_has_effect": "secro_flesh_growing_meatfarm" } },
+            { "npc_has_effect": "secro_flesh_growing_meatfarm_low" },
+            { "npc_has_effect": "secro_flesh_built_room_meatfarm_top" }
+          ]
+        },
+        "effect": [
+          { "mapgen_update": "secro_fleshcamp_room_meatfarm_lowharvest_north", "origin_npc": true, "offset_y": -1 },
+          { "npc_lose_effect": "secro_flesh_growing_meatfarm_low" }
+        ]
+      },
+      {
+        "text": "[HARVEST] *Collect fresh chunks of meat*",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            { "not": { "npc_has_effect": "secro_flesh_growing_meatfarm" } },
+            { "npc_has_effect": "secro_flesh_growing_meatfarm_med" },
+            { "npc_has_effect": "secro_flesh_built_room_meatfarm_top" }
+          ]
+        },
+        "effect": [
+          { "mapgen_update": "secro_fleshcamp_room_meatfarm_medharvest_north", "origin_npc": true, "offset_y": -1 },
+          { "npc_lose_effect": "secro_flesh_growing_meatfarm_med" }
+        ]
+      },
+      {
+        "text": "[HARVEST] *Collect fresh chunks of meat*",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            { "not": { "npc_has_effect": "secro_flesh_growing_meatfarm" } },
+            { "npc_has_effect": "secro_flesh_growing_meatfarm_high" },
+            { "npc_has_effect": "secro_flesh_built_room_meatfarm_top" }
+          ]
+        },
+        "effect": [
+          { "mapgen_update": "secro_fleshcamp_room_meatfarm_highharvest_north", "origin_npc": true, "offset_y": -1 },
+          { "npc_lose_effect": "secro_flesh_growing_meatfarm_high" }
+        ]
+      },
+      { "text": "…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "SECRO_FLESH_HIVEMIND_service_meatfarm_grow",
+    "type": "talk_topic",
+    "dynamic_line": "*opens an gaping orifice. You can feed the hivemind with flesh, which are then converted into edible meat.",
+    "responses": [
+      {
+        "text": "[25 flesh, 4h] *feed the hivemind with flesh*",
+        "topic": "SECRO_FLESH_HIVEMIND_service_meatfarm_growing",
+        "condition": { "u_has_items": { "item": "secro_flesh", "count": 25 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh", "count": 25 },
+          { "npc_consume_item": "secro_flesh", "count": 25 },
+          { "npc_add_effect": "secro_flesh_growing_meatfarm_low", "duration": "PERMANENT" },
+          { "npc_add_effect": "secro_flesh_growing_meatfarm", "duration": 14400 }
+        ]
+      },
+      {
+        "text": "[100 flesh, 12h] *feed the hivemind with flesh*",
+        "topic": "SECRO_FLESH_HIVEMIND_service_meatfarm_growing",
+        "condition": { "u_has_items": { "item": "secro_flesh", "count": 100 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh", "count": 100 },
+          { "npc_consume_item": "secro_flesh", "count": 100 },
+          { "npc_add_effect": "secro_flesh_growing_meatfarm_med", "duration": "PERMANENT" },
+          { "npc_add_effect": "secro_flesh_growing_meatfarm", "duration": 43200 }
+        ]
+      },
+      {
+        "text": "[325 flesh, 1d12h] *feed the hivemind with flesh*",
+        "topic": "SECRO_FLESH_HIVEMIND_service_meatfarm_growing",
+        "condition": { "u_has_items": { "item": "secro_flesh", "count": 325 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh", "count": 325 },
+          { "npc_consume_item": "secro_flesh", "count": 325 },
+          { "npc_add_effect": "secro_flesh_growing_meatfarm_high", "duration": "PERMANENT" },
+          { "npc_add_effect": "secro_flesh_growing_meatfarm", "duration": 129600 }
+        ]
+      },
+      { "text": "Nevermind…", "topic": "SECRO_FLESH_HIVEMIND_main" }
+    ]
+  },
+  {
+    "id": "SECRO_FLESH_HIVEMIND_service_meatfarm_growing",
+    "type": "talk_topic",
+    "dynamic_line": "*consumes the provided flesh, then the connected sector starts to throb...",
+    "responses": [ { "text": "…", "topic": "SECRO_FLESH_HIVEMIND_service" } ]
+  }
+]

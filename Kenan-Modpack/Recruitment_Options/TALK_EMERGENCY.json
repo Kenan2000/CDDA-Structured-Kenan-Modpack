@@ -1,0 +1,20 @@
+[
+  {
+    "id": [ "TALK_FRIEND" ],
+    "type": "talk_topic",
+    "responses": [
+      {
+        "//": "Just in case.  Angry or jerk NPCs might refuse.  There should be a condition to check range or pathing.",
+        "text": "[ON FIRE]  AAAuuuugh, <swear!>!  I'm on fire!  Don't just stand there, <name_b>.  Help put me out.",
+        "condition": { "u_has_effect": "onfire" },
+        "trial": { "type": "PERSUADE", "difficulty": 95, "mod": [ [ "ALTRUISM", 3 ], [ "ANGER", -5 ], [ "VALUE", 5 ] ] },
+        "success": {
+          "topic": "TALK_DONE",
+          "effect": { "u_add_effect": "ext_fire", "duration": 5 },
+          "opinion": { "fear": -1, "value": -1 }
+        },
+        "failure": { "topic": "TALK_DONE", "opinion": { "value": -1, "fear": -2, "anger": -2 } }
+      }
+    ]
+  }
+]

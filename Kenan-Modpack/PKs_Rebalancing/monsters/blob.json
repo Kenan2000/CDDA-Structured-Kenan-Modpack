@@ -1,0 +1,80 @@
+[
+  {
+    "id": "mon_blob_large",
+    "type": "MONSTER",
+    "copy-from": "mon_blob_large",
+    "special_attacks": [ [ "FORMBLOB", 60 ], [ "sliming", 60 ], [ "wound_minor", 30 ] ]
+  },
+  {
+    "id": "mon_blob",
+    "type": "MONSTER",
+    "copy-from": "mon_blob",
+    "special_attacks": [ [ "FORMBLOB", 120 ], [ "sliming", 120 ] ]
+  },
+  {
+    "id": "mon_blob_small",
+    "type": "MONSTER",
+    "copy-from": "mon_blob_small",
+    "death_function": [ "MELT" ]
+  },
+  {
+    "id": "mon_gelatin",
+    "type": "MONSTER",
+    "copy-from": "mon_gelatin",
+    "aggression": -1,
+    "morale": 40,
+    "melee_skill": 4,
+    "melee_dice": 2,
+    "melee_dice_sides": 3,
+    "melee_damage": [ { "damage_type": "acid", "amount": 9 }, { "damage_type": "biological", "amount": 4 } ],
+    "attack_effs": [ { "id": "slimed", "duration": 200 } ],
+    "special_attacks": [ [ "FORMBLOB", 5 ], [ "sliming", 20 ], [ "wound_minor", 30 ] ],
+    "death_drops": "mon_gelatin_death_drops",
+    "flags": [ "SMELLS", "HEARS", "PLASTIC", "NO_BREATHE", "NOHEAD", "NOGIB", "ABSORBS" ],
+    "anger_triggers": [ "HURT", "FRIEND_DIED" ],
+    "placate_triggers": [ "FRIEND_ATTACKED" ]
+  },
+  {
+    "id": "mon_shoggoth",
+    "type": "MONSTER",
+    "copy-from": "mon_shoggoth",
+    "name": { "str": "shoggoth" },
+    "description": "A gargantuan protoplasmic blob, constantly reshaping, forming new pseudopods seemingly at will.  All over its body are eyes that form and disappear.  It looks at you with malice.",
+    "speed": 100,
+    "aggression": 80,
+    "morale": 100,
+    "melee_skill": 9,
+    "melee_dice": 8,
+    "melee_dice_sides": 5,
+    "melee_damage": [ { "damage_type": "acid", "amount": 10 }, { "damage_type": "biological", "amount": 1 } ],
+    "armor_bash": 10,
+    "armor_cut": 30,
+    "path_settings": { "max_dist": 15 },
+    "special_attacks": [
+      [ "PARROT", 40 ],
+      [ "sliming", 20 ],
+      [ "FORMBLOB", 40 ],
+      {
+        "id": "hammer",
+        "cooldown": 40,
+        "moves": 250,
+        "damage_max_instance": [ { "damage_type": "bash", "amount": 20, "armor_multiplier": 0.5 } ]
+      }
+    ],
+    "regenerates": 10,
+    "regen_morale": true,
+    "flags": [
+      "SEES",
+      "SMELLS",
+      "SWIMS",
+      "PLASTIC",
+      "SLUDGEPROOF",
+      "ACID_BLOOD",
+      "ACIDPROOF",
+      "NOHEAD",
+      "ABSORBS",
+      "NOGIB",
+      "ATTACKMON"
+    ]
+  }
+]

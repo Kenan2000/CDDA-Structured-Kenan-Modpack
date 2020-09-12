@@ -1,0 +1,33 @@
+[
+  {
+    "type": "GENERIC",
+    "id": "pd_sd_card",
+    "copy-from": "mobile_memory_card",
+    "//": "local copy of the native SD card sans all the random data flags",
+    "name": { "str": "SD-Memory card" },
+    "flags": [  ]
+  },
+  {
+    "type": "GENERIC",
+    "abstract": "software_os",
+    "copy-from": "software",
+    "name": { "str": "an operating system", "str_pl": "operating systems" },
+    "description": "it's a bug if you see this"
+  },
+  {
+    "type": "GENERIC",
+    "id": "software_os_ubuntu",
+    "copy-from": "software_os",
+    "name": { "str": "Ubuntu", "str_pl": "Ubuntu" },
+    "description": "Popular Linux distributive, known to be merciful towards new users."
+  },
+  {
+    "type": "GENERIC",
+    "abstract": "cad",
+    "name": "CAD file",
+    "container": "pd_sd_card",
+    "description": "it's a bug if you see this",
+    "symbol": "#",
+    "flags": [ "IRREMOVABLE", "NO_DROP" ]
+  }
+]

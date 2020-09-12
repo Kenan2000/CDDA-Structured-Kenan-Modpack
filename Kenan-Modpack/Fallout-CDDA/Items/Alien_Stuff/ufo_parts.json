@@ -1,0 +1,57 @@
+[
+  {
+    "id": "mounted_alien_rifle",
+    "copy-from": "turret",
+    "type": "vehicle_part",
+    "name": { "str": "mounted Alien Disintergrator" },
+    "item": "zetan_rifle",
+    "color": "light_gray",
+    "broken_color": "dark_gray",
+    "difficulty": 4,
+    "breaks_into": [ { "item": "zetan_rifle", "prob": 100 } ],
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 4 ], [ "rifle", 2 ] ], "time": 10000 },
+      "removal": { "skills": [ [ "mechanics", 2 ] ] }
+    }
+  },
+  {
+    "id": "mounted_alien_cannon",
+    "copy-from": "turret",
+    "type": "vehicle_part",
+    "name": { "str": "mounted Alien Drone Cannon" },
+    "item": "zetan_cannon",
+    "color": "light_gray",
+    "broken_color": "dark_gray",
+    "difficulty": 4,
+    "breaks_into": [ { "item": "zetan_cannon", "prob": 100 } ],
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 4 ], [ "launcher", 2 ] ], "time": 10000 },
+      "removal": { "skills": [ [ "mechanics", 2 ] ] }
+    }
+  },
+  {
+    "id": "wheel_ufo_thruster",
+    "type": "vehicle_part",
+    "name": { "str": "UFO thruster" },
+    "item": "thruster_zetan",
+    "location": "under",
+    "looks_like": "wheel",
+    "symbol": "O",
+    "broken_symbol": "x",
+    "color": "dark_gray",
+    "durability": 800,
+    "description": "A weird alien thruster which allows amphibious transportation. Sadly it doesn't allow flight. It seems too broken.",
+    "damage_modifier": 50,
+    "breaks_into": [ { "item": "scrap_zetan", "count": [ 2, 3 ] } ],
+    "rolling_resistance": 0.005,
+    "wheel_type": "standard",
+    "contact_area": 0,
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 8 ] ], "time": "15 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "removal": { "skills": [ [ "mechanics", 0 ] ], "time": "15 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 4 ] ], "time": "15 m", "using": [ [ "adhesive", 1 ], [ "plastics", 1 ] ] }
+    },
+    "flags": [ "WHEEL", "NEEDS_JACKING", "FLOATS", "STEERABLE" ],
+    "damage_reduction": { "bash": 25 }
+  }
+]

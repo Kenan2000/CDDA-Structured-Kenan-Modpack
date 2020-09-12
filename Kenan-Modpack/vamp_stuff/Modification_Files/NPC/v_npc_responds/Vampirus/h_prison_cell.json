@@ -1,0 +1,123 @@
+[
+  {
+    "//": "Prisoner, like that of mi-go's. Nothing special NPC.",
+    "type": "talk_topic",
+    "id": "TALK_HUMAN_VAΜPRISON_help",
+    "dynamic_line": {
+      "u_has_trait": "hvprisoncomesaveme",
+      "yes": "Are you done?",
+      "no": [
+        "Please help me... They... they're so... cruel...",
+        "Damn... those suckers... please I beg you to...\n*cough*",
+        "COME CLOSER OR I-I'LL... damn these <swear> suckers really took a piece out of my sanity.",
+        "TOUCH ME AND I'LL!... oh... you're not a monster..."
+      ]
+    },
+    "responses": [
+      { "text": "Yes.", "topic": "TALK_HUMAN_VAΜPRISON_help_u_now", "condition": { "u_has_trait": "wsg2vampirusdone" } },
+      {
+        "text": "It's okay, I'm here to set you free.",
+        "topic": "TALK_HUMAN_VAΜPRISON_help_yes",
+        "condition": { "not": { "u_has_trait": "hvprisoncomesaveme" } }
+      },
+      {
+        "text": "Sorry, I can't help you out. I have things to deal with.",
+        "topic": "TALK_HUMAN_VAΜPRISON_help_u",
+        "condition": { "and": [ { "u_has_trait": "wsg2vampirushelp" }, { "not": { "u_has_trait": "hvprisoncomesaveme" } } ] }
+      },
+      {
+        "text": "I don't take a weakling along with me. Now run.",
+        "topic": "TALK_HUMAN_VAΜPRISON_help_weak",
+        "effect": "flee",
+        "condition": { "not": { "u_has_trait": "hvprisoncomesaveme" } }
+      },
+      {
+        "text": "Bye? I guess...",
+        "topic": "TALK_DONE",
+        "condition": { "not": { "u_has_trait": "hvprisoncomesaveme" } }
+      },
+      { "text": "Not yet...", "topic": "TALK_DONE", "condition": { "u_has_trait": "hvprisoncomesaveme" } }
+    ]
+  },
+  {
+    "id": "TALK_HUMAN_VAΜPRISON_help_yes",
+    "type": "talk_topic",
+    "dynamic_line": "Thank you so much!... But where do we go?",
+    "responses": [
+      {
+        "text": "To the wasteland outskirts.",
+        "topic": "TALK_HUMAN_VAΜPRISON_help_yes_lead",
+        "condition": { "u_has_trait": "wsg2vampirushelp" },
+        "effect": { "add_mission": "VAMP_UNDERSEEKER_quest_vampirus1" }
+      },
+      {
+        "text": "I don't know, but stick with me and you'll be safe.",
+        "topic": "TALK_HUMAN_VAΜPRISON_help_yes_come"
+      }
+    ]
+  },
+  {
+    "id": "TALK_HUMAN_VAΜPRISON_help_yes_lead",
+    "type": "talk_topic",
+    "dynamic_line": "Sounds cool!",
+    "responses": [ { "text": "Yes it is...", "topic": "TALK_MISSION_OFFER" } ]
+  },
+  {
+    "id": "TALK_HUMAN_VAΜPRISON_help_yes_come",
+    "type": "talk_topic",
+    "dynamic_line": "I owe my life to your kindness so... Lets go!",
+    "responses": [ { "text": "We go!", "topic": "TALK_DONE", "effect": "follow" } ]
+  },
+  {
+    "id": "TALK_HUMAN_VAΜPRISON_help_u",
+    "type": "talk_topic",
+    "dynamic_line": "Wait! What if we help each other! I mean, I'll come assist you and set me free after!",
+    "responses": [
+      { "text": "You're too weak to fight them.", "topic": "TALK_HUMAN_VAΜPRISON_help_u_weak" },
+      { "text": "Or just wait here and we'll get you out later.", "topic": "TALK_HUMAN_VAΜPRISON_help_u_wait" }
+    ]
+  },
+  {
+    "id": "TALK_HUMAN_VAΜPRISON_help_u_weak",
+    "type": "talk_topic",
+    "dynamic_line": "Does that mean I can't leave this place?",
+    "responses": [
+      { "text": "Yea- I mean, never!", "topic": "TALK_DONE", "effect": "end_conversation" },
+      { "text": "Yeah, but we'll be back to help you out.", "topic": "TALK_HUMAN_VAΜPRISON_help_u_wait" }
+    ]
+  },
+  {
+    "id": "TALK_HUMAN_VAΜPRISON_help_u_wait",
+    "type": "talk_topic",
+    "dynamic_line": "Thank you! I'll expect for you to come for me after this mess.",
+    "responses": [ { "text": "See you later.", "topic": "TALK_DONE", "effect": { "u_add_trait": "hvprisoncomesaveme" } } ]
+  },
+  {
+    "id": "TALK_HUMAN_VAΜPRISON_help_u_now",
+    "type": "talk_topic",
+    "dynamic_line": "Thank goodness! Please take me out of here.",
+    "responses": [ { "text": "Okay.", "topic": "TALK_HUMAN_VAΜPRISON_help_u_now_done" } ]
+  },
+  {
+    "id": "TALK_HUMAN_VAΜPRISON_help_u_now_done",
+    "type": "talk_topic",
+    "dynamic_line": "Not to be rude or anything but... Where will you take me to?",
+    "responses": [
+      {
+        "text": "To the wasteland outskirts.",
+        "topic": "TALK_HUMAN_VAΜPRISON_help_yes_lead",
+        "effect": { "add_mission": "VAMP_UNDERSEEKER_quest_vampirus1" }
+      },
+      {
+        "text": "I don't know, but stick with me and you'll be safe.",
+        "topic": "TALK_HUMAN_VAΜPRISON_help_yes_come_ustrong"
+      }
+    ]
+  },
+  {
+    "id": "TALK_HUMAN_VAΜPRISON_help_yes_come_ustrong",
+    "type": "talk_topic",
+    "dynamic_line": "After beating those monsters, I know you're too strong to protect me!",
+    "responses": [ { "text": "Well... Don't be timid to your belief.", "topic": "TALK_DONE", "effect": "follow" } ]
+  }
+]

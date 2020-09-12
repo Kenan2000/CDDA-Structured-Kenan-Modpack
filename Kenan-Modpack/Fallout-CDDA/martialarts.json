@@ -1,0 +1,189 @@
+[
+  {
+    "type": "martial_art",
+    "id": "style_boxing_newreno",
+    "name": "New Reno Boxing",
+    "description": "The boxing style of New Reno. More focused on dirty fighting than traditional boxing, you gain the ability to hit harder if you keep hitting. While normally still done with restraint, fighters have been known to use these tactics lethally.",
+    "initiate": [ "You lower your chin and raise your fists to eye level.", "%s prepares to fight with raised fists." ],
+    "learn_difficulty": 1,
+    "arm_block": 1,
+    "static_buffs": [
+      {
+        "id": "buff_renoboxing_static",
+        "name": "Boxing Stance",
+        "description": "A solid stance allows you block more damage than normal and deliver better punches.\n\n+2 Bash damage, Blocked damge reduced by 50%% of Strength.",
+        "unarmed_allowed": true,
+        "flat_bonuses": [ { "stat": "block", "scaling-stat": "str", "scale": 0.5 }, { "stat": "damage", "type": "bash", "scale": 2.5 } ]
+      }
+    ],
+    "onmove_buffs": [
+      {
+        "id": "buff_boxing_onmove",
+        "name": "Footwork",
+        "description": "You are make yourself harder to hit by bobbing and weaving as you move.\n\n+1.0 Dodge skill.\nLasts for 1 turns.  Stacks 2 times.",
+        "skill_requirements": [ { "name": "unarmed", "level": 3 } ],
+        "unarmed_allowed": true,
+        "buff_duration": 1,
+        "max_stacks": 2,
+        "flat_bonuses": [ { "stat": "dodge", "scale": 1.0 } ]
+      }
+    ],
+    "onhit_buffs": [
+      {
+        "id": "buff_renoboxing_onhit",
+        "name": "Masticator's Fury",
+        "description": "Landing a hit fills you with enough fury you could rip someone's ear off.\n\n Extra x2.5 damage on follow up hits.\nLasts 2 turns.",
+        "skill_requirements": [ { "name": "unarmed", "level": 3 } ],
+        "unarmed_allowed": true,
+        "buff_duration": 2,
+        "flat_bonuses": [ { "stat": "damage", "type": "bash", "scale": 2.5 } ]
+      }
+    ],
+    "ondodge_buffs": [
+      {
+        "id": "buff_renoboxing_ondodge",
+        "name": "Counter Chance",
+        "description": "You've seen your chance. Now strike back!\n\n+25% Bash damage.\nLasts for 1 turn.",
+        "skill_requirements": [ { "name": "unarmed", "level": 5 } ],
+        "unarmed_allowed": true,
+        "buff_duration": 1,
+        "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 1.25 } ]
+      }
+    ],
+    "techniques": [ "tec_boxing_rapid", "tec_renoboxing_haymaker", "tec_renoboxing_eyegouge", "tec_boxing_counter" ],
+    "weapons": [ "gloves_boxing_goldplated", "gloves_boxing_doubleplated", "gloves_boxing_plated", "gloves_boxing" ]
+  },
+  {
+    "type": "martial_art",
+    "id": "style_chosenone",
+    "name": "Arroyo Style",
+    "description": "A style honed by the Hero of Arroyo, Arroyo Style combines the dirty tactics of New Reno Boxing, the Honor of Dragon-Style Kung Fu, and the fluidity of a wastelander's wit into a single style.",
+    "initiate": [ "You relax and patiently await conflict like the great dragon.", "%s assumes a dragon-like stance." ],
+    "learn_difficulty": 10,
+    "arm_block": 2,
+    "static_buffs": [
+      {
+        "id": "buff_dragon_static",
+        "name": "Dragon's Knowledge",
+        "description": "You plan your attack far in advance relying on your intution instead of your speed to strike true. Intelligence increases Accuracy instead of Dexterity.\n\nAccuracy increased by 25%% of Intelligence but decreased by 25%% of Dexterity. /n/n +1.5x Bashing",
+        "unarmed_allowed": true,
+        "flat_bonuses": [
+          { "stat": "hit", "scaling-stat": "int", "scale": 0.25 },
+          { "stat": "hit", "scaling-stat": "dex", "scale": -0.25 },
+          { "stat": "damage", "type": "bash", "scale": 1.5 }
+        ]
+      }
+    ],
+    "ondodge_buffs": [
+      {
+        "id": "buff_renoboxing_ondodge",
+        "name": "Counter Chance",
+        "description": "You've seen your chance. Now strike back!\n\n+25% Bash damage.\nLasts for 1 turn.",
+        "skill_requirements": [ { "name": "unarmed", "level": 5 } ],
+        "unarmed_allowed": true,
+        "buff_duration": 1,
+        "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 1.25 } ]
+      }
+    ],
+    "onhit_buffs": [
+      {
+        "id": "buff_dragon_onhit",
+        "name": "Dragon's Fury",
+        "description": "The fury of a dragon is not something to be trifled with. Keep attacking. Annihalate them.\n\n+1 Accuracy, +2 bash Damage.\nEnables \"Dragon Vortex Block\" and \"Dragon Wing Dodge\"\nLasts 1 turn.",
+        "unarmed_allowed": true,
+        "skill_requirements": [ { "name": "unarmed", "level": 1 } ],
+        "buff_duration": 1,
+        "flat_bonuses": [ { "stat": "hit", "scale": 1.0 }, { "stat": "damage", "type": "bash", "scale": 2.5 } ]
+      }
+    ],
+    "techniques": [
+      "tec_dragon_claw",
+      "tec_dragon_blockcounter",
+      "tec_dragon_dodgecounter",
+      "tec_dragon_strike",
+      "tec_brawl_disarm_unarmed",
+      "tec_brawl_feint_unarmed",
+      "tec_brawl_counter_unarmed",
+      "tec_brawl_break_unarmed",
+      "tec_brawl_power",
+      "tec_brawl_trip",
+      "tec_boxing_rapid",
+      "tec_renoboxing_eyegouge"
+    ],
+    "weapons": [ "gloves_boxing_goldplated", "gloves_boxing_doubleplated", "gloves_boxing_plated", "gloves_boxing" ]
+  },
+  {
+    "type": "martial_art",
+    "id": "style_gecko",
+    "name": "Gecko Hunting",
+    "description": "A somewhat primative martial art, Gecko Hunting was developed in Klamath to avoid a gecko's deadly bite and get them",
+    "initiate": [ "You raise your spear and prepare for a great hunt.", "%s raises their spear menacingly." ],
+    "learn_difficulty": 3,
+    "primary_skill": "stabbing",
+    "strictly_melee": true,
+    "static_buffs": [
+      {
+        "id": "buff_sojutsu_static",
+        "name": "Gecko Hunting Stance",
+        "description": "You keep at the ready to avoid .\n\nIncreased dodge.",
+        "melee_allowed": true,
+        "flat_bonuses": [ { "stat": "dodge", "scale": 2.0 } ]
+      }
+    ],
+    "ondodge_buffs": [
+      {
+        "id": "buff_sojutsu_onmove",
+        "name": "Kiting",
+        "description": "You have baited the attack, time for the kill.\n\nx3 damage for a turn.",
+        "melee_allowed": true,
+        "buff_duration": 1,
+        "mult_bonuses": [
+          { "stat": "damage", "type": "bash", "scale": 3.0 },
+          { "stat": "damage", "type": "cut", "scale": 3.0 },
+          { "stat": "damage", "type": "stab", "scale": 3.0 }
+        ]
+      }
+    ],
+    "techniques": [ "tec_sojutsu_push", "tec_sojutsu_shove", "tec_sojutsu_trip" ],
+    "weapons": [
+      "glaive",
+      "halberd",
+      "halberd_fake",
+      "spear_fallout",
+      "spear_fallout_replica",
+      "ji",
+      "naginata",
+      "naginata_inferior",
+      "naginata_fake",
+      "long_pole",
+      "makeshift_halberd",
+      "pike",
+      "pike_inferior",
+      "pike_fake",
+      "pitchfork",
+      "qiang",
+      "spear_copper",
+      "spear_dory",
+      "spear_forked",
+      "spear_homemade_halfpike",
+      "spear_pipe",
+      "spear_knife",
+      "spear_knife_superior",
+      "spear_spike",
+      "spear_rebar",
+      "spear_steel",
+      "spear_survivor",
+      "spear_wood"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "MARTIAL_ARTSFA",
+    "name": "Wasteland Martial Artist",
+    "points": 2,
+    "description": "You have wandered the wastes and learned one of the many martial arts taught across the wastes.",
+    "starting_trait": true,
+    "initial_ma_styles": [ "style_gecko", "style_boxing_newreno", "style_chosenone" ],
+    "valid": false
+  }
+]

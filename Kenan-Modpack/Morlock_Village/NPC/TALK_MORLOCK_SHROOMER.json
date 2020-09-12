@@ -1,0 +1,69 @@
+[
+  {
+    "id": "TALK_MORLOCK_SHROOMER",
+    "type": "talk_topic",
+    "dynamic_line": "How goes it, surface dweller?",
+    "responses": [
+      { "text": "Holy, <swear!>! Fungus!  Burn it!", "topic": "TALK_MORLOCK_SHROOMER_FUNGALOID" },
+      { "text": "So, you're a farmer...   Underground.", "topic": "TALK_MORLOCK_SHROOMER_INTRO" },
+      { "text": "Who are you people anyway?", "topic": "TALK_MORLOCK_SHROOMER_FACTION" },
+      { "text": "Can I join your group?", "topic": "TALK_MORLOCK_SHROOMER_NO_JOIN" },
+      { "text": "What sort of things do you trade?", "topic": "TALK_MORLOCK_SHROOMER_REQUEST" },
+      { "text": "Let's trade.", "topic": "TALK_MORLOCK_SHROOMER_TRADE" },
+      { "text": "Later, man.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_MORLOCK_SHROOMER_FUNGALOID",
+    "type": "talk_topic",
+    "dynamic_line": "Don't worry.  These are mutant mushrooms, not alien mushrooms.  They won't take over your brain much.",
+    "responses": [ { "text": "Thank God for that.", "topic": "TALK_MORLOCK_SHROOMER" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_SHROOMER_INTRO",
+    "type": "talk_topic",
+    "dynamic_line": "Just a crusty old shroomer.  I've been growing mushrooms, of one type or another, for many years.  But they didn't used to get quite so big.",
+    "responses": [ { "text": "I see that.", "topic": "TALK_MORLOCK_SHROOMER" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_SHROOMER_FACTION",
+    "type": "talk_topic",
+    "dynamic_line": "We're the Morlocks, a bunch of weirdos who couldn't fit in with the rest of the world.  But now we're the most normal people left.",
+    "responses": [ { "text": "I'm not so sure about that.", "topic": "TALK_MORLOCK_SHROOMER" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_SHROOMER_NO_JOIN",
+    "type": "talk_topic",
+    "dynamic_line": "There's no official way to join.  Just move into an empty house, and in a decade or two you'll be a morlock.",
+    "responses": [ { "text": "Very laid back.", "topic": "TALK_MORLOCK_SHROOMER" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_SHROOMER_REQUEST",
+    "type": "talk_topic",
+    "dynamic_line": "The Morlocks are always short on food since not much grows down here in the dark.  I got no surplus crops to sell.  But if you could get me some fertilizer, I'd help you kickstart your own shroom-room.  I'll swap you 12 seeds for each bag of commercial fertilizer you haul down here.  Not much, but it get will you started.",
+    "responses": [ { "text": "Got it.  Commercial fertilizer.", "topic": "TALK_MORLOCK_SHROOMER" } ]
+  },
+  {
+    "id": "TALK_MORLOCK_SHROOMER_TRADE",
+    "type": "talk_topic",
+    "dynamic_line": "What shall we trade?",
+    "responses": [
+      {
+        "text": "I'd like to get some seeds, my good shroomer.",
+        "topic": "TALK_MORLOCK_SHROOMER_TRADE",
+        "condition": { "u_has_item": "fertilizer_commercial", "count": 1 },
+        "effect": [
+          { "u_sell_item": "fertilizer_commercial", "count": 1 },
+          { "u_buy_item": "seed_mushroom", "count": 12, "container": "wrapper" }
+        ]
+      },
+      {
+        "text": "[$100] I'd like to buy some ~specialty~ mushrooms.",
+        "topic": "TALK_MORLOCK_SHROOMER_TRADE",
+        "condition": { "u_has_cash": 10000 },
+        "effect": [ { "u_buy_item": "dry_mushroom_glowing", "count": 10, "cost": 10000, "container": "wrapper" } ]
+      },
+      { "text": "Later, <name_g>.", "topic": "TALK_DONE" }
+    ]
+  }
+]

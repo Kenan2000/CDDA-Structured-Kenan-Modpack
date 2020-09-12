@@ -1,0 +1,50 @@
+[
+  {
+    "id": "handflare",
+    "type": "TOOL",
+    "name": { "str": "flare" },
+    "description": "This is a slow-burning magnesium flare.  Use it to strike the striker and light it.  It will produce a bright light for about a half hour.  The flare will take several seconds to fully ignite.",
+    "material": [ "plastic", "powder" ],
+    "symbol": ";",
+    "color": "light_red",
+    "weight": "128 g",
+    "volume": "250 ml",
+    "price": 400,
+    "use_action": { "type": "transform", "target": "handflare_act", "active": true, "target_charges": 6, "msg": "You strike your flare." }
+  },
+  {
+    "id": "handflare_act",
+    "type": "TOOL",
+    "name": { "str": "struck flare" },
+    "copy-from": "handflare",
+    "description": "An activated flare, any moment now the chemicals will finish mixing and the flare will ignite.",
+    "initial_charges": 6,
+    "turns_per_charge": 1,
+    "countdown_interval": 6,
+    "countdown_action": { "type": "transform", "target": "handflare_lit", "target_charges": 300, "active": true, "msg": "The flare lights up." }
+  },
+  {
+    "id": "handflare_lit",
+    "copy-from": "handflare",
+    "type": "TOOL",
+    "name": { "str": "active flare" },
+    "description": "This burning magnesium flare is producing light.  It will last for about a half hour before burning out.",
+    "color": "white",
+    "initial_charges": 300,
+    "max_charges": 300,
+    "emits": [ "emit_smoke_flare" ],
+    "turns_per_charge": 1,
+    "revert_to": "handflare_dead",
+    "revert_msg": "The flare sputters out",
+    "use_action": [  ],
+    "flags": [ "FIRE", "LIGHT_240", "CHARGEDIM", "FLAMING", "TRADER_AVOID" ]
+  },
+  {
+    "id": "cell_phone_flashlight",
+    "copy-from": "cell_phone_flashlight",
+    "type": "TOOL",
+    "name": { "str": "cell phone - Flashlight" },
+    "name_plural": "cell phones - Flashlight",
+    "turns_per_charge": 6
+  }
+]
