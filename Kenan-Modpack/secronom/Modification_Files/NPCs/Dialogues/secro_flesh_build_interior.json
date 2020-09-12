@@ -1,0 +1,86 @@
+[
+  {
+    "id": "SECRO_FLESH_HIVEMIND_build_interior",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "and": [
+        "*taps you with a tendril, which has given you information of what it can build.\n",
+        "\n*225 flesh\n> flesh bed\nA comfortable bio-organic bed.\n",
+        "\n*175 flesh\n> floor residue\nA safe storage space.\n",
+        "\n*450 flesh\n> residue\nA large storage space.\n",
+        "\n*125 flesh\n> flesh rack\nDisplays placed items.\n",
+        "\n*400 flesh\n> flesh container\nA storage space for liquids.\n",
+        {
+          "npc_has_trait": "SECRONOM_FLESH_BIO_spread3",
+          "yes": "\n*40 flesh\n> bioluminescent wart\nA low, light-emitting furniture.\n"
+        },
+        "\n- To start building, deploy the provided [MARK] item to your ideal location. That location must be inside the core."
+      ]
+    },
+    "responses": [
+      {
+        "text": "[BUILD] flesh bed",
+        "topic": "SECRO_FLESH_HIVEMIND_build_interior",
+        "condition": { "u_has_items": { "item": "secro_flesh", "count": 225 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh", "count": 225 },
+          { "npc_consume_item": "secro_flesh", "count": 225 },
+          { "u_buy_item": "secro_flesh_camp_bed_mark" }
+        ]
+      },
+      {
+        "text": "[BUILD] floor residue",
+        "topic": "SECRO_FLESH_HIVEMIND_build_interior",
+        "condition": { "u_has_items": { "item": "secro_flesh", "count": 175 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh", "count": 175 },
+          { "npc_consume_item": "secro_flesh", "count": 175 },
+          { "u_buy_item": "secro_flesh_camp_floorstorage_mark" }
+        ]
+      },
+      {
+        "text": "[BUILD] residue",
+        "topic": "SECRO_FLESH_HIVEMIND_build_interior",
+        "condition": { "u_has_items": { "item": "secro_flesh", "count": 450 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh", "count": 450 },
+          { "npc_consume_item": "secro_flesh", "count": 450 },
+          { "u_buy_item": "secro_flesh_camp_storage_mark" }
+        ]
+      },
+      {
+        "text": "[BUILD] flesh rack",
+        "topic": "SECRO_FLESH_HIVEMIND_build_interior",
+        "condition": { "u_has_items": { "item": "secro_flesh", "count": 125 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh", "count": 125 },
+          { "npc_consume_item": "secro_flesh", "count": 125 },
+          { "u_buy_item": "secro_flesh_camp_displaystorage_mark" }
+        ]
+      },
+      {
+        "text": "[BUILD] flesh container",
+        "topic": "SECRO_FLESH_HIVEMIND_build_interior",
+        "condition": { "u_has_items": { "item": "secro_flesh", "count": 400 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh", "count": 400 },
+          { "npc_consume_item": "secro_flesh", "count": 400 },
+          { "u_buy_item": "secro_flesh_camp_liquidstorage_mark" }
+        ]
+      },
+      {
+        "text": "[BUILD] bioluminescent wart",
+        "topic": "SECRO_FLESH_HIVEMIND_build_interior",
+        "condition": {
+          "and": [ { "npc_has_trait": "SECRONOM_FLESH_BIO_spread3" }, { "u_has_items": { "item": "secro_flesh", "count": 40 } } ]
+        },
+        "effect": [
+          { "u_sell_item": "secro_flesh", "count": 40 },
+          { "npc_consume_item": "secro_flesh", "count": 40 },
+          { "u_buy_item": "secro_flesh_camp_light_mark" }
+        ]
+      },
+      { "text": "Later.", "topic": "SECRO_FLESH_HIVEMIND_build" }
+    ]
+  }
+]

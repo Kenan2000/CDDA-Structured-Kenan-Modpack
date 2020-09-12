@@ -1,0 +1,164 @@
+[
+  {
+    "type": "enchantment",
+    "id": "SECRO_BLADE_SHARP_THRESHOLD_core_ench",
+    "hit_you_effect": [
+      {
+        "id": "SECRO_BLADE_SHARP_THRESHOLD_arcatk",
+        "hit_self": false,
+        "once_in": 10,
+        "message": "You swing your blade through %2$s!",
+        "npc_message": "%1$s's slashes through %2$s!"
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRO_BLADE_SERRATED_THRESHOLD_core_ench",
+    "hit_me_effect": [
+      {
+        "id": "SECRO_BLADE_SERRATED_THRESHOLD_core",
+        "hit_self": true,
+        "once_in": 10,
+        "message": "Your blade's flesh strands expands!",
+        "npc_message": "The flesh strands on %1$s's blade expands!"
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRO_TITAN_spike_ench",
+    "hit_me_effect": [
+      {
+        "id": "SECRO_TITAN_spike",
+        "hit_self": false,
+        "once_in": 5,
+        "message": "%2$s hits your bone spikes!",
+        "npc_message": "%2$s hits %1$s's bone spikes!"
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRO_TITAN_NOTOK_spike_ench",
+    "hit_me_effect": [
+      {
+        "id": "SECRO_TITAN_NOTOK_spike",
+        "hit_self": false,
+        "once_in": 4,
+        "message": "%2$s hits your massive bone spikes!",
+        "npc_message": "%2$s hits %1$s's large bone spikes!"
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRO_LICKER_ATK_THRESHOLD_ench",
+    "hit_you_effect": [
+      {
+        "id": "SECRO_LICKER_ATK_THRESHOLD_stabatk",
+        "hit_self": false,
+        "once_in": 10,
+        "message": "You pierced your tongue through %2$s!",
+        "npc_message": "%1$s's pierced their tongue through %2$s!"
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRO_LICKER_DEF_THRESHOLD_ench",
+    "hit_you_effect": [
+      {
+        "id": "SECRO_LICKER_DEF_THRESHOLD_effbashatk",
+        "hit_self": false,
+        "once_in": 10,
+        "message": "You slapped %2$s with your tongue!",
+        "npc_message": "%1$s slaps %2$s with their tongue!"
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRO_UNKNOWN_HAIR_SUCK_ench",
+    "hit_you_effect": [
+      {
+        "id": "SECRO_UNKNOWN_HAIR_SUCK_succ",
+        "hit_self": false,
+        "once_in": 25,
+        "message": "Your proboscides sucked %2$s!",
+        "npc_message": "%1$s proboscides sucks %2$s!"
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRONOM_FLESH_BIO_ench",
+    "values": [ { "value": "ARMOR_BIO", "add": -10 }, { "value": "MAX_HP", "multiply": 5 } ],
+    "ench_effects": [ { "effect": "blind", "intensity": 1 } ],
+    "intermittent_activation": { "effects": [ { "frequency": "1 seconds", "spell_effects": [ { "id": "SECRONOM_FLESH_BIO_check_random" } ] } ] }
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRONOM_FLESH_BIO_spread1_ench",
+    "intermittent_activation": {
+      "effects": [
+        { "frequency": "30 seconds", "spell_effects": [ { "id": "SECRONOM_FLESH_BIO_spread_near" } ] },
+        { "frequency": "200 seconds", "spell_effects": [ { "id": "SECRONOM_FLESH_BIO_spread_far" } ] },
+        { "frequency": "1000 seconds", "spell_effects": [ { "id": "SECRONOM_FLESH_BIO_spread_veryveryfar" } ] }
+      ]
+    }
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRONOM_FLESH_BIO_spread2_ench",
+    "intermittent_activation": {
+      "effects": [
+        { "frequency": "30 seconds", "spell_effects": [ { "id": "SECRONOM_FLESH_BIO_spreadier_near" } ] },
+        { "frequency": "200 seconds", "spell_effects": [ { "id": "SECRONOM_FLESH_BIO_spreadier_far" } ] },
+        { "frequency": "1000 seconds", "spell_effects": [ { "id": "SECRONOM_FLESH_BIO_spreadier_veryveryfar" } ] }
+      ]
+    }
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRONOM_FLESH_BIO_spread3_ench",
+    "intermittent_activation": {
+      "effects": [
+        { "frequency": "15 seconds", "spell_effects": [ { "id": "SECRONOM_FLESH_BIO_spreadiest_near" } ] },
+        { "frequency": "100 seconds", "spell_effects": [ { "id": "SECRONOM_FLESH_BIO_spreadiest_far" } ] },
+        { "frequency": "500 seconds", "spell_effects": [ { "id": "SECRONOM_FLESH_BIO_spreadiest_veryveryfar" } ] }
+      ]
+    }
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRONOM_FLESH_STARTER_ench",
+    "ench_effects": [ { "effect": "SECRONOM_FLESH_STARTER_melt", "intensity": 1 } ]
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRONOM_FLESH_BIO_construction_pp_ench",
+    "intermittent_activation": {
+      "effects": [ { "frequency": "20 minutes", "spell_effects": [ { "id": "SECRONOM_FLESH_BIO_construction_pp_furnbuild" } ] } ]
+    }
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRONOM_FLESH_traverse_ench",
+    "intermittent_activation": {
+      "effects": [ { "frequency": "1 seconds", "spell_effects": [ { "id": "secro_power_armor_flesh_infect_traverse" } ] } ]
+    }
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRONOM_FLESH_transmit_ench",
+    "intermittent_activation": {
+      "effects": [ { "frequency": "1 seconds", "spell_effects": [ { "id": "secro_power_armor_flesh_infect_or_random" } ] } ]
+    }
+  },
+  {
+    "type": "enchantment",
+    "id": "SECRONOM_FLESH_BIO_mobile_ench",
+    "ench_effects": [ { "effect": "SECRONOM_FLESH_BIO_mobile_unstable", "intensity": 1 } ]
+  }
+]

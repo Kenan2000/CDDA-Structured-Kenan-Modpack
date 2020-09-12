@@ -1,0 +1,89 @@
+[
+  {
+    "id": "SECRO_FLESH_SPAWN_HATCHERY_main",
+    "type": "talk_topic",
+    "dynamic_line": [ "*shakes.", "*shakes violently.", "*is shaking.", "*is shaking violently." ],
+    "responses": [
+      { "text": "Create an amalgam…", "topic": "SECRO_FLESH_SPAWN_HATCHERY_hatch" },
+      { "text": "Elaborate your service.", "topic": "SECRO_FLESH_SPAWN_HATCHERY_job" },
+      { "text": "Leave it.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "SECRO_FLESH_SPAWN_HATCHERY_job",
+    "type": "talk_topic",
+    "dynamic_line": "*enshrouds you with its twisted tube:\nThe hatchery is specialized in forming amalgam companions. It creates an amalgam using large amounts of flesh for a short period of time.",
+    "responses": [ { "text": "Okay.", "topic": "SECRO_FLESH_SPAWN_HATCHERY_main" } ]
+  },
+  {
+    "id": "SECRO_FLESH_SPAWN_HATCHERY_hatch",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "npc_has_effect": "secro_flesh_hatchery_hatching",
+      "yes": "*is currently forming an amalgam.",
+      "no": "*taps you with its tube, then reveals an orfice at its tip. It needs 350 flesh and will take for about 4 hours to fully form an amalgam."
+    },
+    "responses": [
+      {
+        "text": "[FORM] *feed it with flesh*",
+        "topic": "SECRO_FLESH_SPAWN_HATCHERY_hatching",
+        "condition": {
+          "and": [
+            { "not": { "npc_has_effect": "secro_flesh_hatchery_hatching" } },
+            { "not": { "npc_has_effect": "secro_flesh_hatchery_hatching_amalgam" } },
+            { "u_has_items": { "item": "secro_flesh", "count": 350 } }
+          ]
+        },
+        "effect": [
+          { "u_sell_item": "secro_flesh", "count": 350 },
+          { "npc_consume_item": "secro_flesh", "count": 350 },
+          { "npc_add_effect": "secro_flesh_hatchery_hatching", "duration": 12500 },
+          { "npc_add_effect": "secro_flesh_hatchery_hatching_amalgam", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "[INSTA-HATCH] *feed it with flesh*",
+        "topic": "TALK_DONE",
+        "condition": { "and": [ { "u_has_trait": "SECRONOM_FLESH_DEBUG" }, { "u_has_items": { "item": "secro_flesh", "count": 350 } } ] },
+        "effect": [
+          { "u_sell_item": "secro_flesh", "count": 350 },
+          { "npc_consume_item": "secro_flesh", "count": 350 },
+          { "u_buy_monster": "mon_sflesh_hatchery_amalgam" }
+        ]
+      },
+      {
+        "text": "[HATCH]",
+        "topic": "SECRO_FLESH_SPAWN_HATCHERY_hatched",
+        "condition": {
+          "and": [
+            { "not": { "npc_has_effect": "secro_flesh_hatchery_hatching" } },
+            { "npc_has_effect": "secro_flesh_hatchery_hatching_amalgam" }
+          ]
+        },
+        "effect": [ { "u_buy_monster": "mon_sflesh_hatchery_amalgam" }, { "npc_lose_effect": "secro_flesh_hatchery_hatching_amalgam" } ]
+      },
+      {
+        "text": "Later.",
+        "topic": "SECRO_FLESH_SPAWN_HATCHERY_main",
+        "condition": { "not": { "npc_has_effect": "secro_flesh_hatchery_hatching" } }
+      },
+      {
+        "text": "Okay.",
+        "topic": "SECRO_FLESH_SPAWN_HATCHERY_main",
+        "condition": { "npc_has_effect": "secro_flesh_hatchery_hatching" }
+      }
+    ]
+  },
+  {
+    "id": "SECRO_FLESH_SPAWN_HATCHERY_hatching",
+    "type": "talk_topic",
+    "dynamic_line": "*consumes the flesh with its twisted tube. Its orifice started to shrink, as well as its body. You can hear the unnerving heartbeats.",
+    "responses": [ { "text": "...", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "SECRO_FLESH_SPAWN_HATCHERY_hatched",
+    "type": "talk_topic",
+    "dynamic_line": "*gently placed the newly formed amalgam infront of you through its twisted tube, as the hatchery slowly reverts back to normal. The amalgam glares at you, and seems to identify your visage.",
+    "responses": [ { "text": "Err...", "topic": "TALK_DONE" } ]
+  }
+]

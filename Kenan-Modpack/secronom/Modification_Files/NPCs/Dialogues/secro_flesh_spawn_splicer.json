@@ -1,0 +1,120 @@
+[
+  {
+    "id": "SECRO_FLESH_SPAWN_SPLICER_main",
+    "type": "talk_topic",
+    "dynamic_line": [ "*is shaking vigoriously.", "*trembles" ],
+    "responses": [
+      { "text": "Creature core production…", "topic": "SECRO_FLESH_SPAWN_SPLICER_core" },
+      {
+        "text": "I need your splicer.",
+        "topic": "SECRO_FLESH_SPAWN_SPLICER_device",
+        "condition": { "not": { "npc_has_effect": "secro_flesh_splicer_device_given" } }
+      },
+      { "text": "Elaborate your service.", "topic": "SECRO_FLESH_SPAWN_SPLICER_job" },
+      { "text": "Leave it.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "SECRO_FLESH_SPAWN_SPLICER_job",
+    "type": "talk_topic",
+    "dynamic_line": "*taps you with its suction tube:\nThe splicer is specialized for DNA acquisition, being the vital companion for creature core production. Creature cores are created via compression of DNAs extracted from the flesh of specific monsters. The splicer will provide a bio-organic device to gather these special types of flesh.",
+    "responses": [ { "text": "Okay.", "topic": "SECRO_FLESH_SPAWN_SPLICER_main" } ]
+  },
+  {
+    "id": "SECRO_FLESH_SPAWN_SPLICER_device",
+    "type": "talk_topic",
+    "dynamic_line": "*trembles as it creates the device. After some moments, it spews out the object in front of you.",
+    "responses": [
+      {
+        "text": "*Pick it up*",
+        "topic": "SECRO_FLESH_SPAWN_SPLICER_main",
+        "effect": [
+          { "u_buy_item": "secro_flesh_splicer" },
+          { "npc_add_effect": "secro_flesh_splicer_device_given", "duration": 1000000 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "SECRO_FLESH_SPAWN_SPLICER_core",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "npc_has_effect": "secro_flesh_splicer_core_created",
+      "yes": "*consume the DNAs, and a core were formed from its suction tube.",
+      "no": "*needs 5 spliced DNAs of similar type to form them into its more potent variety - a creature core."
+    },
+    "responses": [
+      {
+        "text": "[FORM] *give it the spliced DNAs (blade zombie)*",
+        "topic": "SECRO_FLESH_SPAWN_SPLICER_core",
+        "condition": { "u_has_items": { "item": "secro_flesh_splicer_zombie_blade_dna", "count": 5 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh_splicer_zombie_blade_dna", "count": 5 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_blade_dna", "count": 5 },
+          { "u_buy_item": "secro_flesh_splicer_zombie_blade_ccore" },
+          { "npc_add_effect": "secro_flesh_splicer_core_created", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "[FORM] *give it the spliced DNAs (lying body)*",
+        "topic": "SECRO_FLESH_SPAWN_SPLICER_core",
+        "condition": { "u_has_items": { "item": "secro_flesh_splicer_zombie_WALKINGPOTATO_dna", "count": 5 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh_splicer_zombie_WALKINGPOTATO_dna", "count": 5 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_WALKINGPOTATO_dna", "count": 5 },
+          { "u_buy_item": "secro_flesh_splicer_zombie_WALKINGPOTATO_ccore" },
+          { "npc_add_effect": "secro_flesh_splicer_core_created", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "[FORM] *give it the spliced DNAs (mouthswell zombie)*",
+        "topic": "SECRO_FLESH_SPAWN_SPLICER_core",
+        "condition": { "u_has_items": { "item": "secro_flesh_splicer_zombie_mouth_dna", "count": 5 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh_splicer_zombie_mouth_dna", "count": 5 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_mouth_dna", "count": 5 },
+          { "u_buy_item": "secro_flesh_splicer_zombie_mouth_ccore" },
+          { "npc_add_effect": "secro_flesh_splicer_core_created", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "[FORM] *give it the spliced DNAs (tendril zombie)*",
+        "topic": "SECRO_FLESH_SPAWN_SPLICER_core",
+        "condition": { "u_has_items": { "item": "secro_flesh_splicer_zombie_tendril_dna", "count": 5 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh_splicer_zombie_tendril_dna", "count": 5 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_tendril_dna", "count": 5 },
+          { "u_buy_item": "secro_flesh_splicer_zombie_tendril_ccore" },
+          { "npc_add_effect": "secro_flesh_splicer_core_created", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "[FORM] *give it the spliced DNAs (titan)*",
+        "topic": "SECRO_FLESH_SPAWN_SPLICER_core",
+        "condition": { "u_has_items": { "item": "secro_flesh_splicer_zombie_titan_dna", "count": 5 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh_splicer_zombie_titan_dna", "count": 5 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_titan_dna", "count": 5 },
+          { "u_buy_item": "secro_flesh_splicer_zombie_titan_ccore" },
+          { "npc_add_effect": "secro_flesh_splicer_core_created", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "[FORM] *give it the spliced DNAs (unifier zombie)*",
+        "topic": "SECRO_FLESH_SPAWN_SPLICER_core",
+        "condition": { "u_has_items": { "item": "secro_flesh_splicer_zombie_unifier_dna", "count": 5 } },
+        "effect": [
+          { "u_sell_item": "secro_flesh_splicer_zombie_unifier_dna", "count": 5 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_unifier_dna", "count": 5 },
+          { "u_buy_item": "secro_flesh_splicer_zombie_unifier_ccore" },
+          { "npc_add_effect": "secro_flesh_splicer_core_created", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "Later.",
+        "topic": "SECRO_FLESH_SPAWN_SPLICER_main",
+        "effect": { "npc_lose_effect": "secro_flesh_splicer_core_created" }
+      }
+    ]
+  }
+]

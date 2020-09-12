@@ -1,0 +1,90 @@
+[
+  {
+    "id": "MISSION_SECRO_SCIENTIST_REACH_SECRO_BOWCHAMBER",
+    "type": "mission_definition",
+    "name": { "str": "Reach the BOW Chamber" },
+    "goal": "MGOAL_GO_TO_TYPE",
+    "difficulty": 6,
+    "value": 10000,
+    "has_generic_rewards": false,
+    "start": { "effect": [ { "duration": "PERMANENT", "u_add_effect": "secro_scientist_mission1_progress" }, "follow_only" ] },
+    "end": {
+      "effect": [ { "duration": "PERMANENT", "u_add_effect": "secro_scientist_partake_mission1" }, "stop_following" ],
+      "update_mapgen": {
+        "om_terrain": "SecronomSSLab_bowspecs",
+        "om_special": "SSsecrolab",
+        "place_zones": [
+          { "type": "NPC_NO_INVESTIGATE", "faction": "secro_faction", "x": [ 0, 23 ], "y": [ 0, 23 ] },
+          { "type": "NPC_RETREAT", "faction": "secro_faction", "x": [ 5, 19 ], "y": [ 4, 5 ] }
+        ]
+      }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_SECRO_SCIENTIST_GET_TURRET_PARTS",
+    "destination": "SecronomSSLab_bowspecs",
+    "dialogue": {
+      "describe": "…",
+      "offer": "You've heard the plan. Ask the other survivors for our short, bloody travel once you have accepted my request.",
+      "accepted": "Good. Now go, we can't waste time in our current situation.",
+      "rejected": "Well then... Lets talk about it again later.",
+      "advice": "Those specimens are nasty in close range.",
+      "inquire": "We've got to get going.",
+      "success": "Thank you. Now we've got more spaces to move around. That being said, tell the others to stay put in this area... they also need your assistance.",
+      "success_lie": "...",
+      "failure": "..."
+    }
+  },
+  {
+    "id": "MISSION_SECRO_SCIENTIST_GET_TURRET_PARTS",
+    "type": "mission_definition",
+    "name": { "str": "Gather materials for SDP-L1 turret" },
+    "description": "Collect <color_light_green>4 chunks of steel</color>, <color_light_green>18 scrap metals</color>, <color_light_green>9 electronic scraps</color>, <color_light_green>9 power converters</color>, <color_light_green>5 copper wires</color> and <color_light_green>a broken laser beam turret</color>.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "and": [
+        { "u_has_items": { "item": "steel_chunk", "count": 4 } },
+        { "u_has_items": { "item": "scrap", "count": 18 } },
+        { "u_has_items": { "item": "e_scrap", "count": 9 } },
+        { "u_has_items": { "item": "power_supply", "count": 9 } },
+        { "u_has_items": { "item": "cable", "count": 5 } },
+        { "u_has_item": "broken_secro_laserturret" }
+      ]
+    },
+    "difficulty": 1,
+    "value": 10000,
+    "has_generic_rewards": false,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "start": { "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_mission2_progress" } },
+    "end": {
+      "effect": [
+        { "u_sell_item": "steel_chunk", "count": 4 },
+        { "u_sell_item": "scrap", "count": 18 },
+        { "u_sell_item": "e_scrap", "count": 9 },
+        { "u_sell_item": "power_supply", "count": 9 },
+        { "u_sell_item": "cable", "count": 5 },
+        { "u_sell_item": "broken_secro_laserturret" },
+        { "npc_consume_item": "steel_chunk", "count": 4 },
+        { "npc_consume_item": "scrap", "count": 18 },
+        { "npc_consume_item": "e_scrap", "count": 9 },
+        { "npc_consume_item": "power_supply", "count": 9 },
+        { "npc_consume_item": "cable", "count": 5 },
+        { "npc_consume_item": "broken_secro_laserturret" },
+        { "duration": "PERMANENT", "u_add_effect": "secro_scientist_partake_mission2" },
+        { "npc_add_effect": "secro_scientist_repairing_laserturret", "duration": 3700 },
+        { "duration": "PERMANENT", "u_add_effect": "secro_scientist_repairing" },
+        { "duration": "PERMANENT", "u_add_effect": "secro_scientist_repair_laserturret" }
+      ]
+    },
+    "dialogue": {
+      "describe": "…",
+      "offer": "I'd like you to retrieve a broken SDP-L1 from the bunker and other essential parts for me to fully repair the turret.",
+      "accepted": "Then go, give them all to me afterwards.",
+      "rejected": "Well then... Lets talk about it again later.",
+      "advice": "If it's too heavy, haul it.",
+      "inquire": "We've got to get going.",
+      "success": "Good. The process may take an hour. While I'm repairing it, you should talk to others if they need your assistance.",
+      "success_lie": "...",
+      "failure": "..."
+    }
+  }
+]

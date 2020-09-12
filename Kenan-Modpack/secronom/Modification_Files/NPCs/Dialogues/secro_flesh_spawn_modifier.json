@@ -1,0 +1,167 @@
+[
+  {
+    "id": "SECRO_FLESH_SPAWN_MODIFIER_main",
+    "type": "talk_topic",
+    "dynamic_line": [ "*writhes.", "*sways its tentacles." ],
+    "responses": [
+      { "text": "I need modifications…", "topic": "SECRO_FLESH_SPAWN_MODIFIER_mod" },
+      { "text": "Elaborate your service.", "topic": "SECRO_FLESH_SPAWN_MODIFIER_job" },
+      { "text": "Leave it.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "SECRO_FLESH_SPAWN_MODIFIER_job",
+    "type": "talk_topic",
+    "dynamic_line": "*taps you with its fused tentacles:\nThe modifier is specialized for creature core infusion, altering the genetic structure of certain bio-organic materials, and thus, allowing that object/entity to acquire the core's capabilities. Note that infusion only works once to an object/entity.",
+    "responses": [ { "text": "Okay.", "topic": "SECRO_FLESH_SPAWN_MODIFIER_main" } ]
+  },
+  {
+    "id": "SECRO_FLESH_SPAWN_MODIFIER_mod",
+    "type": "talk_topic",
+    "dynamic_line": "*needs the type of item you want to modify.",
+    "responses": [
+      {
+        "text": "Amalgams…",
+        "topic": "SECRO_FLESH_SPAWN_MODIFIER_mod_amalgam",
+        "condition": { "u_has_item": "sflesh_hatchery_amalgam" }
+      },
+      { "text": "Weapons…", "topic": "SECRO_FLESH_SPAWN_MODIFIER_mod_weapon" },
+      { "text": "Nevermind.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "SECRO_FLESH_SPAWN_MODIFIER_mod_amalgam",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "and": [
+        {
+          "npc_has_effect": "secro_flesh_splicer_amalgam_modified",
+          "yes": "*consumes the amalgam and the cores. Eventually, the modified amalgam emerges from the tube, as a tentacle hands it over to you.\n",
+          "no": "*taps you with its tentacle, then waits for your decision.\n"
+        },
+        "\n*10 core (blade zombie)\n> amalgam (blade)\nAlters either of the amalgam's arm into a sharp, bone blade.\n",
+        "\n*10 core (tendril zombie)\n> amalgam (tendril)\nAlters the amalgam's hands into a pair of tentacles.\n",
+        "\n*10 core (mouthswell zombie)\n> amalgam (mouthswell)\nIncreases the physical resistance of amalgam, as well as its strength in biting.\n"
+      ]
+    },
+    "responses": [
+      {
+        "text": "[MOD] *infuse amalgam with core (blade zombie)*",
+        "topic": "SECRO_FLESH_SPAWN_MODIFIER_mod_amalgam",
+        "condition": {
+          "and": [
+            { "u_has_item": "sflesh_hatchery_amalgam" },
+            { "u_has_items": { "item": "secro_flesh_splicer_zombie_blade_ccore", "count": 10 } }
+          ]
+        },
+        "effect": [
+          { "u_sell_item": "sflesh_hatchery_amalgam" },
+          { "npc_consume_item": "sflesh_hatchery_amalgam" },
+          { "u_sell_item": "secro_flesh_splicer_zombie_blade_ccore", "count": 10 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_blade_ccore", "count": 10 },
+          { "u_buy_item": "sflesh_hatchery_amalgam_blade" },
+          { "npc_add_effect": "secro_flesh_splicer_amalgam_modified", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "[MOD] *infuse amalgam with core (tendril zombie)*",
+        "topic": "SECRO_FLESH_SPAWN_MODIFIER_mod_amalgam",
+        "condition": {
+          "and": [
+            { "u_has_item": "sflesh_hatchery_amalgam" },
+            { "u_has_items": { "item": "secro_flesh_splicer_zombie_tendril_ccore", "count": 10 } }
+          ]
+        },
+        "effect": [
+          { "u_sell_item": "sflesh_hatchery_amalgam" },
+          { "npc_consume_item": "sflesh_hatchery_amalgam" },
+          { "u_sell_item": "secro_flesh_splicer_zombie_tendril_ccore", "count": 10 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_tendril_ccore", "count": 10 },
+          { "u_buy_item": "sflesh_hatchery_amalgam_tendril" },
+          { "npc_add_effect": "secro_flesh_splicer_amalgam_modified", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "[MOD] *infuse amalgam with core (mouthswell zombie)*",
+        "topic": "SECRO_FLESH_SPAWN_MODIFIER_mod_amalgam",
+        "condition": {
+          "and": [
+            { "u_has_item": "sflesh_hatchery_amalgam" },
+            { "u_has_items": { "item": "secro_flesh_splicer_zombie_mouth_ccore", "count": 10 } }
+          ]
+        },
+        "effect": [
+          { "u_sell_item": "sflesh_hatchery_amalgam" },
+          { "npc_consume_item": "sflesh_hatchery_amalgam" },
+          { "u_sell_item": "secro_flesh_splicer_zombie_mouth_ccore", "count": 10 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_mouth_ccore", "count": 10 },
+          { "u_buy_item": "sflesh_hatchery_amalgam_mouth" },
+          { "npc_add_effect": "secro_flesh_splicer_amalgam_modified", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "Later.",
+        "topic": "SECRO_FLESH_SPAWN_MODIFIER_main",
+        "effect": { "npc_lose_effect": "secro_flesh_splicer_amalgam_modified" }
+      }
+    ]
+  },
+  {
+    "id": "SECRO_FLESH_SPAWN_MODIFIER_mod_weapon",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "and": [
+        {
+          "npc_has_effect": "secro_flesh_splicer_core_created",
+          "yes": "*consumes the provided items. After some moments, a tentacle reaches out, handing over the modded weapon.\n",
+          "no": "*taps you with its tentacle, then waits for your decision.\n"
+        },
+        "\n*5 core (blade zombie)\n> bio-organic sword\nGreatly increases cutting damage.\n",
+        "\n*10 core (tendril zombie)\n> bio-organic sword\nAdditional attacks, mostly crowd-control.\n"
+      ]
+    },
+    "responses": [
+      {
+        "text": "[MOD] *infuse bio-organic sword with core (blade zombie)*",
+        "topic": "SECRO_FLESH_SPAWN_MODIFIER_mod_weapon",
+        "condition": {
+          "and": [
+            { "u_has_item": "secro_flesh_bow_sword" },
+            { "u_has_items": { "item": "secro_flesh_splicer_zombie_blade_ccore", "count": 5 } }
+          ]
+        },
+        "effect": [
+          { "u_sell_item": "secro_flesh_bow_sword" },
+          { "npc_consume_item": "secro_flesh_bow_sword" },
+          { "u_sell_item": "secro_flesh_splicer_zombie_blade_ccore", "count": 5 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_blade_ccore", "count": 5 },
+          { "u_buy_item": "secro_flesh_bow_sword_mod_blade" },
+          { "npc_add_effect": "secro_flesh_splicer_item_modified", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "[MOD] *infuse bio-organic sword with core (tendril zombie)*",
+        "topic": "SECRO_FLESH_SPAWN_MODIFIER_mod_weapon",
+        "condition": {
+          "and": [
+            { "u_has_item": "secro_flesh_bow_sword" },
+            { "u_has_items": { "item": "secro_flesh_splicer_zombie_tendril_ccore", "count": 10 } }
+          ]
+        },
+        "effect": [
+          { "u_sell_item": "secro_flesh_bow_sword" },
+          { "npc_consume_item": "secro_flesh_bow_sword" },
+          { "u_sell_item": "secro_flesh_splicer_zombie_tendril_ccore", "count": 10 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_tendril_ccore", "count": 10 },
+          { "u_buy_item": "secro_flesh_bow_sword_mod_tendril" },
+          { "npc_add_effect": "secro_flesh_splicer_item_modified", "duration": "PERMANENT" }
+        ]
+      },
+      {
+        "text": "Later.",
+        "topic": "SECRO_FLESH_SPAWN_MODIFIER_main",
+        "effect": { "npc_lose_effect": "secro_flesh_splicer_item_modified" }
+      }
+    ]
+  }
+]

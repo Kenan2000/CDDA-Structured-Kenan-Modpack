@@ -1,0 +1,960 @@
+[
+  {
+    "type": "ter_furn_transform",
+    "id": "vectorize",
+    "fail_message": "There's no organic terrain here to vectorize.",
+    "terrain": [
+      { "result": "t_vector", "valid_flags": [ "DIGGABLE" ], "message": "The ground here has been vectorized." },
+      { "result": "t_shrub_vector", "valid_flags": [ "SHRUB" ], "message": "The shrubs here has been vectorized." },
+      {
+        "result": "t_tree_vector_young",
+        "valid_flags": [ "YOUNG" ],
+        "message": "The young trees here has been vectorized."
+      },
+      { "result": "t_tree_vector", "valid_flags": [ "TREE" ], "message": "The trees here has been vectorized." }
+    ],
+    "furniture": [ { "result": "f_floral_vector", "valid_flags": [ "FLOWER" ], "message": "The flowers here has been vectorized." } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "vectocide",
+    "fail_message": "There's no vectorized terrain here to kill.",
+    "terrain": [ { "result": [ [ "t_dirt", 5 ], "t_grass" ], "valid_flags": [ "VECTOR" ], "message": "The vector here dies." } ],
+    "furniture": [ { "result": "f_null", "valid_flags": [ "VECTOR" ], "message": "The vector here dies." } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "gorepit_pit",
+    "fail_message": "There's no organic terrain here to vectorize.",
+    "terrain": [
+      {
+        "note": "Make every adjacent opaque terrains into dirt, so that we don't encounter bugs with gorepit's essential fields.",
+        "result": "t_dirt",
+        "valid_flags": [ "WALL", "CONNECT_TO_WALL", "MOUNTABLE", "THIN_OBSTACLE", "BURROWABLE" ],
+        "message": "The walls here has collapsed."
+      },
+      {
+        "note": "Flat, adjacent terrains become pits.",
+        "result": "t_pit",
+        "valid_flags": [ "ROAD", "DIGGABLE" ],
+        "message": "The ground here has collapsed."
+      }
+    ],
+    "furniture": [
+      {
+        "note": "Similar thing to prevent bugs.",
+        "result": "f_null",
+        "valid_flags": [ "MINEABLE", "MOUNTABLE", "BLOCKSDOOR", "TRANSPARENT", "FLAT_SURF" ],
+        "message": "The furnitures here has collapsed."
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "veinhole_open",
+    "fail_message": "You were too far from the entrance...",
+    "terrain": [
+      {
+        "note": "We use a spell to open the closed entrance once the veinhole dies.",
+        "result": "t_secro_flesh_entrance_open",
+        "valid_flags": [ "FF_ENTRANCE" ],
+        "message": "The veinhole leaves a vile gap upon its death."
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "sflesh_sack",
+    "fail_message": "Can't place the egg.",
+    "furniture": [
+      {
+        "result": "f_secro_sack_hatch",
+        "valid_flags": [ "TRANSPARENT", "S_FLESH" ],
+        "valid_furniture": [ "f_null" ],
+        "message": "The flesh sack hatches."
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_trap",
+    "fail_message": "Can't place traps.",
+    "furniture": [ { "result": "f_secro_flesh", "valid_furniture": [ "f_null" ], "message": "The flesh here became a biohazard!" } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_biohazard_accurate",
+    "fail_message": "Can't place traps.",
+    "furniture": [
+      {
+        "result": [ [ "f_secro_flesh", 20 ], "f_secro_flesh_bones", "f_secro_flesh_tent" ],
+        "valid_furniture": [ "f_secro_flesh" ],
+        "message": "The flesh here became a biohazard!"
+      },
+      {
+        "result": [ [ "f_secro_flesh_wall_spawning", 40 ], "f_secro_flesh_wall" ],
+        "valid_furniture": [ "f_secro_flesh_wall" ],
+        "message": "The flesh here became a biohazard!"
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_biohazard",
+    "fail_message": "Can't place traps.",
+    "furniture": [
+      {
+        "result": [ [ "f_secro_flesh", 200 ], "f_secro_flesh_bones", "f_secro_flesh_tent" ],
+        "valid_furniture": [ "f_secro_flesh" ],
+        "message": "The flesh here became a biohazard!"
+      },
+      {
+        "result": [ [ "f_secro_flesh_wall_spawning", 400 ], "f_secro_flesh_wall" ],
+        "valid_furniture": [ "f_secro_flesh_wall" ],
+        "message": "The flesh here became a biohazard!"
+      }
+    ]
+  },
+  {
+    "note": "To prevent the abuse of traps and/or to keep some safe area.",
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_biohazard_remove_bone",
+    "fail_message": "Can't remove traps.",
+    "furniture": [
+      {
+        "result": [ [ "f_secro_flesh_bones", 10 ], "f_secro_flesh" ],
+        "valid_furniture": [ "f_secro_flesh_bones" ],
+        "message": "The biohazard here has withdraw!"
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_biohazard_remove_tent",
+    "fail_message": "Can't remove traps.",
+    "furniture": [
+      {
+        "result": [ [ "f_secro_flesh_tent", 10 ], "f_secro_flesh" ],
+        "valid_furniture": [ "f_secro_flesh_tent" ],
+        "message": "The biohazard here has withdraw!"
+      }
+    ]
+  },
+  {
+    "note": "The lair will become safe after the flesh's death.",
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_biohazard_dead",
+    "fail_message": "Can't remove all traps.",
+    "terrain": [
+      {
+        "note": "The exit opens once you beat the flesh.",
+        "result": "t_secro_flesh_inside_up",
+        "valid_terrain": [ "t_secro_flesh_inside_up_close" ],
+        "message": "An orifice opens after the flesh's death."
+      },
+      {
+        "result": "t_secro_flesh_inside_down",
+        "valid_terrain": [ "t_secro_flesh_exit_closed" ],
+        "message": "An orifice opens after the flesh's death."
+      },
+      { "result": "t_secro_flesh", "valid_flags": [ "FF_BIOHAZARD" ], "message": "The walls has melted away." }
+    ],
+    "furniture": [ { "result": "f_null", "valid_flags": [ "FF_BIOHAZARD" ], "message": "The biohazards has been neutralized!" } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_wall",
+    "fail_message": "Can't make walls.",
+    "terrain": [ { "result": "t_secro_flesh_wall_weak", "valid_flags": [ "S_FLESH" ], "message": "A wall has been created!" } ],
+    "furniture": [ { "result": "f_secro_flesh_wall", "valid_flags": [ "S_FLESH" ], "message": "The biohazards has been neutralized!" } ]
+  },
+  {
+    "note": "Flesh spreading alternative for now.",
+    "type": "ter_furn_transform",
+    "id": "flesh_spread",
+    "fail_message": "There's nothing for the flesh to devour here.",
+    "terrain": [
+      {
+        "result": [ [ "t_secro_dirt_flesh", 5 ], [ "t_secro_grass_flesh", 3 ], "t_secro_grass_long_flesh", [ "t_dirt", 10 ] ],
+        "valid_flags": [ "DIGGABLE" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ "t_secro_shrub_flesh", [ "t_shrub", 2 ] ],
+        "valid_flags": [ "SHRUB" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ "t_secro_tree_young_flesh", [ "t_tree_young", 2 ] ],
+        "valid_flags": [ "YOUNG" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ "t_secro_tree_flesh", [ "t_tree_dead", 2 ] ],
+        "note": "No grabbing trees!",
+        "valid_flags": [ "TREE" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_concrete", 5 ], "t_secro_concrete_flesh" ],
+        "note": "Spreading on non-organic (or any building) terrains are harder (which has a 1/5 flat chance).",
+        "valid_terrain": [ "t_concrete" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_pavement", 5 ], "t_secro_pavement_flesh" ],
+        "valid_terrain": [ "t_pavement" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_pavement_y", 5 ], "t_secro_pavement_y_flesh" ],
+        "valid_terrain": [ "t_pavement_y" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_sidewalk", 5 ], "t_secro_sidewalk_flesh" ],
+        "valid_terrain": [ "t_sidewalk" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_thconc_floor", 5 ], "t_secro_thconc_floor_flesh" ],
+        "valid_terrain": [ "t_thconc_floor" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_flat_roof", 5 ], "t_secro_flat_roof_flesh" ],
+        "valid_terrain": [ "t_flat_roof" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall", 5 ], "t_secro_wall_flesh" ],
+        "valid_terrain": [ "t_wall" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window", 5 ], "t_secro_window_flesh" ],
+        "valid_terrain": [ "t_window" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window_frame", 5 ], "t_secro_window_frame_flesh" ],
+        "valid_terrain": [ "t_window_frame" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_c", 5 ], "t_secro_door_flesh" ],
+        "valid_terrain": [ "t_door_c" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_o", 5 ], "t_secro_door_flesh" ],
+        "valid_terrain": [ "t_door_o" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_locked", 5 ], "t_secro_door_flesh" ],
+        "valid_terrain": [ "t_door_locked" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_floor", 5 ], "t_secro_floor_flesh" ],
+        "valid_terrain": [ "t_floor" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_rock_floor", 5 ], "t_secro_rock_floor_flesh" ],
+        "valid_terrain": [ "t_rock_floor" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_stairs_down", 5 ], "t_secro_stairs_down_flesh" ],
+        "valid_terrain": [ "t_stairs_down" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_stairs_up", 5 ], "t_secro_stairs_up_flesh" ],
+        "valid_terrain": [ "t_stairs_up" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_w", 5 ], "t_secro_wall_w_flesh" ],
+        "valid_terrain": [ "t_wall_w" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_g", 5 ], "t_secro_wall_g_flesh" ],
+        "valid_terrain": [ "t_wall_g" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_r", 5 ], "t_secro_wall_r_flesh" ],
+        "valid_terrain": [ "t_wall_r" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_b", 5 ], "t_secro_wall_b_flesh" ],
+        "valid_terrain": [ "t_wall_b" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_rock_wall", 5 ], "t_secro_rock_wall_flesh" ],
+        "valid_terrain": [ "t_rock_wall" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_bars", 5 ], "t_secro_bars_flesh" ],
+        "valid_terrain": [ "t_bars" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_glass", 5 ], "t_secro_wall_glass_flesh" ],
+        "valid_terrain": [ "t_wall_glass" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_glass_c", 5 ], "t_secro_door_glass_flesh" ],
+        "valid_terrain": [ "t_door_glass_c" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_glass_o", 5 ], "t_secro_door_glass_flesh" ],
+        "valid_terrain": [ "t_door_glass_o" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_ladder_up", 5 ], "t_secro_ladder_broken_flesh" ],
+        "valid_terrain": [ "t_ladder_up" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_gutter_downspout", 5 ], "t_secro_gutter_downspout_flesh" ],
+        "valid_terrain": [ "t_gutter_downspout" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_railing", 5 ], "t_secro_railing_flesh" ],
+        "valid_terrain": [ "t_railing" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_metal_c", 5 ], "t_secro_door_metal_flesh" ],
+        "valid_terrain": [ "t_door_metal_c" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_metal_o", 5 ], "t_secro_door_metal_flesh" ],
+        "valid_terrain": [ "t_door_metal_o" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_metal_locked", 5 ], "t_secro_door_metal_locked_flesh" ],
+        "valid_terrain": [ "t_door_metal_locked" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_carpet_red", 5 ], "t_secro_carpet_red_flesh" ],
+        "valid_terrain": [ "t_carpet_red" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_carpet_yellow", 5 ], "t_secro_carpet_yellow_flesh" ],
+        "valid_terrain": [ "t_carpet_yellow" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_carpet_green", 5 ], "t_secro_carpet_green_flesh" ],
+        "valid_terrain": [ "t_carpet_green" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_carpet_purple", 5 ], "t_secro_carpet_purple_flesh" ],
+        "valid_terrain": [ "t_carpet_purple" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_linoleum_white", 5 ], "t_secro_linoleum_white_flesh" ],
+        "valid_terrain": [ "t_linoleum_white" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_linoleum_gray", 5 ], "t_secro_linoleum_gray_flesh" ],
+        "valid_terrain": [ "t_linoleum_gray" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_fence", 5 ], "t_secro_fence_flesh" ],
+        "valid_terrain": [ "t_fence" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_column", 5 ], "t_secro_column_flesh" ],
+        "valid_terrain": [ "t_column" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_console_broken", 5 ], "t_secro_console_broken_flesh" ],
+        "valid_terrain": [ "t_console_broken" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_console", 5 ], "t_secro_console_flesh" ],
+        "valid_terrain": [ "t_console" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_gates_mech_control", 5 ], "t_secro_gates_mech_control_flesh" ],
+        "valid_terrain": [ "t_gates_mech_control" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_gates_control_concrete", 5 ], "t_secro_gates_control_concrete_flesh" ],
+        "valid_terrain": [ "t_gates_control_concrete" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_atm", 5 ], "t_secro_atm_flesh" ],
+        "valid_terrain": [ "t_atm" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window_stained_green", 5 ], "t_secro_window_stained_green_flesh" ],
+        "valid_terrain": [ "t_window_stained_green" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window_stained_red", 5 ], "t_secro_window_stained_red_flesh" ],
+        "valid_terrain": [ "t_window_stained_red" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window_stained_blue", 5 ], "t_secro_window_stained_blue_flesh" ],
+        "valid_terrain": [ "t_window_stained_blue" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window_bars", 5 ], "t_secro_window_bars_flesh" ],
+        "valid_terrain": [ "t_window_bars" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_chainfence", 5 ], "t_secro_chainfence_flesh" ],
+        "valid_terrain": [ "t_chainfence" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_chaingate_l", 5 ], "t_secro_chaingate_l_flesh" ],
+        "valid_terrain": [ "t_chaingate_l" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_chaingate_c", 5 ], "t_secro_chaingate_c_flesh" ],
+        "valid_terrain": [ "t_chaingate_c" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_chaingate_o", 5 ], "t_secro_chaingate_c_flesh" ],
+        "valid_terrain": [ "t_chaingate_o" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_p", 5 ], "t_secro_wall_p_flesh" ],
+        "valid_terrain": [ "t_wall_p" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_reinforced_door_glass_c", 5 ], "t_secro_reinforced_door_glass_flesh" ],
+        "valid_terrain": [ "t_reinforced_door_glass_c" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_reinforced_door_glass_o", 5 ], "t_secro_reinforced_door_glass_flesh" ],
+        "valid_terrain": [ "t_reinforced_door_glass_o" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_brick_wall", 5 ], "t_secro_brick_wall_flesh" ],
+        "valid_terrain": [ "t_brick_wall" ],
+        "message": "The flesh spreads successfully."
+      }
+    ],
+    "furniture": [
+      { "result": "f_secro_flower_flesh", "valid_flags": [ "FLOWER" ], "message": "The flesh spreads successfully." },
+      {
+        "result": "f_secro_boulder_small_flesh",
+        "valid_furniture": [ "f_boulder_small" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": "f_secro_boulder_medium_flesh",
+        "valid_furniture": [ "f_boulder_medium" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": "f_secro_boulder_large_flesh",
+        "valid_furniture": [ "f_boulder_large" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "f_secro_veinstalk", 20 ], "f_null" ],
+        "valid_furniture": [ "f_secro_veinstalk" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "f_null", 2000 ], "f_secro_veinstalk" ],
+        "valid_furniture": [ "f_null" ],
+        "message": "The flesh spreads successfully."
+      }
+    ]
+  },
+  {
+    "note": "Same conversion as above, but without veinstalks.",
+    "type": "ter_furn_transform",
+    "id": "fv_flesh_spread",
+    "fail_message": "There's nothing for the flesh to devour here.",
+    "terrain": [
+      {
+        "result": [
+          [ "t_secro_dirt_flesh_camp", 5 ],
+          [ "t_secro_grass_flesh_camp", 3 ],
+          "t_secro_grass_long_flesh_camp",
+          [ "t_dirt", 10 ]
+        ],
+        "valid_flags": [ "DIGGABLE" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ "t_secro_shrub_flesh_camp", [ "t_shrub", 2 ] ],
+        "valid_flags": [ "SHRUB" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ "t_secro_tree_young_flesh_camp", [ "t_tree_young", 2 ] ],
+        "valid_flags": [ "YOUNG" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ "t_secro_tree_flesh_camp", [ "t_tree_dead", 2 ] ],
+        "note": "No grabbing trees!",
+        "valid_flags": [ "TREE" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_concrete", 5 ], "t_secro_concrete_flesh" ],
+        "note": "Spreading on non-organic (or any building) terrains are harder (which has a 1/5 flat chance).",
+        "valid_terrain": [ "t_concrete" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_pavement", 5 ], "t_secro_pavement_flesh" ],
+        "valid_terrain": [ "t_pavement" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_pavement_y", 5 ], "t_secro_pavement_y_flesh" ],
+        "valid_terrain": [ "t_pavement_y" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_sidewalk", 5 ], "t_secro_sidewalk_flesh" ],
+        "valid_terrain": [ "t_sidewalk" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_thconc_floor", 5 ], "t_secro_thconc_floor_flesh" ],
+        "valid_terrain": [ "t_thconc_floor" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_flat_roof", 5 ], "t_secro_flat_roof_flesh" ],
+        "valid_terrain": [ "t_flat_roof" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall", 5 ], "t_secro_wall_flesh" ],
+        "valid_terrain": [ "t_wall" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window", 5 ], "t_secro_window_flesh" ],
+        "valid_terrain": [ "t_window" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window_frame", 5 ], "t_secro_window_frame_flesh" ],
+        "valid_terrain": [ "t_window_frame" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_c", 5 ], "t_secro_door_flesh" ],
+        "valid_terrain": [ "t_door_c" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_o", 5 ], "t_secro_door_flesh" ],
+        "valid_terrain": [ "t_door_o" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_locked", 5 ], "t_secro_door_flesh" ],
+        "valid_terrain": [ "t_door_locked" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_floor", 5 ], "t_secro_floor_flesh" ],
+        "valid_terrain": [ "t_floor" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_rock_floor", 5 ], "t_secro_rock_floor_flesh" ],
+        "valid_terrain": [ "t_rock_floor" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_stairs_down", 5 ], "t_secro_stairs_down_flesh" ],
+        "valid_terrain": [ "t_stairs_down" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_stairs_up", 5 ], "t_secro_stairs_up_flesh" ],
+        "valid_terrain": [ "t_stairs_up" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_w", 5 ], "t_secro_wall_w_flesh" ],
+        "valid_terrain": [ "t_wall_w" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_g", 5 ], "t_secro_wall_g_flesh" ],
+        "valid_terrain": [ "t_wall_g" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_r", 5 ], "t_secro_wall_r_flesh" ],
+        "valid_terrain": [ "t_wall_r" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_b", 5 ], "t_secro_wall_b_flesh" ],
+        "valid_terrain": [ "t_wall_b" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_rock_wall", 5 ], "t_secro_rock_wall_flesh" ],
+        "valid_terrain": [ "t_rock_wall" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_bars", 5 ], "t_secro_bars_flesh" ],
+        "valid_terrain": [ "t_bars" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_glass", 5 ], "t_secro_wall_glass_flesh" ],
+        "valid_terrain": [ "t_wall_glass" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_glass_c", 5 ], "t_secro_door_glass_flesh" ],
+        "valid_terrain": [ "t_door_glass_c" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_glass_o", 5 ], "t_secro_door_glass_flesh" ],
+        "valid_terrain": [ "t_door_glass_o" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_ladder_up", 5 ], "t_secro_ladder_broken_flesh" ],
+        "valid_terrain": [ "t_ladder_up" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_gutter_downspout", 5 ], "t_secro_gutter_downspout_flesh" ],
+        "valid_terrain": [ "t_gutter_downspout" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_railing", 5 ], "t_secro_railing_flesh" ],
+        "valid_terrain": [ "t_railing" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_metal_c", 5 ], "t_secro_door_metal_flesh" ],
+        "valid_terrain": [ "t_door_metal_c" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_metal_o", 5 ], "t_secro_door_metal_flesh" ],
+        "valid_terrain": [ "t_door_metal_o" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_door_metal_locked", 5 ], "t_secro_door_metal_locked_flesh" ],
+        "valid_terrain": [ "t_door_metal_locked" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_carpet_red", 5 ], "t_secro_carpet_red_flesh" ],
+        "valid_terrain": [ "t_carpet_red" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_carpet_yellow", 5 ], "t_secro_carpet_yellow_flesh" ],
+        "valid_terrain": [ "t_carpet_yellow" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_carpet_green", 5 ], "t_secro_carpet_green_flesh" ],
+        "valid_terrain": [ "t_carpet_green" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_carpet_purple", 5 ], "t_secro_carpet_purple_flesh" ],
+        "valid_terrain": [ "t_carpet_purple" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_linoleum_white", 5 ], "t_secro_linoleum_white_flesh" ],
+        "valid_terrain": [ "t_linoleum_white" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_linoleum_gray", 5 ], "t_secro_linoleum_gray_flesh" ],
+        "valid_terrain": [ "t_linoleum_gray" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_fence", 5 ], "t_secro_fence_flesh" ],
+        "valid_terrain": [ "t_fence" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_column", 5 ], "t_secro_column_flesh" ],
+        "valid_terrain": [ "t_column" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_console_broken", 5 ], "t_secro_console_broken_flesh" ],
+        "valid_terrain": [ "t_console_broken" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_console", 5 ], "t_secro_console_flesh" ],
+        "valid_terrain": [ "t_console" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_gates_mech_control", 5 ], "t_secro_gates_mech_control_flesh" ],
+        "valid_terrain": [ "t_gates_mech_control" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_gates_control_concrete", 5 ], "t_secro_gates_control_concrete_flesh" ],
+        "valid_terrain": [ "t_gates_control_concrete" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_atm", 5 ], "t_secro_atm_flesh" ],
+        "valid_terrain": [ "t_atm" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window_stained_green", 5 ], "t_secro_window_stained_green_flesh" ],
+        "valid_terrain": [ "t_window_stained_green" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window_stained_red", 5 ], "t_secro_window_stained_red_flesh" ],
+        "valid_terrain": [ "t_window_stained_red" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window_stained_blue", 5 ], "t_secro_window_stained_blue_flesh" ],
+        "valid_terrain": [ "t_window_stained_blue" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_window_bars", 5 ], "t_secro_window_bars_flesh" ],
+        "valid_terrain": [ "t_window_bars" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_chainfence", 5 ], "t_secro_chainfence_flesh" ],
+        "valid_terrain": [ "t_chainfence" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_chaingate_l", 5 ], "t_secro_chaingate_l_flesh" ],
+        "valid_terrain": [ "t_chaingate_l" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_chaingate_c", 5 ], "t_secro_chaingate_c_flesh" ],
+        "valid_terrain": [ "t_chaingate_c" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_chaingate_o", 5 ], "t_secro_chaingate_c_flesh" ],
+        "valid_terrain": [ "t_chaingate_o" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_wall_p", 5 ], "t_secro_wall_p_flesh" ],
+        "valid_terrain": [ "t_wall_p" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_reinforced_door_glass_c", 5 ], "t_secro_reinforced_door_glass_flesh" ],
+        "valid_terrain": [ "t_reinforced_door_glass_c" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_reinforced_door_glass_o", 5 ], "t_secro_reinforced_door_glass_flesh" ],
+        "valid_terrain": [ "t_reinforced_door_glass_o" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_brick_wall", 5 ], "t_secro_brick_wall_flesh" ],
+        "valid_terrain": [ "t_brick_wall" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_secro_flesh_camp_wall_veins_smoot", 3 ], "t_secro_flesh_camp_wall_veins" ],
+        "valid_terrain": [ "t_secro_flesh_camp_wall_veins_smoot" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": [ [ "t_secro_flesh_camp_smoot", 3 ], "t_secro_flesh_camp" ],
+        "valid_terrain": [ "t_secro_flesh_camp_smoot" ],
+        "message": "The flesh spreads successfully."
+      }
+    ],
+    "furniture": [
+      { "result": "f_secro_flower_flesh", "valid_flags": [ "FLOWER" ], "message": "The flesh spreads successfully." },
+      {
+        "result": "f_secro_boulder_small_flesh_camp",
+        "valid_furniture": [ "f_boulder_small" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": "f_secro_boulder_medium_flesh_camp",
+        "valid_furniture": [ "f_boulder_medium" ],
+        "message": "The flesh spreads successfully."
+      },
+      {
+        "result": "f_secro_boulder_large_flesh_camp",
+        "valid_furniture": [ "f_boulder_large" ],
+        "message": "The flesh spreads successfully."
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "secro_flesh_traverse",
+    "fail_message": "Flesh here have reverted.",
+    "terrain": [
+      { "result": "t_dirt", "valid_terrain": [ "t_secro_dirt_flesh_camp" ], "message": "The biohazard here has withdraw!" },
+      {
+        "result": "t_grass",
+        "valid_terrain": [ "t_secro_grass_flesh_camp" ],
+        "message": "The biohazard here has withdraw!"
+      },
+      {
+        "result": "t_grass_long",
+        "valid_terrain": [ "t_secro_grass_long_flesh_camp" ],
+        "message": "The biohazard here has withdraw!"
+      },
+      {
+        "result": "t_grass_tall",
+        "valid_terrain": [ "t_secro_grass_tall_flesh_camp" ],
+        "message": "The biohazard here has withdraw!"
+      },
+      {
+        "result": "t_shrub",
+        "valid_terrain": [ "t_secro_shrub_flesh_camp" ],
+        "message": "The biohazard here has withdraw!"
+      },
+      {
+        "result": "t_tree_young",
+        "valid_terrain": [ "t_secro_tree_young_flesh_camp" ],
+        "message": "The biohazard here has withdraw!"
+      },
+      {
+        "result": "t_tree_dead",
+        "valid_terrain": [ "t_secro_tree_flesh_camp" ],
+        "message": "The biohazard here has withdraw!"
+      },
+      {
+        "result": "t_secro_flesh_camp_smoot",
+        "valid_terrain": [ "t_secro_flesh_camp" ],
+        "message": "The biohazard here has withdraw!"
+      },
+      {
+        "result": "t_secro_flesh_camp_wall_veins_smoot",
+        "valid_terrain": [ "t_secro_flesh_camp_wall_veins" ],
+        "message": "The biohazard here has withdraw!"
+      }
+    ],
+    "furniture": [
+      {
+        "result": "f_boulder_small",
+        "valid_furniture": [ "f_secro_boulder_small_flesh_camp" ],
+        "message": "The biohazard here has withdraw!"
+      },
+      {
+        "result": "f_boulder_medium",
+        "valid_furniture": [ "f_secro_boulder_medium_flesh_camp" ],
+        "message": "The biohazard here has withdraw!"
+      },
+      {
+        "result": "f_boulder_large",
+        "valid_furniture": [ "f_secro_boulder_large_flesh_camp" ],
+        "message": "The biohazard here has withdraw!"
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "secro_furn_removal",
+    "fail_message": "There's nothing to remove here.",
+    "furniture": [ { "result": "f_null", "valid_flags": [ "FLOWER", "RUBBLE" ], "message": "The furnitures here has collapsed." } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "secro_furn_build",
+    "fail_message": "Can't build a flesh furniture.",
+    "furniture": [
+      {
+        "result": "f_secro_flesh_camp_bed",
+        "valid_furniture": [ "f_secro_flesh_camp_bed_mark" ],
+        "message": "Flesh furniture has been built!"
+      },
+      {
+        "result": "f_secro_flesh_camp_floorstorage",
+        "valid_furniture": [ "f_secro_flesh_camp_floorstorage_mark" ],
+        "message": "Flesh furniture has been built!"
+      },
+      {
+        "result": "f_secro_flesh_camp_storage",
+        "valid_furniture": [ "f_secro_flesh_camp_storage_mark" ],
+        "message": "Flesh furniture has been built!"
+      },
+      {
+        "result": "f_secro_flesh_camp_displaystorage",
+        "valid_furniture": [ "f_secro_flesh_camp_displaystorage_mark" ],
+        "message": "Flesh furniture has been built!"
+      },
+      {
+        "result": "f_secro_flesh_camp_liquidstorage",
+        "valid_furniture": [ "f_secro_flesh_camp_liquidstorage_mark" ],
+        "message": "Flesh furniture has been built!"
+      },
+      {
+        "result": "f_secro_flesh_camp_light",
+        "valid_furniture": [ "f_secro_flesh_camp_light_mark" ],
+        "message": "Flesh furniture has been built!"
+      }
+    ]
+  }
+]
