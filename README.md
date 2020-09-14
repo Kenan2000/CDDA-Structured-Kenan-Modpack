@@ -10,3 +10,7 @@ My HUGE and AWESOME BL9 mod
 Separate Secronom fork - fork of Axema's GREAT and AMAZING and AWESOME huge Secronom mod
 
 2) https://github.com/Kenan2000/Secronom-Zombies
+
+Updated and even more awesome Otopack soundpack maintained by me 
+
+3) https://github.com/Kenan2000/Otopack-Mods-Updates
