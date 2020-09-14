@@ -1,0 +1,605 @@
+[
+  {
+    "type": "monstergroup",
+    "name": "GROUP_ZOMBIE_CARGO_SHIP",
+    "default": "mon_zombie_technician",
+    "monsters": [
+      {"monster": "mon_zombie_technician", "freq": 250, "cost_multiplier": 3},
+      {"monster": "mon_zombie_electric", "freq" : 150, "cost_multiplier": 5}
+    ]
+  },
+  {
+    "type": "vehicle_group",
+    "id": "vg_cs_vehicles",
+    "vehicles": [
+      ["forklift", 50],
+      ["oa_work_light", 30],
+      ["portable_generator", 10]
+    ]
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": ["ws_cargo_ship_y0z0"],
+    "weight": 1000,
+    "object": {
+	  "fill_ter": "t_metal_floor",
+      "rows": [
+        ";';''';''';';''';'';;';'",
+        ";';'';,,,..,.,,,,,;''';'",
+        ";'';';..........,,,';'';",
+        ";'';'....||--||..,,,;'';",
+        ";'';...||------||.,,,;''",
+        ";,,...||#T|^|FVv||..,,,;",
+        ",,...||-D-|#|   h||...,'",
+        ";,..||B   D D    O||..,;",
+        ";,.|||B BB|#|Lbb O|||.,'",
+        "',,||------M-------||,,;",
+        ";,,||     ###  ,,,,||.,;",
+        "',,||   ,,, ,,,,...||.,;",
+        ",,.||   ,,,,,.....,||.,'",
+        "',.||  ,,.........,||.,'",
+        ";,.||  ,,,......., ||.,'",
+        ",..||    ,,.....,  ||.,;",
+        ",..||   ,,......., ||,,'",
+        ",..||  ,,.........,||,,;",
+        "',.|| ,,...........||.,;",
+        ";,.||,,............||.,,",
+        "',.||,............,||..,",
+        ";,.||..............||..,",
+        ",,.||..............||.,,",
+        "...||..............||..,"
+      ],
+      "terrain": {
+        "'": "t_dirt",
+        ";": "t_grass",
+        ".": "t_water_dp",
+        ",": "t_water_sh",
+        "-": "t_wall_metal",
+        "|": "t_wall_metal",
+        " ": "t_metal_floor",
+        "D": "t_door_c",
+        "M": "t_door_metal_pickable",
+        "#": "t_grate",
+        "^": "t_ladder_up",
+
+        "B": "t_metal_floor",
+        "T": "t_metal_floor",
+        "b": "t_metal_floor",
+        "L": "t_metal_floor",
+        "c": "t_metal_floor",
+        "O": "t_metal_floor",
+        "h": "t_metal_floor",
+        "F": "t_metal_floor",
+        "V": "t_metal_floor",
+        "v": "t_metal_floor"
+      },
+      "furniture": {
+        "B": "f_bed",
+        "T": "f_toilet",
+        "b": "f_bench",
+        "L": "f_locker",
+        "c": "f_counter",
+        "O": "f_oven",
+        "h": "f_chair",
+        "F": "f_fridge",
+        "V": "f_vending_c",
+        "v": "f_vending_c"
+      },
+      "place_monsters": [
+        {"monster": "GROUP_RAZORCLAW", "x": 8, "y": 14},
+        {"monster": "GROUP_RAZORCLAW", "x": 16, "y": 11},
+        {"monster": "GROUP_RAZORCLAW", "x": 15, "y": 20},
+
+        {"monster": "GROUP_ROACH", "x": 14, "y": 7},
+
+        {"monster": "GROUP_RIVER", "x": 7, "y": 22, "chance": 3},
+        {"monster": "GROUP_RIVER", "x": 13, "y": 18, "chance": 3},
+        {"monster": "GROUP_RIVER", "x": 3, "y": 2, "chance": 3},
+        {"monster": "GROUP_RIVER", "x": 20, "y": 4, "chance": 3}
+      ],
+      "items": {
+        "B": {"item": "bed", "chance": 90},
+        "L": {"item": "oa_ig_generic_lockers", "chance": 30},
+        "F": {"item": "fridgesnacks", "chance": 60},
+        "O": {"item": "oven", "chance": 60},
+        "V": {"item": "vending_food_items", "chance": 80},
+        "v": {"item": "vending_drink_items", "chance": 80}
+      },
+      "place_items": [
+        {"item": "fridgesnacks", "chance": 60, "repeat": [1,5], "x": 13, "y": 5},
+        {"item": "vending_food_items", "chance": 60, "repeat": [1,10], "x": 14, "y": 5},
+        {"item": "vending_drink_items", "chance": 60, "repeat": [1,10], "x": 15, "y": 5}
+      ],
+      "toilets": {
+        "T": {}
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": ["ws_cargo_ship_y1z0"],
+    "weight": 1000,
+    "object": {
+	  "fill_ter": "t_metal_floor",
+      "rows": [
+        ";,,||.............,||.';",
+        "',.||,............,||.''",
+        ";,.||,,..........,,||'';",
+        ",,.||,..........,, ||'''",
+        "',,||...........,  ||'';",
+        ";,.||...........,, ||.',",
+        ",,.||,..........,, |,..,",
+        ",,.||,,..........,,|,..,",
+        "',.||,,,..............,,",
+        "',,||,,,,,............,,",
+        "',.||,,,,..............,",
+        ",,.||,,,...........|...,",
+        ";,,||,,.........., ||..,",
+        ";,,||,,,........,, ||..,",
+        "',.||,,........,,, ||..;",
+        ";,.||,,.......,,,  ||..'",
+        ",,.||,,,.....,,,   ||..;",
+        ",..||,,,,,,,,,,,   ||,,;",
+        ";,.||,,,,,,,,,,,,  ||,''",
+        "',,||, ,  , ,,,,,,,||,,;",
+        ",,.||,  , #  ,,  , ||,,;",
+        ";,.||,,   #  #,   ,||.,'",
+        "',.||,,   ,, #    ,||.,'",
+        ";,.||,    ,  #    ,||.,;"
+      ],
+      "terrain": {
+        "'": "t_dirt",
+        ";": "t_grass",
+        ".": "t_water_dp",
+        ",": "t_water_sh",
+        "-": "t_wall_metal",
+        "|": "t_wall_metal",
+        " ": "t_metal_floor",
+        "D": "t_door_c",
+        "#": "t_grate",
+
+        "B": "t_metal_floor",
+        "T": "t_metal_floor",
+        "b": "t_metal_floor",
+        "L": "t_metal_floor",
+        "c": "t_metal_floor",
+        "O": "t_metal_floor",
+        "h": "t_metal_floor",
+        "V": "t_metal_floor",
+        "v": "t_metal_floor"
+      },
+      "furniture": {
+        "B": "f_bed",
+        "T": "f_toilet",
+        "b": "f_bench",
+        "L": "f_locker",
+        "c": "f_counter",
+        "O": "f_oven",
+        "h": "f_chair",
+        "V": "f_vending_c",
+        "v": "f_vending_c"
+      },
+      "place_monsters": [
+        {"monster": "GROUP_RAZORCLAW", "x": 11, "y": 12},
+        {"monster": "GROUP_RAZORCLAW", "x": 14, "y": 3},
+        {"monster": "GROUP_RAZORCLAW", "x": 7, "y": 21},
+        {"monster": "GROUP_RAZORCLAW", "x": 16, "y": 21},
+
+        {"monster": "GROUP_RIVER", "x": 13, "y": 8, "chance": 3},
+        {"monster": "GROUP_RIVER", "x": 22, "y": 15, "chance": 3},
+        {"monster": "GROUP_RIVER", "x": 1, "y": 10, "chance": 3}
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": ["ws_cargo_ship_y2z0"],
+    "weight": 1000,
+    "object": {
+	  "fill_ter": "t_metal_floor",
+      "rows": [
+        ";,.||  ,  #, #  ,  ||.,'",
+        "',.||   , #  ,     ||.,;",
+        ";,.||,    #  # C  ,||.,'",
+        ";,.||   , #  #     ||,,;",
+        ";,.||     # C#   O ||,,'",
+        "',.||   e #  # e   ||.,'",
+        ",..||-M--======--M-||.,;",
+        ",..||  |e #  # e|  ||.,;",
+        ",..||C |  #  #  |  ||,,'",
+        ",,.||  |c #  # c|  ||.,'",
+        "',.||C |c #  # c|  ||.,;",
+        ";,,||O |c #  # c|  ||.,'",
+        "',,||-M|c #  # c|M-||.,;",
+        ";,,||C |        |  ||.,'",
+        "',.||  |Lbb  bbL|  ||.,'",
+        ";,.||C,----MM----M-||,,'",
+        ";,.||C C''|<#|####C||.,;",
+        "',.||C  C'|<#|#EE#C||,,;",
+        ";',||OC ,C----#EE#C||.,;",
+        "';,-||CC  M#^|####||-.,'",
+        "';,..--------------..,;'",
+        ";,,.......,,,,,.....,;''",
+        "'',,,,,,,,,,,,,,,,,,,;''",
+        ";''';';';;;'''';';;''';'"
+      ],
+      "terrain": {
+        "'": "t_dirt",
+        ";": "t_grass",
+        ".": "t_water_dp",
+        ",": "t_water_sh",
+        "-": "t_wall_metal",
+        "|": "t_wall_metal",
+        " ": "t_metal_floor",
+        "D": "t_door_c",
+        "#": "t_grate",
+        "e": "t_gates_control_metal",
+        "=": "t_door_metal_locked",
+        "<": "t_stairs_up",
+        "M": "t_door_metal_pickable",
+        "E": "t_generator_broken",
+        "U": "t_utility_light",
+        "p": "t_sewage_pipe",
+        "P": "t_sewage_pump",
+        "^": "t_ladder_up",
+
+        "B": "t_metal_floor",
+        "T": "t_metal_floor",
+        "b": "t_metal_floor",
+        "L": "t_metal_floor",
+        "c": "t_metal_floor",
+        "O": "t_metal_floor",
+        "C": "t_metal_floor",
+        "h": "t_metal_floor",
+        "V": "t_metal_floor",
+        "v": "t_metal_floor"
+      },
+      "furniture": {
+        "B": "f_bed",
+        "T": "f_toilet",
+        "b": "f_bench",
+        "L": "f_locker",
+        "c": "f_counter",
+        "O": "f_crate_o",
+        "C": "f_crate_c",
+        "h": "f_chair",
+        "V": "f_vending_c",
+        "v": "f_vending_c"
+      },
+      "place_monsters": [
+        {"monster": "GROUP_RAZORCLAW", "x": 9, "y": 2},
+        {"monster": "GROUP_RAZORCLAW", "x": 12, "y": 11},
+
+        {"monster": "GROUP_RIVER", "x": 21, "y": 21, "chance": 3},
+        {"monster": "GROUP_RIVER", "x": 4, "y": 22, "chance": 3},
+        {"monster": "GROUP_RIVER", "x": 1, "y": 6, "chance": 3}
+      ],
+      "place_vehicles": [
+        {"vehicle": "vg_cs_vehicles", "x": 11, "y": 9, "chance": 40, "rotation": 90}
+      ],
+      "items": {
+        "C": {"item": "oa_ig_crate_loot", "chance": 30},
+        "O": {"item": "oa_ig_crate_loot", "chance": 30},
+        "L": {"item": "oa_ig_generic_lockers", "chance": 30}
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": ["ws_cargo_ship_y0z1"],
+    "weight": 1000,
+    "object": {
+	  "fill_ter": "t_metal_floor",
+      "rows": [
+        "........................",
+        "........................",
+        "........................",
+        ".........      .........",
+        ".......  |----| ........",
+        "......   |#m##|   ......",
+        ".....  |-|####|-|  .....",
+        "....   |  #  #  |   ....",
+        "...|---|  #  #  |---|...",
+        "...|      #  #      |...",
+        "...| CCC  #  #  CCC |...",
+        "...| OCC  #  #  COC |...",
+        "...| OCO  #  #  COC |...",
+        "...| CCO  #  #  CCC |...",
+        "...| COC  #  #  CCC |...",
+        "...| CCO  #  #  COO |...",
+        "...|      #  #      |...",
+        "...| CCO  #  #  OOO |...",
+        "...| CCO  #  #  OCO |...",
+        "...| OCC  #  #  CCC |...",
+        "...| OCC  #  #  COC |...",
+        "...| CCC  #  #  CCC |...",
+        "...| COC  #  #  COC |...",
+        "...|      #  #      |..."
+      ],
+      "terrain": {
+        ".": "t_open_air",
+        ",": "t_water_sh",
+        "-": "t_railing_h",
+        "|": "t_railing_v",
+        " ": "t_metal_floor",
+        "D": "t_door_c",
+        "#": "t_grate",
+        "m": "t_manhole_cover",
+
+        "B": "t_metal_floor",
+        "T": "t_metal_floor",
+        "b": "t_metal_floor",
+        "L": "t_metal_floor",
+        "C": "t_metal_floor",
+        "O": "t_metal_floor",
+        "h": "t_metal_floor",
+        "V": "t_metal_floor",
+        "v": "t_metal_floor"
+      },
+      "furniture": {
+        "B": "f_bed",
+        "T": "f_toilet",
+        "b": "f_bench",
+        "L": "f_locker",
+        "O": "f_crate_o",
+        "C": "f_crate_c",
+        "h": "f_chair",
+        "V": "f_vending_c",
+        "v": "f_vending_c"
+      },
+      "place_monsters": [
+        {"monster": "GROUP_ZOMBIE_CARGO_SHIP", "x": 13, "y": 8},
+        {"monster": "GROUP_ZOMBIE_CARGO_SHIP", "x": 10, "y": 18}
+      ],
+      "place_vehicles": [
+        {"vehicle": "vg_cs_vehicles", "x": 11, "y": 9, "chance": 20, "rotation": 180}
+      ],
+      "items": {
+        "C": {"item": "oa_ig_crate_loot", "chance": 30},
+        "O": {"item": "oa_ig_crate_loot", "chance": 30}
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": ["ws_cargo_ship_y1z1"],
+    "weight": 1000,
+    "object": {
+	  "fill_ter": "t_metal_floor",
+      "rows": [
+        "...| COC  #  #  OCC |...",
+        "...| OCO  #  #  COC |...",
+        "...| COC  #  #  CCC |...",
+        "...| CCC  #  #  COC |...",
+        "...| COC  #  #  CCC |...",
+        "...| CCC  #  #  CCO |...",
+        "...|      #  #      |...",
+        "...| CCC  #  #  CCC |...",
+        "...| COC  #  #  OCO |...",
+        "...| COC  #  #  OCC |...",
+        "...| CCC  #  #  CCO |...",
+        "...| OCC  #  #  CCC |...",
+        "...| CCC  #  #  CCO |...",
+        "...|      #  #      |...",
+        "...| OCC  #  #  CCC |...",
+        "...| CCO  #  #  COC |...",
+        "...| COC  #  #  OCC |...",
+        "...| CCC  #  #  CCC |...",
+        "...| COC  #  #  COC |...",
+        "...| OCC  #  #  CCO |...",
+        "...|      #  #      |...",
+        "...| CCO  #  #  CCC |...",
+        "...| OCO  #  #  COC |...",
+        "...| CCC  #  #  COC |..."
+      ],
+      "terrain": {
+        ".": "t_open_air",
+        ",": "t_water_sh",
+        "-": "t_railing_h",
+        "|": "t_railing_v",
+        " ": "t_metal_floor",
+        "D": "t_door_c",
+        "#": "t_grate",
+
+        "B": "t_metal_floor",
+        "T": "t_metal_floor",
+        "b": "t_metal_floor",
+        "L": "t_metal_floor",
+        "C": "t_metal_floor",
+        "O": "t_metal_floor",
+        "h": "t_metal_floor",
+        "V": "t_metal_floor",
+        "v": "t_metal_floor"
+      },
+      "furniture": {
+        "B": "f_bed",
+        "T": "f_toilet",
+        "b": "f_bench",
+        "L": "f_locker",
+        "O": "f_crate_o",
+        "C": "f_crate_c",
+        "h": "f_chair",
+        "V": "f_vending_c",
+        "v": "f_vending_c"
+      },
+      "place_monsters": [
+        {"monster": "GROUP_ZOMBIE_CARGO_SHIP", "x": 11, "y": 5},
+        {"monster": "GROUP_ZOMBIE_CARGO_SHIP", "x": 12, "y": 19}
+      ],
+      "place_vehicles": [
+        {"vehicle": "vg_cs_vehicles", "x": 12, "y": 12, "chance": 20, "rotation": 90}
+      ],
+      "items": {
+        "C": {"item": "oa_ig_crate_loot", "chance": 30},
+        "O": {"item": "oa_ig_crate_loot", "chance": 30}
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": ["ws_cargo_ship_y2z1"],
+    "weight": 1000,
+    "object": {
+	  "fill_ter": "t_metal_floor",
+      "rows": [
+        "...| OCC  #  #  CCO |...",
+        "...| CCC  #  #  COC |...",
+        "...| COC  #  #  COC |...",
+        "...|      #  #      |...",
+        "...|      #  #      |...",
+        "...|    e #  # e    |...",
+        "...|   ++======++   |...",
+        "...|   +e #  # e+   |...",
+        "...|   G  #  #  G   |...",
+        "...|   G  #  #  G   |...",
+        "...|   +  #  #  +   |...",
+        "...|   +  #  #  +   |...",
+        "...|   G  #  #  G   |...",
+        "...|   G        G   |...",
+        "...|   +        +   |...",
+        "...|   ++M+MM+M++   |...",
+        "...|   +L +><+ L+   |...",
+        "...|   +L +><+ L+   |...",
+        "...|   ++++++++++   |...",
+        "...-|-   ###m##   -|-...",
+        ".....--------------.....",
+        "........................",
+        "........................",
+        "........................"
+      ],
+      "terrain": {
+        ".": "t_open_air",
+        ",": "t_water_sh",
+        "-": "t_railing_h",
+        "|": "t_railing_v",
+        "G": "t_wall_glass",
+        "+": "t_wall_metal",
+        " ": "t_metal_floor",
+        "D": "t_door_c",
+        "#": "t_grate",
+        "<": "t_stairs_up",
+        ">": "t_stairs_down",
+        "=": "t_door_metal_locked",
+        "e": "t_gates_control_metal",
+        "M": "t_door_metal_pickable",
+        "m": "t_manhole_cover",
+
+        "B": "t_metal_floor",
+        "T": "t_metal_floor",
+        "b": "t_metal_floor",
+        "L": "t_metal_floor",
+        "O": "t_metal_floor",
+        "C": "t_metal_floor",
+        "h": "t_metal_floor",
+        "V": "t_metal_floor",
+        "v": "t_metal_floor"
+      },
+      "furniture": {
+        "B": "f_bed",
+        "T": "f_toilet",
+        "b": "f_bench",
+        "L": "f_locker",
+        "O": "f_crate_o",
+        "C": "f_crate_c",
+        "h": "f_chair",
+        "V": "f_vending_c",
+        "v": "f_vending_c"
+      },
+      "place_monsters": [
+        {"monster": "GROUP_ZOMBIE_CARGO_SHIP", "x": 5, "y": 12},
+        {"monster": "GROUP_ZOMBIE_CARGO_SHIP", "x": 12, "y": 3}
+      ],
+      "place_vehicles": [
+        {"vehicle": "vg_cs_vehicles", "x": 12, "y": 10, "chance": 40, "rotation": 270}
+      ],
+      "items": {
+        "C": {"item": "oa_ig_crate_loot", "chance": 30},
+        "O": {"item": "oa_ig_crate_loot", "chance": 30},
+        "L": {"item": "oa_ig_generic_lockers", "chance": 30}
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": ["ws_cargo_ship_y2z2"],
+    "weight": 1000,
+    "object": {
+	  "fill_ter": "t_metal_floor",
+      "rows": [
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        ".......-GGGGGGGG-.......",
+        ".......|        |.......",
+        ".......G  C6CC  G.......",
+        ".......G        G.......",
+        ".......G        G.......",
+        ".......G        G.......",
+        ".......G        G.......",
+        ".......G        G.......",
+        ".......G  ####  G.......",
+        ".......G  -MM-  G.......",
+        ".......|  |#<|  |.......",
+        ".......|CC|#<|CC|.......",
+        ".......-GG----GG-.......",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................"
+      ],
+      "terrain": {
+        ".": "t_open_air",
+        ",": "t_water_sh",
+        "-": "t_wall_metal",
+        "|": "t_wall_metal",
+        " ": "t_metal_floor",
+        "D": "t_door_c",
+        "G": "t_wall_glass",
+        "#": "t_grate",
+        "<": "t_stairs_down",
+        "M": "t_door_metal_pickable",
+        "B": "t_metal_floor",
+        "T": "t_metal_floor",
+        "b": "t_metal_floor",
+        "L": "t_metal_floor",
+        "c": "t_metal_floor",
+        "C": "t_console_broken",
+        "6": "t_console",
+        "O": "t_metal_floor",
+        "h": "t_metal_floor",
+        "V": "t_metal_floor",
+        "v": "t_metal_floor"
+      },
+      "furniture": {
+        "B": "f_bed",
+        "T": "f_toilet",
+        "b": "f_bench",
+        "L": "f_locker",
+        "c": "f_counter",
+        "O": "f_oven",
+        "h": "f_chair",
+        "V": "f_vending_c",
+        "v": "f_vending_c"
+      },
+      "computers": {
+              "6": {
+                "name": "Ship Navigational Terminal", 
+                "security": 2, 
+                "options": [ { "name": "access satellite navigation map", "action": "maps" } ], 
+                "failures": [ { "action": "shutdown" },{ "action": "alarm" } ]
+        }
+      }
+    }
+  }
+]
