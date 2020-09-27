@@ -39,9 +39,11 @@
     "range": 30,
     "dispersion": 5,
     "sight_dispersion": 20,
+    "aim_speed": 4,
     "recoil": 0,
     "durability": 8,
     "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "spray", 10 ], [ "AUTO", "auto", 15 ] ],
+    "reload": 140,
     "loudness": 2,
     "valid_mod_locations": [ [ "accessories", 2 ], [ "barrel", 1 ], [ "rail", 1 ], [ "sights", 1 ], [ "stock", 1 ] ]
   },
@@ -92,8 +94,10 @@
     "range": 30,
     "dispersion": 5,
     "sight_dispersion": 20,
+    "aim_speed": 4,
     "recoil": 0,
     "durability": 8,
+    "reload": 300,
     "loudness": 2,
     "valid_mod_locations": [ [ "accessories", 2 ], [ "barrel", 1 ], [ "rail", 1 ], [ "sights", 1 ], [ "stock", 1 ] ]
   },
@@ -137,8 +141,10 @@
     "range": 30,
     "dispersion": 5,
     "sight_dispersion": 20,
+    "aim_speed": 4,
     "recoil": 0,
     "durability": 8,
+    "reload": 300,
     "loudness": 2,
     "valid_mod_locations": [ [ "accessories", 2 ], [ "barrel", 1 ], [ "rail", 1 ], [ "sights", 1 ], [ "stock", 1 ] ]
   },
@@ -197,9 +203,11 @@
     "range": 30,
     "dispersion": 5,
     "sight_dispersion": 20,
+    "aim_speed": 4,
     "recoil": 0,
     "durability": 8,
     "modes": [ [ "DEFAULT", "Single Fire", 5 ] ],
+    "reload": 300,
     "loudness": 2,
     "valid_mod_locations": [ [ "accessories", 2 ], [ "barrel", 1 ], [ "rail", 1 ], [ "sights", 1 ], [ "stock", 1 ] ]
   },
@@ -224,8 +232,10 @@
     "range": 80,
     "dispersion": 0,
     "sight_dispersion": 60,
+    "aim_speed": 10,
     "recoil": 0,
     "durability": 8,
+    "reload": 100,
     "built_in_mods": [ "rifle_scope" ],
     "valid_mod_locations": [
       [ "accessories", 4 ],
@@ -269,8 +279,10 @@
     "range": 80,
     "dispersion": 0,
     "sight_dispersion": 60,
+    "aim_speed": 10,
     "recoil": 0,
     "durability": 10,
+    "reload": 100,
     "valid_mod_locations": [
       [ "accessories", 4 ],
       [ "grip", 1 ],
@@ -313,8 +325,10 @@
     "range": 40,
     "dispersion": 0,
     "sight_dispersion": 60,
+    "aim_speed": 10,
     "recoil": 0,
     "durability": 10,
+    "reload": 100,
     "valid_mod_locations": [
       [ "accessories", 4 ],
       [ "grip", 1 ],
@@ -357,8 +371,10 @@
     "range": 80,
     "dispersion": 0,
     "sight_dispersion": 60,
+    "aim_speed": 10,
     "recoil": 0,
     "durability": 7,
+    "reload": 100,
     "valid_mod_locations": [
       [ "accessories", 4 ],
       [ "grip", 1 ],
@@ -391,8 +407,10 @@
     "range": 40,
     "dispersion": 0,
     "sight_dispersion": 60,
+    "aim_speed": 10,
     "recoil": 0,
     "durability": 10,
+    "reload": 100,
     "valid_mod_locations": [
       [ "accessories", 4 ],
       [ "grip", 1 ],
@@ -425,6 +443,7 @@
     "dispersion": 60,
     "durability": 8,
     "burst": 5,
+    "reload": 700,
     "valid_mod_locations": [
       [ "accessories", 4 ],
       [ "grip", 1 ],
@@ -457,6 +476,7 @@
     "dispersion": 60,
     "durability": 8,
     "burst": 5,
+    "reload": 700,
     "valid_mod_locations": [
       [ "accessories", 4 ],
       [ "grip", 1 ],
@@ -466,6 +486,36 @@
       [ "stock", 1 ],
       [ "underbarrel", 1 ]
     ]
+  },
+  {
+    "id": "lasermusket_battery_cell",
+    "type": "MAGAZINE",
+    "category": "spare_parts",
+    "name": { "str": "laser musket capacitor bank" },
+    "description": "This is the capacitor for a laser musket. Clearly handmade with love and care..",
+    "weight": "250 g",
+    "volume": "300 ml",
+    "price": 5000,
+    "material": [ "iron", "plastic" ],
+    "symbol": "=",
+    "color": "yellow",
+    "ammo_type": [ "battery" ],
+    "capacity": 1,
+    "reliability": 5,
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE",
+        "rigid": true,
+        "ammo_restriction": {
+          "medium_battery_cell": 1,
+          "medium_plus_battery_cell": 1,
+          "medium_atomic_battery_cell": 1,
+          "medium_disposable_cell": 1
+        }
+      }
+    ],
+    "looks_like": "battery",
+    "flags": [ "NO_SALVAGE", "NO_UNLOAD", "RECHARGE" ]
   },
   {
     "id": "musket_laser",
@@ -488,8 +538,10 @@
     "range": 30,
     "dispersion": 50,
     "sight_dispersion": 100,
+    "aim_speed": 10,
     "recoil": 15,
     "durability": 6,
+    "reload": 0,
     "loudness": 20,
     "use_action": "HAND_CRANK",
     "pocket_data": [
@@ -499,7 +551,7 @@
         "max_contains_volume": "20 L",
         "magazine_well": "250 ml",
         "max_contains_weight": "20 kg",
-        "item_restriction": [ "medium_battery_cell", "medium_plus_battery_cell", "medium_atomic_battery_cell", "medium_disposable_cell" ]
+        "item_restriction": [ "lasermusket_battery_cell" ]
       }
     ],
     "valid_mod_locations": [
