@@ -257,5 +257,89 @@
       "PRIORITIZE_TARGETS",
       "CAN_OPEN_DOORS"
     ]
+  },
+  {
+    "id": "dks_mon_lurker_rectified",
+    "type": "MONSTER",
+    "name": { "str": "recycler" },
+    "description": "A sleek mass of hairy tentacles originate from a metallic core that looks like a mix between a garbage disposal and a clamp, golden pinpoints of dim light dotting its chassis.  It seems adept at collecting small pieces of junk and debris and mulching them in its mouth for unknown purposes - you included.",
+    "default_faction": "neworder",
+    "bodytype": "spider",
+    "categories": [ "ALIEN" ],
+    "species": [ "ALIEN" ],
+    "volume": "62500 ml",
+    "weight": "81500 g",
+    "hp": 150,
+    "speed": 110,
+    "material": [ "flesh" ],
+    "symbol": "&",
+    "color": "dark_gray",
+    "aggression": -5,
+    "morale": 100,
+    "melee_skill": 6,
+    "melee_dice": 4,
+    "melee_dice_sides": 5,
+    "melee_cut": 6,
+    "dodge": 3,
+    "armor_bash": 8,
+    "armor_cut": 4,
+    "vision_night": 6,
+    "harvest": "zombie_leather",
+    "special_attacks": [
+      [ "RANGED_PULL", 20 ],
+      [ "GRAB_DRAG", 3 ],
+      {
+        "type": "bite",
+        "no_infection_chance": 10,
+        "damage_max_instance": [ { "damage_type": "stab", "amount": 12, "armor_multiplier": 0.8 } ],
+        "cooldown": 10
+      }
+    ],
+    "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK" ],
+    "death_function": [ "NORMAL" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "SWIMS", "AQUATIC", "POISON", "HARDTOSHOOT" ]
+  },
+  {
+    "id": "dks_mon_bileworm_rectified",
+    "type": "MONSTER",
+    "name": { "str": "tunneler" },
+    "description": "A huge creature, encased in metal plating and covered in small golden \"eyes\".  Stocky robotic appendages covering its body allow it to smash through rock and propel itself forward with efficiency.  Its interior seems to have been replaced by some sort of whirring processing equipment that would be highly unpleasant to be caught up in.  Fortunately it doesn't seem very hostile.",
+    "looks_like": "mon_worm",
+    "default_faction": "neworder",
+    "bodytype": "snake",
+    "categories": [ "ALIEN" ],
+    "species": [ "WILDALIEN" ],
+    "volume": "92500 ml",
+    "weight": "120 kg",
+    "hp": 200,
+    "speed": 70,
+    "material": [ "flesh" ],
+    "symbol": "W",
+    "color": "dark_gray",
+    "aggression": -5,
+    "morale": 100,
+    "melee_skill": 4,
+    "melee_dice": 4,
+    "melee_dice_sides": 6,
+    "armor_bash": 4,
+    "armor_cut": 2,
+    "vision_night": 15,
+    "harvest": "mutant_meatslug",
+    "special_attacks": [
+      {
+        "type": "bite",
+        "cooldown": 20,
+        "accuracy": 6,
+        "damage_max_instance": [
+          { "damage_type": "stab", "amount": 9, "armor_multiplier": 0.5 },
+          { "damage_type": "bash", "amount": 27, "armor_multiplier": 0.5 }
+        ],
+        "effects": [ { "id": "grabbed", "duration": 1000, "bp": "torso" } ]
+      },
+      [ "SMASH", 20 ]
+    ],
+    "anger_triggers": [ "FRIEND_ATTACKED", "HURT" ],
+    "death_function": [ "NORMAL" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "BASHES", "DESTROYS", "ACIDPROOF", "CAN_DIG", "ARTHROPOD_BLOOD" ]
   }
 ]
