@@ -54,27 +54,33 @@
   {
     "type": "item_group",
     "id": "helicopter",
-    "items": [ [ "electric_primer_120mm", 2 ], [ "primer_155mm", 1 ], [ "25mm_apds", 2 ], [ "25mm_hei", 2 ], [ "belt25mm", 3 ], [ "105mm_heat", 1 ], [ "105mm_ap", 1 ] ]
+    "items": [
+      [ "electric_primer_120mm", 2 ],
+      [ "primer_155mm", 1 ],
+      [ "25mm_apds", 2 ],
+      [ "25mm_hei", 2 ],
+      [ "belt25mm", 3 ],
+      [ "105mm_heat", 1 ],
+      [ "105mm_ap", 1 ]
+    ]
   },
   {
     "type": "item_group",
     "id": "guns_launcher_milspec",
-    "items": [
-      { "group": "guns_launcher_heavy", "prob": 20 }
-    ]
+    "items": [ { "group": "guns_launcher_heavy", "prob": 20 } ]
   },
   {
     "type": "item_group",
     "id": "guns_launcher_heavy",
     "items": [
-      [ "120mm_usable_ap", 15 ], 
+      [ "120mm_usable_ap", 15 ],
       [ "120mm_usable_heat", 10 ],
-      [ "155mm_frag", 15 ], 
+      [ "155mm_frag", 15 ],
       [ "155mm_heat", 10 ],
       [ "25mm_apds", 10 ],
       [ "25mm_hei", 5 ],
       [ "belt25mm", 10 ],
-      [ "105mm_heat", 10 ], 
+      [ "105mm_heat", 10 ],
       [ "105mm_ap", 5 ],
       [ "electric_primer_120mm", 6 ],
       [ "primer_155mm", 4 ]
@@ -84,14 +90,14 @@
     "type": "item_group",
     "id": "launchers",
     "items": [
-      [ "120mm_usable_ap", 3 ], 
+      [ "120mm_usable_ap", 3 ],
       [ "120mm_usable_heat", 2 ],
-      [ "155mm_frag", 3 ], 
+      [ "155mm_frag", 3 ],
       [ "155mm_heat", 2 ],
       [ "25mm_apds", 2 ],
       [ "25mm_hei", 1 ],
       [ "belt25mm", 2 ],
-      [ "105mm_heat", 2 ], 
+      [ "105mm_heat", 2 ],
       [ "105mm_ap", 1 ],
       [ "electric_primer_120mm", 1 ],
       [ "primer_155mm", 1 ]
@@ -133,7 +139,12 @@
     "subtype": "distribution",
     "id": "map_extra_casings_tank_dummy",
     "//": "reproduces the normal results of map_extra_casings itemgroup, since the contents lack weights, the list is short, and the desired chance of spawning artillery casings is low.",
-    "entries": [ { "item": "rag_bloody" }, { "item": "cigar_butt" }, { "item": "cig_butt" }, { "item": "can_drink" } ]
+    "entries": [
+      { "item": "rag", "custom-flags": [ "FILTHY" ] },
+      { "item": "cigar_butt" },
+      { "item": "cig_butt" },
+      { "item": "can_drink" }
+    ]
   },
   {
     "id": "m1_abrams_ammo_rack",
@@ -163,7 +174,11 @@
     "entries": [
       { "item": "atgm_heat", "count": [ 1, 2 ], "prob": 30 },
       {
-        "distribution": [ { "item": "25mm_hei", "container-item": "belt25mm", "prob": 50, "charges": 100 }, { "item": "25mm_apds", "container-item": "belt25mm", "prob": 50, "charges": 100 } ], "prob": 30
+        "distribution": [
+          { "item": "25mm_hei", "container-item": "belt25mm", "prob": 50, "charges": 100 },
+          { "item": "25mm_apds", "container-item": "belt25mm", "prob": 50, "charges": 100 }
+        ],
+        "prob": 30
       }
     ]
   },
