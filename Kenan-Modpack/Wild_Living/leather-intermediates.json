@@ -1,0 +1,67 @@
+[
+  {
+    "id": "cordage_6_leather",
+    "copy-from": "cordage_6",
+    "type": "GENERIC",
+    "name": { "str": "short leather cord" },
+    "description": "A 6-inch (or about 15 cm) long piece of rawhide or leather cord.  Useful for some purposes, but not as strong or flexible as proper string.",
+    "proportional": { "price": 0.5 },
+    "material": [ "leather" ]
+  },
+  {
+    "id": "cordage_36_leather",
+    "copy-from": "cordage_36",
+    "type": "GENERIC",
+    "name": { "str": "long leather cord" },
+    "description": "A 3-foot (or about 90 cm) long piece of rawhide or leather cord.  Useful for some purposes, but not as strong or flexible as proper string.",
+    "proportional": { "price": 0.5 },
+    "material": [ "leather" ]
+  },
+  {
+    "id": "cordage",
+    "type": "requirement",
+    "//": "Materials used for tying items, primitive bowstrings, and other uses involving string or makeshift cordage, 36 g/90 cm of cordage per unit.",
+    "components": [ [ [ "string_36", 1 ], [ "cordage_36", 1 ], [ "cordage_36_leather", 1 ], [ "cordage_short", 6, "LIST" ] ] ]
+  },
+  {
+    "id": "cordage_short",
+    "type": "requirement",
+    "//": "Materials used for tying smaller items requiring less string, 6 g/15 cm of cordage per unit.",
+    "components": [ [ [ "string_6", 1 ], [ "cordage_6", 1 ], [ "cordage_6_leather", 1 ], [ "filament", 50, "LIST" ] ] ]
+  },
+  {
+    "id": "other_tiny",
+    "//": "Non-mammal critters that drop a little bit of meat",
+    "type": "harvest",
+    "entries": [ { "drop": "meat_scrap", "type": "flesh", "mass_ratio": 0.5 } ]
+  },
+  {
+    "id": "tainted_tiny",
+    "//": "Non-mammal critters that drop a little bit of tainted meat",
+    "type": "harvest",
+    "entries": [ { "drop": "meat_tainted", "type": "flesh", "mass_ratio": 0.5 } ]
+  },
+  {
+    "id": "mammal_tiny",
+    "//": "very small animals, cat size or smaller",
+    "type": "harvest",
+    "entries": [
+      { "drop": "meat_scrap", "type": "flesh", "mass_ratio": 0.5 },
+      { "drop": "meat", "type": "flesh", "mass_ratio": 0.28 },
+      { "drop": "bone", "type": "bone", "mass_ratio": 0.15 },
+      { "drop": "sinew", "type": "bone", "mass_ratio": 0.00035 },
+      { "drop": "raw_fur", "type": "skin", "mass_ratio": 0.08 },
+      { "drop": "fat", "type": "flesh", "mass_ratio": 0.07 }
+    ]
+  },
+  {
+    "id": "snake_small",
+    "//": "Small snakes, little bit of meat and a little leather",
+    "type": "harvest",
+    "entries": [
+      { "drop": "meat_scrap", "type": "flesh", "mass_ratio": 0.5 },
+      { "drop": "meat", "type": "flesh", "mass_ratio": 0.28 },
+      { "drop": "raw_leather", "type": "skin", "mass_ratio": 0.02 }
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+    "id": "fish_trap_primitive",
+    "type": "TOOL",
+    "name": { "str": "wooden fish trap" },
+    "description": "This is a makeshift fish trap made from wooden sticks and cordage.  It's primitive, but easy to use.  The principle of action: the fish swims inside for bait, but can't get out.",
+    "weight": "85 g",
+    "volume": "2000 ml",
+    "price": 500,
+    "to_hit": -2,
+    "material": [ "wood" ],
+    "symbol": ";",
+    "color": "green",
+    "ammo": [ "fish_bait" ],
+    "max_charges": 5,
+    "revert_to": "fish_trap_primitive",
+    "use_action": "FISH_TRAP"
+  },
+  {
+    "type": "recipe",
+    "result": "fish_trap_primitive",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_TOOLS",
+    "skill_used": "survival",
+    "difficulty": 4,
+    "autolearn": true,
+    "time": 10000,
+    "qualities": [ { "id": "CUT", "level": 1 } ],
+    "components": [ [ [ "stick_long", 8 ] ], [ [ "cordage", 1, "LIST" ] ] ]
+  }
+]

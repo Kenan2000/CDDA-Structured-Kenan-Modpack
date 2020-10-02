@@ -1,0 +1,33 @@
+[
+  {
+    "type": "construction",
+    "id": "c_plant_hedgerow",
+    "description": "Plant hedgerow",
+    "category": "FARM_WOOD",
+    "difficulty": 2,
+    "time": 10,
+    "qualities": [ [ { "id": "DIG", "level": 2 } ] ],
+    "components": [ [ [ "seed_veggy_wild", 10 ] ] ],
+    "pre_flags": "DIGGABLE",
+    "post_terrain": "t_hedgerow"
+  },
+  {
+    "type": "terrain",
+    "id": "t_hedgerow",
+    "name": "underbrush",
+    "description": "A shoulder high hedgerow.  An observant forager could obtain edible plants, acorns, eggs, and mushrooms from it.",
+    "symbol": "#",
+    "color": "light_green",
+    "move_cost": 0,
+    "flags": [ "FLAMMABLE_ASH", "NOITEM", "REDUCE_SCENT", "SHRUB" ],
+    "examine_action": "shrub_wildveggies",
+    "bash": {
+      "str_min": 4,
+      "str_max": 30,
+      "sound": "crunch.",
+      "sound_fail": "brush.",
+      "ter_set": "t_dirt",
+      "items": [ { "item": "withered", "prob": 50, "count": [ 1, 2 ] } ]
+    }
+  }
+]

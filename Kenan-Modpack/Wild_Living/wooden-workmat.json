@@ -1,0 +1,50 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_wooden_rollmat",
+    "name": "wooden workmat",
+    "description": "A collection of fairly flat sticks bound together with cordage, makes a passable butchery aid. ",
+    "symbol": "D",
+    "bgcolor": "brown",
+    "move_cost_mod": 0,
+    "required_str": 3,
+    "deployed_item": "wooden_rollmat",
+    "examine_action": "deployed_furniture",
+    "flags": [ "TRANSPARENT", "SHORT", "FLAT_SURF" ],
+    "deconstruct": { "items": [ { "item": "wooden_rollmat", "count": 1 } ] },
+    "bash": {
+      "str_min": 5,
+      "str_max": 10,
+      "sound": "smash!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "wooden_rollmat", "count": [ 1, 1 ] } ]
+    }
+  },
+  {
+    "id": "wooden_rollmat",
+    "type": "TOOL",
+    "name": { "str": "wooden workmat" },
+    "description": "A collection of fairly flat sticks bound together with cordage, makes a passable butchery aid.  It's rolled and ready for carrying.",
+    "weight": "5000 g",
+    "volume": "3750 ml",
+    "price": 3000,
+    "to_hit": -3,
+    "bashing": 2,
+    "material": [ "wood" ],
+    "symbol": "*",
+    "color": "brown",
+    "use_action": { "type": "deploy_furn", "furn_type": "f_wooden_rollmat" }
+  },
+  {
+    "type": "recipe",
+    "result": "wooden_rollmat",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_OTHER",
+    "skill_used": "survival",
+    "difficulty": 3,
+    "time": 10000,
+    "reversible": true,
+    "autolearn": true,
+    "components": [ [ [ "stick_long", 12 ] ], [ [ "cordage", 4, "LIST" ] ] ]
+  }
+]

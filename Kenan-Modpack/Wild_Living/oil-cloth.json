@@ -1,0 +1,226 @@
+[
+  {
+    "result": "rosin",
+    "override": true,
+    "type": "recipe",
+    "category": "CC_CHEM",
+    "subcategory": "CSC_CHEM_OTHER",
+    "skill_used": "cooking",
+    "difficulty": 3,
+    "time": "60 m",
+    "batch_time_factors": [ 70, 10 ],
+    "autolearn": true,
+    "qualities": [ { "id": "CHEM", "level": 1 }, { "id": "DISTILL", "level": 1 } ],
+    "tools": [ [ [ "surface_heat", 10, "LIST" ] ] ],
+    "byproducts": [ [ "turpentine", 1 ] ],
+    "components": [ [ [ "pine_bough", 1 ] ] ]
+  },
+  {
+    "result": "turpentine",
+    "type": "recipe",
+    "category": "CC_CHEM",
+    "subcategory": "CSC_CHEM_OTHER",
+    "skill_used": "cooking",
+    "difficulty": 3,
+    "time": "60 m",
+    "batch_time_factors": [ 70, 10 ],
+    "autolearn": true,
+    "qualities": [ { "id": "CHEM", "level": 1 }, { "id": "DISTILL", "level": 1 } ],
+    "tools": [ [ [ "surface_heat", 10, "LIST" ] ] ],
+    "byproducts": [ [ "rosin", 10 ] ],
+    "components": [ [ [ "pine_bough", 1 ] ] ]
+  },
+  {
+    "type": "COMESTIBLE",
+    "id": "turpentine",
+    "copy-from": "rosin",
+    "weight": "15 g",
+    "volume": "250 ml",
+    "charges": 16,
+    "name": { "str": "turpentine" },
+    "description": "Distilled from pine resin, this solvent has many uses in projects."
+  },
+  {
+    "type": "COMESTIBLE",
+    "id": "oilcloth_paint",
+    "name": { "str": "oilcloth paint" },
+    "weight": "250 g",
+    "color": "yellow",
+    "container": "jug_plastic",
+    "symbol": "~",
+    "description": "An oil based paint used for waterproofing canvas.",
+    "price": 60,
+    "material": [ "oil", "veggy" ],
+    "volume": "250 ml",
+    "phase": "liquid",
+    "freezing_point": 14
+  },
+  {
+    "type": "GENERIC",
+    "id": "canvas",
+    "copy-from": "sheet",
+    "name": { "str": "thick canvas", "str_pl": "thick canvasses" },
+    "description": "A large reinforced sheet of cloth",
+    "material": [ "canvas" ],
+    "proportional": { "weight": 2.0, "volume": 2.0, "price": 1.5 }
+  },
+  {
+    "type": "GENERIC",
+    "id": "oilcloth_canvas",
+    "copy-from": "canvas",
+    "name": { "str": "oilcloth canvas", "str_pl": "oilcloth canvasses" },
+    "proportional": { "price": 1.8 },
+    "description": "A large waterproofed canvas, a dark grey in colour"
+  },
+  {
+    "type": "GENERIC",
+    "id": "drying_oilcloth_frame",
+    "copy-from": "canvas",
+    "proportional": { "weight": 2.0 },
+    "name": { "str": "drying oilcloth", "str_pl": "drying oilcloths" },
+    "material": [ "oilcloth", "wood" ],
+    "use_action": {
+      "target": "oilcloth_canvas_dry",
+      "msg": "The paint has dried fully.",
+      "moves": 50,
+      "type": "delayed_transform",
+      "transform_age": 180000,
+      "not_ready_msg": "The paint isn't quite dry just yet."
+    }
+  },
+  {
+    "type": "GENERIC",
+    "id": "oilcloth_canvas_dry",
+    "name": { "str": "dried oilcloth", "str_pl": "dried oilcloths" },
+    "copy-from": "canvas",
+    "material": [ "oilcloth" ],
+    "proportional": { "weight": 1.1, "price": 1.2 },
+    "use_action": "DISASSEMBLE"
+  },
+  {
+    "type": "COMESTIBLE",
+    "id": "canola_oil",
+    "copy-from": "cooking_oil",
+    "name": { "str": "canola oil" },
+    "description": "Oil extracted from canola seeds"
+  },
+  {
+    "type": "recipe",
+    "result": "canola_oil",
+    "category": "CC_FOOD",
+    "subcategory": "CSC_FOOD_OTHER",
+    "skill_used": "cooking",
+    "difficulty": 4,
+    "charges": 1,
+    "time": "10 m",
+    "autolearn": true,
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "COOK", "level": 2 } ],
+    "tools": [ [ [ "surface_heat", 10, "LIST" ] ] ],
+    "components": [ [ [ "seed_canola", 4 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "result": "oilcloth_paint",
+    "category": "CC_FOOD",
+    "subcategory": "CSC_FOOD_OTHER",
+    "skill_used": "fabrication",
+    "difficulty": 2,
+    "skills_required": [ "survival", 4 ],
+    "time": "25 m",
+    "autolearn": true,
+    "charges": 2,
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "COOK", "level": 2 } ],
+    "tools": [ [ [ "surface_heat", 10, "LIST" ] ] ],
+    "components": [ [ [ "turpentine", 16 ] ], [ [ "canola_oil", 16 ] ], [ [ "charcoal", 50 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "result": "canvas",
+    "category": "CC_FOOD",
+    "subcategory": "CSC_FOOD_OTHER",
+    "skill_used": "tailor",
+    "difficulty": 3,
+    "skills_required": [ "survival", 4 ],
+    "time": "60 m",
+    "autolearn": true,
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "SEW", "level": 1 } ],
+    "components": [ [ [ "sheet", 2 ] ], [ [ "filament", 200, "LIST" ] ] ]
+  },
+  {
+    "type": "recipe",
+    "result": "drying_oilcloth_frame",
+    "category": "CC_FOOD",
+    "subcategory": "CSC_FOOD_OTHER",
+    "skill_used": "survival",
+    "difficulty": 4,
+    "time": "40 m",
+    "result_mult": 2,
+    "autolearn": true,
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "COOK", "level": 2 } ],
+    "components": [ [ [ "oilcloth_paint", 1 ] ], [ [ "canvas", 1 ] ], [ [ "frame_wood_light", 1 ] ] ]
+  },
+  {
+    "id": "any_butter_or_oil",
+    "type": "requirement",
+    "//": "For when a recipe calls for either cooking oil or butter, like many baking recipes do.",
+    "components": [
+      [
+        [ "cooking_oil", 1 ],
+        [ "canola_oil", 1 ],
+        [ "cooking_oil2", 1 ],
+        [ "raw_butter", 1 ],
+        [ "butter", 1 ],
+        [ "ghee", 1 ]
+      ]
+    ]
+  },
+  {
+    "id": "fry_oil",
+    "type": "requirement",
+    "//": "For when a recipe calls for deep frying, and the food absorbs some oil. Clarafied butter or ghee can be used to deep fry, but butter's smoke point is too low without clarification",
+    "components": [ [ [ "cooking_oil", 1 ], [ "canola_oil", 1 ], [ "cooking_oil2", 1 ], [ "ghee", 1 ] ] ]
+  },
+  {
+    "result": "oilcloth_canvas_dry",
+    "type": "uncraft",
+    "time": "1m",
+    "components": [ [ [ "oilcloth_canvas", 1 ] ], [ [ "frame_wood_light", 1 ] ] ]
+  },
+  {
+    "id": "selfmade_tent_kit",
+    "type": "TOOL",
+    "name": { "str": "oilcloth tent" },
+    "description": "This is a small personal tent kit made from oilcloth, it's just big enough to fit you comfortably.",
+    "weight": "1833 g",
+    "volume": "2800 ml",
+    "price": 15000,
+    "to_hit": -3,
+    "bashing": 4,
+    "material": [ "oilcloth", "wood" ],
+    "symbol": ";",
+    "color": "green",
+    "use_action": {
+      "type": "deploy_tent",
+      "radius": 1,
+      "broken_type": "broketent",
+      "wall": "f_canvas_wall",
+      "floor": "f_groundsheet",
+      "door_opened": "f_canvas_door_o",
+      "door_closed": "f_canvas_door"
+    }
+  },
+  {
+    "type": "recipe",
+    "result": "selfmade_tent_kit",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_TOOLS",
+    "skill_used": "fabrication",
+    "skills_required": [ "survival", 3 ],
+    "difficulty": 3,
+    "book_learn": [ [ "fun_survival", 1 ], [ "manual_survival", 1 ], [ "textbook_survival", 1 ] ],
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "SCREW", "level": 1 } ],
+    "time": "28 m",
+    "autolearn": true,
+    "components": [ [ [ "oilcloth_canvas", 2 ] ], [ [ "foldframe", 2 ], [ "pipe", 8 ] ] ]
+  }
+]

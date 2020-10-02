@@ -1,0 +1,122 @@
+[
+  {
+    "type": "terrain",
+    "override": true,
+    "id": "t_tree_willow",
+    "name": "willow tree",
+    "description": "A willow tree",
+    "symbol": "4",
+    "color": [ "light_green", "light_green", "light_green", "brown" ],
+    "//": "barren in winter, harvestable all year round",
+    "move_cost": 0,
+    "flags": [ "FLAMMABLE_ASH", "NOITEM", "SUPPORTS_ROOF", "TREE", "REDUCE_SCENT" ],
+    "examine_action": "harvest_ter",
+    "transforms_into": "t_tree_willow_harvested",
+    "harvest_by_season": [ { "seasons": [ "spring", "autumn" ], "entries": [ { "drop": "willow_reed", "base_num": [ 10, 20 ] } ] } ],
+    "bash": {
+      "str_min": 80,
+      "str_max": 180,
+      "sound": "crunch!",
+      "sound_fail": "whack!",
+      "ter_set": "t_dirt",
+      "items": [ { "item": "stick_long", "count": [ 3, 10 ] }, { "item": "splinter", "count": [ 10, 25 ] } ]
+    }
+  },
+  {
+    "type": "COMESTIBLE",
+    "id": "willow_fibres",
+    "name": { "str": "raw willow fibre", "str_pl": "raw willow fibres" },
+    "description": "The fibrous inner bark of willow, these have been boiled to loosen the fibres.",
+    "material": [ "veggy" ],
+    "weight": "105 g",
+    "volume": "250 ml",
+    "symbol": ",",
+    "color": "light_gray"
+  },
+  {
+    "type": "COMESTIBLE",
+    "id": "willow_reed",
+    "name": { "str": "willow reed", "str_pl": "willow reeds" },
+    "description": "A thin six foot willow stave. Useful for weaving into basketry or stripping for its bark.",
+    "material": [ "wood" ],
+    "flags": [ "TRADER_AVOID", "FIREWOOD" ],
+    "weight": "400 g",
+    "volume": "2500 ml",
+    "symbol": "/",
+    "color": "brown"
+  },
+  {
+    "type": "COMESTIBLE",
+    "id": "willow_reed_bundle",
+    "name": { "str": "willow reed bundle", "str_pl": "willow reed bundles" },
+    "description": "A tied bundle of willow reeds, easier to transport",
+    "material": [ "wood" ],
+    "flags": [ "TRADE_AVOID", "FIREWOOD" ],
+    "weight": "4000 g",
+    "volume": "3000 ml",
+    "symbol": "/",
+    "color": "brown"
+  },
+  {
+    "type": "recipe",
+    "result": "willow_reed_bundle",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_MATERIALS",
+    "skill_used": "survival",
+    "difficulty": 1,
+    "time": 1000,
+    "autolearn": true,
+    "using": [ [ "filament", 8 ] ],
+    "components": [ [ [ "willow_reed", 10 ] ] ],
+    "flags": [ "BLIND_HARD" ]
+  },
+  {
+    "result": "willow_reed_bundle",
+    "type": "uncraft",
+    "skill_used": "fabrication",
+    "qualities": [ { "id": "CUT", "level": 1 } ],
+    "components": [ [ [ "willow_reed", 10 ] ] ],
+    "flags": [ "BLIND_EASY" ]
+  },
+  {
+    "type": "recipe",
+    "id": "from_willow_reeds",
+    "result": "willowbark",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_MATERIALS",
+    "skill_used": "survival",
+    "result_mult": 1,
+    "difficulty": 1,
+    "time": 5000,
+    "autolearn": true,
+    "byproducts": [ [ "stick_long", 1 ] ],
+    "components": [ [ [ "willow_reed", 1 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "id": "from_willow",
+    "result": "willow_fibres",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_MATERIALS",
+    "skill_used": "survival",
+    "difficulty": 3,
+    "time": 45000,
+    "autolearn": true,
+    "batch_time_factors": [ 83, 1 ],
+    "result_mult": 24,
+    "qualities": [ { "id": "BOIL", "level": 1 }, { "id": "CONTAIN", "level": 1 } ],
+    "tools": [ [ [ "surface_heat", 20, "LIST" ] ] ],
+    "components": [ [ [ "water_clean", 4 ], [ "water", 4 ] ], [ [ "ash", 100 ] ], [ [ "willowbark", 10 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "override": true,
+    "result": "rope_makeshift_6",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_MATERIALS",
+    "skill_used": "survival",
+    "time": 7500,
+    "autolearn": true,
+    "components": [ [ [ "willow_fibres", 12 ], [ "withered", 36 ], [ "straw_pile", 36 ] ] ]
+  }
+]

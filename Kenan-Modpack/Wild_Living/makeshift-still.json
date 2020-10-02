@@ -1,0 +1,45 @@
+[
+  {
+    "id": "mound_distillation",
+    "type": "TOOL",
+    "copy-from": "fake_item",
+    "name": { "str": "primitive distillation" },
+    "description": "Fake item - exists for primitive still",
+    "qualities": [ [ "DISTILL", 1 ] ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_primitive_still",
+    "name": "makeshift still",
+    "symbol": "#",
+    "looks_like": "bottle_glass",
+    "description": "Little more than two bottles buried in dirt with a bent metal sheet to condense evaporated liquids. Will serve as a still in a pinch.",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "crafting_pseudo_item": "mound_distillation",
+    "flags": [ "PLACE_ITEM", "TRANSPARENT", "EASY_DECONSTRUCT" ],
+    "deconstruct": { "items": [ { "item": "bottle_glass", "count": 2 }, { "item": "sheet_metal", "count": 1 } ] },
+    "max_volume": "20 L",
+    "bash": {
+      "str_min": 12,
+      "str_max": 40,
+      "sound": "crunch!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "glass_shard", "count": [ 1, 2 ] } ]
+    }
+  },
+  {
+    "type": "construction",
+    "id": "c_primitive_still",
+    "description": "Build Makeshift Still",
+    "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 3 ], [ "survival", 2 ] ],
+    "time": "45 m",
+    "qualities": [ [ { "id": "DIG", "level": 1 }, { "id": "HAMMER", "level": 1 } ] ],
+    "components": [ [ [ "bottle_glass", 2 ] ], [ [ "sheet_metal", 1 ] ] ],
+    "pre_note": "Can be deconstructed without tools.",
+    "pre_terrain": "t_dirtmound",
+    "post_terrain": "f_primitive_still"
+  }
+]

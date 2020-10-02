@@ -1,0 +1,80 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_makeshiftfence",
+    "name": "makeshift fence",
+    "looks_like": "t_fence",
+    "move_cost_mod": 3,
+    "required_str": -1,
+    "symbol": "LINE_OXOX",
+    "description": "A makeshift fence",
+    "color": "brown",
+    "move_cost": 3,
+    "flags": [ "TRANSPARENT", "DIGGABLE", "FLAMMABLE_ASH", "NOITEM", "PERMEABLEW", "SHORT", "AUTO_WALL_SYMBOL" ],
+    "connects_to": "WOODFENCE",
+    "deconstruct": { "items": [ { "item": "2x4", "amount": 8, "minamount": 8 } ] },
+    "bash": {
+      "str_min": 4,
+      "str_max": 20,
+      "sound": "crack.",
+      "sound_fail": "wham.",
+      "items": [ { "item": "2x4", "amount": 6, "minamount": 2 } ]
+    }
+  },
+  {
+    "type": "construction",
+    "id": "c_makeshift_fence",
+    "description": "Build Makeshift Fence",
+    "category": "FURN",
+    "difficulty": 2,
+    "time": 10,
+    "qualities": [
+      [ { "id": "DIG", "level": 2 } ],
+      [ { "id": "HAMMER", "level": 2 } ],
+      [ { "id": "SAW_W", "level": 1 } ],
+      [ { "id": "AXE", "level": 1 } ]
+    ],
+    "components": [ [ [ "2x4", 8 ], [ "stick", 8 ] ] ],
+    "pre_flags": "DIGGABLE",
+    "post_terrain": "f_makeshiftfence"
+  },
+  {
+    "type": "furniture",
+    "id": "f_wovenfence",
+    "name": "woven fence",
+    "looks_like": "t_fence",
+    "move_cost_mod": 3,
+    "required_str": -1,
+    "symbol": "LINE_OXOX",
+    "description": "A fence made from simple fence posts and branches woven between the posts.",
+    "color": "brown",
+    "move_cost": 3,
+    "flags": [ "TRANSPARENT", "DIGGABLE", "FLAMMABLE_ASH", "NOITEM", "PERMEABLE", "MOUNTABLE", "AUTO_WALL_SYMBOL" ],
+    "connects_to": "WOODFENCE",
+    "deconstruct": { "items": [ { "item": "stick", "amount": 8, "minamount": 8 } ] },
+    "bash": {
+      "str_min": 4,
+      "str_max": 20,
+      "sound": "crack.",
+      "sound_fail": "wham.",
+      "items": [ { "item": "stick", "amount": 6, "minamount": 2 } ]
+    }
+  },
+  {
+    "type": "construction",
+    "id": "c_wovenfence",
+    "description": "Build Woven Fence",
+    "category": "FURN",
+    "difficulty": 2,
+    "time": 10,
+    "qualities": [
+      [ { "id": "DIG", "level": 2 } ],
+      [ { "id": "HAMMER", "level": 2 } ],
+      [ { "id": "SAW_W", "level": 1 } ],
+      [ { "id": "AXE", "level": 1 } ]
+    ],
+    "components": [ [ [ "stick", 2 ], [ "stick_long", 8 ] ] ],
+    "pre_flags": "DIGGABLE",
+    "post_terrain": "f_wovenfence"
+  }
+]

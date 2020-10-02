@@ -1,0 +1,84 @@
+[
+  {
+    "id": "birch_water_jug",
+    "type": "GENERIC",
+    "category": "CC_OTHER",
+    "name": { "str": "birch water jug" },
+    "description": "A carefully made birch bark water jug with a lid, it is sealed with pine pitch. It can hold 1.5 liters of water.",
+    "weight": "453 g",
+    "volume": "3752 ml",
+    "price": 2000,
+    "to_hit": -1,
+    "bashing": 1,
+    "rigid": false,
+    "material": [ "wood" ],
+    "symbol": ")",
+    "color": "brown",
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "rigid": true,
+        "watertight": true,
+        "max_contains_volume": "3750 ml",
+        "max_contains_weight": "8 kg"
+      }
+    ]
+  },
+  {
+    "id": "birch_funnel",
+    "type": "TOOL",
+    "name": { "str": "birch funnel" },
+    "description": "This is a small, birchbark funnel used to collect rainwater.  Use it outside and place a container beneath it to collect water when it rains.",
+    "weight": "4 g",
+    "volume": "250 ml",
+    "price": 0,
+    "to_hit": 1,
+    "material": [ "wood" ],
+    "symbol": ";",
+    "color": "brown",
+    "use_action": {
+      "type": "place_trap",
+      "allow_under_player": true,
+      "trap": "tr_birch_funnel",
+      "moves": 100,
+      "practice": 0,
+      "done_message": "You place the birch funnel, waiting to collect rain."
+    }
+  },
+  {
+    "type": "trap",
+    "id": "tr_birch_funnel",
+    "name": "birchbark funnel",
+    "color": "yellow",
+    "symbol": "v",
+    "visibility": -1,
+    "avoidance": 0,
+    "difficulty": 0,
+    "action": "none",
+    "drops": [ "birch_funnel" ],
+    "benign": true,
+    "funnel_radius": 200
+  },
+  {
+    "type": "recipe",
+    "result": "birch_water_jug",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_CONTAINERS",
+    "skill_used": "survival",
+    "difficulty": 2,
+    "time": 30000,
+    "autolearn": true,
+    "components": [ [ [ "birchbark", 4 ] ], [ [ "cordage", 1, "LIST" ], [ "filament", 60, "LIST" ] ], [ [ "pine_bough", 1 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "result": "birch_funnel",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_CONTAINERS",
+    "skill_used": "survival",
+    "difficulty": 2,
+    "time": 30000,
+    "autolearn": true,
+    "components": [ [ [ "birchbark", 2 ] ], [ [ "cordage", 1, "LIST" ], [ "filament", 60, "LIST" ] ], [ [ "pine_bough", 1 ] ] ]
+  }
+]
