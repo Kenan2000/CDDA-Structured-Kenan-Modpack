@@ -1,6 +1,10 @@
 # CDDA-Kenan-Modpack
 Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for latest experimental versions - **IF YOU USE CDDA LAUNCHER BY REMYROY - UPDATE THE GAME FIRST VIA LAUNCHER and ONLY AFTER that put the mods IN**
 
+# Link to GoatGod's ASTOUNDINGLY NOICE MODPACK
+
+https://github.com/TheGoatGod/Goats-Mod-Compilation
+
 # Links to my other works
 
 My HUGE and AWESOME BL9 mod
