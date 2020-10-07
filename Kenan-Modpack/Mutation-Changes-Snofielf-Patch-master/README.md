@@ -15,3 +15,5 @@ generally unfucked the tortoise
 mutation. Contact me on the discord at @SnoTheLeopard#0621 for more questions.
 
 >Please help me get this mainlined <3 <3 <3
+
+Hello there, updated to the new version, mutations should work, there is maybe left some bugs, tell me about them, will try my best to fix them.
