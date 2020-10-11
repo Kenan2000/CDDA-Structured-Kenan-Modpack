@@ -5,14 +5,15 @@
     "name": "psi stun",
     "description": "an attack that stuns the target for a few turns",
     "valid_targets": [ "hostile" ],
-    "effect": "target_attack",
+    "effect": "attack",
+	"shape": "blast",
     "effect_str": "stunned",
     "message": "%1$s gesticulates at %3$s and a pulse of disorienting psionic energy ripples through the air!",
     "min_range": 1,
     "max_range": 10,
     "min_duration": 225,
     "max_duration": 225,
-    "flags": [ "SILENT" ]
+    "flags": [ "SILENT", "NO_PROJECTILE" ]
   },
   {
     "type": "SPELL",
@@ -20,14 +21,15 @@
     "name": "psi panic",
     "description": "an attack that panics the target for a few turns",
     "valid_targets": [ "hostile" ],
-    "effect": "target_attack",
+    "effect": "attack",
+	"shape": "blast",
     "effect_str": "panic",
     "message": "The %1$s gesticulates at %3$s and a pulse of fear-inducing psionic energy ripples through the air!",
     "min_range": 1,
     "max_range": 10,
     "min_duration": 425,
     "max_duration": 425,
-    "flags": [ "SILENT" ]
+    "flags": [ "SILENT", "NO_PROJECTILE" ]
   },
   {
     "type": "SPELL",
@@ -35,14 +37,15 @@
     "name": "psi hallucinate",
     "description": "an attack that causes the target to hallucinate for a few turns",
     "valid_targets": [ "hostile" ],
-    "effect": "target_attack",
+    "effect": "attack",
+	"shape": "blast",
     "effect_str": "visuals",
     "message": "%1$s gesticulates at %3$s and a pulse of mind-bending psionic energy ripples through the air!",
     "min_range": 1,
     "max_range": 10,
     "min_duration": 225,
     "max_duration": 225,
-    "flags": [ "SILENT" ]
+    "flags": [ "SILENT", "NO_PROJECTILE" ]
   },
   {
     "type": "SPELL",
@@ -51,6 +54,7 @@
     "description": "an attack that summons a temporary monster",
     "valid_targets": [ "ground" ],
     "effect": "summon",
+	"shape": "blast",
     "effect_str": "dks_mon_psighost",
     "message": "%1$s gesticulates, and a soldier made of a mysterious energy appears!",
     "min_damage": 1,
@@ -61,7 +65,7 @@
     "max_aoe": 3,
     "min_duration": 1800,
     "max_duration": 3600,
-    "flags": [ "SILENT", "HOSTILE_SUMMON" ]
+    "flags": [ "SILENT", "HOSTILE_SUMMON", "NO_PROJECTILE" ]
   },
   {
     "type": "SPELL",
@@ -71,6 +75,7 @@
     "valid_targets": [ "hostile", "ground" ],
     "message": "",
     "effect": "none",
+	"shape": "blast",
     "min_damage": 1,
     "max_damage": 1,
     "min_range": 10,
@@ -84,7 +89,7 @@
       { "id": "dks_monspell_halluc" },
       { "id": "dks_monspell_psighost" }
     ],
-    "flags": [ "SILENT", "WONDER" ]
+    "flags": [ "SILENT", "WONDER", "NO_PROJECTILE" ]
   },
   {
     "type": "SPELL",
@@ -92,13 +97,14 @@
     "name": "camera",
     "description": "an attack that blinds the target for a few turns",
     "valid_targets": [ "hostile" ],
-    "effect": "target_attack",
+    "effect": "attack",
+	"shape": "blast",
     "effect_str": "blind",
     "message": "",
     "min_range": 1,
     "max_range": 1,
     "min_duration": 425,
     "max_duration": 425,
-    "flags": [ "SILENT" ]
+    "flags": [ "SILENT", "NO_PROJECTILE" ]
   }
 ]

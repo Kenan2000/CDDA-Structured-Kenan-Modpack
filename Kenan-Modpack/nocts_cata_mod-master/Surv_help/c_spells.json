@@ -10,6 +10,7 @@
     "max_damage": 50,
     "base_casting_time": 200,
     "effect": "recover_energy",
+    "shape": "blast",
     "effect_str": "BIONIC",
     "extra_effects": [ { "id": "c_cbm_rtg_induction_2", "hit_self": true }, { "id": "c_cbm_rtg_induction_3", "hit_self": true } ]
   },
@@ -19,7 +20,8 @@
     "name": { "str": "CBM Induction Heat" },
     "description": "Vented waste heat.",
     "valid_targets": [ "self" ],
-    "effect": "target_attack",
+    "effect": "attack",
+    "shape": "blast",
     "field_id": "fd_hot_air3",
     "min_field_intensity": 2,
     "max_field_intensity": 2,
@@ -32,7 +34,8 @@
     "description": "Radiation!",
     "valid_targets": [ "self" ],
     "flags": [ "RANDOM_DURATION" ],
-    "effect": "target_attack",
+    "effect": "attack",
+    "shape": "blast",
     "effect_str": "rtg_induction_radiation",
     "min_duration": 500,
     "max_duration": 1000
@@ -47,7 +50,8 @@
     "flags": [ "SILENT", "RANDOM_DURATION" ],
     "min_duration": 18500,
     "max_duration": 19500,
-    "effect": "target_attack",
+    "effect": "attack",
+    "shape": "blast",
     "effect_str": "adrenaline_bioweapon"
   },
   {
@@ -58,12 +62,14 @@
     "valid_targets": [ "self" ],
     "flags": [ "SILENT" ],
     "message": "",
-    "effect": "target_attack"
+    "effect": "attack",
+    "shape": "blast"
   },
   {
     "type": "SPELL",
     "id": "c_topographical_scan",
     "effect": "map",
+    "shape": "blast",
     "name": { "str": "Topographical Scan" },
     "description": "Reveals an area around you on the overmap.",
     "valid_targets": [ "self" ],
@@ -82,7 +88,8 @@
     "flags": [ "RANDOM_DURATION", "SILENT" ],
     "min_duration": 90000,
     "max_duration": 180000,
-    "effect": "target_attack",
+    "effect": "attack",
+    "shape": "blast",
     "effect_str": "adrenaline",
     "extra_effects": [ { "id": "c_biostim_side_effects", "hit_self": true }, { "id": "c_biostim_pain", "hit_self": true } ]
   },
@@ -96,7 +103,8 @@
     "flags": [ "SILENT" ],
     "min_duration": 360000,
     "max_duration": 360000,
-    "effect": "target_attack",
+    "effect": "attack",
+    "shape": "blast",
     "effect_str": "biostim_side_effects"
   },
   {
@@ -106,6 +114,7 @@
     "description": "Similar to AEA_PAIN except message is suppressed.",
     "valid_targets": [ "self" ],
     "effect": "recover_energy",
+    "shape": "blast",
     "effect_str": "PAIN",
     "flags": [ "RANDOM_DAMAGE", "SILENT" ],
     "min_damage": -5,
@@ -121,6 +130,7 @@
     "message": "",
     "flags": [ "SILENT", "PERMANENT", "NO_HANDS", "NO_LEGS" ],
     "effect": "spawn_item",
+    "shape": "blast",
     "effect_str": "mutagenic_ampoule",
     "//": "Reuses the pain effect Biostim calls for.",
     "extra_effects": [ { "id": "c_biostim_pain", "hit_self": true }, { "id": "c_hemo_damage", "hit_self": true } ],
@@ -135,7 +145,8 @@
     "message": "",
     "valid_targets": [ "self" ],
     "flags": [ "SILENT" ],
-    "effect": "target_attack",
+    "effect": "attack",
+    "shape": "blast",
     "min_damage": 10,
     "max_damage": 10,
     "damage_type": "pure"
@@ -149,6 +160,7 @@
     "message": "",
     "flags": [ "SILENT", "PERMANENT", "NO_HANDS", "NO_LEGS" ],
     "effect": "spawn_item",
+    "shape": "blast",
     "effect_str": "purified_ampoule",
     "extra_effects": [ { "id": "c_biostim_pain", "hit_self": true }, { "id": "c_hemo_damage", "hit_self": true } ],
     "min_duration": 1,
@@ -163,7 +175,8 @@
     "message": "",
     "min_range": 1,
     "max_range": 1,
-    "effect": "target_attack",
+    "effect": "attack",
+    "shape": "blast",
     "flags": [ "SILENT" ],
     "extra_effects": [ { "id": "c_lifedrain_2", "hit_self": true } ]
   },
@@ -174,7 +187,8 @@
     "description": "This creates the effect that heals the caster.",
     "message": "",
     "valid_targets": [ "self" ],
-    "effect": "target_attack",
+    "effect": "attack",
+    "shape": "blast",
     "min_damage": -2,
     "max_damage": -5,
     "flags": [ "RANDOM_DAMAGE", "SILENT" ]

@@ -2,10 +2,11 @@
   {
     "id": "t2_mana_darkbeam",
     "type": "SPELL",
-    "name": "Dark Beam",
+    "name": { "str": "Dark Beam" },
     "description": "A profane mana beam bursts violently, striking your foes within a line that deals <color_gray>pure damage</color>.\n\nThis is a <color_gray>tier 2</color> spell.",
     "valid_targets": [ "hostile", "ground" ],
-    "effect": "line_attack",
+    "effect": "attack",
+    "shape": "line",
     "base_energy_cost": 175,
     "final_energy_cost": 325,
     "energy_source": "MANA",
@@ -21,15 +22,16 @@
     "max_aoe": 4,
     "flags": [ "SOMATIC", "VERBAL", "NO_LEGS" ],
     "base_casting_time": 175,
-    "damage_type": "none"
+    "damage_type": "pure"
   },
   {
     "id": "t2_mana_etherealstrike",
     "type": "SPELL",
-    "name": "Ethereal Strike",
+    "name": { "str": "Ethereal Strike" },
     "description": "An etherean silhouette emerges out of thin air, immediately attacking the foe that deals <color_gray>pure damage</color> and <color_yellow>grasps</color> at them.\n\nThis is a <color_gray>tier 2</color> spell.",
     "valid_targets": [ "hostile" ],
-    "effect": "target_attack",
+    "effect": "attack",
+    "shape": "blast",
     "effect_str": "v_spell_etherealstrike",
     "base_energy_cost": 155,
     "final_energy_cost": 155,
@@ -42,11 +44,11 @@
     "max_level": 10,
     "min_range": 4,
     "max_range": 20,
-    "flags": [ "SOMATIC", "VERBAL", "NO_LEGS" ],
+    "flags": [ "SOMATIC", "VERBAL", "NO_LEGS", "NO_PROJECTILE" ],
     "base_casting_time": 400,
     "final_casting_time": 100,
     "min_duration": 200,
     "max_duration": 600,
-    "damage_type": "none"
+    "damage_type": "pure"
   }
 ]

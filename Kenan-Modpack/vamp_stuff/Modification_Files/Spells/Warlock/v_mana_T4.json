@@ -2,10 +2,11 @@
   {
     "id": "t4_mana_darkburst",
     "type": "SPELL",
-    "name": "Dark Burst",
+    "name": { "str": "Dark Burst" },
     "description": "A wave of profane magic bursts out of your body, dealing <color_gray>pure damage</color> to the surrounding foes.\n* Foes within a 3 tile radius are <color_yellow>pushed back</color>.\n\nThis is a <color_light_red>tier 4</color> spell.",
     "valid_targets": [ "hostile", "ground" ],
-    "effect": "projectile_attack",
+    "effect": "attack",
+    "shape": "blast",
     "extra_effects": [ { "id": "t4_mana_darkburst_push" } ],
     "base_energy_cost": 250,
     "final_energy_cost": 600,
@@ -21,6 +22,6 @@
     "aoe_increment": 0.2,
     "flags": [ "SOMATIC", "VERBAL", "NO_LEGS" ],
     "base_casting_time": 225,
-    "damage_type": "none"
+    "damage_type": "pure"
   }
 ]
