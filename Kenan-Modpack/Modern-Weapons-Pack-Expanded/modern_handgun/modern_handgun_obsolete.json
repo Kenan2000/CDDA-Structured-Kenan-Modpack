@@ -2,7 +2,7 @@
   {
     "id": "strike40_mag",
     "type": "MAGAZINE",
-    "name": "Strike One .40 magazine",
+    "name": { "str": "Strike One .40 magazine" },
     "//": "See https://github.com/CleverRaven/Cataclysm-DDA/pull/23078 . The removal of caliber conversion kits from coregame broke this.",
     "description": "The standard magazine for the Browning HP, holds 13 rounds staggered.",
     "weight": "70 g",
@@ -11,15 +11,16 @@
     "material": [ "steel" ],
     "symbol": "#",
     "color": "light_gray",
-    "ammo_type": "40",
+    "ammo_type": [ "40" ],
     "capacity": 13,
-    "reliability": 9,
-    "flags": [ "MAG_COMPACT" ]
+    "reload_time": 60,
+    "flags": [ "MAG_COMPACT" ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "40": 13 } } ]
   },
   {
     "id": "hp40mag",
     "type": "MAGAZINE",
-    "name": "Browning HP .40 magazine",
+    "name": { "str": "Browning HP .40 magazine" },
     "//": "See https://github.com/CleverRaven/Cataclysm-DDA/pull/23078 . The removal of caliber conversion kits from coregame broke this.",
     "description": "The .40 magazine for the Browning HP, holds 10 rounds double-stacked with a staggered feed.",
     "weight": "70 g",
@@ -28,15 +29,16 @@
     "material": [ "steel" ],
     "symbol": "#",
     "color": "light_gray",
-    "ammo_type": "40",
+    "ammo_type": [ "40" ],
     "capacity": 10,
-    "reliability": 9,
-    "flags": [ "MAG_COMPACT" ]
+    "reload_time": 60,
+    "flags": [ "MAG_COMPACT" ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "40": 10 } } ]
   },
   {
     "id": "ccw40mag",
     "type": "MAGAZINE",
-    "name": "compact concealed carry .40 magazine",
+    "name": { "str": "compact concealed carry .40 magazine" },
     "//": "See https://github.com/CleverRaven/Cataclysm-DDA/pull/23078 . The removal of caliber conversion kits from coregame broke this.",
     "description": "The standard magazine for a compact handgun, holds 6 rounds.",
     "weight": "54 g",
@@ -45,9 +47,10 @@
     "material": [ "steel" ],
     "symbol": "#",
     "color": "light_gray",
-    "ammo_type": "40",
+    "ammo_type": [ "40" ],
     "capacity": 6,
-    "reliability": 9,
-    "flags": [ "MAG_COMPACT" ]
+    "reload_time": 60,
+    "flags": [ "MAG_COMPACT" ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "40": 6 } } ]
   }
 ]
