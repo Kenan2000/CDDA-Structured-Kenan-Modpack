@@ -298,7 +298,7 @@
     "price": 1600000,
     "material": [ "steel", "plastic" ],
     "ammo_effects": [ "LASER", "INCENDIARY" ],
-    "flags": [ "FIRE_50", "SHOT", "NO_UNLOAD", "NEVER_JAMS", "NON-FOULING", "NEEDS_NO_LUBE" ],
+    "flags": [ "FIRE_50", "NO_UNLOAD", "NEVER_JAMS", "NON-FOULING", "NEEDS_NO_LUBE" ],
     "ammo": [ "battery" ],
     "pocket_data": [
       {
@@ -481,36 +481,6 @@
     ]
   },
   {
-    "id": "lasermusket_battery_cell",
-    "type": "MAGAZINE",
-    "category": "spare_parts",
-    "name": { "str": "laser musket capacitor bank" },
-    "description": "This is the capacitor for a laser musket. Clearly handmade with love and care..",
-    "weight": "250 g",
-    "volume": "300 ml",
-    "price": 5000,
-    "material": [ "iron", "plastic" ],
-    "symbol": "=",
-    "color": "yellow",
-    "ammo_type": [ "battery" ],
-    "capacity": 1,
-    "reliability": 5,
-    "pocket_data": [
-      {
-        "pocket_type": "MAGAZINE",
-        "rigid": true,
-        "ammo_restriction": {
-          "medium_battery_cell": 1,
-          "medium_plus_battery_cell": 1,
-          "medium_atomic_battery_cell": 1,
-          "medium_disposable_cell": 1
-        }
-      }
-    ],
-    "looks_like": "battery",
-    "flags": [ "NO_SALVAGE", "NO_UNLOAD", "RECHARGE" ]
-  },
-  {
     "id": "musket_laser",
     "type": "GUN",
     "color": "green",
@@ -544,7 +514,7 @@
         "max_contains_volume": "20 L",
         "magazine_well": "250 ml",
         "max_contains_weight": "20 kg",
-        "item_restriction": [ "lasermusket_battery_cell" ]
+        "item_restriction": [ "medium_battery_cell", "medium_plus_battery_cell", "medium_atomic_battery_cell", "medium_disposable_cell" ]
       }
     ],
     "valid_mod_locations": [
