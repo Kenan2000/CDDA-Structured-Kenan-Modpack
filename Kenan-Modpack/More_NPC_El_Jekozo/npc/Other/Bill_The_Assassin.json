@@ -1,6 +1,6 @@
 [
   {
-  	"//":"TODO do all",
+  	"//":"TODO do all, write something not that lame please",
     "type": "npc",
     "id": "bill_the_assassin",
     "name_unique": "Bill",
@@ -37,15 +37,15 @@
       { "skill": "shotgun", "bonus": { "rng": [ 2, 6 ] } },
       { "skill": "driving", "bonus": { "rng": [ 2, 6 ] } }
     ],
-    "CBMs": [
-      "bio_targeting",
-      "bio_shotgun",
-      "bio_carbon",
-      "bio_adrenaline",
-      "bio_night_vision",
-      "bio_face_mask",
-      "bio_metabolics",
-      "bio_power_storage_mkII"
+    "bionics": [
+      { "id": "bio_targeting", "chance": 100 },
+      { "id": "bio_shotgun", "chance": 100 },
+      { "id": "bio_carbon", "chance": 100 },
+      { "id": "bio_adrenaline", "chance": 100 },
+      { "id": "bio_night_vision", "chance": 100 },
+      { "id": "bio_face_mask", "chance": 100 },
+      { "id": "bio_metabolics", "chance": 100 },
+      { "id": "bio_power_storage_mkII", "chance": 100 }
     ]
   },
   {
@@ -74,44 +74,81 @@
 	]
   },
   {
-    "id": ["bill_the_assassin_start"],
+    "id": ["bill_the_assassin_bad"],
     "type": "talk_topic",
-	"dynamic_line": "Halt, who goes there? Show yourself!",
+	"dynamic_line": "The answer is wrong.",
     "responses": [
-	  { 
-	  "text": "I'm here for business.",
-	  "trial": { "type": "CONDITION", "condition": {"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"}
-	  },
-	  "success": {"topic": "bill_the_assassin_good"},
-	  "failure": {"topic": "bill_the_assassin_bad"}
-	  },
-      { "text": "I'm here to kick your ass", "topic": "bill_the_assassin_bad" }
+      { "text": "...", "topic": "TALK_DONE", "effect":"insult_combat" }
     ]
   },
   {
-    "id": "MISSION_bill_the_assassin_1",
-    "type": "mission_definition",
-    "name": { "str": "Find me new students" },
-    "description": "Find new students.",
-    "goal": "MGOAL_CONDITION",
-	"goal_condition": {"u_has_var":"fkl_students", "type": "flag", "context": "meeting", "value": "2"},
-    "difficulty": 0,
-    "value": 1000,
-	"end":{
+    "id": ["bill_the_assassin_start"],
+    "type": "talk_topic",
+	"dynamic_line": "So, you stumbled upon me. I suggest that you leave this place and run away as fast as you can, unless you want to get a new hole in your head.",
+    "responses": [
+      { "text": "I'm here to kick your ass!", "topic": "bill_the_assassin_bad" },
+      { "text": "I'm here to talk, Bill.", "topic": "bill_the_assassin_talk" }
+    ]
+  },
+  {
+    "id": ["bill_the_assassin_talk"],
+    "type": "talk_topic",
+	"dynamic_line": "So, you know my name AND how to find me. Interesting. I'm listeting, but if you say something that I wouldn't like, you will be dead in a second. Speak.",
+    "responses": [
+      { "text": "Actually, I'll kick your ass!", "topic": "bill_the_assassin_bad" },
+      { "text": "I'm here because of some officer that wants you dead. He looks kinda suspicious, so I want to learn the whole story.", "topic": "bill_the_assassin_talk1" }
+    ]
+  },
+  {
+    "id": ["bill_the_assassin_talk1"],
+    "type": "talk_topic",
+	"dynamic_line": "And why should I tell you, instead of just just kill you and return to my business?",
+    "responses": [
+      { "text": "How rude, I'll kick your ass!", "topic": "bill_the_assassin_bad" },
+      { "text": "Because, umm, please?", 
+	    "trial": { "type": "PERSUADE", "difficulty": 8 },
+		"success": { "topic": "bill_the_assassin_talk2" },
+		"failure": { "topic": "bill_the_assassin_bad" } 
+	  }
+    ]
+  },
+  {
+    "id": ["bill_the_assassin_talk2"],
+    "type": "talk_topic",
+	"dynamic_line": "Hmm, if you put it that way, I'll tell you something interesting. I think your friend asked you to bring back my head. Why do I know? That cop guy just wants to screw you and loot my basement! I have a secret storage room in my basement that opens only after retinal scan, and he will do anything to get to that room. Tell you what, if you kill that bastard, I'll open it for you. Anything that I left behind me, will be yours. Whatcha say?",
+    "responses": [
+      { "text": "Nope, i'll kick your ass!", "topic": "bill_the_assassin_bad" },
+      { "text": "I'll think about that.", "topic": "TALK_DONE", 
 		"effect":[
+			{"npc_first_topic":"bill_the_assassin_talk3"},
+			{"u_add_var": "bill_the_assassin_basement", "type": "general", "context": "meeting", "value": "yes"}
 		]
-	},
-    "origins": [ "ORIGIN_SECONDARY" ],
-    "dialogue": {
-      "describe": "True student!!!",
-      "offer": "!!!Учеников мне нарисуй",
-      "accepted": "!!!Жду",
-      "rejected": "!!!Ты что, испугался?",
-      "advice": "!!!Будь аккуратен.",
-      "inquire": "I'm waiting.",
-      "success": "!!!Молодец, держи пояс.",
-      "success_lie": "True warriors don't lie!",
-      "failure": "You are a disgrace to your family!"
-		}
-	}
+	  }
+    ]
+  },
+  {
+    "id": ["bill_the_assassin_talk3"],
+    "type": "talk_topic",
+	"dynamic_line": "So?",
+    "responses": [
+      { "text": "I still want to kick your ass!", "topic": "bill_the_assassin_bad" },
+      { "text": "So, officer is dead.", "topic": "bill_the_assassin_truth",
+		"condition":{"u_has_var": "police_teacher_dead", "type": "general", "context": "meeting", "value": "yes"}
+	  }
+    ]
+  },
+  {
+    "id": ["bill_the_assassin_talk2"],
+    "type": "talk_topic",
+	"dynamic_line": "Wow, cool. Actually, I lied about secret room. Take this book instead.",
+    "responses": [
+      { "text": "LIAR!", "topic": "bill_the_assassin_bad" },
+      { "text": "...", "topic": "TALK_DONE", 
+		"effect":[
+			"end_conversation",
+			{"u_buy_item":"manual_centipede"}
+		]
+	  }
+    ]
+  }
 ]
