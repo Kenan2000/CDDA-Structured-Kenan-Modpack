@@ -1,0 +1,117 @@
+[
+  {
+  	"//":"TODO do all",
+    "type": "npc",
+    "id": "bill_the_assassin",
+    "name_unique": "Bill",
+    "gender": "male",
+    "name_suffix": "Assassin",
+	"class": "bill_the_assassin",
+    "attitude": 1,
+    "mission": 10,
+    "chat": "bill_the_assassin_start",
+    "faction": "no_faction"
+  },
+    {
+    "type": "npc_class",
+    "id": "bill_the_assassin",
+    "name": { "str": "The Assassin" },
+    "job_description": "The Assassin.",
+    "common": false,
+    "traits": [ 
+		{ "group": "NPC_starting_traits" },
+		{ "group": "Appearance_demographics" }
+	],
+    "bonus_str": { "rng": [ 2, 5 ] },
+    "bonus_dex": { "rng": [ 2, 6 ] },
+    "bonus_int": { "rng": [ 3, 5 ] },
+    "bonus_per": { "rng": [ 4, 5 ] },
+    "worn_override": "bill_the_assassin_worn",
+    "carry_override": "bill_the_assassin_carried",
+    "skills": [
+      { "skill": "melee", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "stabbing", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "pistol", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "shotgun", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "driving", "bonus": { "rng": [ 2, 6 ] } }
+    ],
+    "CBMs": [
+      "bio_targeting",
+      "bio_shotgun",
+      "bio_carbon",
+      "bio_adrenaline",
+      "bio_night_vision",
+      "bio_face_mask",
+      "bio_metabolics",
+      "bio_power_storage_mkII"
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "bill_the_assassin_worn",
+    "subtype": "collection",
+    "entries": [
+		{"item": "suit"},
+		{"item": "bowhat"},
+		{"item": "socks"},
+		{"item": "dress_shoes"},
+		{"item": "boxer_shorts"},
+		{"item": "knit_scarf"},
+		{"item": "kevlar"},
+		{"item": "boxer_shorts"},
+		{"item": "sunglasses"}
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "bill_the_assassin_carried",
+    "subtype": "collection",
+    "entries": [ 
+        { "item": "glock_19", "ammo-item": "9mm", "container-item": "holster", "charges": 15 },
+        { "item": "glockmag", "ammo-item": "9mm", "charges": 15 }
+	]
+  },
+  {
+    "id": ["bill_the_assassin_start"],
+    "type": "talk_topic",
+	"dynamic_line": "Halt, who goes there? Show yourself!",
+    "responses": [
+	  { 
+	  "text": "I'm here for business.",
+	  "trial": { "type": "CONDITION", "condition": {"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"}
+	  },
+	  "success": {"topic": "bill_the_assassin_good"},
+	  "failure": {"topic": "bill_the_assassin_bad"}
+	  },
+      { "text": "I'm here to kick your ass", "topic": "bill_the_assassin_bad" }
+    ]
+  },
+  {
+    "id": "MISSION_bill_the_assassin_1",
+    "type": "mission_definition",
+    "name": { "str": "Find me new students" },
+    "description": "Find new students.",
+    "goal": "MGOAL_CONDITION",
+	"goal_condition": {"u_has_var":"fkl_students", "type": "flag", "context": "meeting", "value": "2"},
+    "difficulty": 0,
+    "value": 1000,
+	"end":{
+		"effect":[
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "True student!!!",
+      "offer": "!!!Учеников мне нарисуй",
+      "accepted": "!!!Жду",
+      "rejected": "!!!Ты что, испугался?",
+      "advice": "!!!Будь аккуратен.",
+      "inquire": "I'm waiting.",
+      "success": "!!!Молодец, держи пояс.",
+      "success_lie": "True warriors don't lie!",
+      "failure": "You are a disgrace to your family!"
+		}
+	}
+]

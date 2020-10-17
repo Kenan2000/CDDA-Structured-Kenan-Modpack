@@ -1,0 +1,413 @@
+[
+  {
+  	"//":"TODO potom",
+    "type": "npc",
+    "id": "lighthouse_man",
+    "gender": "male",
+    "class": "lighthouse_man",
+    "name_suffix": "Fisherman",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "lighthouse_man_1",
+    "faction": "no_faction",
+	"mission_offered": "MISSION_lighthouse_man_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "lighthouse_man",
+    "name": { "str": "Lighthouse man" },
+    "job_description": "Lighthouse man.",
+    "common": false,
+    "bonus_str": { "rng": [ 1, 4 ] },
+    "bonus_dex": { "rng": [ 1, 4 ] },
+    "bonus_int": { "rng": [ 1, 4 ] },
+    "bonus_per": { "rng": [ 1, 4 ] },
+    "traits": [
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
+      { "trait": "OUTDOORSMAN" },
+      { "trait": "PAINRESIST" }
+    ],
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "rng": [ 0, -4 ] } ] } ] } },
+      { "skill": "fabrication", "bonus": { "rng": [ 3, 4 ] } },
+      { "skill": "survival", "bonus": { "rng": [ 1, 2 ] } }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "lighthouse_man_1" ],
+    "dynamic_line":"Hello there, friend.",
+    "responses": [
+	  { 
+	    "text": "About that job...",
+        "condition": "has_assigned_mission",
+		"topic": "TALK_MISSION_INQUIRE"
+	  },
+      { "text": "What's your story?", "topic": "lighthouse_man_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Can you teach me something?", "topic": "lighthouse_man_teach_check"},
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_man_Background",
+    "dynamic_line": "I'm just a regular lighthouse man. That's all.",
+    "responses": [
+      { "text": "Interesting", "topic": "TALK_NONE" }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_man_teach_check",
+    "dynamic_line": "Maybe later.",
+    "responses": [
+      { "text": "What about now?", "topic": "lighthouse_man_teach",
+	    "condition": {"npc_has_var": "u_helped_lighthouse_man", "type": "general", "context": "meeting", "value": "yes"},
+		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "yes"}},
+		"success": {
+			"effect":[
+				{"u_buy_item": "manual_swordsmanship"},
+				{"npc_lose_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "no"}
+			],
+			"topic": "lighthouse_man_teach" 
+		},
+		"failure": { "topic": "lighthouse_man_teach_done" }
+	  },
+      { "text": "...", "topic": "TALK_NONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_man_teach",
+    "dynamic_line": "well, if you insist. ",
+    "responses": [
+      { "text": "Thanks my brudda", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_man_teach_done",
+    "dynamic_line": "I already taught you all I knew.",
+    "responses": [
+      { "text": "Thanks again, teacher.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_man_lighthouse",
+    "dynamic_line": "Are we there yet?",
+    "responses": [
+	  { "text": "We're here.", "topic": "lighthouse_man_1",
+	    "condition": {"npc_at_om_location":"lighthouse_ground"}, "effect":["stop_following"]
+	  },
+	  { "text": "Almost.", "topic": "TALK_DONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_cleaning",
+    "dynamic_line": "Is it safe, my friend?",
+    "responses": [
+      { "text": "Yes. Ground floor.", "topic": "lighthouse_man_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "0"},
+				"at_safe_space",
+				{"npc_at_om_location":"lighthouse_ground"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. First floor.", "topic": "lighthouse_man_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "1"},
+				"at_safe_space",
+				{"npc_at_om_location":"lighthouse_z1"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. Second floor.", "topic": "lighthouse_man_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "2"},
+				"at_safe_space",
+				{"npc_at_om_location":"lighthouse_z2"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. Third floor.", "topic": "lighthouse_man_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "3"},
+				"at_safe_space",
+				{"npc_at_om_location":"lighthouse_z2"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. Fourth floor.", "topic": "lighthouse_man_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "4"},
+				"at_safe_space",
+				{"npc_at_om_location":"lighthouse_z3"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. Fifth floor.", "topic": "lighthouse_man_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "5"},
+				"at_safe_space",
+				{"npc_at_om_location":"lighthouse_z4"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. Top floor.", "topic": "lighthouse_man_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "6"},
+				"at_safe_space",
+				{"npc_at_om_location":"lighthouse_z5"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Not yet.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_man_cleaned",
+    "dynamic_line": "Good. Let's clean the next floor.",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_man_wait",
+    "dynamic_line": "...",
+    "responses": [
+      { "text": "Hi", "topic": "lighthouse_man_1"},
+      { "text": "I want you to come with me. Let's go. (so that npc would see his boat)",  "topic": "TALK_DONE", "effect":"follow_only"
+	  },
+      { "text": "Stay here", "topic": "TALK_DONE", "effect":"stop_following"},
+	  { "text": "Here's your boat, bro", "topic": "TALK_MISSION_SUCCESS", 
+		"condition":"u_is_driving",
+		"effect":"mission_success"
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_man_family",
+    "dynamic_line": "So?",
+    "responses": [
+	  { "text": "We did it! All safe!", "topic": "TALK_MISSION_SUCCESS",
+		"condition":{
+			"and":[
+				{"not":"mission_complete"},
+				{"u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes"},
+				{"u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes"}
+			]
+		},		
+		"effect":["mission_success",{"npc_first_topic":"lighthouse_man_1"}]
+	  },
+	  { "text": "I failed, all dead!", "topic": "TALK_MISSION_FAILURE",
+		"condition":{
+			"and":[
+				"mission_complete",
+				{"not":{"u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" } },
+				{"not":{"u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" } }
+			]
+		},
+		"effect":{"npc_first_topic":"lighthouse_man_1"}
+	  },
+	  { "text": "Wife dead, daughter alive!", "topic": "TALK_MISSION_FAILURE",
+		"condition":{
+			"and":[
+				"mission_complete",
+				{"u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" } 
+			]
+		},
+		"effect":{"npc_first_topic":"lighthouse_man_1"}
+	  },
+	  { "text": "Wife alive, daughter dead", "topic": "TALK_MISSION_FAILURE",
+		"condition":{
+			"and":[
+				{"not":"mission_complete"},
+				{"u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" }
+			]
+		},
+		"effect":{"npc_first_topic":"lighthouse_man_1"}
+	  },
+      { "text": "Nothing, really.", "topic": "TALK_DONE" }
+	]
+  },
+  {
+    "id": "MISSION_lighthouse_man_1",
+    "type": "mission_definition",
+    "name": { "str": "Help me find lighthouse" },
+    "description": "Help him find lighthouse",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "destination": "lighthouse_ground",
+    "difficulty": 0,
+    "value": 1000,
+	"start":{
+		"effect":"follow_only"
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lighthouse_man_2",
+    "dialogue": {
+      "describe": "WIP",
+      "offer": "Help me find lighthouse",
+      "accepted": "GOOD",
+      "rejected": "BAD",
+      "advice": "HMM",
+      "inquire": "SO?",
+      "success": "Yoss!",
+      "success_lie": "Um...",
+      "failure": "What a shame."
+	}
+  },
+  {
+    "id": "MISSION_lighthouse_man_2",
+    "type": "mission_definition",
+    "name": { "str": "Help me clean lighthouse" },
+    "description": "Help me clean lighthouse",
+    "goal": "MGOAL_CONDITION",
+	"goal_condition":{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "7"},
+    "difficulty": 0,
+    "value": 100,
+	"start":{
+		"effect":[
+			"follow_only",
+			{"npc_add_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "0"},
+			{"npc_first_topic":"lighthouse_cleaning"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lighthouse_man_3",
+    "dialogue": {
+      "describe": "Help me clean lighthouse",
+      "offer": "Help me clean lighthouse",
+      "accepted": "Good",
+      "rejected": "Nooo",
+      "advice": "Hmm",
+      "inquire": "So?",
+      "success": "Yes!!!",
+      "success_lie": "Um...-2",
+      "failure": "What a shame.-2"
+	}
+  },
+  {
+    "id": "MISSION_lighthouse_man_3",
+    "type": "mission_definition",
+    "name": { "str": "Help fisherman's family" },
+    "description": "Fisherman asked you to bring him his family.",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 100,
+    "start": {
+	  "effect":{"npc_first_topic":"lighthouse_man_family"},
+      "assign_mission_target": { 
+		"om_terrain": "house_04",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 2,
+		"search_range": 200,
+		"min_distance": 50
+	  },
+      "update_mapgen": {
+		"om_terrain": "house_04_basement",
+		"place_npcs": [
+			{ "class": "lighthouse_woman", "x": 4, "y": 8, "target":true }
+		]
+	  }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lighthouse_man_4",
+    "dialogue": {
+      "describe": "Family",
+      "offer": "Bring my family back to me please.",
+      "accepted": "Good",
+      "rejected": "Nooo",
+      "advice": "Hmm",
+      "inquire": "So?",
+      "success": "Yes!!!",
+      "success_lie": "Um...-2",
+      "failure": "What a shame.-2"
+	}
+  },
+  {
+    "id": "MISSION_lighthouse_man_4",
+    "type": "mission_definition",
+    "name": { "str": "Help me make a boat" },
+    "description": "Help me make a boat, or find me one",
+    "goal": "MGOAL_FIND_ITEM",
+	"item":"2x4",
+    "count": 50,
+    "difficulty": 0,
+    "value": 100,
+	"//":"redo quest",
+	"start":{
+		"effect":[
+			{"npc_first_topic":"lighthouse_man_wait"},
+			{"npc_add_var": "u_helped_lighthouse_man", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "lighthouse_man_teach", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lighthouse_man_5",
+    "dialogue": {
+      "describe": "Help me make a boat",
+      "offer": "Help me make a boat. Bring 50 2x4. Or find me one.",
+      "accepted": "Good",
+      "rejected": "Nooo",
+      "advice": "Hmm",
+      "inquire": "So?",
+      "success": "Yes!!!",
+      "success_lie": "Um...-2",
+      "failure": "What a shame.-2"
+	}
+  },
+  {
+    "id": "MISSION_lighthouse_man_5",
+    "type": "mission_definition",
+    "name": { "str": "Help me fix lighthouse" },
+    "description": "Help me fix lighthouse",
+    "goal": "MGOAL_FIND_ITEM",
+	"item":"rock",
+	"count":1,
+    "difficulty": 0,
+    "value": 100,
+	"//":"redo quest",
+	"end":{
+		"update_mapgen": {
+			"place_item": [
+				{ "item": "rock", "x": 15, "y": 11 }
+			]
+		}
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "Help me fix lighthouse",
+      "offer": "Help me fix lighthouse. Bring electronic parts or smthn. WIP, so bring me rock",
+      "accepted": "Good",
+      "rejected": "Nooo",
+      "advice": "Hmm",
+      "inquire": "So?",
+      "success": "Yes!!!",
+      "success_lie": "Um...-2",
+      "failure": "What a shame.-2"
+	}
+  }
+]

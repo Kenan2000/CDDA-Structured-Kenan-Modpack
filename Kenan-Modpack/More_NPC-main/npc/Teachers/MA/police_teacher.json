@@ -1,0 +1,351 @@
+[
+  {
+  	"//":"TODO check text, write something not lame, balance him a bit maybe?",
+    "type": "npc",
+    "id": "police_teacher",
+    "name_suffix": "Officer",
+    "class": "police_teacher",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "police_teacher_1",
+    "faction": "no_faction",
+	"mission_offered": "MISSION_police_teacher_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "police_teacher",
+    "name": { "str": "Police Teacher" },
+    "job_description": "Police Teacher.",
+    "common": false,
+    "bonus_str": { "rng": [ 1, 3 ] },
+    "bonus_dex": { "rng": [ 1, 5 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
+    "worn_override": "police_teacher_worn",
+    "carry_override": "police_teacher_carried",
+    "traits": [
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
+	  { "trait": "PROF_SWAT"},
+      { "trait": "PAINRESIST" }
+    ],
+    "skills": [
+      { "skill": "gun", "level": 3 },
+      { "skill": "shotgun", "level": 3 },
+      { "skill": "pistol", "level": 2 },
+      { "skill": "melee", "level": 2 },
+      { "skill": "bashing", "level": 2 },
+      { "skill": "unarmed", "level": 2 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "police_teacher_worn",
+    "subtype": "collection",
+    "entries": [
+		{ "item": "socks" },
+		{ "item": "swat_armor" },
+		{ "item": "tac_fullhelmet" },
+		{ "item": "boots_combat" },
+		{ "item": "gloves_tactical" },
+		{ "item": "badge_swat" },
+		{ "item": "wristwatch" },
+        { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc1" },
+        { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc2" },
+        { "item": "legpouch_large", "contents-group": "army_mags_usp9" },
+        { "item": "usp_9mm", "ammo-item": "9mmfmj", "charges": 15, "container-item": "holster" },
+        { "item": "baton-extended", "container-item": "police_belt" },
+        { "item": "ksg", "ammo-item": "shot_00", "charges": 7, "contents-item": "shoulder_strap" }
+        ]
+  },
+  {
+    "type": "item_group",
+    "id": "police_teacher_carried",
+    "subtype": "collection",
+    "entries": [
+          { "group": "charged_two_way_radio" },
+          { "item": "ear_plugs", "custom-flags": [ "no_auto_equip" ] }
+        ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "police_teacher_1" ],
+    "dynamic_line": {
+      "u_is_wearing": "badge_marshal",
+      "yes":"Marshal...",
+      "no": { "u_has_any_trait": ["PROF_POLICE", "PROF_SWAT", "PROF_CYBERCOP"],
+		"yes":"Officer...",
+		"no":{"u_has_any_trait": ["PROF_PD_DET"],
+			"yes":"Detective...",
+			"no":"Citizen..."
+		}
+	  }
+    },
+    "responses": [
+	  { 
+	    "text": "About that job...",
+        "condition": "has_assigned_mission",
+		"topic": "TALK_MISSION_INQUIRE"
+	  },
+      { "text": "What's your story?", "topic": "police_teacher_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST"},
+      { "text": "Can you teach me something?", "topic": "police_teacher_teach_check"},
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+	"//":"TODO WRITE SOMETHING!!!",
+    "type": "talk_topic",
+    "id": "police_teacher_Background",
+    "dynamic_line": "Well......",
+    "responses": [
+      { "text": "Interesting.", "topic": "TALK_NONE" },
+      { "text": "Are you sure you telling me the truth?", 
+	    "condition": {"not":{"npc_has_var": "police_teacher_background", "type": "general", "context": "meeting", "value": "yes"}},
+	    "trial": { "type": "PERSUADE", "difficulty": 8 },
+		"success": { "topic": "police_teacher_truth" },
+		"failure": { "topic": "police_teacher_lie" } 
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "police_teacher_teach_check",
+    "dynamic_line": "Look, right now I can only think about one thing, and that's definetly not about teaching, ok?",
+    "responses": [
+      { "text": "So, what about now?", "topic": "police_teacher_teach",
+	    "condition": {"npc_has_var": "u_helped_police_teacher", "type": "general", "context": "meeting", "value": "yes"},
+		"trial": { "type": "CONDITION",
+			"condition": {"npc_has_var": "police_teacher_teach", "type": "general", "context": "meeting", "value": "yes"}
+		},
+		"success": {
+			"effect":[
+				{"u_buy_item": "manual_swordsmanship"},
+				{"npc_add_var": "police_teacher_teach", "type": "general", "context": "meeting", "value": "no"}
+			],
+			"topic": "police_teacher_teach" 
+		},
+		"failure": { "topic": "police_teacher_teach_done" }
+	  },
+      { "text": "Maybe later.", "topic": "TALK_NONE"
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "police_teacher_teach",
+    "dynamic_line":"I learned all from this book. You can take it. Good luck.",
+    "responses": [
+      { "text": "Thank you, officer.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "police_teacher_teach_done",
+    "dynamic_line": "I already taught you all I knew.",
+    "responses": [
+      { "text": "Thanks again, officer.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "police_teacher_truth",
+    "dynamic_line": "Ok, ok, I'll tell you. The truth is, I was afraid when first walking deads tried to enter our department, and didn't even notice how I got myself locked up here, in this cell. Maybe I panicked, and instead of running away, or helping my fellow co-workers, I thought, maybe, this metal bars would protect me. I'm so ashamed of myself, really. Officers should be calm in emergencies like this, to help civilians with anything they need, to protect them, but...What done is done.",
+    "responses": [
+      { "text": "Oh, uh, well, ok, then?", "topic": "police_teacher_1",
+		"effect":[
+			{"npc_add_var": "police_teacher_background", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "police_teacher_background_truth", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	  }
+    ]
+  },
+ {
+    "type": "talk_topic",
+    "id": "p_cqc_t_working",
+    "dynamic_line":[
+		{"npc_compare_time_since_var": "p_cqc_t_work", "type": "general", "context": "flag", "op": ">", "time": "2 days",
+		"yes":"I'm DONE!",
+		"no":"I'm WORKING!"
+		}
+	],
+    "responses": [
+		{ "text": "Ok bro, i'm waiting", "topic": "TALK_DONE",
+		  "condition": { "not":{ "npc_compare_time_since_var": "p_cqc_t_work", "type": "general", "context": "flag", "op": ">", "time": "2 days" }}
+		},
+		{ "text": "Good for you bro!", "topic": "police_teacher_1",
+		  "condition": { "npc_compare_time_since_var": "p_cqc_t_work", "type": "test", "context": "var_time_test", "op": ">", "time": "2 days"},
+		  "effect":[{"npc_first_topic":"police_teacher_1"}]
+		}
+    ]
+  }, 
+  {
+  	"//":"TODO WRITE SOMETHING!!!",
+    "type": "talk_topic",
+    "id": "police_teacher_lie",
+    "dynamic_line": "No, ha-ha, it's an accident, really.",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE",
+		"effect":[{"npc_add_var": "police_teacher_background", "type": "general", "context": "meeting", "value": "yes"}]
+	  }
+    ]
+  },
+  {
+    "id": "MISSION_police_teacher_1",
+    "type": "mission_definition",
+    "name": { "str": "Find police report" },
+    "description": "Officer asked you to find him a folder with police reports in PD, located in town nearby.",
+    "goal": "MGOAL_FIND_ITEM",
+	"item":"police_record_pt",
+    "difficulty": 1,
+    "value": 1000,
+    "start": {
+      "assign_mission_target": {
+		"om_terrain": "police_1",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"search_range": 150,
+		"min_distance": 35
+	  },
+      "update_mapgen": {
+		"om_terrain": "police_2ndfloor_1",
+		"place_item": [ { "item": "police_record_pt", "x": 4, "y": 6 } ]
+	  }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_police_teacher_2",
+    "dialogue": {
+      "describe": "Police",
+      "offer": "Find police records.",
+      "accepted": "I'll wait.",
+      "rejected": "Why?",
+      "advice": "Yes.",
+      "inquire": "I'm waiting.",
+      "success": "Good.",
+      "success_lie": "Um...",
+      "failure": "What a shame."
+	}
+  },
+  {
+    "id": "MISSION_police_teacher_2",
+    "type": "mission_definition",
+    "name": { "str": "Kill Bill" },
+    "description": "Officer asked you to kill prisoner Bill, and bring back his head as proof.",
+    "goal": "MGOAL_FIND_ITEM",
+	"item":"prisoner_bill_head",
+    "difficulty": 1,
+    "value": 100,
+    "start": {
+      "assign_mission_target": {
+		"om_terrain": "prison_1_2",
+		"om_special": "Prison",
+		"om_terrain_replace": "field",
+		"om_terrain_match_type":"PREFIX",
+		"cant_see": true,
+		"reveal_radius": 1,
+		"search_range": 200,
+		"min_distance": 45
+	  },
+      "update_mapgen": {
+		"cant_see": true,
+		"place_monster": [ { "monster": "mon_bill", "x": [7,65], "y": [30,65] } ]
+	  }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_police_teacher_3",
+    "dialogue": {
+      "describe": "Police",
+      "offer": "Kill Bill and bring his head as poof. He have a tatoo on his face that looks like a dragon.",
+      "accepted": "I'll wait.",
+      "rejected": "Why?",
+      "advice": "Yes.",
+      "inquire": "I'm waiting.",
+      "success": "Good.",
+      "success_lie": "Um...",
+      "failure": "What a shame."
+	}
+  },
+  {
+    "id": "MISSION_police_teacher_3",
+    "type": "mission_definition",
+    "name": { "str": "Bill's house" },
+    "description": "Officer asked you to lead him to Bill's house.",
+    "goal": "MGOAL_GO_TO",
+    "destination": "house_10",
+    "difficulty": 0,
+    "value": 100,
+    "start": {
+	  "effect":"follow_only",
+      "assign_mission_target": {
+		"om_terrain": "house_10",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"search_range": 200,
+		"min_distance": 30,
+		"random":true 
+	  }
+    },
+	"end":{
+		"effect":[
+			"stop_following",
+			{"npc_add_var": "p_cqc_t_work", "type": "general", "context": "flag","time": true },
+			{"npc_first_topic":"p_cqc_t_working"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_police_teacher_4",
+    "dialogue": {
+      "describe": "Police",
+      "offer": "Lead me to Bill's house.",
+      "accepted": "I'll wait.",
+      "rejected": "Why?",
+      "advice": "Yes.",
+      "inquire": "I'm waiting.",
+      "success": "Good. Wait for a while, I need some time to find something here...",
+      "success_lie": "Um...",
+      "failure": "What a shame."
+	}
+  },
+  {
+    "id": "MISSION_police_teacher_4",
+    "type": "mission_definition",
+    "name": { "str": "Kill the real Bill" },
+    "description": "Officer asked you to kill the real Bill.",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 100,
+  	"//":"TODO CHANGE",
+    "start": {
+      "assign_mission_target": {
+		"om_terrain": "forest",
+		"om_terrain_replace": "field",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"search_range": 200,
+		"min_distance": 30,
+		"random":true
+	  },
+      "update_mapgen": { "place_npc":[ { "class":"bill_the_assassin", "x": 10, "y": 10, "target": true } ] }
+    },
+	"end":{
+		"effect":[
+			{"npc_add_var": "police_teacher_teach", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "u_helped_police_teacher", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "Police",
+      "offer": "Kill the real Bill.",
+      "accepted": "I'll wait.",
+      "rejected": "Why?",
+      "advice": "Yes.",
+      "inquire": "I'm waiting.",
+      "success": "Good.",
+      "success_lie": "Um...",
+      "failure": "What a shame."
+	}
+  }
+]

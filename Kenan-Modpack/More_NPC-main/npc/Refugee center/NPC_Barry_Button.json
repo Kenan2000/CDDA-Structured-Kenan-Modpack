@@ -1,0 +1,242 @@
+[
+  {
+  	"//":"TODO check text, maybe add something more",
+    "type": "npc",
+    "id": "Barry_Button",
+    "name_unique": "Barry Button",
+    "gender": "male",
+    "name_suffix": "refugee",
+	"class": "Barry_Button",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_Barry_Button_1",
+    "faction": "free_merchants",
+	"mission_offered": "MISSION_BarryB_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "Barry_Button",
+    "name": { "str": "Barry Button" },
+    "job_description": "I'm just trying to survive.",
+    "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" } ],
+    "common": false,
+    "carry_override": "Barry_Button_carried"
+  },
+  {
+    "type": "item_group",
+    "id": "Barry_Button_carried",
+    "subtype": "collection",
+    "entries": [ { "item": "crowbar" } ]
+  },
+  {
+  "//":"if real, add heist quest; text:123, topic:321, condition: u_at_om_location:bank",
+    "id": "TALK_Barry_Button_1",
+    "type": "talk_topic",
+	"dynamic_line":[{
+		"u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes",
+		"yes": "Are we there yet?",
+		"no": "Thank god you're here! I thougt I'm a dead man! These psychos put me in this dark shed with living zombie! Help me get out of here, friend, please!"
+		}
+	],
+    "responses": [
+      { "text": "Your brother sent me. Let's get out of here, and fast.", "topic": "BarryB_GetOut",
+		"condition": {"not": {"u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"}}
+	  },
+	  { "text": "We're here.", "topic": "BarryB_Safe",
+	    "condition": {"npc_at_om_location":"evac_center_7"}, "effect":["stop_following"]
+	  },
+	  { "text": "We're here.", "topic": "BarryB_Safe",
+	    "condition": {"npc_at_om_location":"bank"}, "effect":["stop_following"]
+	  },
+	  { "text": "Almost.", "topic": "TALK_DONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "BarryB_GetOut",
+    "dynamic_line": "Let's go!",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE",
+		"effect": [
+			"follow_only",
+			{"u_add_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	  }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": "BarryB_Safe",
+    "dynamic_line": "Phew, that was a close one! I owe you one there, friend. Let me just catch my breath. Talk to me later.",
+    "responses": [
+      { "text": "I'm glad it's all over.", "topic": "TALK_Barry_Button_2",
+	    "effect":[
+			{"npc_first_topic":"TALK_Barry_Button_2"},
+			{"npc_add_var": "barryb_wait", "type": "flag", "context": "meeting", "time":true}
+		]
+	  }
+	]
+  },
+  {
+    "id": ["TALK_Barry_Button_2"],
+    "type": "talk_topic",
+	"dynamic_line": "Hello there, friend.",
+    "responses": [
+	  { 
+		"text": "About that job...",
+		"condition": "has_assigned_mission",
+		"topic": "TALK_MISSION_INQUIRE"
+	  },
+      { "text": "What's your story?", "topic": "barry_button_Background" },
+	  { "text":"So, what about that job?", "topic":"barryb_job"},
+      { "text": "Can you teach me something?", "topic": "barry_button_teach_check",
+		"condition":{"npc_has_var":"u_know_barryb_backstory", "type": 	"flag", "context": "meeting", "value": "yes"}
+	  },
+      { "text": "Do you need help?", "topic": "bbm_flame_knuckle_1",
+	  "condition":{"npc_has_var":"bbm_flame_knuckle", "type": "general", "context":"flag", "value": "yes"},
+	  "effect":[
+		{"npc_change_faction": "flame_knuckle"},
+		{ "u_faction_rep": 100 }
+	    ]
+	  },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "barryb_job",
+    "dynamic_line":{"npc_compare_time_since_var": "barryb_wait", "type": "flag", "context": "meeting", "op": ">=", "time": "3 m",
+		"yes":"So, i need help with something. Lead me to nearest bank!",
+		"no":"I'm resting. Return later."
+	},
+    "responses": [
+      {
+		"text": "Sure thing, friend.",
+		"topic": "TALK_DONE",
+		"condition":{"npc_compare_time_since_var": "barryb_wait", "type": "flag", "context": "meeting", "op": ">=", "time": "3 m"},
+		"effect":["follow_only",{"npc_first_topic":"TALK_Barry_Button_1"}]
+	  },
+      { "text": "Interesting.", "topic": "TALK_NONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "barry_button_Background",
+    "dynamic_line": "I was a teacher, always wanted to be rich! Now I can fulfill my dream!",
+    "responses": [
+      { "text": "Interesting", "topic": "TALK_NONE",
+	    "effect":[
+			{"npc_add_var":"u_know_barryb_backstory", "type": "flag", "context": "meeting", "value": "yes"}
+		]
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "barry_button_teach_check",
+	"dynamic_line":{"npc_has_var": "u_helped_barry_button", "type": "general", "context": "meeting", "value": "yes",
+		"yes":"So, you want to learn something new? I can teach you read faster, or just read.",
+		"no":"I have one unfinished task. Let's speak later about this"},
+    "responses": [
+      { "text": "Yes, let's do this.", "topic": "barry_button_teach",
+	    "condition": {"npc_has_var": "u_helped_barry_button", "type": "general", "context": "meeting", "value": "yes"},
+		"trial": { "type": "CONDITION", 
+			"condition": {"npc_has_var": "barry_button_teach", "type": "general", "context": "meeting", "value": "yes"}
+			},
+		"success": {
+			"effect":[
+				{"npc_lose_var": "barry_button_teach", "type": "general", "context": "meeting", "value": "yes"}
+			],
+			"topic": "barry_button_teach_check1" 
+		},
+		"failure": { "topic": "barry_button_teach_done" }},
+      { "text": "Sorry I don't want to.", "topic": "TALK_NONE"}
+    ]
+  },
+  {
+  "//":"do different lines for give_trait using switch:true",
+    "type": "talk_topic",
+    "id": "barry_button_teach_check1",
+    "dynamic_line":{"npc_has_var": "barry_button_teach", "type": "general", "context": "meeting", "value": "yes",
+		"yes":{"u_has_trait":"ILLITERATE",
+			"yes":"So, you can't read? No problem, I can teach you!",
+			"no":{"u_has_trait":"SLOWREADER",
+				"yes":"So, you are slowreader? No problem, I can teach you!",
+				"no":{"u_has_trait":"FASTREADER",
+					"yes":"I'm affraid that I can't teach you anything.",
+					"no":"So, you want to learn how to read fast? No problem, I can teach you!"}}},
+		"no":"I'm affraid that I can't teach you anything."},
+    "responses": [
+      { "text": "Yes, let's do this.", "topic": "barry_button_teach",
+		"condition":{"u_has_trait":"ILLITERATE"},
+		"effect":{"u_lose_trait":"ILLITERATE"},
+		"switch":true
+	  },
+      { "text": "Yes, let's do this.", "topic": "barry_button_teach",
+		"condition":{"u_has_trait":"SLOWREADER"},
+		"effect":{"u_lose_trait":"SLOWREADER"},
+		"switch":true
+	  },
+      { "text": "Yes, let's do this.", "topic": "barry_button_teach",
+		"condition":{"not":{"u_has_trait":"FASTREADER"}},
+		"effect":{"u_add_trait":"FASTREADER"},
+		"switch":true
+	  },
+      { "text": "Sorry I don't want to.", "topic": "TALK_NONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "barry_button_teach",
+    "dynamic_line": "Good luck, student!",
+    "responses": [
+      { "text": "Thanks, Barry!", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "barry_button_teach_done",
+    "dynamic_line": "I already taught you all I knew.",
+    "responses": [
+      { "text": "Thanks again, Barry.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "MISSION_BarryB_1",
+    "type": "mission_definition",
+    "name": { "str": "Heist" },
+    "description": "Protect me!!!",
+    "goal": "MGOAL_CONDITION",
+	"//":"place_monsters at start",
+	"goal_condition": {"u_compare_time_since_var": "barryb_heist", "type": "flag", "context": "meeting", "op": ">=", "time": "45 m"},
+    "difficulty": 0,
+    "value": 1000,
+	"start":{
+		"effect":[
+			"stop_following",
+			{"npc_add_var":"barryb_heist", "type": "flag", "context": "meeting", "time":true}
+		]
+	},
+	"end":{
+		"effect":[
+			"follow_only",
+			{"npc_lose_var":"barryb_heist", "type": "flag", "context": "meeting"},
+			{"mapgen_update":"heist_success", "origin_npc": true},
+			{"npc_first_topic":"TALK_Barry_Button_1"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+	"followup":"MISSION_test_232_1",
+    "dialogue": {
+      "describe": "WIP!!!",
+      "offer": "WIP",
+      "accepted": "WIP",
+      "rejected": "WIP?",
+      "advice": "WIP.",
+      "inquire": "I'm waiting.",
+      "success": "Good, let's go back to RC.",
+      "success_lie": "WIP!",
+      "failure": "WIP!"
+		}
+	}
+]

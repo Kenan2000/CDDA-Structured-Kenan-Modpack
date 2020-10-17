@@ -1,0 +1,331 @@
+[
+  {
+  	"//":"TODO write normal text  not this bullshit parody of a writing, where to place him? motel parking maybe?, ",
+    "type": "npc",
+    "id": "rasta_bob",
+    "name_unique": "Rasta Bob",
+    "gender": "male",
+    "class": "rasta_bob",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "rasta_bob_1",
+    "faction": "no_faction",
+	"mission_offered": "MISSION_rasta_bob_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "rasta_bob",
+    "name": { "str": "Rasta Bob" },
+    "job_description": "Rasta Bob.",
+    "common": false,
+    "bonus_str": { "rng": [ 1, 3 ] },
+    "bonus_dex": { "rng": [ 1, 5 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
+    "worn_override": "rasta_bob_worn",
+    "carry_override": "rasta_bob_carried",
+    "traits": [
+	  { "group": "NPC_starting_traits" },
+      { "group": "Appearance_African" },
+      { "trait": "PAINRESIST" }
+    ],
+    "skills": [
+      { "skill": "melee", "level": 6 },
+      { "skill": "dodge", "level": 6 },
+      { "skill": "unarmed", "level": 6 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "rasta_bob_worn",
+    "subtype": "collection",
+    "entries": [
+        {"items": [ "socks", "swat_armor", "tac_fullhelmet", "boots_combat", "gloves_tactical", "badge_swat", "wristwatch" ]},
+          { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc1" },
+          { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc2" },
+          { "item": "legpouch_large", "contents-group": "army_mags_usp9" },
+          { "item": "usp_9mm", "ammo-item": "9mmfmj", "charges": 15, "container-item": "holster" },
+          { "item": "baton-extended", "container-item": "police_belt" },
+          { "item": "ksg", "ammo-item": "shot_00", "charges": 7, "contents-item": "shoulder_strap" }
+        ]
+  },
+  {
+    "type": "item_group",
+    "id": "rasta_bob_carried",
+    "subtype": "collection",
+    "entries": [
+          { "group": "charged_two_way_radio" },
+          { "item": "ear_plugs", "custom-flags": [ "no_auto_equip" ] }
+        ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "rasta_bob_1" ],
+    "dynamic_line": "Yo!",
+    "responses": [
+	  { 
+	  "text": "About that job...",
+  	  "topic": "TALK_MISSION_INQUIRE",
+      "condition": "has_assigned_mission"
+	  },
+      { "text": "What's your story?", "topic": "rasta_bob_Background" },
+      { "text": "So, what do you need, my brother?", "topic": "rasta_bob_truth1", "condition":{"npc_has_var": "u_helped_rasta_bob", "type": "general", "context": "meeting", "value": "yes"} },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "rasta_bob_Background",
+    "dynamic_line": "Yo my brudda whazzap",
+    "responses": [
+      { "text": "Interesting", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "rasta_bob_truth1",
+    "dynamic_line": "I'll be honest with you. [*he showes you his arm with large bite mark*] I think you understand what that means. I tried to heal it, but for some reason, the mark wont go, and the pain wont stop, no matter how i tried. I think I'll become one of them. I DONT whant to become one of that thing!...",
+    "responses": [
+      { "text": "Oh, I didn't know...", "topic": "rasta_bob_truth2" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "rasta_bob_truth2",
+    "dynamic_line": "It's been a fun ride. We had so much fun together. I just wanted to have fun for the last time, and you were there to help me with it. But now, I'm asking you to help me for the last time...",
+    "responses": [
+      { "text": "Sure thing. I'll do anything for you.", "topic": "rasta_bob_truth3" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "rasta_bob_truth3",
+    "dynamic_line": "You have to kill me. That's the only way I can be freed from this curse, and not become one of that things after death. I know that I ask you too much, but...",
+    "responses": [
+      { "text": "I...understand...I'll help you...for the last time...", "topic": "rasta_bob_truth4" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "rasta_bob_truth4",
+    "dynamic_line": "Thank you, you are truly my friend. Just do it quick, please. And if it's not hard for you, could you please burry me on this cementery? I want to rest in this grounds, with my parents...",
+    "responses": [
+      { "text": "Sure thing, my friend. Goodbye... It was a fun ride...", "topic": "rasta_bob_truth5" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "rasta_bob_truth5",
+    "dynamic_line": "[*He dies peacefully with a smile on his face. Something falls down from his pocket*]",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE", "effect": [{"u_buy_item":"manual_capoeira"},"npc_die"]}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "rasta_bob_sleep",
+    "dynamic_line": "[*ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ*]",
+    "responses": [
+      { "text": "AY YO!!!", "topic": "rasta_bob_1", 
+		"condition":"u_driving",
+		"effect":[{"npc_add_var":"rasta_bob_car", "type": "flag", "context": "meeting", "value": "yes"}]
+	  },
+      { "text": "...", "topic": "TALK_DONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "rasta_bob_follow",
+    "dynamic_line": "Are we there, fam?",
+    "responses": [
+      { "text": "Yeah, fam. We're here.", "topic": "TALK_DONE",
+	    "condition": {
+			"or":[
+				{"npc_at_om_location":"motel_twd_1"},
+				{"npc_at_om_location":"motel_twd_2"}
+		]
+	  },
+	    "effect":[{"npc_first_topic":"rasta_bob_dd"}]
+	  },
+      { "text": "Yeah, fam. We're here.", "topic": "rasta_bob_1",
+	    "condition": {
+		  "or":[
+			{"npc_at_om_location":"Cemetery_1a"},
+			{"npc_at_om_location":"Cemetery_2a"}
+		]
+	  },
+	    "effect":[{"npc_add_var":"rasta_bob_cemetery", "type": "flag", "context": "meeting", "value": "yes"}, "stop_following"]
+	  },
+      { "text": "...", "topic": "TALK_DONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "rasta_bob_dd",
+    "dynamic_line": "[*ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ*]",
+    "responses": [
+      { "text": "AY YO!", "topic": "TALK_MISSION_INQUIRE", "condition":"mission_complete", "effect":[{"npc_first_topic":"rasta_bob_dd"}]},
+      { "text": "...", "topic": "TALK_DONE"}
+    ]
+  },  
+  {
+  "//":"TODO do quest",
+    "id": "MISSION_rasta_bob_1",
+    "type": "mission_definition",
+    "name": { "str": "Find weed" },
+    "description": "Find weed",
+    "goal": "MGOAL_FIND_ITEM",
+	"item":"weed",
+	"count":30,
+    "difficulty": 0,
+    "value": 1000,
+	"end":{
+		"effect":[
+			{ "npc_add_effect": "weed_high", "duration": "12 days" },
+			{ "npc_add_effect": "pkill1", "duration": "12 days" },
+			{ "npc_add_effect": "pkill2", "duration": "12 days" },
+			{ "npc_add_effect": "high", "duration": "12 days" },
+			{ "npc_add_effect": "smoke", "duration": "12 days" }
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_rasta_bob_2",
+    "dialogue": {
+      "describe": "Find weed",
+      "offer": "Find weed  30",
+      "accepted": "Yeee",
+      "rejected": "Nooo",
+      "advice": "WIP-ADV1",
+      "inquire": "WIP-INQ1.",
+      "success": "WIP-SUCC1.",
+      "success_lie": "WIP-TEXT",
+      "failure": "WIP-TEXT."
+	}
+  },
+  {
+  "//":"TODO idea: find his car, do check for car later when found normal solution (ANOTHER FUCKING WORKAROUND KEVIIIIIIIIIIIIN BRING BACK SCRIPT SUPPORT!!!!!!!!)",
+    "id": "MISSION_rasta_bob_2",
+    "type": "mission_definition",
+    "name": { "str": "Find my car dude" },
+    "description": "FInd my car",
+    "goal": "MGOAL_CONDITION",
+	"goal_condition":{"npc_has_var":"rasta_bob_car", "type": "flag", "context": "meeting", "value": "yes"},
+    "difficulty": 0,
+    "value": 100,
+  	"//2":"TODO redo quest when (?)",
+    "start": {
+      "assign_mission_target": {
+		"om_terrain": "parking_garage_0_0",
+		"om_special": "parking_garage",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"random": true,
+		"search_range": 200
+      },
+      "update_mapgen": {"place_vehicles":[{ "vehicle": "hippie_van", "x": 29, "y": 18, "status": 1, "rotation": 90 }]},
+	  "effect":[{"npc_first_topic":"rasta_bob_sleep"}]
+    },
+	"end":{
+		"effect":[{"npc_first_topic":"rasta_bob_1"}]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_rasta_bob_3",
+    "dialogue": {
+      "describe": "fIND MY CAR",
+      "offer": "fIND MY CAR",
+      "accepted": "Yo man, thanks. I'll be chilling here, so ride near me, honk and speak to me while driving, or i'll ignore you!",
+      "rejected": "WIP-TEXT-3",
+      "advice": "WIP-TEXT-3",
+      "inquire": "WIP-TEXT-3",
+      "success": "Yo, man, that's really my car? Or is it not? I'm so stoned right now I couldn't really tell. Oh well, thank you anyway.",
+      "success_lie": "WIP-TEXT-3",
+      "failure": "WIP-TEXT-3"
+	}
+  },
+  {
+  "//":"TODO do quest!! add special zed, maybe something more dunno, items maybe? case with weed or smthn",
+    "id": "MISSION_rasta_bob_3",
+    "type": "mission_definition",
+    "name": { "str": "Go to Drug Dealer" },
+    "description": "Go to Drug Dealer",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 0,
+    "value": 1000,
+    "start": {
+	  "effect":[
+		"follow_only",
+		{"npc_first_topic":"rasta_bob_follow"}		
+	  ],
+      "assign_mission_target": {
+		"om_terrain": "motel_twd_second_floor",
+		"om_special": "motel-twd",
+		"om_terrain_replace": "field",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"search_range": 200,
+		"min_distance": 25
+	  },
+      "update_mapgen": {
+		"place_monster": [
+			{ "monster": "mon_zombie", "x": 2, "y": 4, "target": true }
+		]
+	  }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_rasta_bob_4",
+    "dialogue": {
+      "describe": "MUDER-DEATH-KILL",
+      "offer": "Let's go check my drug dealer. He's at the mothel, over there...",
+      "accepted": "WIP-ACCEPTED1",
+      "rejected": "WIP-REJ1",
+      "advice": "WIP-ADV1",
+      "inquire": "WIP-INQ1.",
+      "success": "WIP-SUCC1.",
+      "success_lie": "WIP-TEXT",
+      "failure": "WIP-TEXT."
+		}
+	},
+  {
+    "id": "MISSION_rasta_bob_4",
+    "type": "mission_definition",
+    "name": { "str": "Get me to my family grave" },
+    "description": "Get me to my family grave",
+    "goal": "MGOAL_CONDITION",
+	"goal_condition":{"npc_has_var":"rasta_bob_cemetery", "type": "flag", "context": "meeting", "value": "yes" },
+    "difficulty": 0,
+    "value": 100,
+  	"//":"TODO something dunno ",
+    "start": {
+	  "effect":[
+		"follow_only",
+		{"npc_first_topic":"rasta_bob_follow"}		
+	  ],
+      "assign_mission_target": {
+		"om_terrain": "Cemetery_1a",
+		"om_special": "cemetery_city",
+		"reveal_radius": 1,
+		"search_range": 200,
+		"min_distance": 5
+	  }
+    },
+	"end":{
+		"effect":[
+			{"npc_add_var": "u_helped_rasta_bob", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "Help me bro",
+      "offer": "Help me to get to cemetery, where my family burried",
+      "accepted": "Good.",
+      "rejected": "Why?",
+      "advice": "Drive carefully",
+      "inquire": "So?",
+      "success": "Nice. Talk to me, please. I have something to tell you.",
+      "success_lie": "???",
+      "failure": "Looser"
+	}
+  }
+]

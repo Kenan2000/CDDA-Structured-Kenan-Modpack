@@ -1,0 +1,364 @@
+[
+  {
+  	"//":"TODO check text, write something not lame, balance him a bit maybe?",
+    "type": "npc",
+    "id": "wanderer_knight",
+    "name_unique": "Knight",
+    "gender": "male",
+    "name_suffix": "the Holy",
+    "class": "wanderer_knight",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "wanderer_knight_1",
+    "faction": "free_merchants",
+	"mission_offered": "MISSION_wanderer_knight_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "wanderer_knight",
+    "name": { "str": "Knight" },
+    "job_description": "Wandering knight.",
+    "common": false,
+    "bonus_str": { "rng": [ 2, 5 ] },
+    "bonus_dex": { "rng": [ 1, 4 ] },
+    "bonus_int": { "rng": [ 1, 4 ] },
+    "bonus_per": { "rng": [ 1, 4 ] },
+    "worn_override": "wanderer_knight_worn",
+    "carry_override": "wanderer_knight_carried",
+    "wield_override": "wanderer_knight_wield",
+    "traits": [
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
+      { "trait": "OUTDOORSMAN" },
+      { "trait": "PAINRESIST" }
+    ],
+    "skills": [
+      { "skill": "dodge", "bonus": { "rng": [ 2, 5 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 2, 5 ] } },
+      { "skill": "cutting", "bonus": { "rng": [ 2, 5 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "wanderer_knight_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "armor_lightplate" },
+      { "item": "boots_plate" },
+      { "item": "gloves_plate" },
+      { "item": "helmet_barbute" },
+      { "item": "backpack_leather" },
+      { "item": "bscabbard"},
+      { "item": "cloak" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "wanderer_knight_carried",
+    "subtype": "collection",
+    "entries": [ 
+	{ "item": "waterskin" },
+	{ "item": "meat_smoked" },
+	{ "item": "cheese_hard" },
+	{ "item": "brandy" }
+	]
+  },
+  {
+    "type": "item_group",
+    "id": "wanderer_knight_carried",
+    "subtype": "collection",
+    "entries": [ 
+	{ "item": "zweihander" }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "wanderer_knight_1" ],
+    "dynamic_line": {
+      "npc_has_var": "wanderer_knight_truth", "type": "general", "context": "meeting", "value": "yes",
+      "yes": "Ah, The Chosen One! What brings you to this sacred place?",
+      "no": {"npc_has_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes",
+		"yes":"Ah, glad to see another living soul in this cursed world. What brings you to this sacred place?",
+		"no":"Hmm..."
+	  }
+    },
+    "responses": [
+	  { 
+	    "text": "About that job...",
+        "condition": "has_assigned_mission",
+		"trial": { "type": "CONDITION", 
+			"condition": {
+				"or":[
+					{ "u_is_wearing": "holy_symbol_wood" },
+					{ "u_is_wearing": "holy_symbol" }
+				]
+			}
+		},
+		"success": {"topic": "TALK_MISSION_INQUIRE"},
+		"failure": {"topic": "wanderer_knight_nope"}
+	  },
+      { "text": "What's your story?", "topic": "wanderer_knight_Background" },
+      { "text": "Do you need any help?",
+		"condition": {"npc_has_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes"},
+		"trial": { "type": "CONDITION",
+			"condition": {
+				"or":[
+					{ "u_is_wearing": "holy_symbol_wood" },
+					{ "u_is_wearing": "holy_symbol" }
+				]
+			}
+		},
+		"success": {"topic": "TALK_MISSION_LIST"},
+		"failure": {"topic": "wanderer_knight_nope"},
+		"switch":true
+	  },
+      { "text": "Do you need any help?", "topic": "wanderer_knight_trust_check", "switch":true},
+      { "text": "Can you teach me something?", "topic": "wanderer_knight_teach_check"},
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "wanderer_knight_trust_check",
+    "dynamic_line": "Are you a believer?",
+    "responses": [
+      { 
+	    "text": "I'm muslim.", 
+		"topic": "TALK_DONE",
+        "opinion": { "trust": -200, "value": -200 },
+		"effect":"insult_combat"
+	  },
+      { "text": "I'm christian.",
+		"trial": { "type": "CONDITION",
+			"condition": {
+				"or":[
+					{ "u_is_wearing": "holy_symbol_wood" },
+					{ "u_is_wearing": "holy_symbol" }
+				]
+			}
+		},
+		"success": {"topic": "wanderer_knight_trust_yes"},
+		"failure": {"topic": "wanderer_knight_trust_nope"}
+	  },
+      { "text": "I'm budhist", "topic": "wanderer_knight_trust_no" },
+      { "text": "I'm jewish", "topic": "wanderer_knight_trust_no" },
+      { "text": "I'm atheist.", "topic": "wanderer_knight_trust_no" },
+      { "text": "I'm agnostic.", "topic": "wanderer_knight_trust_no" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "wanderer_knight_trust_no",
+    "dynamic_line": "*slowly shake his head",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "wanderer_knight_trust_yes",
+    "dynamic_line":{ 
+		"u_male": true,
+        "yes": "Ah, it's good to see another folower of our lord Jesus Christ. Welcome, my brother.",
+        "no": "Ah, it's good to see another folower of our lord Jesus Christ. Welcome, my sister."
+	},
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE",
+	    "effect":[{"npc_add_var": "wanderer_knight_trust", "type": "general", "context": "flag", "value": "yes"}]
+	  }
+    ]
+  }, 
+  {
+    "type": "talk_topic",
+    "id": "wanderer_knight_Background",
+    "dynamic_line": "I'm the True Warrior of God! I fight evil whenever I see one! I was called to this land to clean it from it's filth! Humanity has covered itself with sin and now they pay the price! But I lived all my life as pure and sinless as I could, and the God saved me from this curse of walking dead!",
+    "responses": [
+      { "text": "Interesting.", "topic": "TALK_NONE" },
+      { "text": "Are you sure you telling me the truth?", 
+	    "condition": {"not":{"npc_has_var": "wanderer_knight_background", "type": "general", "context": "meeting", "value": "yes"}},
+	    "trial": { "type": "PERSUADE", "difficulty": 8 },
+		"success": { "topic": "wanderer_knight_truth" },
+		"failure": { "topic": "wanderer_knight_lie" } 
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "wanderer_knight_teach_check",
+    "dynamic_line": "I teach only those who help holy warriors in need. Do you help holy warriors in need?",
+    "responses": [
+      { "text": "Yes, my brother.", "topic": "wanderer_knight_teach",
+	    "condition": {"npc_has_var": "u_helped_wanderer_knight", "type": "general", "context": "meeting", "value": "yes"},
+		"trial": { "type": "CONDITION",
+			"condition": {"npc_has_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "yes"}
+		},
+		"success": {
+			"effect":[
+				{"u_buy_item": "manual_swordsmanship"},
+				{"npc_add_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "no"}
+			],
+			"topic": "wanderer_knight_teach" 
+		},
+		"failure": { "topic": "wanderer_knight_teach_done" }
+	  },
+      { "text": "Maybe later.", "topic": "TALK_NONE"
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "wanderer_knight_teach",
+    "dynamic_line":{
+		"u_male": true,
+        "yes": 	"I learned all from this book. You can take it. God bless you, my brother!",
+        "no": 	"I learned all from this book. You can take it. God bless you, my sister!"
+	},
+    "responses": [
+      { "text": "Thank you, holy warrior.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "wanderer_knight_teach_done",
+    "dynamic_line": "I already taught you all I knew.",
+    "responses": [
+      { "text": "Thanks again, holy warrior.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "wanderer_knight_truth",
+    "dynamic_line": "Well, to be honest, I'm just a guy in cool suit... I took it from museum when first deads start walking to protect myself, and to somehow remain stable, I started to think of myself as holy warrior, that was sent here to purge the world of walking deads... Don't judge me, please... ",
+    "responses": [
+      { "text": "Ok, ok, I'll play along. But only if you start calling me 'The Chosen One'! [*chuckles*]", "topic": "wanderer_knight_1",
+		"effect":[
+			{"npc_add_var": "wanderer_knight_background", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "wanderer_knight_background_truth", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "wanderer_knight_lie",
+    "dynamic_line": "HOW DARE YOU SAY SOMETHING LIKE THAT!!!",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE",
+		"effect":[{"npc_add_var": "wanderer_knight_background", "type": "general", "context": "meeting", "value": "yes"}]
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "wanderer_knight_nope",
+    "dynamic_line":{ 
+		"u_male": true,
+        "yes": "Where is your cross, my brother?",
+        "no": "Where is your cross, my sister?"
+	},
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "MISSION_wanderer_knight_1",
+    "type": "mission_definition",
+    "name": { "str": "Prove that you are true warrior of the light" },
+    "description": "Knight asked you to prove that you are true warrior of the light by killing 100 zombies.",
+    "goal": "MGOAL_KILL_MONSTER_SPEC",
+    "monster_species": "ZOMBIE",
+    "monster_kill_goal": 100,
+    "difficulty": 1,
+    "value": 1000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_wanderer_knight_2",
+    "dialogue": {
+      "describe": "True Faith!!",
+      "offer": "Look outside and tell me what you see there. I see plague, plague upon another plague that was sent to our world to purge it from its sins. If you want to help me fight this plague, and to clean this world from it, I want you to prove me that you are true warrior of the light. Kill 100 of that monsters and return to me.",
+      "accepted": "I'll wait.",
+      "rejected": "What are you, infidel?!",
+      "advice": "God bless you!",
+      "inquire": "I'm waiting.",
+      "success": "It's good to see another warrior of the light. I'm pleased to see that you succeed in this task.",
+      "success_lie": "Um...",
+      "failure": "What a shame."
+	}
+  },
+  {
+    "id": "MISSION_wanderer_knight_2",
+    "type": "mission_definition",
+    "name": { "str": "Help Father Randalf" },
+    "description": "Knight asked you to help Father Randalf to lift his curse.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 1,
+    "value": 100,
+  	"//":"TODO add brother Randalf",
+    "start": {
+      "assign_mission_target": {
+		"om_terrain": "church",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"random": true,
+		"search_range": 100,
+		"min_distance": 5
+	  },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_zombie_tough", "x": 3, "y": 9, "target": true } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_wanderer_knight_3",
+    "dialogue": {
+      "describe": "True Faith!!",
+      "offer": "Ah, my fellow warrior of the light, it's good that you're alive. I have another task for you. You need to help my dear friend, Brother Randalf, to lift his curse, so that his soul could reach the heaven and rest peacefuly for eternity.",
+      "accepted": "I'll wait.",
+      "rejected": "What are you, infidel?!",
+      "advice": "I know you can do it! God bless you!",
+      "inquire": "Hmm...",
+      "success": "Ah, what a relief! You did good, my friend.",
+      "success_lie": "Um...",
+      "failure": "What a shame."
+	}
+  },
+  {
+    "id": "MISSION_wanderer_knight_3",
+    "type": "mission_definition",
+    "name": { "str": "Find relic" },
+    "description": "Knight asked you to find special relic, the remains of some priest that lived in this land a few centuries ago.",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 1,
+    "value": 100,
+  	"//":"TODO add special relic",
+    "start": {
+      "assign_mission_target": { 
+		"om_terrain": "lab_surface_brick_blockC2",
+		"om_special":"lab_surface_big",
+		"om_terrain_replace": "field",
+		"reveal_radius": 2,
+		"search_range": 200,
+		"min_distance": 50
+	  },
+      "update_mapgen": {
+		"om_terrain": "lab_surface_brick_block2A0",
+		"place_item": [ { "item": "small_relic", "x": 106, "y": 46, "target":true } ]
+	  }
+    },
+	"end":{
+		"effect":[
+			{"npc_add_var": "u_helped_wanderer_knight", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "True Faith!!",
+      "offer": "Ah, it's you again. I have another task for you. Did you know that this church was built 287 years ago, and stood still to this day? More interesting, that this church was built by one man! One priest, that built this church, and was called saint because of his will, pureness and love for God. Even more interesting, I learn from notes of current (deseased, sadly) priest that his remains were cept in the basement, until it was taken away by some research group to learn about it's healing powers? I want you to get back his remains.",
+      "accepted": "I'll wait.",
+      "rejected": "What are you, infidel?!",
+      "advice": "I don't know what you will face there, but God will help you!",
+      "inquire": "I'm waiting.",
+      "success": "Ah, splendid!",
+      "success_lie": "Um...",
+      "failure": "What a shame."
+	}
+  }
+]

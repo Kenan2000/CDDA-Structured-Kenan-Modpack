@@ -1,0 +1,132 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_FK",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Can't you see I'm training? Get out of my way!",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_FK_ELITE",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Another new face...",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_FK_MASTER",
+	"//": "TODO change this lame line",
+    "dynamic_line": "One wrong move and you're dead!",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_COACH",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Oh, another survivor! Do you want to learn the way of Flame Knuckle school?",
+    "responses": [
+      { "text": "Sorry, I'm here to kill you!", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}] },
+      { "text": "Sure, where to sign?", "topic": "TALK_MISSION_OFFER",
+		"condition":{"not":{"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"}}
+	  },
+	  { "text": "...", "topic": "TALK_DONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_DOOR",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Halt! Who goes there?",
+    "responses": [
+      { "text": "Friendly.", "topic": "TALK_DONE",
+        "trial": {
+          "type": "CONDITION",
+          "condition": {"u_has_item":"flyer_fk"}
+          },
+        "success": { "topic": "TALK_DOOR_ENTRY"},
+        "failure": { "topic": "TALK_DOOR_DENY"}
+      },
+      { "text": "Enemy.", "topic": "TALK_DOOR_DENY" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_DOOR_ENTRY",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Permition granted! Go forward, and don't touch anything, or you'll regret it!",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE",
+		"effect":[
+			{"mapgen_update":"fk_door", "origin_npc": true },
+			{"npc_first_topic":"TALK_FK"}
+		]
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_DOOR_DENY",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Get lost!",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_DOOR_DENY_ENEMY",
+	"//": "TODO change this lame line",
+    "dynamic_line": "Funny guy, are you? Boys, let's teach this clown some manners!",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE", "effect":[{"u_faction_rep":-100}] }
+    ]
+  },
+  {
+    "id": "MISSION_fk_coach",
+    "type": "mission_definition",
+    "name": { "str": "Flame Knuckle school" },
+    "description": "Go talk to Flame Knuckle's leader.",
+    "goal": "MGOAL_TALK_TO_NPC",
+    "difficulty": 1,
+    "value": 100,
+    "start": {
+		"effect":[
+			{"npc_first_topic":"TALK_FK_ELITE"},
+			{"u_add_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"},	
+			{"u_buy_item":"flyer_fk"}
+		],
+		"assign_mission_target": {
+			"om_terrain": "fk_base_2",
+			"om_special": "Flame Knuckle base",
+			"om_terrain_replace": "forest",
+			"om_terrain_match_type":"PREFIX",
+			"cant_see": true,
+			"reveal_radius": 1,
+			"search_range": 200,
+			"min_distance": 50
+		},
+		"update_mapgen": {
+			"place_npcs": [{ "class": "flame_knuckle_leader", "x": 2, "y": 11, "target":true } ]
+		}
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "Talk to FK Leader",
+      "offer": "If you want to join us, go talk to my boss. He needs more people for our cause. We will give you food, shelter, protection and teach you how to protect yourself.",
+      "accepted": "Good. Here's our base. Go talk to him about your joining. Oh, almost forgot, take this. Show this to the guy at the entrance, or he'll not let you in.",
+      "rejected": "Hmm, maybe you want to change your mind?",
+      "advice": "Be careful.",
+      "inquire": "Did you speak with him?",
+      "success": "Good.",
+      "success_lie": "Huh.",
+      "failure": "Huh."
+	}
+  }
+]

@@ -1,0 +1,238 @@
+[
+  {
+  	"//":"TODO potom",
+    "type": "npc",
+    "id": "lighthouse_woman",
+    "gender": "female",
+    "class": "lighthouse_woman",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "lighthouse_woman_1",
+    "faction": "no_faction",
+	"mission_offered": "MISSION_lighthouse_woman_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "lighthouse_woman",
+    "name": { "str": "Lighthouse woman" },
+    "job_description": "Lighthouse woman.",
+    "common": false,
+    "bonus_str": { "rng": [ 1, 4 ] },
+    "bonus_dex": { "rng": [ 1, 4 ] },
+    "bonus_int": { "rng": [ 1, 4 ] },
+    "bonus_per": { "rng": [ 1, 4 ] },
+    "traits": [
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
+      { "trait": "OUTDOORSMAN" },
+      { "trait": "PAINRESIST" }
+    ],
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "rng": [ 0, -4 ] } ] } ] } },
+      { "skill": "fabrication", "bonus": { "rng": [ 3, 4 ] } },
+      { "skill": "survival", "bonus": { "rng": [ 1, 2 ] } }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "lighthouse_woman_1" ],
+    "dynamic_line":"Hello there, friend.",
+    "responses": [
+	  { 
+	    "text": "About that job...",
+        "condition": "has_assigned_mission",
+		"topic": "TALK_MISSION_INQUIRE"
+	  },
+      { "text": "What's your story?", "topic": "lighthouse_woman_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Can you teach me something?", "topic": "lighthouse_woman_teach_check"},
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_woman_Background",
+    "dynamic_line": "I'm just a regular lighthouse man. That's all.",
+    "responses": [
+      { "text": "Interesting", "topic": "TALK_NONE" }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_woman_teach_check",
+    "dynamic_line": "Maybe later.",
+    "responses": [
+      { "text": "What about now?", "topic": "lighthouse_woman_teach",
+	    "condition": {"npc_has_var": "u_helped_lighthouse_woman", "type": "general", "context": "meeting", "value": "yes"},
+		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "lighthouse_woman_teach", "type": "general", "context": "meeting", "value": "yes"}},
+		"success": {
+			"effect":[
+				{"u_buy_item": "manual_swordsmanship"},
+				{"npc_lose_var": "lighthouse_woman_teach", "type": "general", "context": "meeting", "value": "no"}
+			],
+			"topic": "lighthouse_woman_teach" 
+		},
+		"failure": { "topic": "lighthouse_woman_teach_done" }
+	  },
+      { "text": "...", "topic": "TALK_NONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_woman_teach",
+    "dynamic_line": "well, if you insist. ",
+    "responses": [
+      { "text": "Thanks my brudda", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_woman_teach_done",
+    "dynamic_line": "I already taught you all I knew.",
+    "responses": [
+      { "text": "Thanks again, teacher.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_woman_lighthouse",
+    "dynamic_line": "Are we there yet?",
+    "responses": [
+	  { "text": "We're here.", "topic": "lighthouse_woman_1",
+	    "condition": {"npc_at_om_location":"lighthouse_ground"}, "effect":["stop_following"]
+	  },
+	  { "text": "Almost.", "topic": "TALK_DONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_cleaning",
+    "dynamic_line": "Is it safe, my friend?",
+    "responses": [
+      { "text": "Yes. Ground floor.", "topic": "lighthouse_woman_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "0"},
+				"at_safe_place",
+				{"npc_at_om_location":"lighthouse_ground"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. First floor.", "topic": "lighthouse_woman_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "1"},
+				"at_safe_place",
+				{"npc_at_om_location":"lighthouse_z1"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. Second floor.", "topic": "lighthouse_woman_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "2"},
+				"at_safe_place",
+				{"npc_at_om_location":"lighthouse_z2"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. Third floor.", "topic": "lighthouse_woman_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "3"},
+				"at_safe_place",
+				{"npc_at_om_location":"lighthouse_z2"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. Fourth floor.", "topic": "lighthouse_woman_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "4"},
+				"at_safe_place",
+				{"npc_at_om_location":"lighthouse_z3"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. Fifth floor.", "topic": "lighthouse_woman_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "5"},
+				"at_safe_place",
+				{"npc_at_om_location":"lighthouse_z4"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Yes. Top floor.", "topic": "lighthouse_woman_cleaned", 
+		"condition":{
+			"and":[
+				{"npc_has_var":"lighthouse_cleaning", "type": "general", "context": "meeting", "value": "6"},
+				"at_safe_place",
+				{"npc_at_om_location":"lighthouse_z1"}
+			]
+		},
+		"effect":{"npc_adjust_var":"lighthouse_cleaning", "type": "flag", "context": "meeting", "adjustment": 1}
+	  },
+      { "text": "Not yet.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_woman_cleaned",
+    "dynamic_line": "Good. Let's clean the next floor.",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "lighthouse_woman_wait",
+    "dynamic_line": "...",
+    "responses": [
+      { "text": "Hi", "topic": "lighthouse_woman_1"},
+      { "text": "I want you to come with me. Let's go. (so that npc would see his boat)",  "topic": "TALK_DONE", "effect":"follow_only"
+	  },
+      { "text": "Stay here", "topic": "TALK_DONE", "effect":"stop_following"},
+	  { "text": "Here's your boat, bro", "topic": "TALK_MISSION_SUCCESS", 
+		"condition":"u_is_driving"
+	  }
+    ]
+  },
+  {
+    "id": "MISSION_lighthouse_man_3",
+    "type": "mission_definition",
+    "name": { "str": "321" },
+    "description": "123",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 100,
+    "start": {
+	  "effect":{"npc_first_topic":"lighthouse_woman_follow"},
+      "update_mapgen": {
+		"om_terrain": "house_04_basement",
+		"place_npcs": [
+			{ "class": "lighthouse_girl", "x": 3, "y": 7, "target":true }
+		]
+	  }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lighthouse_man_4",
+    "dialogue": {
+      "describe": "Family",
+      "offer": "Don't forget about my daughter.",
+      "accepted": "Good",
+      "rejected": "Nooo",
+      "advice": "Hmm",
+      "inquire": "So?",
+      "success": "Yes!!!",
+      "success_lie": "Um...-2",
+      "failure": "What a shame.-2"
+	}
+  }
+]

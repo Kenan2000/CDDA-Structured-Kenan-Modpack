@@ -1,0 +1,274 @@
+[
+  {
+    "type": "npc",
+    "id": "test_npc_232",
+    "name_unique": "Test",
+    "gender": "male",
+    "name_suffix": "refugee",
+	"class": "test_232",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "test_232",
+    "faction": "no_faction",
+	"mission_offered": "MISSION_test_232_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "test_232",
+    "name": { "str": "test_232" },
+    "job_description": "test_232.",
+    "common": false,
+    "bonus_str": { "rng": [ 2, 4 ] },
+    "bonus_dex": { "rng": [ 2, 4 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
+    "traits": [
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
+      { "trait": "MARTIAL_ARTS" },
+      { "trait": "PAINRESIST" }
+    ],
+    "skills": [
+      { "skill": "melee", "level": 6 },
+      { "skill": "unarmed", "level": 6 },
+      { "skill": "dodge", "level": 6 }
+    ],
+	"initial_ma_styles": ["style_karate"]
+  },
+  {
+    "id": ["test_232"],
+    "type": "talk_topic",
+	"dynamic_line": "TEST ME!",
+    "responses": [
+	  {"text":"Test teach.", "topic":"TALK_DONE", "effect":[{"u_add_effect":"taught", "duration": "360 m"}]},
+	  {"text":"Test follow.", "topic":"TALK_DONE", "effect":"follow"},
+      {"text": "Test heist.", "topic": "TALK_DONE",
+	  "effect":[{"mapgen_update":"heist_success", "origin_npc": true}]
+	  },
+      {"text": "Test robot attack.", "topic": "TALK_DONE",
+	  "effect":[{"mapgen_update":"22ch_robot_attack", "origin_npc": true, "offset_z":1}]
+	  },
+      {"text": "Test Johny's bandits.", "topic": "TALK_DONE",
+	  "effect":[{"mapgen_update":"bj_bandits", "origin_npc": true, "offset_z":-1}]
+	  },
+	  { 
+	  "text": "About that job...",
+  	  "topic": "TALK_MISSION_INQUIRE",
+      "condition":"has_assigned_mission"
+	  },
+      {"text": "Test missions", "topic": "TALK_MISSION_LIST"},
+      { "text": "Test change mission target", "topic": "TALK_DONE",
+			"effect":[
+				{"mapgen_update":{
+					"assign_mission_target": { 
+						"om_terrain": "radio_tower_top",
+						"om_special": "Radio Tower",
+						"om_terrain_replace": "field",
+						"om_terrain_match_type":"PREFIX",
+						"search_range": 20, 
+						"min_distance": 5
+						
+						}
+					}
+				}
+			]
+	  },
+      {"text": "Test npc_buy", "topic": "test_give", "effect":[{"u_buy_item":"manual_niten"}]},
+	  {"text": "Test Johny's debt.", "topic": "TALK_DONE", "effect":{"u_add_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"}},
+      {
+        "text": "Test train",
+        "topic": "TALK_TRAIN",
+        "condition": {"or": [ "npc_train_skills", "npc_train_styles" ] }
+      },
+	  {"text": "No test for you!", "topic": "TALK_DONE"}
+	  ]
+  },
+  {
+    "id": "test_give",
+    "type": "talk_topic",
+	"dynamic_line": "Hey, give it back, you creep!",
+    "responses": [
+	  {"text":"Ok, ok, dont yell like that, please.", "topic":"TALK_DONE", "effect":[{"u_sell_item":"manual_niten"}]}
+	  ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "test_232_lighthouse",
+    "dynamic_line": "So?",
+    "responses": [
+	  { "text": "We did it! All safe!", "topic": "TALK_MISSION_SUCCESS",
+		"condition":{
+			"and":[
+				{"not":"mission_complete"},
+				{"u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes"},
+				{"u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes"}
+			]
+		},
+		"effect":["mission_success",{"npc_first_topic":"123"}]
+	  },
+	  { "text": "We failed, all dead!", "topic": "TALK_MISSION_FAILURE",
+		"condition":{
+			"and":[
+				"mission_complete",
+				{"not":{"u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" } },
+				{"not":{"u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" } }
+			]
+		},
+		"effect":{"npc_first_topic":"lead_scientist_22ch_1"}
+	  },
+	  { "text": "Wife dead, daughter alive!", "topic": "TALK_MISSION_FAILURE",
+		"condition":{
+			"and":[
+				"mission_complete",
+				{"u_has_var": "lighthouse_girl_alive", "type": "general", "context": "meeting", "value": "yes" } 
+			]
+		},
+		"effect":{"npc_first_topic":"lead_scientist_22ch_1"}
+	  },
+	  { "text": "Wife alive, daughter dead", "topic": "TALK_MISSION_FAILURE",
+		"condition":{
+			"and":[
+				{"not":"mission_complete"},
+				{"u_has_var": "lighthouse_woman_alive", "type": "general", "context": "meeting", "value": "yes" }
+			]
+		},
+		"effect":{"npc_first_topic":"lead_scientist_22ch_1"}
+	  },
+      { "text": "Nothing, really.", "topic": "TALK_DONE" }
+	]
+  },
+  {
+    "id": "MISSION_test_232_1",
+    "type": "mission_definition",
+    "name": { "str": "Test Heist" },
+    "description": "heist.",
+    "goal": "MGOAL_CONDITION",
+	"goal_condition": {"npc_has_var":"test_232_h", "type": "flag", "context": "meeting", "value": "yes"},
+    "difficulty": 0,
+    "value": 1000,
+    "deadline_low": 1,
+    "deadline_high": 1,
+	"start":{
+		"effect":[
+			{"npc_add_var":"test_232_h", "type": "flag", "context": "meeting", "value": "yes"}
+		]
+	},
+	"end":{
+		"effect":[
+			{"npc_lose_var":"test_232_h", "type": "flag", "context": "meeting", "value": "yes"}
+			],
+		"update_mapgen":[
+			{
+			"origin_npc": true,
+			"place_item": [{"item": "money_bundle", "x": 0, "y": 1, "amount": [ 1, 10 ], "repeat": [1, 10], "chance": 80 }],
+			"place_loot": [
+				{ "group": "art", "x": 0, "y": 1},
+				{ "group": "art", "x": 0, "y": 1 },
+				{ "group": "art", "x": 0, "y": 1 }
+			]
+			}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+	"followup":"MISSION_test_232_2",
+    "dialogue": {
+      "describe": "True student!!!",
+      "offer": "!!!Учеников мне нарисуй",
+      "accepted": "!!!Жду",
+      "rejected": "!!!Ты что, испугался?",
+      "advice": "!!!Будь аккуратен.",
+      "inquire": "I'm waiting.",
+      "success": "!!!Молодец, держи пояс.",
+      "success_lie": "True warriors don't lie!",
+      "failure": "You are a disgrace to your family!"
+	},
+	"fail":{
+		"effect":[
+			"npc_die",
+			{"u_add_var":"bj_debt", "type": "flag", "context": "meeting", "value": "yes"}
+		]
+	}
+  },
+  {
+    "id": "MISSION_test_232_2",
+    "type": "mission_definition",
+    "name": { "str": "Help fisherman's family" },
+    "description": "Fisherman asked you to bring him his family.",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 100,
+    "start": {
+	  "effect":{"npc_first_topic":"test_232_lighthouse"},
+      "assign_mission_target": { 
+		"om_terrain": "house_04",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 2,
+		"search_range": 200,
+		"min_distance": 50
+	  },
+      "update_mapgen": {
+		"om_terrain": "house_04_basement",
+		"place_npcs": [
+			{ "class": "lighthouse_woman", "x": 4, "y": 8, "target":true }
+		]
+	  }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_test_232_3",
+    "dialogue": {
+      "describe": "Family",
+      "offer": "Bring my family back to me please.",
+      "accepted": "Good",
+      "rejected": "Nooo",
+      "advice": "Hmm",
+      "inquire": "So?",
+      "success": "Yes!!!",
+      "success_lie": "Um...-2",
+      "failure": "What a shame.-2"
+	}
+  },
+  {
+    "id": "MISSION_test_232_3",
+    "type": "mission_definition",
+    "name": { "str": "Find special relic" },
+    "description": "Knight asked you to find special relic",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 1,
+    "value": 100,
+  	"//":"TODO add special relic",
+    "start": {
+      "assign_mission_target": { 
+		"om_terrain": "lab_surface_brick_blockC2",
+		"om_special":"lab_surface_big",
+		"om_terrain_replace": "field",
+		"reveal_radius": 2,
+		"search_range": 200,
+		"min_distance": 50
+	  },
+      "update_mapgen": {
+		"om_terrain": "lab_surface_brick_block2E1",
+		"place_item": [ { "item": "small_relic", "x": 11, "y": 14, "target":true } ]
+	  }
+    },
+	"end":{
+		"effect":[
+			{"npc_add_var": "u_helped_wanderer_knight", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "wanderer_knight_teach", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+	"followup":"MISSION_test_232_1",
+    "dialogue": {
+      "describe": "True Faith!!",
+      "offer": "Find cool relic please",
+      "accepted": "I'll wait.-3",
+      "rejected": "What are you, infidel?!-3",
+      "advice": "God bless you!-3",
+      "inquire": "I'm waiting.-3",
+      "success": "It's good to see brother in faith.-3",
+      "success_lie": "Um...-3",
+      "failure": "What a shame.-3"
+	}
+  }
+]

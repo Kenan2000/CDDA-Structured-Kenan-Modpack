@@ -1,0 +1,445 @@
+[
+  {
+  	"//":"TODO check text for mistakes, maybe balance him a bit",
+    "type": "npc",
+    "id": "blackbelt_coach",
+    "name_suffix": "the Iron Palm",
+    "class": "blackbelt_coach",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "blackbelt_coach_1",
+    "faction": "iron_palm",
+	"mission_offered": "MISSION_blackbelt_coach_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "blackbelt_coach",
+    "name": { "str": "Black Belt Coach" },
+    "job_description": "Black Belt Coach.",
+    "common": false,
+    "bonus_str": { "rng": [ 2, 4 ] },
+    "bonus_dex": { "rng": [ 2, 4 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
+    "worn_override": "blackbelt_coach_worn",
+    "carry_override": "blackbelt_coach_carried",
+    "wield_override": "blackbelt_coach_wield",
+    "traits": [
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" },
+      { "trait": "PAINRESIST" }
+    ],
+    "skills": [
+      { "skill": "melee", "level": 6 },
+      { "skill": "unarmed", "level": 6 },
+      { "skill": "dodge", "level": 6 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "blackbelt_coach_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "karate_gi" },
+      { "item": "judo_belt_black" },
+      { "item": "mouthpiece" },
+      { "item": "geta" },
+      { "item": "boxer_shorts" },
+	  { "item": "shorts_denim"}
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "blackbelt_coach_carried",
+    "subtype": "collection",
+    "entries": [ 
+	{ "item": "ip_leader_head" }
+	]
+  },
+  {
+    "type": "item_group",
+    "id": "blackbelt_coach_wield",
+    "subtype": "collection",
+    "entries": [ 
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "blackbelt_coach_1" ],
+    "dynamic_line": {
+	  "npc_has_var": "u_helped_blackbelt_coach", "type": "general", "context": "meeting", "value": "yes",
+      "yes": "It's good to see my best student again.",
+      "no": "Hello there, student! Ready to learn the way of Iron Palm?"
+    },
+    "responses": [
+	  { 
+		"text": "About that job...",
+		"condition": "has_assigned_mission",
+		"trial": { "type": "CONDITION",
+			"condition": {
+				"and":[
+					{ "u_is_wearing": "karate_gi" },
+					{ "u_is_wearing": "geta" },
+					{"or": [
+						{ "u_is_wearing": "judo_belt_white" },
+						{ "u_is_wearing": "judo_belt_yellow" },
+						{ "u_is_wearing": "judo_belt_green" },
+						{ "u_is_wearing": "judo_belt_blue" },
+						{ "u_is_wearing": "judo_belt_black" }
+						]
+					}
+				]
+			}	
+		},
+	    "success": {"topic": "TALK_MISSION_INQUIRE"},
+	    "failure": {
+			"topic": "blackbelt_coach_nope",
+			"effect":[ {"npc_add_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes" } ]
+		}
+	  },
+      { "text": "What's your story?", "topic": "blackbelt_coach_Background" },
+      { "text": "Do you need any help?", 
+	    "trial": { "type": "CONDITION",
+		  "condition": {
+			"and":[
+				{ "u_is_wearing": "karate_gi" },
+				{ "u_is_wearing": "geta" }
+			]
+		  }
+	    },
+	    "success": {"topic": "TALK_MISSION_LIST"},
+	    "failure": {
+			"topic": "blackbelt_coach_nope",
+			"effect":[ {"npc_add_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes" } ]
+		}
+	  },
+      { "text": "Can you teach me something?", "topic": "blackbelt_coach_teach_check"},
+      { "text": "How can I become your student?", "topic": "blackbelt_coach_student",
+		"condition": {"npc_has_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes"}
+	  },
+      { "text": "What about that help?", "topic": "bbm_flame_knuckle_1",
+	    "condition":{"npc_has_var":"bbm_flame_knuckle", "type": "general", "context": "flag", "value": "yes"},
+	    "effect":[
+			{"npc_change_faction": "flame_knuckle"},
+			{ "u_faction_rep": 100 }
+		]
+	  },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "blackbelt_coach_Background",
+    "dynamic_line": "Before that day, there were two major fighting schools in our state: Iron Palm and Flame Knuckle. The Iron Palm quickly fell apart, as all the students and masters turned into that things, but Flame Knuckle somehow kept his school, and even managed to attract new members, promising them protection from the outside world and help them learn how to defend themself. Everything was fine, but for some reason, the leader of Flame Knuckle decided to end the School of Iron Palm once and for all. I, as the last master of my school, must prevent this!",
+    "responses": [
+      { "text": "Interesting.", "topic": "TALK_NONE" },
+      { "text": "I think you're lying.", 
+	    "condition": {"not":{"npc_has_var": "blackbelt_coach_background", "type": "general", "context": "meeting", "value": "yes"}},
+	    "trial": { "type": "PERSUADE", "difficulty": 8 },
+		"success": { "topic": "blackbelt_coach_truth" },
+		"failure": { "topic": "blackbelt_coach_truth" } 
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "blackbelt_coach_teach_check",
+    "dynamic_line": "I teach only those who helped my school. Did you helped my school?",
+    "responses": [
+      { "text": "Yes, master.", "topic": "blackbelt_coach_teach",
+	    "condition": {"npc_has_var": "u_helped_blackbelt_coach", "type": "general", "context": "meeting", "value": "yes"},
+		"trial": { "type": "CONDITION", "condition": {"npc_has_var": "blackbelt_coach_teach", "type": "general", "context": "meeting", "value": "yes"}},
+		"success": {
+			"effect":[
+				{"u_buy_item": "manual_karate"},
+				{"npc_add_var": "blackbelt_coach_teach", "type": "general", "context": "meeting", "value": "no"}
+			],
+			"topic": "blackbelt_coach_teach" 
+		},
+		"failure": { "topic": "blackbelt_coach_teach_done" }
+	  },
+      { "text": "Maybe later...", "topic": "TALK_NONE"
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "blackbelt_coach_teach",
+    "dynamic_line": "You helped me ressurect my school, so here, take it. It's one of the relics of our school, 'The Manual'!. You can take it now. Good luck, student. Don't get yourself killed!",
+    "responses": [
+      { "text": "Thank you, master!", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "blackbelt_coach_teach_done",
+    "dynamic_line": "I already taught you all I knew.",
+    "responses": [
+      { "text": "Thanks again, teacher.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "blackbelt_coach_truth",
+    "dynamic_line": "What?! Masters don't lie! You want to feel my iron fury? You want to feel REAL PAIN?!",
+    "responses": [
+      { "text": "I'm sorry, master! Please don't kill me!", "topic": "blackbelt_coach_1",
+		"effect":[{"npc_add_var": "blackbelt_coach_background", "type": "general", "context": "meeting", "value": "yes"}]
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "blackbelt_coach_nope",
+    "dynamic_line": "I'm only talking to my students about my problems!",
+    "responses": [
+      { "text": "I'm sorry, master!", "topic": "TALK_NONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "blackbelt_coach_student",
+    "dynamic_line": "First, you need to find proper uniform. You should wear Karate Gi and Geta to start your training. By the way, this is strictly not allowed, but in this dire circumstances, you can 'borrow' uniform from any not-any-more student.",
+    "responses": [
+      { "text": "I understand. I'll return when I get the uniform!", "topic": "TALK_DONE",
+		"effect":[ {"npc_lose_var":"blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes" } ] 
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "bbm_flame_knuckle_1",
+    "dynamic_line": "Take this. This is one of the school flyers my informer has gave me. He said that they use it now as invintation tickets. I hope you can find use for it. Good luck, student.",
+    "responses": [
+      { "text": "Thank you, master", "topic": "TALK_DONE", "effect":[{"npc_change_faction":"no_faction"}, {"u_buy_item":"flyer_fk"}]}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "bbm_wu",
+    "dynamic_line":"...",
+    "responses": [
+      { "text": "I'm back!", "topic": "blackbelt_coach_1", 
+		"condition":{
+			"and":[
+				{"not":{"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes" } },
+				{"not":{"u_has_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no" } }
+			]
+		}
+	  },
+      { "text": "...", "topic": "TALK_MISSION_FAILURE",
+	    "condition":{
+			"or":[
+				{"u_has_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes"},
+				{"u_has_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no"}
+			]
+		},
+		"effect":["mission_failure"],
+		"switch":true
+	  },
+      { "text": "I'm sorry, master, but you must die!", "topic": "TALK_DONE",
+		"condition":{"u_has_var":"fkl_end_ip", "type": "flag", "context": "meeting", "value": "yes"},
+		"effect":[
+			"insult_combat",
+			{"u_lose_var":"fkl_end_ip", "type": "flag", "context": "meeting", "value": "yes"}
+		]
+	  },
+      { "text": "...", "topic": "TALK_DONE", "switch":true}
+    ]
+  },
+  {
+    "id": "MISSION_blackbelt_coach_1",
+    "type": "mission_definition",
+    "name": { "str": "Find informer" },
+    "description": "Find the informer, who was infiltrated to 'Flame Knuckle' school, and talk to him.",
+    "goal": "MGOAL_CONDITION",
+	"goal_condition": { "u_has_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "yes" },
+    "difficulty": 0,
+    "value": 1000,
+	"start":{
+		"effect":[
+			{"npc_first_topic":"bbm_wu"},
+			{"u_buy_item":"judo_belt_white"}
+		],
+      "assign_mission_target": { "om_terrain": "forest", "om_terrain_replace": "field","om_terrain_match_type":"PREFIX", "reveal_radius": 1, "search_range": 40, "min_distance": 3 },
+      "update_mapgen": {"place_npcs": [{ "class": "flame_knuckle_apprentice_informer", "x": 5, "y": 5 }]
+	  }
+	},
+	"end":{
+		"effect":[
+			{"u_consume_item":"judo_belt_white"},
+			{"u_buy_item":"judo_belt_yellow"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_blackbelt_coach_2",
+    "dialogue": {
+      "describe": "Blackbelt master.",
+      "offer": "Well well, you decided to help me? Okay, listen here, student. I managed to recruit one of the survivors and persuaded him to join Flame Knuckle and leak all information he could get to me. The time has come for the next collection of information. Meet him in the nearby forest, get everything he knows from him and come back here. Oh yes, our password is 'Berries'. Don't forget the password!",
+      "accepted": "I didn’t doubt in you. Hold this belt as a symbol of your entry into Iron Palm school! Go, and don't come to me until you complete your task!",
+      "rejected": "Are you scared?",
+      "advice": "Be careful. The guy could be found out, so try not to bring tail here.",
+      "inquire": "I'm waiting.",
+      "success": "Well done, student. I knew you would succeed! Well, tell me all you got... \nHmmm, that's how it is. Well, it complicates my job a little. I need a little time to think about it. Here, hold this belt, you deserve it.",
+      "success_lie": "True warriors don't lie!",
+      "failure": "You are a disgrace to your family!"
+		},
+    "fail": { 
+		"effect":[
+			 "end_conversation",
+			{"u_lose_var": "blackbelt_coach_m1", "type": "general", "context": "meeting", "value": "no"},
+			{"u_consume_item":"judo_belt_white"}
+		]
+	}
+	},
+  {
+    "id": "MISSION_blackbelt_coach_2",
+    "type": "mission_definition",
+    "name": { "str": "Kill one of the trainers" },
+    "description": "The Master has asked you to kill one of the Flame Fist School trainers before he can train a new group of students.",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 100,
+    "deadline_low": 14,
+    "deadline_high": 28,
+    "start": {
+	  "effect":[{"npc_first_topic":"bbm_wu"}],
+      "assign_mission_target": {
+		"om_terrain": "dojo_1",
+		"om_terrain_replace": "house",
+		"om_terrain_match_type":"PREFIX",
+		"reveal_radius": 1,
+		"search_range": 200,
+		"min_distance": 25 
+	  },
+      "update_mapgen": {
+        "place_npcs": [
+          { "class": "flame_knuckle_apprentice", "x": 10, "y": 13 },
+          { "class": "flame_knuckle_apprentice", "x": 11, "y": 13 },
+          { "class": "flame_knuckle_apprentice", "x": 12, "y": 13 },
+          { "class": "flame_knuckle_apprentice", "x": 13, "y": 13 },
+          { "class": "flame_knuckle_apprentice", "x": 14, "y": 13 },
+          { "class": "flame_knuckle_elite_coach", "x": 12, "y": 12, "target": true }
+        ]
+	  }
+    },
+	"end":{
+		"effect":[
+			{"u_consume_item":"judo_belt_yellow"},
+			{"u_buy_item":"judo_belt_green"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_blackbelt_coach_3",
+    "dialogue": {
+      "describe": "Blackbelt master.",
+      "offer": "Thanks to the information you gave me, I learned that Flame Knuckle is send one of their elites to train a new group of fresh apprentices, and I want you to prevent this. Find this asshole, use your iron palm and make him choke on blood! .. What? What about the students? I don't give a damn, do what you want. Oh yeah, their training will take about 2-4 weeks, so hurry up! They won't sit there forever!",
+      "accepted": "I like your attitude. Show them the true path of the Iron Palm!",
+      "rejected": "Afraid?!",
+      "advice": "Apprentices are just random crooks, but that trainer guy is one of the finest in his school. Be careful with your aproach.",
+      "inquire": "I'm waiting.",
+      "success": "Nice one, student! That will teach them not to mess with me, with my school and my students!",
+      "success_lie": "True warriors don't lie!",
+      "failure": "You are a disgrace to your family!"
+	},
+    "fail": {
+	  "effect":[
+		"end_conversation",
+		{"u_consume_item":"judo_belt_yellow"},
+		{"u_lose_var":"fkl_business", "type": "flag", "context": "meeting", "value": "yes" }
+	  ]
+	}
+  },
+  {
+    "id": "MISSION_blackbelt_coach_3",
+    "type": "mission_definition",
+    "name": { "str": "End the Flame Knuckle" },
+    "description": "It's time to end the Flame Knuckle once and for all.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "ip_leader_head",
+    "difficulty": 0,
+    "value": 100,
+    "deadline_low": 7,
+    "deadline_high": 14,
+    "start": {
+		"effect":[
+			{"npc_add_var": "bbm_flame_knuckle", "type": "general", "context": "flag", "value": "yes"}
+		],
+		"assign_mission_target": {
+			"om_terrain": "fk_base_2",
+			"om_special": "Flame Knuckle base",
+			"om_terrain_replace": "forest",
+			"om_terrain_match_type":"PREFIX",
+			"cant_see": true,
+			"reveal_radius": 1,
+			"search_range": 200,
+			"min_distance": 50
+		},
+		"update_mapgen": {
+			"place_npcs": [{ "class": "flame_knuckle_leader", "x": 2, "y": 11, "target":true } ]
+		}
+    },
+	"end":{
+		"effect":[
+			{"u_consume_item":"judo_belt_green"},
+			{"u_buy_item":"judo_belt_blue"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_blackbelt_coach_4",
+    "dialogue": {
+      "describe": "Blackbelt master",
+      "offer": "So, my student, it's time for real punch! I managed to locate their base, and even learned that their leader will be there. I want you to go there, show them the power of the Iron Palm and bring me the head of their leader as proof. You are my best student, so it wouldn't be difficult for you.",
+      "accepted": "Good. He will be there for a week at least. If you want to get to him before dealing with his other crooks, ask me how, I've got an idea...",
+      "rejected": "Afraid?!",
+      "advice": "I know little about their base, but they have a bunch of crooks that joined them for protection, a few trainers for training new students, maybe something more. Oh, if you see the guys with masks. They are his tops, so be extremly carefull while dealing with them.",
+      "inquire": "So?",
+      "success": "Good, very good, my student. Now my school have a chance to rise again! Take this belt, you deserve it. ",
+      "success_lie": "True warriors don't lie!",
+      "failure": "You are a disgrace to your family!"
+	},
+	"fail": { 
+		"effect":[
+			"end_conversation",
+			{"u_consume_item":"judo_belt_green"}
+		]
+	}
+  },
+  {
+    "id": "MISSION_blackbelt_coach_4",
+    "type": "mission_definition",
+    "name": { "str": "Find me new students" },
+    "description": "Find new students.",
+    "goal": "MGOAL_CONDITION",
+	"goal_condition": {"u_has_var":"bbm_students", "type": "flag", "context": "meeting", "value": "2"},
+    "difficulty": 0,
+    "value": 1000,
+	"start":{
+		"effect":[
+			{"u_add_var":"bbm_students", "type": "flag", "context": "meeting", "value": "0"},
+			{"u_add_var":"students_transfer", "type": "flag", "context": "meeting", "value": "ip"}
+		]
+	},
+	"end":{
+		"effect":[
+			{"u_consume_item":"judo_belt_blue"},
+			{"u_buy_item":"judo_belt_black"},
+			{"npc_add_var": "u_helped_blackbelt_coach", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_add_var": "blackbelt_coach_teach", "type": "general", "context": "meeting", "value": "yes"},
+			{"u_lose_var":"bbm_students", "type": "flag", "context": "meeting", "value": "2"}
+		]
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "Blackbelt master",
+      "offer": "So, my student, it's time to ressurect my school. Bring me 2 new students so I can train them to be the best fighters in this world!",
+      "accepted": "Good, I'll wait.",
+      "rejected": "Afraid?",
+      "advice": "To be honest, I think you know the world outside far better then me, so I don't have advice for you, except good luck!",
+      "inquire": "I'm waiting.",
+      "success": "I don't know what to say, my student. Just take this belt. You earned it with your blood and tears. If you want to get extra training, talk to me. I'll teach you all our school secrets as best as I can!",
+      "success_lie": "True warriors don't lie!",
+      "failure": "You are a disgrace to your family!"
+	}
+  }
+]

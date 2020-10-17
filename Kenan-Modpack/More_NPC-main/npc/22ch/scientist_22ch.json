@@ -1,0 +1,175 @@
+[
+  {
+  	"//":"TODO check all, change transmitters code",
+    "type": "npc",
+    "id": "scientist_22ch",
+    "name_suffix": "scientist",
+    "class": "scientist_22ch",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "scientist_22ch_1",
+    "faction": "no_faction",
+	"mission_offered": "MISSION_scientist_22ch_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "scientist_22ch",
+    "name": { "str": "Scientist 22ch" },
+    "job_description": "Scientist 22ch.",
+    "common": false,
+    "bonus_str": { "rng": [ 2, 4 ] },
+    "bonus_dex": { "rng": [ 2, 4 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
+    "worn_override": "scientist_22ch_worn",
+    "carry_override": "scientist_22ch_carried",
+    "wield_override": "scientist_22ch_wield",
+    "traits": [
+      { "group": "Appearance_SouthAsian" },
+      { "trait": "PAINRESIST" }
+    ],
+    "skills": [
+      { "skill": "melee", "level": 6 },
+      { "skill": "unarmed", "level": 6 },
+      { "skill": "dodge", "level": 6 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "scientist_22ch_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "loincloth" },
+      { "item": "hakama_gi" },
+      { "item": "obi_gi" },
+      { "item": "armor_samurai" },
+      { "item": "helmet_kabuto" },
+	  { "item": "tabi_dress"},
+      { "item": "bastsandals" },
+      { "item": "backpack" },
+      { "item": "waterskin" },
+      { "item": "katana" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "scientist_22ch_carried",
+    "subtype": "collection",
+    "entries": [
+      { "item": "waterskin" },
+      { "item": "katana" },
+	  { "item": "manual_niten" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "scientist_22ch_wield",
+    "subtype": "collection"
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "scientist_22ch_1" ],
+    "dynamic_line":"*looks busy",
+	"speaker_effect":{"u_add_var": "scientist_22ch_met", "type": "general", "context": "meeting", "value": "yes"},
+    "responses": [
+      { "text": "So, that guy sent me.", "topic": "TALK_MISSION_LIST",
+		"condition":{"u_has_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes"}
+	  },
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "scientist_22ch_2",
+    "dynamic_line": "What's your orders?",
+    "responses": [
+      { "text": "We're here. Place it.", "topic": "TALK_DONE",
+		"condition":{"npc_at_om_location":"radio_tower_top_north"},
+		"trial": { "type": "CONDITION",
+			"condition": {"not":{"npc_has_var":"scientist_22ch_transmitter", "type": "flag", "context": "meeting", "value": "4"}}
+		},
+		"success": {
+			"topic": "scientist_22ch_good",
+			"assign_mission_target": { 
+				"om_terrain": "radio_tower_top",
+				"om_special": "Radio Tower",
+				"om_terrain_replace": "field",
+				"om_terrain_match_type":"PREFIX",
+				"search_range": 20, 
+				"min_distance": 5,
+				"cant_see":true
+			},
+			"effect":[
+				{"npc_adjust_var":"scientist_22ch_transmitter", "type": "flag", "context": "meeting", "adjustment": 1}
+			]
+		},
+		"failure": {"topic": "scientist_22ch_bad"}
+	  },
+      { "text": "Follow me.", "topic": "TALK_DONE", "effect":"follow_only" },
+	  { "text": "Wait for me here.", "topic": "TALK_DONE", "effect":"stop_following"},
+	  { "text": "Nevermind.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "scientist_22ch_good" ],
+    "dynamic_line":"I'm done here. Let's get going.",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "scientist_22ch_bad" ],
+    "dynamic_line":"So, the last one... Oh shit, they found us! Qui...",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE", 
+		"effect":[
+			"follow_only",
+			{"mapgen_update":"22ch_transmitter_done", "origin_npc": true, "offset_z":-7},
+			"mission_success", "npc_die",
+			{"u_lose_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes"},
+			{"u_add_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	  }
+    ]
+  },
+  {
+    "id": "MISSION_scientist_22ch_1",
+    "type": "mission_definition",
+    "name": { "str": "Help me place 5 things" },
+    "description": "Help me place 5 things",
+    "goal": "MGOAL_CONDITION",
+	"goal_condition":{"npc_has_var": "scientist_22ch_transmitter", "type": "general", "context": "meeting", "value": "4"},
+    "difficulty": 0,
+    "value": 100,
+	"start":{
+		"effect":[
+			{"npc_add_var": "scientist_22ch_transmitter", "type": "general", "context": "meeting", "value": "0"},
+			{"u_add_var": "scientist_22ch_working", "type": "general", "context": "meeting", "value": "yes"},
+			{"npc_first_topic":"scientist_22ch_2"}
+		],
+		"assign_mission_target": { 
+			"om_terrain": "radio_tower_top",
+			"om_special": "Radio Tower",
+			"om_terrain_replace": "field",
+			"om_terrain_match_type":"PREFIX",
+			"search_range": 20, 
+			"min_distance": 5
+		}
+	},
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_scientist_22ch_2",
+    "dialogue": {
+      "describe": "True student!!!",
+      "offer": "Help me place 5 things",
+      "accepted": "Good",
+      "rejected": "Afraid?!",
+      "advice": "Don't forget to tell him a few sweet words from me!",
+      "inquire": "I'm waiting.",
+      "success": "Nice! ",
+      "success_lie": "True warriors don't lie!",
+      "failure": "You are a disgrace to your family!"
+	}
+  }
+]

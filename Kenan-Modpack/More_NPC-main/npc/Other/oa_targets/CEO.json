@@ -1,0 +1,96 @@
+[
+  {
+	"//":"TODO REDO ALL",
+    "type": "npc",
+    "id": "oa_target_ceo",
+    "gender": "male",
+    "name_suffix": "",
+	"class": "target_ceo",
+    "attitude": 1,
+    "mission": 7,
+    "chat": "target_ceo1",
+    "faction": "no_faction"
+  },
+  {
+    "type": "npc_class",
+    "id": "target_ceo",
+    "name": { "str": "CEO" },
+    "job_description": "CEO.",
+    "common": false,
+    "bonus_str": { "rng": [ 0, 2 ] },
+    "bonus_dex": { "rng": [ 0, 2 ] },
+    "bonus_int": { "rng": [ 4, 8 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
+    "worn_override": "target_ceo_worn",
+    "carry_override": "target_ceo_carried",
+	"wield_iverride":"target_ceo_wield",
+	"traits":[
+	  { "group": "NPC_starting_traits" },
+	  { "group": "Appearance_demographics" }
+	],
+    "skills": [
+      { "skill": "speech", "level": 6 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "target_ceo_worn",
+    "subtype": "collection",
+    "entries": [
+		{ "item": "suit" },
+		{ "item": "tieclip" },
+		{ "item": "socks_wool" },
+		{ "item": "dress_shoes" },
+		{ "item": "gold_watch" },
+		{ "item": "tie_skinny" }
+        ]
+  },
+  {
+    "type": "item_group",
+    "id": "target_ceo_carried",
+    "subtype": "collection",
+    "entries": [
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "target_ceo_wield",
+    "subtype": "collection",
+    "entries": [
+		{ "item": "cigar" }
+    ]
+  },
+  {
+    "id": "target_ceo1",
+    "type": "talk_topic",
+	"dynamic_line": "I don't have time for this. Name your price.",
+    "responses": [
+	  { "text": "10.000 dorarus", "topic":"target_ceo2", "effect":{"u_buy_item":"signed_chit", "count":200}},
+	  { "text": "You will end here.", "topic":"TALK_DONE",
+		"effect":[
+			"hostile",
+			"end_conversation"
+		]
+	  }
+    ]
+  },
+  {
+    "id": "target_ceo2",
+    "type": "talk_topic",
+	"dynamic_line": "Take it and go away.",
+    "responses": [
+	  { "text": "...", "topic":"TALK_DONE",
+		"effect":[
+			"end_conversation",
+			{"u_add_var": "old_assassin_fail", "type": "general", "context": "meeting", "value": "yes"}
+		]
+	  },
+	  { "text": "Actually, you will end here.", "topic":"TALK_DONE",
+		"effect":[
+			"hostile",
+			"end_conversation"
+		]
+	  }
+    ]
+  }
+]

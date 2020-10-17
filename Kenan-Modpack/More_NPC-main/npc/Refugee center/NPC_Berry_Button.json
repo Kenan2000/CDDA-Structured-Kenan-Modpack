@@ -1,0 +1,301 @@
+[
+  {
+  	"//":"TODO check text, maybe add more",
+    "type": "npc",
+    "id": "Berry_Button",
+    "name_unique": "Berry Button",
+    "gender": "male",
+    "name_suffix": "refugee",
+	"class": "Berry_Button",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_REFUGEE_Berry_1",
+    "faction": "no_faction",
+	"mission_offered": "MISSION_BerryButton_1"
+  },
+    {
+    "type": "npc_class",
+    "id": "Berry_Button",
+    "name": { "str": "Berry Button" },
+    "job_description": "I'm just trying to survive.",
+    "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" } ],
+    "common": false
+  },
+  {
+    "id": ["TALK_REFUGEE_Berry_1"],
+    "type": "talk_topic",
+	"dynamic_line": "Hello there, pal.",
+    "responses": [
+	  { 
+	    "text": "About that job...",
+  	    "topic": "TALK_MISSION_INQUIRE",
+        "condition":"has_assigned_mission"
+	  },
+      { "text": "Can I help you with something?", "topic": "TALK_MISSION_LIST"},
+      { "text": "What's your story?", "topic": "TALK_Berry_Background" },
+	  {
+        "text": "You do realise that you payed me with worthless green paper, right?",
+        "effect": { "npc_add_var": "u_angry_mis1_rew_Berry", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": {
+			"and":[
+				{"not": { "npc_has_var": "u_angry_mis1_rew_Berry", "type": "general", "context": "meeting", "value": "yes" }},
+				{"npc_has_var": "MISSION_BerryButton_1", "type": "mission", "context": "flag", "value": "yes"}
+			]
+		},
+        "topic": "TALK_REFUGEE_Berry_angry1"
+      },
+	  {"text": "Well, bye.", "topic": "TALK_DONE"},
+	  {
+	    "text":"You know, I tried that moonshine. It tastes like HELL!",
+	    "topic":"BerryB_tried_ub_moonshine",
+	    "condition":{"u_has_effect": "took_ub_mustang"}
+	  }
+    ]
+  },
+  {
+	"//":"TODO add background",
+    "type": "talk_topic",
+    "id": "TALK_Berry_Background",
+    "dynamic_line": "I'm just a guy. Nothing more, nothing else.",
+    "responses": [
+      { "text": "Interesting.", "topic": "TALK_NONE" }
+    ]
+  },
+    {
+    "type": "talk_topic",
+    "id": "TALK_REFUGEE_Berry_angry1",
+    "dynamic_line": "Huh? What are you talking about? You do not recognise american dollars? For that money you can buy a lot more booze than you brought me!",
+    "responses": [
+      {
+        "text": "If you didn't notice, old world is dead, and old curencies have little to none value now. Heck, I doubt I can found someone who will want to trade something for this green paper.",
+        "topic": "TALK_REFUGEE_Berry_angry2"
+      }
+    ]
+  },
+   {
+    "type": "talk_topic",
+    "id": "TALK_REFUGEE_Berry_angry2",
+    "dynamic_line": "Oh, that's why that merchant guy give me a weird look when I offered him... Sorry, pal, I didnt think about that until now, heh. *he smiled* Next time, I'll give you something of worth. You have my word!",
+    "responses": [
+      {"text": "I hope so!", "topic": "TALK_DONE"},
+	  {"text": "Hey, 'pal', maybe you want to compensate my time with something of worth NOW?",
+	    "trial": { "type": "PERSUADE", "difficulty": 5 },
+		"success": { "topic": "TALK_BerryB_Agree" },
+		"failure": { "topic": "TALK_BerryB_Disagree" }
+	  }
+    ]
+  },
+   {
+   "//":"TODO change reward",
+    "type": "talk_topic",
+    "id": "TALK_BerryB_Agree",
+    "dynamic_line": "Yeah, sure, pal. Sorry. You can have my old ring, if it helps.",
+    "responses": [
+      { "text": "That's more like it.","topic": "TALK_DONE",
+	    "effect": {"u_buy_item": "silver_ring"}
+	  }
+    ]
+  },
+   {
+    "type": "talk_topic",
+    "id": "TALK_BerryB_Disagree",
+    "dynamic_line": "Hey, pal, I said I'm sorry!",
+    "responses": [
+      {"text": "...", "topic": "TALK_DONE"}
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "BerryB_tried_ub_moonshine",
+    "dynamic_line": "Oh, pal, so how was it? Is it good? I know it's good, that's my favorite drink of all time!",
+    "responses": [
+      { "text": "Berry, I swear to god, if you don't stop with your jokes...",
+		"topic": "BerryB_tried_ub_moonshine1",
+	    "effect":[ { "u_lose_effect":"took_ub_mustang" } ]
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "BerryB_tried_ub_moonshine1",
+    "dynamic_line": "Umm, why do you have so angry face? You didn't like it?.. Maybe you drank too much? Here, take this, it can help!",
+    "responses": [
+      { "text": "Unbelievable...", "topic": "TALK_DONE",
+	    "effect":[ { "u_buy_item":"aspirin", "count":2 } ]
+	  }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "Berry_wait",
+    "dynamic_line": "So, what about my brother?",
+    "responses": [
+	  { "text": "He's here, alive and well.", "topic": "TALK_MISSION_SUCCESS",
+		"condition":{
+			"and":[
+				{"not":"mission_complete"},
+				{"u_has_var": "BarryB_safe", "type": "general", "context": "meeting", "value": "yes"}
+			]
+		},
+		"effect":[
+			{"u_buy_item": "FMCNote", "count": 23},
+			{"npc_first_topic":"TALK_REFUGEE_Berry_1"}
+		]
+	  },
+	  { "text": "He was alive, but I couldn't get him here alive. I'm sorry.", "topic": "TALK_MISSION_FAILURE",
+		"condition":{
+			"and":[
+				"mission_complete",
+				{"u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"}
+			]
+		},
+		"effect":{"npc_first_topic":"BerryB_sad"}
+	  },
+	  { "text": "He was dead, I couldn't do anything. I'm sorry.", "topic": "TALK_MISSION_FAILURE",
+		"condition":{
+			"and":[
+				"mission_complete",
+				{"not":{"u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes"}}
+			]
+		},
+		"effect":{"npc_first_topic":"BerryB_sad"}
+	  },
+      { "text": "Nothing, really.", "topic": "TALK_NONE" }
+	]
+  },
+  {
+    "type": "talk_topic",
+    "id": "BerryB_sad",
+    "dynamic_line": "Sorry, pal, I'm not in the mood right now.",
+    "responses": [
+      { "text": "...", "topic": "TALK_DONE"}
+    ]
+  },
+  {
+    "id": "MISSION_BerryButton_1",
+    "type": "mission_definition",
+    "name": { "str": "Bring vodka to Berry" },
+    "description": "Berry want some vodka for his soar throat. Bring him a bottle.",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 0,
+    "item": "vodka",
+    "count": 18,
+    "value": 500,
+	"end": {
+      "effect": [
+        { "u_buy_item": "money_bundle", "count": 1 },
+        { "npc_add_var": "MISSION_BerryButton_1", "type": "mission", "context": "flag", "value": "yes" }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_BerryButton_2",
+    "dialogue": {
+      "describe": "Vodka!!",
+      "offer": "Look, pal, I need to steep my throat, so bring me a bottle of vodka, please. I'll pay you.",
+      "accepted": "Thank you, pal. I'll wait for you right here!",
+      "rejected": "Well, thats bad. Return if you change your mind.",
+      "advice": "Try to look at the bar or in some lonely guy's house.",
+      "inquire": "Did you found any vodka?",
+      "success": "Heh. I believed in you, pal. *Berry took a large sip* Here's the cash I promised. Spend it well, he-he.",
+      "success_lie": "Hey, pal, you call this a vodka?!",
+      "failure": "Pal..."
+    }
+  },
+  {
+    "id": "MISSION_BerryButton_2",
+    "type": "mission_definition",
+    "name": { "str": "Bring nice moonshine" },
+    "description": "Berry asked you to bring him a bottle of nice moonshine called 'Uncle Ben's Mustang'.",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 3,
+    "item": "uncle_bens_mustang",
+    "value": 1000,
+		"//":"TODO maybe add Uncle Ben?",
+    "start": {
+      "assign_mission_target": 
+	  { 
+		"om_terrain": "moonshine_still",
+		"om_special": "Moonshine Still",
+		"om_terrain_replace": "forest",
+		"reveal_radius": 1,
+		"search_range": 50
+	  },
+        "update_mapgen": { 
+	      "place_item": [ { "item": "uncle_bens_mustang", "x":  13 , "y": 12, "target":true } ],
+	      "place_monster": [{ "monster": "mon_zombie_brute", "x": 13, "y": 12 }]  
+	    }
+	  },
+	"end": {
+      "effect": [
+        { "u_buy_item": "FMCNote", "count": 8 }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_BerryButton_3",
+    "dialogue": {
+      "describe": "Uncle Ben's Mustang!!",
+      "offer": "Hey, pal, glad you still alive. Listen, I have another job for you. Have you heard about 'Uncle Ben's Mustang'? It's the best moonshine in the entire state! Sadly, there is a high chance that Ol' Benny is dead by now... BUT! I got this nice map with all 'shady' places in the woods with different spots for moonshiners to meet. So, I want YOU to visit one of the places, and maybe grab me a few bottles if you find any... Hey, hey, don't go! I'll share! Fine, I'll even give you some nice looking trader banknots. So, whatcha say?",
+      "accepted": "I knew you wouldn't refuse such a deal, pal. I'll wait for you right here!",
+      "rejected": "Well, thats bad. Return if you change your mind.",
+      "advice": "Don't smoke in the woods!",
+      "inquire": "Did you found it?",
+      "success": "Heh. I believed in you, pal. *Berry took a large sip* Here's the cash I promised you. Spend it well, he-he.",
+      "success_lie": "Hey, pal, don't try to fool me!",
+      "failure": "Pal..."
+	}
+  },
+  {
+    "id": "MISSION_BerryButton_3",
+    "type": "mission_definition",
+    "name": { "str": "Find Berry's brother" },
+    "description": "Berry asked you to find his brother. According to him, his brother got caught by some bandits.",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 4000,
+    "start": 
+	{
+	  "effect":[
+		{"npc_first_topic":"Berry_wait"}
+	  ],
+      "assign_mission_target":{
+        "om_terrain": "cabin",
+        "om_special": "Cabin",
+        "om_terrain_replace": "forest",
+        "reveal_radius": 1,
+        "min_distance": 10,
+        "search_range": 100
+	  },
+		"update_mapgen": {
+			"place_npcs": [ 
+				{ "class": "Barry_Button", "x": 7, "y": 5, "target":true },
+				{ "class": "bandit", "x": 6, "y": 14 },
+				{ "class": "bandit", "x": 10, "y": 15 },
+				{ "class": "bandit", "x": 13, "y": 15 },
+				{ "class": "bandit", "x": 6, "y": 16 },
+				{ "class": "bandit", "x": 10, "y": 16 },
+				{ "class": "bandit", "x": 13, "y": 16 },
+				{ "class": "bandit", "x": 11, "y": 21 },
+				{ "class": "bandit", "x": 13, "y": 21 }
+		    ]
+		}
+	},
+	"end": {
+      "effect": [
+        {"u_buy_item": "FMCNote", "count": 23}
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_BerryButton_4",
+    "dialogue": {
+      "describe": "Brother!!",
+      "offer": "Hey, pal, I've got an emergency here. You helped me before, so I put my trust in you on this! A few days ago, my brother went to forrest to meet with some guys that are agreed to help with... lets say, some 'delicate' work. Problem is, something strange happened at the meeting. We spoke by the radio with my brother, and the last thing I heard was loud rumbling and sounds of fight. I think they killed him, pal...Please, check the meeting spot, and if he's still alive, bring him back!",
+	  "accepted": "Thank you, pal. I owe you a big one! Please hurry!",
+      "rejected": "Please, pal, help me!",
+      "advice": "This guys may be dangerous. I don't know why my brother wanted to mess with them...",
+      "inquire": "Did you found him?",
+      "success": "Oh god, thank you, pal! I'm so happy to see my brother again! I would not forget your help for, like, forever!",
+      "success_lie": "Hey, pal, please...",
+      "failure": "Pal... I'll miss my brother..."
+	}
+  }
+]
