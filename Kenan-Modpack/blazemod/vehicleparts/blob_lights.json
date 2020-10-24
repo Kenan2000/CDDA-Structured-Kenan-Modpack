@@ -9,10 +9,14 @@
     "broken_color": "blue",
     "durability": 200,
     "damage_modifier": 10,
-    "folded_volume": 1,
+    "folded_volume": "1000 ml",
     "breaks_into": [ { "item": "glowiegrow" } ],
     "description": "A living, glowing blob.  Having been filled with electrical power, can release it as light of varying strength.",
-    "requirements": { "repair": { "time": "5 m", "using": [ [ "blobrep", 1 ] ] } },
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 1 ] ], "time": "20 m" },
+      "removal": { "skills": [ [ "mechanics", 1 ] ], "time": "10 m" },
+      "repair": { "skills": [ [ "mechanics", 1 ] ], "time": "5 m", "using": [ [ "blobrep", 1 ] ] }
+    },
     "flags": [ "ENABLED_DRAINS_EPOWER", "FOLDABLE" ]
   },
   {
@@ -24,7 +28,7 @@
     "//": "essentially an 800lm 10W LED flashlight",
     "epower": -10,
     "bonus": 30,
-    "folded_volume": 2,
+    "folded_volume": "500 ml",
     "extend": { "flags": [ "AISLE_LIGHT" ] }
   },
   {
@@ -36,7 +40,7 @@
     "description": "A very bright, circular light that illuminates the area outside the vehicle when turned on.",
     "epower": -200,
     "bonus": 8000,
-    "folded_volume": 8,
+    "folded_volume": "2 L",
     "extend": { "flags": [ "CIRCLE_LIGHT" ] }
   },
   {
@@ -47,7 +51,7 @@
     "looks_like": "blob_floodlight",
     "description": "A very bright, directed light that illuminates a half-circular area outside the vehicle when turned on.  During installation, you can choose what direction to point the light.",
     "//": "8000lm 100W LED floodlight",
-    "epower": -100,
+    "epower": -200,
     "extend": { "flags": [ "HALF_CIRCLE_LIGHT" ] },
     "delete": { "flags": [ "CIRCLE_LIGHT" ] }
   },
@@ -59,7 +63,7 @@
     "description": "A bright light that illuminates a narrow cone outside the vehicle when turned on.  During installation, you can choose what direction to point the light, so multiple headlights can illuminate the sides or rear, as well as the front.",
     "epower": -100,
     "bonus": 8000,
-    "folded_volume": 1,
+    "folded_volume": "250 ml",
     "extend": { "flags": [ "CONE_LIGHT" ] }
   },
   {
