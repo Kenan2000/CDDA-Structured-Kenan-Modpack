@@ -1,0 +1,22 @@
+[
+  {
+    "id": "TALK_Merc_Med",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_is_wearing": "badge_marshal",
+      "yes": "<greet>, I'm dealing in something useful to treat diseases. Do you need drugs?",
+      "no": "<greet>, I'm dealing in something useful to treat diseases. Do you need drugs?"
+    },
+    "responses": [
+      { "text": "Are you doctor? Can you treat me?", "topic": "TALK_Merc_Med_Help" },
+      { "text": "Let's see what you got...", "effect": "start_trade", "topic": "TALK_Merc_Med" },
+      { "text": "Bye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_Merc_Med_Help",
+    "type": "talk_topic",
+    "dynamic_line": "Unfortunately, I'm not a real doctor. He died some ago... I'm just selling some of his possessions.",
+    "responses": [ { "text": "Got it.", "topic": "TALK_Merc_Med" } ]
+  }
+]
