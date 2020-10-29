@@ -1,0 +1,38 @@
+[
+  {
+    "type": "ter_furn_transform",
+    "id": "boomthebuilding",
+    "fail_message": "There's no building to destroy.",
+    "terrain": [
+      {
+        "result": "t_dirt",
+        "valid_flags": [ "TRANSPARENT", "WALL", "CONNECT_TO_WALL", "MOUNTABLE", "THIN_OBSTACLE", "BURROWABLE" ],
+        "message": "The walls here has collapsed."
+      }
+    ],
+    "furniture": [
+      {
+        "result": [ "f_rubble", [ "f_null", 2 ] ],
+        "valid_flags": [ "MINEABLE", "MOUNTABLE", "FLAT_SURF" ],
+        "message": "Rubbles have formed."
+      },
+      {
+        "result": [ "f_rubble", [ "f_null", 2 ] ],
+        "valid_furniture": [ "f_null" ],
+        "message": "Rubbles have formed."
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "stairstransform",
+    "fail_message": "There's no vat to transform",
+    "terrain": [
+      {
+        "result": "t_stairs_down",
+        "valid_flags": [ "BL9" ],
+        "message": "The vat turns into a staircase leading God-knows where..."
+      }
+    ]
+  }
+]
