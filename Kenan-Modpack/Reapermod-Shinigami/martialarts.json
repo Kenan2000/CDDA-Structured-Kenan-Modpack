@@ -1,0 +1,69 @@
+[
+  {
+    "type": "martial_art",
+    "id": "style_shinigami",
+    "name": { "str": "Shinigami Song" },
+    "description": "You have mastered the art of fighting with a scythe.",
+    "initiate": [  ],
+    "arm_block": 99,
+    "leg_block": 99,
+    "static_buffs": [
+      {
+        "id": "shinigami_staticbuff1",
+        "name": "Winds of the End",
+        "description": "Bonus to hit increase when a scythe is equipped.",
+        "max_stacks": 1,
+        "flat_bonuses": [ { "stat": "hit", "scale": 1.0 } ]
+      },
+      {
+        "id": "shinigami_staticbuff2",
+        "name": "Hunger for Immortality",
+        "description": "Reduced move cost for attacks when a scythe is equipped.",
+        "min_melee": 4,
+        "max_stacks": 1,
+        "flat_bonuses": [ { "stat": "movecost", "scale": -10 } ]
+      },
+      {
+        "id": "shinigami_staticbuff3",
+        "name": "Storm of the Reaper",
+        "description": "Further reduction to move cost when a scythe is equipped.",
+        "min_melee": 9,
+        "max_stacks": 1,
+        "flat_bonuses": [ { "stat": "movecost", "scale": -10 } ]
+      }
+    ],
+    "ondodge_buffs": [
+      {
+        "id": "shinigami_dodgebuff",
+        "name": "Natural Death Avoidance",
+        "description": "Cut damage increase on dodge.",
+        "buff_duration": 2,
+        "max_stacks": 2,
+        "mult_bonuses": [ { "stat": "damage", "type": "cut", "scale": 1.2 } ]
+      }
+    ],
+    "onblock_buffs": [
+      {
+        "id": "shinigami_blockbuff",
+        "name": "Unnatural Death Avoidance",
+        "description": "Dodge bonus increase on block.",
+        "buff_duration": 2,
+        "max_stacks": 2,
+        "flat_bonuses": [ { "stat": "dodge", "scale": 1.0 } ],
+        "bonus_dodges": 1
+      }
+    ],
+    "techniques": [ "tec_shinigami_crit", "tec_shinigami_feint", "tec_shinigami_fast", "tec_shinigami_soul" ],
+    "weapons": [
+      "scythe",
+      "scythe_war",
+      "scythe_war_upgraded",
+      "scythe_war_perfected",
+      "scythe_diamond",
+      "scythe_fire_off",
+      "scythe_fire_on",
+      "scythe_relic",
+      "scythe_ornate"
+    ]
+  }
+]

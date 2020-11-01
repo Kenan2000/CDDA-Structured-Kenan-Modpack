@@ -86,7 +86,7 @@
     "symbol": "/",
     "color": "light_gray",
     "category": "weapons",
-    "techniques": [ "WIDE", "BRUTAL", "SWEEP", "WBLOCK_2" ],
+    "techniques": [ "WIDE", "BRUTAL", "SWEEP", "WBLOCK_2", "VORPAL" ],
     "qualities": [ [ "CUT", 1 ], [ "BUTCHER", -23 ] ],
     "flags": [ "DURABLE_MELEE", "REACH_ATTACK", "MESSY" ],
     "use_action": { "type": "transform", "msg": "Reaper's got your name!", "target": "absolute_sniper" }
@@ -107,14 +107,21 @@
     "bashing": 10,
     "ammo": [ "50" ],
     "range": 45,
-    "reload": 200,
     "ranged_damage": { "damage_type": "stab", "amount": -3 },
     "dispersion": 95,
     "durability": 7,
     "barrel_volume": "1250 ml",
-    "magazine_well": 1,
     "clip_size": 4,
-    "magazines": [  ],
+    "pocket_data": [
+      {
+        "magazine_well": "250 ml",
+        "pocket_type": "MAGAZINE_WELL",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [ "abso_mag", "abso1_mag" ]
+      }
+    ],
     "valid_mod_locations": [ [ "mechanism", 4 ], [ "muzzle", 1 ], [ "bore", 1 ] ],
     "flags": [ "NEVER_JAMS", "RELOAD_EJECT", "MESSY", "RELOAD_ONE" ],
     "use_action": { "type": "transform", "msg": "Reaper has come, sinner!", "target": "absolute_reaper" }
