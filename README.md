@@ -45,6 +45,10 @@ Bright Nights modpack
 
 **4) https://github.com/Kenan2000/Bright-Nights-Kenan-Mod-Pack**
 
+## Link to the legendary tileset by SomeDeadGuy
+
+**UDP** tileset by **SDG** - https://github.com/SomeDeadGuy/UndeadPeopleTileset
+
 ## Link to my CDDA modding server 
 
 **https://discord.com/invite/xj9E3Sp**
