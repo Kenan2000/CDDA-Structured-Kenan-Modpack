@@ -5,7 +5,7 @@ Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for latest experime
 
 **1) Download the modpack** ;
 
-**2) Copy all of the mods as shown in the picture** https://imgur.com/a/cpok2UT ;
+**2) Copy all of the mods from the modpack folder as shown in the picture** https://imgur.com/a/cpok2UT ;
 
 **3) Paste them all into the `cdda/data/mods` directory as shown in the picture** https://imgur.com/a/mK1cEER ;
 
