@@ -17,7 +17,7 @@ Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for latest experime
 
 **6) Update the game via the launcher** ;
 
-**7) Repeat 2) , 3) , 4) and 5) ** ;
+**7) Repeat 2) , 3) , 4) and 5)** ;
 
 **8) Enjoy the mods**
 
