@@ -1,0 +1,109 @@
+[
+  {
+    "//": "Courtesy of Axema Vales, without him and his amazing Secronom mod this would have NEVER existed.",
+    "type": "effect_type",
+    "show_in_info": true,
+    "id": "gud_burn",
+    "name": [ "Lava Burning", "Lava Burning", "Lava Burning" ],
+    "desc": [ "You are burning due to standing in lava!" ],
+    "rating": "bad",
+    "max_intensity": 1,
+    "max_duration": 3,
+    "base_mods": { "hurt_min": [ 7 ], "hurt_max": [ 11 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_magic_target",
+    "name": [ "Target" ],
+    "desc": [ "An ally or foe locks its line of sight onto you!" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "charge_giant_momentum",
+    "name": [ "on Momentum" ],
+    "int_add_val": 1,
+    "int_dur_factor": "1 seconds",
+    "max_intensity": 10,
+    "int_decay_step": -10,
+    "int_decay_tick": 1,
+    "max_duration": 11,
+    "rating": "good",
+    "show_in_info": true,
+    "base_mods": { "hurt_min": [ -3 ] },
+    "scaling_mods": { "speed_mod": [ 10 ], "bash_mod": [ 2.4 ], "hit_mod": [ 0.75 ], "hurt_min": [ -3 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "charge_clawer_momentum",
+    "name": [ "on Momentum" ],
+    "int_add_val": 1,
+    "int_dur_factor": "1 seconds",
+    "max_intensity": 10,
+    "int_decay_step": -10,
+    "int_decay_tick": 1,
+    "max_duration": 11,
+    "rating": "good",
+    "show_in_info": true,
+    "base_mods": { "hurt_min": [ -1.5 ] },
+    "scaling_mods": { "speed_mod": [ 10 ], "bash_mod": [ 0.25 ], "cut_mod": [ 1.8 ], "hit_mod": [ 0.5 ], "hurt_min": [ -1.5 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "herb_cleanse",
+    "removes_effects": [
+      "fungus",
+      "flu",
+      "dermatik",
+      "bloodworms",
+      "paincysts",
+      "brainworms",
+      "tapeworm",
+      "bleed",
+      "hypovolemia",
+      "blind",
+      "poison",
+      "stung",
+      "badpoison",
+      "foodpoison",
+      "paralyzepoison",
+      "tetanus",
+      "infected",
+      "asthma",
+      "common_cold"
+    ],
+    "name": [ "Herb Cleansing" ],
+    "desc": [
+      "You have taken some healing herbs.  It appears to have panacea-like effects along with radioation cleansing properties slowly cleansing your body of radiation; if you take more of it, you'll be able to speed up the process."
+    ],
+    "max_intensity": 1,
+    "base_mods": { "rad_chance": [ 180 ], "rad_min": [ -4 ], "rad_max": [ -3 ], "h_mod_chance": [ 1000 ], "vomit_chance": [ 10000 ] },
+    "scaling_mods": {
+      "h_mod_min": [ 0 ],
+      "h_mod_max": [ 2 ],
+      "h_mod_chance": [ 100 ],
+      "vomit_chance": [ -1000 ],
+      "rad_chance": [ 180 ],
+      "rad_min": [ -0.7 ],
+      "rad_max": [ -0.9 ]
+    }
+  },
+  {
+    "type": "effect_type",
+    "id": "herb_stun",
+    "name": [ "Mild Herb Stun", "Moderate Herb Stun", "Strong Herb Stun", "Intense Herb Stun", "Uber-Intense Herb Stun" ],
+    "desc": [ "Herb stuns you!" ],
+    "max_intensity": 6,
+    "max_effective_intensity": 6,
+    "int_add_val": 1,
+    "base_mods": { "speed_mod": [ -9 ], "per_mod": [ -1 ], "dex_mod": [ -1 ] },
+    "scaling_mods": { "speed_mod": [ -9 ], "per_mod": [ -1 ], "dex_mod": [ -1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "BL9_bleed_immun",
+    "blocks_effects": [ "bleed", "hypovolemia" ],
+    "name": [ "Bleeding Immunity" ],
+    "max_intensity": 1,
+    "max_duration": 17400
+  }
+]
