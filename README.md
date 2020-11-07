@@ -5,7 +5,7 @@ Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for latest experime
 
 **1) https://discourse.cataclysmdda.org/t/secronom-zombies-mod-thread/16211**
 
-**2) https://github.com/SomeDeadGuy/UndeadPeopleTileset**
+**2) Legendary UDP tileset by SDG - https://github.com/SomeDeadGuy/UndeadPeopleTileset**
 
 **3) https://github.com/chaosvolt/cdda-arcana-mod**
 
@@ -44,10 +44,6 @@ Updated and even more awesome Otopack soundpack maintained by me
 Bright Nights modpack
 
 **4) https://github.com/Kenan2000/Bright-Nights-Kenan-Mod-Pack**
-
-## Link to the legendary tileset by SomeDeadGuy
-
-**UDP** tileset by **SDG** - https://github.com/SomeDeadGuy/UndeadPeopleTileset
 
 ## Link to my CDDA modding server 
 
