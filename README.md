@@ -1,6 +1,14 @@
 # CDDA-Kenan-Modpack
 Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for latest experimental versions - **IF YOU USE CDDA LAUNCHER BY REMYROY - UPDATE THE GAME FIRST VIA LAUNCHER and ONLY AFTER that put the mods IN**
 
+# Installation Guide (MUST-READ)
+
+1) **Download the modpack** ;
+2) **Copy all of the mods as shown in the picture** https://imgur.com/a/cpok2UT ;
+3) **Paste them all into the `cdda/data/mods` directory as shown in the picture** https://imgur.com/a/mK1cEER ;
+4) **Overwrite and replace all the files if you get a prompt** ;
+5) **Enjoy the mods**
+
 # Link to Supporters' and Contributors ASTOUNDINGLY NOICE WORKS
 
 **1) https://discourse.cataclysmdda.org/t/secronom-zombies-mod-thread/16211**
