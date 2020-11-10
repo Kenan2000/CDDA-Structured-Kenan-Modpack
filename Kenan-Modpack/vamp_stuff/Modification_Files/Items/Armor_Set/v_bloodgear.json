@@ -15,14 +15,18 @@
     "coverage": 10,
     "encumbrance": 0,
     "material_thickness": 1,
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Sheath knife",
-      "holster_msg": "You have sheath your %s",
-      "max_volume": 2,
-      "draw_cost": 30,
-      "flags": [ "SHEATH_KNIFE" ]
-    },
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "holster": true,
+        "min_item_volume": "0 ml",
+        "max_contains_volume": "500 ml",
+        "max_contains_weight": "1 kg",
+        "moves": 5,
+        "flag_restriction": [ "SHEATH_KNIFE" ]
+      }
+    ],
+    "use_action": { "type": "holster", "holster_prompt": "Sheath knife", "holster_msg": "You have sheath your %s" },
     "looks_like": "sheath",
     "flags": [ "BELTED", "OVERSIZE", "STURDY", "ALLOWS_NATURAL_ATTACKS", "WATER_FRIENDLY" ]
   },
@@ -42,14 +46,18 @@
     "coverage": 5,
     "encumbrance": 1,
     "material_thickness": 1,
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Sheath knife",
-      "holster_msg": "You have sheath your %s",
-      "max_volume": 1,
-      "draw_cost": 5,
-      "flags": [ "SHEATH_KNIFE" ]
-    },
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "holster": true,
+        "min_item_volume": "0 ml",
+        "max_contains_volume": "250 ml",
+        "max_contains_weight": "500 g",
+        "moves": 5,
+        "flag_restriction": [ "SHEATH_KNIFE" ]
+      }
+    ],
+    "use_action": { "type": "holster", "holster_prompt": "Sheath knife", "holster_msg": "You have sheath your %s" },
     "looks_like": "sheath",
     "flags": [ "BELTED", "OVERSIZE", "STURDY", "ALLOWS_NATURAL_ATTACKS", "WATER_FRIENDLY" ]
   },
@@ -59,7 +67,7 @@
     "name": { "str": "bloodpack" },
     "description": "Handcrafted backpack made of tough blood compact sheets customized to occupy large amount of storage at a cost of encumbrance.",
     "weight": "950 g",
-    "volume": 11,
+    "volume": "2750 ml",
     "price": 0,
     "material": [ "compactblood", "cotton" ],
     "symbol": "[",
@@ -85,7 +93,7 @@
     "name": { "str": "large bloodpack" },
     "description": "Improved bloodpack with additional pocket arrangements around it for even larger storage occupation. Encumbrance and weight has increased, tho.",
     "weight": "1250 g",
-    "volume": 12,
+    "volume": "3 L",
     "price": 0,
     "material": [ "compactblood", "cotton" ],
     "symbol": "[",

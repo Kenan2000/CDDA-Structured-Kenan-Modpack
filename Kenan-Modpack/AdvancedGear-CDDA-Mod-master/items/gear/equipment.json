@@ -103,15 +103,20 @@
     "covers": [ "leg_l", "leg_r" ],
     "description": "A small blob of nanites with an AI, it actively branches out pseudopods to grasp guns held nearby it, and put them into the user's hands automatically as needed.",
     "extend": { "flags": [ "BELTED" ] },
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "min_item_volume": "0 ml",
+        "max_contains_volume": "4500 ml",
+        "max_contains_weight": "5 kg",
+        "moves": 3,
+        "holster": true
+      }
+    ],
     "use_action": {
       "type": "holster",
       "holster_prompt": "Store weapon",
       "holster_msg": "You store your %s",
-      "max_volume": 18,
-      "min_volume": 0,
-      "multi": 2,
-      "max_weight": 5000,
-      "draw_cost": 0,
       "skills": [ "pistol", "smg", "shotgun", "rifle", "launcher" ]
     }
   },
@@ -124,17 +129,17 @@
     "covers": [ "leg_l", "leg_r" ],
     "description": "A small blob of nanites with an AI, it actively branches out pseudopods to grasp blades held nearby it, and put them into the user's hands automatically as needed.",
     "extend": { "flags": [ "BELTED" ] },
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Store weapon",
-      "holster_msg": "You store your %s",
-      "max_volume": 18,
-      "min_volume": 0,
-      "multi": 2,
-      "max_weight": 5000,
-      "draw_cost": 0,
-      "flags": [ "SHEATH_KNIFE", "SHEATH_SWORD", "SHEATH_SPEAR" ]
-    }
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "min_item_volume": "0 ml",
+        "max_contains_volume": "4500 ml",
+        "max_contains_weight": "5 kg",
+        "moves": 10,
+        "flag_restriction": [ "SHEATH_KNIFE", "SHEATH_SWORD", "SHEATH_SPEAR" ]
+      }
+    ],
+    "use_action": { "type": "holster", "holster_prompt": "Store weapon?", "holster_msg": "You store your %s" }
   },
   {
     "type": "ARMOR",
@@ -145,16 +150,17 @@
     "description": "A small blob of nanites with an AI, it stores magazines and assists in loading them as needed.",
     "covers": [ "arm_l", "arm_r" ],
     "extend": { "flags": [ "BELTED" ] },
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Store ammo",
-      "holster_msg": "You store your %s.",
-      "multi": 4,
-      "max_volume": 6,
-      "min_volume": 0,
-      "draw_cost": 0,
-      "flags": [ "MAG_COMPACT", "MAG_BULKY" ]
-    }
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "min_item_volume": "0 ml",
+        "max_contains_volume": "1500 ml",
+        "max_contains_weight": "2 kg",
+        "moves": 3,
+        "flag_restriction": [ "MAG_COMPACT", "MAG_BULKY" ]
+      }
+    ],
+    "use_action": { "type": "holster", "holster_prompt": "Store ammo", "holster_msg": "You store your %s." }
   },
   {
     "type": "ARMOR",
@@ -330,7 +336,6 @@
     "flags": [ "NONCONDUCTIVE", "TRADER_AVOID", "TARDIS" ],
     "seals": true,
     "preserves": true,
-    "watertight": true,
     "insulation": 50
   }
 ]

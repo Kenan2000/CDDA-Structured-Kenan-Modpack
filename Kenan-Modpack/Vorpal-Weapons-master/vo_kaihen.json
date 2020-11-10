@@ -5,14 +5,17 @@
     "id": "survivor_belt_notools",
     "name": { "str": "survivor belt" },
     "encumbrance": 1,
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Sheath blade",
-      "holster_msg": "You sheath your %s",
-      "draw_cost": 3,
-      "max_volume": 5,
-      "flags": [ "SHEATH_KNIFE", "SHEATH_SWORD", "BELT_CLIP" ]
-    }
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "min_item_volume": "0 ml",
+        "max_contains_volume": "1250 ml",
+        "max_contains_weight": "1500 g",
+        "moves": 3,
+        "flag_restriction": [ "SHEATH_KNIFE", "SHEATH_SWORD", "BELT_CLIP" ]
+      }
+    ],
+    "use_action": { "type": "holster", "holster_prompt": "Sheath blade", "holster_msg": "You sheath your %s" }
   },
   {
     "copy-from": "noise_emitter_on",

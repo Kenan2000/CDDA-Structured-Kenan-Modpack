@@ -13,22 +13,28 @@
     "covers": [ "torso" ],
     "coverage": 30,
     "encumbrance": 18,
-    "storage": "25L",
     "warmth": 30,
     "material_thickness": 3,
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Attach what to backpack loop?",
-      "holster_msg": "You attach your %s to your %s",
-      "multi": 4,
-      "max_volume": "5L",
-      "draw_cost": 40,
-      "flags": [ "BELT_CLIP" ]
-    },
-    "flags": [ "BELTED", "WATER_FRIENDLY" ]
+    "pocket_data": [
+      { "pocket_type": "CONTAINER", "max_contains_volume": "7500 ml", "max_contains_weight": "11 kg", "moves": 80 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "7500 ml", "max_contains_weight": "11 kg", "moves": 80 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "5 L", "max_contains_weight": "8 kg", "moves": 150 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "5 L", "max_contains_weight": "8 kg", "moves": 150 },
+      {
+        "pocket_type": "CONTAINER",
+        "min_item_volume": "0 ml",
+        "max_contains_volume": "5 L",
+        "max_contains_weight": "5 kg",
+        "moves": 40,
+        "flag_restriction": [ "BELT_CLIP" ]
+      }
+    ],
+    "use_action": { "type": "holster", "holster_prompt": "Attach what to backpack loop?", "holster_msg": "You attach your %s to your %s" },
+    "flags": [ "BELTED", "WATER_FRIENDLY", "TARDIS" ]
   },
   {
     "result": "backpack_fur",
+    "activity_level": "LIGHT_EXERCISE",
     "type": "recipe",
     "category": "CC_ARMOR",
     "subcategory": "CSC_ARMOR_STORAGE",
