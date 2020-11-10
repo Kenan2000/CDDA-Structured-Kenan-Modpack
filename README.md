@@ -1,5 +1,5 @@
 # CDDA-Kenan-Modpack
-Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for **LATEST** experimental versions - **IF YOU USE CDDA LAUNCHER BY REMYROY - UPDATE THE GAME FIRST VIA LAUNCHER and ONLY AFTER that put the mods IN**
+Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for **LATEST** experimental versions, **IF YOU ARE EXPERIENCING ANY BUGS OR ERRORS - EITHER THE FIXES WILL BE RELEASED SOON-ISH OR THE MOD IS WIP** - **IF YOU USE CDDA LAUNCHER BY REMYROY - UPDATE THE GAME FIRST VIA LAUNCHER and ONLY AFTER that put the mods IN**
 
 # Installation Guide (MUST-READ)
 
