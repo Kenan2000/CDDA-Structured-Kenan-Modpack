@@ -4229,6 +4229,37 @@
     "max_duration": 1
   },
   {
+    "id": "mon_sflesh_flesh_weak_thrash",
+    "type": "SPELL",
+    "name": "Thrash",
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster's thick surrounding tentacles thrashes at the area, dealing moderate bashing damage to all affected creatures.'",
+    "flags": [ "SILENT", "RANDOM_DAMAGE" ],
+    "valid_targets": [ "hostile" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_damage": 8,
+    "max_damage": 19,
+    "min_aoe": 2,
+    "max_aoe": 2,
+    "damage_type": "bash"
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_sflesh_flesh_weak_target",
+    "name": "a spell",
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
+    "extra_effects": [ { "id": "mon_sflesh_flesh_weak_thrash" } ],
+    "flags": [ "SILENT" ],
+    "valid_targets": [ "ally", "hostile", "ground" ],
+    "effect": "attack",
+    "shape": "blast",
+    "effect_str": "secro_magic_target",
+    "min_range": 15,
+    "max_range": 15,
+    "min_duration": 1,
+    "max_duration": 1
+  },
+  {
     "id": "mon_sflesh_zombie_turret_aspit",
     "type": "SPELL",
     "name": "Acid Spit",

@@ -551,7 +551,7 @@
         "j": "t_strconc_floor",
         "k": "t_console"
       },
-      "item": { "z": { "item": "secro_recipe_flesh", "chance": 100 } },
+      "item": { "z": [ { "item": "secro_recipe_flesh", "chance": 100 }, { "item": "secro_id_frrom", "chance": 100 } ] },
       "nested": {
         "a": {
           "chunks": [ [ "null", 200 ], [ "SecronomSSBunker_nest_bloodmess", 4 ], [ "SecronomSSBunker_nest_deadscientist", 2 ] ]
@@ -597,11 +597,11 @@
       "place_item": [ { "item": "secro_id_fvvault", "x": 10, "y": 6 } ],
       "place_monster": [ { "monster": "mon_zombie_scientist", "x": 17, "y": 7 }, { "monster": "mon_zombie_scientist", "x": 14, "y": 8 } ],
       "rows": [
-        "||||||||||||||||||||||||",
-        "||||||||||||||||||||||||",
-        "||||||||||||||||||||||||",
-        "||||||||||-----|||||||||",
-        "|||||------___------||||",
+        "|||||||||---d---||||||||",
+        "||||||||||--*--|||||||||",
+        "||||||||||-...-|||||||||",
+        "|||||||||--...--||||||||",
+        "|||||-----_..._-----||||",
         "||||--...-.....-.##--|||",
         "||||-_.<.d.....d..c_-|||",
         "||||--...-.....-^.{--|||",
@@ -634,10 +634,68 @@
         "c": "t_utility_light",
         "d": "t_door_metal_c",
         "{": "t_metal_floor",
-        "|": "t_strconc_wall"
+        "|": "t_strconc_wall",
+        "*": "t_secro_door_metal_secrofrr"
       }
     },
     "om_terrain": "SecronomSSLab_b3",
+    "type": "mapgen",
+    "weight": 100
+  },
+  {
+    "method": "json",
+    "object": {
+      "fill_ter": "t_metal_floor",
+      "rows": [
+        "||||||||||||||||||||||||",
+        "||||||||||||||||||||||||",
+        "||||||||||||||||||||||||",
+        "||||||||||||||||||||||||",
+        "||||||||||||||||||||||||",
+        "||||||||||||||||||||||||",
+        "|||||||||||---||||||||||",
+        "||||||||||--?--|||||||||",
+        "||||||||||-...-|||||||||",
+        "||||||||||-s.{-|||||||||",
+        "||||||||||-{.w-|||||||||",
+        "||||||||||-...-|||||||||",
+        "||||||||||--d--|||||||||",
+        "||||||||---...---|||||||",
+        "|||------_....._------||",
+        "|||-....+.......+....-||",
+        "|||-..A.r...#...r....-||",
+        "|||-....r..c6c..rA...-||",
+        "|||------..h##..------||",
+        "|||-....+.......+....-||",
+        "|||-..A.r..{{{..r....-||",
+        "|||-....r.......r..A.-||",
+        "|||------^.....^------||",
+        "||||||||--^...^--|||||||"
+      ],
+      "terrain": {
+        "#": [ "t_metal_floor", "t_secro_flesh" ],
+        "-": [ "t_wall_metal", "t_secro_wall_metal_flesh" ],
+        "+": [ "t_door_metal_locked", "t_secro_door_metal_locked_flesh" ],
+        ".": [ "t_metal_floor", "t_secro_flesh" ],
+        "^": [ "t_metal_floor", "t_secro_flesh" ],
+        "_": "t_utility_light",
+        "d": [ "t_door_metal_c", "t_secro_door_metal_flesh" ],
+        "A": [ "t_metal_floor", "t_secro_flesh" ],
+        "|": [ "t_strconc_wall", "t_secro_flesh_wall" ],
+        "r": [ "t_reinforced_glass", "t_secro_reinforced_glass_flesh" ],
+        "6": "t_console_broken"
+      },
+      "furniture": { "#": "f_desk", "^": "f_indoor_plant_y", "c": "f_chair", "{": "f_rack", "h": "f_desk" },
+      "item": { "h": { "item": "secro_tool_finfuse", "chance": 100 } },
+      "items": { "?": { "item": "secro_fvvault_pa", "chance": 100 } },
+      "mapping": {
+        "?": { "item": [ { "item": "secro_flesh", "repeat": [ 5, 15 ] } ], "terrain": "t_secro_experiment_vat" },
+        "w": { "item": { "item": "secro_power_armor_module_core" }, "furniture": "f_rack" },
+        "s": { "item": [ { "item": "secro_recipe_flesh" } ], "furniture": "f_rack" }
+      },
+      "monster": { "A": { "monster": "mon_sflesh_taken_zombie" } }
+    },
+    "om_terrain": "SecronomSSLab_b3_flesh",
     "type": "mapgen",
     "weight": 100
   },

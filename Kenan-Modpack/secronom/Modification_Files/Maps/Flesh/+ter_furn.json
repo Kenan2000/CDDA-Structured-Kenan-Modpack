@@ -603,6 +603,18 @@
     "flags": [ "TRANSPARENT", "FLAMMABLE", "NOCOLLIDE", "S_FLESH", "EMITTER" ]
   },
   {
+    "type": "furniture",
+    "id": "f_secro_flesh_core",
+    "name": "flesh core",
+    "description": "A large slab of flesh that shines a faint, ominous crimson hue.",
+    "symbol": "o",
+    "color": "red",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "bash": { "str_min": 13, "str_max": 23, "sound": "splook!", "sound_fail": "splat!", "items": [ { "item": "secro_flesh_core", "count": [ 1, 2 ] } ] },
+    "flags": [ "NOITEM", "S_FLESH" ]
+  },
+  {
     "type": "terrain",
     "id": "t_secro_wall_w_flesh",
     "name": "fleshed white wall",
@@ -1230,6 +1242,31 @@
       "sound_fail": "whack!",
       "ter_set": "t_card_reader_broken",
       "items": [ { "item": "plastic_chunk", "count": [ 0, 2 ] }, { "item": "scrap", "prob": 50 } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_secro_door_metal_secrofrr",
+    "name": "biohazard metal door",
+    "description": "A galvanized steel door, forged to withstand punishment and impede anyone or anything. Typically used in conjunction with automated electronic locking mechanisms that require an external source to unlock. It has a biohazard symbol and a card reader embedded to the door labeled \"Level 1 clearance\".",
+    "symbol": "+",
+    "looks_like": "t_secro_door_metal_secrofv",
+    "color": "cyan",
+    "move_cost": 0,
+    "coverage": 95,
+    "roof": "t_flat_roof",
+    "flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "LOCKED", "MINEABLE", "BLOCK_WIND" ],
+    "bash": {
+      "str_min": 120,
+      "str_max": 350,
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "ter_set": "t_mdoor_frame",
+      "items": [
+        { "item": "scrap", "count": [ 15, 30 ] },
+        { "item": "steel_plate", "prob": 80 },
+        { "item": "hinge", "count": [ 1, 4 ] }
+      ]
     }
   },
   {

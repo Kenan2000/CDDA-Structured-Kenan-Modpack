@@ -497,6 +497,48 @@
     "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "NOHEAD", "IMMOBILE", "PACIFIST", "QUEEN" ]
   },
   {
+    "note": "Less threatening than previous variants. Can only perform a tentacle attack.",
+    "id": "mon_sflesh_flesh_weak",
+    "type": "MONSTER",
+    "name": "flesh",
+    "description": "A gargantuan lump of meat, pulsating in faint, velvety hue. Several veins protrude from its body that unifies with the surrounding walls.",
+    "default_faction": "secro_flesh",
+    "bodytype": "blob",
+    "species": [ "SFLESH", "ABERRATION" ],
+    "volume": "80000 L",
+    "weight": "221500 kg",
+    "hp": 700,
+    "speed": 85,
+    "material": [ "flesh", "bone" ],
+    "symbol": "⨷",
+    "color": "red_magenta",
+    "aggression": 100,
+    "morale": 100,
+    "emit_fields": [ "emit_flesh_biome_immunity", "emit_down_immunity" ],
+    "melee_skill": 10,
+    "melee_dice": 10,
+    "melee_dice_sides": 8,
+    "melee_cut": 0,
+    "armor_bash": 16,
+    "armor_cut": 10,
+    "armor_stab": 12,
+    "vision_day": 30,
+    "vision_night": 30,
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_flesh_weak_target" },
+        "cooldown": 10,
+        "monster_message": "<color_light_red>%1$s thrashes a tentacle at %3$s!</color>"
+      }
+    ],
+    "regenerates": 4,
+    "death_drops": "mon_sflesh_flesh_weak_death_drop",
+    "harvest": "meatslug",
+    "death_function": [ "SPLATTER", "MELT" ],
+    "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "NOHEAD", "IMMOBILE", "PACIFIST", "QUEEN" ]
+  },
+  {
     "note": "This one creates a wall once then dies!",
     "id": "mon_sflesh_flesh_wall_city",
     "type": "MONSTER",
