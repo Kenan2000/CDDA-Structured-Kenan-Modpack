@@ -1,0 +1,60 @@
+[
+  {
+    "type": "npc",
+    "id": "moneylender_hub_hobo",
+    "class": "NC_CYBORG",
+    "gender": "male",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_ML_HUB_HOBO",
+    "faction": "no_faction"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ML_HUB_HOBO",
+    "dynamic_line": "Hello. Do you want to give me something to drink?",
+    "responses": [
+      { "text": "<BGSS_intro_question>", "topic": "TALK_ML_HUB_HOBO_STORY" },
+      { "text": "Sure?", "topic": "TALK_ML_HUB_HOBO_DRINK" },
+      { "text": "…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ML_HUB_HOBO_DRINK",
+    "dynamic_line": { "npc_has_effect": "beggar_has_eaten", "yes": "Thank you.", "no": "So?." },
+    "responses": [ { "text": "Actually can I ask you something else?", "topic": "TALK_NONE" }, { "text": "Bye.", "topic": "TALK_DONE" } ],
+    "repeat_responses": [
+      {
+        "for_category": [ "food" ],
+        "response": {
+          "text": "Here, you can have this <topic_item>.",
+          "topic": "TALK_ML_HUB_HOBO_GAVE_DRINK",
+          "opinion": { "trust": 1, "value": 1, "fear": -1, "anger": -1, "owed": 2 }
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ML_HUB_HOBO_GAVE_DRINK",
+    "dynamic_line": "Thank you!.",
+    "speaker_effect": [ { "effect": { "npc_add_effect": "beggar_has_eaten", "duration": 3600 } } ],
+    "responses": [
+      { "text": "What are you up to?", "topic": "TALK_ML_HUB_HOBO", "effect": "u_bulk_trade_accept" },
+      { "text": "No problem.", "topic": "TALK_DONE", "effect": "u_bulk_trade_accept" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ML_HUB_HOBO_STORY",
+    "dynamic_line": "Yes.",
+    "responses": [ { "text": "Maybe you should leave?", "topic": "TALK_ML_HUB_HOBO_LEAVE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ML_HUB_HOBO_LEAVE",
+    "dynamic_line": "NEVER!",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "end_conversation" } ]
+  }
+]

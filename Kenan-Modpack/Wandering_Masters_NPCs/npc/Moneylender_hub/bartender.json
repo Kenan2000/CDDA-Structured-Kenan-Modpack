@@ -1,0 +1,169 @@
+[
+  {
+    "type": "npc",
+    "id": "moneylender_bartender",
+    "class": "NC_BARTENDER",
+    "name_suffix": "bartender",
+    "attitude": 0,
+    "mission": 3,
+    "chat": "moneylender_bartender1",
+    "mission_offered": "MISSION_moneylender_bartender_1",
+    "faction": "no_faction"
+  },
+  {
+    "id": "moneylender_bartender1",
+    "type": "talk_topic",
+    "dynamic_line": "Hello there, bounty hunter. Want a drink?",
+    "responses": [
+      {
+        "text": "About that job…",
+        "topic": "TALK_MISSION_INQUIRE",
+        "condition": { "and": [ "mission_complete", "has_many_assigned_missions" ] }
+      },
+      { "text": "What is your job here?", "topic": "moneylender_bartender_info" },
+      {
+        "text": "I'm looking for some rare stuff.",
+        "topic": "moneylender_bartender_basement",
+        "condition": { "not": { "npc_has_var": "moneylender_basement", "type": "flag", "context": "meeting", "value": "yes" } }
+      },
+      {
+        "text": "Let me see what you keep behind the counter.",
+        "topic": "moneylender_bartender1",
+        "effect": "start_trade"
+      },
+      { "text": "I'll be going…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_info",
+    "dynamic_line": "Selling alcohol.",
+    "responses": [ { "text": "Thanks.", "topic": "TALK_NONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_basement",
+    "dynamic_line": "Hmm. Maybe yes, maybe no. Who's asking?",
+    "responses": [
+      {
+        "text": "[COP]I'm a cop.",
+        "topic": "moneylender_bartender_cop",
+        "condition": { "u_has_any_trait": [ "PROF_CYBERCOP", "PROF_FED", "PROF_PD_DET", "PROF_POLICE", "PROF_SWAT" ] }
+      },
+      {
+        "text": "[SPEECH]Let me talk this out.",
+        "topic": "moneylender_bartender_talk",
+        "condition": { "u_has_skill": { "skill": "speech", "level": 3 } }
+      },
+      {
+        "text": "[FEMALE]Maybe I can 'persuade' you…",
+        "condition": "u_female",
+        "trial": { "type": "CONDITION", "condition": { "u_has_any_trait": [ "PRETTY", "BEAUTIFUL", "BEAUTIFUL2", "BEAUTIFUL3" ] } },
+        "success": { "topic": "moneylender_bartender_fem_yes" },
+        "failure": { "topic": "moneylender_bartender_fem_no" }
+      },
+      { "text": "Maybe if I help you with something you'll tell me more?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Maybe later.", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_fem_yes",
+    "dynamic_line": "Maybe, maybe. I'll be free in a few hours, until then, you can talk to my boss.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": { "mapgen_update": "ml_door", "origin_npc": true } } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_fem_no",
+    "dynamic_line": "Not my type, sorry.",
+    "responses": [ { "text": "…", "topic": "TALK_NONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_cop",
+    "dynamic_line": "So, you're a cop? Good. This good fellas will lead you where you should be.",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [
+          "insult_combat",
+          { "mapgen_update": "moneylender_bartender_cop", "origin_npc": true },
+          { "npc_change_faction": "moneylender_gang" },
+          { "u_faction_rep": -20 },
+          { "npc_change_faction": "no_faction" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_talk",
+    "dynamic_line": "Maybe. You got something for me?",
+    "responses": [
+      {
+        "text": "[35MERCH]Maybe this will help.",
+        "topic": "moneylender_bartender_talk1",
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 35 } },
+        "effect": { "u_sell_item": "FMCNote", "count": 35 }
+      },
+      { "text": "Nope.", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_talk1",
+    "dynamic_line": "Good. Talk to my boss. He's downstairs.",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "npc_add_var": "moneylender_basement", "type": "flag", "context": "meeting", "value": "yes" },
+          { "mapgen_update": "ml_door", "origin_npc": true },
+          { "npc_change_faction": "moneylender_gang" },
+          { "u_faction_rep": 20 },
+          { "npc_change_faction": "no_faction" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "MISSION_moneylender_bartender_1",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Get rid of hobo" },
+    "description": "Get rid of hobo.",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 1000,
+    "start": {
+      "update_mapgen": {
+        "om_terrain": "moneylender_hub",
+        "place_npcs": [ { "class": "moneylender_hub_hobo", "x": [ 4, 6 ], "y": [ 9, 19 ], "target": true } ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "npc_add_var": "moneylender_basement", "type": "flag", "context": "meeting", "value": "yes" },
+        { "mapgen_update": "ml_door", "origin_npc": true },
+        { "npc_change_faction": "moneylender_gang" },
+        { "u_faction_rep": 20 },
+        { "npc_change_faction": "no_faction" }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_boxer_johnny_2",
+    "dialogue": {
+      "describe": "Hobo",
+      "offer": "Get rid of hobo",
+      "accepted": "Good",
+      "rejected": "Hmm",
+      "advice": "You need advice on how to get rid of hobo?",
+      "inquire": "So?",
+      "success": "Nice.",
+      "success_lie": "Bruh.",
+      "failure": "Bruh."
+    }
+  }
+]

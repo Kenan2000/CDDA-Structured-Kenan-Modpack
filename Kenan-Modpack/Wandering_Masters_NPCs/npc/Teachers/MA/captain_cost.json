@@ -1,0 +1,266 @@
+[
+  {
+    "//": "TODO potom",
+    "type": "npc",
+    "id": "captain_cost",
+    "gender": "male",
+    "class": "NC_SOLDIER",
+    "name_unique": "Jason Cost",
+    "name_suffix": "Captain",
+    "attitude": 1,
+    "mission": 7,
+    "chat": "captain_cost_meeting",
+    "faction": "no_faction",
+    "mission_offered": "MISSION_captain_cost_1"
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_meeting",
+    "dynamic_line": "Hello there. Do you want to help your government?",
+    "responses": [
+      { "text": "Interesting, tell me more.", "topic": "captain_cost_mission_1" },
+      { "text": "Hell no, my government is dead.", "topic": "captain_cost_refuse" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_mission_1",
+    "dynamic_line": "Good. I need to find a crashed heli, and you are going to help me find it. No objections. It crashed in nearby field. I need an information that was on that heli. Let's search for it.",
+    "responses": [
+      { "text": "Umm, ok?", "topic": "TALK_DONE", "effect": "assign_mission" },
+      { "text": "It sounds dangerous. I'll pass.", "topic": "captain_cost_refuse" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_refuse",
+    "dynamic_line": "Are you sure about that?",
+    "responses": [
+      {
+        "text": "No, I'm a cop, and I must help my government.",
+        "topic": "TALK_NONE",
+        "condition": { "u_has_any_trait": [ "PROF_CYBERCOP", "PROF_FED", "PROF_PD_DET", "PROF_POLICE", "PROF_SWAT" ] },
+        "switch": true
+      },
+      { "text": "No.", "topic": "TALK_NONE" },
+      { "text": "Yes.", "topic": "TALK_DONE", "effect": "insult_combat", "switch": true }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_1",
+    "dynamic_line": "So?",
+    "responses": [
+      {
+        "text": "We're here.",
+        "topic": "captain_cost_wait",
+        "condition": { "and": [ "mission_complete", { "u_has_mission": "MISSION_captain_cost_3" } ] }
+      },
+      {
+        "text": "Here's your info.",
+        "topic": "captain_cost_m1_complete",
+        "condition": {
+          "and": [
+            { "or": [ { "u_has_mission": "MISSION_captain_cost_1" }, { "u_has_mission": "MISSION_captain_cost_2" } ] },
+            "mission_complete"
+          ]
+        },
+        "trial": { "type": "CONDITION", "condition": { "u_has_mission": "MISSION_captain_cost_1" } },
+        "success": { "topic": "captain_cost_m1_complete" },
+        "failure": { "topic": "captain_cost_m2_complete" }
+      },
+      { "text": "<BGSS_intro_question>", "topic": "captain_cost_Background" },
+      { "text": "I don't want to help you anymore.", "topic": "captain_cost_refuse" },
+      { "text": "Bye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_Background",
+    "dynamic_line": "I am a captain of millitary force of the US and A!",
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_m1_complete",
+    "dynamic_line": "Good. Next task. We need to get a secret note from bunker nearby. Lead me to that bunker.",
+    "responses": [
+      { "text": "Umm, ok?", "topic": "TALK_DONE", "effect": [ "mission_success", "clear_mission", "assign_mission" ] },
+      { "text": "It sounds dangerous. I'll pass.", "topic": "captain_cost_refuse" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_m2_complete",
+    "dynamic_line": "Good. Last task. We need to contact some special agent to finish my mission. For that we need to get a special code to contact him. Lead me to the meeting point, where you can find information how to contact him.",
+    "responses": [
+      { "text": "Umm, ok?", "topic": "TALK_DONE", "effect": [ "mission_success", "clear_mission", "assign_mission" ] },
+      { "text": "It sounds dangerous. I'll pass.", "topic": "captain_cost_refuse" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_wait",
+    "dynamic_line": "So, go there and check things. Search for the note.",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [
+          "stop_following",
+          {
+            "mapgen_update": "jcost_place_trap",
+            "origin_npc": true,
+            "om_terrain": "forest",
+            "search_range": 3,
+            "min_distance": 1
+          },
+          { "npc_first_topic": "captain_cost_wait1" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_wait1",
+    "dynamic_line": "So?",
+    "responses": [
+      {
+        "text": "So, i got that note for you! Care to explain why there were a lot of aggresive drones?",
+        "topic": "captain_cost_traitor",
+        "condition": { "u_has_item": "jcost_note" },
+        "effect": "mission_success",
+        "switch": true
+      },
+      { "text": "….", "topic": "TALK_DONE", "switch": true }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_traitor",
+    "dynamic_line": "Well, i didn't think that someone would ever lived after that.",
+    "responses": [
+      { "text": "You will die, right here, right now!", "topic": "TALK_DONE", "effect": "insult_combat" },
+      {
+        "text": "You will tell me the truth, right now!",
+        "trial": { "type": "INTIMIDATE", "difficulty": 45, "mod": [ [ "FEAR", 8 ], [ "VALUE", 2 ], [ "TRUST", 2 ], [ "BRAVERY", -2 ] ] },
+        "success": { "topic": "captain_cost_truth" },
+        "failure": { "topic": "captain_cost_lie" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_truth",
+    "dynamic_line": "OK, OK, I'll tell you the truth. Later. Please spare me and I'll give you something cool.",
+    "responses": [
+      { "text": "Die.", "topic": "TALK_DONE", "effect": "insult_combat" },
+      {
+        "text": "Live.",
+        "topic": "TALK_DONE",
+        "effect": [ "end_conversation", { "u_buy_item": "manual_taekwondo" } ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "captain_cost_lie",
+    "dynamic_line": "No way! I'll die with my truth!",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
+  },
+  {
+    "id": "MISSION_captain_cost_1",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find crashed heli" },
+    "description": "Cost asked you to find crashed heli",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "black_box_transcript",
+    "difficulty": 0,
+    "value": 1000,
+    "start": {
+      "effect": [ "follow_only", { "toggle_npc_rule": "follow_distance_2" }, { "npc_first_topic": "captain_cost_1" } ],
+      "update_mapgen": {
+        "om_terrain": "field",
+        "search_range": 35,
+        "min_distance": 10,
+        "random": true,
+        "place_vehicles": [ { "status": 1, "vehicle": "crashed_helicopters", "x": 7, "y": 9 } ],
+        "place_monsters": [ { "monster": "GROUP_MIL_STRONG", "x": [ 5, 15 ], "y": [ 5, 15 ] } ],
+        "place_item": [ { "item": "black_box_transcript", "x": 8, "y": 10 } ]
+      }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_captain_cost_2",
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_captain_cost_2",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Lead me to bunker" },
+    "description": "Cost asked you to lead him to military bunker",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "military_record",
+    "difficulty": 0,
+    "value": 100,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "bunker",
+        "om_special": "Military Bunker",
+        "om_terrain_replace": "field",
+        "search_range": 200,
+        "min_distance": 50,
+        "cant_see": true
+      },
+      "update_mapgen": { "om_terrain": "bunker_basement", "place_item": [ { "item": "military_record", "x": 21, "y": 3 } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_captain_cost_3",
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_captain_cost_3",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Go to special place" },
+    "description": "Go to special place",
+    "goal": "MGOAL_GO_TO",
+    "difficulty": 0,
+    "value": 100,
+    "//": "TODO redo quest",
+    "start": { "assign_mission_target": { "om_terrain": "forest", "search_range": 25, "min_distance": 5, "random": true } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  }
+]

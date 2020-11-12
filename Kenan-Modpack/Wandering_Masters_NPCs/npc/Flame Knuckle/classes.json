@@ -1,0 +1,125 @@
+[
+  {
+    "type": "npc_class",
+    "id": "flame_knuckle_apprentice",
+    "name": { "str": "Flame Knuckle apprentice" },
+    "//": "TODO edit this and maybe balance",
+    "common": false,
+    "job_description": "I'm a wandering master of martial arts.",
+    "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" } ],
+    "bonus_str": { "rng": [ -2, 2 ] },
+    "bonus_dex": { "rng": [ -2, 2 ] },
+    "bonus_per": { "rng": [ -2, 2 ] },
+    "worn_override": "flame_knuckle_apprentice_worn",
+    "carry_override": "EMPTY_GROUP",
+    "weapon_override": "EMPTY_GROUP",
+    "skills": [
+      { "skill": "dodge", "bonus": { "rng": [ 0, 2 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 0, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 3 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "flame_knuckle_apprentice_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "karate_gi" },
+      { "item": "mouthpiece", "prob": 50 },
+      { "item": "judo_belt_yellow", "prob": 30 },
+      { "item": "geta" },
+      { "item": "boxer_shorts" },
+      { "item": "bookplate", "prob": 50 },
+      { "item": "armguard_paper", "prob": 50 },
+      { "item": "straw_hat", "prob": 50 },
+      { "item": "mask_rioter", "prob": 50 }
+    ]
+  },
+  {
+    "type": "npc_class",
+    "id": "flame_knuckle_elite",
+    "name": { "str": "Flame Knuckle elite" },
+    "common": false,
+    "//": "TODO edit this and maybe balance, judo_belt_blue",
+    "job_description": "I'm a wandering master of martial arts.",
+    "traits": [ { "group": "flame_knuckle_elite" }, { "group": "Appearance_demographics" } ],
+    "bonus_str": { "rng": [ 2, 4 ] },
+    "bonus_dex": { "rng": [ 2, 4 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 2, 3 ] },
+    "worn_override": "flame_knuckle_elite_worn",
+    "carry_override": "EMPTY_GROUP",
+    "weapon_override": "flame_knuckle_elite_weapon",
+    "skills": [
+      { "skill": "dodge", "bonus": { "rng": [ 2, 4 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 2, 4 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 3, 5 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "flame_knuckle_elite_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "karate_gi" },
+      { "item": "mouthpiece", "prob": 75 },
+      { "item": "judo_belt_blue" },
+      { "item": "geta" },
+      { "item": "boxer_shorts" },
+      { "or": [ { "item": "balaclava" }, { "item": "fencing_mask" } ] },
+      { "item": "plastron_cotton", "prob": 75 },
+      { "item": "armguard_soft", "prob": 75 },
+      { "item": "vambrace_larmor", "prob": 75 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "flame_knuckle_elite_weapon",
+    "subtype": "distribution",
+    "entries": [ { "item": "knuckle_nail" }, { "item": "knuckle_steel" }, { "item": "cestus" } ]
+  },
+  {
+    "type": "npc_class",
+    "id": "flame_knuckle_master",
+    "name": { "str": "Flame Knuckle master" },
+    "common": false,
+    "//": "TODO edit this and maybe balance, judo_belt_black",
+    "job_description": "I'm a wandering master of martial arts.",
+    "traits": [ { "group": "flame_knuckle_master" }, { "group": "Appearance_demographics" } ],
+    "bonus_str": { "rng": [ 3, 6 ] },
+    "bonus_dex": { "rng": [ 3, 6 ] },
+    "bonus_int": { "rng": [ 2, 3 ] },
+    "bonus_per": { "rng": [ 3, 4 ] },
+    "worn_override": "flame_knuckle_master_worn",
+    "carry_override": "EMPTY_GROUP",
+    "weapon_override": "flame_knuckle_master_weapon",
+    "skills": [
+      { "skill": "dodge", "bonus": { "rng": [ 4, 6 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 4, 6 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 4, 6 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "flame_knuckle_master_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "karate_gi" },
+      { "item": "mouthpiece", "prob": 85 },
+      { "item": "judo_belt_black" },
+      { "item": "geta" },
+      { "item": "boxer_shorts" },
+      { "item": "mask_bal" },
+      { "item": "kevlar", "prob": 85 },
+      { "item": "legguard_metal", "prob": 85 },
+      { "item": "armguard_soft", "prob": 85 },
+      { "item": "armguard_metal", "prob": 85 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "flame_knuckle_master_weapon",
+    "subtype": "collection",
+    "entries": [ { "item": "bagh_nakha" } ]
+  }
+]

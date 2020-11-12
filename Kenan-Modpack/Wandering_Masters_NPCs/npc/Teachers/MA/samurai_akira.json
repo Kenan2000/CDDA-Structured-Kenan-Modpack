@@ -1,0 +1,347 @@
+[
+  {
+    "//": "TODO check text, maybe rewrite something to be not this lame, balance him",
+    "type": "npc",
+    "id": "samurai_akira",
+    "name_unique": "Akira",
+    "gender": "male",
+    "name_suffix": "Samurai",
+    "class": "samurai_akira",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "samurai_akira_1",
+    "faction": "no_faction",
+    "mission_offered": "MISSION_samurai_akira_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "samurai_akira",
+    "name": { "str": "Samurai Akira" },
+    "job_description": "Samurai Akira.",
+    "common": false,
+    "bonus_str": { "rng": [ 2, 4 ] },
+    "bonus_dex": { "rng": [ 2, 4 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
+    "worn_override": "samurai_akira_worn",
+    "carry_override": "samurai_akira_carried",
+    "weapon_override": "samurai_akira_weapon",
+    "traits": [ { "group": "Appearance_EastAsian" }, { "trait": "PAINRESIST" } ],
+    "skills": [ { "skill": "melee", "level": 4 }, { "skill": "cutting", "level": 5 }, { "skill": "dodge", "level": 4 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "samurai_akira_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "loincloth" },
+      { "item": "hakama_gi" },
+      { "item": "obi_gi" },
+      { "item": "armor_samurai" },
+      { "item": "helmet_kabuto" },
+      { "item": "tabi_dress" },
+      { "item": "bastsandals" },
+      { "item": "backpack" },
+      { "item": "waterskin" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "samurai_akira_carried",
+    "subtype": "collection",
+    "entries": [ { "item": "waterskin" } ]
+  },
+  {
+    "type": "item_group",
+    "id": "samurai_akira_weapon",
+    "subtype": "collection",
+    "entries": [ { "item": "katana" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "samurai_akira_1" ],
+    "dynamic_line": "Hmm…",
+    "responses": [
+      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "<BGSS_intro_question>", "topic": "samurai_akira_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Can you teach me something?", "topic": "samurai_akira_teach_check" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "samurai_akira_Background",
+    "dynamic_line": "I came from Japan to retrieve ancient relics from the past: parts of armour of Kentaro the Great.",
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "samurai_akira_teach_check",
+    "dynamic_line": {
+      "npc_has_var": "u_helped_samurai_akira",
+      "type": "general",
+      "context": "meeting",
+      "value": "yes",
+      "yes": "So, you want to learn the way of the sword? Good. I can teach you.",
+      "no": "Hmm… I'm not ready. My mission is not finished. Yet."
+    },
+    "responses": [
+      {
+        "text": "Yes, teach me.",
+        "condition": { "npc_has_var": "u_helped_samurai_akira", "type": "general", "context": "meeting", "value": "yes" },
+        "trial": {
+          "type": "CONDITION",
+          "condition": {
+            "and": [ { "u_has_skill": { "skill": "melee", "level": 4 } }, { "u_has_skill": { "skill": "cutting", "level": 4 } } ]
+          }
+        },
+        "success": { "topic": "samurai_akira_teach_yes" },
+        "failure": { "topic": "samurai_akira_nope" }
+      },
+      { "text": "Understandable, have a nice day.", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "samurai_akira_teach_yes",
+    "dynamic_line": {
+      "npc_has_var": "samurai_akira_warn",
+      "type": "general",
+      "context": "meeting",
+      "value": "yes",
+      "yes": "So, are you ready, my student?",
+      "no": "Good, good. I was looking for someone like you. Last part of my missions was to find someone worthy, so I can teach him Kentaro's ancient fighting style. But be warned, training will be hard. So, if you think you're ready, we can start."
+    },
+    "responses": [
+      { "text": "I'm ready.", "topic": "samurai_akira_test1" },
+      {
+        "text": "Umm, one moment, please.",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "npc_add_var": "samurai_akira_warn", "type": "general", "context": "meeting", "value": "yes" },
+          { "npc_first_topic": "samurai_akira_teach_yes" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "samurai_akira_test1",
+    "dynamic_line": "Good, good. This is the armour that you found for me. Put it on, and then speak to me.",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "npc_first_topic": "samurai_akira_test2" },
+          { "u_buy_item": "helmet_kabuto" },
+          { "u_buy_item": "tabi_dress" },
+          { "u_buy_item": "armor_samurai" },
+          { "u_buy_item": "katana" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "samurai_akira_test2",
+    "dynamic_line": "I'm waiting.",
+    "responses": [
+      {
+        "text": "I'm ready, master. What's next?",
+        "topic": "samurai_akira_test3",
+        "condition": {
+          "and": [
+            { "u_is_wearing": "helmet_kabuto" },
+            { "u_is_wearing": "tabi_dress" },
+            { "u_is_wearing": "armor_samurai" },
+            "u_has_weapon"
+          ]
+        }
+      },
+      { "text": "…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "samurai_akira_test3",
+    "dynamic_line": "Yes, good, good. You look like a fine warrior in his armour and with his weapon. Prepare my student. Training will be hard, but I hope you succeed in it. And now, the training: fight to the death! BANZAI!",
+    "responses": [ { "text": "Wait, whaa…", "topic": "TALK_DONE", "effect": ["insult_combat",{ "add_mission": "MISSION_samurai_akira_0" }] } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "samurai_akira_nope",
+    "dynamic_line": "You are not ready yet. Come back later. [REQUIRES: MELEE 4, CUTTING 4]",
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "MISSION_samurai_akira_1",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find Tabi for Akira" },
+    "description": "Find Tabi of the great hero Kentaro.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "tabi_dress",
+    "difficulty": 0,
+    "value": 100,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "hotel_tower_1_2",
+        "om_special": "hotel_1",
+        "om_terrain_replace": "house",
+        "om_terrain_match_type": "PREFIX",
+        "search_range": 250,
+        "min_distance": 5
+      },
+      "update_mapgen": { "om_terrain": "hotel_tower_flr3_1_9", "place_item": [ { "item": "tabi_dress", "x": 10, "y": 21, "target": true } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_samurai_akira_2",
+    "dialogue": {
+      "describe": "-",
+      "offer": "So, you want to lend a hand in my sacred quest? So be it! First, Tabi of Kentaro the Great. Some collector bought it not so long ago, but couldn't make it to his home, and died at the hotel he stayed after returning to this country. Don’t ask me where I get this information. Go find it, it's somewhere in that hotel. ",
+      "accepted": "Good. I don't know where exactly, though. Maybe, search at the top floors?",
+      "rejected": "Coward!",
+      "advice": "If you want to become a great warrior, that will be sung about in the legends, you need to learn how to deal with problems by yourself!",
+      "inquire": "…",
+      "success": "Yes, yes, it's his tabi. It even smells like him. Good, good. One step closer to the end of my quest.",
+      "success_lie": "Coward!",
+      "failure": "Coward!"
+    }
+  },
+  {
+    "id": "MISSION_samurai_akira_2",
+    "//": "TODO maybe change spot, make custom set? ",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find Helmet for Akira" },
+    "description": "Find helmet of the great hero Kentaro.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "helmet_kabuto",
+    "difficulty": 0,
+    "value": 1000,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "pawn_1",
+        "om_terrain_replace": "house",
+        "om_terrain_match_type": "PREFIX",
+        "reveal_radius": 1,
+        "search_range": 150,
+        "min_distance": 30
+      },
+      "update_mapgen": { "place_item": [ { "item": "helmet_kabuto", "x": 20, "y": 21, "target": true } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_samurai_akira_3",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Second item: Kentaro's helmet. Some fool thought that it's just a regular helmet and sold it at his local pawn shop. FOOL! It cost way more than he could ever get from there! So, go there, youngling, find his helmet and bring it to me!",
+      "accepted": "Good, good. I'll wait here for your return.",
+      "rejected": "Coward!",
+      "advice": "If you want to become a great warrior, that will be song about in the legends, you need to learn how to deal with problems by yourself!",
+      "inquire": "I'm waiting.",
+      "success": "Yes, yes, it's his helmet. It even smells like…dirty nerd?! Ugh, kuso weeab…AHEM! Good, good. Two steps closer to the end of my quest.",
+      "success_lie": "…",
+      "failure": "…"
+    }
+  },
+  {
+    "id": "MISSION_samurai_akira_3",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find Armour for Akira" },
+    "description": "End Flame Knuckle!",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "armor_samurai",
+    "difficulty": 0,
+    "value": 100,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "museum_north",
+        "om_terrain_replace": "house",
+        "om_terrain_match_type": "PREFIX",
+        "reveal_radius": 1,
+        "search_range": 300,
+        "min_distance": 15,
+        "cant_see": true
+      },
+      "update_mapgen": { "place_item": [ { "item": "armor_samurai", "x": 17, "y": 9, "target": true } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_samurai_akira_4",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Third item: Kentaro's armour. A 35 years ago, his armour was donated to that museum, so that kids could look at it and… damn those kids. I hate kids! Quick, find his armour and bring it back to me!",
+      "accepted": "Good. I'll wait.",
+      "rejected": "Coward!",
+      "advice": "If you want to become a great warrior, that will be song about in the legends, you need to learn how to deal with problems by yourself!",
+      "inquire": "…",
+      "success": "Yes, yes, it's his armour. It even smells like…I need to stop smelling things, do I? AHEM! Good, good. Three steps closer to the end of my quest.",
+      "success_lie": "…",
+      "failure": "…"
+    }
+  },
+  {
+    "id": "MISSION_samurai_akira_4",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find Samurai Sword for Akira" },
+    "description": "Find sword of the great hero Kentaro.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "katana",
+    "difficulty": 0,
+    "value": 100,
+    "//": "TODO check how to not reveal place with update_mapgen",
+    "start": {
+      "update_mapgen": {
+        "om_terrain": "mansion_t2",
+        "om_special": "Mansion_Road",
+        "om_terrain_replace": "forrest",
+        "om_terrain_match_type": "PREFIX",
+        "search_range": 300,
+        "min_distance": 100,
+        "cant_see": true,
+        "place_item": [ { "item": "katana", "x": 13, "y": 8, "target": true } ]
+      }
+    },
+    "end": { "effect": [ { "npc_add_var": "u_helped_samurai_akira", "type": "general", "context": "meeting", "value": "yes" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "And now, the last one: Kentaro's sword! I thought that it was well hidden in some temple, far away in the mountains, but recently I learned that it was stolen! Some lousy politician funded a famous band of tomb raiders that agreed to break in that temple and steal Kentaro's precious sword. FOOLS, IT COULD BE CURSED! THEY COULD DOOM THE WHOLE WORLD BY STEALING IT! ARGH… AHEM! Find his sword for me, please.",
+      "accepted": "Good. There's only one catch: I don't know exactly where it is. I only know that that politician lived in this state. Maybe he hid it in his mansion? Check all mansions nearby. After that, we can talk about your reward, youngling.",
+      "rejected": "Coward!",
+      "advice": "If you want to become a great warrior, that will be song about in the legends, you need to learn how to deal with problems by yourself!",
+      "inquire": "I'm waiting.",
+      "success": "Yes, yes, it's his sword! At last, my quest almost ended! Good, youngling, good. And now, the last step: training of someone worthy. I choose you worthy of training ancient fighting style, that Kentaro the Great and generations of his students kept secret from outside world for centuries! Talk to me when you're ready, youngling.",
+      "success_lie": "…",
+      "failure": "…"
+    }
+  },
+  {
+    "id": "MISSION_samurai_akira_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Train with Akira" },
+    "description": "Akira suddenly attacked you. Maybe this is part of the training?",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "-", "type": "general", "context": "meeting", "value": "yes" },
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_buy_item": "manual_niten" } }
+  }
+]
+

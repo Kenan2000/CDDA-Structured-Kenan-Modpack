@@ -1,0 +1,152 @@
+[
+  {
+    "//": "TODO do all, write something not that lame please",
+    "type": "npc",
+    "id": "bill_the_assassin",
+    "name_unique": "Bill",
+    "gender": "male",
+    "name_suffix": "Assassin",
+    "class": "bill_the_assassin",
+    "attitude": 1,
+    "mission": 10,
+    "chat": "bill_the_assassin_start",
+    "faction": "no_faction"
+  },
+  {
+    "type": "npc_class",
+    "id": "bill_the_assassin",
+    "name": { "str": "The Assassin" },
+    "job_description": "The Assassin.",
+    "common": false,
+    "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" } ],
+    "bonus_str": { "rng": [ 2, 5 ] },
+    "bonus_dex": { "rng": [ 2, 6 ] },
+    "bonus_int": { "rng": [ 3, 5 ] },
+    "bonus_per": { "rng": [ 4, 5 ] },
+    "worn_override": "bill_the_assassin_worn",
+    "carry_override": "bill_the_assassin_carried",
+    "skills": [
+      { "skill": "melee", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "stabbing", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "pistol", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "shotgun", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "driving", "bonus": { "rng": [ 2, 6 ] } }
+    ],
+    "bionics": [
+      { "id": "bio_targeting", "chance": 100 },
+      { "id": "bio_shotgun", "chance": 100 },
+      { "id": "bio_carbon", "chance": 100 },
+      { "id": "bio_adrenaline", "chance": 100 },
+      { "id": "bio_night_vision", "chance": 100 },
+      { "id": "bio_face_mask", "chance": 100 },
+      { "id": "bio_metabolics", "chance": 100 },
+      { "id": "bio_power_storage_mkII", "chance": 100 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "bill_the_assassin_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "suit" },
+      { "item": "bowhat" },
+      { "item": "socks" },
+      { "item": "dress_shoes" },
+      { "item": "boxer_shorts" },
+      { "item": "knit_scarf" },
+      { "item": "kevlar" },
+      { "item": "boxer_shorts" },
+      { "item": "sunglasses" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "bill_the_assassin_carried",
+    "subtype": "collection",
+    "entries": [
+      { "item": "glock_19", "ammo-item": "9mm", "container-item": "holster", "charges": 15 },
+      { "item": "glockmag", "ammo-item": "9mm", "charges": 15 }
+    ]
+  },
+  {
+    "id": [ "bill_the_assassin_bad" ],
+    "type": "talk_topic",
+    "dynamic_line": "Wrong answer.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
+  },
+  {
+    "id": [ "bill_the_assassin_start" ],
+    "type": "talk_topic",
+    "dynamic_line": "So, you stumbled upon me. I suggest that you leave this place and run away as fast as you can, unless you want to get a new hole in your head.",
+    "responses": [
+      { "text": "I'm here to kick your ass!", "topic": "bill_the_assassin_bad" },
+      { "text": "I'm here to talk, Bill.", "topic": "bill_the_assassin_talk" }
+    ]
+  },
+  {
+    "id": [ "bill_the_assassin_talk" ],
+    "type": "talk_topic",
+    "dynamic_line": "So, you know my name AND how to find me. Interesting. I'm listening, but if you say something that I wouldn't like, you will be dead in a second. Speak.",
+    "responses": [
+      { "text": "Actually, I'll kick your ass!", "topic": "bill_the_assassin_bad" },
+      {
+        "text": "I'm here because of some officer that wants you dead. He looks kind of suspicious, so I want to learn the whole story.",
+        "topic": "bill_the_assassin_talk1"
+      }
+    ]
+  },
+  {
+    "id": [ "bill_the_assassin_talk1" ],
+    "type": "talk_topic",
+    "dynamic_line": "And why should I tell you, instead of just kill you and return to my business?",
+    "responses": [
+      { "text": "How rude, I'll kick your ass!", "topic": "bill_the_assassin_bad" },
+      {
+        "text": "Because, umm, please?",
+        "trial": { "type": "PERSUADE", "difficulty": 8 },
+        "success": { "topic": "bill_the_assassin_talk2" },
+        "failure": { "topic": "bill_the_assassin_bad" }
+      }
+    ]
+  },
+  {
+    "id": [ "bill_the_assassin_talk2" ],
+    "type": "talk_topic",
+    "dynamic_line": "Hmm, if you put it that way, I'll tell you something interesting. I think your <name_g> asked you to bring back my head. How do I know? That cop <name_b> just wants to screw you and loot my basement! I have a secret storage room in my basement that opens only after retinal scan, and he will do anything to get to that room. Tell you what, if you kill that <name_b>, I'll open it for you. Anything that I left behind me, will be yours. What do you say, <name_g>?",
+    "responses": [
+      { "text": "Nope, I’ll kick your ass!", "topic": "bill_the_assassin_bad" },
+      {
+        "text": "I'll think about it.",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "npc_first_topic": "bill_the_assassin_talk3" },
+          { "u_add_var": "bill_the_assassin_basement", "type": "general", "context": "meeting", "value": "yes" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": [ "bill_the_assassin_talk3" ],
+    "type": "talk_topic",
+    "dynamic_line": "So?",
+    "responses": [
+      { "text": "I still want to kick your ass!", "topic": "bill_the_assassin_bad" },
+      {
+        "text": "So, officer is dead.",
+        "topic": "bill_the_assassin_truth",
+        "condition": {"and":[{ "u_has_var": "police_teacher_dead", "type": "general", "context": "meeting", "value": "yes" },{"u_has_item":"pt_head"}]}
+      }
+    ]
+  },
+  {
+    "id": [ "bill_the_assassin_talk2" ],
+    "type": "talk_topic",
+    "dynamic_line": "Wow, cool. Actually, I lied about secret room. Take this book instead.",
+    "responses": [
+      { "text": "…", "topic": "TALK_DONE", "effect": [ "end_conversation", { "u_buy_item": "manual_centipede" } ] }
+    ]
+  }
+]
+

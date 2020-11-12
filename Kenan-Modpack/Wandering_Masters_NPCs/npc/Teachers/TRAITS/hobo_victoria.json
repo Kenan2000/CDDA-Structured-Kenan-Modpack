@@ -1,0 +1,247 @@
+[
+  {
+    "//": "TODO potom",
+    "type": "npc",
+    "id": "hobo_victoria",
+    "gender": "female",
+    "class": "hobo_victoria",
+    "name_unique": "Victoria",
+    "name_suffix": "hobo",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "hobo_victoria_1",
+    "faction": "no_faction",
+    "mission_offered": "MISSION_hobo_victoria_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "hobo_victoria",
+    "name": { "str": "Victoria" },
+    "job_description": "Victoria.",
+    "common": false,
+    "bonus_str": { "rng": [ 1, 4 ] },
+    "bonus_dex": { "rng": [ 1, 4 ] },
+    "bonus_int": { "rng": [ 1, 4 ] },
+    "bonus_per": { "rng": [ 1, 4 ] },
+    "traits": [
+      { "group": "NPC_starting_traits" },
+      { "group": "Appearance_demographics" },
+      { "trait": "OUTDOORSMAN" },
+      { "trait": "PAINRESIST" }
+    ],
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "rng": [ 0, -4 ] } ] } ] } },
+      { "skill": "fabrication", "bonus": { "rng": [ 3, 4 ] } },
+      { "skill": "survival", "bonus": { "rng": [ 1, 2 ] } }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "hobo_victoria_1" ],
+    "dynamic_line": "Hello there, <name_g>.",
+    "responses": [
+      { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "<BGSS_intro_question>", "topic": "hobo_victoria_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Can you teach me something?", "topic": "hobo_victoria_teach_check" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "hobo_victoria_Background",
+    "dynamic_line": "I'm just a regular hobo. That's all.",
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "hobo_victoria_teach_check",
+    "dynamic_line": "I teach only those who helped me. Did you helped me?",
+    "responses": [
+      {
+        "text": "Yeah.",
+        "condition": { "npc_has_var": "u_helped_hobo_victoria", "type": "general", "context": "meeting", "value": "yes" },
+        "trial": {
+          "type": "CONDITION",
+          "condition": { "npc_has_var": "hobo_victoria_teach", "type": "general", "context": "meeting", "value": "yes" }
+        },
+        "success": {
+          "effect": [
+            { "u_add_trait": "NIGHTVISION" },
+            { "npc_lose_var": "hobo_victoria_teach", "type": "general", "context": "meeting", "value": "no" }
+          ],
+          "topic": "hobo_victoria_teach"
+        },
+        "failure": { "topic": "hobo_victoria_teach_done" }
+      },
+      { "text": "Maybe later.", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "hobo_victoria_teach",
+    "dynamic_line": "Good. Take this trate.",
+    "responses": [ { "text": "Thanks.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "hobo_victoria_teach_done",
+    "dynamic_line": "I already taught you all I knew.",
+    "responses": [ { "text": "Thanks again, teacher.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "MISSION_hobo_victoria_1",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find 2x4 30" },
+    "description": "Find 2x4 30",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "2x4",
+    "count": 30,
+    "difficulty": 0,
+    "value": 100,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_hobo_victoria_2",
+    "dialogue": {
+      "describe": "-",
+      "offer": "I need to warm myself somehow. Find 2x4 30",
+      "accepted": "Good",
+      "rejected": "Afraid?!",
+      "advice": "~",
+      "inquire": "I'm waiting.",
+      "success": "Nice! ",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_hobo_victoria_2",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find large barrel" },
+    "description": "Find large barrel",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "55gal_drum",
+    "count": 1,
+    "difficulty": 0,
+    "value": 100,
+    "end": { "effect": { "mapgen_update": "hobo_victoria_heat", "origin_npc": true } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_hobo_victoria_3",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Find large barrel so i can have a place to burn my wood.",
+      "accepted": "Good",
+      "rejected": "Afraid?!",
+      "advice": "~",
+      "inquire": "I'm waiting.",
+      "success": "Nice! ",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_hobo_victoria_3",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find cheese 20" },
+    "description": "Find cheese 20",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "cheese",
+    "count": 20,
+    "difficulty": 0,
+    "value": 100,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_hobo_victoria_4",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Find cheese 20 for my pet rat.",
+      "accepted": "Good",
+      "rejected": "Afraid?!",
+      "advice": "-",
+      "inquire": "I'm waiting.",
+      "success": "Nice! ",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_hobo_victoria_4",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find my pet rat" },
+    "description": "Find my pet rat",
+    "goal": "MGOAL_FIND_MONSTER",
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "subway",
+        "om_terrain_match_type": "PREFIX",
+        "reveal_radius": 1,
+        "random": true,
+        "search_range": 40,
+        "min_distance": 5
+      },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_black_rat", "x": 14, "y": 14, "target": true, "friendly": true } ] }
+    },
+    "fail": { "effect": "end_conversation" },
+    "difficulty": 0,
+    "value": 100,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_hobo_victoria_5",
+    "dialogue": {
+      "describe": "True student!!!",
+      "offer": "Find my pet rat, please. I don't think it got far away.",
+      "accepted": "Good",
+      "rejected": "Afraid?!",
+      "advice": "~",
+      "inquire": "I'm waiting.",
+      "success": "Huh, thats not my rat! My rat returned to me a few minutes ago!",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_hobo_victoria_5",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Kill rat king" },
+    "description": "Kill rat king",
+    "goal": "MGOAL_KILL_MONSTER",
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "subway",
+        "om_terrain_match_type": "PREFIX",
+        "reveal_radius": 1,
+        "random": true,
+        "search_range": 40,
+        "min_distance": 15
+      },
+      "update_mapgen": {
+        "place_monster": [
+          { "monster": "mon_black_rat", "pack_size": [ 8, 16 ], "x": 14, "y": 14, "target": true },
+          { "monster": "mon_rat_king", "x": 14, "y": 14, "target": true }
+        ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "npc_add_var": "u_helped_hobo_victoria", "type": "general", "context": "meeting", "value": "yes" },
+        { "npc_add_var": "hobo_victoria_teach", "type": "general", "context": "meeting", "value": "yes" }
+      ]
+    },
+    "difficulty": 0,
+    "value": 100,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "True student!!!",
+      "offer": "Kill rat king and his pack, so I can have a normal sleep in this place.",
+      "accepted": "Good",
+      "rejected": "Afraid?!",
+      "advice": "-",
+      "inquire": "I'm waiting.",
+      "success": "Good. Now i can teach you.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  }
+]

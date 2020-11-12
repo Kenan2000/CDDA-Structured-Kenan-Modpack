@@ -1,0 +1,35 @@
+[
+  {
+    "//": "TODO REDO ALL",
+    "type": "npc",
+    "id": "oa_target_ceo",
+    "class": "moneylender",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "target_ceo1",
+    "faction": "no_faction"
+  },
+  {
+    "id": "target_ceo1",
+    "type": "talk_topic",
+    "dynamic_line": "I don't have time for this. Name your price.",
+    "responses": [
+      { "text": "10.000 dorarus.", "topic": "target_ceo2", "effect": { "u_buy_item": "signed_chit", "count": 200 } },
+      { "text": "You will end here.", "topic": "TALK_DONE", "effect": "insult_combat" }
+    ]
+  },
+  {
+    "id": "target_ceo2",
+    "type": "talk_topic",
+    "dynamic_line": "Take it and go away.",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [ "end_conversation", { "u_add_var": "retired_assassin_fail", "type": "general", "context": "meeting", "value": "yes" } ]
+      },
+      { "text": "Actually, you will end here.", "topic": "TALK_DONE", "effect": "insult_combat" }
+    ]
+  }
+]
+

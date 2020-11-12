@@ -1,0 +1,164 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_ALLY_ORDERS",
+    "responses": [ { "text": "What do you think about transfering to another faction?", "topic": "TALK_ally_transfer" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ally_transfer",
+    "dynamic_line": {
+      "and": [
+        "So, I can transfer to:",
+        {
+          "u_has_var": "ally_transfer_bj",
+          "type": "flag",
+          "context": "transfer",
+          "value": "yes",
+          "yes": "  Boxer Johnny."
+        },
+        {
+          "u_has_var": "ally_transfer_fk",
+          "type": "flag",
+          "context": "transfer",
+          "value": "yes",
+          "yes": "  Flame Knuckle."
+        },
+        {
+          "u_has_var": "ally_transfer_ip",
+          "type": "flag",
+          "context": "transfer",
+          "value": "yes",
+          "yes": "  Iron Palm."
+        },
+        "  Where do you want me to go?"
+      ]
+    },
+    "responses": [
+      {
+        "text": "Do you want to become an apprentice of Iron Palm?",
+        "topic": "TALK_ally_transfer_iron_palm",
+        "condition": {
+          "and": [
+            { "u_compare_var": "bbm_students", "type": "flag", "context": "meeting", "op": "<", "value": 2 },
+            { "u_has_var": "ally_transfer_ip", "type": "flag", "context": "transfer", "value": "yes" }
+          ]
+        }
+      },
+      {
+        "text": "Do you want to become an apprentice of Flame Knuckle?",
+        "topic": "TALK_ally_transfer_flame_knuckle",
+        "condition": {
+          "and": [
+            { "u_compare_var": "fkl_students", "type": "flag", "context": "meeting", "op": "<", "value": 2 },
+            { "u_has_var": "ally_transfer_fk", "type": "flag", "context": "transfer", "value": "yes" }
+          ]
+        }
+      },
+      {
+        "text": "Do you want to become an apprentice of Boxer Johnny?",
+        "topic": "TALK_ally_transfer_boxer_johnny",
+        "condition": {
+          "and": [
+            { "u_compare_var": "bj_students", "type": "flag", "context": "meeting", "op": "<", "value": 2 },
+            { "u_has_var": "ally_transfer_bj", "type": "flag", "context": "transfer", "value": "yes" }
+          ]
+        }
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ally_transfer_iron_palm",
+    "dynamic_line": "Iron Palm sounds cool! If you are sure about it, lead me to their leader, so he can accept me.",
+    "responses": [
+      {
+        "text": "Yes, Iron Palm needs you. Now go.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            { "npc_at_om_location": "dojo_1" },
+            { "u_has_var": "ally_transfer_ip", "type": "flag", "context": "transfer", "value": "yes" }
+          ]
+        },
+        "effect": [
+          "leave",
+          { "npc_change_faction": "iron_palm" },
+          "assign_guard",
+          { "npc_first_topic": "TALK_npc_student_ip" },
+          { "u_adjust_var": "bbm_students", "type": "flag", "context": "meeting", "adjustment": 1 }
+        ]
+      },
+      { "text": "Maybe later.", "topic": "TALK_FRIEND" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ally_transfer_flame_knuckle",
+    "dynamic_line": "Flame Knuckle sounds cool! If you are sure about it, lead me to their leader, so he can accept me.",
+    "responses": [
+      {
+        "text": "Yes, Flame Knuckle need you. Now go.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            { "npc_at_om_location": "fk_base_1" },
+            { "u_has_var": "ally_transfer_fk", "type": "flag", "context": "transfer", "value": "yes" }
+          ]
+        },
+        "effect": [
+          "leave",
+          { "npc_change_faction": "flame_knuckle" },
+          "assign_guard",
+          { "npc_first_topic": "TALK_npc_student_fk" },
+          { "u_adjust_var": "fkl_students", "type": "flag", "context": "meeting", "adjustment": 1 }
+        ]
+      },
+      { "text": "Maybe later.", "topic": "TALK_FRIEND" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ally_transfer_boxer_johnny",
+    "dynamic_line": "Boxer Johnny sounds cool! If you are sure about it, lead me to their leader, so he can accept me.",
+    "responses": [
+      {
+        "text": "Yes, Boxer Johnny needs you. Now go.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            { "npc_at_om_location": "gym" },
+            { "u_has_var": "ally_transfer_bj", "type": "flag", "context": "transfer", "value": "yes" }
+          ]
+        },
+        "effect": [
+          "leave",
+          { "npc_change_faction": "boxer_johnny_gym" },
+          "assign_guard",
+          { "npc_first_topic": "TALK_npc_student_bj" },
+          { "u_adjust_var": "bj_students", "type": "flag", "context": "meeting", "adjustment": 1 }
+        ]
+      },
+      { "text": "Maybe later.", "topic": "TALK_FRIEND" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_npc_student_ip",
+    "dynamic_line": "Iron Palm <swear> RULE!",
+    "responses": [ { "text": "Glad for you.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_npc_student_fk",
+    "dynamic_line": "Flame Knuckle <swear> RULE!",
+    "responses": [ { "text": "Glad for you.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_npc_student_bj",
+    "dynamic_line": "Boxer Johnny <swear> RULE!",
+    "responses": [ { "text": "Glad for you.", "topic": "TALK_DONE" } ]
+  }
+]
