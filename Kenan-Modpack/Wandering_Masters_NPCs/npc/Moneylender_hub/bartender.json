@@ -13,18 +13,24 @@
   {
     "id": "moneylender_bartender1",
     "type": "talk_topic",
-    "dynamic_line": "Hello there, bounty hunter. Want a drink?",
+    "dynamic_line": "<greet> Want a drink?",
     "responses": [
       {
         "text": "About that job…",
         "topic": "TALK_MISSION_INQUIRE",
-        "condition": { "and": [ "mission_complete", "has_many_assigned_missions" ] }
+        "condition": { "and": [ "mission_complete", "has_assigned_mission" ] }
       },
-      { "text": "What is your job here?", "topic": "moneylender_bartender_info" },
+      { "text": "What is this place anyway?", "topic": "moneylender_bartender_info" },
       {
-        "text": "I'm looking for some rare stuff.",
+        "text": "So, what about those 'extra' staff?",
         "topic": "moneylender_bartender_basement",
-        "condition": { "not": { "npc_has_var": "moneylender_basement", "type": "flag", "context": "meeting", "value": "yes" } }
+        "condition": {
+          "and": [
+            { "not": "has_assigned_mission" },
+            { "not": { "npc_has_var": "moneylender_basement", "type": "flag", "context": "meeting", "value": "yes" } },
+            { "npc_has_var": "basement", "type": "flag", "context": "meeting", "value": "yes" }
+          ]
+        }
       },
       {
         "text": "Let me see what you keep behind the counter.",
@@ -36,27 +42,73 @@
   },
   {
     "type": "talk_topic",
-    "id": "moneylender_bartender_info",
-    "dynamic_line": "Selling alcohol.",
-    "responses": [ { "text": "Thanks.", "topic": "TALK_NONE" } ]
+    "id": [
+      "moneylender_bartender_info",
+      "moneylender_bartender_info_job",
+      "moneylender_bartender_info_place",
+      "moneylender_bartender_info_people",
+      "moneylender_bartender_info_cata",
+      "moneylender_bartender_info_staff"
+    ],
+    "dynamic_line": "It's a place for lost souls, who are still struggle to survive in this hard times.",
+    "responses": [
+      { "text": "What is your job here?", "topic": "moneylender_bartender_info_job" },
+      { "text": "Do you running this place all by yourself?", "topic": "moneylender_bartender_info_place" },
+      { "text": "A lot of new people came here recently?", "topic": "moneylender_bartender_info_people" },
+      { "text": "How did you managed to survive?", "topic": "moneylender_bartender_info_cata" },
+      { "text": "<done_conversation_section>", "topic": "moneylender_bartender1" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_info_job",
+    "dynamic_line": "You know, regular bartenders stuff: selling alcohol, serving snacks, watching for new faces, keeping eye on my girls.  To be honest, nothing really changed for me after <the_cataclysm>.  Except those nasty <zombies>, I <swear> hate them.  Always walking in large groups, trying to barge here and do havoc.  Last time they broke in here, all the tables were flipped and all curtains were striped!  Can you believe that, <name_g>?  <swear> madness, I tell you."
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_info_place",
+    "dynamic_line": "Gladly I’m not alone in this shithole.  There are plenty of <name_g>s around: part my staff, part random survivors looking for food, booze, shelter or work for paying for all that.",
+    "responses": [
+      {
+        "text": "What staff exactly?  I see only one girl over there.",
+        "topic": "moneylender_bartender_info_staff",
+        "condition": { "not": { "npc_has_var": "basement", "type": "flag", "context": "meeting", "value": "yes" } },
+        "effect": { "npc_add_var": "basement", "type": "flag", "context": "meeting", "value": "yes" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_info_staff",
+    "dynamic_line": "Well, there are also goons of that mone...  Ahem, I probably said too much already.  Let’s change the subject, please."
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_info_people",
+    "dynamic_line": "Usually there are not much new people here.  As you may notice, <the_cataclysm> kicked us hard.  Not many survived that.  It’s a sad topic, really.  Let’s talk about business."
+  },
+  {
+    "type": "talk_topic",
+    "id": "moneylender_bartender_info_cata",
+    "dynamic_line": "Well, I don’t have much to say, really.  It was pure luck, I guess."
   },
   {
     "type": "talk_topic",
     "id": "moneylender_bartender_basement",
-    "dynamic_line": "Hmm. Maybe yes, maybe no. Who's asking?",
+    "dynamic_line": "It depends on who's asking.",
     "responses": [
       {
-        "text": "[COP]I'm a cop.",
+        "text": "[COP]I'm a cop, so please, let me in peacefully.",
         "topic": "moneylender_bartender_cop",
         "condition": { "u_has_any_trait": [ "PROF_CYBERCOP", "PROF_FED", "PROF_PD_DET", "PROF_POLICE", "PROF_SWAT" ] }
       },
       {
-        "text": "[SPEECH]Let me talk this out.",
+        "text": "[SPEECH]What would you lose if you let me in?",
         "topic": "moneylender_bartender_talk",
         "condition": { "u_has_skill": { "skill": "speech", "level": 3 } }
       },
       {
-        "text": "[FEMALE]Maybe I can 'persuade' you…",
+        "text": "[FEMALE]Maybe if I do something for you, you would let me in…",
         "condition": "u_female",
         "trial": { "type": "CONDITION", "condition": { "u_has_any_trait": [ "PRETTY", "BEAUTIFUL", "BEAUTIFUL2", "BEAUTIFUL3" ] } },
         "success": { "topic": "moneylender_bartender_fem_yes" },
@@ -69,7 +121,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_bartender_fem_yes",
-    "dynamic_line": "Maybe, maybe. I'll be free in a few hours, until then, you can talk to my boss.",
+    "dynamic_line": "I'll be free in a few hours.  Until then, you can talk to my boss.",
     "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": { "mapgen_update": "ml_door", "origin_npc": true } } ]
   },
   {
@@ -81,7 +133,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_bartender_cop",
-    "dynamic_line": "So, you're a cop? Good. This good fellas will lead you where you should be.",
+    "dynamic_line": "So, you're a cop? Good. This good <name_g>s will lead you where you should be.",
     "responses": [
       {
         "text": "…",
@@ -99,7 +151,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_bartender_talk",
-    "dynamic_line": "Maybe. You got something for me?",
+    "dynamic_line": "It's a matter of principle.  You got something for me?",
     "responses": [
       {
         "text": "[35MERCH]Maybe this will help.",
@@ -113,7 +165,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_bartender_talk1",
-    "dynamic_line": "Good. Talk to my boss. He's downstairs.",
+    "dynamic_line": "Good. I'll slip a word about you to my boss. You can meet him downstairs.",
     "responses": [
       {
         "text": "…",
@@ -132,8 +184,8 @@
     "id": "MISSION_moneylender_bartender_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Get rid of hobo" },
-    "description": "Get rid of hobo.",
+    "name": { "str": "Get rid of nasty hobo" },
+    "description": "Bartender asked you to get rid of nasty hobo.",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 0,
     "value": 1000,
@@ -153,17 +205,16 @@
       ]
     },
     "origins": [ "ORIGIN_SECONDARY" ],
-    "followup": "MISSION_boxer_johnny_2",
     "dialogue": {
-      "describe": "Hobo",
-      "offer": "Get rid of hobo",
-      "accepted": "Good",
-      "rejected": "Hmm",
-      "advice": "You need advice on how to get rid of hobo?",
-      "inquire": "So?",
-      "success": "Nice.",
-      "success_lie": "Bruh.",
-      "failure": "Bruh."
+      "describe": "-",
+      "offer": "There's a nasty hobo that came here sometimes, and using my lobby as a place to crash.  He doesn't pay for it, and for some reason, no one wants to shoo him out for me.  If you do it, I’ll see what I can do for you.",
+      "accepted": "Good. Wait for him there.  I'm sure he'll come for another sleepover.",
+      "rejected": "Hmm.",
+      "advice": "You need advice on how to get rid of nasty hobo?",
+      "inquire": "Are you done?",
+      "success": "Good. I'll slip a word about you to my boss. You can meet him downstairs.",
+      "success_lie": "-",
+      "failure": "-"
     }
   }
 ]

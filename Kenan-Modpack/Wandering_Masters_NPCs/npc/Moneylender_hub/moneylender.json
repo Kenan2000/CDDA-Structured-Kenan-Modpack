@@ -80,13 +80,13 @@
   {
     "type": "talk_topic",
     "id": "moneylender_passing",
-    "dynamic_line": "So, you want to trade, huh? Prove me that you are nice fella by helping me with stuff and i'll think about it. I'm a collector of sort. Bring me rare books. After you'll prove yourself to me, I'll start paying for them.",
+    "dynamic_line": "So, you want to trade, huh?  Prove me that you are nice fella by helping me with stuff and I'll think about it.  I'm a collector of sort.  If you find rare books in your traveling, bring them to me, maybe then I'll think about trusting you.",
     "responses": [ { "text": "I'll think about it.", "topic": "TALK_DONE", "effect": [ { "npc_first_topic": "moneylender_2" } ] } ]
   },
   {
     "type": "talk_topic",
     "id": "moneylender_johnny",
-    "dynamic_line": "So, Johnny sent you? Ok, here's the deal. Johnny owed me a lot of money before <the_cataclysm>, and I want it back. You have two options: pay for your <name_g>, 1200 FMCNotes will be enough, or you can help me with few problems and I'll forget about that fool's debt. I'm a collector of sort. Bring me rare books. After you'll prove yourself to me, I'll start paying for them. Choice is yours. But don't take too long, or your <name_g> will lose his head, he-he. Also, you have a choice to help him lose it… I'll pay you for it, and maybe even let you buy my premium goods.",
+    "dynamic_line": "So, Johnny sent you?  Ok, here's the deal.  Johnny owed me a lot of money before <the_cataclysm>, and I want it back.  You have two options: pay for your <name_g>, 1200 FMCNotes will be enough, or you can help me with satisfying my passion and I'll forget about that fool's debt.  I'm a collector of sort.  If you find rare books in your travelling, bring them to me, maybe then I'll think about trusting you. Choice is yours.  But don't take too long, or your <name_g> will lose his head, he-he.  Also, you have a choice to help him lose it…  I'll pay you for it, and maybe even let you buy my premium goods.",
     "speaker_effect": {
       "effect": [
         { "npc_add_var": "bj_debt_asked", "type": "flag", "context": "meeting", "value": "yes" },
@@ -102,7 +102,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_nope",
-    "dynamic_line": "Funny guy, are you? Guards, kick his ass!",
+    "dynamic_line": "Funny guy, are you?  Guards, kick his ass!",
     "responses": [ { "text": "Let's rock!", "topic": "TALK_DONE", "effect": [ "end_conversation", { "u_faction_rep": -100 } ] } ]
   },
   {
@@ -115,16 +115,16 @@
       "value": "yes",
       "yes": {
         "u_male": true,
-        "yes": "Damn, not that crazy bastard again. What do you want?",
-        "no": "Damn, not that crazy bitch again. What do you want?"
+        "yes": "Damn, not that crazy bastard again.  What do you want?",
+        "no": "Damn, not that crazy bitch again.  What do you want?"
       },
       "no": {
         "u_has_var": "moneylender_job_done",
         "type": "flag",
         "context": "meeting",
         "value": "yes",
-        "yes": "Ah, my favorite customer. What brings you here?",
-        "no": "Make it quick. I don't have time for chit-chat!"
+        "yes": "Ah, my favorite customer.  What brings you here?",
+        "no": "Make it quick.  I don't have time for chit-chat!"
       }
     },
     "responses": [
@@ -163,7 +163,7 @@
         "effect": "start_trade"
       },
       {
-        "text": "Let's trade lootboxes.",
+        "text": "I want to buy something.",
         "topic": "moneylender_trade",
         "condition": {
           "or": [
@@ -270,14 +270,14 @@
         "success": { "topic": "moneylender_premium" },
         "failure": { "topic": "moneylender_later" }
       },
-      { "text": "So what do you need?", "topic": "moneylender_open_store" },
+      { "text": "Can you tell me again what do you need?", "topic": "moneylender_open_store" },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "moneylender_bj_head",
-    "dynamic_line": "Damn, you helped your <name_g> and then decapitated him? You absolutely madman! Here, take this, and please, get the hell out of me!",
+    "dynamic_line": "Damn, you helped your <name_g> and then decapitated him?  You absolutely madman!  Here, take this, and please, get the hell out!",
     "responses": [
       {
         "text": "*give him your scariest smile*",
@@ -292,7 +292,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_debt",
-    "dynamic_line": "Nice. Consider yourself freed from your friends debt, he-he. If you want to earn more money, or spend it, talk to me.",
+    "dynamic_line": "Nice.  Consider yourself freed from your friends debt, he-he.  If you want to earn more money, or spend it, talk to me.",
     "responses": [
       {
         "text": "…",
@@ -309,7 +309,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_debt1",
-    "dynamic_line": "Nice. Consider yourself freed from your friends debt, he-he. If you want to trade, talk to me.",
+    "dynamic_line": "Nice.  Consider yourself freed from your friends debt, he-he.  If you want to trade, talk to me.",
     "responses": [
       {
         "text": "…",
@@ -326,7 +326,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_open_store",
-    "dynamic_line": "I need rare books and turrets. Bring me enough books and i'll open my store to you. Bring me enough books and turrets, and I'll open my premium store for you.",
+    "dynamic_line": "I'm a collector, I collect books.  Also, I need to protect my property.  For that, I need automated turrets.  Bring me enough books and I'll open my store to you.  Bring me enough books and turrets, and I'll open my premium store for you.",
     "responses": [ { "text": "…", "topic": "TALK_NONE" } ]
   },
   {
@@ -337,16 +337,15 @@
       "type": "flag",
       "context": "meeting",
       "value": "yes",
-      "yes": "Well, what to say, I was always good with numbers, especially while counting money, he-he. When the dead start walking, I was here, with my trusted men, in my lovely shelter, protected from outside world. Somehow, this plague didn't got me, so now I'm just continue to do what I know, and what I'm good at.",
-      "no": "I said I don't have time for chit-chat!"
+      "yes": "Well, what to say, I was always good with numbers, especially while counting money, he-he.  When the <zombies> started to rise, I was here, with my trusted men, in my lovely shelter, protected from outside world.  Somehow, this plague didn't got me, so now I'm just continue to do what I know, and what I'm good at.",
+      "no": "I don't have time for chit-chat!"
     },
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
-    "//": "TODO change spawn point when make him uniqiue building",
     "type": "talk_topic",
     "id": "moneylender_share",
-    "dynamic_line": "Nice, nice. Take this.",
+    "dynamic_line": "Nice, nice.  Take this, you earned it.",
     "responses": [ { "text": "…", "topic": "TALK_NONE", "effect": [ { "mapgen_update": "moneylender_share", "origin_npc": true } ] } ]
   },
   {
@@ -428,20 +427,20 @@
       "type": "flag",
       "context": "meeting",
       "value": "3",
-      "yes": "Sorry fam, I don't have anything for you.",
+      "yes": "Sorry, <name_g>, I don't have anything for you at the moment.",
       "no": {
         "u_has_var": "moneylender_premium_item",
         "type": "flag",
         "context": "meeting",
         "value": "2",
-        "yes": "So, I have this cool martial book right here. Price is 600 merch.",
+        "yes": "I have this cool martial book right here.  Price is 600 merch.  Are you interested?",
         "no": {
           "u_has_var": "moneylender_premium_item",
           "type": "flag",
           "context": "meeting",
           "value": "1",
-          "yes": "So, I have this cool shotgun CBM right here. Price is 400 merch.",
-          "no": "So, I have this cool cop bot right here. Price is 200 merch."
+          "yes": "I have this cool shotgun CBM right here.  Price is 400 merch.  Are you interested?",
+          "no": "I have this cool cop bot right here.  Price is 200 merch.  Are you interested?"
         }
       }
     },
@@ -504,7 +503,7 @@
   {
     "type": "talk_topic",
     "id": "moneylender_later",
-    "dynamic_line": "Come back in few days.",
+    "dynamic_line": "I'm empty right now.  Come back in a few days.",
     "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
   },
   {
@@ -513,13 +512,13 @@
     "dynamic_line": "So, i've got:\n Army supplies for 225\n Canned food for 20\n Medieval stuff from museum for 280\n Pharmacy for 300\n Rare weapons for 600\n Melee weapons for 140\n Weapons for 350\nDon't forget that I work only with hard cash!",
     "responses": [
       {
-        "text": "Army stuff.",
+        "text": "Army supplies.",
         "topic": "moneylender_trade",
         "condition": { "u_has_items": { "item": "FMCNote", "count": 225 } },
         "effect": [ { "mapgen_update": "moneylender_loot_army", "origin_npc": true }, { "u_sell_item": "FMCNote", "count": 225 } ]
       },
       {
-        "text": "Canned stuff.",
+        "text": "Canned food.",
         "topic": "moneylender_trade",
         "condition": { "u_has_items": { "item": "FMCNote", "count": 20 } },
         "effect": [ { "mapgen_update": "moneylender_loot_food", "origin_npc": true }, { "u_sell_item": "FMCNote", "count": 20 } ]
@@ -531,13 +530,13 @@
         "effect": [ { "mapgen_update": "moneylender_loot_antique_rare", "origin_npc": true }, { "u_sell_item": "FMCNote", "count": 280 } ]
       },
       {
-        "text": "Pharmacy stuff.",
+        "text": "Pharmacy.",
         "topic": "moneylender_trade",
         "condition": { "u_has_items": { "item": "FMCNote", "count": 600 } },
         "effect": [ { "mapgen_update": "moneylender_loot_drugs", "origin_npc": true }, { "u_sell_item": "FMCNote", "count": 600 } ]
       },
       {
-        "text": "Rare weapons stuff.",
+        "text": "Rare weapons.",
         "topic": "moneylender_trade",
         "condition": { "u_has_items": { "item": "FMCNote", "count": 600 } },
         "effect": [
@@ -546,18 +545,18 @@
         ]
       },
       {
-        "text": "Melee weapons stuff.",
+        "text": "Melee weapons.",
         "topic": "moneylender_trade",
         "condition": { "u_has_items": { "item": "FMCNote", "count": 140 } },
         "effect": [ { "mapgen_update": "moneylender_loot_weapons", "origin_npc": true }, { "u_sell_item": "FMCNote", "count": 140 } ]
       },
       {
-        "text": "Weapons stuff.",
+        "text": "Weapons.",
         "topic": "moneylender_trade",
         "condition": { "u_has_items": { "item": "FMCNote", "count": 350 } },
         "effect": [ { "mapgen_update": "moneylender_loot_swat_gear", "origin_npc": true }, { "u_sell_item": "FMCNote", "count": 350 } ]
       },
-      { "text": "Maybe later.", "topic": "TALK_DONE" }
+      { "text": "Maybe later.", "topic": "TALK_NONE" }
     ]
   },
   {

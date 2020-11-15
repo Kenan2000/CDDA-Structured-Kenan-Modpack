@@ -16,19 +16,19 @@
   {
     "type": "talk_topic",
     "id": "captain_cost_meeting",
-    "dynamic_line": "Hello there. Do you want to help your government?",
+    "dynamic_line": "Hello there, <name_g>.  I'm Captain Cost, CIA.  Do you want to help your government?",
     "responses": [
-      { "text": "Interesting, tell me more.", "topic": "captain_cost_mission_1" },
+      { "text": "Yeah, I'm interested. Tell me more.", "topic": "captain_cost_mission_1" },
       { "text": "Hell no, my government is dead.", "topic": "captain_cost_refuse" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_mission_1",
-    "dynamic_line": "Good. I need to find a crashed heli, and you are going to help me find it. No objections. It crashed in nearby field. I need an information that was on that heli. Let's search for it.",
+    "dynamic_line": "Good.  I need to find a crashed heli, and you are going to help me find it.  No objections.  It crashed in nearby field.  I need an information that was on that heli.  That information is <very> valuable for my mission.  Let's search for it. Time is working against us, s we want to make this as fast as possible, do we, <name_g>?",
     "responses": [
       { "text": "Umm, ok?", "topic": "TALK_DONE", "effect": "assign_mission" },
-      { "text": "It sounds dangerous. I'll pass.", "topic": "captain_cost_refuse" }
+      { "text": "It sounds dangerous.  I'll pass.", "topic": "captain_cost_refuse" }
     ]
   },
   {
@@ -42,14 +42,14 @@
         "condition": { "u_has_any_trait": [ "PROF_CYBERCOP", "PROF_FED", "PROF_PD_DET", "PROF_POLICE", "PROF_SWAT" ] },
         "switch": true
       },
-      { "text": "No.", "topic": "TALK_NONE" },
-      { "text": "Yes.", "topic": "TALK_DONE", "effect": "insult_combat", "switch": true }
+      { "text": "Maybe I should reconsider...", "topic": "TALK_NONE" },
+      { "text": "Yes?", "topic": "TALK_DONE", "effect": "insult_combat", "switch": true }
     ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_1",
-    "dynamic_line": "So?",
+    "dynamic_line": "We don't have much time, <name_g>.",
     "responses": [
       {
         "text": "We're here.",
@@ -57,7 +57,7 @@
         "condition": { "and": [ "mission_complete", { "u_has_mission": "MISSION_captain_cost_3" } ] }
       },
       {
-        "text": "Here's your info.",
+        "text": "Here's your info, captain.",
         "topic": "captain_cost_m1_complete",
         "condition": {
           "and": [
@@ -83,7 +83,7 @@
   {
     "type": "talk_topic",
     "id": "captain_cost_m1_complete",
-    "dynamic_line": "Good. Next task. We need to get a secret note from bunker nearby. Lead me to that bunker.",
+    "dynamic_line": "Good.  Next task.  We need to get a highly classified information from mitilary bunker nearby.  Lead me to that bunker.  We will work together on cracking it, but don't forget about time!",
     "responses": [
       { "text": "Umm, ok?", "topic": "TALK_DONE", "effect": [ "mission_success", "clear_mission", "assign_mission" ] },
       { "text": "It sounds dangerous. I'll pass.", "topic": "captain_cost_refuse" }
@@ -92,7 +92,7 @@
   {
     "type": "talk_topic",
     "id": "captain_cost_m2_complete",
-    "dynamic_line": "Good. Last task. We need to contact some special agent to finish my mission. For that we need to get a special code to contact him. Lead me to the meeting point, where you can find information how to contact him.",
+    "dynamic_line": "Good.  Last task.  We need to contact a special agent that is working in this area to finish my mission.  For that we need to get a special code to contact him with radio.  Lead me to the meeting point, where we can find more info.",
     "responses": [
       { "text": "Umm, ok?", "topic": "TALK_DONE", "effect": [ "mission_success", "clear_mission", "assign_mission" ] },
       { "text": "It sounds dangerous. I'll pass.", "topic": "captain_cost_refuse" }
@@ -101,7 +101,7 @@
   {
     "type": "talk_topic",
     "id": "captain_cost_wait",
-    "dynamic_line": "So, go there and check things. Search for the note.",
+    "dynamic_line": "Good.  See that building?  That's our meeting point.  Search for the note or something inside.  It got to be written somewhere.",
     "responses": [
       {
         "text": "…",
@@ -123,26 +123,26 @@
   {
     "type": "talk_topic",
     "id": "captain_cost_wait1",
-    "dynamic_line": "So?",
+    "dynamic_line": "Clolck is ticking, <name_g>.",
     "responses": [
       {
-        "text": "So, i got that note for you! Care to explain why there were a lot of aggresive drones?",
+        "text": "So, I got that note for you!  Care to explain why there were a lot of aggresive drones?",
         "topic": "captain_cost_traitor",
         "condition": { "u_has_item": "jcost_note" },
         "effect": "mission_success",
         "switch": true
       },
-      { "text": "….", "topic": "TALK_DONE", "switch": true }
+      { "text": "…", "topic": "TALK_DONE", "switch": true }
     ]
   },
   {
     "type": "talk_topic",
     "id": "captain_cost_traitor",
-    "dynamic_line": "Well, i didn't think that someone would ever lived after that.",
+    "dynamic_line": "Well, I didn't think that someone would ever lived after that, <name_g>.",
     "responses": [
       { "text": "You will die, right here, right now!", "topic": "TALK_DONE", "effect": "insult_combat" },
       {
-        "text": "You will tell me the truth, right now!",
+        "text": "You will tell me the truth, right NOW, or <ill_kill_you>, <name_b>!",
         "trial": { "type": "INTIMIDATE", "difficulty": 45, "mod": [ [ "FEAR", 8 ], [ "VALUE", 2 ], [ "TRUST", 2 ], [ "BRAVERY", -2 ] ] },
         "success": { "topic": "captain_cost_truth" },
         "failure": { "topic": "captain_cost_lie" }
@@ -152,11 +152,11 @@
   {
     "type": "talk_topic",
     "id": "captain_cost_truth",
-    "dynamic_line": "OK, OK, I'll tell you the truth. Later. Please spare me and I'll give you something cool.",
+    "dynamic_line": "OK, OK, I'll tell you the truth.  I'm working for China's intelligence.  They dropped me here before releasing this <swear> plague, so that I can send them reports on how deadly it is.  I didn’t know that it will be this bad, <name_g>, it’s <very> terrifying.  My last mission was to just GTFO of here, meet other agent that can organise my extraction to somewhere else.  Please spare me, <name_g>!  I'll give you something <very> valuable if you do, please...",
     "responses": [
-      { "text": "Die.", "topic": "TALK_DONE", "effect": "insult_combat" },
+      { "text": "Die, <name_b>.", "topic": "TALK_DONE", "effect": "insult_combat" },
       {
-        "text": "Live.",
+        "text": "Live and newer come back.  If I see your face one more time, <ill_kill_you>.",
         "topic": "TALK_DONE",
         "effect": [ "end_conversation", { "u_buy_item": "manual_taekwondo" } ]
       }
@@ -165,7 +165,7 @@
   {
     "type": "talk_topic",
     "id": "captain_cost_lie",
-    "dynamic_line": "No way! I'll die with my truth!",
+    "dynamic_line": "<no>, <name_b>. <ill_kill_you>, <name_b>. You've helped me enough, so I can finish my mission without you, <name_b>!",
     "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
   },
   {
@@ -178,18 +178,20 @@
     "item": "black_box_transcript",
     "difficulty": 0,
     "value": 1000,
+    "deadline_low": 2,
+    "deadline_high": 3,
     "start": {
       "effect": [ "follow_only", { "toggle_npc_rule": "follow_distance_2" }, { "npc_first_topic": "captain_cost_1" } ],
       "update_mapgen": {
         "om_terrain": "field",
-        "search_range": 35,
-        "min_distance": 10,
-        "random": true,
+        "search_range": 20,
+        "min_distance": 5,
         "place_vehicles": [ { "status": 1, "vehicle": "crashed_helicopters", "x": 7, "y": 9 } ],
         "place_monsters": [ { "monster": "GROUP_MIL_STRONG", "x": [ 5, 15 ], "y": [ 5, 15 ] } ],
         "place_item": [ { "item": "black_box_transcript", "x": 8, "y": 10 } ]
       }
     },
+    "fail": { "effect": [ "stop_following", "insult_combat" ] },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_captain_cost_2",
     "dialogue": {
@@ -214,6 +216,8 @@
     "item": "military_record",
     "difficulty": 0,
     "value": 100,
+    "deadline_low": 2,
+    "deadline_high": 3,
     "start": {
       "assign_mission_target": {
         "om_terrain": "bunker",
@@ -225,6 +229,7 @@
       },
       "update_mapgen": { "om_terrain": "bunker_basement", "place_item": [ { "item": "military_record", "x": 21, "y": 3 } ] }
     },
+    "fail": { "effect": [ "stop_following", "insult_combat" ] },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_captain_cost_3",
     "dialogue": {
@@ -243,13 +248,16 @@
     "id": "MISSION_captain_cost_3",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Go to special place" },
-    "description": "Go to special place",
+    "name": { "str": "Contact special agent" },
+    "description": "Cost asked you to help him get in contact with a special agent that is working in this area to finish his mission",
     "goal": "MGOAL_GO_TO",
     "difficulty": 0,
     "value": 100,
     "//": "TODO redo quest",
+    "deadline_low": 2,
+    "deadline_high": 3,
     "start": { "assign_mission_target": { "om_terrain": "forest", "search_range": 25, "min_distance": 5, "random": true } },
+    "fail": { "effect": [ "stop_following", "insult_combat" ] },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "-",

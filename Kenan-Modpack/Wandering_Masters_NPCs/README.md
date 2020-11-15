@@ -18,9 +18,8 @@ Where to find them: check txt file, or spawn special "Cabin Test" through debug 
 * Rasta Bob - 4 quests; unchecked dialogues. Works fine
 * Samurai Akira - 4 quests + 1 minor; unchecked dialogues; Works fine!
 * Flame Knuckle leader - 1 quest + 2 minor quests; unchecked dialogues; Works fine!
-* Jason Cost - 3 quests, no dialogues; WIP; most wanted features implemented (need additional testing); should work fine
-* Bill - 1 quest, most wanted features implemented (all untested)
-* Moneylender - 1 minor quest; 2 repeatable quests; unchecked dialogues; all wanted features implemented (kinda working, but need additional testing); Works fine!
+* Jason Cost - 3 quests, unchecked dialogues; should work fine
+* Moneylender - 1 minor quest; 2 repeatable quests; unchecked dialogues; all wanted features implemented (kinda working, but need additional testing); should work fine
 
 ## Trait teachers:
 * Barry Button - 1 quest; unchecked dialogues for mistakes, spelling errors, translation etc; most wanted features implemented; should work nicely (?);
