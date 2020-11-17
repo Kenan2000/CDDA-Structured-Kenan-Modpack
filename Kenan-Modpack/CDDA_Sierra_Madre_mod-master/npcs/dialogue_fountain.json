@@ -1,0 +1,172 @@
+[
+	{
+		"id": "TALK_FOUNTAIN",
+		"type": "talk_topic",
+		"dynamic_line": "Has your life taken a turn? Do troubles beset you? Has fortune left you behind? If so, the Sierra Madre Casino, in all its glory, is inviting you to Begin Again. Come to a place where wealth, excitement, and intrigue await around every corner. Stroll along the winding streets of our beautiful resort, make new friends... or rekindle old flames. Let your eyes take in the luxurious expanse of the open desert, under clear starlit skies. Gaze straight on into the sunset from our Villa rooftops. Countless diversions await. Gamble in our casino, take in the theater, or stay in one of our exclusive executive suites that will shelter you - and cater to your every whim. So if life's worries have weighed you down... if you need an escape from your troubles... or if you just need an opportunity to begin again, join us. Let go and leave the world behind at the Sierra Madre grand opening, this October. We'll be waiting.",
+		"responses": [
+		  { "text": "...", "topic": "INTRO" }
+		]
+	},
+	{
+		"id": "INTRO",
+		"type": "talk_topic",
+		"dynamic_line": "Hey, you! Over there! Can you hear me? Good, I KNOW you can hear me... Now listen closely, listen well... The Sierra Madre, this place... I know why you're here. Your own greed led you here. And now you're going to help me.",
+		"responses": [
+		  { "text": "Who's this?", "topic": "WHO" },
+		  { "text": "What was that female voice and that speech?", "topic": "BROADCAST" },
+		  { "text": "Why should I help you?", "topic": "COLLAR" },
+		  { "text": "Okay, I'll help.", "topic": "MISSION_1" }
+		]
+	},
+	{
+		"id": "INTRO2",
+		"type": "talk_topic",
+		"dynamic_line": "So, shall we finally discuss more important matter?",
+		"responses": [
+		  { "text": "Who's this?", "topic": "WHO" },
+		  { "text": "What was that female voice and that speech?", "topic": "BROADCAST" },
+		  { "text": "Why should I help you?", "topic": "COLLAR" },
+		  { "text": "Okay, I'll help.", "topic": "MISSION_1" }
+		]
+	},
+	{
+		"id": "BROADCAST",
+		"type": "talk_topic",
+		"dynamic_line": "That was the Sierra Madre broadcasting system... The apocalypse came the same night the Grand Opening should've taken place, so no one turned the ad broadcast off... Since then, it broadcasts the ad across the wasteland over and over, running on backup power... It is what lured you here, am I right? Now, let's discuss more pending topics, shall we?",
+		"responses": [
+		  { "text": "...", "topic": "INTRO2" }
+		]
+	},
+	{
+		"id": "COLLAR",
+		"type": "talk_topic",
+		"dynamic_line": { "u_has_trait": "SIERRA_HUNTER", "yes": "I see you're wearning that metal collar stuffed with explosive charge on your neck... Good. That means obedience. Make the mistake of saying \"no\" and I'll set it off.", "no": "I mean, of course you don't have to, but if you do, you'll also help yourself cracking the Sierra Madre open. And that's what you came here for, right? So, what do you say?" },
+		"responses": [
+		  { "text": "I'm not buying into your bullshit.", "condition": { "not": { "u_has_trait": "SIERRA_HUNTER" } }, "topic": "THINK" },
+		  { "text": "I'm not buying into your bullshit.", "condition": { "u_has_trait": "SIERRA_HUNTER" }, "topic": "TALK_DONE", "effect": { "u_add_effect": "collar_boom", "body_part": "head", "duration": 5 } },
+		  { "text": "Okay, okay, I'll help.", "topic": "MISSION_1" }
+		]
+	},
+	{
+		"id": "THINK",
+		"type": "talk_topic",
+		"dynamic_line": "Alright, it's your choice - but good luck surviving the dangers lurking around every corner here and getting to the Sierra Madre without my help!",
+		"responses": [
+		  { "text": "I don't need anyone telling me what to do.", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_REFUSE" } },
+		  { "text": "Well... Fine, you win, I'll help.", "topic": "MISSION_1" }
+		]
+	},
+	{
+		"id": "TALK_REFUSE",
+		"type": "talk_topic",
+		"dynamic_line": "Have you changed your mind? Did attmepting to get into the Sierra Madre prove to be too difficult for you?",
+		"responses": [
+		  { "text": "I'm telling you again, I ain't helping you.", "topic": "TALK_DONE" },
+		  { "text": "Well... Fine, you win, I'll help.", "topic": "MISSION_1" }
+		]
+	},
+	{
+		"id": "WHO",
+		"type": "talk_topic",
+		"dynamic_line": "It is in your best interest to get down to helping me instead of asking pointless questions. Who am I? I'm just a man who hacked the broadcast system to be able to talk to you. Maybe I'll tell you more, if you prove yourself to be worthy, that is.",
+		"responses": [
+		  { "text": "...", "topic": "INTRO2" }
+		]
+	},
+	{
+		"id": "MISSION_1",
+		"type": "talk_topic",
+		"dynamic_line": "Oh, so you can make smart decisions? Good, very good... Now listen: the only way to open the Sierra Madre Casino is to trigger the Gala Event... However, some critical electronics and power distribution systems eventually broke down from lack of maintenance. Fortunately for us, I've learned a lot about those systems and have a general understanding of how they work. I'm aware of three locations around the Villa that should have spare electronic boards and processing units we can use to work around the issues of the failing systems.",
+		"responses": [
+		  { "text": "...", "topic": "MISSION_11" }
+		]
+	},
+	{
+		"id": "MISSION_11",
+		"type": "talk_topic",
+		"dynamic_line": "The placements of those electronic components were directly linked with key locations for starting the Gala Event and since I know how to start Gala, that means I also know where to find them. I request you to retrieve them. The first Sierra Madre electronic board is located in the power switching station in the Salida del Sol. Remaining two are in the Puesta del Sol, one in the switching station on the corner of the district and the second one on the balcony of one of the buildings next to a wall between Puesta del Sol and medical district. Look at your tracking device, I've marked all three locations for you with green \"S\". Once you get them, go back to the fountain and I'll tell you what's next.",
+		"responses": [
+		  { "text": "Fine, I'm going...", "topic": "HURRY", "effect": { "npc_first_topic": "MIDMISSION" } },
+		  { "text": "Anything specific I should watch out for?", "topic": "TIPS" }
+		]
+	},
+	{
+		"id": "TIPS",
+		"type": "talk_topic",
+		"dynamic_line": "Beware of Ghost People, the mutated former humans that lurk and hunt around the villa. They're dangeorus and even if you \"kill\" them, they'll rise back up after some time. The only way to make them stay dead is to dismember their limbs. Watch out for their traps, too. Also, the entire Sierra Madre is contaminated with toxic gas. There are more concentrated pockets that you should avoid at all costs, but even if you steer clear from them, the gas is still everywhere and will slowly poison your body, so you'd better be quick. Waste too much time, hesitate with your job and it'll kill you.",
+		"responses": [
+		  { "text": "...", "topic": "TIPS2" }
+		]
+	},
+	{
+		"id": "TIPS2",
+		"type": "talk_topic",
+		"dynamic_line": "Also beware of the Sierra Madre holograms. They're a pinnacle of pre-apocalypse technology... Fully autonomous workers... The security holograms will shoot laser beams on sight, however if you'll be lucky to get your hands on the unused emitter and spawn one of your own, it'll serve by your side, protecting you from Ghost People. Also don't waste your bullets - they are simply invincible and the only way to destroy them is to find their corresponding emitters and switch them off. There are also hologram vendors you can trade with, but they're based on pre-war currency, so I wouldn't count much on resupplying this way. However, the entire villa is filled with loot from previous survivors. Also the local vending machines still seem to be working. Using Sierra Madre Casino chips you can easily find in most streets and buildings of the villa you can purchase food from them, and if you find the correct code cards, they'll also unlock military and medical supplies for sale. And one last thing: see that rifle laying right under the fountain? Take it. It'll help you survive.",
+		"responses": [
+		  { "text": "That collar on my neck really concerns me...", "condition": { "u_has_trait": "SIERRA_HUNTER" }, "topic": "COLLAR_TIP" },
+		  { "text": "Alright, I'll pay attention to what you've said... I'm on my way.", "topic": "HURRY", "effect": { "npc_first_topic": "MIDMISSION" } }
+		]
+	},
+	{
+		"id": "COLLAR_TIP",
+		"type": "talk_topic",
+		"dynamic_line": "Oh, no need to worry about it, as long as you obey my orders, that is. The Sierra Madre speakers and radios broadcasted on frequencies that'd set it off by an accident, but the Courier blasted all of them away, so no need to worry about it. Again, as long as you don't tinker with it on your own and obey my orders, this thing ain't gonna blow up. The choice is yours...",
+		"responses": [
+		  { "text": "The Courier?", "topic": "COURIER" },
+		  { "text": "Well, it's not like I feel any better about it, but seems like I DON'T have a choice... I'll be on my way.", "topic": "HURRY", "effect": { "npc_first_topic": "MIDMISSION" } }
+		]
+	},
+	{
+		"id": "COURIER",
+		"type": "talk_topic",
+		"dynamic_line": "Oh, nevermind, the Courier was a survivor and a Sierra Madre Treasure Hunter just like you, don't even remind me of this piece of shit... After all I've offered to the Courier I got stabbed in the back in return... But there's no Courier in the Sierra Madre anymore, so fear not.",
+		"responses": [
+		  { "text": "Alright, I'll pay attention to what you've said... I'm on my way.", "topic": "HURRY", "effect": { "npc_first_topic": "MIDMISSION" } }
+		]
+	},
+	{
+		"id": "MIDMISSION",
+		"type": "talk_topic",
+		"dynamic_line": "Have you done what I've asked for?",
+		"responses": [
+		  { "text": "Yeah, found all three of them, got all three of them.", "condition": { "u_has_items": { "item": "card_chip", "count": 3 } }, "topic": "MISSION_2" },
+		  { "text": "No, still struggling with it.", "condition": { "not": { "u_has_items": { "item": "card_chip", "count": 3 } } }, "topic": "HURRY" }
+		]
+	},
+	{
+		"id": "MIDMISSION2",
+		"type": "talk_topic",
+		"dynamic_line": { "u_has_trait": "gala_trait", "no": "I don't see the Gala Event has been started yet, hurry up!", "yes": "The Gala event has started, the doors to the casino are opened! What the hell are you doing here! Waiting for the Ghost People to catch up to you! Hurry inside!" },
+		"responses": [
+		  { "text": "Okay, okay, I'm trying my best...", "condition": { "not": { "u_has_trait": "gala_trait" } }, "topic": "HURRY" },
+		  { "text": "Okay, okay, I'm running...", "condition": {  "u_has_trait": "gala_trait" }, "topic": "TALK_DONE", "effect": { "npc_first_topic": "HURRY2" } }
+		]
+	},
+	{
+		"id": "HURRY",
+		"type": "talk_topic",
+		"dynamic_line": "Then don't waste my time, move and do as I said!",
+		"responses": [
+		  { "text": "Okay, okay, I'm going...", "topic": "TALK_DONE" }
+		]
+	},
+	{
+		"id": "MISSION_2",
+		"type": "talk_topic",
+		"dynamic_line": "Good, very good... At least now I'm sure you are capable of staying alive in the Sierra Madre... Now the time has come for you to start the Gala Event. Place the electronic boards you've acquired under the fountain hologram so I can scan them. This will allow me to generate a special access code that can be used to trigger the Gala Event using the backup power systems since the main ones have failed a long time ago. The backup should be more resilient than the main one, so it should work just fine. The terminal for controlling the Gala Event is located on top of the Campanas del Sol bell tower. I marked the spot for you with a yellow \"S\". Once you start the Gala, make a run for the casino. The music and the fireworks will attract a lot of unwanted attention... Good luck out there.",
+		"responses": [
+		  { "text": "Alright, I'm on my way...", "topic": "TALK_DONE", "effect": [ { "npc_first_topic": "MIDMISSION2" }, { "u_sell_item": "card_chip", "count": 3 }, { "npc_consume_item": "card_chip", "count": 3 }, { "u_buy_item": "casino_enter_card" } ] }
+		]
+	},
+	{
+		"id": "HURRY2",
+		"type": "talk_topic",
+		"dynamic_line": { "u_has_trait": "entered_casino", "yes": "What are you doing here? Waiting till the Cloud kills you? Or you don't want the Sierra Madre anymore? Whatever the case, now it's too late - I order you to immediately get back to work!",
+			"no": { "u_has_trait": "win", "no": "Don't waste any more time, go inside the casino! It's what you wanted, it's why you even dared to come here, am I right?... So hurry!",
+			"yes": "Wait a moment, before you go. I... we... hope you've enjoyed your stay. Farewells can be a time of sadness. Letting go... difficult. As a guest of the Sierra Madre, you know that truth more than anyone. Frederick Sinclair believed one's life could be made anew every day, that fortunes were more than the wealth in your hands. Love. Life... family, those to care for, and those who will care for you. To those who know these joys, the Sierra Madre holds little they don't already have. Out in the world, beyond these walls, that is your chance to begin again. I hope you'll return, in happier times. Until then, the Sierra Madre... and I... will hold you in our hearts." } },
+		"responses": [
+		  { "text": "Okay, okay, I'm going...", "condition": { "not": { "u_has_trait": "win" } }, "topic": "TALK_DONE" },
+		  { "text": "...", "condition": { "u_has_trait": "win" }, "topic": "TALK_DONE" }
+		]
+	}
+]

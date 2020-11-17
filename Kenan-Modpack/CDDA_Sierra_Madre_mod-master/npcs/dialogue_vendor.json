@@ -1,0 +1,191 @@
+[
+	{
+		"id": "TALK_HOLO_VENDOR",
+		"type": "talk_topic",
+		"dynamic_line": "Welcome to the Sierra Madre. We hope you enjoy your stay. Would you like to buy something?",
+		"responses": [
+		  { "text": "Yes, show me your stock.", "effect": "start_trade", "topic": "AFTER_TRADE" },
+		  { "text": "No thanks, I think I have to go.", "topic": "TALK_DONE" }
+		]
+	},
+	{
+		"id": "AFTER_TRADE",
+		"type": "talk_topic",
+		"dynamic_line": "We hope you're satisfied with the transaction. Anything else we can do for you?",
+		"responses": [
+		  { "text": "No, that's all.", "topic": "TALK_DONE" },
+		  { "text": "Yes, I'd like to make another purchase.", "effect": "start_trade", "topic": "AFTER_TRADE" }
+		]
+	},
+	{
+		"id": "TALK_VENDING",
+		"type": "talk_topic",
+		"dynamic_line": "Welcome to the Sierra Madre autonomous vending system. We hope you enjoy your stay. Would you like to purchase something?",
+		"responses": [
+		  { "text": "Browse the list of available products", "topic": "TRADE" },
+		  { "text": "Cancel", "topic": "TALK_DONE" }
+		]
+	},
+	{
+		"id": "POOR",
+		"type": "talk_topic",
+		"dynamic_line": { "npc_male": "Sorry Sir, you don't have enough Sierra Madre chips to buy the selected item",
+			"no": "Sorry Madam, you don't have enough Sierra Madre chips to buy the selected item" },
+		"responses": [
+		  { "text": "Exit", "topic": "TALK_DONE" },
+		  { "text": "Choose a different product", "topic": "TRADE" }
+		]
+	},
+	{
+		"id": "TRADE",
+		"type": "talk_topic",
+		"dynamic_line": "Thank you for using our services. Here's the list of available products for you:",
+		"responses": [
+		  {
+			"text": "Mac & cheese [20 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 20 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 20 }, { "npc_consume_item": "sierra_chip", "count": 20 }, { "u_buy_item": "macaroni_cooked", "count": 1, "container": "box_small" } ]
+		  },
+		  { "text": "Mac & cheese [20 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 20 } } } },
+		  {
+			"text": "Apple [5 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 5 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 5 }, { "npc_consume_item": "sierra_chip", "count": 5 }, { "u_buy_item": "apple", "count": 1 } ]
+		  },
+		  { "text": "Apple [5 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 5 } } } },
+		  {
+			"text": "Pack of biscuits [20 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 20 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 20 }, { "npc_consume_item": "sierra_chip", "count": 20 }, { "u_buy_item": "biscuit", "count": 8, "container": "box_small" } ]
+		  },
+		  { "text": "Pack of biscuits [20 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 20 } } } },
+		  {
+			"text": "Pork n' Beans [30 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 30 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 30 }, { "npc_consume_item": "sierra_chip", "count": 30 }, { "u_buy_item": "pork_beans", "count": 2, "container": "can_medium" } ]
+		  },
+		  { "text": "Pork n' Beans [30 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 30 } } } },
+		  {
+			"text": "Pack of potato chips [15 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 15 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 15 }, { "npc_consume_item": "sierra_chip", "count": 15 }, { "u_buy_item": "chips2", "count": 3, "container": "bag_plastic" } ]
+		  },
+		  { "text": "Pack of potato chips [15 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 15 } } } },
+		  {
+			"text": "Pack of tortilla chips [20 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 20 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 20 }, { "npc_consume_item": "sierra_chip", "count": 20 }, { "u_buy_item": "nachos", "count": 3, "container": "bag_plastic" } ]
+		  },
+		  { "text": "Pack of tortilla chips [20 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 20 } } } },
+		  {
+			"text": "Cooked steak [25 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 25 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 25 }, { "npc_consume_item": "sierra_chip", "count": 25 }, { "u_buy_item": "meat_cooked", "count": 1, "container": "plastic_bag_vac" } ]
+		  },
+		  { "text": "Cooked steak [25 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 25 } } } },
+		  {
+			"text": "Boiled egg [10 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 10 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 10 }, { "npc_consume_item": "sierra_chip", "count": 10 }, { "u_buy_item": "boiled_egg", "count": 1, "container": "box_small" } ]
+		  },
+		  { "text": "Boiled egg [10 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 10 } } } },
+		  {
+			"text": "Scrambled eggs [15 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 15 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 15 }, { "npc_consume_item": "sierra_chip", "count": 15 }, { "u_buy_item": "scrambled_eggs", "count": 1, "container": "box_small" } ]
+		  },
+		  { "text": "Scrambled eggs [15 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 15 } } } },
+		  {
+			"text": "Fresh fries [15 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 15 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 15 }, { "npc_consume_item": "sierra_chip", "count": 15 }, { "u_buy_item": "fresh_fries", "count": 3, "container": "box_small" } ]
+		  },
+		  { "text": "Fresh fries [15 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 15 } } } },
+		  {
+			"text": "Orange soda [10 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 10 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 10 }, { "npc_consume_item": "sierra_chip", "count": 10 }, { "u_buy_item": "orangesoda", "count": 1, "container": "can_drink" } ]
+		  },
+		  { "text": "Orange soda [10 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 10 } } } },
+		  {
+			"text": "Lemon-lime soda [10 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 10 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 10 }, { "npc_consume_item": "sierra_chip", "count": 10 }, { "u_buy_item": "lemonlime", "count": 1, "container": "can_drink" } ]
+		  },
+		  { "text": "Lemon-lime soda [10 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 10 } } } },
+		  {
+			"text": "Drinking chocolate [10 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 10 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 10 }, { "npc_consume_item": "sierra_chip", "count": 10 }, { "u_buy_item": "choc_drink", "count": 1, "container": "can_drink" } ]
+		  },
+		  { "text": "Drinking chocolate [10 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 10 } } } },
+		  {
+			"text": "Coffee bottle [20 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 20 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 20 }, { "npc_consume_item": "sierra_chip", "count": 20 }, { "u_buy_item": "coffee", "count": 2, "container": "bottle_plastic" } ]
+		  },
+		  { "text": "Coffee bottle [20 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 20 } } } },
+		  {
+			"text": "Tea bottle [20 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 20 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 20 }, { "npc_consume_item": "sierra_chip", "count": 20 }, { "u_buy_item": "herbal_tea", "count": 2, "container": "bottle_plastic" } ]
+		  },
+		  { "text": "Tea bottle [20 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 20 } } } },
+		  {
+			"text": "Water bottle [15 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 15 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 15 }, { "npc_consume_item": "sierra_chip", "count": 15 }, { "u_buy_item": "water_clean", "count": 2, "container": "bottle_plastic" } ]
+		  },
+		  { "text": "Water bottle [15 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 15 } } } },
+		  {
+			"text": "Vodka [35 chips] (use your code card to unlock)", "topic": "TRADE", "condition": { "and": [ { "u_has_items": { "item": "sierra_chip", "count": 35 } }, { "u_has_item": "vodka_code" } ] },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 35 }, { "npc_consume_item": "sierra_chip", "count": 35 }, { "u_buy_item": "vodka", "count": 21, "container": "bottle_glass" } ]
+		  },
+		  { "text": "Vodka [35 chips] (use your code card to unlock)", "topic": "POOR", "condition": { "and": [ { "u_has_item": "vodka_code" }, { "not": { "u_has_items": { "item": "sierra_chip", "count": 35 } } } ] } },
+		  {
+			"text": "Wine [50 chips] (use your code card to unlock)", "topic": "TRADE", "condition": { "and": [ { "u_has_items": { "item": "sierra_chip", "count": 50 } }, { "u_has_item": "wine_code" } ] },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 50 }, { "npc_consume_item": "sierra_chip", "count": 50 }, { "u_buy_item": "wine_noir", "count": 15, "container": "bottle_glass" } ]
+		  },
+		  { "text": "Wine [50 chips] (use your code card to unlock)", "topic": "POOR", "condition": { "and": [ { "u_has_item": "wine_code" }, { "not": { "u_has_items": { "item": "sierra_chip", "count": 50 } } } ] } },
+		  {
+			"text": "Whiskey [70 chips] (use your code card to unlock)", "topic": "TRADE", "condition": { "and": [ { "u_has_items": { "item": "sierra_chip", "count": 70 } }, { "u_has_item": "scotch_code" } ] },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 70 }, { "npc_consume_item": "sierra_chip", "count": 70 }, { "u_buy_item": "whiskey", "count": 21, "container": "bottle_glass" } ]
+		  },
+		  { "text": "Whiskey [70 chips] (use your code card to unlock)", "topic": "POOR", "condition": { "and": [ { "u_has_item": "scotch_code" }, { "not": { "u_has_items": { "item": "sierra_chip", "count": 70 } } } ] } },
+		  {
+			"text": "Pack of cigarettes [25 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 25 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 25 }, { "npc_consume_item": "sierra_chip", "count": 25 }, { "u_buy_item": "cig", "count": 20, "container": "box_cigarette" } ]
+		  },
+		  { "text": "Pack of cigarettes [25 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 25 } } } },
+		  {
+			"text": "C4 [350 chips] (use your code card to unlock)", "topic": "TRADE", "condition": { "and": [ { "u_has_items": { "item": "sierra_chip", "count": 350 } }, { "u_has_item": "c4_code" } ] },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 350 }, { "npc_consume_item": "sierra_chip", "count": 350 }, { "u_buy_item": "c4", "count": 1 } ]
+		  },
+		  { "text": "C4 [350 chips] (use your code card to unlock)", "topic": "POOR", "condition": { "and": [ { "u_has_item": "c4_code" }, { "not": { "u_has_items": { "item": "sierra_chip", "count": 350 } } } ] } },
+		  {
+			"text": ".357 Magnum rounds [50 for 250 chips] (use your code card to unlock)", "topic": "TRADE", "condition": { "and": [ { "u_has_items": { "item": "sierra_chip", "count": 250 } }, { "u_has_item": "357_code" } ] },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 250 }, { "npc_consume_item": "sierra_chip", "count": 250 }, { "u_buy_item": "357mag_fmj", "count": 1 } ]
+		  },
+		  { "text": ".357 Magnum rounds [50 for 250 chips] (use your code card to unlock)", "topic": "POOR", "condition": { "and": [ { "u_has_item": "357_code" }, { "not": { "u_has_items": { "item": "sierra_chip", "count": 250 } } } ] } },
+		  {
+			"text": ".308 Winchester rounds [20 for 150 chips] (use your code card to unlock)", "topic": "TRADE", "condition": { "and": [ { "u_has_items": { "item": "sierra_chip", "count": 150 } }, { "u_has_item": "308_code" } ] },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 150 }, { "npc_consume_item": "sierra_chip", "count": 150 }, { "u_buy_item": "308", "count": 1 } ]
+		  },
+		  { "text": ".308 Winchester rounds [20 for 150 chips] (use your code card to unlock)", "topic": "POOR", "condition": { "and": [ { "u_has_item": "308_code" }, { "not": { "u_has_items": { "item": "sierra_chip", "count": 150 } } } ] } },
+		  {
+			"text": "Firearm repair kit [250 chips] (use your code card to unlock)", "topic": "TRADE", "condition": { "and": [ { "u_has_items": { "item": "sierra_chip", "count": 250 } }, { "u_has_item": "gun_code" } ] },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 250 }, { "npc_consume_item": "sierra_chip", "count": 250 }, { "u_buy_item": "small_repairkit", "count": 1 } ]
+		  },
+		  { "text": "Firearm repair kit [250 chips] (use your code card to unlock)", "topic": "POOR", "condition": { "and": [ { "u_has_item": "gun_code" }, { "not": { "u_has_items": { "item": "sierra_chip", "count": 250 } } } ] } },
+		  {
+			"text": "First aid kit [250 chips]", "topic": "TRADE", "condition": { "u_has_items": { "item": "sierra_chip", "count": 250 } },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 250 }, { "npc_consume_item": "sierra_chip", "count": 250 }, { "u_buy_item": "1st_aid", "count": 1 } ]
+		  },
+		  { "text": "First aid kit [250 chips]", "topic": "POOR", "condition": { "not": { "u_has_items": { "item": "sierra_chip", "count": 250 } } } },
+		  {
+			"text": "stimpack [500 chips] (use your code card to unlock)", "topic": "TRADE", "condition": { "and": [ { "u_has_items": { "item": "sierra_chip", "count": 500 } }, { "u_has_item": "stimpack_code" } ] },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 500 }, { "npc_consume_item": "sierra_chip", "count": 500 }, { "u_buy_item": "stimpack", "count": 1 } ]
+		  },
+		  { "text": "stimpack [500 chips] (use your code card to unlock)", "topic": "POOR", "condition": { "and": [ { "u_has_item": "stimpack_code" }, { "not": { "u_has_items": { "item": "sierra_chip", "count": 500 } } } ] } },
+		  {
+			"text": "Med-X [350 chips] (use your code card to unlock)", "topic": "TRADE", "condition": { "and": [ { "u_has_items": { "item": "sierra_chip", "count": 350 } }, { "u_has_item": "medx_code" } ] },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 350 }, { "npc_consume_item": "sierra_chip", "count": 350 }, { "u_buy_item": "medx", "count": 1 } ]
+		  },
+		  { "text": "Med-X [350 chips] (use your code card to unlock)", "topic": "POOR", "condition": { "and": [ { "u_has_item": "medx_code" }, { "not": { "u_has_items": { "item": "sierra_chip", "count": 350 } } } ] } },
+		  {
+			"text": "Mentats [350 chips] (use your code card to unlock)", "topic": "TRADE", "condition": { "and": [ { "u_has_items": { "item": "sierra_chip", "count": 350 } }, { "u_has_item": "mentats_code" } ] },
+			"effect": [ { "u_sell_item": "sierra_chip", "count": 350 }, { "npc_consume_item": "sierra_chip", "count": 350 }, { "u_buy_item": "mentats", "count": 1 } ]
+		  },
+		  { "text": "Mentats [350 chips] (use your code card to unlock)", "topic": "POOR", "condition": { "and": [ { "u_has_item": "mentats_code" }, { "not": { "u_has_items": { "item": "sierra_chip", "count": 350 } } } ] } },
+		  {
+			"text": "Redeem complimentary voucher", "topic": "TRADE", "condition": { "u_has_item": "sierra_voucher" },
+			"effect": [ { "u_sell_item": "sierra_voucher", "count": 1 }, { "npc_consume_item": "sierra_voucher", "count": 1 }, { "u_buy_item": "sierra_chip", "count": 1000 } ]
+		  },
+		  { "text": "Exit", "topic": "TALK_DONE" }
+		]
+	}
+]

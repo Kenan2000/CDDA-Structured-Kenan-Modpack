@@ -1,0 +1,20 @@
+[
+	{
+		"id": "TALK_CASINO_VENDOR",
+		"type": "talk_topic",
+		"dynamic_line": "Welcome to the Sierra Madre Casino. Would you like to buy some chips?",
+		"responses": [
+		  { "text": "Yes.", "topic": "AFTER_EXCHANGE", "effect": "start_trade" },
+		  { "text": "No thanks, I think I have to go.", "topic": "TALK_DONE" }
+		]
+	},
+	{
+		"id": "AFTER_EXCHANGE",
+		"type": "talk_topic",
+		"dynamic_line": "We hope you're satisfied with the transaction and wish you good luck. Anything else we can do for you?",
+		"responses": [
+		  { "text": "No, that's all.", "topic": "TALK_DONE" },
+		  { "text": "Yes, I'd like to buy some more.", "topic": "AFTER_EXCHANGE", "effect": "start_trade" }
+		]
+	}
+]

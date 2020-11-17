@@ -1,0 +1,241 @@
+[
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "villa_police" ],
+    "weight": 100,
+    "object": {
+		"fill_ter": "t_linoleum_gray",
+		"rows": [
+			"|ffffffffffffffffffffff|",
+			"|fffffffffPffffffffffff|",
+			"|||c||||c||dd||c||||||||",
+			"|%...0..........d.....>|",
+			"|%..hJ..........d.....>|",
+			"|....J..........||||||||",
+			"|...............|sh....|",
+			"||||||||||....|||......|",
+			"|%%%%|...d............r|",
+			"|....|8..d......0s....s|",
+			"|i...1...|---/------...|",
+			"|i...1...|......@@.-...|",
+			"|....|...|||.......-...|",
+			"|%%%%|...|T........-...|",
+			"||||||...|||||||||||...|",
+			"|..@@-...-@@..|T.d.|...|",
+			"|.|../.../..|.||||.d...|",
+			"|T|..-...-..|T|T.d.|...|",
+			"||||||...|||||||||||...|",
+			"|..@@-...-@@..|%.%.|8..|",
+			"|..../.../....|%...1...|",
+			"|.|..-...-..|D|%.%.|...|",
+			"|T|..-...-..|T||||||...|",
+			"||||||||||||||||||||||||"
+		],
+		"furniture": { "&": "f_trashcan", "R": "f_rubble", "O": "f_oven", "J": "f_counter", "C": "f_cupboard", "s": "f_table", "h": "f_chair", "5": "f_sink",
+		"6": "f_fridge", "7": "f_wardrobe", "@": "f_bed", "B": "f_bookcase", "N": "f_TV_antenna", "V": "f_roof_turbine_vent", "~": "f_chimney", "=": "f_vent_pipe",
+		"j": "f_rack", "0": "f_console_broken", "^": "f_trashcan", "!": "f_rubble", "I": "f_desk", "i": "f_bench", "D": "stash", "%": "f_locker", "r": "t_broken_radio"},
+		
+		"terrain": { ".": "t_linoleum_gray", "*": "t_fountain", "|": "t_brick_wall", "-": "t_bars", "/": "t_door_bar_locked", "d": "t_door_c", "c": "t_window_empty",
+		"F": "t_floor_noroof", "f": "t_sidewalk", "P": "t_sidewalk", "<": "t_stairs_up", ">": "t_stairs_down", "1": "t_door_metal_locked", "T": "t_linoleum_gray" },
+		"signs": { "P": { "signage": "Police station" } },
+		"toilets": { "T": {  } },
+		
+		"place_fields": [
+			{ "field": "cloud", "x": [ 0, 23 ], "y": [ 0, 1 ], "repeat": 5000 }
+		],
+		
+		"computers": {
+        "8": {
+          "name": "Storage access terminal",
+          "security": 3,
+          "options": [ { "name": "Unlock storage room's door", "action": "unlock" } ],
+          "failures": [ { "action": "shutdown" } ]
+        }
+		},
+		
+		"place_loot": [
+			{ "item": "sierra_armor", "x": 1, "y": 10 },
+			{ "item": "sierra_helmet", "x": 1, "y": 10 },
+			{ "item": "colt_trooper_357", "x": 1, "y": 4 },
+			{ "item": "fn_fal", "x": 1, "y": 8 },
+			{ "item": "falmag", "x": 1, "y": 8 },
+			{ "item": "police_note", "x": 5, "y": 4 },
+			{ "item": "prohibition", "x": 1, "y": 11 },
+			{ "item": "prohibition2", "x": 5, "y": 5 },
+			{ "item": "prohibition3", "x": 5, "y": 5 },
+			{ "item": "military_list", "x": 1, "y": 11 },
+			{ "item": "vending_note", "x": 22, "y": 9 },
+			{ "item": "sinclair_visit", "x": 17, "y": 6 },
+			{ "item": "police_show_note", "x": 17, "y": 9 },
+			{ "item": "gun_code", "x": 7, "y": 22 },
+			{ "item": "308_code", "x": 17, "y": 19 },
+			{ "item": "357_code", "x": 2, "y": 8 },
+			{ "item": "sierra_deck", "x": 13, "y": 13 }
+		],
+		
+		"items": {
+			"f": { "item": "sierra_sidewalk", "chance": 45, "repeat": [ 1, 2 ] },
+			"%": { "item": "police_items", "chance": 80, "repeat": [ 1, 2 ] },
+			"e": { "item": "pool_table", "chance": 30, "repeat": [ 1, 2 ] },
+			"2": [
+				{ "item": "SUS_dresser_mens", "chance": 35, "repeat": [ 1, 2 ] },
+				{ "item": "SUS_dresser_womens", "chance": 35, "repeat": [ 1, 2 ] },
+				{ "item": "casino_chips", "chance": 20, "repeat": [ 1, 5 ] }
+			],
+			"I": [ { "item": "SUS_desks_bedroom_unisex", "chance": 5 }, { "item": "office", "chance": 25 }, { "item": "office_paper", "chance": 5 } ],
+			"L": { "item": "unisex_coat_rack", "chance": 25, "repeat": [ 1, 4 ] },
+			"l": { "item": "coffee_table", "chance": 30, "repeat": [ 1, 2 ] },
+			"j": { "item": "sierra_rack_items", "chance": 80, "repeat": [ 1, 2 ] },
+			"B": [ { "item": "homebooks", "chance": 25, "repeat": [ 1, 3 ] }, { "item": "games", "chance": 10, "repeat": [ 1, 2 ] }, { "item": "bookstore_misc", "chance": 25, "repeat": [ 1, 3 ] },
+					{ "item": "textbooks", "chance": 20, "repeat": [ 1, 3 ] }, { "item": "manuals", "chance": 25, "repeat": [ 1, 3 ] }, { "item": "magazines", "chance": 23, "repeat": [ 1, 3 ] },
+					{ "item": "novels", "chance": 20, "repeat": [ 1, 5 ] }],
+			"7": [
+				{ "item": "SUS_wardrobe_mens", "chance": 37, "repeat": [ 1, 2 ] },
+				{ "item": "SUS_wardrobe_womens", "chance": 37, "repeat": [ 1, 2 ] },
+				{ "item": "casino_chips", "chance": 20, "repeat": [ 1, 5 ] }
+			],
+			"@": { "item": "bed", "chance": 32, "repeat": [ 1, 2 ] },
+			"&": { "item": "trash", "chance": 30, "repeat": [ 1, 4 ] },
+			"^": { "item": "trash", "chance": 30, "repeat": [ 1, 4 ] },
+			"x": { "item": "dean_items", "chance": 100 },
+			"D": { "item": "dean_items", "chance": 100 },
+			"O": { "item": "SUS_oven", "chance": 50 },
+			"J": [ { "item": "cosmic_knives", "chance": 20 }, { "item": "casino_chips", "chance": 20, "repeat": [ 1, 5 ] }],
+			"C": [ { "item": "SUS_dishes", "chance": 20 }, { "item": "SUS_silverware", "chance": 20 }, { "item": "SUS_cookware", "chance": 25 },
+				{ "item": "SUS_utensils", "chance": 10 }, { "item": "SUS_knife_drawer", "chance": 20 }, { "item": "SUS_junk_drawer", "chance": 50 },
+				{ "item": "SUS_breakfast_cupboard", "chance": 15 }, { "item": "SUS_coffee_cupboard", "chance": 30 }, { "item": "SUS_hair_drawer", "chance": 10 },
+				{ "item": "SUS_bathroom_cabinet", "chance": 15 }, { "item": "SUS_bathroom_medicine", "chance": 10 }, { "item": "harddrugs", "chance": 2 },
+				{ "item": "casino_chips", "chance": 20, "repeat": [ 1, 5 ] } ],
+			"s": [
+			{ "item": "dishes_dining", "chance": 30 },
+			{ "item": "tea_dishes", "chance": 10, "repeat": [ 1, 2 ] },
+			{ "item": "baked_goods", "chance": 5 },
+			{ "item": "groce_condiment", "chance": 15, "repeat": [ 1, 2 ] },
+			{ "item": "dining", "chance": 15 },
+			{ "item": "consumer_electronics", "chance": 10, "repeat": [ 1, 3 ] },
+			{ "item": "livingroom", "chance": 10, "repeat": [ 1, 3 ] },
+			{ "item": "casino_chips", "chance": 10, "repeat": [ 1, 10 ] }
+			],
+			"5": { "item": "SUS_kitchen_sink", "chance": 50 },
+			"6": { "item": "SUS_fridge", "chance": 30 }
+		},
+		
+		"place_graffiti": [
+        {
+          "text": "A small, green-glowing hand drawn on a wall.",
+          "x": 12,
+          "y": 21
+        },
+		{
+          "text": "Find (GOD/DOG) in the simplest of beasts",
+          "x": 14,
+          "y": 2
+        }
+		]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "villa_police_basement" ],
+    "weight": 100,
+    "object": {
+		"fill_ter": "t_metal_floor",
+		"rows": [
+			"************************",
+			"************************",
+			"||||||||||||||||||||||||",
+			"|%%%%|8.........d.....<|",
+			"|....|..........d.....<|",
+			"|....|...|......||||||||",
+			"|%%%%|...|......|.s0ss.|",
+			"||||||...|jjs0jj|......|",
+			"|jjjj|...||||||||j....%|",
+			"|....|...|******|j....%|",
+			"|....|...|******|j.....|",
+			"|%..j|r..|||||||||.....|",
+			"|%..j|...........d.....|",
+			"|%..j|...........d.....|",
+			"|....|||||||||||||||...|",
+			"|......................|",
+			"|......................|",
+			"||||||||||||||||||||||||",
+			"************************",
+			"************************",
+			"************************",
+			"************************",
+			"************************",
+			"************************"
+		],
+		"furniture": { "&": "f_trashcan", "R": "f_rubble", "O": "f_oven", "J": "f_counter", "C": "f_cupboard", "s": "f_table", "h": "f_chair", "5": "f_sink",
+		"6": "f_fridge", "7": "f_wardrobe", "@": "f_bed", "B": "f_bookcase", "N": "f_TV_antenna", "V": "f_roof_turbine_vent", "~": "f_chimney", "=": "f_vent_pipe",
+		"j": "f_rack", "0": "f_console_broken", "^": "f_trashcan", "!": "f_rubble", "I": "f_desk", "i": "f_bench", "D": "stash", "%": "f_locker", "r": "t_broken_radio" },
+		
+		"terrain": { ".": "t_metal_floor", "|": "t_wall_metal", "*": "t_rock", "/": "t_door_bar_locked", "d": "t_door_metal_c", "1": "t_door_metal_pickable", "c": "t_window_empty",
+		"F": "t_floor_noroof", "f": "t_sidewalk", "P": "t_sidewalk", "<": "t_stairs_up", ">": "t_stairs_down" },
+		"place_terrain": [
+			{ "ter": "t_door_metal_locked", "x": 5, "y": 4 }
+		],
+		
+		"computers": {
+        "8": {
+          "name": "Storage access terminal",
+          "security": 4,
+          "options": [ { "name": "Unlock storage room's door", "action": "unlock" } ],
+          "failures": [ { "action": "shutdown" } ]
+        }
+		},
+		
+		"place_loot": [
+			{ "item": "dog_holotape", "x": 20, "y": 6 }
+		],
+		
+		"items": {
+			"j": { "item": "sierra_rack_items", "chance": 90, "repeat": [ 1, 2 ] },
+			"%": { "item": "police_items", "chance": 80, "repeat": [ 1, 2 ] }
+		}
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "villa_police_roof" ],
+    "weight": 100,
+    "object": {
+		"fill_ter": "t_shingle_flat_roof",
+		"rows": [
+			"|......................|",
+			"|......................|",
+			"||||||||||||||||||||||||",
+			"||||||||||||||||||||||||",
+			"|||||N||||||||||||||||||",
+			"||||||||||||||=|||||||||",
+			"||||||||||||||||||||||||",
+			"||||||V||||||||||||V||||",
+			"|||||||||||||||||||N||||",
+			"||||||||||||||||||||||||",
+			"||||||||||||||||||||||||",
+			"||||||||||||||||||||||||",
+			"||||||||||||N||||||||~||",
+			"||||||||||||||||||||||||",
+			"||||||||||||||||||||||||",
+			"||||||||||||||||||||||||",
+			"||||||||||||||||||||||||",
+			"||||||V=|||||||||||V||||",
+			"||||||||||||||||||||||||",
+			"||||||||||||||||||||||||",
+			"||||||||||||N|||||||||||",
+			"|||||~||||||||||||||=|||",
+			"||||||||||||||||||||||||",
+			"||||||||||||||||||||||||"
+		],
+		"furniture": { "&": "f_trashcan", "R": "f_rubble", "D": "stash", "O": "f_oven", "J": "f_counter", "C": "f_cupboard", "s": "f_table", "h": "f_chair", "5": "f_sink",
+		"6": "f_fridge", "7": "f_wardrobe", "@": "f_bed", "B": "f_bookcase", "N": "f_TV_antenna", "V": "f_roof_turbine_vent", "~": "f_chimney", "=": "f_vent_pipe",
+		"j": "f_rack", "0": "f_console_broken", "I": "f_desk"},
+		
+		"terrain": { ".": "t_open_air", "*": "t_fountain", "|": "t_shingle_flat_roof", "-": "t_fence_metal", "/": "t_gate_metal_c", "d": "t_door_c", "c": "t_window_empty",
+		"F": "t_floor_noroof", "f": "t_floor", "<": "t_stairs_up", ">": "t_stairs_down", "b": "t_brick_wall" }
+    }
+  }
+]

@@ -1,0 +1,424 @@
+[
+	{
+		"type": "effect_type",
+		"id": "sierra_poison",
+		"rating": "bad",
+		"min_duration": "5 seconds",
+		"max_duration": "5 seconds",
+		"base_mods": {
+		  "hurt_min": [ 1 ],
+		  "hurt_max": [ 4 ],
+		  "hurt_chance": [4]
+		},
+		"show_in_info": false
+	},
+	{
+		"type": "effect_type",
+		"id": "sierra_poison_display",
+		"name": [ "Sierra Madre gas intoxication" ],
+		"desc": [ "You have been exposed to a dense pocket of the Sierra Madre toxic gas!" ],
+		"miss_messages": [ [ "Your body burns on the inside!", 2 ] ],
+		"apply_message": "The highly concentrated Sierra Madre toxic gas surrounds you...",
+		"remove_message": "You've managed to get out of the concentrated gas pocket in time...",
+		"rating": "bad",
+		"main_parts_only": true,
+		"min_duration": "5 seconds",
+		"max_duration": "5 seconds",
+		"base_mods": {
+		  "per_mod": [ -5 ],
+		  "dex_mod": [ -1 ],
+		  "str_mod": [ -2 ],
+		  "pain_min": [ 5 ],
+		  "pain_max": [ 15 ],
+		  "pain_chance": [25],
+		  "hurt_min": [ 1 ],
+		  "hurt_max": [ 4 ],
+		  "hurt_chance": [4],
+		  "health_min": [ -3 ],
+		  "health_max": [ -10 ],
+		  "health_chance": [5]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Z-43 toxic gas, high concentration"
+	},
+	{
+		"type": "effect_type",
+		"id": "sierra_cloud",
+		"rating": "bad",
+		"min_duration": "10 seconds",
+		"max_duration": "10 seconds",
+		"base_mods": {
+		  "hurt_min": [ 1 ],
+		  "hurt_max": [ 1 ],
+		  "hurt_chance": [90]
+		},
+		"show_in_info": false
+	},
+	{
+		"type": "effect_type",
+		"id": "sierra_cloud_display",
+		"name": [ "Sierra Madre Cloud expousure" ],
+		"desc": [ "The Cloud of red, poisonous gas engulfing Sierra Madre slowly corrodes your body." ],
+		"miss_messages": [ [ "You feel an unpleasant, burning sensation under your skin...", 90 ], [ "Your lungs pain you and you struggle a bit to breathe...", 90 ] ],
+		"apply_message": "You've found yourself in the Sierra Madre. The red sky and the smell of copper and Old World gold indicate the contamination of the air by a lethal gas...",
+		"rating": "bad",
+		"main_parts_only": true,
+		"min_duration": "10 seconds",
+		"max_duration": "10 seconds",
+		"base_mods": {
+		  "pain_min": [ 1 ],
+		  "pain_max": [ 1 ],
+		  "pain_chance": [50],
+		  "hurt_min": [ 1 ],
+		  "hurt_max": [ 1 ],
+		  "hurt_chance": [90],
+		  "health_min": [ -1 ],
+		  "health_max": [ -2 ],
+		  "health_chance": [45]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Z-43 toxic gas, low concentration"
+	},
+	{
+		"type": "effect_type",
+		"id": "cloud_weak",
+		"name": [ "Cloud Kiss intoxication (weak)" ],
+		"desc": [ "The Cloud Kiss venom has found a way into your body. While the doses's been fairly weak, it still makes you suffer a lot." ],
+		"miss_messages": [ [ "Your throat burns!", 1 ], [ "You feel as if there was burning napalm inside your stomach!", 1 ] ],
+		"rating": "bad",
+		"main_parts_only": true,
+		"min_duration": "30 seconds",
+		"max_duration": "1 minute",
+		"base_mods": {
+		  "pain_min": [ 2 ],
+		  "pain_max": [ 4 ],
+		  "pain_chance": [5],
+		  "hurt_min": [ 2 ],
+		  "hurt_max": [ 4 ],
+		  "hurt_chance": [5]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Z-43 liquified poison, low concentration"
+	},
+	{
+		"type": "effect_type",
+		"id": "cloud_potent",
+		"name": [ "Cloud Kiss intoxication (potent)" ],
+		"desc": [ "The Cloud Kiss venom has found a way into your body. It's concentrated enough to make you feel like dying and it might kill you if you're too weak to handle it." ],
+		"miss_messages": [ [ "Your throat burns!", 1 ], [ "You feel as if there was burning napalm inside your stomach!", 1 ] ],
+		"rating": "bad",
+		"main_parts_only": true,
+		"min_duration": "30 seconds",
+		"max_duration": "1 minute",
+		"base_mods": {
+		  "dex_mod": [ -1 ],
+		  "str_mod": [ -2 ],
+		  "pain_min": [ 3 ],
+		  "pain_max": [ 6 ],
+		  "pain_chance": [5],
+		  "hurt_min": [ 4 ],
+		  "hurt_max": [ 5 ],
+		  "hurt_chance": [5]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Z-43 liquified poison, medium concentration"
+	},
+	{
+		"type": "effect_type",
+		"id": "cloud_lethal",
+		"name": [ "Cloud Kiss intoxication (lethal)" ],
+		"desc": [ "The Cloud Kiss venom has found a way into your body. It's concentrated enough to straight-up kill you. Say goodbye to this cruel world..." ],
+		"miss_messages": [ [ "Your throat burns!", 1 ], [ "You feel as if there was burning napalm inside your stomach!", 1 ] ],
+		"rating": "bad",
+		"main_parts_only": true,
+		"min_duration": "1 minute",
+		"max_duration": "2 minutes",
+		"base_mods": {
+		  "per_mod": [ -3 ],
+		  "dex_mod": [ -2 ],
+		  "str_mod": [ -3 ],
+		  "int_mod": [ -5 ],
+		  "pain_min": [ 5 ],
+		  "pain_max": [ 10 ],
+		  "pain_chance": [5],
+		  "hurt_min": [ 7 ],
+		  "hurt_max": [ 12 ],
+		  "hurt_chance": [2]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Z-43 liquified poison, high concentration"
+	},
+	{
+		"type": "effect_type",
+		"id": "ghost_meat_raw",
+		"name": [ "Eaten raw flesh of a Ghost" ],
+		"desc": [ "The starvation and desperation brought you to eating Ghost People flesh straight from their bodies, raw. You feel the Sierra Madre toxins running through your veins..." ],
+		"miss_messages": [ [ "You feel as if someone was gutting you alive!", 2 ] ],
+		"rating": "bad",
+		"main_parts_only": true,
+		"min_duration": "30 seconds",
+		"max_duration": "1 minute",
+		"base_mods": {
+		  "int_mod": [ -2 ],
+		  "dex_mod": [ -2 ],
+		  "pain_min": [ 3 ],
+		  "pain_max": [ 8 ],
+		  "pain_chance": [5],
+		  "hurt_min": [ 1 ],
+		  "hurt_max": [ 5 ],
+		  "hurt_chance": [5]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Traces of Z-43 toxins in the digestive system"
+	},
+	{
+		"type": "effect_type",
+		"id": "ghost_meat_cooked",
+		"name": [ "Eaten prepared flesh of a Ghost" ],
+		"desc": [ "The starvation and desperation brought you to eating Ghost People flesh. You've prepared it, but still feel the Sierra Madre toxins running through your veins..." ],
+		"miss_messages": [ [ "You feel as if someone was gutting you alive!", 3 ] ],
+		"rating": "bad",
+		"main_parts_only": true,
+		"min_duration": "30 seconds",
+		"max_duration": "1 minute",
+		"base_mods": {
+		  "int_mod": [ -2 ],
+		  "dex_mod": [ -2 ],
+		  "pain_min": [ 2 ],
+		  "pain_max": [ 6 ],
+		  "pain_chance": [5],
+		  "hurt_min": [ 1 ],
+		  "hurt_max": [ 3 ],
+		  "hurt_chance": [5]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Traces of Z-43 toxins in the digestive system"
+	},
+	{
+		"type": "effect_type",
+		"id": "sierra_martini_effect",
+		"name": [ "Drank Sierra Madre Martini" ],
+		"desc": [ "This martini tasted awful, but seems to strenghten you and help your body tissues regenerate. Apparently the Cloud can both deteriorate and regenerate, the latter you can easily observe on Ghost People. The right combination of ingredients allowed you to utilize the regenerative potential for yourself." ],
+		"miss_messages": [ [ "You feel mysterious strength empowering your entire body, boosting its healing capability.", 10 ] ],
+		"rating": "good",
+		"main_parts_only": true,
+		"min_duration": "5 minutes",
+		"max_duration": "5 minutes",
+		"base_mods": {
+		  "str_mod": [ 3 ]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Traces of Z-43 toxins in the digestive system"
+	},
+	{
+		"type": "effect_type",
+		"id": "stimpack_used",
+		"name": [ "Injected stimpack" ],
+		"desc": [ "As opposed to the post-apocalyptic wasteland, upon injecting the stimpack you feel like coming back to life and shining with glory of a true survivor." ],
+		"miss_messages": [ [ "You feel alive, so alive... It's beautiful.", 10 ] ],
+		"rating": "good",
+		"main_parts_only": true,
+		"min_duration": "5 minutes",
+		"max_duration": "5 minutes",
+		"removes_effects": [
+			"bleed",
+			"hypovolemia"
+		],
+		"base_mods": {
+		  "str_mod": [ 1 ],
+		  "int_mod": [ 1 ],
+		  "dex_mod": [ 1 ],
+		  "per_mod": [ 1 ]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "STIM-RX35-A2 Big_Mt class 2 healing stimulant"
+	},
+	{
+		"type": "effect_type",
+		"id": "stimpack_used2",
+		"rating": "good",
+		"main_parts_only": true,
+		"min_duration": "1 second",
+		"max_duration": "1 second",
+		"base_mods": {
+		  "fatigue_amount": [ -25 ],
+		  "stamina_amount": [ 7000 ]
+		},
+		"show_in_info": false
+	},
+	{
+		"type": "effect_type",
+		"id": "mentats_used",
+		"name": [ "Took Mentats" ],
+		"desc": [ "Your mind clears, your thought capacity increases, your vision sharpens. Now you see the truth..." ],
+		"rating": "good",
+		"main_parts_only": false,
+		"min_duration": "4 minutes",
+		"max_duration": "4 minutes",
+		"base_mods": {
+		  "int_mod": [ 2 ],
+		  "per_mod": [ 2 ]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Mentats stimulants"
+	},
+	{
+		"type": "effect_type",
+		"id": "medx_used",
+		"name": [ "Injected Med-X" ],
+		"desc": [ "Your pain is being washed away and you feel stronger and more immune." ],
+		"rating": "good",
+		"main_parts_only": false,
+		"min_duration": "4 minutes",
+		"max_duration": "4 minutes",
+		"base_mods": {
+		  "health_amount": [ 20 ],
+		  "pkill_tick": [ 12 ],
+		  "pkill_min": [ 1 ]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Med-X stimulants"
+	},
+	{
+		"type": "effect_type",
+		"id": "stealth_boy_activated",
+		"name": [ "Stealth Field" ],
+		"desc": [ "The light bends and reflects around you hiding you from observers' eyes." ],
+		"rating": "good",
+		"apply_message": "You activate the Stealth Boy and hide behind the Stealth Field.",
+		"remove_message": "You're no longer hidden behind the Stealth Field.",
+		"flags": [ "EFFECT_INVISIBLE" ]
+	},
+	{
+		"type": "effect_type",
+		"id": "ghost_sight_activated",
+		"name": [ "Ghost Sight" ],
+		"desc": [ "Your throat burns after drinking the Ghost Sight, but now you can clearly see through the darkness." ],
+		"rating": "good",
+		"apply_message": "You drink Ghost Sight and your eyes quickly adjust to the darkness.",
+		"remove_message": "The effect of Ghost Sight wears off and you're back to your standard (lack of) nightvision.",
+		"flags": [ "EFFECT_NIGHT_VISION" ]
+	},
+	{
+		"type": "mutation",
+		"id": "SIERRA_HUNTER",
+		"name": { "str": "Sierra Madre Treasure Hunter" },
+		"points": 0,
+		"description": "You're one of the many survivors who set on cracking the Sierra Madre open and finding the treasure of the Old World buried deep inside its vault.",
+		"valid": false,
+		"purifiable": false,
+		"profession": true
+	},
+	{
+		"type": "mutation",
+		"id": "entered_casino",
+		"name": { "str": "Sierra Madre Casino Guest" },
+		"points": 0,
+		"description": "You're one of a couple survivors who saw the Sierra Madre Casino after the apocalypse came... Now you only need to get to the vault to claim the treasure of the Old World.",
+		"valid": false,
+		"purifiable": false,
+		"profession": true
+	},
+	{
+		"type": "mutation",
+		"id": "win",
+		"name": { "str": "Sierra Madre Conqueror" },
+		"points": 0,
+		"description": "And so you've cracked the Sierra Madre open, finally, after all you've been through you've uncovered its deepest secrets.",
+		"valid": false,
+		"purifiable": false,
+		"profession": true
+	},
+	{
+		"type": "mutation",
+		"id": "gala_trait",
+		"name": { "str": "Sierra Madre Gala leader" },
+		"points": 0,
+		"description": "You've managed to successfully trigger the Gala Event, opening the door to the Sierra Madre Casino. Now it is time to enter this legendary resort.",
+		"valid": false,
+		"purifiable": false
+	},
+	{
+		"type": "effect_type",
+		"id": "collar_boom",
+		"rating": "bad",
+		"bp": "HEAD",
+		"apply_message": "The collar on your neck explodes, tearing your head apart!",
+		"min_duration": "5 seconds",
+		"max_duration": "5 seconds",
+		"base_mods": {
+		  "hurt_min": [ 999 ],
+		  "hurt_max": [ 999 ]
+		},
+		"show_in_info": true
+	},
+	{
+		"type": "effect_type",
+		"id": "venom_weak",
+		"name": [ "Cloud venom intoxication (weak)" ],
+		"desc": [ "The venom made out of the Sierra Madre Cloud is running through yoru veins, burning you from the inside. The dose doesn't seem to be lethal, but you still feel like shit." ],
+		"miss_messages": [ [ "Your throat burns!", 1 ], [ "You feel as if there was burning napalm inside your stomach!", 1 ] ],
+		"rating": "bad",
+		"main_parts_only": true,
+		"min_duration": "30 seconds",
+		"max_duration": "1 minute",
+		"base_mods": {
+		  "pain_min": [ 2 ],
+		  "pain_max": [ 4 ],
+		  "pain_chance": [5],
+		  "hurt_min": [ 2 ],
+		  "hurt_max": [ 5 ],
+		  "hurt_chance": [2]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Z-43 liquified poison, low concentration"
+	},
+	{
+		"type": "effect_type",
+		"id": "venom_potent",
+		"name": [ "Cloud venom intoxication (potent)" ],
+		"desc": [ "The venom made out of the Sierra Madre Cloud is running through yoru veins, burning you from the inside. The dose is potent and might seriously wreck your health or even kill you if your organism is too weak to handle it." ],
+		"miss_messages": [ [ "Your throat burns!", 1 ], [ "You feel as if there was burning napalm inside your stomach!", 1 ] ],
+		"rating": "bad",
+		"main_parts_only": true,
+		"min_duration": "30 seconds",
+		"max_duration": "1 minute",
+		"base_mods": {
+		  "dex_mod": [ -1 ],
+		  "str_mod": [ -2 ],
+		  "pain_min": [ 3 ],
+		  "pain_max": [ 6 ],
+		  "pain_chance": [5],
+		  "hurt_min": [ 2 ],
+		  "hurt_max": [ 7 ],
+		  "hurt_chance": [2]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Z-43 liquified poison, medium concentration"
+	},
+	{
+		"type": "effect_type",
+		"id": "venom_lethal",
+		"name": [ "Cloud venom intoxication (lethal)" ],
+		"desc": [ "The venom made out of the Sierra Madre Cloud is running through yoru veins, burning you from the inside. You feel it in your guts that it won't end well for you..." ],
+		"miss_messages": [ [ "Your throat burns!", 1 ], [ "You feel as if there was burning napalm inside your stomach!", 1 ] ],
+		"rating": "bad",
+		"main_parts_only": true,
+		"min_duration": "1 minute",
+		"max_duration": "2 minutes",
+		"base_mods": {
+		  "per_mod": [ -3 ],
+		  "dex_mod": [ -2 ],
+		  "str_mod": [ -3 ],
+		  "int_mod": [ -5 ],
+		  "pain_min": [ 5 ],
+		  "pain_max": [ 10 ],
+		  "pain_chance": [5],
+		  "hurt_min": [ 4 ],
+		  "hurt_max": [ 9 ],
+		  "hurt_chance": [2]
+		},
+		"show_in_info": true,
+		"blood_analysis_description": "Z-43 liquified poison, high concentration"
+	}
+]

@@ -1,0 +1,44 @@
+[
+	{
+		"type": "mapgen",
+		"update_mapgen_id": "madrid_mapgen",
+		"method": "json",
+		"object": { "place_terrain": [ { "ter": "sierra_door", "x": 8, "y": 7 }, { "ter": "sierra_door", "x": 8, "y": 8 } ] }
+	},
+	{
+		"type": "mapgen",
+		"update_mapgen_id": "tampico_mapgen",
+		"method": "json",
+		"object": { "place_terrain": [ { "ter": "sierra_door", "x": 18, "y": 2 }, { "ter": "sierra_door", "x": 18, "y": 3 } ] }
+	},
+	{
+		"type": "mapgen",
+		"update_mapgen_id": "suites_mapgen",
+		"method": "json",
+		"object": { "place_terrain": [ { "ter": "sierra_door", "x": 14, "y": 18 }, { "ter": "sierra_door", "x": 15, "y": 18 }, { "ter": "sierra_door", "x": 9, "y": 18 }, { "ter": "sierra_door", "x": 10, "y": 18 } ] }
+	},
+	{
+		"type": "mapgen",
+		"update_mapgen_id": "vendor_mapgen",
+		"method": "json",
+		"object": { "place_npcs": [ { "class": "casino_vendor", "x": 8, "y": 10 } ], "place_furniture": [ { "furn": "f_holo", "x": 8, "y": 10 } ] }
+	},
+	{
+		"id": "CASINO_POWER_CONSOLE",
+		"type": "talk_topic",
+		"dynamic_line": "Power control terminal",
+		"responses": [
+		  { "text": "Manually restore casino's power", "topic": "ACCESS", "effect": [ { "mapgen_update": "madrid_mapgen", "om_terrain": "casino_9" }, { "mapgen_update": "tampico_mapgen", "om_terrain": "casino_up_7" }, { "mapgen_update": "suites_mapgen", "om_terrain": "casino_up_5" },
+		  { "mapgen_update": "vendor_mapgen", "om_terrain": "casino_4" }, { "mapgen_update": "ghost_mapgen", "om_terrain": "casino_8" } ] },
+		  { "text": "Exit", "topic": "TALK_DONE" }
+		]
+	},
+	{
+		"id": "ACCESS",
+		"type": "talk_topic",
+		"dynamic_line": "Power systems online...",
+		"responses": [
+		  { "text": "Exit", "topic": "TALK_DONE", "effect": { "npc_first_topic": "ACCESS" } }
+		]
+	}
+]

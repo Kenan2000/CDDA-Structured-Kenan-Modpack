@@ -1,0 +1,83 @@
+[
+	{
+		"id": "VAULT_CONSOLE",
+		"type": "talk_topic",
+		"dynamic_line": "Sierra Madre control network",
+		"responses": [
+		  { "text": "Vera Keyes", "topic": "KEYES", "condition": { "not": { "u_has_trait": "win" } }, "effect": [ { "u_add_trait": "win" }, { "u_lose_trait": "entered_casino" }, { "u_lose_trait": "gala_trait" }, { "mapgen_update": "elijah_mapgen" }, { "mapgen_update": "close_vault_trap_mapgen", "om_terrain": "sm_vault" } ] },
+		  { "text": "Vera", "topic": "VERA", "condition": { "not": { "u_has_trait": "win" } }, "effect": [ { "u_add_trait": "win" }, { "u_lose_trait": "entered_casino" }, { "u_lose_trait": "gala_trait" }, { "mapgen_update": "elijah_mapgen" }, { "mapgen_update": "close_vault_trap_mapgen", "om_terrain": "sm_vault" } ] },
+		  { "text": "Exit", "topic": "TALK_DONE", "condition": { "not": { "u_has_trait": "win" } }, "effect": [ { "u_add_trait": "win" }, { "u_lose_trait": "entered_casino" }, { "u_lose_trait": "gala_trait" }, { "mapgen_update": "elijah_mapgen" }, { "mapgen_update": "close_vault_trap_mapgen", "om_terrain": "sm_vault" } ] },
+		  { "text": "Vera Keyes", "condition": { "u_has_trait": "win" }, "topic": "KEYES" },
+		  { "text": "Vera", "condition": { "u_has_trait": "win" }, "topic": "VERA" },
+		  { "text": "Exit", "condition": { "u_has_trait": "win" }, "topic": "TALK_DONE" }
+		]
+	},
+	{
+		"id": "KEYES",
+		"type": "talk_topic",
+		"dynamic_line": "Holodisk extracted. File not found...",
+		"responses": [
+		  { "text": "Back", "topic": "TALK_NONE" }
+		]
+	},
+	{
+		"id": "VERA",
+		"type": "talk_topic",
+		"dynamic_line": "Important! Vera, read...",
+		"responses": [
+		  { "text": "To Vera", "topic": "LETTER" },
+		  { "text": "Back", "topic": "TALK_NONE" }
+		]
+	},
+	{
+		"id": "LETTER",
+		"type": "talk_topic",
+		"dynamic_line": "Vera, if you're reading this, my fears have come to pass, and this is an apology. I hope you realized what my last words meant to you. If so, they have led you here, and this place will keep you safe. I know what they meant for me, and I fear they have trapped me here. I have extracted the previous entry after our conversation tonight. It can't have been easy for you, and I am sorry for all I've put you through in silence. I know while you do not love me, you did not mean any malice in what you did. I knew about your plans to rob the casino with Dean before you told me. Hearing it from you didn't make it any easier. For what it's worth, I am glad you told me yourself, and I understood the tapes he had in his possession. I do not think either one of you realized what your addiction stemmed from, however, and that is the tragedy in this. I suspect the world would not have believed you, regardless, so I respect your desire to keep it from others.",
+		"responses": [
+		  { "text": "...", "topic": "LETTER2" }
+		]
+	},
+	{
+		"id": "LETTER2",
+		"type": "talk_topic",
+		"dynamic_line": "When first building this Villa, this Casino, I meant it for you. As the world seemed to race headlong towards war, it became part of my desire to protect you. The loans, the funding I poured into the casino's construction... I knew it would not matter when war came for us. It was my means of creating a shelter, a defense if the world was bombarded in radiation and bombs. When Dean revealed his plans inadvertently through our introduction, I realized what had happened, and how I had been tricked. For a time, my thoughts were dark. I changed the casino vault from a shelter to a trap, as I knew the first one to enter would be Dean. He would die down here, and it would have been by his own hand. I fear, however, that I overstepped myself, and the only safe place in the casino is the Vault. I have tried to rewire the systems, change the protocols, and I cannot. I will do one last check on the pipes by the edge of the outside platform and see if anything can be done. I fear it is useless. If you come down here, do not access my personal accounts entry. It contains only a message for Dean, and it will seal the door and you will have no way out - even the elevator is designed to automatically return when the door is closed, and it will lock in place. There should be enough in the Vault to sustain you until help arrives. I have ensured that there is enough medical supplies down here to keep you comfortable. The holograms should defend the casino from any attackers, and the hologram beacon in the Villa will broadcast an emergency signal so that others know you are here. When danger has passed, rescue will come. I hope you were able to read this, and know that I loved you, Frederick Sinclair.",
+		"responses": [
+		  { "text": "Back", "topic": "MENU" }
+		]
+	},
+	{
+		"id": "MENU",
+		"type": "talk_topic",
+		"dynamic_line": "Sierra Madre control network",
+		"responses": [
+		  { "text": "Vera Keyes", "topic": "KEYES" },
+		  { "text": "Sinclair's personal accounts", "topic": "ACCOUNT" },
+		  { "text": "Exit", "topic": "TALK_DONE" }
+		]
+	},
+	{
+		"id": "ACCOUNT",
+		"type": "talk_topic",
+		"dynamic_line": "Warning : private access only. Open personal logs?",
+		"responses": [
+		  { "text": "Yes", "topic": "TRAP2" },
+		  { "text": "No", "topic": "TALK_NONE" }
+		]
+	},
+	{
+		"id": "TRAP2",
+		"type": "talk_topic",
+		"dynamic_line": "Dean, if you're reading this, this is goodbye. You will have many years to read this message. Why you have smiled in my face and held a dagger to me, I do not know. You were rich, respected... even admired, loved by many. When you finally pass away down here, either by your own hand or starvation, know that your greed has led you here, for no reason I can understand. You have made a habit in using others for your own ends. Now, the Sierra Madre is your reward. Whether you used blackmail or force - or even played to Vera's greed, it will not help down here in the Vault. Greed has led you here. I hope it leaves you as empty as you left me. The door has sealed, the elevator has left. Even Vera's voice will not unlock it. Know that on the night of the Gala Event I shall raise my glass and whisper, \"Fortunato\". In pace requiescat, Frederick Sinclair.",
+		"responses": [
+		  { "text": "Exit", "topic": "TALK_DONE", "effect": [ { "npc_first_topic": "ERROR" }, { "mapgen_update": "trap_mapgen" } ] }
+		]
+	},
+	{
+		"id": "ERROR",
+		"type": "talk_topic",
+		"dynamic_line": "ERROR: terminal locked",
+		"responses": [
+		  { "text": "Exit", "topic": "TALK_DONE" }
+		]
+	}
+]

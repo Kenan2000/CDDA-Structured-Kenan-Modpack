@@ -1,0 +1,185 @@
+[
+	{
+		"type": "furniture",
+		"id": "stash",
+		"name": "Dean's secret stash",
+		"symbol": "&",
+		"description": "A stash containing some useful stuff, left here by a survivor that once walked these streets just like you...",
+		"looks_like": "f_trashcan",
+		"color": "light_cyan",
+		"move_cost_mod": 1,
+		"required_str": 3,
+		"max_volume": "20 L",
+		"flags": [ "TRANSPARENT", "FLAMMABLE_ASH", "CONTAINER", "PLACE_ITEM", "MOUNTABLE", "SHORT" ],
+		"bash": {
+		  "str_min": 8,
+		  "str_max": 30,
+		  "sound": "smash!",
+		  "sound_fail": "whump.",
+		  "items": [ { "item": "plastic_chunk", "count": [ 1, 2 ] } ]
+		}
+	},
+	{
+    "type": "furniture",
+    "id": "t_broken_radio",
+    "name": "broken radio",
+    "description": "This radio, once capable of broadcasting all kinds of signals, now remains broken. Upon closer look you notice a bullet hole in it.",
+    "symbol": "6",
+    "color": "white",
+    "looks_like": "t_intercom",
+    "move_cost_mod": 1,
+	"required_str": 5,
+    "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE", "SHORT" ],
+    "deconstruct": {
+      "items": [
+        { "item": "cable", "charges": [ 4, 6 ] },
+        { "item": "e_scrap", "count": [ 10, 16 ] },
+        { "item": "circuit", "count": [ 6, 10 ] },
+        { "item": "power_supply", "count": [ 2, 4 ] },
+        { "item": "amplifier", "count": [ 2, 4 ] },
+        { "item": "plastic_chunk", "count": [ 10, 12 ] },
+        { "item": "scrap", "count": [ 6, 8 ] }
+      ]
+    },
+    "bash": {
+      "str_min": 8,
+      "str_max": 150,
+      "sound": "crunch!",
+      "sound_fail": "whack!",
+      "items": [
+        { "item": "cable", "charges": [ 2, 4 ] },
+        { "item": "e_scrap", "count": [ 7, 12 ] },
+        { "item": "circuit", "count": [ 2, 6 ] },
+        { "item": "power_supply", "count": [ 1, 3 ] },
+        { "item": "amplifier", "count": [ 1, 3 ] },
+        { "item": "plastic_chunk", "count": [ 8, 10 ] },
+        { "item": "scrap", "count": [ 5, 7 ] }
+      ]
+    }
+	},
+	{
+    "type": "furniture",
+    "id": "f_vending_sierra",
+    "name": "Sierra Madre vending machine",
+    "looks_like": "f_vending_reinforced",
+    "description": "Sierra Madre vending machine... A form of matter assembler, accepts Sierra Madre chips and then transforms them into all kinds of useful stuff. Having certain code cards will allow you to unlock more interesting items to purchase from it.",
+    "symbol": "{",
+    "color": "red",
+    "move_cost_mod": 1,
+    "coverage": 90,
+    "required_str": -1,
+	"light_emitted": 5,
+    "flags": [ "SEALED", "BLOCKSDOOR", "CONTAINER", "BLOCKSDOOR", "PLACE_ITEM" ]
+	},
+	{
+    "type": "furniture",
+    "id": "f_holo",
+    "name": "Sierra Madre hologram vendor",
+    "looks_like": "mon_hologram",
+    "description": "Sierra Madre hologram vendor, an autonomous worker for the guests to make purchases or exchange various kinds of commodities.",
+    "symbol": "{",
+    "color": "red",
+    "move_cost_mod": 1,
+    "coverage": 90,
+    "required_str": -1,
+	"light_emitted": 10,
+    "flags": [ "SEALED", "BLOCKSDOOR", "CONTAINER", "BLOCKSDOOR", "PLACE_ITEM" ]
+	},
+	{
+    "type": "furniture",
+    "id": "f_vera_holo",
+    "name": "Vera Keyes' fountain hologram",
+    "looks_like": "mon_hologram",
+    "description": "Sierra Madre hologram vendor, an autonomous worker for the guests to make purchases or exchange various kinds of commodities.",
+    "symbol": "{",
+    "color": "red",
+    "move_cost_mod": 1,
+    "coverage": 90,
+    "required_str": -1,
+	"light_emitted": 10,
+    "flags": [ "SEALED", "BLOCKSDOOR", "CONTAINER", "BLOCKSDOOR", "PLACE_ITEM" ]
+	},
+	{
+    "type": "furniture",
+    "id": "inter_npc",
+    "name": "Sierra Madre Casino intercom",
+    "looks_like": "t_intercom",
+    "description": "Sierra Madre Casino intercom system. Still operational. And there's someone using it to talk to you out there...",
+    "symbol": "{",
+    "color": "red",
+    "move_cost_mod": 1,
+    "coverage": 90,
+    "required_str": -1,
+    "flags": [ "SEALED", "BLOCKSDOOR", "CONTAINER", "BLOCKSDOOR", "PLACE_ITEM" ]
+	},
+	{
+    "type": "furniture",
+    "id": "terminal_npc",
+    "name": "vault control terminal",
+    "looks_like": "t_console",
+    "description": "Still operational terminal inside the Sierra Madre Vault, providing access to the most important data for Frederick Sinclair.",
+    "symbol": "{",
+    "color": "red",
+    "move_cost_mod": 1,
+    "coverage": 90,
+    "required_str": -1,
+	"light_emitted": 10,
+    "flags": [ "SEALED", "BLOCKSDOOR", "CONTAINER", "BLOCKSDOOR", "PLACE_ITEM" ]
+	},
+	{
+    "type": "furniture",
+    "id": "gala_terminal_npc",
+    "name": "Gala control panel",
+    "looks_like": "t_console",
+    "description": "Still operational terminal used to trigger and control the Gala Event.",
+    "symbol": "{",
+    "color": "red",
+    "move_cost_mod": 1,
+    "coverage": 90,
+    "required_str": -1,
+	"light_emitted": 10,
+    "flags": [ "SEALED", "BLOCKSDOOR", "CONTAINER", "BLOCKSDOOR", "PLACE_ITEM" ]
+	},
+	{
+    "type": "furniture",
+    "id": "sierra_lamp",
+    "name": "street lantern",
+    "looks_like": "gasoline_lantern",
+    "description": "A simple street lantern providing some light for the dark night streets as long as it has access to a power source. This one has been stylized to look like lanterns from the late XIX or early XX century.",
+    "symbol": "&",
+    "color": "yellow",
+    "move_cost_mod": 1,
+    "coverage": 50,
+    "required_str": -1,
+    "light_emitted": 50,
+    "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE" ],
+    "bash": {
+      "str_min": 25,
+      "str_max": 150,
+      "sound": "crunch!",
+      "sound_fail": "whack!",
+      "items": [
+        { "item": "cable", "charges": [ 4, 10 ], "prob": 50 },
+        { "item": "e_scrap", "count": [ 1, 4 ], "prob": 50 },
+        { "item": "circuit", "count": [ 0, 2 ], "prob": 50 },
+        { "item": "power_supply", "prob": 25 },
+        { "item": "plastic_chunk", "count": [ 4, 10 ], "prob": 50 },
+        { "item": "scrap", "count": [ 8, 20 ], "prob": 50 }
+      ]
+    }
+	},
+	{
+    "type": "furniture",
+    "id": "casino_terminal_npc",
+    "name": "Power control terminal",
+    "looks_like": "t_console",
+    "description": "Still operational terminal used to manually control the power of the inner systems in the Sierra Madre Casino.",
+    "symbol": "{",
+    "color": "red",
+    "move_cost_mod": 1,
+    "coverage": 90,
+    "required_str": -1,
+	"light_emitted": 10,
+    "flags": [ "SEALED", "BLOCKSDOOR", "CONTAINER", "BLOCKSDOOR", "PLACE_ITEM" ]
+	}
+]
