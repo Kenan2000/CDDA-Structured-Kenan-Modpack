@@ -18,5 +18,35 @@
     "dmg_adj": [ "marked", "dented", "smashed", "shattered" ],
     "bash_dmg_verb": "dented",
     "cut_dmg_verb": "scratched"
+  },
+  {
+    "type": "material",
+    "id": "c_atomic_battery_power",
+    "name": "Alphavoltaic Power",
+    "fuel_data": { "energy": 1, "perpetual": true },
+    "copy-from": "pseudo_fuel"
+  },
+  {
+    "type": "material",
+    "id": "c_hydrogen_gas",
+    "name": "Pressurized hydrogen",
+    "density": 1,
+    "bash_resist": 0,
+    "specific_heat_liquid": 0.82,
+    "specific_heat_solid": 0.45,
+    "cut_resist": 0,
+    "bullet_resist": 0,
+    "acid_resist": 0,
+    "fire_resist": 0,
+    "elec_resist": 0,
+    "chip_resist": 0,
+    "dmg_adj": [ "scratched", "cut", "cracked", "shattered" ],
+    "bash_dmg_verb": "dented",
+    "cut_dmg_verb": "gouged",
+    "fuel_data": {
+      "//": "Compressed gaseous hydrogen has 9.2 MJ/L.  The solid hydrogen canisters have roughly 4 times the density, energy figure here reduced a bit to make for easier calculations.",
+      "energy": 1000,
+      "explosion_data": { "chance_hot": 2, "chance_cold": 2, "factor": 0.5, "fiery": true, "size_factor": 0.1 }
+    }
   }
 ]
