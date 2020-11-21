@@ -24,7 +24,7 @@
     "type": "TOOL_ARMOR",
     "category": "armor",
     "name": { "str": "mask of insight", "str_pl": "masks of insight" },
-    "description": "A mask faced with iron and decorated with other metal, depicting the face of some unknown divine figure.  Wearing it will grant the wearer clairvoyance within a limited range and protection from bright flashes, but blind you to anything beyond its effect.",
+    "description": "A mask faced with iron and decorated with other metal, depicting the face of some unknown divine figure.  Fueling it with consecrated essence will grant the wearer clairvoyance within a limited range and protection from bright flashes, but blind you to anything beyond its effect.",
     "weight": "710 g",
     "volume": "1 L",
     "price": 21000,
@@ -75,16 +75,6 @@
     "turns_per_charge": 100,
     "revert_to": "somen_clairvoyance",
     "qualities": [ [ "GLARE", 2 ] ],
-    "relic_data": {
-      "passive_effects": [
-        {
-          "has": "WORN",
-          "condition": "ACTIVE",
-          "mutations": [ "ARCANA_MASK_INSIGHT_EFFECT" ],
-          "values": [ { "value": "BONUS_DODGE", "add": 2 } ]
-        }
-      ]
-    },
     "use_action": {
       "target": "somen_clairvoyance",
       "msg": "The mask's features return to its original impassive expression.",
@@ -164,9 +154,13 @@
     "color": "dark_gray",
     "max_charges": 20,
     "charges_per_use": 1,
+    "encumbrance": 12,
+    "max_encumbrance": 12,
     "ammo": "essence_type",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_type": 20 } } ],
-    "relic_data": { "passive_effects": [ { "id": "ENCH_MANTLE_SHADOWS" } ] },
+    "relic_data": {
+      "passive_effects": [ { "has": "WORN", "condition": "ACTIVE", "ench_effects": [ { "effect": "arcana_invis_lesser", "intensity": 1 } ] } ]
+    },
     "use_action": [
       {
         "target": "robe_shadow_on",
@@ -201,7 +195,6 @@
     "turns_per_charge": 300,
     "revert_to": "robe_shadow",
     "revert_msg": "The robe's fabric returns to its normal gray color, dispelling the illusion.",
-    "relic_data": { "passive_effects": [ { "id": "ENCH_MANTLE_SHADOWS" } ] },
     "use_action": [
       {
         "target": "robe_shadow",
@@ -239,6 +232,7 @@
     "type": "TOOL_ARMOR",
     "copy-from": "chainmail_hauberk",
     "name": { "str": "jade hauberk" },
+    "description": "A set of mail armor with a mantle made from a gilded aegis draped over it, splints of copper worked into the arms and sides.  Underneath the mantle is a gorget of copper, with otherworldly green stones set into it.  Activating it will grant immunity to fire, blade, and bullet, along with resistance to other environmental hazards.",
     "//": "Requires an item that did not exist pre-cataclysm to make.",
     "price_postapoc": 15000,
     "material": [ "iron", "copper", "leather", "cotton" ],

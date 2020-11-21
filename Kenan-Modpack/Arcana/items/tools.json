@@ -1393,7 +1393,7 @@
         {
           "has": "WIELD",
           "condition": "ALWAYS",
-          "mutations": [ "ARCANA_CLAIRVOYANCE_LESSER" ],
+          "mutations": [ "ARCANA_CLAIRVOYANCE_LESSER", "SCHIZOPHRENIC" ],
           "values": [
             { "value": "INTELLIGENCE", "add": 4 },
             { "value": "PERCEPTION", "add": 2 },
@@ -1584,7 +1584,7 @@
     "looks_like": "bullwhip_razor",
     "color": "dark_gray",
     "name": { "str": "moonstone scourge" },
-    "description": "A lash modified with razor-sharp slivers of opalescent stone, and silver decoration along the handle.  While relatively effective as a weapon, fueling it with blood essence make it much more deadly.",
+    "description": "A lash modified with razor-sharp slivers of opalescent stone, and silver decoration along the handle.  While relatively effective as a weapon, fueling it with blood essence will restore its life-draining properties, and make it a much more deadly weapon.",
     "weight": "3500 g",
     "volume": "2 L",
     "price_postapoc": 15000,
@@ -1596,6 +1596,15 @@
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_blood_type": 24 } } ],
     "max_charges": 24,
     "ammo": "essence_blood_type",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ACTIVE",
+          "hit_you_effect": [ { "id": "arcana_react_drain_life", "once_in": 5 } ]
+        }
+      ]
+    },
     "use_action": [
       {
         "target": "scourge_moonstone_on",
