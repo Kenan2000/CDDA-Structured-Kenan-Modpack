@@ -1,19 +1,19 @@
 [
   {
     "type": "npc",
-    "id": "rasta_bob",
+    "id": "NPC_rasta_bob",
     "name_unique": "Rasta Bob",
     "gender": "male",
-    "class": "rasta_bob",
+    "class": "NC_rasta_bob",
     "attitude": 0,
     "mission": 7,
-    "chat": "rasta_bob_1",
+    "chat": "TALK_rasta_bob_1",
     "faction": "no_faction",
     "mission_offered": "MISSION_rasta_bob_1"
   },
   {
     "type": "npc_class",
-    "id": "rasta_bob",
+    "id": "NC_rasta_bob",
     "name": { "str": "Rasta Bob" },
     "job_description": "Rasta Bob.",
     "common": false,
@@ -27,14 +27,14 @@
   },
   {
     "type": "talk_topic",
-    "id": [ "rasta_bob_1" ],
+    "id": [ "TALK_rasta_bob_1" ],
     "dynamic_line": "Yo! <greet>",
     "responses": [
       { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "<BGSS_intro_question>", "topic": "rasta_bob_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_rasta_bob_Background" },
       {
         "text": "So, what do you need, my brother?",
-        "topic": "rasta_bob_truth1",
+        "topic": "TALK_rasta_bob_truth1",
         "condition": { "npc_has_var": "u_helped_rasta_bob", "type": "general", "context": "meeting", "value": "yes" }
       },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
@@ -43,48 +43,48 @@
   },
   {
     "type": "talk_topic",
-    "id": "rasta_bob_Background",
+    "id": "TALK_rasta_bob_Background",
     "dynamic_line": "Yo my brudda whazzap.",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "rasta_bob_truth1",
+    "id": "TALK_rasta_bob_truth1",
     "dynamic_line": "I'll be honest with you. [*he showes you his arm with large bite mark*] I think you understand what that means. I tried to heal it, but for some reason, the mark wont go, and the pain wont stop, no matter how i tried. I think I'll become one of them. I DONT whant to become one of that thing!…",
-    "responses": [ { "text": "Oh, I didn't know…", "topic": "rasta_bob_truth2" } ]
+    "responses": [ { "text": "Oh, I didn't know…", "topic": "TALK_rasta_bob_truth2" } ]
   },
   {
     "type": "talk_topic",
-    "id": "rasta_bob_truth2",
+    "id": "TALK_rasta_bob_truth2",
     "dynamic_line": "It's been a fun ride. We had so much fun together. I just wanted to have fun for the last time, and you were there to help me with it. But now, I'm asking you to help me for the last time…",
-    "responses": [ { "text": "Sure thing. I'll do anything for you.", "topic": "rasta_bob_truth3" } ]
+    "responses": [ { "text": "Sure thing. I'll do anything for you.", "topic": "TALK_rasta_bob_truth3" } ]
   },
   {
     "type": "talk_topic",
-    "id": "rasta_bob_truth3",
+    "id": "TALK_rasta_bob_truth3",
     "dynamic_line": "You have to kill me. That's the only way I can be freed from this curse, and not become one of that things after death. I know that I ask you too much, but…",
-    "responses": [ { "text": "I…understand…I'll help you…for the last time…", "topic": "rasta_bob_truth4" } ]
+    "responses": [ { "text": "I…understand…I'll help you…for the last time…", "topic": "TALK_rasta_bob_truth4" } ]
   },
   {
     "type": "talk_topic",
-    "id": "rasta_bob_truth4",
+    "id": "TALK_rasta_bob_truth4",
     "dynamic_line": "Thank you, you are truly my <name_g>. Just do it quick, please. And if it's not hard for you, could you please burry me on this cementery? I want to rest in this grounds, with my parents…",
-    "responses": [ { "text": "Sure thing, my <name_g>. Goodbye… It was a fun ride…", "topic": "rasta_bob_truth5" } ]
+    "responses": [ { "text": "Sure thing, my <name_g>. Goodbye… It was a fun ride…", "topic": "TALK_rasta_bob_truth5" } ]
   },
   {
     "type": "talk_topic",
-    "id": "rasta_bob_truth5",
+    "id": "TALK_rasta_bob_truth5",
     "dynamic_line": "[*He dies peacefully with a smile on his face. Something falls down from his pocket*]",
     "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": [ { "u_buy_item": "manual_capoeira" }, "npc_die" ] } ]
   },
   {
     "type": "talk_topic",
-    "id": "rasta_bob_sleep",
+    "id": "TALK_rasta_bob_sleep",
     "dynamic_line": "[*ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ*]",
     "responses": [
       {
         "text": "AY YO!!!",
-        "topic": "rasta_bob_1",
+        "topic": "TALK_rasta_bob_1",
         "condition": "u_driving",
         "effect": [ { "npc_add_var": "rasta_bob_car", "type": "flag", "context": "meeting", "value": "yes" } ]
       },
@@ -93,18 +93,18 @@
   },
   {
     "type": "talk_topic",
-    "id": "rasta_bob_follow",
+    "id": "TALK_rasta_bob_follow",
     "dynamic_line": "Are we there, <name_g>?",
     "responses": [
       {
         "text": "Yeah, <name_g>. We're here.",
         "topic": "TALK_rasta_bob_sleep",
         "condition": { "or": [ { "npc_at_om_location": "motel_twd_1" }, { "npc_at_om_location": "motel_twd_2" } ] },
-        "effect": [ { "npc_first_topic": "rasta_bob_dd" }, "stop_following" ]
+        "effect": [ { "npc_first_topic": "TALK_rasta_bob_dd" }, "stop_following" ]
       },
       {
         "text": "Yeah, <name_g>. We're here.",
-        "topic": "rasta_bob_1",
+        "topic": "TALK_rasta_bob_1",
         "condition": { "and": [ "mission_complete", { "u_has_mission": "MISSION_rasta_bob_4" } ] },
         "effect": "stop_following"
       },
@@ -119,14 +119,14 @@
   },
   {
     "type": "talk_topic",
-    "id": "rasta_bob_dd",
+    "id": "TALK_rasta_bob_dd",
     "dynamic_line": "[*ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ*]",
     "responses": [
       {
         "text": "AY YO!",
         "topic": "TALK_MISSION_INQUIRE",
         "condition": "mission_complete",
-        "effect": [ { "npc_first_topic": "rasta_bob_1" } ]
+        "effect": [ { "npc_first_topic": "TALK_rasta_bob_1" } ]
       },
       { "text": "…", "topic": "TALK_DONE" }
     ]
@@ -192,9 +192,9 @@
         "search_range": 200
       },
       "update_mapgen": { "place_vehicles": [ { "vehicle": "hippie_van", "x": 29, "y": 18, "status": 1, "rotation": 0 } ] },
-      "effect": [ { "npc_first_topic": "rasta_bob_sleep" } ]
+      "effect": [ { "npc_first_topic": "TALK_rasta_bob_sleep" } ]
     },
-    "end": { "effect": [ { "npc_first_topic": "rasta_bob_1" } ] },
+    "end": { "effect": [ { "npc_first_topic": "TALK_rasta_bob_1" } ] },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_rasta_bob_3",
     "dialogue": {
@@ -219,7 +219,7 @@
     "difficulty": 0,
     "value": 1000,
     "start": {
-      "effect": [ "follow_only", { "npc_first_topic": "rasta_bob_follow" } ],
+      "effect": [ "follow_only", { "npc_first_topic": "TALK_rasta_bob_follow" } ],
       "assign_mission_target": {
         "om_terrain": "motel_twd",
         "om_special": "motel-twd",
@@ -259,7 +259,7 @@
     "difficulty": 0,
     "value": 100,
     "start": {
-      "effect": [ "follow_only", { "npc_first_topic": "rasta_bob_follow" } ],
+      "effect": [ "follow_only", { "npc_first_topic": "TALK_rasta_bob_follow" } ],
       "assign_mission_target": {
         "om_terrain": "Cemetery_1a",
         "om_special": "cemetery_city",

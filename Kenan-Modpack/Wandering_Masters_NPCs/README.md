@@ -7,23 +7,23 @@ Where to find them: check txt file, or spawn special "Cabin Test" through debug 
 # Progress so far:
 
 ##  Regular NPC:
-* Berry Button - 3 quests; unchecked dialogues. Works fine!
+* Berry Button - 3 quests
 	
 ## MA teachers:
-* Wanderer Knight - 3 quests + 1 minor quest; unchecked dialogues. Works fine
-* Black Belt Master - 4 quests + 1 minot quest; unchecked dialogues. Works fine
-* Police Teacher - 4 quests; unchecked dialogues. Works fine
-* Retired Assassin - 3 quests; unchecked dialogues. Works fine
-* Boxer Johnny - 3 quests; unchecked dialogues; Works fine!
-* Rasta Bob - 4 quests; unchecked dialogues. Works fine
-* Samurai Akira - 4 quests + 1 minor; unchecked dialogues; Works fine!
-* Flame Knuckle leader - 1 quest + 2 minor quests; unchecked dialogues; Works fine!
-* Jason Cost - 3 quests, unchecked dialogues; should work fine
-* Moneylender - 1 minor quest; 2 repeatable quests; unchecked dialogues; all wanted features implemented (kinda working, but need additional testing); should work fine
+* Wanderer Knight - 3 quests + 1 minor quest
+* Black Belt Master - 4 quests + 1 minot quest
+* Police Teacher - 4 quests
+* Retired Assassin - 4 quests; WIP
+* Boxer Johnny - 3 quests
+* Rasta Bob - 4 quests; WIP
+* Samurai Akira - 4 quests + 1 minor
+* Flame Knuckle leader - 1 quest + 2 minor quests
+* Jason Cost - 3 quests; WIP
+* Moneylender - 1 minor quest; 2 repeatable quests
 
 ## Trait teachers:
-* Barry Button - 1 quest; unchecked dialogues for mistakes, spelling errors, translation etc; most wanted features implemented; should work nicely (?);
-* Hobo Victoria - 5 quests, no dialogues, WIP; untested, but should work fine.
+* Barry Button - 1 quest; WIP
+* Hobo Victoria - 5 quests; WIP
 
 ## Credits:
 * Matoi - idea and concept of Flame Knuckle base, Moneylender hub.

@@ -2,18 +2,18 @@
   {
     "//": "TODO check text, write something not lame, balance him a bit maybe?",
     "type": "npc",
-    "id": "police_teacher",
+    "id": "NPC_police_teacher",
     "name_suffix": "Officer",
-    "class": "police_teacher",
+    "class": "NC_police_teacher",
     "attitude": 0,
     "mission": 8,
-    "chat": "police_teacher_1",
+    "chat": "TALK_police_teacher_1",
     "faction": "no_faction",
     "mission_offered": "MISSION_police_teacher_1"
   },
   {
     "type": "npc_class",
-    "id": "police_teacher",
+    "id": "NC_police_teacher",
     "name": { "str": "Police Teacher" },
     "job_description": "Police Teacher.",
     "common": false,
@@ -21,8 +21,8 @@
     "bonus_dex": { "rng": [ 1, 5 ] },
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 1, 2 ] },
-    "worn_override": "police_teacher_worn",
-    "carry_override": "police_teacher_carried",
+    "worn_override": "NC_police_teacher_worn",
+    "carry_override": "NC_police_teacher_carried",
     "weapon_override": "EMPTY_GROUP",
     "traits": [
       { "group": "NPC_starting_traits" },
@@ -41,7 +41,7 @@
   },
   {
     "type": "item_group",
-    "id": "police_teacher_worn",
+    "id": "NC_police_teacher_worn",
     "subtype": "collection",
     "entries": [
       { "item": "socks" },
@@ -61,13 +61,13 @@
   },
   {
     "type": "item_group",
-    "id": "police_teacher_carried",
+    "id": "NC_police_teacher_carried",
     "subtype": "collection",
     "entries": [ { "group": "charged_two_way_radio" }, { "item": "ear_plugs", "custom-flags": [ "no_auto_equip" ] } ]
   },
   {
     "type": "talk_topic",
-    "id": [ "police_teacher_1" ],
+    "id": [ "TALK_police_teacher_1" ],
     "dynamic_line": {
       "u_is_wearing": "badge_marshal",
       "yes": "Marshal…",
@@ -80,16 +80,16 @@
     "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_police_teacher_0" } },
     "responses": [
       { "text": "About that job…", "condition": {"and":["mission_complete", "has_many_assigned_missions"]}, "topic": "TALK_MISSION_INQUIRE" },
-      { "text": "<BGSS_intro_question>", "topic": "police_teacher_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_police_teacher_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
-      { "text": "Can you teach me something?", "topic": "police_teacher_teach_check" },
+      { "text": "Can you teach me something?", "topic": "TALK_police_teacher_teach_check" },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
   {
     "//": "TODO WRITE SOMETHING!!!",
     "type": "talk_topic",
-    "id": "police_teacher_Background",
+    "id": "TALK_police_teacher_Background",
     "dynamic_line": "Well, I was in this cell, minding my own business, but when the lights went out, the emergency system locked the entire PD and I kind of got stuck here.",
     "responses": [
       { "text": "<done_conversation_section>", "topic": "TALK_NONE" },
@@ -97,14 +97,14 @@
         "text": "Are you sure you telling me the truth?",
         "condition": { "not": { "npc_has_var": "police_teacher_background", "type": "general", "context": "meeting", "value": "yes" } },
         "trial": { "type": "PERSUADE", "difficulty": 8 },
-        "success": { "topic": "police_teacher_truth" },
-        "failure": { "topic": "police_teacher_lie" }
+        "success": { "topic": "TALK_police_teacher_truth" },
+        "failure": { "topic": "TALK_police_teacher_lie" }
       }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "police_teacher_teach_check",
+    "id": "TALK_police_teacher_teach_check",
     "dynamic_line": "Look, right now I can only think about one thing, and that's definitely not about teaching, ok?",
     "responses": [
       {
@@ -119,33 +119,33 @@
             { "u_buy_item": "manual_swordsmanship" },
             { "npc_add_var": "police_teacher_teach", "type": "general", "context": "meeting", "value": "no" }
           ],
-          "topic": "police_teacher_teach"
+          "topic": "TALK_police_teacher_teach"
         },
-        "failure": { "topic": "police_teacher_teach_done" }
+        "failure": { "topic": "TALK_police_teacher_teach_done" }
       },
       { "text": "Maybe later.", "topic": "TALK_NONE" }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "police_teacher_teach",
+    "id": "TALK_police_teacher_teach",
     "dynamic_line": "I learned all from this book. You can take it. Good luck.",
     "responses": [ { "text": "Thank you, officer.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "police_teacher_teach_done",
+    "id": "TALK_police_teacher_teach_done",
     "dynamic_line": "I already taught you all I knew.",
     "responses": [ { "text": "Thanks again, officer.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "police_teacher_truth",
+    "id": "TALK_police_teacher_truth",
     "dynamic_line": "Ok, ok, I'll tell you.  The truth is, I was afraid when first <zombies> tried to enter our department, and didn't even notice how I got myself locked up here, in this cell.  Maybe I panicked, and instead of running away, or helping my fellow co-workers, I thought, maybe, this metal bars would protect me.  I'm so ashamed of myself, really.  Officers should be calm in emergencies like this, to help civilians with anything they need, to protect them, but…  What done is done.",
     "responses": [
       {
         "text": "Oh, uh, well, ok then?",
-        "topic": "police_teacher_1",
+        "topic": "TALK_police_teacher_1",
         "effect": [
           { "npc_add_var": "police_teacher_background", "type": "general", "context": "meeting", "value": "yes" },
           {
@@ -160,7 +160,7 @@
   },
   {
     "type": "talk_topic",
-    "id": "police_teacher_working",
+    "id": "TALK_police_teacher_working",
     "dynamic_line": {
       "npc_compare_time_since_var": "police_teacher_work",
       "type": "general",
@@ -186,7 +186,7 @@
       },
       {
         "text": "Good for you, <name_g>.",
-        "topic": "police_teacher_1",
+        "topic": "TALK_police_teacher_1",
         "condition": {
           "npc_compare_time_since_var": "police_teacher_work",
           "type": "test",
@@ -194,14 +194,14 @@
           "op": ">",
           "time": "2 days"
         },
-        "effect": [ { "npc_first_topic": "police_teacher_1" } ]
+        "effect": [ { "npc_first_topic": "TALK_police_teacher_1" } ]
       }
     ]
   },
   {
     "//": "TODO WRITE SOMETHING!!!",
     "type": "talk_topic",
-    "id": "police_teacher_lie",
+    "id": "TALK_police_teacher_lie",
     "dynamic_line": "No, ha-ha, it's an accident, really.",
     "responses": [
       {
@@ -213,35 +213,35 @@
   },
   {
     "type": "talk_topic",
-    "id": "police_teacher_wait",
+    "id": "TALK_police_teacher_wait",
     "dynamic_line": "…",
     "responses": [
-      { "text": "I'm back.", "topic": "police_teacher_1" },
+      { "text": "I'm back.", "topic": "TALK_police_teacher_1" },
       {
         "text": "So, looking for a secret room, aren't you?",
-        "topic": "police_teacher_basement",
+        "topic": "TALK_police_teacher_basement",
         "condition": { "u_has_var": "bill_the_assassin_basement", "type": "general", "context": "meeting", "value": "yes" }
       }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "police_teacher_basement",
+    "id": "TALK_police_teacher_basement",
     "dynamic_line": "What? What secret room?  I don't know what you're talking about!",
     "responses": [
       {
         "text": "Bill told me everything.  You want to screw me over and got all neat stuff from Billy's secret stash all by yourself? Not this time.  Ha-Ha!",
-        "topic": "police_teacher_basement1"
+        "topic": "TALK_police_teacher_basement1"
       }
     ]
   },
   {
     "//": "TODO WRITE SOMETHING!!!",
     "type": "talk_topic",
-    "id": "police_teacher_basement",
+    "id": "TALK_police_teacher_basement",
     "dynamic_line": "<name_g> did you actually believed that <name_b>?  I don't hide anything from you!  Kill him please and please don't kill me!",
     "responses": [
-      { "text": "I'll think about that.", "topic": "police_teacher_basement1" },
+      { "text": "I'll think about that.", "topic": "TALK_police_teacher_basement1" },
       {
         "text": "Nah.",
         "topic": "TALK_DONE",
@@ -347,7 +347,7 @@
       "effect": [
         "stop_following",
         { "npc_add_var": "police_teacher_work", "type": "general", "context": "flag", "time": true },
-        { "npc_first_topic": "police_teacher_working" }
+        { "npc_first_topic": "TALK_police_teacher_working" }
       ]
     },
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -374,7 +374,7 @@
     "difficulty": 0,
     "value": 100,
     "start": {
-      "effect": { "npc_first_topic": "police_teacher_wait" },
+      "effect": { "npc_first_topic": "TALK_police_teacher_wait" },
       "assign_mission_target": {
         "om_terrain": "forest",
         "om_terrain_replace": "field",
@@ -384,7 +384,7 @@
         "min_distance": 30,
         "random": true
       },
-      "update_mapgen": { "place_npc": [ { "class": "bill_the_assassin", "x": 10, "y": 10, "target": true } ] }
+      "update_mapgen": { "place_npc": [ { "class": "NPC_bill_the_assassin", "x": 10, "y": 10, "target": true } ] }
     },
     "end": {
       "effect": [

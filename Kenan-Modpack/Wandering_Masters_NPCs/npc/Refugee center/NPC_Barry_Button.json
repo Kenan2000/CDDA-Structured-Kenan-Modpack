@@ -2,7 +2,7 @@
   {
     "//": "TODO check text, maybe add something more",
     "type": "npc",
-    "id": "Barry_Button",
+    "id": "NPC_Barry_Button",
     "name_unique": "Barry Button",
     "gender": "male",
     "name_suffix": "refugee",
@@ -11,7 +11,7 @@
     "mission": 7,
     "chat": "TALK_Barry_Button_1",
     "faction": "free_merchants",
-    "mission_offered": "MISSION_BarryB_1"
+    "mission_offered": "MISSION_Barry_Button_1"
   },
   {
     "id": "TALK_Barry_Button_1",
@@ -29,18 +29,18 @@
     "responses": [
       {
         "text": "Your brother sent me. Let's get out of here, and fast.",
-        "topic": "BarryB_GetOut",
+        "topic": "TALK_Barry_Button_GetOut",
         "condition": { "not": { "u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes" } }
       },
       {
         "text": "We're here.",
-        "topic": "BarryB_Safe",
+        "topic": "TALK_Barry_Button_Safe",
         "condition": { "npc_at_om_location": "evac_center_7" },
         "effect": [ "stop_following" ]
       },
       {
         "text": "We're here.",
-        "topic": "BarryB_Safe",
+        "topic": "TALK_Barry_Button_Safe",
         "condition": { "npc_at_om_location": "bank" },
         "effect": [ "stop_following" ]
       },
@@ -49,7 +49,7 @@
   },
   {
     "type": "talk_topic",
-    "id": "BarryB_GetOut",
+    "id": "TALK_Barry_Button_GetOut",
     "dynamic_line": "Let's go!",
     "responses": [
       {
@@ -61,7 +61,7 @@
   },
   {
     "type": "talk_topic",
-    "id": "BarryB_Safe",
+    "id": "TALK_Barry_Button_Safe",
     "dynamic_line": "Phew, that was a close one! I owe you one there, <name_g>. Let me just catch my breath. Talk to me later.",
     "responses": [
       {
@@ -80,11 +80,11 @@
     "dynamic_line": "<greet>",
     "responses": [
       { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
-      { "text": "<BGSS_intro_question>", "topic": "barry_button_Background" },
-      { "text": "So, what about that job?", "topic": "barryb_job" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_Barry_Button_Background" },
+      { "text": "So, what about that job?", "topic": "TALK_Barry_Button_job" },
       {
         "text": "Can you teach me something?",
-        "topic": "barry_button_teach_check",
+        "topic": "TALK_Barry_Button_teach_check",
         "condition": { "npc_has_var": "u_know_barryb_backstory", "type": "flag", "context": "meeting", "value": "yes" }
       },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
@@ -92,7 +92,7 @@
   },
   {
     "type": "talk_topic",
-    "id": "barryb_job",
+    "id": "TALK_Barry_Button_job",
     "dynamic_line": {
       "npc_compare_time_since_var": "barryb_wait",
       "type": "flag",
@@ -114,7 +114,7 @@
   },
   {
     "type": "talk_topic",
-    "id": "barry_button_Background",
+    "id": "TALK_Barry_Button_Background",
     "dynamic_line": "I was a teacher, always wanted to be rich! Now I can fulfill my dream!",
     "responses": [
       {
@@ -126,7 +126,7 @@
   },
   {
     "type": "talk_topic",
-    "id": "barry_button_teach_check",
+    "id": "TALK_Barry_Button_teach_check",
     "dynamic_line": {
       "npc_has_var": "u_helped_barry_button",
       "type": "general",
@@ -144,9 +144,9 @@
           "condition": { "npc_has_var": "barry_button_teach", "type": "general", "context": "meeting", "value": "yes" }
         },
         "success": {
-          "topic": "barry_button_teach_check1"
+          "topic": "TALK_Barry_Button_teach_check1"
         },
-        "failure": { "topic": "barry_button_teach_done" }
+        "failure": { "topic": "TALK_Barry_Button_teach_done" }
       },
       { "text": "Sorry I don't want to.", "topic": "TALK_NONE" }
     ]
@@ -154,7 +154,7 @@
   {
     "//": "do different lines for give_trait using switch:true",
     "type": "talk_topic",
-    "id": "barry_button_teach_check1",
+    "id": "TALK_Barry_Button_teach_check1",
     "dynamic_line": {
       "npc_has_var": "barry_button_teach",
       "type": "general",
@@ -178,21 +178,21 @@
     "responses": [
       {
         "text": "Yes, let's do this.",
-        "topic": "barry_button_teach",
+        "topic": "TALK_Barry_Button_teach",
         "condition": { "u_has_trait": "ILLITERATE" },
         "effect": { "u_lose_trait": "ILLITERATE" },
         "switch": true
       },
       {
         "text": "Yes, let's do this.",
-        "topic": "barry_button_teach",
+        "topic": "TALK_Barry_Button_teach",
         "condition": { "u_has_trait": "SLOWREADER" },
         "effect": { "u_lose_trait": "SLOWREADER" },
         "switch": true
       },
       {
         "text": "Yes, let's do this.",
-        "topic": "barry_button_teach",
+        "topic": "TALK_Barry_Button_teach",
         "condition": { "not": { "u_has_trait": "FASTREADER" } },
         "effect": { "u_add_trait": "FASTREADER" },
         "switch": true
@@ -202,18 +202,18 @@
   },
   {
     "type": "talk_topic",
-    "id": "barry_button_teach",
+    "id": "TALK_Barry_Button_teach",
     "dynamic_line": "Good luck, student!",
     "responses": [ { "text": "Thanks, Barry!", "topic": "TALK_DONE", "effect":  { "npc_lose_var": "barry_button_teach", "type": "general", "context": "meeting", "value": "yes" } } ]
   },
   {
     "type": "talk_topic",
-    "id": "barry_button_teach_done",
+    "id": "TALK_Barry_Button_teach_done",
     "dynamic_line": "I already taught you all I knew.",
     "responses": [ { "text": "Thanks again, Barry.", "topic": "TALK_DONE" } ]
   },
   {
-    "id": "MISSION_BarryB_1",
+    "id": "MISSION_Barry_Button_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
     "name": { "str": "Heist" },

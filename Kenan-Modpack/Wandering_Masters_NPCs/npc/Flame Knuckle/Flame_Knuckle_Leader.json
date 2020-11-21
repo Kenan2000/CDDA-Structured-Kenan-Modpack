@@ -2,19 +2,19 @@
   {
     "//": "TODO check text for mistakes, balance traits stats etc",
     "type": "npc",
-    "id": "flame_knuckle_leader",
+    "id": "NPC_flame_knuckle_leader",
     "gender": "male",
     "name_suffix": "the Flame Knuckle",
-    "class": "flame_knuckle_leader",
+    "class": "NC_flame_knuckle_leader",
     "attitude": 1,
     "mission": 8,
-    "chat": "flame_knuckle_leader_start",
+    "chat": "TALK_flame_knuckle_leader_start",
     "faction": "flame_knuckle",
     "mission_offered": "MISSION_flame_knuckle_leader_1"
   },
   {
     "type": "npc_class",
-    "id": "flame_knuckle_leader",
+    "id": "NC_flame_knuckle_leader",
     "name": { "str": "Flame Knuckle Leader" },
     "job_description": "The leader of Flame Knuckle school.",
     "common": false,
@@ -23,7 +23,7 @@
     "bonus_dex": { "rng": [ 4, 7 ] },
     "bonus_int": { "rng": [ 3, 5 ] },
     "bonus_per": { "rng": [ 3, 4 ] },
-    "worn_override": "flame_knuckle_leader_worn",
+    "worn_override": "NC_flame_knuckle_leader_worn",
     "weapon_override": "EMPTY_GROUP",
     "skills": [
       { "skill": "dodge", "bonus": { "rng": [ 6, 8 ] } },
@@ -33,7 +33,7 @@
   },
   {
     "type": "item_group",
-    "id": "flame_knuckle_leader_worn",
+    "id": "NC_flame_knuckle_leader_worn",
     "subtype": "collection",
     "entries": [
       { "item": "karate_gi" },
@@ -50,9 +50,9 @@
     ]
   },
   {
-    "id": [ "flame_knuckle_leader_start" ],
+    "id": [ "TALK_flame_knuckle_leader_start" ],
     "type": "talk_topic",
-    "dynamic_line": "So, what brings you here, <name_g>?",
+    "dynamic_line": "What brings you here, <name_g>?",
     "responses": [
       {
         "text": "I'm here for business.",
@@ -60,14 +60,14 @@
           "type": "CONDITION",
           "condition": { "u_has_var": "fkl_business", "type": "flag", "context": "meeting", "value": "yes" }
         },
-        "success": { "topic": "flame_knuckle_leader_good" },
-        "failure": { "topic": "flame_knuckle_leader_bad" }
+        "success": { "topic": "TALK_flame_knuckle_leader_good" },
+        "failure": { "topic": "TALK_flame_knuckle_leader_bad" }
       },
-      { "text": "I'm here to kick your ass!", "topic": "flame_knuckle_leader_bad" }
+      { "text": "I'm here to kick your ass!", "topic": "TALK_flame_knuckle_leader_bad" }
     ]
   },
   {
-    "id": [ "flame_knuckle_leader_good" ],
+    "id": [ "TALK_flame_knuckle_leader_good" ],
     "type": "talk_topic",
     "dynamic_line": "So, you are that new student I was told about? Unfortunately for you, I know everything about you. I think you understand that you are not the first person this old fool sends to us. But you're in luck, today I'm in a good mood, and I'm ready to give you a chance to redeem yourself. Bring that old man's head and I'll think about giving you a chance to join my school.",
     "responses": [
@@ -75,87 +75,87 @@
         "text": "I'll think about that.",
         "topic": "TALK_DONE",
         "effect": [
-          { "npc_first_topic": "flame_knuckle_leader_waiting" },
+          { "npc_first_topic": "TALK_flame_knuckle_leader_waiting" },
           { "u_add_var": "fkl_end_ip", "type": "flag", "context": "meeting", "value": "yes" }
         ]
       },
-      { "text": "I think we should fight.", "topic": "flame_knuckle_leader_bad" }
+      { "text": "I think we should fight.", "topic": "TALK_flame_knuckle_leader_bad" }
     ]
   },
   {
-    "id": "flame_knuckle_leader_waiting",
+    "id": "TALK_flame_knuckle_leader_waiting",
     "type": "talk_topic",
     "dynamic_line": "I'm still waiting.",
     "responses": [
       { "text": "I'm already on it!", "topic": "TALK_DONE", "condition": { "not": { "u_has_item": "ip_leader_head" } } },
       {
         "text": "Here it is.",
-        "topic": "flame_knuckle_leader_pleased",
+        "topic": "TALK_flame_knuckle_leader_pleased",
         "condition": { "u_has_item": "ip_leader_head" },
         "effect": [ { "u_consume_item": "ip_leader_head" } ]
       },
-      { "text": "Actually, let's fight!", "topic": "flame_knuckle_leader_bad" }
+      { "text": "Actually, let's fight!", "topic": "TALK_flame_knuckle_leader_bad" }
     ]
   },
   {
-    "id": [ "flame_knuckle_leader_pleased" ],
+    "id": [ "TALK_flame_knuckle_leader_pleased" ],
     "type": "talk_topic",
     "dynamic_line": "Very well. Consider that you have received my trust. If you still want to become a student of my school, come to me when you have free time.",
     "responses": [
       {
         "text": "Thank you for your trust.",
         "topic": "TALK_DONE",
-        "effect": [ { "npc_first_topic": "flame_knuckle_leader_1" } ]
+        "effect": [ { "npc_first_topic": "TALK_flame_knuckle_leader_1" } ]
       }
     ]
   },
   {
-    "id": [ "flame_knuckle_leader_bad" ],
+    "id": [ "TALK_flame_knuckle_leader_bad" ],
     "type": "talk_topic",
-    "dynamic_line": "So, we do this easy way or a hard way?",
+    "dynamic_line": "We do this easy way or a hard way?",
     "responses": [
-      { "text": "Easy way, please.", "topic": "flame_knuckle_leader_easy" },
-      { "text": "Hard way, please.", "topic": "flame_knuckle_leader_hard" }
+      { "text": "Easy way, please.", "topic": "TALK_flame_knuckle_leader_easy" },
+      { "text": "Hard way, please.", "topic": "TALK_flame_knuckle_leader_hard" }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "flame_knuckle_leader_easy",
+    "id": "TALK_flame_knuckle_leader_easy",
     "dynamic_line": "Bend over.",
     "responses": [ { "text": "Oh noes!", "topic": "TALK_DONE", "effect": "start_mugging" } ]
   },
   {
     "type": "talk_topic",
-    "id": "flame_knuckle_leader_hard",
+    "id": "TALK_flame_knuckle_leader_hard",
     "dynamic_line": "So be it!",
     "responses": [ { "text": "Let's rock!", "topic": "TALK_DONE", "effect": [ { "u_faction_rep": -100 } ] } ]
   },
   {
     "type": "talk_topic",
-    "id": [ "flame_knuckle_leader_1" ],
+    "id": [ "TALK_flame_knuckle_leader_1" ],
     "dynamic_line": "I hope you bring me something worth my attention.",
     "responses": [
       { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
-      { "text": "<BGSS_intro_question>", "topic": "flame_knuckle_leader_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_flame_knuckle_leader_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
-      { "text": "Can you teach me something?", "topic": "flame_knuckle_leader_teach_check" },
+      { "text": "Can you teach me something?", "topic": "TALK_flame_knuckle_leader_teach_check" },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "flame_knuckle_leader_Background",
+    "id": "TALK_flame_knuckle_leader_Background",
     "dynamic_line": "Bah, what's the point of it? It's all story now. Let's focus on todays problems.",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "flame_knuckle_leader_teach_check",
+    "id": "TALK_flame_knuckle_leader_teach_check",
     "dynamic_line": "I'm not in the mood right now. Go away.",
     "responses": [
       {
         "text": "Maybe you want to teach me something cool, master?",
-        "topic": "flame_knuckle_leader_teach",
+        "topic": "TALK_flame_knuckle_leader_teach",
         "condition": { "npc_has_var": "u_helped_flame_knuckle_leader", "type": "general", "context": "meeting", "value": "yes" },
         "effect": { "npc_lose_var": "flame_knuckle_leader_teach", "type": "general", "context": "meeting", "value": "yes" }
       },
@@ -164,7 +164,7 @@
   },
   {
     "type": "talk_topic",
-    "id": "flame_knuckle_leader_teach",
+    "id": "TALK_flame_knuckle_leader_teach",
     "dynamic_line": "So, you want to learn the secrets of my school? Here, take it, it's all yours, my student. But you know, I'm not feeling that generous to just give you my secrets that easily. Let's dance for a bit, and if you could stand still after that, consider yourself worthy to know the ways of my school.",
     "responses": [
       {
@@ -224,7 +224,6 @@
     "name": { "str": "Train with Flame Knuckle leader" },
     "description": "Flame Knuckle leader suddenly attacked you. Maybe this is part of the training?",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": { "u_has_var": "-", "type": "general", "context": "meeting", "value": "yes" },
     "difficulty": 0,
     "value": 0,
     "origins": [ "ORIGIN_SECONDARY" ],

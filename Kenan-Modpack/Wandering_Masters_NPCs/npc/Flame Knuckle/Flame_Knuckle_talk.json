@@ -22,7 +22,7 @@
   },
   {
     "type": "talk_topic",
-    "id": "TALK_COACH",
+    "id": "TALK_FK_COACH",
     "//": "TODO change this lame line",
     "dynamic_line": "Oh, another survivor! <greet> Do you want to learn the way of Flame Knuckle school?",
     "responses": [
@@ -37,22 +37,22 @@
   },
   {
     "type": "talk_topic",
-    "id": "TALK_DOOR",
+    "id": "TALK_FK_DOOR",
     "//": "TODO change this lame line",
     "dynamic_line": "Halt! Who goes there?",
     "responses": [
       {
         "text": "Friendly.",
         "trial": { "type": "CONDITION", "condition": { "u_has_item": "flyer_fk" } },
-        "success": { "topic": "TALK_DOOR_ENTRY" },
-        "failure": { "topic": "TALK_DOOR_DENY" }
+        "success": { "topic": "TALK_FK_DOOR_ENTRY" },
+        "failure": { "topic": "TALK_FK_DOOR_DENY" }
       },
-      { "text": "Enemy.", "topic": "TALK_DOOR_DENY" }
+      { "text": "Enemy.", "topic": "TALK_FK_DOOR_DENY" }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "TALK_DOOR_ENTRY",
+    "id": "TALK_FK_DOOR_ENTRY",
     "//": "TODO change this lame line",
     "dynamic_line": "Permition granted! Go forward, and don't touch anything, or you'll regret it, <name_g>!",
     "responses": [
@@ -65,14 +65,14 @@
   },
   {
     "type": "talk_topic",
-    "id": "TALK_DOOR_DENY",
+    "id": "TALK_FK_DOOR_DENY",
     "//": "TODO change this lame line",
     "dynamic_line": "Get lost, <name_b>!",
     "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "TALK_DOOR_DENY_ENEMY",
+    "id": "TALK_FK_DOOR_DENY_ENEMY",
     "//": "TODO change this lame line",
     "dynamic_line": "Funny guy, are you? Boys, let's teach this <name_b> some manners!",
     "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": [ { "u_faction_rep": -100 } ] } ]
@@ -82,7 +82,7 @@
     "type": "mission_definition",
     "has_generic_rewards": false,
     "name": { "str": "Flame Knuckle school" },
-    "description": "Go talk to Flame Knuckle's leader.",
+    "description": "Talk to Flame Knuckle's leader.",
     "goal": "MGOAL_TALK_TO_NPC",
     "difficulty": 1,
     "value": 100,
@@ -102,7 +102,7 @@
         "search_range": 200,
         "min_distance": 50
       },
-      "update_mapgen": { "place_npcs": [ { "class": "flame_knuckle_leader", "x": 2, "y": 11, "target": true } ] }
+      "update_mapgen": { "place_npcs": [ { "class": "NPC_flame_knuckle_leader", "x": 2, "y": 11, "target": true } ] }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {

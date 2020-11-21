@@ -2,19 +2,19 @@
   {
     "//": "TODO check text, maybe balance him a bit ",
     "type": "npc",
-    "id": "boxer_johnny",
+    "id": "NPC_boxer_johnny",
     "name_unique": "Boxer Johnny",
     "gender": "male",
-    "class": "boxer_johnny",
+    "class": "NC_boxer_johnny",
     "attitude": 0,
     "mission": 7,
-    "chat": "boxer_johnny_1",
+    "chat": "TALK_boxer_johnny_1",
     "faction": "boxer_johnny_gym",
     "mission_offered": "MISSION_boxer_johnny_1"
   },
   {
     "type": "npc_class",
-    "id": "boxer_johnny",
+    "id": "NC_boxer_johnny",
     "name": { "str": "Boxer Johnny" },
     "job_description": "Boxer Johnny.",
     "common": false,
@@ -22,7 +22,7 @@
     "bonus_dex": { "rng": [ 2, 5 ] },
     "bonus_int": { "rng": [ 1, 2 ] },
     "bonus_per": { "rng": [ 1, 2 ] },
-    "worn_override": "boxer_johnny_worn",
+    "worn_override": "NC_boxer_johnny_worn",
     "weapon_override": "EMPTY_GROUP",
     "traits": [
       { "group": "NPC_starting_traits" },
@@ -34,7 +34,7 @@
   },
   {
     "type": "item_group",
-    "id": "boxer_johnny_worn",
+    "id": "NC_boxer_johnny_worn",
     "subtype": "collection",
     "entries": [
       { "item": "under_armor_shorts" },
@@ -51,7 +51,7 @@
   },
   {
     "type": "talk_topic",
-    "id":  "boxer_johnny_1" ,
+    "id":  "TALK_boxer_johnny_1" ,
     "dynamic_line": {
       "u_has_var": "bj_debt_repaid",
       "type": "flag",
@@ -63,27 +63,21 @@
     "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_boxer_johnny_0" } },
     "responses": [
       { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": {"and":["mission_complete", "has_many_assigned_missions"]} },
-      { "text": "<BGSS_intro_question>", "topic": "boxer_johnny_Background" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_boxer_johnny_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
-      { "text": "Can you teach me something?", "topic": "boxer_johnny_teach_check" },
+      { "text": "Can you teach me something?", "topic": "TALK_boxer_johnny_teach_check" },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "boxer_johnny_moneylender",
-    "dynamic_line": "There, in his bar.",
-    "responses": [ { "text": "Thanks.", "topic": "TALK_DONE" } ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "boxer_johnny_Background",
-    "dynamic_line": "Well I’m just a regular boxer, really. I worked here before <the_cataclysm>, but now I live here, I suppose.",
+    "id": "TALK_boxer_johnny_Background",
+    "dynamic_line": "Well I’m just a regular boxer, really.  I worked here before <the_cataclysm>, but now I live here, I suppose.",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "boxer_johnny_teach_check",
+    "id": "TALK_boxer_johnny_teach_check",
     "dynamic_line": "I'll teach you, for sure, but only after I'll deal with all my problems.",
     "responses": [
       {
@@ -98,22 +92,22 @@
             { "u_buy_item": "manual_boxing" },
             { "npc_add_var": "boxer_johnny_teach", "type": "general", "context": "meeting", "value": "no" }
           ],
-          "topic": "boxer_johnny_teach"
+          "topic": "TALK_boxer_johnny_teach"
         },
-        "failure": { "topic": "boxer_johnny_teach_done" }
+        "failure": { "topic": "TALK_boxer_johnny_teach_done" }
       },
       { "text": "…", "topic": "TALK_NONE" }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "boxer_johnny_teach",
-    "dynamic_line": "Yeah, I guess they are. Here, you can take it.",
+    "id": "TALK_boxer_johnny_teach",
+    "dynamic_line": "Yeah, I guess they are.  Here, you can take it.",
     "responses": [ { "text": "Thanks, Johnny.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
-    "id": "boxer_johnny_teach_done",
+    "id": "TALK_boxer_johnny_teach_done",
     "dynamic_line": "I already taught you all I knew.",
     "responses": [ { "text": "Thanks again, Johnny.", "topic": "TALK_DONE" } ]
   },
@@ -122,12 +116,12 @@
     "id": "bjohnny_busy",
     "dynamic_line": "*looks busy.",
     "responses": [
-      { "text": "Ahem!", "topic": "boxer_johnny_1", "condition": "mission_complete" },
+      { "text": "Ahem!", "topic": "TALK_boxer_johnny_1", "condition": "mission_complete" },
       {
-        "text": "Ahem. Your debt is repaid. You can relax.",
+        "text": "Ahem.  Your debt is repaid.  You can relax.",
         "topic": "TALK_MISSION_SUCCESS",
         "condition": { "u_has_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" },
-        "effect": [ "mission_success", { "npc_first_topic": "boxer_johnny_1" } ]
+        "effect": [ "mission_success", { "npc_first_topic": "TALK_boxer_johnny_1" } ]
       },
       { "text": "…", "topic": "TALK_DONE" }
     ]
@@ -158,12 +152,12 @@
     "followup": "MISSION_boxer_johnny_2",
     "dialogue": {
       "describe": "Boxer Johnny",
-      "offer": "Well, you know, I don't know if I should tell you, but…Ah, what the hell, I'm a dead man anyway! Before <the_cataclysm>, I took some money from moneylender to make some improvements for my gym. At first, things went smoothly, but after that day, as you can guess, my cash flow goes straight to zero. Somehow, that bastard managed to survive and, can you believe it, asked me to repay my debt! What for? He would buy himself a nice car or something?! And there's more! When I refused to pay, he said that he would sell me as slave to a local bandit band or something. Hell, I wouldn't turn myself to slave easily, I'll fight for my freedom! Would you help me?",
-      "accepted": "Hell, we will teach those bastards some proper manners!..Did you hear that? I think they're here! Let's go kick their asses!",
+      "offer": "Well, you know, I don't know if I should tell you, but…  Ah, what the hell, I'm a dead man anyway!  Before <the_cataclysm>, I took a lot of money from moneylender to make some improvements for my gym.  At first, things went smoothly, but after that day, as you can guess, my cash flow goes straight to zero.  Somehow, that bastard managed to survive and, can you believe it, asked me to repay my debt!  What for? He would buy himself a nice car or something?!  And there's more!  When I refused to pay, he said that he would sell me as slave to a local bandit band or something.  Hell, I wouldn't turn myself to slave easily, I'll fight for my freedom!  Would you help me?",
+      "accepted": "Hell, we will teach those bastards some proper manners…   <speech_warning>  I think they're here!  Let's go kick their asses!",
       "rejected": "C'mon, man!",
       "advice": "Move like a butterfly, sting like a bee!",
       "inquire": "So?",
-      "success": "HOOVA! That's what I'm talking about. We showed them who's the bosses around here! Thanks, I ove you one. I think it will cool his head for a while.",
+      "success": "HOOVA!  That's what I'm talking about.  We showed them who's the bosses around here!  Thanks, I owe you one.  I think it will cool his head for a while.",
       "success_lie": "Bruh.",
       "failure": "Bruh."
     }
@@ -193,12 +187,12 @@
     "followup": "MISSION_boxer_johnny_3",
     "dialogue": {
       "describe": "Boxer Johnny",
-      "offer": "Good to see you again. Unfortunately for me, that moneylender guy don't let me go so easily. He sent me his goon with a message recently. He said that if I want to keep my gym and my head, I need to repay him, and that guy convinced me, that his boss is serious about it. Now I'm a little scared. If only I could somehow deal with this problem…",
-      "accepted": "You want to help me? Thank you, I owe you a big one! But if you serious about it, you don't have much time. He gave no more than a month, so if you or me didn't make it in time…",
+      "offer": "Good to see you again. Unfortunately for me, that moneylender guy don't let me go so easily.  He sent me his goon with a message recently.  He said that if I want to keep my gym and my head, I need to repay him, and that guy convinced me, that his boss is serious about it.  Now I'm a little scared.  If only I could somehow deal with this problem…",
+      "accepted": "You want to help me?  Thank you, I owe you a big one!  But if you serious about it, you don't have much time.  He gave no more than a month, so if you or me didn't make it in time…",
       "rejected": "…",
       "advice": "He's <very> dangerous man, I assure you, so take care!",
       "inquire": "…",
-      "success": "I don't know what to say. You saved my ass, and know I'm in eternal debt to you! Thank you.",
+      "success": "I don't know what to say.  You saved my ass, and know I'm in eternal debt to you!  Thank you.",
       "success_lie": "…",
       "failure": "…"
     },
@@ -237,12 +231,12 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "Boxer Johnny",
-      "offer": "So, now I have my head back, and my gym as well! It's time to give this world a chance by reopening my boxing school! Find me 2 new students, so that I can make them new pair of steel fists! With them, we could even clean this town from this <zombies>!",
-      "accepted": "I know you wouldn't refuse. I'll wait.",
+      "offer": "So, now I have my head back, and my gym as well!  It's time to give this world a chance by reopening my boxing school!  Find me 2 new students, so that I can make them new pair of steel fists!  With them, we could even clean this town from <zombies>!",
+      "accepted": "I know you wouldn't refuse, <name_g>.  I'll wait.",
       "rejected": "Hmm…",
-      "advice": "You can bring me anyone. Children, elder, anyone that need protection! We would remake this gym as base for needed.",
+      "advice": "You can bring me anyone.  Children, elder, anyone that need protection!  We would remake this gym as base for needed.",
       "inquire": "I'm waiting.",
-      "success": "Good. I know you can do it! Also, I could make another pair of steel fists for you too! Talk to me if you're interested.",
+      "success": "<very> good, <name_g>.  If you want, I could make another pair of steel fists for you too!  Talk to me if you're interested.",
       "success_lie": "Why?",
       "failure": "…"
     }
