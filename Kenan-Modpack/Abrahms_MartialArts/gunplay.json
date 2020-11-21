@@ -1,0 +1,352 @@
+[
+  {
+    "type": "martial_art",
+    "id": "style_gunslinging",
+    "name": "Gunslinging",
+    "description": "You have a gun in your hand. You point it at enemies, the gun goes bang and enemies go poof.\n\n Not sure if it's even possible to make a ranged martial art. Ranged attacks aren't affected by combat buffs or bonuses. It's entirely possible that the skills do nothing, but the buffs should be generally useful.",
+    "initiate": [ "You point your gun at the enemy.", "%s gets ready to shoot." ],
+    "autolearn": [ [ "gun", "1" ] ],
+    "primary skill": "gun",
+    "allow_melee": true,
+    "static_buffs": [
+      {
+        "id": "buff_44_static",
+        "name": "Do I Feel Lucky?",
+        "description": "Well, do you, punk?\n\n Big dodge bonus, strength and dexterity based bonuses to speed and accuracy.",
+        "melee_allowed": true,
+        "bonus_dodges": 3,
+        "flat_bonuses": [ { "stat": "dodge", "scale": 5 } ],
+        "mult_bonuses": [
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 4 },
+          { "stat": "movecost", "scaling-stat": "str", "scale": -2.5 },
+          { "stat": "movecost", "scaling-stat": "dex", "scale": -2.5 },
+          { "stat": "hit", "scaling-stat": "str", "scale": 2.5 },
+          { "stat": "hit", "scaling-stat": "dex", "scale": 2.5 }
+        ]
+      },
+      {
+        "id": "buff_guntraininglv1_static",
+        "name": "Level 1 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 1 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "dodge", "scale": 1.1 }, { "stat": "hit", "scale": 1.1 } ]
+      },
+      {
+        "id": "buff_guntraininglv2_static",
+        "name": "Level 2 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 2 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "dodge", "scale": 1.1 }, { "stat": "hit", "scale": 1.1 } ]
+      },
+      {
+        "id": "buff_guntraininglv3_static",
+        "name": "Level 3 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 3 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "dodge", "scale": 1.1 }, { "stat": "hit", "scale": 1.1 } ]
+      },
+      {
+        "id": "buff_guntraininglv4_static",
+        "name": "Level 4 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 4 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "dodge", "scale": 1.1 }, { "stat": "hit", "scale": 1.1 } ]
+      },
+      {
+        "id": "buff_guntraininglv5_static",
+        "name": "Level 5 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 5 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "dodge", "scale": 1.1 }, { "stat": "hit", "scale": 1.1 } ]
+      },
+      {
+        "id": "buff_guntraininglv6_static",
+        "name": "Level 6 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 6 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "dodge", "scale": 1.1 }, { "stat": "hit", "scale": 1.1 } ]
+      },
+      {
+        "id": "buff_guntraininglv7_static",
+        "name": "Level 7 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 7 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "dodge", "scale": 1.1 }, { "stat": "hit", "scale": 1.1 } ]
+      },
+      {
+        "id": "buff_guntraininglv8_static",
+        "name": "Level 8 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 8 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "dodge", "scale": 1.1 }, { "stat": "hit", "scale": 1.1 } ]
+      },
+      {
+        "id": "buff_guntraininglv9_static",
+        "name": "Level 9 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 9 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "dodge", "scale": 1.1 }, { "stat": "hit", "scale": 1.1 } ]
+      },
+      {
+        "id": "buff_guntraininglv10_static",
+        "name": "Level 10 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 10 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "dodge", "scale": 1.1 }, { "stat": "hit", "scale": 1.1 } ]
+      },
+      {
+        "id": "buff_guntraininglv11_static",
+        "name": "Level 11 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 11 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "dodge", "scale": 1.1 }, { "stat": "hit", "scale": 1.1 } ]
+      },
+      {
+        "id": "buff_guntraininglv12_static",
+        "name": "Level 12 gun training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "gun", "level": 12 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.5 }, { "stat": "dodge", "scale": 2 }, { "stat": "hit", "scale": 2 } ]
+      }
+    ],
+    "onhit_buffs": [
+      {
+        "id": "buff_guntraining_onhit",
+        "name": "Muscle Memory",
+        "description": "Every successful hit gives you a small permanent improvement.",
+        "unarmed_allowed": true,
+        "skill_requirements": [ { "name": "gun", "level": 3 } ],
+        "max_stacks": 99999,
+        "flat_bonuses": [
+          { "stat": "damage", "type": "cut", "scale": 0.01 },
+          { "stat": "dodge", "scale": 0.05 },
+          { "stat": "hit", "scale": 0.05 }
+        ],
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.99 } ]
+      }
+    ],
+    "onmiss_buffs": [
+      {
+        "id": "buff_dairyfarmer_onmiss",
+        "name": "You Fight Like A Dairy Farmer",
+        "description": "You fight like a dairy farmer!",
+        "unarmed_allowed": true,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 } ],
+        "flat_bonuses": [ { "stat": "damage", "type": "cut", "scale": 1.5 } ],
+        "bonus_dodges": 1,
+        "buff_duration": 2
+      }
+    ],
+    "onmove_buffs": [
+      {
+        "id": "buff_runandgun_onmove",
+        "name": "Run and Gun",
+        "description": "Allows you to shoot on the move",
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.1 }, { "stat": "dodge", "scale": 1.5 }, { "stat": "hit", "scale": 1.5 } ],
+        "bonus_dodges": 1,
+        "max_stacks": 2,
+        "buff_duration": 2
+      }
+    ],
+    "onpause_buffs": [
+      {
+        "id": "buff_reloading_onpause",
+        "name": "Reloading!",
+        "description": "Allows you to quickly reload and line up your next shot.",
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.1 }, { "stat": "dodge", "scale": 10 }, { "stat": "hit", "scale": 5 } ],
+        "bonus_dodges": 10,
+        "max_stacks": 10,
+        "buff_duration": 3
+      }
+    ],
+    "onkill_buffs": [
+      {
+        "id": "buff_gunslinger_onkill",
+        "name": "Roland Deschain, son of Steven, of Giliad",
+        "description": "Allows you to reload (and do everything else) faster after every kill.",
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.95 } ]
+      }
+    ],
+    "ondodge_buffs": [
+      {
+        "id": "buff_gunslingerdodge_ondodge",
+        "name": "Get the ____ outta Dodge",
+        "description": "Dodging helps you dodge more. This is probably temporary, for trying to fix a bug, because if it works, it's extremely op.",
+        "max_stacks": 99,
+        "flat_bonuses": [ { "stat": "dodge", "scale": 99 } ],
+        "mult_bonuses": [ { "stat": "dodge", "scale": 99 } ],
+        "bonus_dodges": 99,
+        "buff_duration": 99
+      }
+    ],
+    "techniques": [
+      "abgun_cow",
+      "abgun_annihilated",
+      "abgun_twofer",
+      "abgun_knockdown",
+      "abgun_doubletap",
+      "abgun_dance",
+      "abgun_lunge",
+      "abgun_butt",
+      "abgun_counter"
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abgun_cow",
+    "name": "You Fight Like A Cow",
+    "melee_allowed": true,
+    "req_buffs": [ "buff_dairyfarmer_onmiss" ],
+    "mult_bonuses": [ { "stat": "hit", "scale": 1.2 } ],
+    "messages": [ "How appropriate, you fight like a cow!", "%s fights like a cow." ],
+    "description": "Miss recovery"
+  },
+  {
+    "type": "technique",
+    "id": "abgun_annihilated",
+    "name": "Every Enemy Ive Met Ive Annihilated",
+    "req_buffs": [ "buff_dairyfarmer_onmiss" ],
+    "skill_requirements": [ { "name": "gun", "level": 10 } ],
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "mult_bonuses": [
+      { "stat": "damage", "type": "cut", "scale": 99 },
+      { "stat": "damage", "type": "bash", "scale": 99 },
+      { "stat": "hit", "scale": 99 },
+      { "stat": "dodge", "scale": 99 }
+    ],
+    "messages": [ "With your breath, they probably suffocated!", "%s has bad breath" ],
+    "description": "High-level miss recovery - One Hit Kill"
+  },
+  {
+    "type": "technique",
+    "id": "abgun_twofer",
+    "name": "2-4-1",
+    "melee_allowed": true,
+    "unarmed_allowed": true,
+    "skill_requirements": [ { "name": "gun", "level": 6 } ],
+    "crit_tec": true,
+    "messages": [ "Your shot pierces straight through %s", "<npcname> pierces through %s" ],
+    "aoe": "impale",
+    "description": "Attack target and another one behind it, crit only, min 6 marksmanship"
+  },
+  {
+    "type": "technique",
+    "id": "abgun_knockdown",
+    "name": "Knockdown",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "gun", "level": 5 } ],
+    "crit_tec": true,
+    "stun_dur": 2,
+    "knockback_dist": 1,
+    "messages": [ "Your shot knocks %s down.", "<npcname> knocks %s down" ],
+    "description": "Stun 2 turns, knockback 1 tile, crit only"
+  },
+  {
+    "type": "technique",
+    "id": "abgun_doubletap",
+    "name": "Double Tap",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "mult_bonuses": [
+      { "stat": "dodge", "scale": 99 },
+      { "stat": "damage", "type": "cut", "scale": 99 },
+      { "stat": "damage", "type": "bash", "scale": 99 }
+    ],
+    "crit_tec": true,
+    "weighting": -250,
+    "messages": [ "You quickly put 2 rounds through %s brain", "<npcname> double-taps %s" ],
+    "description": "Cut and bash damage multiplied by 99, crit only"
+  },
+  {
+    "type": "technique",
+    "id": "abgun_dance",
+    "name": "Make Em Dance",
+    "skill_requirements": [ { "name": "gun", "level": 2 } ],
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "defensive": true,
+    "miss_recovery": true,
+    "messages": [ "You make %s dance.", "<npcname> makes %s dance." ]
+  },
+  {
+    "type": "technique",
+    "id": "abgun_lunge",
+    "name": "Gun Lunge",
+    "messages": [ "You close your distance to %s, to allow a point-blank shot", "<npcname> lunges at %s" ],
+    "skill_requirements": [ { "name": "gun", "level": 2 } ],
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "crit_ok": true,
+    "mult_bonuses": [
+      { "stat": "dodge", "scale": 5 },
+      { "stat": "movecost", "scale": 0.5 },
+      { "stat": "arpen", "type": "cut", "scale": 5 },
+      { "stat": "arpen", "type": "bash", "scale": 5 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abgun_butt",
+    "name": "Butt Strike",
+    "messages": [ "You smash %s with the butt of your gun", "<npcname> smashes %s with their gun" ],
+    "skill_requirements": [ { "name": "gun", "level": 3 } ],
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "crit_ok": true,
+    "dodge_counter": true,
+    "down_dur": 1,
+    "knockback_dist": 2,
+    "mult_bonuses": [
+      { "stat": "dodge", "scale": 2 },
+      { "stat": "movecost", "scale": 0.1 },
+      { "stat": "damage", "type": "cut", "scale": 2 },
+      { "stat": "damage", "type": "stab", "scale": 2 },
+      { "stat": "damage", "type": "bash", "scale": 2 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abgun_counter",
+    "name": "Counterattack",
+    "messages": [ "You dodge, and shoot %s at point-blank range", "<npcname> dodges, and shoots %s point-blank" ],
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "dodge_counter": true,
+    "crit_ok": true,
+    "mult_bonuses": [
+      { "stat": "dodge", "scale": 5 },
+      { "stat": "movecost", "scale": 0.1 },
+      { "stat": "damage", "type": "cut", "scale": 5 },
+      { "stat": "damage", "type": "bash", "scale": 5 },
+      { "stat": "hit", "scale": 2 },
+      { "stat": "arpen", "type": "cut", "scale": 99 },
+      { "stat": "arpen", "type": "bash", "scale": 99 }
+    ]
+  }
+]

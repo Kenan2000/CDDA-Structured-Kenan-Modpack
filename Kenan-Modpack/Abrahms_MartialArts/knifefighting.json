@@ -1,0 +1,737 @@
+[
+  {
+    "type": "martial_art",
+    "id": "style_knifefighting",
+    "name": "Knifefighting",
+    "description": "You pull out a knife and prepare to butcher your enemy.\n\n Based on Piercing Weapons skill, focuses on fast attacks, dodging, and armor penetration. Weaknesses of the style are stamina cost and low damage per hit, and greater dependence on stats, primarily dex. A classic thief/rogue/assassin style. ",
+    "initiate": [ "You hold your knife out in front of you.", "%s gets ready to make em bleed." ],
+    "autolearn": [ [ "stabbing", "1" ] ],
+    "primary skill": "stabbing",
+    "allow_melee": true,
+    "static_buffs": [
+      {
+        "id": "buff_fightingstance_static",
+        "name": "Fighting Stance",
+        "description": "You stay loose and ready to strike.\n\n +2 Dodge Attempts, bonuses to speed, dodge, armor penetration.",
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 0.25 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "arpen", "type": "stab", "scale": 1.5 },
+          { "stat": "arpen", "type": "cut", "scale": 1.5 },
+          { "stat": "dodge", "scale": 2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv1_static",
+        "name": "Level 1 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 1 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 0.25 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv2_static",
+        "name": "Level 2 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 2 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv3_static",
+        "name": "Level 3 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 3 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 0.75 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv4_static",
+        "name": "Level 4 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 4 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 1 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv5_static",
+        "name": "Level 5 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 5 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 1.25 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv6_static",
+        "name": "Level 6 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 6 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 1.5 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv7_static",
+        "name": "Level 7 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 7 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 1.75 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv8_static",
+        "name": "Level 8 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 8 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 2 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv9_static",
+        "name": "Level 9 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 9 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 2.25 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv10_static",
+        "name": "Level 10 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 10 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 2.5 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv11_static",
+        "name": "Level 11 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 11 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 2.75 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_knifetraininglv12_static",
+        "name": "Level 12 knife training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "stabbing", "level": 12 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 3,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 5 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 5 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.8 },
+          { "stat": "dodge", "scale": 2.5 },
+          { "stat": "damage", "type": "cut", "scale": 1.05 },
+          { "stat": "arpen", "type": "cut", "scale": 1.2 }
+        ]
+      }
+    ],
+    "onattack_buffs": [
+      {
+        "id": "buff_initiative_onattack",
+        "name": "Roll For Initiative",
+        "description": "Small stacking bonuses on every attack.",
+        "melee_allowed": true,
+        "bonus_dodges": 3,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 1 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 0.25 },
+          { "stat": "hit", "scale": 1 },
+          { "stat": "hit", "scaling-stat": "dex", "scale": 0.25 },
+          { "stat": "movecost", "scale": -0.1 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 0.2 },
+          { "stat": "arpen", "type": "cut", "scale": 1.25 },
+          { "stat": "arpen", "type": "stab", "scale": 1.25 },
+          { "stat": "movecost", "scale": 0.95 }
+        ],
+        "max_stacks": 99,
+        "buff_duration": 99
+      }
+    ],
+    "onhit_buffs": [
+      {
+        "id": "buff_knifetraining_onhit",
+        "name": "Muscle Memory",
+        "description": "Every successful hit gives you a small permanent improvement for as long as the style is active.",
+        "permanent": true,
+        "unarmed_allowed": true,
+        "skill_requirements": [ { "name": "stabbing", "level": 3 } ],
+        "max_stacks": 99999,
+        "flat_bonuses": [
+          { "stat": "arpen", "type": "bash", "scale": 0.01 },
+          { "stat": "arpen", "type": "cut", "scale": 0.01 },
+          { "stat": "arpen", "type": "stab", "scale": 0.01 },
+          { "stat": "dodge", "scale": 0.01 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 0.1 },
+          { "stat": "hit", "scale": 0.01 },
+          { "stat": "hit", "scaling-stat": "dex", "scale": 0.1 },
+          { "stat": "movecost", "scale": -0.1 }
+        ]
+      },
+      {
+        "id": "buff_hitandrun_onhit",
+        "name": "Hit and Run",
+        "description": "Every successful hit boosts your dodge for a short time.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "stabbing", "level": 2 } ],
+        "bonus_dodges": 3,
+        "flat_bonuses": [ { "stat": "dodge", "scale": 2 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 } ],
+        "mult_bonuses": [ { "stat": "dodge", "scale": 2 } ],
+        "max_stacks": 10,
+        "buff_duration": 15
+      }
+    ],
+    "onmove_buffs": [
+      {
+        "id": "buff_footpad_onmove",
+        "name": "Footpad",
+        "description": "Keeping in motion makes you harder to hit.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "stabbing", "level": 2 } ],
+        "bonus_dodges": 3,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [ { "stat": "dodge", "scale": 2 } ],
+        "max_stacks": 5,
+        "buff_duration": 10
+      }
+    ],
+    "ondodge_buffs": [
+      {
+        "id": "buff_hardtohit_ondodge",
+        "name": "Hard To Hit",
+        "description": "You're really hard to hit.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "stabbing", "level": 2 } ],
+        "bonus_dodges": 3,
+        "flat_bonuses": [
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "mult_bonuses": [ { "stat": "dodge", "scale": 2 } ],
+        "max_stacks": 5,
+        "buff_duration": 10
+      }
+    ],
+    "oncrit_buffs": [
+      {
+        "id": "buff_doubleslash_oncrit",
+        "name": "Double Slash",
+        "description": "Crits grant an extra attack with perfect dodge",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "stabbing", "level": 2 } ],
+        "flat_bonuses": [ { "stat": "dodge", "scale": 99 }, { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 } ],
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 }, { "stat": "dodge", "scale": 99 } ],
+        "bonus_dodges": 2,
+        "buff_duration": 1
+      }
+    ],
+    "onkill_buffs": [
+      {
+        "id": "buff_onthemark_onkill",
+        "name": "On the mark",
+        "description": "Every kill makes you more badass.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "flat_bonuses": [
+          { "stat": "hit", "scale": 1 },
+          { "stat": "damage", "type": "stab", "scale": 1 },
+          { "stat": "arpen", "type": "stab", "scale": 1 }
+        ],
+        "max_stacks": 99999
+      }
+    ],
+    "onmiss_buffs": [
+      {
+        "id": "buff_dairyfarmer_onmiss",
+        "name": "You Fight Like A Dairy Farmer",
+        "description": "You fight like a dairy farmer!",
+        "unarmed_allowed": true,
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.0 },
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 }
+        ],
+        "flat_bonuses": [ { "stat": "damage", "type": "cut", "scale": 5 }, { "stat": "damage", "type": "stab", "scale": 5 } ],
+        "bonus_dodges": 2,
+        "buff_duration": 2
+      }
+    ],
+    "techniques": [
+      "absword_cow",
+      "absword_annihilated",
+      "absword_block",
+      "absword_spin",
+      "absword_impale",
+      "absword_brutal",
+      "absword_criticalblow",
+      "abknife_finisher",
+      "abknife_slash",
+      "abknife_stab",
+      "abknife_ustab",
+      "abknife_fan",
+      "abknife_throat",
+      "abknife_eye",
+      "abknife_throatstab",
+      "absword_feint",
+      "absword_break",
+      "absword_stomp",
+      "absword_kneesweep",
+      "absword_lunge",
+      "absword_riposte",
+      "absword_pommel",
+      "absword_elbow",
+      "absword_counter"
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abknife_cow",
+    "name": "You Fight Like A Cow",
+    "melee_allowed": true,
+    "req_buffs": [ "buff_dairyfarmer_onmiss" ],
+    "flat_bonuses": [
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "mult_bonuses": [ { "stat": "hit", "scale": 1.2 } ],
+    "messages": [ "How appropriate, you fight like a cow!", "%s fights like a cow." ],
+    "description": "Miss recovery"
+  },
+  {
+    "type": "technique",
+    "id": "abknife_annihilated",
+    "name": "Every Enemy Ive Met Ive Annihilated",
+    "req_buffs": [ "buff_dairyfarmer_onmiss" ],
+    "skill_requirements": [ { "name": "stabbing", "level": 10 } ],
+    "flat_bonuses": [
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "mult_bonuses": [
+      { "stat": "damage", "type": "cut", "scale": 99 },
+      { "stat": "damage", "type": "stab", "scale": 99 },
+      { "stat": "arpen", "type": "cut", "scale": 99 },
+      { "stat": "arpen", "type": "stab", "scale": 99 },
+      { "stat": "hit", "scale": 99 }
+    ],
+    "messages": [ "With your breath, they probably suffocated!", "%s has bad breath" ],
+    "description": "High-level miss recovery - One Hit Kill"
+  },
+  {
+    "type": "technique",
+    "id": "abknife_criticaljab",
+    "name": "Critical Jab",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "stabbing", "level": 5 } ],
+    "flat_bonuses": [
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "crit_tec": true,
+    "stun_dur": 1,
+    "knockback_dist": 1,
+    "messages": [ "You stab %s in its eye or equivalent anatomy.", "<npcname> stabs %s in the eye, knocking it down" ],
+    "description": "Stun 1 turn, knockback 1 tile, crit only"
+  },
+  {
+    "type": "technique",
+    "id": "abknife_criticalblow",
+    "name": "Critical Strike",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "flat_bonuses": [
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "mult_bonuses": [ { "stat": "damage", "type": "stab", "scale": 99 }, { "stat": "damage", "type": "cut", "scale": 99 } ],
+    "crit_tec": true,
+    "weighting": -250,
+    "messages": [ "You slice %s through the heart", "<npcname> slices through %s" ],
+    "description": "Stab and cut damage multiplied by 99, crit only"
+  },
+  {
+    "type": "technique",
+    "id": "abknife_finisher",
+    "name": "Finishing Move",
+    "melee_allowed": true,
+    "mult_bonuses": [
+      { "stat": "damage", "type": "stab", "scale": 10 },
+      { "stat": "damage", "type": "cut", "scale": 10 },
+      { "stat": "damage", "type": "stab", "scaling-stat": "str", "scale": 10 },
+      { "stat": "damage", "type": "cut", "scaling-stat": "str", "scale": 10 },
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 10 },
+      { "stat": "arpen", "type": "cut", "scaling-stat": "dex", "scale": 10 }
+    ],
+    "flat_bonuses": [
+      { "stat": "damage", "type": "stab", "scale": 50 },
+      { "stat": "damage", "type": "cut", "scale": 50 },
+      { "stat": "damage", "type": "stab", "scaling-stat": "str", "scale": 20 },
+      { "stat": "damage", "type": "cut", "scaling-stat": "str", "scale": 20 },
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "crit_tec": true,
+    "downed_target": true,
+    "messages": [ "You finish off %s while they're downed.", "<npcname> finishes off %s." ]
+  },
+  {
+    "type": "technique",
+    "id": "abknife_slash",
+    "name": "Slash",
+    "melee_allowed": true,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.6 },
+      { "stat": "hit", "scale": 1.2 },
+      { "stat": "arpen", "type": "cut", "scale": 1.5 }
+    ],
+    "flat_bonuses": [
+      { "stat": "damage", "type": "cut", "scale": 15 },
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "messages": [ "You slash %s", "<npcname> slashes %s." ],
+    "description": "Basic attack"
+  },
+  {
+    "type": "technique",
+    "id": "abknife_stab",
+    "name": "Stab",
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "stabbing", "level": 2 } ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.8 },
+      { "stat": "hit", "scale": 1.2 },
+      { "stat": "arpen", "type": "stab", "scale": 1.5 }
+    ],
+    "flat_bonuses": [
+      { "stat": "damage", "type": "stab", "scale": 20 },
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "messages": [ "You stab %s", "<npcname> stabs %s." ],
+    "description": "Level 2 attack"
+  },
+  {
+    "type": "technique",
+    "id": "abknife_ustab",
+    "name": "Underhand Stab",
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "stabbing", "level": 3 } ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.7 },
+      { "stat": "hit", "scale": 1.5 },
+      { "stat": "arpen", "type": "stab", "scale": 2.5 }
+    ],
+    "flat_bonuses": [
+      { "stat": "damage", "type": "stab", "scale": 25 },
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "messages": [ "You grab %s and stab them in the gut or physiologically equivalent anatomy", "<npcname> guts %s." ],
+    "description": "Level 3 attack"
+  },
+  {
+    "type": "technique",
+    "id": "abknife_fan",
+    "name": "Fan Slash",
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "stabbing", "level": 4 } ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.4 },
+      { "stat": "hit", "scale": 1.3 },
+      { "stat": "arpen", "type": "cut", "scale": 2.0 },
+      { "stat": "arpen", "type": "stab", "scale": 1.2 }
+    ],
+    "flat_bonuses": [
+      { "stat": "damage", "type": "cut", "scale": 50 },
+      { "stat": "damage", "type": "stab", "scale": 50 },
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "messages": [ "You hit %s with several quick slashes", "<npcname> slashes %s multiple times." ],
+    "description": "Level 4 attack"
+  },
+  {
+    "type": "technique",
+    "id": "abknife_throat",
+    "name": "Throat Slash",
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "stabbing", "level": 5 } ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.2 },
+      { "stat": "hit", "scale": 1.6 },
+      { "stat": "arpen", "type": "cut", "scale": 3.0 }
+    ],
+    "flat_bonuses": [
+      { "stat": "damage", "type": "cut", "scale": 40 },
+      { "stat": "damage", "type": "stab", "scale": 40 },
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "messages": [ "You slash %s across the throat or anatomical equivalent", "<npcname> slashes %s across the throat." ],
+    "description": "Level 5 attack"
+  },
+  {
+    "type": "technique",
+    "id": "abknife_eye",
+    "name": "Eye Slash",
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "stabbing", "level": 6 } ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.2 },
+      { "stat": "hit", "scale": 0.9 },
+      { "stat": "arpen", "type": "cut", "scale": 4.0 },
+      { "stat": "arpen", "type": "stab", "scale": 4 }
+    ],
+    "flat_bonuses": [
+      { "stat": "damage", "type": "cut", "scale": 20 },
+      { "stat": "damage", "type": "stab", "scale": 20 },
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "stun_dur": 3,
+    "messages": [ "You slash %s across the eyes, taking them out of action", "<npcname> slashes %s in the eyes." ],
+    "description": "Level 6 attack"
+  },
+  {
+    "type": "technique",
+    "id": "abknife_throatstab",
+    "name": "Throat Stab",
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "stabbing", "level": 7 } ],
+    "flat_bonuses": [
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.2 },
+      { "stat": "hit", "scale": 1.6 },
+      { "stat": "damage", "type": "stab", "scale": 20 },
+      { "stat": "arpen", "type": "stab", "scale": 5.0 }
+    ],
+    "messages": [ "You stab %s in the throat", "<npcname> stabs %s in the throat." ],
+    "description": "Level 7 attack"
+  },
+  {
+    "type": "technique",
+    "id": "abknife_feint",
+    "name": "Feint",
+    "skill_requirements": [ { "name": "stabbing", "level": 2 } ],
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "defensive": true,
+    "miss_recovery": true,
+    "flat_bonuses": [ { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 } ],
+    "messages": [ "You feint at %s.", "<npcname> feints at %s." ]
+  },
+  {
+    "type": "technique",
+    "id": "abknife_break",
+    "name": "Grab Break",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "defensive": true,
+    "grab_break": true,
+    "flat_bonuses": [ { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 } ],
+    "messages": [ "The %s tries to grab you, but you break its grab!", "The %s tries to grab <npcname>, but they break its grab!" ]
+  },
+  {
+    "type": "technique",
+    "id": "abknife_kneesweep",
+    "name": "Sweep Kick",
+    "messages": [ "You kick %s in the back of the knees, knocking them down", "<npcname> knocks %s down with a hit to the knees" ],
+    "skill_requirements": [ { "name": "unarmed", "level": 2 } ],
+    "unarmed_allowed": true,
+    "weighting": 2,
+    "down_dur": 1,
+    "flat_bonuses": [ { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.75 } ]
+  },
+  {
+    "type": "technique",
+    "id": "abknife_lunge",
+    "name": "Knife Lunge",
+    "messages": [ "You lunge at %s", "<npcname> lunges at %s" ],
+    "skill_requirements": [ { "name": "stabbing", "level": 2 } ],
+    "melee_allowed": true,
+    "crit_ok": true,
+    "flat_bonuses": [
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.8 },
+      { "stat": "damage", "type": "stab", "scale": 5 },
+      { "stat": "arpen", "type": "stab", "scale": 2 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abknife_elbow",
+    "name": "Elbow Strike",
+    "messages": [ "You slam your elbow into %s", "<npcname> slams their elbow into %s" ],
+    "skill_requirements": [ { "name": "unarmed", "level": 1 } ],
+    "unarmed_allowed": true,
+    "crit_tec": true,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.5 } ]
+  },
+  {
+    "type": "technique",
+    "id": "abknife_counter",
+    "name": "Counterattack",
+    "messages": [ "You dodge, and counter with a quick slash at %s", "<npcname> dodges, and slashes %s" ],
+    "unarmed_allowed": true,
+    "dodge_counter": true,
+    "crit_ok": true,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 }, { "stat": "hit", "scale": 0.9 } ],
+    "flat_bonuses": [
+      { "stat": "damage", "type": "cut", "scale": 10 },
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 0.5 },
+      { "stat": "dodge", "scaling-stat": "dex", "scale": 0.5 }
+    ]
+  }
+]

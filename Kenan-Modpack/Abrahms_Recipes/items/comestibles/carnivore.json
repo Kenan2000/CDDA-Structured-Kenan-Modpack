@@ -1,0 +1,70 @@
+[
+  {
+    "id": "meat_minced",
+    "copy-from": "flesh",
+    "type": "COMESTIBLE",
+    "name": { "str": "minced meat", "str_pl": "minced meat" },
+    "description": "When you don't have a meat grinder, a knife or food processor will do the job. A finely chopped or ground paste of assorted meat, fat, gristle, and connective tissues.",
+    "//": "Nutrition information based on 70 percent lean ground beef. Source USDA. 454g or 1 pound is a common package size.",
+    "weight": "454 g",
+    "volume": "500 ml",
+    "price": 500,
+    "spoils_in": "48 hours",
+    "flags": [ "SMOKABLE", "RAW", "NUTRIENT_OVERRIDE" ],
+    "smoking_result": "meatstick",
+    "vitamins": [ [ "vitA", 0 ], [ "vitC", 0 ], [ "calcium", 9 ], [ "iron", 36 ], [ "vitB", 68 ] ],
+    "calories": 1507
+  },
+  {
+    "id": "minced_scrap",
+    "copy-from": "meat_minced",
+    "type": "COMESTIBLE",
+    "name": { "str": "minced scrap", "str_pl": "minced scraps" },
+    "description": "Finely chopped or ground scraps of meat.",
+    "//": "Nutrition information based on 70 percent lean ground beef. Source USDA. 454g or 1 pound is a common package size. 1 scrap = 1/10 of a chunk.",
+    "weight": "45 g",
+    "volume": "50 ml",
+    "price": 50,
+    "spoils_in": "48 hours",
+    "flags": [ "RAW", "NUTRIENT_OVERRIDE" ],
+    "vitamins": [ [ "vitA", 0 ], [ "vitC", 0 ], [ "calcium", 1 ], [ "iron", 3 ], [ "vitB", 7 ] ],
+    "calories": 150
+  },
+  {
+    "id": "mincedmeat_cooked",
+    "copy-from": "meat_minced",
+    "type": "COMESTIBLE",
+    "name": { "str": "cooked minced meat", "str_pl": "cooked minced meat" },
+    "description": "Cooked mixed hamburger meat.",
+    "proportional": { "price": 1.5 },
+    "spoils_in": "1 day",
+    "parasites": 0,
+    "flags": [ "EATEN_HOT" ]
+  },
+  {
+    "id": "meatstick",
+    "copy-from": "mincedmeat_cooked",
+    "type": "COMESTIBLE",
+    "name": { "str": "meatstick", "str_pl": "meatsticks" },
+    "description": "Meat that has been ground then formed into strips or sticks and smoked or dehydrated. Chewier than regular jerky but with a shorter shelf life.",
+    "color": "brown",
+    "spoils_in": "180 days",
+    "fun": 6,
+    "flags": [ "SMOKED", "SMOKABLE" ],
+    "smoking_result": "jerky"
+  },
+  {
+    "id": "meatball",
+    "copy-from": "meat_minced",
+    "type": "COMESTIBLE",
+    "name": { "str": "meatball", "str_pl": "meatballs" },
+    "description": "Minced or ground meat, and optionally filler or other ingredients, mushed into a ball. It can be used as a substitute for chunks of meat, or formed into smaller balls for use in sauces and soups.",
+    "color": "brown",
+    "weight": "227 g",
+    "volume": "500 ml",
+    "price": 500,
+    "spoils_in": "48 hours",
+    "cooks_like": "meat",
+    "flags": [ "NUTRIENT_OVERRIDE" ]
+  }
+]

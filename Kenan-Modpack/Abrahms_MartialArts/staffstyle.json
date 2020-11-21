@@ -1,0 +1,624 @@
+[
+  {
+    "type": "martial_art",
+    "id": "style_staff",
+    "name": "Bojutsu",
+    "description": "You have a big stick. You can hit things with it.\n\n Based on Bashing Weapons skill. A defensive style that focuses on stuns, knockdowns, and simultaneous attack and defense, while taking advantage of reach. Strengths: high defense. Weaknesses: low offense.",
+    "initiate": [ "Actually it's a buck-and-a-quarterstaff.", "%s wields their staff." ],
+    "autolearn": [ [ "bashing", "1" ] ],
+    "primary skill": "bashing",
+    "allow_melee": true,
+    "static_buffs": [
+      {
+        "id": "buff_don_static",
+        "name": "Donatello is the Don",
+        "description": "Offense and defense in one. Gives block, dodge, hit, and armor penetration bonuses.\n\n +2 Dodge attempts",
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "mult_bonuses": [
+          { "stat": "block", "scaling-stat": "str", "scale": 2 },
+          { "stat": "dodge", "scaling-stat": "dex", "scale": 2 },
+          { "stat": "hit", "scaling-stat": "dex", "scale": 2 },
+          { "stat": "arpen", "type": "bash", "scale": 2 }
+        ],
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ]
+      },
+      {
+        "id": "buff_stafftraininglv1_static",
+        "name": "Level 1 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 1 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.9 },
+          { "stat": "dodge", "scale": 1.5 },
+          { "stat": "damage", "type": "bash", "scale": 1.1 }
+        ]
+      },
+      {
+        "id": "buff_stafftraininglv2_static",
+        "name": "Level 2 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 2 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.9 },
+          { "stat": "dodge", "scale": 2 },
+          { "stat": "damage", "type": "bash", "scale": 1.2 }
+        ]
+      },
+      {
+        "id": "buff_stafftraininglv3_static",
+        "name": "Level 3 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 3 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.9 },
+          { "stat": "dodge", "scale": 2.5 },
+          { "stat": "damage", "type": "bash", "scale": 1.3 }
+        ]
+      },
+      {
+        "id": "buff_stafftraininglv4_static",
+        "name": "Level 4 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 4 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.9 },
+          { "stat": "dodge", "scale": 3 },
+          { "stat": "damage", "type": "bash", "scale": 1.4 }
+        ]
+      },
+      {
+        "id": "buff_stafftraininglv5_static",
+        "name": "Level 5 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 5 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.9 },
+          { "stat": "dodge", "scale": 3.5 },
+          { "stat": "damage", "type": "bash", "scale": 1.5 }
+        ]
+      },
+      {
+        "id": "buff_stafftraininglv6_static",
+        "name": "Level 6 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 6 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.9 },
+          { "stat": "dodge", "scale": 4 },
+          { "stat": "damage", "type": "bash", "scale": 1.6 }
+        ]
+      },
+      {
+        "id": "buff_stafftraininglv7_static",
+        "name": "Level 7 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 7 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.9 },
+          { "stat": "dodge", "scale": 4.5 },
+          { "stat": "damage", "type": "bash", "scale": 1.7 }
+        ]
+      },
+      {
+        "id": "buff_stafftraininglv8_static",
+        "name": "Level 8 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 8 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.9 },
+          { "stat": "dodge", "scale": 5 },
+          { "stat": "damage", "type": "bash", "scale": 1.8 }
+        ]
+      },
+      {
+        "id": "buff_stafftraininglv9_static",
+        "name": "Level 9 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 9 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.9 },
+          { "stat": "dodge", "scale": 5.5 },
+          { "stat": "damage", "type": "bash", "scale": 1.9 }
+        ]
+      },
+      {
+        "id": "buff_stafftraininglv10_static",
+        "name": "Level 10 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 10 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.9 },
+          { "stat": "dodge", "scale": 6 },
+          { "stat": "damage", "type": "bash", "scale": 2 }
+        ]
+      },
+      {
+        "id": "buff_stafftraininglv11_static",
+        "name": "Level 11 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 11 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 0.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 2 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.9 },
+          { "stat": "dodge", "scale": 6.5 },
+          { "stat": "damage", "type": "bash", "scale": 2.1 }
+        ]
+      },
+      {
+        "id": "buff_stafftraininglv12_static",
+        "name": "Level 12 staff training",
+        "description": "Practise makes perfect.",
+        "skill_requirements": [ { "name": "bashing", "level": 12 } ],
+        "melee_allowed": true,
+        "bonus_dodges": 1,
+        "flat_bonuses": [ { "stat": "block", "scale": 2.5 }, { "stat": "dodge", "scaling-stat": "dex", "scale": 5 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.5 },
+          { "stat": "dodge", "scale": 13 },
+          { "stat": "damage", "type": "bash", "scale": 4.0 }
+        ]
+      }
+    ],
+    "onhit_buffs": [
+      {
+        "id": "buff_stafftraining_onhit",
+        "name": "Muscle Memory",
+        "description": "Every successful hit gives you a small permanent improvement.",
+        "permanent": true,
+        "unarmed_allowed": true,
+        "skill_requirements": [ { "name": "bashing", "level": 3 } ],
+        "max_stacks": 99999,
+        "flat_bonuses": [
+          { "stat": "damage", "type": "bash", "scale": 0.01 },
+          { "stat": "damage", "type": "cut", "scale": 0.01 },
+          { "stat": "damage", "type": "stab", "scale": 0.01 },
+          { "stat": "dodge", "scale": 0.01 },
+          { "stat": "hit", "scale": 0.01 },
+          { "stat": "block", "scale": 0.1 },
+          { "stat": "arpen", "type": "bash", "scale": 0.01 }
+        ]
+      }
+    ],
+    "ondodge_buffs": [
+      {
+        "id": "buff_attackanddef_ondodge",
+        "name": "Simultaneous Attack and Defense",
+        "description": "Dodging grants you an extra attack.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 } ],
+        "bonus_dodges": 1,
+        "buff_duration": 1
+      }
+    ],
+    "onmove_buffs": [
+      {
+        "id": "buff_evasiveaction_onmove",
+        "name": "Evasive Action",
+        "description": "Moving doubles your dodge for 3 turns",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "mult_bonuses": [ { "stat": "dodge", "scale": 2 } ],
+        "bonus_dodges": 1,
+        "buff_duration": 3
+      }
+    ],
+    "onattack_buffs": [
+      {
+        "id": "buff_bestdef_onattack",
+        "name": "The Best Defense Is A Good Offense",
+        "description": "Every attack gives you small defensive and offensive bonuses.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "flat_bonuses": [ { "stat": "dodge", "scaling-stat": "dex", "scale": 0.25 }, { "stat": "hit", "scaling-stat": "dex", "scale": 0.25 } ],
+        "mult_bonuses": [
+          { "stat": "movecost", "scale": 0.95 },
+          { "stat": "dodge", "scale": 1.2 },
+          { "stat": "hit", "scale": 1.2 },
+          { "stat": "damage", "type": "bash", "scale": 1.2 }
+        ],
+        "bonus_dodges": 1,
+        "max_stacks": 20,
+        "buff_duration": 2
+      }
+    ],
+    "onkill_buffs": [
+      {
+        "id": "buff_onthemark_onkill",
+        "name": "On the mark",
+        "description": "Every kill makes you more badass.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "flat_bonuses": [
+          { "stat": "hit", "scale": 1 },
+          { "stat": "damage", "type": "bash", "scale": 1 },
+          { "stat": "arpen", "type": "bash", "scale": 1 }
+        ],
+        "max_stacks": 99999
+      }
+    ],
+    "onpause_buffs": [
+      {
+        "id": "buff_abstaffrest_onpause",
+        "name": "Rest",
+        "description": "You pause to catch your breath. 5 + 5x dodge increase, bash damage reduced by 50 percent.",
+        "unarmed_allowed": true,
+        "mult_bonuses": [
+          { "stat": "dodge", "scale": 5 },
+          { "stat": "damage", "type": "bash", "scale": 0.5 },
+          { "stat": "movecost", "scale": 0.25 }
+        ],
+        "flat_bonuses": [ { "stat": "dodge", "scale": 5 } ],
+        "bonus_dodges": 5,
+        "bonus_blocks": 5,
+        "buff_duration": 1
+      }
+    ],
+    "onmiss_buffs": [
+      {
+        "id": "buff_staffdairyfarmer_onmiss",
+        "name": "You Fight Like A Dairy Farmer",
+        "description": "You fight like a dairy farmer!",
+        "unarmed_allowed": true,
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 } ],
+        "flat_bonuses": [ { "stat": "damage", "type": "bash", "scale": 1.5 } ],
+        "bonus_dodges": 1,
+        "buff_duration": 2
+      }
+    ],
+    "techniques": [
+      "abstaff_cow",
+      "abstaff_annihilated",
+      "abstaff_block",
+      "abstaff_spin",
+      "abstaff_makespace",
+      "abstaff_brutal",
+      "abstaff_criticalblow",
+      "abstaff_feint",
+      "abstaff_break",
+      "abstaff_stomp",
+      "abstaff_kneesweep",
+      "abstaff_lunge",
+      "abstaff_ohand",
+      "abstaff_uhand",
+      "abstaff_jab",
+      "abstaff_fancy",
+      "abstaff_riposte",
+      "abstaff_pommel",
+      "abstaff_elbow",
+      "abstaff_counter",
+      "abstaff_stuncounter",
+      "abstaff_recovery",
+      "abstaff_pushoff"
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_cow",
+    "name": "You Fight Like A Cow",
+    "melee_allowed": true,
+    "req_buffs": [ "buff_dairyfarmer_onmiss" ],
+    "mult_bonuses": [ { "stat": "hit", "scale": 1.2 } ],
+    "messages": [ "How appropriate, you fight like a cow!", "%s fights like a cow." ],
+    "description": "Miss recovery"
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_annihilated",
+    "name": "Every Enemy Ive Met Ive Annihilated",
+    "req_buffs": [ "buff_dairyfarmer_onmiss" ],
+    "skill_requirements": [ { "name": "bashing", "level": 10 } ],
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 99 }, { "stat": "hit", "scale": 99 } ],
+    "messages": [ "With your breath, they probably suffocated!", "%s has bad breath" ],
+    "description": "High-level miss recovery - One Hit Kill"
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_block",
+    "name": "Block",
+    "dummy": true,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 }, { "stat": "block", "scale": 0.25 } ],
+    "messages": [ "You block %s", "<npcname> blocks %s" ],
+    "description": "Medium blocking ability"
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_spin",
+    "name": "Spinning Strike",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "bashing", "level": 4 } ],
+    "crit_tec": true,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 1.5 } ],
+    "messages": [ "You swing through %s and everyone nearby", "<npcname> swings through %s and everyone nearby" ],
+    "aoe": "spin",
+    "description": "Attack adjacent enemies, crit only"
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_makespace",
+    "name": "Making Space",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "bashing", "level": 2 } ],
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 0.75 }, { "stat": "hit", "scale": 5 } ],
+    "messages": [
+      "You make some room by swinging at nearby enemies in a wide arc",
+      "<npcname> swings at %s and nearby enemies in a wide arc"
+    ],
+    "aoe": "wide",
+    "knockback_dist": 2,
+    "description": "Attack and knock back adjacent enemies, reduced damage, increased hit"
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_brutal",
+    "name": "Brutal Strike",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "bashing", "level": 5 } ],
+    "crit_tec": true,
+    "stun_dur": 1,
+    "knockback_dist": 1,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 5 } ],
+    "messages": [ "You knock %s down with a brutal blow to the face.", "<npcname> knocks %s down" ],
+    "description": "Stun 1 turn, knockback 1 tile, crit only"
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_criticalblow",
+    "name": "Critical Strike",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 99 } ],
+    "crit_tec": true,
+    "weighting": -250,
+    "messages": [ "You mortally wound %s with a lucky blow to a vital area", "<npcname>gets a lucky hit on %s" ],
+    "description": "Bash damage multiplied by 99, crit only"
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_feint",
+    "name": "Feint",
+    "skill_requirements": [ { "name": "bashing", "level": 2 } ],
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "defensive": true,
+    "miss_recovery": true,
+    "messages": [ "You feint at %s.", "<npcname> feints at %s." ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_break",
+    "name": "Grab Break",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "defensive": true,
+    "grab_break": true,
+    "messages": [ "The %s tries to grab you, but you break its grab!", "The %s tries to grab <npcname>, but they break its grab!" ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_stomp",
+    "name": "Stomp",
+    "messages": [ "You stomp on %s toe", "<npcname> stomps on %s toe" ],
+    "skill_requirements": [ { "name": "bashing", "level": 2 }, { "name": "melee", "level": 1 } ],
+    "unarmed_allowed": true,
+    "down_dur": 1
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_kneesweep",
+    "name": "Sweep",
+    "messages": [ "You hit %s in the back of the knees, knocking them down", "<npcname> knocks %s down with a hit to the knees" ],
+    "skill_requirements": [ { "name": "bashing", "level": 2 } ],
+    "unarmed_allowed": true,
+    "weighting": 2,
+    "down_dur": 1,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.75 } ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_lunge",
+    "name": "staff Lunge",
+    "messages": [ "You lunge at %s", "<npcname> lunges at %s" ],
+    "skill_requirements": [ { "name": "bashing", "level": 2 } ],
+    "melee_allowed": true,
+    "crit_ok": true,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.8 },
+      { "stat": "damage", "type": "bash", "scale": 1.5 },
+      { "stat": "arpen", "type": "bash", "scale": 1.5 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_ohand",
+    "name": "Overhand Strike",
+    "messages": [ "You hit %s with a strong overhand strike", "<npcname> hits %s hard" ],
+    "melee_allowed": true,
+    "crit_ok": true,
+    "stun_dur": 2,
+    "knockback_dist": 2,
+    "down_dur": 1,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 2.5 }, { "stat": "arpen", "type": "bash", "scale": 1.5 } ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_uhand",
+    "name": "Underhand Strike",
+    "messages": [ "You deliver a swift strike to the lower parts of %s", "<npcname> hits %s in the family jewels" ],
+    "melee_allowed": true,
+    "crit_ok": true,
+    "down_dur": 5,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.6 },
+      { "stat": "damage", "type": "bash", "scale": 1.5 },
+      { "stat": "arpen", "type": "bash", "scale": 5 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_jab",
+    "name": "jab",
+    "messages": [ "You poke %s with a swift jab", "<npcname> jabs at %s" ],
+    "skill_requirements": [ { "name": "bashing", "level": 3 } ],
+    "melee_allowed": true,
+    "crit_ok": true,
+    "knockback_dist": 1,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.4 },
+      { "stat": "damage", "type": "bash", "scale": 0.75 },
+      { "stat": "arpen", "type": "bash", "scale": 1.5 },
+      { "stat": "hit", "scale": 0.8 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_fancy",
+    "name": "Fancy Staff Moves",
+    "messages": [ "You do some fancy moves you saw in a movie once, distracting the enemy", "<npcname> pulls off some fancy moves" ],
+    "skill_requirements": [ { "name": "bashing", "level": 5 } ],
+    "melee_allowed": true,
+    "crit_ok": true,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.5 },
+      { "stat": "damage", "type": "bash", "scale": 1.5 },
+      { "stat": "arpen", "type": "bash", "scale": 5 },
+      { "stat": "hit", "scale": 10 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_riposte",
+    "name": "Fencing Riposte",
+    "messages": [ "You block and counter %s", "<npcname> delivers a perfect riposte to %s" ],
+    "skill_requirements": [ { "name": "bashing", "level": 8 } ],
+    "melee_allowed": true,
+    "block_counter": true,
+    "crit_ok": true,
+    "stun_dur": 1,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.0 },
+      { "stat": "damage", "type": "bash", "scale": 1.2 },
+      { "stat": "damage", "type": "cut", "scale": 1.2 },
+      { "stat": "damage", "type": "stab", "scale": 1.2 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_pommel",
+    "name": "Pommel Strike",
+    "messages": [ "You smash %s in the face or equivalent anatomy", "<npcname> smashes %s in the face" ],
+    "skill_requirements": [ { "name": "bashing", "level": 3 } ],
+    "melee_allowed": true,
+    "crit_ok": true,
+    "dodge_counter": true,
+    "down_dur": 1,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.0 },
+      { "stat": "damage", "type": "cut", "scale": 0 },
+      { "stat": "damage", "type": "stab", "scale": 0 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_elbow",
+    "name": "Elbow Strike",
+    "messages": [ "You slam your elbow into %s", "<npcname> slams their elbow into %s" ],
+    "skill_requirements": [ { "name": "unarmed", "level": 1 } ],
+    "unarmed_allowed": true,
+    "crit_tec": true,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.5 } ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_counter",
+    "name": "Counterattack",
+    "messages": [ "You dodge, and swing wildly at %s with a mighty blow", "<npcname> dodges, and hits %s hard" ],
+    "unarmed_allowed": true,
+    "dodge_counter": true,
+    "crit_ok": true,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.0 },
+      { "stat": "damage", "type": "cut", "scale": 5 },
+      { "stat": "hit", "scale": 0.5 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_stuncounter",
+    "name": "Counterattack",
+    "messages": [ "You dodge, and stun %s with a weak blow", "<npcname> dodges, and stuns %s" ],
+    "req_buffs": [ "buff_attackanddef_ondodge" ],
+    "skill_requirements": [ { "name": "bashing", "level": 2 } ],
+    "unarmed_allowed": true,
+    "dodge_counter": true,
+    "crit_ok": true,
+    "stun_dur": 1,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 0.25 }, { "stat": "hit", "scale": 2 } ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_recovery",
+    "name": "Recovery Time",
+    "messages": [
+      "You swing your staff in a wide arc forcing enemies back.",
+      "<npcname> swings their staff in a wide arc to clear space."
+    ],
+    "req_buffs": [ "buff_abstaffrest_onpause" ],
+    "unarmed_allowed": true,
+    "dodge_counter": true,
+    "crit_ok": true,
+    "aoe": "spin",
+    "knockback_dist": 5,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 0.5 } ]
+  },
+  {
+    "type": "technique",
+    "id": "abstaff_pushoff",
+    "name": "Pushoff",
+    "messages": [ "You block %s and knock them to the ground.", "<npcname> blocks %s and knocks them down." ],
+    "req_buffs": [ "buff_abstaffrest_onpause" ],
+    "unarmed_allowed": true,
+    "block_counter": true,
+    "crit_ok": true,
+    "knockback_dist": 3,
+    "down_dur": 4,
+    "stun_dur": 5,
+    "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 0.5 } ]
+  }
+]
