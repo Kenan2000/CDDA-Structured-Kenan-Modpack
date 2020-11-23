@@ -1,0 +1,602 @@
+[
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "garage_gas_2" ],
+    "//": "Variation with military spawns and a vehicle.  Most often a Patton, sometimes not fully restored to battle-ready condition.",
+    "weight": 25,
+    "object": {
+      "fill_ter": "t_thconc_floor",
+      "rows": [
+        "________________________",
+        "________________________",
+        "________________________",
+        "________________________",
+        "________________________",
+        "ssssssssss__________s___",
+        "sssssssllse________sss__",
+        "www-www-|--%%%%%%%%---==",
+        "rrr rrrr| e             ",
+        "        [           I   ",
+        " cc     [               ",
+        "     cc |               ",
+        "     6  |r          z   ",
+        "     c  |r          I   ",
+        "     c r|r              ",
+        "rrr  c r|r              ",
+        "rrr  |+-|               ",
+        "     |  +           I   ",
+        "     | z|-www-+-|       ",
+        "[[[[[| z| kkk  P|rrcccrr",
+        "rrrrr| z|  h    |--www--",
+        "     +  |    ooo|4......",
+        "--------|-------|.......",
+        "........................"
+      ],
+      "terrain": {
+        "+": "t_door_c",
+        "-": "t_wall_w",
+        "|": "t_wall_w",
+        ".": "t_region_groundcover_urban",
+        " ": "t_thconc_floor",
+        "=": "t_door_metal_locked",
+        "%": "t_floor",
+        "I": "t_column",
+        "[": "t_door_glass_c",
+        "_": "t_pavement",
+        "e": "t_gates_mech_control",
+        "l": "t_sidewalk",
+        "s": "t_sidewalk",
+        "D": "t_sidewalk",
+        "4": "t_gutter_downspout",
+        "w": "t_window"
+      },
+      "furniture": {
+        "6": "f_console_broken",
+        "c": "f_counter",
+        "h": "f_chair",
+        "k": "f_desk",
+        "l": "f_vending_c",
+        "o": "f_bookcase",
+        "r": "f_rack",
+        "z": "f_crate_c"
+      },
+      "place_vendingmachines": [ { "item_group": "vending_food", "x": 7, "y": 6 }, { "item_group": "vending_drink", "x": 8, "y": 6 } ],
+      "place_loot": [
+        { "group": "alcohol", "x": [ 0, 4 ], "y": 20, "chance": 75, "repeat": [ 1, 2 ] },
+        { "group": "snacks", "x": [ 0, 2 ], "y": 8, "chance": 80, "repeat": [ 2, 8 ] },
+        { "group": "mechanics", "x": [ 4, 7 ], "y": 8, "chance": 85, "repeat": [ 1, 2 ] },
+        { "group": "snacks", "x": [ 0, 2 ], "y": [ 15, 16 ], "chance": 80, "repeat": [ 2, 8 ] },
+        { "group": "snacks", "x": 7, "y": [ 18, 20 ], "chance": 80, "repeat": [ 2, 8 ] },
+        { "group": "smoke_shop", "x": 7, "y": [ 14, 15 ], "chance": 70, "repeat": [ 1, 2 ] },
+        { "group": "office", "x": [ 10, 12 ], "y": 19, "chance": 75, "repeat": [ 1, 2 ] },
+        { "group": "manuals", "x": [ 13, 15 ], "y": 21, "chance": 50, "repeat": [ 1, 2 ] },
+        { "group": "mechanics", "x": 9, "y": [ 12, 15 ], "chance": 85, "repeat": [ 1, 2 ] },
+        { "group": "mechanics", "x": [ 17, 23 ], "y": 19, "chance": 85, "repeat": [ 1, 3 ] },
+        { "group": "fuel_barrel_diesel_only", "x": 20, "y": 10, "chance": 50 },
+        { "group": "m60_patton_ammo_rack", "x": 20, "y": 12, "chance": 100 }
+      ],
+      "place_monsters": [
+        { "monster": "GROUP_ZOMBIE", "x": [ 0, 23 ], "y": [ 0, 21 ], "chance": 5 }
+      ],
+      "place_monster": [
+        { "group": "GROUP_MIL_WEAK", "x": [ 0, 23 ], "y": [ 0, 21 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 0, 23 ], "y": [ 0, 21 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 0, 23 ], "y": [ 0, 21 ], "chance": 50 }
+      ],
+      "place_vehicles": [
+        { "vehicle": "tankmod_garage_restoration", "x": 14, "y": 8, "chance": 90, "rotation": 270 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "s_garage" ],
+    "weight": 100,
+    "object": {
+      "fill_ter": "t_thconc_floor",
+      "rows": [
+        "     EEEEEEE  EEEEEEE   ",
+        "     EEEEEEE  EEEEEEE   ",
+        "     EEEEEEE  EEEEEEE   ",
+        "     EEEEEEE  EEEEEEE   ",
+        "    eEEEEEEE eEEEEEEEEEE",
+        " ----=======--_______--E",
+        " |S.eM#MMM#M.eM#MMM#M.|E",
+        " |S..M#MMM#M..M#MMM#M.|E",
+        " |c..M#MMM#M..M#MMM#M.|E",
+        " |c..M#MMM#M..M#MMM#M.|E",
+        " |c..M#MMM#M..M#MMM#M.|E",
+        " |c..M#MMM#M..M#MMM#M.|E",
+        " |c..MMMMMMMMMMMMMMMM.|E",
+        " |....................|E",
+        " |---l...........HHHHH|E",
+        " |ts|c..........CHLLLL|E",
+        " |-+|p...........Hbbbb|E",
+        "4|...............$....+E",
+        " |^W|............Hhbbb|E",
+        " |xx|cccccSScccccH6LLL|E",
+        " |----::::--::::------|E",
+        "                  EU<UEE",
+        "                  EUEEEE",
+        "                        "
+      ],
+      "terrain": {
+        " ": [ [ "t_region_groundcover_urban", 10 ], "t_region_shrub" ],
+        "_": "t_pavement",
+        "E": "t_pavement",
+        "U": "t_pavement",
+        "$": "t_door_glass_c",
+        "+": "t_door_c",
+        "-": "t_brick_wall",
+        ".": "t_thconc_floor",
+        ":": "t_window",
+        "=": "t_door_metal_locked",
+        "A": "t_m_frame",
+        "C": "t_thconc_floor",
+        "H": "t_wall_glass",
+        "e": "t_gates_mech_control",
+        "|": "t_brick_wall",
+        "W": "t_chainfence",
+        "^": "t_chaingate_c",
+        "M": "t_metal_floor",
+        "#": "t_grate",
+        "4": "t_gutter_downspout",
+        "<": "t_ladder_up"
+      },
+      "furniture": {
+        "6": "f_console_broken",
+        "A": "f_air_conditioner",
+        "L": "f_locker",
+        "b": "f_bench",
+        "c": "f_counter",
+        "C": "f_crate_c",
+        "s": "f_sink",
+        "S": "f_utility_shelf",
+        "p": "f_hydraulic_press",
+        "l": "f_heavy_lathe",
+        "t": "f_toilet",
+        "x": "f_utility_shelf",
+        "h": "f_chair",
+        "U": [ "f_dumpster", "f_recycle_bin" ]
+      },
+      "items": {
+        "L": { "item": "clothing_work_set", "chance": 55 },
+        "c": { "item": "mechanics", "chance": 60 },
+        "S": { "item": "mechanics", "chance": 80, "repeat": [ 1, 6 ] },
+        "x": { "item": "SUS_welding_gear", "chance": 80, "repeat": [ 1, 2 ] }
+      },
+      "place_loot": [
+        { "group": "fuel_barrel_diesel_only", "x": 16, "y": 14, "chance": 50 },
+        { "group": "m60_patton_ammo_rack", "x": 16, "y": 15, "chance": 100 }
+      ],
+      "place_vehicles": [
+        { "vehicle": "tankmod_garage_restoration", "x": 16, "y": [ 5, 6 ], "chance": 90, "rotation": 270 }
+      ],
+      "place_monsters": [ { "monster": "GROUP_FERROUS", "x": [ 5, 20 ], "y": [ 7, 15 ], "chance": 10 } ],
+      "place_monster": [
+        { "group": "GROUP_MIL_WEAK", "x": [ 5, 20 ], "y": [ 7, 15 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 5, 20 ], "y": [ 7, 15 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 5, 20 ], "y": [ 7, 15 ], "chance": 50 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "s_garage_1" ],
+    "weight": 100,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "  ~~~~~~~      ~~~~~~~  ",
+        "   ~~~~~~~    *~~~~~~~  ",
+        "   ~~~~~~~     ~~~~~~~  ",
+        "   ~~~~~~~ *  ~~~~~~~  *",
+        "  * ~~~~~~~   ~~~~~~~   ",
+        " WWW~~~~~~~WWW~~~~~~~WW ",
+        " Wz ~~~~~~~ * ~~~~~~~ W ",
+        " W* ~~~~~~~   ~~~~~~~ W ",
+        " W  z~~~~~~~ *~~~~~~~ W ",
+        " W z ~~~~~~~  ~~~~~~~ W ",
+        " W  *~~~~~~~  ~~~~~~~ W ",
+        " W   ~~~~~~~ ~~~~~~~  W ",
+        " W J  ~~~~~~~~~~~~~~ *W ",
+        " ^______~~~~~~~~~~~XzzW ",
+        " wwwwww_~~~~~~~~~w6dwww ",
+        " wxxxPw_~~~~~~~~~wdhLLw ",
+        " wSx..w_~~~~~~~~_wd..Lw ",
+        " wS..xD_~~~~~~~~_+....+ ",
+        " wS.x.w_~~~~~~~~_ww+www ",
+        " wccccw4________4ws..tw ",
+        " wwwwwwUUUUUUUUUUwwwwww ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "terrain": {
+        " ": "t_region_groundcover",
+        "~": [ "t_region_groundcover_barren", [ "t_pavement", 6 ] ],
+        "_": [ "t_region_groundcover_barren", [ "t_sidewalk", 6 ] ],
+        "*": [ [ "t_region_tree_shade", 3 ], "t_region_shrub" ],
+        "J": "t_water_pump",
+        "D": "t_door_locked",
+        "+": "t_door_c",
+        "w": "t_wall_log",
+        "U": "t_brick_wall",
+        ".": "t_floor",
+        ":": "t_window",
+        "W": "t_chainfence",
+        "^": "t_chaingate_c",
+        "X": [ "t_region_groundcover_barren", [ "t_sidewalk", 6 ] ],
+        "z": "t_region_groundcover_barren",
+        "4": "t_gutter_downspout"
+      },
+      "furniture": {
+        "6": "f_console_broken",
+        "L": "f_locker",
+        "c": "f_counter",
+        "s": "f_sink",
+        "S": "f_utility_shelf",
+        "t": "f_toilet",
+        "X": "f_crate_c",
+        "x": "f_crate_c",
+        "h": "f_chair",
+        "P": "f_hydraulic_press",
+        "d": "f_desk",
+        "z": [ "f_wreckage", "f_toilet", "f_dumpster", "f_sink" ]
+      },
+      "items": {
+        "L": { "item": "clothing_work_set", "chance": 55 },
+        "c": { "item": "mechanics", "chance": 60 },
+        "S": { "item": "mechanics", "chance": 80, "repeat": [ 1, 6 ] },
+        "x": { "item": "mechanics", "chance": 80, "repeat": [ 1, 3 ] }
+      },
+      "place_loot": [
+        { "group": "fuel_barrel_diesel_only", "x": 18, "y": 13, "chance": 50 },
+        { "group": "m60_patton_ammo_rack", "x": 19, "y": 13, "chance": 100 }
+      ],
+      "place_monster": [
+        { "group": "GROUP_MIL_WEAK", "x": [ 0, 23 ], "y": [ 0, 19 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 0, 23 ], "y": [ 0, 19 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 0, 23 ], "y": [ 0, 19 ], "chance": 50 }
+      ],
+      "place_vehicles": [
+        { "vehicle": "tankmod_garage_restoration", "x": [ 10, 11 ], "y": [ 10, 11 ], "chance": 90, "rotation": 270 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "s_garage_2" ],
+    "weight": 100,
+    "object": {
+      "fill_ter": "t_thconc_floor",
+      "rows": [
+        "   EEEEEEEE     XXX     ",
+        "   EEEEEEEE     XXX     ",
+        "   EEEEEEEE     XXX     ",
+        "   EEEEEEEE     XXX     ",
+        "  eEEEEEEEEXXXXXXXXXXXXX",
+        " --________----HHOHH---X",
+        " |e.M#MM#M..|y.......y|X",
+        " |..M#MM#M..|b........|X",
+        " :..M#MM#M..:b..|-ddd-|X",
+        " :..M#MM#M..:b..|f.h.y|X",
+        " A..M#MM#M..:b..|--.--|X",
+        " |..M#MM#M..+...+...hd|X",
+        " |..MMMMMM..|-+-|f6ddd|X",
+        " |..........|&.s|-----|X",
+        " |---....---|---|LLLLL|X",
+        " |..............|bbbbb|X",
+        " |WWWW..WWWW|...+.....|X",
+        " |c........c|-------+-|X",
+        " |c.xx..xx.p|xx.+T|<..OX",
+        " |l.xx..xx.c|x..-|----|X",
+        " |w.........O..xx|4UUXXX",
+        " |ScccccccwS|----|UXXXXX",
+        " |----------|WWWWWWWWWWW",
+        "                        "
+      ],
+      "terrain": {
+        " ": "t_region_groundcover_urban",
+        "_": "t_floor",
+        "E": "t_pavement",
+        "X": "t_sidewalk",
+        "U": "t_sidewalk",
+        "$": "t_door_glass_c",
+        "+": "t_door_c",
+        "O": "t_door_locked",
+        "-": "t_wall_b",
+        ".": "t_thconc_floor",
+        ":": "t_window",
+        "=": "t_door_metal_locked",
+        "A": "t_m_frame",
+        "H": "t_wall_glass",
+        "e": "t_gates_mech_control",
+        "|": "t_wall_b",
+        "W": "t_chainfence_h",
+        "^": "t_chaingate_c",
+        "M": "t_metal_floor",
+        "#": "t_grate",
+        "4": "t_gutter_downspout",
+        "<": "t_stairs_up"
+      },
+      "toilets": { "&": {  } },
+      "furniture": {
+        "6": "f_console_broken",
+        "A": "f_air_conditioner",
+        "L": "f_locker",
+        "T": "f_rack",
+        "b": "f_bench",
+        "d": "f_desk",
+        "c": "f_counter",
+        "p": "f_hydraulic_press",
+        "l": "f_heavy_lathe",
+        "S": "f_utility_shelf",
+        "s": "f_sink",
+        "t": "f_toilet",
+        "w": "f_utility_shelf",
+        "x": "f_crate_c",
+        "f": "f_filing_cabinet",
+        "h": "f_chair",
+        "U": [ "f_dumpster", "f_recycle_bin" ],
+        "y": [ "f_indoor_plant", "f_indoor_plant_y" ]
+      },
+      "items": {
+        "L": { "item": "clothing_work_set", "chance": 55 },
+        "c": { "item": "mechanics", "chance": 60 },
+        "S": { "item": "mechanics", "chance": 80, "repeat": [ 1, 6 ] },
+        "x": { "item": "mechanics", "chance": 80, "repeat": [ 1, 6 ] },
+        "w": { "item": "SUS_welding_gear", "chance": 80, "repeat": [ 1, 2 ] },
+        "f": { "item": "office", "chance": 70, "repeat": [ 1, 6 ] },
+        "d": { "item": "office", "chance": 70, "repeat": [ 1, 6 ] },
+        "T": { "item": "cleaning", "chance": 70, "repeat": [ 1, 6 ] }
+      },
+      "place_monster": [
+        { "group": "GROUP_MIL_WEAK", "x": [ 0, 23 ], "y": [ 0, 19 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 0, 23 ], "y": [ 0, 19 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 0, 23 ], "y": [ 0, 19 ], "chance": 50 }
+      ],
+      "place_vehicles": [ { "vehicle": "tankmod_garage_restoration", "x": 5, "y": [ 4, 5 ], "chance": 90, "rotation": 270 } ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "s_vfw" ],
+    "weight": 100,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "rrrrrrrrrrrrr.33.....33.",
+        "yrrryrrryrrry.2222222223",
+        "yrrryrrryrrry.2rrrrrrr23",
+        "yrrryrrryrrry.2rrrrrrr2.",
+        "yrrryrrryrrry.2rrrrrrr23",
+        "yrrryrrryrrry.2rrrrrrr23",
+        "yy2yyy2yyy2yy.2rrrrrrr2.",
+        "..2222222222222rrrrrrr2.",
+        ".3.33.3.33.3.32rrrrrrr2.",
+        "3--1-1-11-1--.2rrrrrrr23",
+        "3|H   F    C|.2rrrrrrr23",
+        ".|I  FHF    +.2rrrrrrr2.",
+        "3|I   F    C|.2222222223",
+        ".|H       FH1...........",
+        "3|    F   FH1.i........3",
+        "3|C  FHF    |..........3",
+        ".|C   F     -----11--...",
+        "3|C            FC  C|..3",
+        ".|     F   F   FC  C1...",
+        "3|+-- FHF FHF  FC  D1..3",
+        "3| B|  F   F       C|..3",
+        ".|----1-11-1--+--11-|...",
+        "3...........5rrUU......3",
+        "3.33.3.33.3.33.3.33.3.33"
+      ],
+      "terrain": {
+        " ": "t_floor",
+        "+": "t_door_c",
+        "-": "t_wall_wood",
+        ".": [ [ "t_grass", 5 ], [ "t_grass_long", 2 ], "t_dirt", "t_shrub" ],
+        "X": "t_grass",
+        "S": "t_grass",
+        "p": "t_grass",
+        "1": "t_window",
+        "2": "t_sidewalk",
+        "3": "t_tree_young",
+        "E": "t_dirtfloor",
+        "G": "t_dirtfloor",
+        "i": "t_column",
+        "r": "t_pavement",
+        "U": "t_pavement",
+        "y": "t_pavement_y",
+        "|": "t_wall_wood",
+        "5": "t_gutter_downspout"
+      },
+      "furniture": {
+        "A": "f_rack",
+        "C": "f_counter",
+        "D": "f_sink",
+        "E": "f_sink",
+        "F": "f_chair",
+        "G": "f_locker",
+        "H": "f_table",
+        "I": "f_sofa",
+        "X": "f_birdbath",
+        "U": [ "f_dumpster", "f_recycle_bin" ],
+        "p": [ "f_datura", "f_bluebell", "f_mutpoppy", "f_dahlia", "f_flower_tulip", "f_chamomile", "f_flower_spurge", "f_lily" ],
+        "S": "f_statue"
+      },
+      "toilets": { "B": {  } },
+      "place_loot": [
+        { "item": "american_flag", "x": 15, "y": 14, "chance": 100 }
+      ],
+      "place_items": [
+        { "item": "vfw_tools", "x": 11, "y": 10, "chance": 15, "repeat": [ 1, 2 ] },
+        { "item": "vfw_tools", "x": 11, "y": 12, "chance": 15, "repeat": [ 1, 2 ] },
+        { "item": "vfw_books", "x": 2, "y": 13, "chance": 10, "repeat": [ 1, 2 ] },
+        { "item": "vfw_books", "x": 11, "y": 13, "chance": 10, "repeat": [ 1, 2 ] },
+        { "item": "vfw_books", "x": 11, "y": 14, "chance": 10, "repeat": [ 1, 2 ] },
+        { "item": "vfw_alcohol", "x": 16, "y": [ 17, 19 ], "chance": 35, "repeat": [ 1, 3 ] },
+        { "item": "vfw_alcohol", "x": 19, "y": [ 17, 19 ], "chance": 35, "repeat": [ 1, 3 ] }
+      ],
+      "place_vehicles": [
+        { "vehicle": "tank_m60_patton_mothballed", "x": 17, "y": 4, "chance": 95, "rotation": 270 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "outpost" ],
+    "weight": 100,
+    "object": {
+      "rows": [
+        "|----------+++++++-----|",
+        "|x                    x|",
+        "|         x       x    |",
+        "|        //_______///  |",
+        "|        /.........R/  |",
+        "|  ///////.........R/  |",
+        "|  /b...b/.........!/  |",
+        "|  /l...l/.........!/  |",
+        "|  /b...b/.........!/  |",
+        "|  /l...l/........../  |",
+        "|x //;;///........../ x|",
+        "+  ;..../...........;  +",
+        "+  ;..../...........;  +",
+        "|x /....;.........../ x|",
+        "|  /S.../.........../  |",
+        "|  /X..t/T........../  |",
+        "|  /T..c/S........../  |",
+        "|  //==/////*//*/=///  |",
+        "|  /......r/&/&/../    |",
+        "|  /CCCLLrr/////p./    |",
+        "|  /////////   ////    |",
+        "|                      |",
+        "|x        x  x        x|",
+        "|----------++----------|"
+      ],
+      "fill_ter": "t_thconc_floor",
+      "terrain": {
+        " ": "t_region_groundcover",
+        "x": "t_region_groundcover",
+        "_": "t_floor",
+        "-": "t_chainfence",
+        "|": "t_chainfence",
+        "/": "t_concrete_wall",
+        "+": "t_chaingate_l",
+        "*": "t_door_c",
+        "=": "t_door_metal_locked",
+        ";": "t_door_metal_c"
+      },
+      "furniture": {
+        "t": "f_table",
+        "R": "f_rack",
+        "r": "f_rack",
+        "c": "f_chair",
+        "C": "f_counter",
+        "X": "f_counter",
+        "S": "f_sink",
+        "!": "f_locker",
+        "l": "f_locker",
+        "L": "f_locker",
+        "b": "f_bunkbed",
+        "T": "f_trashcan",
+        "p": "f_compact_ASRG_containment"
+      },
+      "items": {
+        "b": { "item": "army_bed", "chance": 60 },
+        "R": { "item": "SUS_welding_gear", "chance": 80, "repeat": [ 1, 2 ] },
+        "r": { "item": "mil_food", "chance": 60 },
+        "t": { "item": "dining", "chance": 45 },
+        "1": { "item": "bunker_basement_clothing", "chance": 40 },
+        "!": { "item": "mechanics", "chance": 70 },
+        "L": [
+          { "item": "guns_rifle_milspec", "chance": 90 },
+          { "item": "energy_weapon_armory", "chance": 50 },
+          { "item": "ammo_milspec", "chance": 100, "repeat": [ 15, 45 ] },
+          { "item": "grenades", "chance": 100, "repeat": [ 2, 8 ] },
+          { "item": "guns_launcher_milspec", "chance": 80 },
+          { "item": "mags_milspec", "chance": 100, "repeat": [ 1, 3 ] }
+        ],
+        "X": { "item": "oven", "chance": 70 },
+        "C": { "item": "mil_armor", "chance": 40 },
+        "T": { "item": "trash_cart", "chance": 50 }
+      },
+      "mapping": { " ": { "item": [ { "item": "corpse", "chance": 2 } ] } },
+      "place_fields": [ { "field": "fd_blood", "x": [ 2, 21 ], "y": [ 2, 21 ], "repeat": [ 1, 12 ] } ],
+      "toilets": { "&": {  } },
+      "place_vehicles": [
+        { "vehicle": "military_vehicles", "x": 13, "y": 5, "chance": 50, "rotation": 270 }
+      ],
+      "place_monster": [
+        {
+          "monster": "mon_crows_m240",
+          "x": 10,
+          "y": 2,
+          "spawn_data": { "ammo": [ { "ammo_id": "762_51", "qty": [ 1200, 1600 ] } ] }
+        },
+        {
+          "monster": "mon_turret_bmg",
+          "x": 18,
+          "y": 2,
+          "spawn_data": { "ammo": [ { "ammo_id": "50bmg", "qty": 400 } ] }
+        },
+        {
+          "monster": "mon_crows_m240",
+          "x": 1,
+          "y": 10,
+          "spawn_data": { "ammo": [ { "ammo_id": "762_51", "qty": [ 1200, 1600 ] } ] }
+        },
+        {
+          "monster": "mon_turret_bmg",
+          "x": 1,
+          "y": 13,
+          "spawn_data": { "ammo": [ { "ammo_id": "50bmg", "qty": 400 } ] }
+        },
+        {
+          "monster": "mon_crows_m240",
+          "x": 22,
+          "y": 10,
+          "spawn_data": { "ammo": [ { "ammo_id": "762_51", "qty": [ 1200, 1600 ] } ] }
+        },
+        {
+          "monster": "mon_turret_bmg",
+          "x": 22,
+          "y": 13,
+          "spawn_data": { "ammo": [ { "ammo_id": "50bmg", "qty": 400 } ] }
+        },
+        {
+          "monster": "mon_crows_m240",
+          "x": 10,
+          "y": 22,
+          "spawn_data": { "ammo": [ { "ammo_id": "762_51", "qty": [ 1200, 1600 ] } ] }
+        },
+        {
+          "monster": "mon_turret_bmg",
+          "x": 13,
+          "y": 22,
+          "spawn_data": { "ammo": [ { "ammo_id": "50bmg", "qty": 400 } ] }
+        },
+        { "monster": "mon_turret_searchlight", "x": 1, "y": 1 },
+        { "monster": "mon_turret_searchlight", "x": 22, "y": 22 },
+        { "monster": "mon_turret_searchlight", "x": 1, "y": 22 },
+        { "monster": "mon_turret_searchlight", "x": 22, "y": 1 }
+      ],
+      "monster": {
+        ".": [
+          { "monster": "mon_zombie_soldier", "chance": 1 },
+          { "monster": "mon_zombie_bio_op", "chance": 1 },
+          { "monster": "mon_dispatch", "chance": 1 },
+          { "monster": "mon_dispatch_military", "chance": 1 },
+          { "monster": "mon_secubot", "chance": 5 },
+          { "monster": "mon_zombie_flamer", "chance": 1 }
+        ]
+      }
+    }
+  }
+]
