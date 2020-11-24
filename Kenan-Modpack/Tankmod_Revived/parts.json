@@ -12,6 +12,7 @@
   {
     "type": "vehicle_part",
     "id": "mounted_tank_manual",
+    "looks_like": "tow_launcher",
     "copy-from": "turret_tank",
     "name": "120mm tank gun",
     "range": 25,
@@ -19,6 +20,18 @@
     "size": 10,
     "breaks_into": [ { "item": "tank_gun_manual", "prob": 50 } ],
     "requirements": { "install": { "skills": [ [ "mechanics", 5 ], [ "launcher", 2 ] ] } }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "mounted_tank_auto",
+    "looks_like": "mounted_tank_manual",
+    "copy-from": "turret_tank",
+    "name": "120mm autoloading tank gun",
+    "range": 25,
+    "item": "tank_gun_auto",
+    "size": 10,
+    "breaks_into": [ { "item": "tank_gun_auto", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 6 ], [ "launcher", 3 ], [ "electronics", 3 ] ] } }
   },
   {
     "type": "vehicle_part",
@@ -35,6 +48,7 @@
   {
     "type": "vehicle_part",
     "id": "mounted_howitzer",
+    "looks_like": "tow_launcher",
     "copy-from": "turret_tank",
     "name": "155mm howitzer",
     "range": 50,
@@ -46,6 +60,7 @@
   {
     "type": "vehicle_part",
     "id": "tow_turret",
+    "looks_like": "tow_launcher",
     "copy-from": "turret_tank",
     "name": "ATGM turret",
     "range": 50,
@@ -57,7 +72,7 @@
   {
     "type": "vehicle_part",
     "id": "mounted_25mm_autocannon",
-    "looks_like": "mounted_30mm_autocannon",
+    "looks_like": "mounted_mk19",
     "copy-from": "turret_tank",
     "name": "25mm chaingun",
     "range": 25,
