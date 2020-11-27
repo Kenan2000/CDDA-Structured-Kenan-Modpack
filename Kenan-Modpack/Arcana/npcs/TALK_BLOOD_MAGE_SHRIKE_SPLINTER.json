@@ -45,6 +45,18 @@
     },
     "responses": [
       {
+        "text": "[MISSION] Do you have any information about cursed ritual blades?",
+        "condition": {
+          "and": [
+            { "or": [ { "u_has_mission": "MISSION_HERMIT_RESTORE_SWORD" }, { "u_has_effect": "hermit_quest_backdoor" } ] },
+            { "npc_has_trait": "SHRIKE_MISSION_MARKER" },
+            { "npc_has_var": "elena_convinced", "type": "flag", "context": "shrike", "value": "yes" },
+            { "not": { "npc_has_var": "elena_blade_help", "type": "flag", "context": "shrike", "value": "yes" } }
+          ]
+        },
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE"
+      },
+      {
         "text": "…lanius.  I'm here for information.",
         "condition": {
           "and": [
@@ -112,6 +124,162 @@
     ]
   },
   {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ],
+      "yes": "You've heard of the Keepers of The Oath, haven't you?  The slaves to their new god from Beyond.  Our disagreements aside, it wasn't right how our order tricked them like that.  I don't know how much of the story you've heard, hunter, so ask away.",
+      "no": {
+        "u_has_trait": "PROF_CHALICE",
+        "yes": "You must know of it, don't you?  The magi, the corruption ritual, the THING that drowned the last gasp of both our orders in a deluge of blood and madness.  I hope the magus that concocted that scheme died there with the priests and had his soul devoured by the abomination they ended up summoning.  Tell me, Keeper.  What answers do you seek?",
+        "no": {
+          "u_has_trait": "PROF_SANGUINE",
+          "yes": "I wonder how much you know about that.  Brings to mind stories of the day our Order destroyed itself in its short-sightedness.  I can answer what questions you have.",
+          "no": "That brings back memories of a fascinating story, from the old days.  Of magi tampering with another order's sacred relic.  Practically blew up in their face, if I recall.  One of the incidents that encouraged us to break with the Sanguine Order.  What do you want to know about that old tale?"
+        }
+      }
+    },
+    "responses": [
+      { "text": "What did they do to the sword?", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_WHAT1" },
+      { "text": "What happened back then?", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_WHAT2" },
+      { "text": "I need help undoing the curse put upon it.", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_HELP" },
+      { "text": "Another time, maybe.", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_WHAT1",
+    "type": "talk_topic",
+    "dynamic_line": "They put a concealed curse on it.  I don't know for sure how it works, but it was geared towards sabotaging a Keeper communion ritual.  Lethal backlash, summoning some lesser hellspawn under their control, who knows?  Our order was on its last legs and some damn fool magus had a plan they thought would drag us back from the brink at the Keepers' expense.  Didn't work, obviously.",
+    "responses": [
+      { "text": "I see.  As you were saying?", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE" },
+      { "text": "Let's talk about something else.", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_WHAT2",
+    "type": "talk_topic",
+    "dynamic_line": "From what little I heard, they drew the attention of some other being out them.  Some idiotic plot to sabotage the Keepers, drag them to Hell with us, I don't know what they were thinking nor what plans they had that would've benefited from it.  Only that the magus responsible for that plan got what they deserved.  I almost wish I was there to see it, though no one who made it out of there survived for very long…",
+    "responses": [
+      { "text": "Right.  Where were we?", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE" },
+      { "text": "Let's change the subject.", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_HELP",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ],
+      "yes": "You're working with them too?  Perhaps there's hope for the lot of us after all.  I'm used to seeing you mage hunters trying to smash any relic they can't exploit with their little hammers.  I'm not familiar with the curse's functionality, but the fundamentals of it can be found in the Sanguine Codex.  If you had access to the Keeper's own consecration rituals, you could do something with that.",
+      "no": {
+        "u_has_trait": "PROF_CHALICE",
+        "yes": "I'm aware that your holy book includes consecration rituals that could be adapted to do that.  You'll likely need information on how the curse functions to properly fix it, some of it could perhaps be puzzled out from a copy of Sanguine Codex.",
+        "no": {
+          "u_has_trait": "PROF_SANGUINE",
+          "yes": "You'll need Keeper magic to fix Keeper relics, that's for certain.  Very few magi had a handle on curse-binding for that matter, so you'll likely need a copy of the Codex on hand too.  Otherwise you're more likely to burn the curse out and turn it into a useless piece of metal.",
+          "no": "I don't know if I can help you very directly.  You'll need information on the curse itself first, from a copy of the Sanguine Codex.  Then you'll what the rituals the sword's old owners used for consecrating relics.  That's probably in their book, Oaths To The Chalice."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "We don't just smash things with hammers, believe it or not.  Rendering it safe yet functional would be a much better outcome.",
+        "condition": { "u_has_trait": "PROF_CLEANSINGFLAME2" },
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CF_1"
+      },
+      {
+        "text": "We have more methods than mere destruction, and a reason for each method used.  Hence, not wishing to destroy this item.",
+        "condition": { "u_has_trait": "PROF_CLEANSINGFLAME" },
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CF_1"
+      },
+      {
+        "text": "So I'll need a copy of Sanguine Codex then, great.",
+        "switch": true,
+        "condition": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ] },
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CF_2"
+      },
+      {
+        "text": "Do you have a copy of Sanguine Codex I can use for that?",
+        "switch": true,
+        "condition": { "not": { "u_has_item": "book_bloodmagic" } },
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CODEX"
+      },
+      { "text": "I have some other questions.", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE" },
+      { "text": "I'll try to figure it out.", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CF_1",
+    "type": "talk_topic",
+    "dynamic_line": "I'm aware of that.  Old habits aside, it's good to have a chance to work towards a common goal.  Guessing you'll need a copy of the Codex, then?  I'll trust you with one, if needed for the ritual.",
+    "responses": [
+      {
+        "text": "I already have one.  Thank you, though.",
+        "switch": true,
+        "condition": { "u_has_item": "book_bloodmagic" },
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CF_3"
+      },
+      {
+        "text": "That would be appreciated, yes.",
+        "switch": true,
+        "default": true,
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CODEX"
+      },
+      { "text": "I'll figure something out myself.", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CF_3",
+    "type": "talk_topic",
+    "dynamic_line": "You're full of surprises, it seems.  I'll overlook the question of where you got it.  Do try not to end up burning it, and hopefully that old sword will prove useful.",
+    "speaker_effect": { "effect": { "npc_add_var": "elena_blade_help", "type": "flag", "context": "shrike", "value": "yes" } },
+    "responses": [ { "text": "…", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER" } ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CF_2",
+    "type": "talk_topic",
+    "dynamic_line": "Yes, you will.  I suppose I can afford to lend you one for that purpose.  I will trust you to take good care of it, understood?",
+    "responses": [
+      {
+        "text": "There is no need.  I already have one.",
+        "switch": true,
+        "condition": { "u_has_item": "book_bloodmagic" },
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CF_3"
+      },
+      {
+        "text": "Understood.",
+        "switch": true,
+        "default": true,
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CODEX"
+      },
+      { "text": "I'll see about this another time.", "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_BLADE_CODEX",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ],
+      "yes": "So be it.  I will trust you with a copy, but consider it on loan.  That means, first and foremost, take good care of it.  Someday when humanity can look forward to a moment's peace and the hope of rebuilding on the ruins, I expect you to survive to see it through.  Then we'll see about returning that book.",
+      "no": "Very well then.  Here you go.  Take good care of it, and be careful in applying the lessons you will find within.  The Path To Power, as we called it back in the day, is not an easy one to walk."
+    },
+    "speaker_effect": {
+      "effect": [
+        { "npc_add_var": "elena_blade_help", "type": "flag", "context": "shrike", "value": "yes" },
+        { "u_buy_item": "book_bloodmagic" }
+      ]
+    },
+    "responses": [
+      {
+        "text": "We'll see how this goes, then.",
+        "switch": true,
+        "condition": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ] },
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER"
+      },
+      { "text": "Thank you.", "switch": true, "default": true, "topic": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER" },
+      { "text": "Thank you.  Good bye for now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
     "id": "TALK_BLOOD_MAGE_SHRIKE_SPLINTER_CLEANSINGFLAME",
     "type": "talk_topic",
     "dynamic_line": {
@@ -120,7 +288,7 @@
       "no": {
         "u_has_trait": "THRESH_VEIL",
         "yes": "There's something about you, hunter.  Something anomalous.  You're not just here on behalf of the Cleansing Flame, are you?  What is it you seek?",
-        "no": "And what makes you think I would trust your intentions?  Your kinda have destroyed so much, knowledge that could've been used to adapt and survive in these trying times."
+        "no": "And what makes you think I would trust your intentions?  Your kind have destroyed so much, knowledge that could've been used to adapt and survive in these trying times."
       }
     },
     "responses": [
