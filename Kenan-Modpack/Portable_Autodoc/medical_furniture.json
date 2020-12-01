@@ -1,0 +1,69 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_autodoc",
+    "name": "Autodoc Mk. XI",
+    "symbol": "&",
+    "description": "A surgical apparatus used for installation and removal of bionics.  The term name 'Autodoc' is something of a misnomer, as it can only operate if programmed beforehand, something that a plethora of labels warn against doing without expertise.",
+    "color": "light_cyan",
+    "looks_like": "f_robotic_arm",
+    "copy_from": "f_autodoc",
+    "move_cost_mod": -1,
+    "coverage": 35,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "AUTODOC", "EASY_DECONSTRUCT" ],
+    "examine_action": "autodoc",
+    "deconstruct": { "items": [ { "item": "portable_autodoc", "count": 1 } ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_autodoc_couch",
+    "name": "Autodoc operation couch",
+    "symbol": "H",
+    "looks_like": "f_sofa",
+    "copy_from": "f_autodoc_couch",
+    "description": "A plush red sofa made less comfortable by the medical machinery directly above it.  It has a single leather strap on the right armrest.",
+    "bgcolor": "red",
+    "move_cost_mod": 2,
+    "coverage": 40,
+    "comfort": 4,
+    "floor_bedding_warmth": 500,
+    "required_str": 10,
+    "deconstruct": { "items": [ { "item": "portable_autodoc_couch", "count": 1 } ] },
+    "flags": [ "TRANSPARENT", "FLAMMABLE_ASH", "ORGANIC", "BLOCKSDOOR", "MOUNTABLE", "AUTODOC_COUCH", "EASY_DECONSTRUCT" ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_autodoc_deployable",
+    "name": "Deployable Autodoc Mk. XI",
+    "symbol": "&",
+    "description": "A surgical apparatus used for installation and removal of bionics.  The term name 'Autodoc' is something of a misnomer, as it can only operate if programmed beforehand, something that a plethora of labels warn against doing without expertise.",
+    "color": "light_cyan",
+    "looks_like": "f_robotic_arm",
+    "move_cost_mod": 2,
+    "coverage": 35,
+    "required_str": 8,
+    "flags": [ "TRANSPARENT", "AUTODOC", "AUTODOC_COUCH", "EASY_DECONSTRUCT" ],
+    "examine_action": "autodoc",
+    "surgery_skill_multiplier": 1.0,
+    "deconstruct": { "items": [ { "item": "portable_autodoc_mk2", "count": 1 } ] },
+    "bash": {
+      "str_min": 8,
+      "str_max": 150,
+      "sound": "crunch!",
+      "sound_fail": "whack!",
+      "items": [
+        { "item": "processor", "prob": 25 },
+        { "item": "RAM", "count": [ 0, 2 ], "prob": 50 },
+        { "item": "cable", "charges": [ 1, 2 ], "prob": 50 },
+        { "item": "small_lcd_screen", "prob": 25 },
+        { "item": "e_scrap", "count": [ 1, 4 ], "prob": 50 },
+        { "item": "circuit", "count": [ 0, 2 ], "prob": 50 },
+        { "item": "power_supply", "prob": 25 },
+        { "item": "amplifier", "prob": 25 },
+        { "item": "plastic_chunk", "count": [ 4, 10 ], "prob": 50 },
+        { "item": "scrap", "count": [ 2, 6 ], "prob": 50 }
+      ]
+    }
+  }
+]
