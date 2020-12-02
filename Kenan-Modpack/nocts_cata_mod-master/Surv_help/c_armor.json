@@ -233,6 +233,7 @@
   },
   {
     "id": "c_stealth_cloak",
+    "//": "This is obsolete and only retained here for the benefit of old saves, delete this once 0.F comes out.",
     "type": "enchantment",
     "has": "WORN",
     "condition": "ALWAYS",
@@ -262,7 +263,20 @@
     "warmth": 15,
     "material_thickness": 1,
     "environmental_protection": 4,
-    "relic_data": { "passive_effects": [ { "id": "c_stealth_cloak" } ] },
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "SPEED", "add": -20 },
+            { "value": "STRENGTH", "add": -4 },
+            { "value": "DEXTERITY", "add": -4 }
+          ],
+          "ench_effects": [ { "effect": "invisibility", "intensity": 1 } ]
+        }
+      ]
+    },
     "flags": [ "OVERSIZE", "HOOD", "WATERPROOF", "OUTER", "VARSIZE" ]
   },
   {
