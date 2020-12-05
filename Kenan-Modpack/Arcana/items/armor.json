@@ -47,6 +47,72 @@
     "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
   },
   {
+    "id": "halo_amulet_effect",
+    "copy-from": "spell_base",
+    "type": "ARMOR",
+    "name": { "str": "shrouded aura" },
+    "description": "A strange radiance permeating your body, obscuring your life force from the undead.",
+    "color": "white",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "mutations": [ "ARCANA_LIFE_SIGN_SUPPRESSION" ],
+          "values": [ { "value": "REGEN_HP", "multiply": -1.0 } ]
+        }
+      ]
+    },
+    "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
+  },
+  {
+    "id": "halo_flute_effect",
+    "copy-from": "spell_base",
+    "type": "ARMOR",
+    "name": { "str": "elusive aura" },
+    "description": "A strange radiance permeating your body, enhancing your movement and reflexes.",
+    "color": "white",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [ { "value": "MOVE_COST", "multiply": -0.9 }, { "value": "BONUS_DODGE", "add": 10 } ],
+          "ench_effects": [ { "effect": "halo_flute_effect", "intensity": 1 } ]
+        }
+      ]
+    },
+    "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
+  },
+  {
+    "id": "halo_brooch_effect",
+    "copy-from": "spell_base",
+    "type": "ARMOR",
+    "name": { "str": "guardian aura" },
+    "description": "A strange radiance permeating your body, adding to your defenses.",
+    "color": "white",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "ARMOR_ACID", "multiply": -0.5 },
+            { "value": "ARMOR_BASH", "multiply": -0.5 },
+            { "value": "ARMOR_BIO", "multiply": -0.5 },
+            { "value": "ARMOR_COLD", "multiply": -0.5 },
+            { "value": "ARMOR_CUT", "multiply": -0.5 },
+            { "value": "ARMOR_ELEC", "multiply": -0.5 },
+            { "value": "ARMOR_HEAT", "multiply": -0.5 },
+            { "value": "ARMOR_STAB", "multiply": -0.5 },
+            { "value": "ARMOR_BULLET", "multiply": -0.5 }
+          ]
+        }
+      ]
+    },
+    "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
+  },
+  {
     "id": "triffid_garland",
     "type": "ARMOR",
     "name": { "str": "triffid garland" },
@@ -59,15 +125,6 @@
     "symbol": "[",
     "looks_like": "holy_symbol_wood",
     "color": "light_red",
-    "relic_data": {
-      "passive_effects": [
-        {
-          "has": "WORN",
-          "condition": "ALWAYS",
-          "values": [ { "value": "REGEN_MANA", "multiply": 0.025 }, { "value": "MAX_MANA", "multiply": 0.025 } ]
-        }
-      ]
-    },
     "flags": [ "FANCY" ]
   },
   {
@@ -83,15 +140,6 @@
     "looks_like": "aquamarine_silver_pendant_necklace",
     "color": "light_gray",
     "flags": [ "FANCY" ],
-    "relic_data": {
-      "passive_effects": [
-        {
-          "has": "WORN",
-          "condition": "ALWAYS",
-          "values": [ { "value": "REGEN_MANA", "multiply": 0.025 }, { "value": "MAX_MANA", "multiply": 0.025 } ]
-        }
-      ]
-    },
     "use_action": "MEDITATE"
   },
   {
@@ -106,15 +154,6 @@
     "symbol": "[",
     "looks_like": "jade_brooch",
     "color": "dark_gray",
-    "relic_data": {
-      "passive_effects": [
-        {
-          "has": "WORN",
-          "condition": "ALWAYS",
-          "values": [ { "value": "REGEN_MANA", "multiply": 0.025 }, { "value": "MAX_MANA", "multiply": 0.025 } ]
-        }
-      ]
-    },
     "flags": [ "FANCY" ]
   },
   {
@@ -135,7 +174,7 @@
         {
           "has": "WORN",
           "condition": "ALWAYS",
-          "values": [ { "value": "REGEN_MANA", "multiply": 0.1 }, { "value": "MAX_MANA", "multiply": 0.01 } ]
+          "values": [ { "value": "REGEN_MANA", "multiply": 0.1 }, { "value": "MAX_MANA", "multiply": 0.1 } ]
         }
       ]
     },
