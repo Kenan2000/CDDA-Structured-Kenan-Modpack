@@ -4,15 +4,22 @@
     "id": "THRESH_VEIL",
     "name": { "str": "Paragon of The Veil" },
     "points": 1,
-    "description": "You have gazed deeper into The Beyond than anyone that still lives.  It has gazed back, and found greater purpose in you.  The living wind it calls its herald, and you its knight under oath.  You will unable to mutate beyond your current state by mundane means, as this would tie you to intruders that must be cast out...",
+    "description": "You have gazed deeper into The Beyond than anyone that still lives.  It has gazed back, and found greater purpose in you.  The living wind it calls its herald, and you its knight under oath.  You will unable to mutate beyond your current state by mundane means, as this would tie you to intruders that must be cast out…",
     "valid": false,
     "purifiable": false,
     "threshold": true,
     "//": "The good news, you regen mana faster and vortices are friendly.  The bad news, HFBTV doesn't want you getting any more dependent on the blob (or worse, the Mycus) than you already are.",
-    "mana_regen_multiplier": 1.25,
-    "craft_skill_bonus": [ [ "magic", 2 ] ],
     "ignored_by": [ "UNKNOWN" ],
-    "anger_relations": [ [ "ARCANA_SUMMONED", -95 ], [ "NETHER", 20 ], [ "FUNGUS", 10 ] ],
+    "anger_relations": [
+      [ "ARCANA_SUMMONED", -95 ],
+      [ "NETHER", 20 ],
+      [ "BLOB", 20 ],
+      [ "HORROR", 15 ],
+      [ "ABERRATION", 15 ],
+      [ "FUNGUS", 10 ],
+      [ "LEECH_PLANT", 10 ],
+      [ "MUTANT", 5 ]
+    ],
     "allowed_category": [ "VEIL" ]
   },
   {
@@ -27,6 +34,7 @@
     "player_display": false,
     "changes_to": [ "SPELL_LIGHT2" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.05,
     "spells_learned": [ [ "arcana_blessing_conjure_shadow_field", 1 ] ],
     "flags": [ "explorer_of_the_veil" ],
     "allowed_category": [ "VEIL" ]
@@ -43,6 +51,7 @@
     "prereqs": [ "SPELL_SMOKE" ],
     "changes_to": [ "SPELL_LOCKPICK2" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.1,
     "spells_learned": [ [ "arcana_blessing_conjure_shadow_field", 1 ], [ "arcana_blessing_conjure_lightburst", 1 ] ],
     "flags": [ "explorer_of_the_veil" ],
     "allowed_category": [ "VEIL" ]
@@ -60,6 +69,7 @@
     "changes_to": [ "SPELL_TELEPORT" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.15,
     "spells_learned": [
       [ "arcana_blessing_conjure_shadow_field", 1 ],
       [ "arcana_blessing_conjure_lightburst", 1 ],
@@ -81,6 +91,7 @@
     "changes_to": [ "SPELL_PACIFY" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.2,
     "spells_learned": [
       [ "arcana_blessing_conjure_shadow_field", 1 ],
       [ "arcana_blessing_conjure_lightburst", 1 ],
@@ -102,6 +113,7 @@
     "changes_to": [ "SPELL_CONSECRATE" ],
     "threshreq": [ "THRESH_VEIL" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.25,
     "spells_learned": [
       [ "arcana_blessing_conjure_shadow_field", 1 ],
       [ "arcana_blessing_conjure_lightburst", 1 ],
@@ -123,6 +135,7 @@
     "prereqs": [ "SPELL_PACIFY" ],
     "threshreq": [ "THRESH_VEIL" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.3,
     "spells_learned": [
       [ "arcana_blessing_conjure_shadow_field", 1 ],
       [ "arcana_blessing_conjure_lightburst", 1 ],
@@ -144,6 +157,7 @@
     "player_display": false,
     "changes_to": [ "SPELL_CLAIRVOYANCE2" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.05,
     "spells_learned": [ [ "arcana_blessing_might", 1 ] ],
     "flags": [ "explorer_of_the_veil" ],
     "allowed_category": [ "VEIL" ]
@@ -160,6 +174,7 @@
     "prereqs": [ "SPELL_STRENGTH2" ],
     "changes_to": [ "SPELL_AGILE2" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.1,
     "spells_learned": [ [ "arcana_blessing_might", 1 ], [ "arcana_blessing_clairvoyance", 1 ] ],
     "flags": [ "explorer_of_the_veil" ],
     "allowed_category": [ "VEIL" ]
@@ -177,6 +192,7 @@
     "changes_to": [ "SPELL_DAYLIGHT2" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.15,
     "spells_learned": [ [ "arcana_blessing_might", 1 ], [ "arcana_blessing_clairvoyance", 1 ], [ "arcana_blessing_agility", 1 ] ],
     "flags": [ "explorer_of_the_veil" ]
   },
@@ -193,6 +209,7 @@
     "changes_to": [ "SPELL_DRAINLIFE" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.2,
     "spells_learned": [
       [ "arcana_blessing_might", 1 ],
       [ "arcana_blessing_clairvoyance", 1 ],
@@ -214,6 +231,7 @@
     "changes_to": [ "SPELL_INVIS" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.25,
     "spells_learned": [
       [ "arcana_blessing_might", 1 ],
       [ "arcana_blessing_clairvoyance", 1 ],
@@ -235,6 +253,7 @@
     "prereqs": [ "SPELL_DRAINLIFE" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.3,
     "spells_learned": [
       [ "arcana_blessing_might", 1 ],
       [ "arcana_blessing_clairvoyance", 1 ],
@@ -256,6 +275,7 @@
     "player_display": false,
     "changes_to": [ "SPELL_CLOUD" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.05,
     "spells_learned": [ [ "arcana_blessing_confuse_monster", 1 ] ],
     "flags": [ "explorer_of_the_veil" ],
     "allowed_category": [ "VEIL" ]
@@ -272,6 +292,7 @@
     "prereqs": [ "SPELL_CONFUSE2" ],
     "changes_to": [ "SPELL_LIGHTNING2" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.1,
     "spells_learned": [ [ "arcana_blessing_confuse_monster", 1 ], [ "arcana_blessing_conjure_miasma", 1 ] ],
     "flags": [ "explorer_of_the_veil" ],
     "allowed_category": [ "VEIL" ]
@@ -289,6 +310,7 @@
     "changes_to": [ "SPELL_FIRE2" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.15,
     "spells_learned": [
       [ "arcana_blessing_confuse_monster", 1 ],
       [ "arcana_blessing_conjure_miasma", 1 ],
@@ -309,6 +331,7 @@
     "changes_to": [ "SPELL_LIGHTNINGFIELD" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.2,
     "spells_learned": [
       [ "arcana_blessing_confuse_monster", 1 ],
       [ "arcana_blessing_conjure_miasma", 1 ],
@@ -330,6 +353,7 @@
     "changes_to": [ "SPELL_PULSE" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.25,
     "spells_learned": [
       [ "arcana_blessing_confuse_monster", 1 ],
       [ "arcana_blessing_conjure_miasma", 1 ],
@@ -351,6 +375,7 @@
     "category": [ "VEIL" ],
     "prereqs": [ "SPELL_LIGHTNINGFIELD" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.3,
     "spells_learned": [
       [ "arcana_blessing_confuse_monster", 1 ],
       [ "arcana_blessing_conjure_miasma", 1 ],
@@ -372,6 +397,7 @@
     "player_display": false,
     "changes_to": [ "SPELL_POISONARMOR2" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.05,
     "spells_learned": [ [ "arcana_blessing_ward_acid", 1 ] ],
     "flags": [ "explorer_of_the_veil" ],
     "allowed_category": [ "VEIL" ]
@@ -388,6 +414,7 @@
     "prereqs": [ "SPELL_ACIDARMOR" ],
     "changes_to": [ "SPELL_ELECRESIST2" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.1,
     "spells_learned": [ [ "arcana_blessing_ward_acid", 1 ], [ "arcana_blessing_ward_poison", 1 ] ],
     "flags": [ "explorer_of_the_veil" ],
     "allowed_category": [ "VEIL" ]
@@ -405,6 +432,7 @@
     "changes_to": [ "SPELL_FLAMEARMOR2" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.15,
     "spells_learned": [ [ "arcana_blessing_ward_acid", 1 ], [ "arcana_blessing_ward_poison", 1 ], [ "arcana_blessing_ward_lightning", 1 ] ],
     "flags": [ "explorer_of_the_veil" ]
   },
@@ -421,6 +449,7 @@
     "changes_to": [ "SPELL_FROSTARMOR" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.2,
     "spells_learned": [
       [ "arcana_blessing_ward_acid", 1 ],
       [ "arcana_blessing_ward_poison", 1 ],
@@ -442,6 +471,7 @@
     "changes_to": [ "SPELL_PSYSHIELD" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.25,
     "spells_learned": [
       [ "arcana_blessing_ward_acid", 1 ],
       [ "arcana_blessing_ward_poison", 1 ],
@@ -463,6 +493,7 @@
     "prereqs": [ "SPELL_FROSTARMOR" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.3,
     "spells_learned": [
       [ "arcana_blessing_ward_acid", 1 ],
       [ "arcana_blessing_ward_poison", 1 ],
@@ -484,6 +515,7 @@
     "player_display": false,
     "changes_to": [ "SPELL_SUMMONSKEL" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.05,
     "spells_learned": [ [ "arcana_blessing_summon_skeletal_dog", 1 ] ],
     "flags": [ "explorer_of_the_veil" ],
     "allowed_category": [ "VEIL" ]
@@ -500,6 +532,7 @@
     "prereqs": [ "SPELL_SUMMONDOG2" ],
     "changes_to": [ "SPELL_SUMMONCULUS" ],
     "category": [ "VEIL" ],
+    "mana_regen_multiplier": 1.1,
     "spells_learned": [ [ "arcana_blessing_summon_skeletal_dog", 1 ], [ "arcana_blessing_summon_skeleton", 1 ] ],
     "flags": [ "explorer_of_the_veil" ],
     "allowed_category": [ "VEIL" ]
@@ -517,6 +550,7 @@
     "changes_to": [ "SPELL_SUMMONTHING" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.15,
     "spells_learned": [
       [ "arcana_blessing_summon_skeletal_dog", 1 ],
       [ "arcana_blessing_summon_skeleton", 1 ],
@@ -537,6 +571,7 @@
     "changes_to": [ "SPELL_BUGS" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.2,
     "spells_learned": [
       [ "arcana_blessing_summon_skeletal_dog", 1 ],
       [ "arcana_blessing_summon_skeleton", 1 ],
@@ -558,6 +593,7 @@
     "changes_to": [ "SPELL_SUMMONVORTEX" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.25,
     "spells_learned": [
       [ "arcana_blessing_summon_skeletal_dog", 1 ],
       [ "arcana_blessing_summon_skeleton", 1 ],
@@ -579,6 +615,7 @@
     "prereqs": [ "SPELL_BUGS" ],
     "category": [ "VEIL" ],
     "threshreq": [ "THRESH_VEIL" ],
+    "mana_regen_multiplier": 1.3,
     "spells_learned": [
       [ "arcana_blessing_summon_skeletal_dog", 1 ],
       [ "arcana_blessing_summon_skeleton", 1 ],
