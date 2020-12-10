@@ -1,0 +1,34 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_ALLY_ORDERS",
+    "responses": [ 
+	{ "text": "Do you have any brew on you?", "topic": "TALK_DRUNKEN_BREW", "condition":{ "npc_has_var": "know_brew", "type": "flag", "context": "brew", "value": "yes" },
+        "trial": {
+          "type": "CONDITION",
+          "condition": {
+            "not": {
+              "npc_compare_time_since_var": "time_brew",
+              "type": "time",
+              "context": "brew",
+              "op": "<",
+              "time": "14 days"
+            }
+          }
+        },
+        "success": { "topic": "TALK_DRUNKEN_BREW", "effect":{ "npc_add_var": "need_time", "type": "time", "context": "brew", "time":true } },
+        "failure": {
+          "topic": "TALK_DRUNKEN_BREW_nope"
+        }
+	} ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ALLY_ORDERS",
+    "dynamic_line": "Are you sure?",
+    "responses": [ 
+	{ "text": "Yes.", "topic": "TALK_DONE", "effect":[{ "npc_add_var": "need_time", "type": "time", "context": "brew", "time":true }]},
+	{ "text": "<done_conversation_section>", "topic": "TALK_NONE"}
+	]
+  }
+]

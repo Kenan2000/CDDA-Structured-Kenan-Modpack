@@ -1,0 +1,268 @@
+[
+  {
+    "//": "TODO write normal text not this bullshit parody of a writing, maybe add bonus for ?, do class ",
+    "type": "npc",
+    "id": "NPC_retired_assassin",
+    "name_suffix": "assassin",
+    "gender": "female",
+    "class": "NC_NINJA",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_retired_assassin_1",
+    "faction": "no_faction",
+    "mission_offered": "MISSION_retired_assassin_1"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_retired_assassin_1",
+    "dynamic_line": "<greet>",
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_retired_assassin_0" } },
+    "responses": [
+      {
+        "text": "About that job…",
+        "topic": "TALK_MISSION_INQUIRE",
+        "condition": { "and": [ "mission_complete", "has_many_assigned_missions" ] }
+      },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_retired_assassin_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Can you teach me something?", "topic": "TALK_retired_assassin_teach_check" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_retired_assassin_Background",
+    "dynamic_line": "Well I'm just a regular assassin, really.",
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_retired_assassin_teach_check",
+    "dynamic_line": "I teach only those who helped me. Did you helped me?",
+    "responses": [
+      {
+        "text": "Yeah.",
+        "condition": { "npc_has_var": "u_helped_retired_assassin", "type": "general", "context": "meeting", "value": "yes" },
+        "trial": {
+          "type": "CONDITION",
+          "condition": { "npc_has_var": "retired_assassin_teach", "type": "general", "context": "meeting", "value": "yes" }
+        },
+        "success": {
+          "effect": [
+            { "u_buy_item": "manual_ninjutsu" },
+            { "npc_lose_var": "retired_assassin_teach", "type": "general", "context": "meeting" }
+          ],
+          "topic": "TALK_retired_assassin_teach"
+        },
+        "failure": { "topic": "TALK_retired_assassin_teach_done" }
+      },
+      { "text": "Sorry.", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_retired_assassin_teach",
+    "dynamic_line": "I learned all from it. You can take it now. Good luck!",
+    "responses": [ { "text": "Thanks.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_retired_assassin_teach_done",
+    "dynamic_line": "I already taught you all I knew.",
+    "responses": [ { "text": "Thanks again, teacher.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_retired_assassin_wait",
+    "dynamic_line": {
+      "u_has_var": "retired_assassin_fail",
+      "type": "general",
+      "context": "meeting",
+      "value": "yes",
+      "yes": "What a shame…",
+      "no": "…"
+    },
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_MISSION_FAILURE",
+        "condition": { "u_has_var": "retired_assassin_fail", "type": "flag", "context": "meeting", "value": "yes" },
+        "effect": [ "mission_failure", "end_conversation" ],
+        "switch": true
+      },
+      { "text": "I'm back!", "topic": "TALK_retired_assassin_1", "switch": true }
+    ]
+  },
+  {
+    "id": "MISSION_retired_assassin_1",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Kill hacker" },
+    "description": "Kill that nerd",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 1000,
+    "start": {
+      "effect": { "npc_first_topic": "TALK_retired_assassin_wait" },
+      "assign_mission_target": {
+        "om_terrain": "house",
+        "om_terrain_replace": "field",
+        "om_terrain_match_type": "PREFIX",
+        "z": -1,
+        "reveal_radius": 1,
+        "search_range": 80,
+        "min_distance": 5
+      },
+      "update_mapgen": { "place_npcs": [ { "class": "NPC_ra_target_hacker", "x": 22, "y": 18, "target": true } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_retired_assassin_2",
+    "dialogue": {
+      "describe": "-",
+      "offer": "As you can see, there's <the_cataclysm> outside, and <zombies> roaming the streets. Still, I stick with code of assassins, and I need to finish my contracts. You want to help me with easy ones? I'll teach you something cool if you help me.",
+      "accepted": "Good. First one is easy. Kill hacker in his basement.",
+      "rejected": "…",
+      "advice": "It's an easy job, really. Just dont forget to move at night.",
+      "inquire": "So?",
+      "success": "Neat.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_retired_assassin_2",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Kill sewers dweller" },
+    "description": "Kill sewers dweller",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 1000,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "mx_sewer",
+        "om_terrain_match_type": "PREFIX",
+        "reveal_radius": 1,
+        "search_range": 100,
+        "min_distance": 35,
+        "random": true
+      },
+      "update_mapgen": { "place_npcs": [ { "class": "NPC_ra_target_cyborg", "x": [ 5, 20 ], "y": [ 5, 20 ], "target": true } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_retired_assassin_3",
+    "dialogue": {
+      "describe": "-",
+      "offer": "That was an easy task. This might be harder. Are you still interested?",
+      "accepted": "Good. I got a contract on some <name_b> who lives in sewers. Don't know who or for what someone wants him dead. Sounds easy enough for me.",
+      "rejected": "…",
+      "advice": "I hope you now how to deal with aligators. There are a lot of them in city sewers. [*chuckles*]",
+      "inquire": "So?",
+      "success": "Neat.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_retired_assassin_3",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Kill cop" },
+    "description": "Kill cop",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 0,
+    "value": 100,
+    "//2": "TODO redo quest when (?)",
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "fema_entrance",
+        "om_special": "FEMA Camp",
+        "om_terrain_replace": "field",
+        "om_terrain_match_type": "PREFIX",
+        "reveal_radius": 1,
+        "random": true,
+        "search_range": 200
+      },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_zombie_cop_oat", "x": [ 0, 23 ], "y": [ 0, 23 ], "target": true } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_retired_assassin_4",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Are you still interested? This one may be harder.",
+      "accepted": "Good. I got a contract on some corrupted cop. Find him. He has a wooden hand. According to my sources, he got trapped in one of the FEMA camps.",
+      "rejected": "…",
+      "advice": "FEMA camps was full of people when shit hit the fan, and I guarantee that it's full of <zombies> now.",
+      "inquire": "So?",
+      "success": "Nice.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_retired_assassin_4",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Kill CEO" },
+    "description": "Kill CEO",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 100,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "loffice_tower_11",
+        "om_special": "office_tower_large",
+        "om_terrain_replace": "field",
+        "search_range": 200
+      },
+      "update_mapgen": {
+        "place_npcs": [
+          { "class": "NPC_ra_target_ceo", "x": 22, "y": 18, "target": true },
+          { "class": "NPC_ra_target_ceo_bg", "x": 23, "y": 17 },
+          { "class": "NPC_ra_target_ceo_bg", "x": 21, "y": 17 }
+        ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "npc_add_var": "u_helped_retired_assassin", "type": "general", "context": "meeting", "value": "yes" },
+        { "npc_add_var": "retired_assassin_teach", "type": "general", "context": "meeting", "value": "yes" }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "The last one. It will be hard. I hope you're sure that you can handle it.",
+      "accepted": "Good. The last mission will be some top manager or CEO or <swear> knows who of <swear> knows what.",
+      "rejected": "…",
+      "advice": "He will be guarded, and probably would try to buy his life if you talk to him. Remember, no talking to your victims!",
+      "inquire": "So?",
+      "success": "Nice. I can teach you now if you want.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_retired_assassin_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met Assassin" },
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "-", "type": "general", "context": "meeting", "value": "yes" },
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_buy_item": "oa_head" } }
+  }
+]
