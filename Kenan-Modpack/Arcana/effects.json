@@ -654,14 +654,26 @@
     "id": "arcane_pulse_side_effects",
     "//": "Proper Chosen are more acclimated to channeling He From Beyond The Veil's blessings.",
     "resist_traits": [ "PROF_CHALICE" ],
-    "name": [ "Wave of Destruction Burnout" ],
+    "name": [ "Arcane Burnout" ],
     "desc": [
       "Human minds and bodies were not made to be a conduit for such destructive energy.  Overuse won't kill you, but will make it harder to focus on spellcasting."
     ],
     "max_intensity": 6,
     "int_dur_factor": "12 h",
-    "base_mods": { "int_mod": [ -1 ], "vomit_chance": [ 2000, 2400 ], "pain_min": [ 5, 3 ], "pain_chance": [ 1000, 1200 ] },
-    "scaling_mods": { "int_mod": [ -1.25, -1 ], "vomit_chance": [ -200, -240 ], "stamina_min": [ -5 ], "pain_chance": [ 100, 120 ] }
+    "base_mods": {
+      "int_mod": [ -1 ],
+      "stamina_min": [ -5 ],
+      "pain_chance": [ 1500, 2000 ],
+      "vomit_chance": [ 2000, 2500 ],
+      "vomit_tick": [ 60, 120 ]
+    },
+    "scaling_mods": {
+      "int_mod": [ -1.25, -1 ],
+      "stamina_min": [ -2, -1 ],
+      "pain_min": [ 1, 0.5 ],
+      "pain_chance": [ -200, 100 ],
+      "vomit_chance": [ -200, -100 ]
+    }
   },
   {
     "type": "effect_type",

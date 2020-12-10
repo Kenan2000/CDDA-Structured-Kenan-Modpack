@@ -76,39 +76,54 @@
         }
       },
       {
-        "text": "Johnathan sent me to investigate an anomaly, I found this journal.  Can you interpret it?",
+        "text": "[MISSION] Johnathan sent me to investigate an anomaly, I found this journal.  Can you interpret it?",
         "topic": "TALK_CF_REP_PRELUDE_JOURNAL",
         "condition": {
           "and": [
             { "u_has_item": "arcana_dream_journal" },
-            { "u_has_var": "johnathan_prelude_penultimate", "type": "mission", "context": "rural_church", "value": "yes" }
+            {
+              "u_has_var": "johnathan_prelude_penultimate",
+              "type": "mission",
+              "context": "rural_church",
+              "value": "yes"
+            }
           ]
         },
-        "effect": [
-          { "u_consume_item": "arcana_dream_journal" }
-        ]
+        "effect": [ { "u_consume_item": "arcana_dream_journal" } ]
       },
       {
-        "text": "Johnathan sent me to investigate an anomaly, I found a strange gem there.  What do you make of it?",
+        "text": "[MISSION] Johnathan sent me to investigate an anomaly, I found a strange gem there.  What do you make of it?",
         "topic": "TALK_CF_REP_PRELUDE_GEM",
         "condition": {
           "and": [
             { "u_has_item": "arcana_strange_crystal" },
-            { "u_has_var": "johnathan_prelude_penultimate", "type": "mission", "context": "rural_church", "value": "yes" }
+            {
+              "u_has_var": "johnathan_prelude_penultimate",
+              "type": "mission",
+              "context": "rural_church",
+              "value": "yes"
+            }
           ]
         },
-        "effect": [
-          { "u_consume_item": "arcana_strange_crystal" }
-        ]
+        "effect": [ { "u_consume_item": "arcana_strange_crystal" } ]
       },
       {
-        "text": "Johnathan asked me about an anomaly he's investigating, and suggested I ask for information from other people.  Who should I ask?",
+        "text": "[MISSION] Johnathan asked me about an anomaly he's investigating and told me about a survivor campsite that might have a clue.  Any advice?",
+        "topic": "TALK_CF_REP_PRELUDE_CAMP",
+        "condition": { "u_has_mission": "MISSION_CF_GM_4_PRELUDE" }
+      },
+      {
+        "text": "[MISSION] Johnathan asked me about an anomaly he's investigating, and suggested I ask for information from other people.  Who should I ask?",
         "topic": "TALK_CF_REP_JOHNATHAN_PRELUDE",
         "condition": {
           "and": [
             { "not": { "u_has_mission": "MISSION_CF_GM_4_PRELUDE" } },
-            { "not": { "u_has_var": "johnathan_prelude_penultimate", "type": "mission", "context": "rural_church", "value": "yes" } },
-            { "not": { "u_has_var": "johnathan_prelude_ended", "type": "mission", "context": "rural_church", "value": "yes" } },
+            {
+              "not": { "u_has_var": "johnathan_prelude_penultimate", "type": "mission", "context": "rural_church", "value": "yes" }
+            },
+            {
+              "not": { "u_has_var": "johnathan_prelude_ended", "type": "mission", "context": "rural_church", "value": "yes" }
+            },
             { "u_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" }
           ]
         }
@@ -132,23 +147,42 @@
       },
       {
         "text": "Why didn't you attack me?",
-        "condition": { "and": [ { "not": { "u_has_effect": "sofia_motive_explained" } }, { "u_has_trait": "PROF_SANGUINE" } ] },
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "cf_mission_1" } },
+            { "not": { "u_has_effect": "sofia_motive_explained" } },
+            { "u_has_trait": "PROF_SANGUINE" }
+          ]
+        },
         "topic": "TALK_CF_REP_SANGUINE_ASK"
       },
       {
         "text": "I'm not here to fight you.",
-        "condition": { "and": [ { "not": { "u_has_effect": "sofia_motive_explained" } }, { "u_has_trait": "PROF_SANGUINE" } ] },
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "cf_mission_1" } },
+            { "not": { "u_has_effect": "sofia_motive_explained" } },
+            { "u_has_trait": "PROF_SANGUINE" }
+          ]
+        },
         "topic": "TALK_CF_REP_SANGUINE_MOTIVE_1"
       },
       {
         "text": "I have my own reasons for being here.",
-        "condition": { "and": [ { "not": { "u_has_effect": "sofia_motive_explained" } }, { "u_has_trait": "PROF_SANGUINE" } ] },
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "cf_mission_1" } },
+            { "not": { "u_has_effect": "sofia_motive_explained" } },
+            { "u_has_trait": "PROF_SANGUINE" }
+          ]
+        },
         "topic": "TALK_CF_REP_SANGUINE_MOTIVE_2"
       },
       {
         "text": "I have been chosen by them, though I am no Keeper.",
         "condition": {
           "and": [
+            { "not": { "u_has_effect": "cf_mission_1" } },
             { "not": { "u_has_effect": "sofia_motive_explained" } },
             { "not": { "u_has_trait": "THRESH_VEIL" } },
             { "u_has_trait": "PROF_CHALICE" }
@@ -158,18 +192,31 @@
       },
       {
         "text": "I am not here for a fight.  He From Beyond The Veil has seen fit to ensure our meeting.",
-        "condition": { "and": [ { "not": { "u_has_effect": "sofia_motive_explained" } }, { "u_has_trait": "PROF_CHALICE" } ] },
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "cf_mission_1" } },
+            { "not": { "u_has_effect": "sofia_motive_explained" } },
+            { "u_has_trait": "PROF_CHALICE" }
+          ]
+        },
         "topic": "TALK_CF_REP_CHALICE_MOTIVE_1"
       },
       {
         "text": "We have been both allies and enemies in the past.  I am trusting that the cycle will not repeat.",
-        "condition": { "and": [ { "not": { "u_has_effect": "sofia_motive_explained" } }, { "u_has_trait": "PROF_CHALICE" } ] },
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "cf_mission_1" } },
+            { "not": { "u_has_effect": "sofia_motive_explained" } },
+            { "u_has_trait": "PROF_CHALICE" }
+          ]
+        },
         "topic": "TALK_CF_REP_CHALICE_MOTIVE_2"
       },
       {
         "text": "I was told about this place by the merchant at the refugee center, and decided to see if things are any better here.",
         "condition": {
           "and": [
+            { "not": { "u_has_effect": "cf_mission_1" } },
             { "not": { "u_has_effect": "sofia_motive_explained" } },
             { "u_has_effect": "rural_church_aware" },
             { "u_has_any_trait": [ "PROF_CHALICE", "THRESH_VEIL", "PROF_SANGUINE" ] }
@@ -181,6 +228,7 @@
         "text": "I was sent by the deacon at the refugee center, to check up on you.",
         "condition": {
           "and": [
+            { "not": { "u_has_effect": "cf_mission_1" } },
             { "not": { "u_has_effect": "sofia_motive_explained" } },
             { "u_has_mission": "MISSION_CF_DEACON_1" },
             { "u_has_any_trait": [ "PROF_CHALICE", "THRESH_VEIL", "PROF_SANGUINE" ] }
@@ -196,10 +244,7 @@
         "topic": "TALK_CF_REP"
       },
       { "text": "Do you have anything to trade?", "switch": true, "default": true, "topic": "TALK_CF_REP_TRADE" },
-      {
-        "text": "Anything I can do to help?",
-        "topic": "TALK_MISSION_LIST"
-      },
+      { "text": "Anything I can do to help?", "topic": "TALK_MISSION_LIST" },
       {
         "text": "Well, bye.",
         "topic": "TALK_DONE",
@@ -396,6 +441,21 @@
     ]
   },
   {
+    "id": "TALK_CF_REP_PRELUDE_CAMP",
+    "type": "talk_topic",
+    "dynamic_line": "I heard about that incident.  Gods, if I recall they lost three people there.  They'd buried two who had succumbed to previous injuries, before something attacked them.  The third stayed behind to buy the others time to escape with their lives.",
+    "responses": [
+      { "text": "What should I look for?", "topic": "TALK_CF_REP_PRELUDE_CAMP_2" },
+      { "text": "That's all for now.", "topic": "TALK_CF_REP" }
+    ]
+  },
+  {
+    "id": "TALK_CF_REP_PRELUDE_CAMP_2",
+    "type": "talk_topic",
+    "dynamic_line": "Any anomalous artifacts you can find in the items they left behind, any books or other written intel might be useful too.  If you find something, return to Johnathan with it first, then if needed he'll ask you to show it to me.  I pray that you will return safe, and victorious over whatever caused this.",
+    "responses": [ { "text": "Alright.  Thank you.", "topic": "TALK_CF_REP" } ]
+  },
+  {
     "type": "talk_topic",
     "id": "TALK_CF_REP_SANGUINE_ASK",
     "dynamic_line": "You had to have known what you were walking into.  Either you are here to make peace, or else there is a trick at play here.  If so, know that we are watching.  Now please, for what purpose have you come here?",
@@ -549,19 +609,16 @@
         "text": "And what approach is that?",
         "condition": {
           "or": [
-            { "u_has_any_trait": [ "PROF_ARCANIST", "PROF_ARCANIST2", "PROF_SANGUINE", "PROF_CHALICE", "THRESH_VEIL", "THRESH_DRAGONBLOOD" ] },
+            {
+              "u_has_any_trait": [ "PROF_ARCANIST", "PROF_ARCANIST2", "PROF_SANGUINE", "PROF_CHALICE", "THRESH_VEIL", "THRESH_DRAGONBLOOD" ]
+            },
             { "u_has_skill": { "skill": "magic", "level": 1 } }
           ]
         },
         "switch": true,
         "topic": "TALK_CF_REP_ARCANE_2"
       },
-      {
-        "text": "What do you mean, arcane?",
-        "switch": true,
-        "default": true,
-        "topic": "TALK_CF_REP_ARCANE_2"
-      },
+      { "text": "What do you mean, arcane?", "switch": true, "default": true, "topic": "TALK_CF_REP_ARCANE_2" },
       { "text": "…", "topic": "TALK_CF_REP" }
     ]
   },
@@ -573,12 +630,7 @@
       "yes": "There are many approaches to handling these forces.  Some have chosen recklessness, as though it is a drug to be abused.  Others, superstitious faith and worship of powers that do not belong in our world.  We seek to study these anomalies cautiously, and keep others safe from more dangerous artifacts if we must.  The acolyte I took those notes from, the ones I gave you, learned the importance of caution the hard way, and did not live to benefit from that experience.  That is why we have resorted to extreme measures to deal with dangerous relics in the past.",
       "no": "There are many approaches to handling these forces.  Some have chosen recklessness, as though it is a drug to be abused.  Others, superstitious faith and worship of powers that do not belong in our world.  We seek to study these anomalies cautiously, and keep others safe from more dangerous artifacts if we must.  If it means containment, or destruction, so be it.  I prefer instead to teach others how to handle such safely, for caution is a lesson many learn the hard way, and few survive such experiences."
     },
-    "responses": [
-      {
-        "text": "Alright…",
-        "topic": "TALK_CF_REP"
-      }
-    ]
+    "responses": [ { "text": "Alright…", "topic": "TALK_CF_REP" } ]
   },
   {
     "type": "talk_topic",

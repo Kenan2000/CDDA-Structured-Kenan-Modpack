@@ -21,7 +21,7 @@
         ",,W...hh.....]]]|..+.>|,",
         ",,|..heeh.......|..|--|,",
         ",,WC.heeh.......x....]|,",
-        ",,WC..hh.......C|....]|,",
+        ",,WC..hh.......C|eh..]|,",
         ",,|............C|-----|,",
         ",,W............C|.DBB.|,",
         ",,|.............+..BB.W,",
@@ -36,7 +36,7 @@
         "]": { "items": { "item": "mansion_bookcase" } },
         "f": { "items": [ { "item": "fridgesnacks", "chance": 30 }, { "item": "fridge", "chance": 50 } ] },
         "n": { "items": [ { "item": "cannedfood", "chance": 50 }, { "item": "cannedfood", "chance": 25 } ] },
-        "{": { "items": { "item": "butcher_tools", "chance": 50 } }
+        "{": { "items": [ { "item": "butcher_tools", "chance": 50 }, { "item": "butcher_tools", "chance": 50 } ] }
       },
       "terrain": {
         "|": "t_wall_log",
@@ -58,6 +58,7 @@
         "W": "t_window_boarded",
         "w": "t_window_domestic"
       },
+      "place_loot": [ { "item": "candle_warding_active", "x": 17, "y": 15 } ],
       "place_zones": [
         { "type": "NPC_NO_INVESTIGATE", "faction": "sanguine_order_remnant", "x": [ 0, 23 ], "y": [ 0, 10 ] },
         { "type": "NPC_NO_INVESTIGATE", "faction": "sanguine_order_remnant", "x": [ 0, 16 ], "y": [ 11, 12 ] },
@@ -77,7 +78,7 @@
       "rows": [
         "########################",
         "##=========##==========#",
-        "##=8..8..8=##=8.=8.=8.=#",
+        "##=8.8i8.8=##=8.=8.=8.=#",
         "##=.......=##=..=..=..=#",
         "##=[.aa..C=====5==5==5=#",
         "##=[.aa..C=..+........=#",
@@ -86,10 +87,10 @@
         "#=........+..=..=..=..=#",
         "#=hee.....+..=.8=..=.8=#",
         "#=hee..{{{=======..====#",
-        "#=.hh..====....b=..+.<=#",
+        "#=.hh..====i...b=..+.<=#",
         "#=.....=..+..Z..=..+.<=#",
         "#===+===..+..Z..=..====#",
-        "#=]...]=..=....b=..=####",
+        "#=]...]=..=i...b=..=####",
         "#=]...]=++=======++====#",
         "#=........=..=.......p=#",
         "#=hh......=..+.......p=#",
@@ -102,6 +103,7 @@
       ],
       "palettes": [ "arcana_palette" ],
       "terrain": { "5": "t_door_metal_pickable" },
+      "furniture": { "i": "f_arcane_candlestick_lit" },
       "mapping": {
         "]": { "items": [ { "item": "sanguine_cult_books", "chance": 60 }, { "item": "sanguine_cult_books", "chance": 30 } ] },
         "{": {
@@ -192,7 +194,11 @@
         "f": { "items": [ { "item": "fridgesnacks", "chance": 30 }, { "item": "fridge", "chance": 50 } ] },
         "n": { "items": [ { "item": "cannedfood", "chance": 50 }, { "item": "cannedfood", "chance": 25 } ] }
       },
-      "place_loot": [ { "group": "sanguine_cult_consumables", "x": 7, "y": 5 }, { "item": "sanguine_mission_notes", "x": 7, "y": 5 } ],
+      "place_loot": [
+        { "group": "sanguine_cult_consumables", "x": 7, "y": 5 },
+        { "item": "sanguine_mission_notes", "x": 7, "y": 5 },
+        { "item": "candle_warding_active", "x": 7, "y": 15 }
+      ],
       "faction_owner": [ { "id": "sanguine_shrike_splinter", "x": [ 3, 21 ], "y": [ 5, 20 ] } ],
       "terrain": {
         "|": "t_wall_log",

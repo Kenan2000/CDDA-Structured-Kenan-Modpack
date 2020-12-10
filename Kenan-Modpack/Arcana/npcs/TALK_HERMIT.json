@@ -47,7 +47,12 @@
     },
     "responses": [
       {
-        "text": "I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
+        "text": "[MISSION] I was tasked with clearing out an anomaly that recently appeared.  Do you have any advice?",
+        "condition": { "u_has_mission": "MISSION_CF_GM_4" },
+        "topic": "TALK_HERMIT_GM_4"
+      },
+      {
+        "text": "[MISSION] I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
         "condition": {
           "and": [
             { "u_has_effect": "hermit_earned_trust_2" },
@@ -203,11 +208,34 @@
     ]
   },
   {
+    "id": "TALK_HERMIT_GM_4",
+    "type": "talk_topic",
+    "dynamic_line": "These are dark times, and may yet grow darker still.  I am certain you face the same interloper that drove my order into its final ruin.  But they are only one of many who do not belong here.  What can even be done, if a hundred more unknowable, immortal intruders take its place, and a thousand have already slipped through?  Simple.  We drive them back, any way we can.  Time will tell if this bears fruit.  Whatever truly comes of this, I do not expect that I will live to see it.  The outcome may well be beyond your time as well.",
+    "responses": [
+      { "text": "Don't give up?  That's all the advice you have?", "topic": "TALK_HERMIT_GM_4_2" },
+      { "text": "…", "topic": "TALK_HERMIT" }
+    ]
+  },
+  {
+    "id": "TALK_HERMIT_GM_4_2",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "THRESH_VEIL",
+      "yes": "I do not know how to slay this enemy, Chosen.  But there is always an option.  No matter how desperate things may seem.  He From Beyond The Veil has no doubt conferred many blessings upon you, some may prove useful tools to aid you in your time of need, and no doubt many other weapons may be at your disposal.  I am hopeful then, that perseverance will see you through long enough to find your answer.",
+      "no": {
+        "u_has_trait": "PROF_CLEANSINGFLAME",
+        "yes": "You are a member of the Cleaning Flame, are you not?  I can tell by that fire in your eyes.  Perhaps it is foolish of me to lecture one of you on the virtue of determination.  As your tenets say, so long as the Sun shines upon the Earth.  I'm afraid I know too little of this interloper to guide you.  I would say only to be cautious, but that too is what your order demands, is it not?",
+        "no": "I do not know what form this interloper may take, what dreadful power and madness you may face.  Be prepared for anything, but that advice is of little use to you.  That you do not lose hope is what's more useful to you.  Without that, you will not find the answers you seek."
+      }
+    },
+    "responses": [ { "text": "Alright.  Thanks, I guess.", "topic": "TALK_HERMIT" } ]
+  },
+  {
     "id": "TALK_HERMIT_GM_PRELUDE",
     "type": "talk_topic",
     "dynamic_line": {
-      "npc_has_effect": "hermit_stage_4",
-      "yes": "So this is why you have sought me out.  These are dark times, and strange events loom upon the horizon.  I am aware of one source that matches what you likely seek, but that one has seen conquest.  I have sensed, faintly, the presence of another.  The same force which intruded once before has begun to secure a second foothold upon this realm, one of many intruders from Beyond.  Relay this to whoever sent you, and beware the threat that awaits at the heart of this infestation.",
+      "npc_has_effect": "hermit_stage_1",
+      "yes": "So this is why you have sought me out.  These are dark times, and strange events loom upon the horizon.  I am aware of one source that matches what you likely seek, but that one has seen conquered.  I have sensed, faintly, the presence of another.  The same force which intruded once before has begun to secure a second foothold upon this realm, one of many intruders from Beyond.  Relay this to whoever sent you, and beware the threat that awaits at the heart of this infestation.",
       "no": "So this is why you have sought me out.  These are dark times, and strange events loom upon the horizon.  I am aware of one source that matches what you likely seek, but there is another.  It is faint, a presence that grows and takes root in this world, a firmer grip with each passing day.  The same force that established a trifling foothold among many other interlopers, has taken root anew.  Relay this to whoever sent you, but pursue this threat with caution."
     },
     "responses": [
