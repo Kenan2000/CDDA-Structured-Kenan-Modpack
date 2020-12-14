@@ -2,7 +2,6 @@
   {
     "id": "arcana_item_athame_sanguine_art",
     "type": "SPELL",
-    "//": "Todo: add a difficulty of 1 and remove no-failure from the item's action, if it turns out that skill reasonably reduces an unleveled spell's failure rate to be feasible, when spell skill is no longer hardcoded.",
     "name": { "str": "Sanguine Art" },
     "description": "Prepares a ritual to turn part of your life force into a usable form of essence.  Doing so will take 5 minutes, inflicting blood loss and damage at the end, as well as potential consequences if overused...",
     "message": "You work a ritual to draw power from your own blood, instinct guiding your hand as you trace patterns across your skin with the dull blade.  As you work the last rune, the only one to actually break the skin, wounds open elsewhere on your body!",
@@ -476,6 +475,28 @@
     "max_field_intensity": 1
   },
   {
+    "id": "arcana_item_immolate",
+    "type": "SPELL",
+    "name": { "str": "Immolate" },
+    "description": "Blast a nearby target with fire.",
+    "message": "The talisman burns away, loosing a bolt of flame!",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [ "ally", "hostile", "ground" ],
+    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "min_damage": 15,
+    "max_damage": 15,
+    "damage_type": "heat",
+    "min_range": 5,
+    "max_range": 5,
+    "base_casting_time": 5,
+    "final_casting_time": 5,
+    "field_id": "fd_fire",
+    "field_chance": 1,
+    "min_field_intensity": 1,
+    "max_field_intensity": 1
+  },
+  {
     "id": "arcana_item_jade_hauberk_healing",
     "type": "SPELL",
     "name": { "str": "Hauberk Mending" },
@@ -657,8 +678,8 @@
     ],
     "message": "You look deep into the orb, and see a vision of the surrounding area hidden among headache-inducing geometries.",
     "flags": [ "NO_HANDS", "NO_LEGS" ],
-    "min_aoe": 24,
-    "max_aoe": 24,
+    "min_aoe": 30,
+    "max_aoe": 30,
     "base_casting_time": 100
   },
   {
@@ -672,8 +693,8 @@
     "effect": "attack",
     "shape": "blast",
     "effect_str": "spell_revelation",
-    "min_duration": 30000,
-    "max_duration": 90000
+    "min_duration": 600000,
+    "max_duration": 600000
   },
   {
     "id": "arcana_item_orb_veil_attention",

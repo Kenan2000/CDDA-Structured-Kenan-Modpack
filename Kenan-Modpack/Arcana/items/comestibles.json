@@ -200,7 +200,7 @@
     "comestible_type": "MED",
     "category": "tools",
     "name": { "str": "flame talisman" },
-    "description": "A crude paper talisman marked with strange patterns, and anointed with a meager sacrifice.  It can be used to rapidly spark a fire, if you're desperate.",
+    "description": "A crude paper talisman marked with strange patterns, and anointed with a meager sacrifice.  It can be used to immolate an enemy at close range, or to rapidly spark a more controlled fire if you're desperate.",
     "//": "Talismans are natural magic, rare to non-existent pre-cataclysm as they develop from survivors studying otherworldly phenomena and connecting it to familiar concepts.",
     "price_postapoc": 300,
     "weight": "150 g",
@@ -209,9 +209,8 @@
     "looks_like": "birchbark",
     "symbol": ",",
     "color": "cyan",
-    "charges": 10,
-    "charges_per_use": 1,
-    "use_action": { "type": "firestarter", "moves": 5 },
+    "charges": 1,
+    "use_action": [ { "type": "cast_spell", "spell_id": "arcana_item_immolate", "no_fail": true, "level": 0 }, { "type": "firestarter", "moves": 5 } ],
     "flags": [ "NO_SALVAGE", "NO_INGEST", "FIRESTARTER", "NUTRIENT_OVERRIDE" ]
   },
   {
