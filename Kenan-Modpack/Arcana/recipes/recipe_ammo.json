@@ -105,7 +105,6 @@
     "batch_time_factors": [ 95, 5 ],
     "book_learn": [ [ "book_sacrifice", 2 ], [ "book_syncretism", 3 ], [ "book_scrollcraft", 3 ] ],
     "autolearn": true,
-    "using": [ [ "arcana_purification_standard", 1 ] ],
     "tools": [ [ [ "offering_chalice", -1 ] ] ],
     "components": [
       [
@@ -186,7 +185,6 @@
     "book_learn": [ [ "book_sacrifice", 5 ], [ "book_syncretism", 5 ] ],
     "autolearn": true,
     "using": [ [ "arcana_essence_any", 10 ], [ "arcana_purification_standard", 1 ] ],
-    "tools": [ [ [ "book_sacrifice", -1 ], [ "book_syncretism", -1 ] ] ],
     "delete_flags": [ "HIDDEN_HALLU", "HIDDEN_POISON", "BAD_TASTE", "CANNIBALISM" ],
     "flags": [ "BLIND_EASY" ]
   },
@@ -205,7 +203,6 @@
     "autolearn": true,
     "result_mult": 3,
     "using": [ [ "arcana_purification_standard", 1 ] ],
-    "tools": [ [ [ "book_sacrifice", -1 ], [ "book_syncretism", -1 ], [ "book_summoning", -1 ] ] ],
     "components": [
       [
         [ "art_sphere", 1 ],
@@ -407,5 +404,71 @@
     "book_learn": [ [ "book_magicfordummies", 4 ] ],
     "qualities": [ { "id": "CUT", "level": 1 } ],
     "components": [ [ [ "arrow_arcana_unpowered", 5 ] ], [ [ "air_talisman", 1 ] ] ]
+  },
+  {
+    "result": "reloaded_shot_00_arcana",
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_ARCANA",
+    "subcategory": "CSC_ARCANA_AMMO",
+    "skill_used": "magic",
+    "difficulty": 3,
+    "skills_required": [ [ "fabrication", 2 ], [ "gun", 1 ] ],
+    "time": "2 m",
+    "batch_time_factors": [ 60, 5 ],
+    "book_learn": [ [ "recipe_bullets", 3 ], [ "manual_shotgun", 3 ], [ "book_hexenhammer", 2 ], [ "book_syncretism", 2 ] ],
+    "charges": 1,
+    "reversible": true,
+    "using": [ [ "shot_forming", 1 ], [ "ammo_shot", 1 ] ],
+    "tools": [ [ [ "press", -1 ] ] ],
+    "components": [
+      [ [ "gunpowder", 6 ], [ "gunpowder_pistol", 6 ], [ "gunpowder_shotgun", 6 ] ],
+      [ [ "silver_small", 10 ] ],
+      [ [ "essence_dull", 6 ] ]
+    ]
+  },
+  {
+    "result": "flintlock_shot_arcana",
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_ARCANA",
+    "subcategory": "CSC_ARCANA_AMMO",
+    "skill_used": "magic",
+    "difficulty": 4,
+    "skills_required": [ [ "fabrication", 3 ], [ "gun", 1 ] ],
+    "time": "1 m",
+    "batch_time_factors": [ 60, 5 ],
+    "autolearn": true,
+    "charges": 1,
+    "reversible": true,
+    "book_learn": [ [ "book_hexenhammer", 2 ], [ "book_syncretism", 2 ], [ "book_magicfordummies", 3 ] ],
+    "qualities": [ { "id": "CUT", "level": 1 } ],
+    "components": [ [ [ "chem_black_powder", 5 ] ], [ [ "silver_small", 10 ] ], [ [ "essence_dull", 6 ] ], [ [ "paper", 1 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "result": "blun_shot_arcana",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_ARCANA",
+    "subcategory": "CSC_ARCANA_AMMO",
+    "skill_used": "magic",
+    "difficulty": 4,
+    "skills_required": [ [ "fabrication", 3 ], [ "gun", 1 ] ],
+    "time": "50 s",
+    "autolearn": true,
+    "book_learn": [
+      [ "recipe_bullets", 3 ],
+      [ "manual_shotgun", 3 ],
+      [ "book_hexenhammer", 2 ],
+      [ "book_syncretism", 2 ],
+      [ "book_magicfordummies", 3 ]
+    ],
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "SAW_M", "level": 1 } ],
+    "components": [
+      [ [ "gunpowder", 16 ], [ "chem_black_powder", 24 ] ],
+      [ [ "silver_small", 16 ] ],
+      [ [ "essence_dull", 8 ] ],
+      [ [ "paper", 1 ], [ "aluminum_foil", 1 ] ]
+    ]
   }
 ]
