@@ -25,7 +25,7 @@
     "weapon_override": "NC_moneylender_weapon",
     "shopkeeper_item_group": "NC_moneylender_shop",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" }, { "trait": "PAINRESIST" } ],
-    "skills": [ { "skill": "melee", "level": 4 }, { "skill": "dodge", "level": 4 }, { "skill": "unarmed", "level": 4 } ]
+    "skills": [ { "skill": "melee", "bonus": { "rng": [ 2, 6 ] } }, { "skill": "dodge", "bonus": { "rng": [ 2, 6 ] } }, { "skill": "unarmed", "bonus": { "rng": [ 2, 6 ] } } ]
   },
   {
     "type": "item_group",
@@ -204,7 +204,6 @@
       },
       {
         "text": "I got a book for you.",
-        "topic": "TALK_moneylender_share",
         "condition": { "u_has_item": "collector_book" },
         "trial": {
           "type": "CONDITION",
@@ -300,10 +299,10 @@
         "text": "…",
         "topic": "TALK_DONE",
         "effect": [
-          { "u_lose_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" },
+          { "u_lose_var": "bj_debt", "type": "flag", "context": "meeting" },
           { "npc_lose_var": "moneylender_job", "type": "flag", "context": "meeting" },
           { "u_add_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" },
-          { "npc_lose_var": "bj_debt_asked", "type": "flag", "context": "meeting", "value": "yes" }
+          { "npc_lose_var": "bj_debt_asked", "type": "flag", "context": "meeting" }
         ]
       }
     ]
@@ -317,10 +316,10 @@
         "text": "…",
         "topic": "TALK_DONE",
         "effect": [
-          { "u_lose_var": "bj_debt", "type": "flag", "context": "meeting", "value": "yes" },
+          { "u_lose_var": "bj_debt", "type": "flag", "context": "meeting" },
           { "npc_lose_var": "moneylender_job", "type": "flag", "context": "meeting" },
           { "u_add_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" },
-          { "npc_lose_var": "bj_debt_asked", "type": "flag", "context": "meeting", "value": "yes" }
+          { "npc_lose_var": "bj_debt_asked", "type": "flag", "context": "meeting" }
         ]
       }
     ]

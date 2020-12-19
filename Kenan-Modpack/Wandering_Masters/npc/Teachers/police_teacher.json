@@ -31,12 +31,12 @@
       { "trait": "PAINRESIST" }
     ],
     "skills": [
-      { "skill": "gun", "level": 3 },
-      { "skill": "shotgun", "level": 3 },
-      { "skill": "pistol", "level": 2 },
-      { "skill": "melee", "level": 2 },
-      { "skill": "bashing", "level": 2 },
-      { "skill": "unarmed", "level": 2 }
+      { "skill": "gun", "bonus": { "rng": [ 1, 5 ] } },
+      { "skill": "shotgun", "bonus": { "rng": [ 1, 5 ] } },
+      { "skill": "pistol", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "bashing", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 3 ] } }
     ]
   },
   {
@@ -79,7 +79,11 @@
     },
     "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_police_teacher_0" } },
     "responses": [
-      { "text": "About that job…", "condition": {"and":["mission_complete", "has_many_assigned_missions"]}, "topic": "TALK_MISSION_INQUIRE" },
+      {
+        "text": "About that job…",
+        "condition": { "and": [ "mission_complete", "has_many_assigned_missions" ] },
+        "topic": "TALK_MISSION_INQUIRE"
+      },
       { "text": "<BGSS_intro_question>", "topic": "TALK_police_teacher_Background" },
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       { "text": "Can you teach me something?", "topic": "TALK_police_teacher_teach_check" },
@@ -262,7 +266,7 @@
     "start": {
       "assign_mission_target": {
         "om_terrain": "police_1",
-		"om_special": "police_1",
+        "om_special": "police_1",
         "om_terrain_replace": "house",
         "om_terrain_match_type": "PREFIX",
         "reveal_radius": 1,
@@ -384,7 +388,7 @@
         "min_distance": 30,
         "random": true
       },
-      "update_mapgen": { "place_npc": [ { "class": "NPC_bill_the_assassin", "x": 10, "y": 10, "target": true } ] }
+      "update_mapgen": { "place_npcs": [ { "class": "NPC_bill_the_assassin", "x": 10, "y": 10, "target": true } ] }
     },
     "end": {
       "effect": [
@@ -429,4 +433,3 @@
     "fail": { "effect": { "u_buy_item": "pt_head" } }
   }
 ]
-

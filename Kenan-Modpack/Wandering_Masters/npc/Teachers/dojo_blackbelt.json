@@ -24,7 +24,7 @@
     "worn_override": "NC_blackbelt_coach_worn",
     "weapon_override": "EMPTY_GROUP",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" }, { "trait": "PAINRESIST" } ],
-    "skills": [ { "skill": "unarmed", "level": 6 }, { "skill": "dodge", "level": 6 } ]
+    "skills": [ { "skill": "unarmed", "bonus": { "rng": [ 4, 8 ] } }, { "skill": "dodge", "bonus": { "rng": [ 4, 8 ] } } ]
   },
   {
     "type": "item_group",
@@ -99,7 +99,13 @@
         "text": "What about that help?",
         "topic": "TALK_blackbelt_coach_flame_knuckle_1",
         "condition": { "npc_has_var": "bbm_flame_knuckle", "type": "general", "context": "flag", "value": "yes" },
-        "effect": [ { "npc_change_faction": "flame_knuckle" }, { "u_faction_rep": 100 }, { "npc_change_faction": "no_faction" }, { "u_buy_item": "flyer_fk" },{ "npc_lose_var": "bbm_flame_knuckle", "type": "general", "context": "flag" } ]
+        "effect": [
+          { "npc_change_faction": "flame_knuckle" },
+          { "u_faction_rep": 100 },
+          { "npc_change_faction": "no_faction" },
+          { "u_buy_item": "flyer_fk" },
+          { "npc_lose_var": "bbm_flame_knuckle", "type": "general", "context": "flag" }
+        ]
       },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
@@ -181,7 +187,7 @@
       {
         "text": "I understand.  I'll return when I get the uniform!",
         "topic": "TALK_DONE",
-        "effect": [ { "npc_lose_var": "blackbelt_coach_student", "type": "flag", "context": "meeting", "value": "yes" } ]
+        "effect": [ { "npc_lose_var": "blackbelt_coach_student", "type": "flag", "context": "meeting" } ]
       }
     ]
   },
@@ -189,12 +195,7 @@
     "type": "talk_topic",
     "id": "TALK_blackbelt_coach_flame_knuckle_1",
     "dynamic_line": "Take this.  This is one of the school flyers my informer has gave me.  He said that they use it now as invitation tickets.  I hope you can find use for it.  Good luck, student.",
-    "responses": [
-      {
-        "text": "Thank you, master.",
-        "topic": "TALK_DONE"
-      }
-    ]
+    "responses": [ { "text": "Thank you, master.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
@@ -227,7 +228,7 @@
         "text": "I'm sorry, master, but you must die.",
         "topic": "TALK_DONE",
         "condition": { "u_has_var": "fkl_end_ip", "type": "flag", "context": "meeting", "value": "yes" },
-        "effect": [ "insult_combat", { "u_lose_var": "fkl_end_ip", "type": "flag", "context": "meeting", "value": "yes" } ]
+        "effect": [ "insult_combat", { "u_lose_var": "fkl_end_ip", "type": "flag", "context": "meeting" } ]
       },
       { "text": "…", "topic": "TALK_DONE", "switch": true }
     ]
@@ -440,4 +441,3 @@
     "fail": { "effect": { "u_buy_item": "ip_leader_head" } }
   }
 ]
-

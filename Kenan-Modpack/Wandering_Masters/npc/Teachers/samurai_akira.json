@@ -27,7 +27,7 @@
     "carry_override": "NC_samurai_akira_carried",
     "weapon_override": "NC_samurai_akira_weapon",
     "traits": [ { "group": "Appearance_EastAsian" }, { "group": "NPC_starting_traits" }, { "trait": "PAINRESIST" } ],
-    "skills": [ { "skill": "melee", "level": 4 }, { "skill": "cutting", "level": 5 }, { "skill": "dodge", "level": 4 } ]
+    "skills": [ { "skill": "melee", "bonus": { "rng": [ 2, 6 ] } }, { "skill": "cutting", "bonus": { "rng": [ 2, 6 ] } }, { "skill": "dodge", "bonus": { "rng": [ 2, 6 ] } } ]
   },
   {
     "type": "item_group",
@@ -167,7 +167,13 @@
     "type": "talk_topic",
     "id": "TALK_samurai_akira_test3",
     "dynamic_line": "Yes, good, good.  You look like a fine warrior in his armour and with his weapon.  Prepare my student.  Training will be hard, but I hope you succeed in it.  And now, the training: fight to the death!  BANZAI!",
-    "responses": [ { "text": "Wait, whaa…", "topic": "TALK_DONE", "effect": ["insult_combat",{ "add_mission": "MISSION_samurai_akira_0" }] } ]
+    "responses": [
+      {
+        "text": "Wait, whaa…",
+        "topic": "TALK_DONE",
+        "effect": [ "insult_combat", { "add_mission": "MISSION_samurai_akira_0" } ]
+      }
+    ]
   },
   {
     "type": "talk_topic",
@@ -194,7 +200,7 @@
         "search_range": 250,
         "min_distance": 5
       },
-      "update_mapgen": { "om_terrain": "hotel_tower_flr3_1_9", "place_item": [ { "item": "tabi_dress", "x": 10, "y": 21, "target": true } ] }
+      "update_mapgen": { "om_terrain": "hotel_tower_flr3_1_9", "place_item": [ { "item": "tabi_dress", "x": 10, "y": 21 } ] }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_samurai_akira_2",
@@ -230,7 +236,7 @@
         "search_range": 150,
         "min_distance": 30
       },
-      "update_mapgen": { "place_item": [ { "item": "helmet_kabuto", "x": 20, "y": 21, "target": true } ] }
+      "update_mapgen": { "place_item": [ { "item": "helmet_kabuto", "x": 20, "y": 21 } ] }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_samurai_akira_3",
@@ -266,7 +272,7 @@
         "min_distance": 15,
         "cant_see": true
       },
-      "update_mapgen": { "place_item": [ { "item": "armor_samurai", "x": 17, "y": 9, "target": true } ] }
+      "update_mapgen": { "place_item": [ { "item": "armor_samurai", "x": 17, "y": 9 } ] }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_samurai_akira_4",
@@ -293,15 +299,17 @@
     "difficulty": 0,
     "value": 100,
     "start": {
-      "update_mapgen": {
+      "assign_mission_target":{
         "om_terrain": "mansion_t2",
         "om_special": "Mansion_Road",
         "om_terrain_replace": "forest",
         "om_terrain_match_type": "PREFIX",
         "search_range": 300,
         "min_distance": 100,
-        "cant_see": true,
-        "place_item": [ { "item": "katana", "x": 13, "y": 8, "target": true } ]
+        "cant_see": true
+      },
+      "update_mapgen": {
+        "place_item": [ { "item": "katana", "x": 13, "y": 8 } ]
       }
     },
     "end": { "effect": [ { "npc_add_var": "u_helped_samurai_akira", "type": "general", "context": "meeting", "value": "yes" } ] },
@@ -343,4 +351,3 @@
     "fail": { "effect": { "u_buy_item": "manual_niten" } }
   }
 ]
-
