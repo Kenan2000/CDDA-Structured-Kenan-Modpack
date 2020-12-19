@@ -28,13 +28,13 @@
     "fail_message": "There's no organic terrain here to vectorize.",
     "terrain": [
       {
-        "note": "Make every adjacent opaque terrains into dirt, so that we don't encounter bugs with gorepit's essential fields.",
+        "//": "Make every adjacent opaque terrains into dirt, so that we don't encounter bugs with gorepit's essential fields.",
         "result": "t_dirt",
         "valid_flags": [ "WALL", "CONNECT_TO_WALL", "MOUNTABLE", "THIN_OBSTACLE", "BURROWABLE" ],
         "message": "The walls here has collapsed."
       },
       {
-        "note": "Flat, adjacent terrains become pits.",
+        "//": "Flat, adjacent terrains become pits.",
         "result": "t_pit",
         "valid_flags": [ "ROAD", "DIGGABLE" ],
         "message": "The ground here has collapsed."
@@ -42,7 +42,7 @@
     ],
     "furniture": [
       {
-        "note": "Similar thing to prevent bugs.",
+        "//": "Similar thing to prevent bugs.",
         "result": "f_null",
         "valid_flags": [ "MINEABLE", "MOUNTABLE", "BLOCKSDOOR", "TRANSPARENT", "FLAT_SURF" ],
         "message": "The furnitures here has collapsed."
@@ -55,7 +55,7 @@
     "fail_message": "You were too far from the entrance...",
     "terrain": [
       {
-        "note": "We use a spell to open the closed entrance once the veinhole dies.",
+        "//": "We use a spell to open the closed entrance once the veinhole dies.",
         "result": "t_secro_flesh_entrance_open",
         "valid_flags": [ "FF_ENTRANCE" ],
         "message": "The veinhole leaves a vile gap upon its death."
@@ -116,7 +116,7 @@
     ]
   },
   {
-    "note": "To prevent the abuse of traps and/or to keep some safe area.",
+    "//": "To prevent the abuse of traps and/or to keep some safe area.",
     "type": "ter_furn_transform",
     "id": "sflesh_flesh_biohazard_remove_bone",
     "fail_message": "Can't remove traps.",
@@ -141,13 +141,13 @@
     ]
   },
   {
-    "note": "The lair will become safe after the flesh's death.",
+    "//": "The lair will become safe after the flesh's death.",
     "type": "ter_furn_transform",
     "id": "sflesh_flesh_biohazard_dead",
     "fail_message": "Can't remove all traps.",
     "terrain": [
       {
-        "note": "The exit opens once you beat the flesh.",
+        "//": "The exit opens once you beat the flesh.",
         "result": "t_secro_flesh_inside_up",
         "valid_terrain": [ "t_secro_flesh_inside_up_close" ],
         "message": "An orifice opens after the flesh's death."
@@ -169,7 +169,7 @@
     "furniture": [ { "result": "f_secro_flesh_wall", "valid_flags": [ "S_FLESH" ], "message": "The biohazards has been neutralized!" } ]
   },
   {
-    "note": "Flesh spreading alternative for now.",
+    "//": "Flesh spreading alternative for now.",
     "type": "ter_furn_transform",
     "id": "flesh_spread",
     "fail_message": "There's nothing for the flesh to devour here.",
@@ -191,13 +191,13 @@
       },
       {
         "result": [ "t_secro_tree_flesh", [ "t_tree_dead", 2 ] ],
-        "note": "No grabbing trees!",
+        "//": "No grabbing trees!",
         "valid_flags": [ "TREE" ],
         "message": "The flesh spreads successfully."
       },
       {
         "result": [ [ "t_concrete", 5 ], "t_secro_concrete_flesh" ],
-        "note": "Spreading on non-organic (or any building) terrains are harder (which has a 1/5 flat chance).",
+        "//": "Spreading on non-organic (or any building) terrains are harder (which has a 1/5 flat chance).",
         "valid_terrain": [ "t_concrete" ],
         "message": "The flesh spreads successfully."
       },
@@ -507,7 +507,7 @@
     ]
   },
   {
-    "note": "Same conversion as above, but without veinstalks.",
+    "//": "Same conversion as above, but without veinstalks.",
     "type": "ter_furn_transform",
     "id": "fv_flesh_spread",
     "fail_message": "There's nothing for the flesh to devour here.",
@@ -534,13 +534,13 @@
       },
       {
         "result": [ "t_secro_tree_flesh_camp", [ "t_tree_dead", 2 ] ],
-        "note": "No grabbing trees!",
+        "//": "No grabbing trees!",
         "valid_flags": [ "TREE" ],
         "message": "The flesh spreads successfully."
       },
       {
         "result": [ [ "t_concrete", 5 ], "t_secro_concrete_flesh" ],
-        "note": "Spreading on non-organic (or any building) terrains are harder (which has a 1/5 flat chance).",
+        "//": "Spreading on non-organic (or any building) terrains are harder (which has a 1/5 flat chance).",
         "valid_terrain": [ "t_concrete" ],
         "message": "The flesh spreads successfully."
       },

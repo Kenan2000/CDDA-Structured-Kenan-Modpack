@@ -13,7 +13,7 @@
         "name": "Intimidating Figure",
         "description": "No man, machine or monstrosity can get through you and your strength. \n\n+2 Block attempts, -3.0 Dodge skill, blocked damage reduced by 70%% of Strength.",
         "melee_allowed": true,
-        "min_melee": 0,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "bonus_blocks": 2,
         "flat_bonuses": [ { "stat": "block", "scaling-stat": "str", "scale": 0.7 }, { "stat": "dodge", "scale": -3.0 } ]
       }
@@ -24,7 +24,7 @@
         "name": "Moving Bulk",
         "description": "Moving your weight around makes it hard to take hits strategically, but it does prove useful for extra swing speed. \n\n-2 Block attempts, blocked damage increased by 70%% of Strength.\n+10%% bonus to bashing damage.\nLasts 1 turn.",
         "melee_allowed": true,
-        "min_melee": 0,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "buff_duration": 1,
         "bonus_blocks": -2,
         "flat_bonuses": [ { "stat": "block", "scaling-stat": "str", "scale": -0.7 } ],
@@ -37,7 +37,7 @@
         "name": "Swinging Big",
         "description": "That's it! Now direct it towards them! \n\n+20%% bonus to bashing damage.\nEnables \"Flying Blow\" technique.\nEnables \"Violent Shove\" technique.\nLasts 2 turns. Stacks 3 times.",
         "melee_allowed": true,
-        "min_melee": 4,
+        "skill_requirements": [ { "name": "melee", "level": 4 } ],
         "buff_duration": 2,
         "max_stacks": 2,
         "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 1.2 } ]
@@ -49,7 +49,7 @@
         "name": "Tiring Control",
         "description": "Directing your enemy with your strikes proves useful to make them predictable, but you grow inefficient with every new move. Take a break. \n\n+1 Block attempt.\n+15%% movecost.\nLasts 2 turns. Stacks 3 times.",
         "melee_allowed": true,
-        "min_melee": 0,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "buff_duration": 2,
         "max_stacks": 3,
         "bonus_blocks": 1,
@@ -62,7 +62,7 @@
         "name": "Riled Up",
         "description": "Like a little fly, buzzing around harmlessly... \n\n+10%% bonus to bashing damage.\n-10%% movecost.\nEnables \"Violent Shove\" technique.\nLasts 1 turn.  Stacks 3 times.",
         "melee_allowed": true,
-        "min_melee": 1,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "buff_duration": 1,
         "max_stacks": 3,
         "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 1.1 }, { "stat": "movecost", "scale": 0.9 } ]
@@ -74,7 +74,7 @@
         "name": "Eager For Contact",
         "description": "You dodged. Next time, you'll take the hit and make them pay properly. \n\n-3.0 Dodge skill\nLasts 3 turns.  Stacks 3 times.",
         "melee_allowed": true,
-        "min_melee": 0,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "buff_duration": 3,
         "max_stacks": 3,
         "flat_bonuses": [ { "stat": "dodge", "scale": -3.0 } ]
@@ -128,7 +128,7 @@
         "name": "Metal Must Flow",
         "description": "Your flail must keep spinning at all costs. \n\n+1.0 Dodge skill",
         "melee_allowed": true,
-        "min_melee": 0,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "flat_bonuses": [ { "stat": "dodge", "scale": 1.0 } ]
       }
     ],
@@ -150,7 +150,7 @@
         "name": "Missed",
         "description": "Getting the flail back into proper control is quite the ordeal. \n\n-10%% bashing damage.\nLasts 1 turn. Stacks 2 times.",
         "melee_allowed": true,
-        "min_melee": 0,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "buff_duration": 1,
         "max_stacks": 2,
         "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 0.8 } ]
@@ -162,7 +162,7 @@
         "name": "Slowing Mass",
         "description": "Every strike takes from the speed you've built, but perhaps you have enough to keep going still.\n-20%% bashing damage.\nLasts 2 turns. Stacks 5 times.",
         "melee_allowed": true,
-        "min_melee": 0,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "buff_duration": 2,
         "max_stacks": 5,
         "mult_bonuses": [ { "stat": "damage", "type": "bash", "scale": 0.8 } ]
@@ -174,7 +174,7 @@
         "name": "Swift Mass",
         "description": "Dodging an attack only quickens your weapon!\n\n+10%% bashing damage.\nEnables \"Stunning Blow\" technique.\nLasts 1 turns.  Stacks 3 times.",
         "melee_allowed": true,
-        "min_melee": 0,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "buff_duration": 1,
         "max_stacks": 3,
         "flat_bonuses": [ { "stat": "damage", "type": "bash", "scale": 1.1 } ]
@@ -210,7 +210,7 @@
         "name": "Ready",
         "description": "You're ready. Your fighting implements are ready. They always will be. \n\n+2 Block attempts, -1.0 Dodge skill, blocked damage reduced by 50%% of Strength.",
         "unarmed_allowed": true,
-        "min_melee": 0,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "bonus_blocks": 2,
         "flat_bonuses": [ { "stat": "block", "scaling-stat": "str", "scale": 0.5 }, { "stat": "dodge", "scale": -1.0 } ]
       }
@@ -233,7 +233,7 @@
         "name": "Smackdown",
         "description": "There's nothing that can stop a smackdown once it starts!\n+10%% bashing damage./n+1 Block attempts.\nLasts 2 turns. Stacks 2 times.",
         "unarmed_allowed": true,
-        "min_melee": 1,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "buff_duration": 2,
         "max_stacks": 2,
         "bonus_blocks": 1,
@@ -246,7 +246,7 @@
         "name": "Stopped And Smacked",
         "description": "One punch is just your entry. Now you can start the real deal.",
         "unarmed_allowed": true,
-        "min_melee": 2,
+        "skill_requirements": [ { "name": "melee", "level": 2 } ],
         "buff_duration": 1,
         "flat_bonuses": [ { "stat": "hit", "scale": 1.0 } ]
       }
@@ -257,7 +257,7 @@
         "name": "Eager For Smackdown",
         "description": "You dodged. Next time, you'll take the hit so you can begin the smackdown. \n\n-3.0 Dodge skill\nLasts 3 turns.  Stacks 3 times.",
         "unarmed_allowed": true,
-        "min_melee": 0,
+        "skill_requirements": [ { "name": "melee", "level": 1 } ],
         "buff_duration": 3,
         "max_stacks": 3,
         "flat_bonuses": [ { "stat": "dodge", "scale": -3.0 } ]

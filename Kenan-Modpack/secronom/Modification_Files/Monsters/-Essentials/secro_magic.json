@@ -1,6 +1,6 @@
 [
   {
-    "note": "Every spell that a monster casts are explained here. There's no way of telling you the description in-game, and here we are, reading infos about 'em at this file! Since monsters can only have one spell in their special attacks (and idk if this is intentional to the devs), I tend to combine them... Combo (combination) spell and a regular one, casted in an instance!",
+    "//": "Every spell that a monster casts are explained here. There's no way of telling you the description in-game, and here we are, reading infos about 'em at this file! Since monsters can only have one spell in their special attacks (and idk if this is intentional to the devs), I tend to combine them... Combo (combination) spell and a regular one, casted in an instance!",
     "id": "sacrifice_spell",
     "type": "SPELL",
     "name": "Sacrifice",
@@ -115,7 +115,7 @@
     "effect": "attack",
     "shape": "blast",
     "effect_str": "titan_charge",
-    "note": "15 turns duration, to make titans not OP everytime.",
+    "//": "15 turns duration, to make titans not OP everytime.",
     "min_duration": 1500,
     "max_duration": 1500
   },
@@ -128,7 +128,7 @@
       {
         "id": "mon_zombie_titan_charge",
         "hit_self": true,
-        "note": "hit_self, so it forces the monster to cast the spell with 0 range value to itself, receiving (de)buff, damage or healing spell effect."
+        "//": "hit_self, so it forces the monster to cast the spell with 0 range value to itself, receiving (de)buff, damage or healing spell effect."
       }
     ],
     "flags": [ "SILENT" ],
@@ -661,9 +661,8 @@
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster's blood suck pulls in the blood fields. This is casted for 3 times.'",
     "effect": "area_pull",
     "shape": "blast",
-    "effect_filter": [ "fd_blood" ],
     "flags": [ "SILENT" ],
-    "valid_targets": [ "self", "ally", "hostile", "ground" ],
+    "valid_targets": [ "self", "ally", "hostile", "ground", "item", "field" ],
     "min_aoe": 10,
     "max_aoe": 10
   },
@@ -671,7 +670,7 @@
     "id": "mon_maneater_bsuck",
     "type": "SPELL",
     "name": "Blood Suck",
-    "note": "Even if there's no blood field nearby, it still heals...",
+    "//": "Even if there's no blood field nearby, it still heals...",
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'More vine strands from the caster sweeps around the vicinity, collecting and sucking the blood fields in which heals the caster.'",
     "flags": [ "SILENT", "RANDOM_DAMAGE", "NO_PROJECTILE" ],
     "valid_targets": [ "ally", "ground" ],
@@ -989,7 +988,7 @@
     "shape": "blast",
     "min_damage": 25,
     "max_damage": 35,
-    "note": "Basically, an enemy target has to be the center of explosion, so that Spells get casted successfully.",
+    "//": "Basically, an enemy target has to be the center of explosion, so that Spells get casted successfully.",
     "min_range": 3,
     "max_range": 3,
     "min_aoe": 30,
@@ -1048,7 +1047,7 @@
     "extra_effects": [ { "id": "mon_unknown_unknown_portal_vector" } ],
     "min_damage": 25,
     "max_damage": 35,
-    "note": "Basically, an enemy target has to be the center of explosion, so that Spells get casted successfully.",
+    "//": "Basically, an enemy target has to be the center of explosion, so that Spells get casted successfully.",
     "min_range": 3,
     "max_range": 3,
     "min_aoe": 30,
@@ -1163,8 +1162,8 @@
     "name": "a spell",
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
     "extra_effects": [
-      { "note": "To successfully morph, it kills itself.", "id": "sacrifice_spell", "hit_self": true },
-      { "note": "Then place the monster beside them.", "id": "mon_zombie_fake_poly_ichorus", "hit_self": true }
+      { "//": "To successfully morph, it kills itself.", "id": "sacrifice_spell", "hit_self": true },
+      { "//": "Then place the monster beside them.", "id": "mon_zombie_fake_poly_ichorus", "hit_self": true }
     ],
     "flags": [ "SILENT", "NO_PROJECTILE" ],
     "valid_targets": [ "ally", "hostile", "ground" ],
@@ -1238,7 +1237,7 @@
     "max_duration": 1
   },
   {
-    "note": "This gives the player (ONLY) a worn debuff item.",
+    "//": "This gives the player (ONLY) a worn debuff item.",
     "type": "SPELL",
     "id": "mon_zombie_cling_cling",
     "name": "Cling",
@@ -1259,7 +1258,6 @@
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster pushes the targets with its shadows.'",
     "effect": "area_push",
     "shape": "blast",
-    "effect_filter": [ "hostile" ],
     "flags": [ "SILENT" ],
     "valid_targets": [ "self", "ally", "hostile", "ground" ],
     "min_aoe": 3,
@@ -1324,14 +1322,13 @@
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster channels its body to send forth errant shadows to the targets then pulls them in.'",
     "effect": "area_pull",
     "shape": "blast",
-    "effect_filter": [ "hostile" ],
     "flags": [ "SILENT" ],
     "valid_targets": [ "self", "ally", "hostile", "ground" ],
     "min_aoe": 5,
     "max_aoe": 5
   },
   {
-    "note": "Combo: pull foes x aoe (aoe is 5) -> circular attack -> ranged attack -> push foes x aoe. Pulling the player doesn't work, but affects other creatures... slightly and buggy.",
+    "//": "Combo: pull foes x aoe (aoe is 5) -> circular attack -> ranged attack -> push foes x aoe. Pulling the player doesn't work, but affects other creatures... slightly and buggy.",
     "type": "SPELL",
     "id": "mon_zombie_nocturne_spull_target",
     "name": "a spell",
@@ -1428,9 +1425,8 @@
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster paces back from the target.'",
     "effect": "area_push",
     "shape": "blast",
-    "effect_filter": [ "self" ],
     "flags": [ "SILENT" ],
-    "valid_targets": [ "self", "ally", "hostile", "ground" ],
+    "valid_targets": [ "self" ],
     "min_range": 2,
     "max_range": 2,
     "min_aoe": 2,
@@ -1598,7 +1594,7 @@
     "damage_type": "cut"
   },
   {
-    "note": "Combo: strong attack -> wide attack -> backstep (push self).",
+    "//": "Combo: strong attack -> wide attack -> backstep (push self).",
     "type": "SPELL",
     "id": "mon_zombie_razor_dslash_target",
     "name": "a spell",
@@ -1771,7 +1767,7 @@
     "max_duration": 200
   },
   {
-    "note": "Notes are unnecessary for this spell.",
+    "//": "Notes are unnecessary for this spell.",
     "type": "SPELL",
     "id": "mon_zombie_gorepit_tent_target_random",
     "name": "a spell",
@@ -2021,7 +2017,7 @@
     "max_duration": 1
   },
   {
-    "note": "Spammed by the devourer...",
+    "//": "Spammed by the devourer...",
     "type": "SPELL",
     "id": "mon_zombie_cordev_target_random",
     "name": "a spell",
@@ -2275,7 +2271,7 @@
     "effect_str": "secro_akin_siphon_foe",
     "min_range": 7,
     "max_range": 7,
-    "note": "Gains 2 intensity of debuff, halved to the buff.",
+    "//": "Gains 2 intensity of debuff, halved to the buff.",
     "min_duration": 1200,
     "max_duration": 1200
   },
@@ -2315,7 +2311,7 @@
     "max_duration": 1
   },
   {
-    "note": "All of the equinox's spell doesn't specifically target any creature in sight, but possesses high damage if one got hit. It only focuses on making fields to its surroundings to maximize the summoning ability.",
+    "//": "All of the equinox's spell doesn't specifically target any creature in sight, but possesses high damage if one got hit. It only focuses on making fields to its surroundings to maximize the summoning ability.",
     "id": "mon_zombie_equinox_ndischarge",
     "type": "SPELL",
     "name": "Necrotic Discharge",
@@ -2539,7 +2535,7 @@
     "type": "SPELL",
     "name": "Charge!",
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster gains momentum, increasing movement speed, hit chance and impact damage as it takes effect.'",
-    "note": "Momentum's a short duration haste, accuracy and bonus bash damage. Max intensity after casting the spell. Momentum is also a unique stat modifier that differs to the type of charger.",
+    "//": "Momentum's a short duration haste, accuracy and bonus bash damage. Max intensity after casting the spell. Momentum is also a unique stat modifier that differs to the type of charger.",
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
     "effect": "attack",
@@ -2554,16 +2550,15 @@
     "max_field_intensity": 1
   },
   {
-    "note": "Let's push the charger back from the player. This does work SOMETIMES, and this'll prevent the glitch to occur.",
+    "//": "Let's push the charger back from the player. This does work SOMETIMES, and this'll prevent the glitch to occur.",
     "id": "mon_zombie_charger_charge_push",
     "type": "SPELL",
     "name": "Stop",
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster stops by the target.'",
     "effect": "area_push",
     "shape": "blast",
-    "effect_filter": [ "self" ],
     "flags": [ "SILENT" ],
-    "valid_targets": [ "self", "ally", "hostile", "ground" ],
+    "valid_targets": [ "self" ],
     "min_aoe": 1,
     "max_aoe": 1
   },
@@ -2574,7 +2569,6 @@
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster sprints toward the target. This is casted randomly between 15 to 25 times.'",
     "effect": "area_pull",
     "shape": "blast",
-    "effect_filter": [ "self" ],
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
     "extra_effects": [ { "id": "mon_zombie_charger_charge" }, { "id": "mon_zombie_charger_charge_push" } ],
@@ -2624,7 +2618,6 @@
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster sprints toward the target. This is casted randomly between 20 to 30 times.'",
     "effect": "area_pull",
     "shape": "blast",
-    "effect_filter": [ "self" ],
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
     "extra_effects": [ { "id": "mon_zombie_charger_spike_charge" }, { "id": "mon_zombie_charger_charge_push" } ],
@@ -2674,7 +2667,6 @@
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster sprints toward the target. This is casted randomly between 10 to 15 times.'",
     "effect": "area_pull",
     "shape": "blast",
-    "effect_filter": [ "self" ],
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
     "extra_effects": [ { "id": "mon_zombie_charger_plate_charge" }, { "id": "mon_zombie_charger_charge_push" } ],
@@ -2724,7 +2716,6 @@
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster sprints toward the target. This is casted randomly between 30 to 50 times.'",
     "effect": "area_pull",
     "shape": "blast",
-    "effect_filter": [ "self" ],
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
     "extra_effects": [ { "id": "mon_zombie_charger_vanguard_charge" }, { "id": "mon_zombie_charger_charge_push" } ],
@@ -2867,7 +2858,7 @@
     "max_duration": 1
   },
   {
-    "note": "Sinister maw either bites you or lay around its trap.",
+    "//": "Sinister maw either bites you or lay around its trap.",
     "type": "SPELL",
     "id": "mon_zombieworm_mawy_target_random",
     "name": "a spell",
@@ -3037,16 +3028,15 @@
     "max_duration": 1
   },
   {
-    "note": "Lets make secronom dragon even more destructive!",
+    "//": "Lets make secronom dragon even more destructive!",
     "id": "mon_secrodragon_barrier",
     "type": "SPELL",
     "name": "Barrier",
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster creates an innate force field, pushing nearby hostiles. This is casted 5 times.'",
     "effect": "area_push",
     "shape": "blast",
-    "effect_filter": [ "hostile" ],
     "flags": [ "SILENT" ],
-    "valid_targets": [ "ground" ],
+    "valid_targets": [ "hostile", "ground" ],
     "min_aoe": 3,
     "max_aoe": 3
   },
@@ -3354,7 +3344,7 @@
     "max_duration": 200
   },
   {
-    "note": "Weaver could also heal itself!",
+    "//": "Weaver could also heal itself!",
     "id": "mon_zombie_skittyweavy_heal",
     "type": "SPELL",
     "name": "Heal",
@@ -3726,7 +3716,7 @@
     "effect_str": "veinhole_open",
     "min_aoe": 50,
     "max_aoe": 50,
-    "note": "The reach of this spell is close to the reality bubble, incase of veinhole dies because of something else. That being said, the spell is casted by you, and it's a bit unstable (like warnings about casting a spell while you are hurt).",
+    "//": "The reach of this spell is close to the reality bubble, incase of veinhole dies because of something else. That being said, the spell is casted by you, and it's a bit unstable (like warnings about casting a spell while you are hurt).",
     "base_casting_time": -1
   },
   {
@@ -4381,7 +4371,7 @@
     "max_field_intensity": 1
   },
   {
-    "note": "In order to recreate the SPIT special attack, we used a spell... Downside is, it is perfectly accurate.",
+    "//": "In order to recreate the SPIT special attack, we used a spell... Downside is, it is perfectly accurate.",
     "id": "mon_sflesh_zombie_spitter_cspit",
     "type": "SPELL",
     "name": "Corrosive Spit",
