@@ -54,12 +54,12 @@
         "damage_max_instance": [ { "damage_type": "bash", "amount": 15, "armor_multiplier": 1.35 } ],
         "effects": [
           { "id": "stunned", "duration": 5, "chance": 33 },
-          { "id": "grabbed", "duration": 1000, "body_part": "torso" },
-          { "id": "grabbed", "duration": 1000, "body_part": "head" },
-          { "id": "grabbed", "duration": 1000, "body_part": "leg_l" },
-          { "id": "grabbed", "duration": 1000, "body_part": "leg_r" },
-          { "id": "grabbed", "duration": 1000, "body_part": "arm_l" },
-          { "id": "grabbed", "duration": 1000, "body_part": "arm_r" }
+          { "id": "grabbed", "duration": 1000, "bp": "torso" },
+          { "id": "grabbed", "duration": 1000, "bp": "head" },
+          { "id": "grabbed", "duration": 1000, "bp": "leg_l" },
+          { "id": "grabbed", "duration": 1000, "bp": "leg_r" },
+          { "id": "grabbed", "duration": 1000, "bp": "arm_l" },
+          { "id": "grabbed", "duration": 1000, "bp": "arm_r" }
         ]
       }
     ],
@@ -200,7 +200,7 @@
           { "damage_type": "stab", "amount": 14, "armor_multiplier": 0.5 },
           { "damage_type": "bash", "amount": 31, "armor_multiplier": 0.5 }
         ],
-        "effects": [ { "id": "grabbed", "duration": 1000, "body_part": "torso" }, { "id": "infection_minor", "duration": 28800 } ]
+        "effects": [ { "id": "grabbed", "duration": 1000, "bp": "torso" }, { "id": "infection_minor", "duration": 28800 } ]
       }
     ],
     "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK" ],
@@ -262,7 +262,7 @@
     "melee_dice": 1,
     "melee_dice_sides": 2,
     "melee_cut": 2,
-    "special_attacks": [ [ "wound_minor", 7 ], { "type": "bite", "cooldown": 5, "no_infection_chance": 18, "moves": 250 } ],
+    "special_attacks": [ [ "wound_minor", 7 ], { "type": "bite", "cooldown": 5, "no_infection_chance": 18 } ],
     "attack_effs": [
       { "id": "doom_unhealth", "duration": 1 },
       { "id": "rad_tenths", "duration": 3 },
@@ -291,7 +291,7 @@
     "armor_cut": 1,
     "vision_day": 25,
     "vision_night": 10,
-    "special_attacks": [ [ "wound_minor", 30 ], { "type": "bite", "cooldown": 5, "no_infection_chance": 8, "moves": 250 } ],
+    "special_attacks": [ [ "wound_minor", 30 ], { "type": "bite", "cooldown": 5, "no_infection_chance": 8 } ],
     "anger_triggers": [ "PLAYER_WEAK", "FRIEND_ATTACKED", "FRIEND_DIED", "HURT" ],
     "fear_triggers": [ "PLAYER_CLOSE" ],
     "death_function": [ "NORMAL" ],

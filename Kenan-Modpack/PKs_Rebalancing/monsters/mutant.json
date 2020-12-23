@@ -19,7 +19,7 @@
     "attack_effs": [ { "id": "rad_tenths", "duration": 10 } ],
     "vision_day": 5,
     "vision_night": 5,
-    "special_attacks": [ { "type": "bite", "cooldown": 10, "no_infection_chance": 12, "moves": 250 } ],
+    "special_attacks": [ { "type": "bite", "cooldown": 10, "no_infection_chance": 12 } ],
     "flags": [ "SEES", "HEARS", "SMELLS", "CAN_DIG", "LARVA" ]
   },
   {
@@ -203,7 +203,6 @@
       {
         "id": "hammer",
         "cooldown": 20,
-        "moves": 150,
         "damage_max_instance": [ { "damage_type": "bash", "amount": 9, "armor_multiplier": 0.85 }, { "damage_type": "biological", "amount": 1 } ]
       }
     ],
@@ -390,7 +389,6 @@
       [ "FEAR_PARALYZE", 40 ],
       {
         "id": "scratch",
-        "moves": 150,
         "cooldown": 20,
         "damage_max_instance": [
           { "damage_type": "cut", "amount": 14, "armor_multiplier": 0.8 },
@@ -756,7 +754,6 @@
       {
         "id": "slash",
         "cooldown": 30,
-        "moves": 200,
         "damage_max_instance": [ { "damage_type": "cut", "amount": 22, "armor_multiplier": 0.75 } ]
       },
       { "type": "leap", "cooldown": 10, "max_range": 3 },
@@ -855,7 +852,6 @@
       {
         "id": "hammer",
         "cooldown": 15,
-        "moves": 150,
         "damage_max_instance": [
           { "damage_type": "bash", "amount": 18, "armor_multiplier": 0.7 },
           { "damage_type": "cut", "amount": 8, "armor_multiplier": 0.7 }
@@ -905,7 +901,7 @@
     "melee_cut": 6,
     "dodge": 2,
     "attack_effs": [ { "id": "rad_tenths", "duration": 10 } ],
-    "armor: bash": 5,
+    "armor_bash": 5,
     "armor_cut": 8,
     "vision_day": 35,
     "vision_night": 7,
@@ -923,7 +919,7 @@
           { "damage_type": "bash", "amount": 13, "armor_multiplier": 0.8 },
           { "damage_type": "cut", "amount": 5, "armor_multiplier": 0.8 }
         ],
-        "effects": [ { "id": "grabbed", "duration": 1000, "body_part": "torso" } ]
+        "effects": [ { "id": "grabbed", "duration": 1000, "bp": "torso" } ]
       }
     ],
     "death_function": [ "NORMAL" ],
@@ -968,13 +964,13 @@
           { "damage_type": "bash", "amount": 27, "armor_multiplier": 0.85 },
           { "damage_type": "stab", "amount": 9, "armor_multiplier": 0.85 }
         ],
-        "effects": [ { "id": "grabbed", "duration": 1000, "body_part": "torso" } ]
+        "effects": [ { "id": "grabbed", "duration": 1000, "bp": "torso" } ]
       }
     ],
     "death_function": [ "WORM", "NORMAL" ],
     "flags": [ "SEES", "HEARS", "GOODHEARING", "DIGS", "BASHES", "POISON", "WARM", "LEATHER", "FAT" ],
-    "anger_trigger": [ "SOUND", "FRIEND_ATTACKED", "PLAYER_WEAK" ],
-    "fear_trigger": [ "HURT", "FRIEND_DIED", "FIRE" ]
+    "anger_triggers": [ "SOUND", "FRIEND_ATTACKED", "PLAYER_WEAK" ],
+    "fear_triggers": [ "HURT", "FRIEND_DIED", "FIRE" ]
   },
   {
     "id": "mon_worm",
@@ -997,8 +993,8 @@
     "regen_morale": true,
     "regenerates": 1,
     "flags": [ "DIGS", "HEARS", "GOODHEARING", "WARM", "LEATHER" ],
-    "anger_trigger": [ "SOUND", "FRIEND_ATTACKED", "PLAYER_WEAK" ],
-    "fear_trigger": [ "HURT", "FRIEND_DIED" ]
+    "anger_triggers": [ "SOUND", "FRIEND_ATTACKED", "PLAYER_WEAK" ],
+    "fear_triggers": [ "HURT", "FRIEND_DIED" ]
   },
   {
     "id": "mon_halfworm",
@@ -1029,8 +1025,8 @@
     "regenerates": 1,
     "regen_morale": true,
     "flags": [ "CAN_DIG", "HEARS", "GOODHEARING", "WARM", "LEATHER" ],
-    "anger_trigger": [ "SOUND", "FRIEND_ATTACKED", "PLAYER_WEAK" ],
-    "fear_trigger": [ "HURT", "FRIEND_DIED" ]
+    "anger_triggers": [ "SOUND", "FRIEND_ATTACKED", "PLAYER_WEAK" ],
+    "fear_triggers": [ "HURT", "FRIEND_DIED" ]
   },
   {
     "id": "mon_thing_swamp",
