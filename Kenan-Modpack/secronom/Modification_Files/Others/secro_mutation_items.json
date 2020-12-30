@@ -12,7 +12,11 @@
     "material": [ "flesh" ],
     "flags": [ "REACH_ATTACK", "UNBREAKABLE_MELEE", "NO_DROP", "NO_UNWIELD", "UNARMED_WEAPON" ],
     "bashing": 12,
-    "relic_data": { "has": "WIELD", "condition": "ALWAYS", "hit_you_effect": [ { "id": "SECRO_TENDRIL_TENT_THRESHOLD_tent_target" } ] },
+    "relic_data": {
+      "passive_effects": [
+        { "has": "WIELD", "condition": "ALWAYS", "hit_you_effect": [ { "id": "SECRO_TENDRIL_TENT_THRESHOLD_tent_target" } ] }
+      ]
+    },
     "category": "weapons"
   },
   {
@@ -28,9 +32,18 @@
     "symbol": "O",
     "color": "red",
     "relic_data": {
-      "has": "HELD",
-      "condition": "ALWAYS",
-      "values": [ { "value": "ATTACK_COST", "add": -3 }, { "value": "BONUS_DODGE", "add": 1 }, { "value": "BONUS_DAMAGE", "add": 2 } ]
+      "passive_effects": [
+        {
+          "has": "HELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "SPEED", "add": -3 },
+            { "value": "ATTACK_COST", "add": -3 },
+            { "value": "BONUS_DODGE", "add": 1 },
+            { "value": "BONUS_DAMAGE", "add": 2 }
+          ]
+        }
+      ]
     },
     "flags": [ "NO_DROP" ]
   },
@@ -47,13 +60,17 @@
     "symbol": "Q",
     "color": "red",
     "relic_data": {
-      "has": "HELD",
-      "condition": "ALWAYS",
-      "values": [
-        { "value": "SPEED", "add": -3 },
-        { "value": "ATTACK_COST", "add": 5 },
-        { "value": "BONUS_DODGE", "add": -1 },
-        { "value": "BONUS_BLOCK", "add": 2 }
+      "passive_effects": [
+        {
+          "has": "HELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "SPEED", "add": -3 },
+            { "value": "ATTACK_COST", "add": 5 },
+            { "value": "BONUS_DODGE", "add": -1 },
+            { "value": "BONUS_BLOCK", "add": 2 }
+          ]
+        }
       ]
     },
     "flags": [ "NO_DROP" ]

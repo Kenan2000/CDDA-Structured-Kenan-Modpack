@@ -87,6 +87,7 @@
         "_": "t_wall"
       },
       "furniture": { "c": "f_chair", "t": "f_table" },
+      "monster": { "*": { "monster": "mon_flesh_angel" }, "^": { "monster": "mon_blood_sacrifice" } },
       "place_monster": [ { "monster": "mon_darkman", "x": 16, "y": 16 } ],
       "place_monsters": [
         { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
@@ -137,7 +138,9 @@
         "O": { "furniture": "f_oven", "items": { "item": "oven", "chance": 50 } },
         "U": { "furniture": "f_cupboard", "items": [ { "item": "knifeblock", "chance": 60 }, { "item": "kitchen", "chance": 60 } ] },
         "F": { "furniture": "f_fridge", "items": { "item": "fridgesnacks", "chance": 30 } },
-        "&": { "furniture": "f_sink", "items": { "item": "trash", "chance": 45 } }
+        "&": { "furniture": "f_sink", "items": { "item": "trash", "chance": 45 } },
+        "W": { "items": { "item": "allclothes", "chance": [ 25 ] } },
+        "w": { "items": { "item": "allclothes", "chance": [ 25 ] } }
       },
       "terrain": {
         ".": [ "t_grass", "t_grass", "t_grass", "t_dirt" ],
@@ -150,7 +153,7 @@
         "_": "t_wall",
         "-": "t_fence_v"
       },
-      "furniture": { "b": "f_bed", "C": "f_counter", "c": "f_chair", "t": "f_table" },
+      "furniture": { "b": "f_bed", "C": "f_counter", "c": "f_chair", "t": "f_table", "w": "f_washer", "W": "f_dryer" },
       "monster": { "*": { "monster": "mon_shadow" } },
       "place_monsters": [
         { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
@@ -213,7 +216,7 @@
         "_": "t_wall"
       },
       "furniture": { "S": [ "f_statue", "f_rubble" ], "b": "f_bench", "C": "f_counter", "c": "f_chair", "A": "f_armchair", "s": "f_sofa" },
-      "monster": { "*": { "monster": "mon_shadow" } },
+      "monster": { "*": { "monster": "mon_shadow" }, "^": { "monster": "mon_blood_sacrifice" } },
       "place_monsters": [
         { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
         { "monster": "GROUP_BS", "x": [ 1, 22 ], "y": [ 1, 22 ], "chance": 5 },
@@ -306,12 +309,12 @@
         "########################",
         "########################",
         "###$   $###^  ffffff####",
-        "###     ##    %     % ##",
-        "####&####%            ##",
+        "###     ##    |     | ##",
+        "####&####^            ##",
         "####       b b b b  n  #",
         "###        b b b b  n 1#",
         "##f        b b b b  0  #",
-        "##ff  fff%          %  #",
+        "##ff  fff|          |  #",
         "####++##################",
         "##XXxxxXXXXXXXXXXXXXXXX#",
         "##XXxxxxxxxxxxxxxxxxxxxx",
@@ -512,7 +515,7 @@
         "##_...................__",
         "##_...................=+",
         "##_..ttt..............=+",
-        "##_____________________-",
+        "##______________________",
         "########################"
       ],
       "mapping": {

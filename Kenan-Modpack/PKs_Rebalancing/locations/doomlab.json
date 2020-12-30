@@ -143,6 +143,7 @@
       "furniture": {
         "^": "f_rubble",
         "S": "f_statue",
+        "f": "f_canvas_floor",
         "b": "f_floor_canvas",
         "e": "f_exercise",
         "M": "f_ball_mach",
@@ -195,9 +196,9 @@
         "--( (-^^--^ ^-TC      --",
         "-----^^----^+-TC   BBL--",
         "--ST ^^   -  -TC      --",
-        "--m ^xxx b- ^-TC   BBL--",
-        "--m  xxx --+^--S      --",
-        "--^ ^^xx - ^^ -C   BBL--",
+        "--m ^XXX b- ^-TC   BBL--",
+        "--m  XXX --+^--S      --",
+        "--^ ^^XX - ^^ -C   BBL--",
         "-^^^^    - ^ ^-T      --",
         "^^^^^^ee)-^>> -C   BBL--",
         "^^^^--------------------",
@@ -450,7 +451,7 @@
       "fill_ter": "t_thconc_floor",
       "rows": [
         "------------------------",
-        "-[][][.F--------k-LXXXX-",
+        "-[][][.C--------k-LXXXX-",
         "-.......-1 << 1-k_   XX-",
         "-.....-x-S    S---f   X-",
         "-x-x-x-         V-f    -",
@@ -492,6 +493,7 @@
         "D": "f_desk",
         "C": "f_counter",
         "c": "f_chair",
+        "p": "f_cupboard",
         "^": "f_indoor_plant",
         "X": [ "f_crate_c", "f_crate_c", "f_crate_o" ],
         "B": "f_bookcase",
@@ -717,13 +719,15 @@
         "L": "f_locker",
         "}": "f_glass_fridge",
         "S": "f_statue",
-        "^": "f_indoor_plant"
+        "^": "f_indoor_plant",
+        "d": "f_desk"
       },
       "mapping": {
         "f": { "items": { "item": "radio", "chance": 15 } },
         "L": { "items": { "item": "office", "chance": 30 } },
         "T": { "items": { "item": "bookstore_misc", "chance": 10 } },
-        "B": { "items": { "item": "cubical_office", "chance": 35 }, "terrain": "t_rock_floor", "furniture": "f_bookcase" }
+        "B": { "items": { "item": "cubical_office", "chance": 35 }, "terrain": "t_rock_floor", "furniture": "f_bookcase" },
+        "d": { "items": { "item": "cubical_office", "chance": 10 } }
       },
       "place_monsters": [
         { "monster": "GROUP_DOOM_HELP", "chance": 6, "x": [ 1, 22 ], "y": [ 1, 22 ] },
@@ -826,7 +830,7 @@
         "-----------  -----------",
         "---dd=   +    =6c =LL---",
         "---c   ===    === = L---",
-        "---==  cd=    +     ~---",
+        "---==  cd=    +      ---",
         "---dc  ===    === =  ---",
         "---==   c=    =dc =6c---",
         "---dc  =d=    =d= =dd---",
@@ -949,6 +953,7 @@
       "furniture": {
         "=": "f_canvas_wall",
         "X": "f_canvas_door",
+        "B": "f_bookcase",
         "d": "f_desk",
         "T": "f_table",
         "C": "f_counter",
@@ -961,6 +966,7 @@
         "L": { "items": { "item": "office", "chance": 15 } },
         "f": { "items": { "item": "cubical_office", "chance": 15 } },
         "T": { "items": { "item": "office", "chance": 2 } },
+        "B": { "items": { "item": "cubical_office", "chance": 35 } },
         "d": { "items": { "item": "cubical_office", "chance": 10 } }
       },
       "place_monsters": [
@@ -1271,7 +1277,7 @@
         "-BBL BBLBBL  LBBLBB LBB-",
         "-                      -",
         "-L L L L Lx  xL L L L L-",
-        "-B B B B B-++-B b B B B-",
+        "-B B B B B-++-B B B B B-",
         "-B B B B B-  -B B B B B-",
         "-----------  -----------"
       ],
@@ -1324,7 +1330,7 @@
         "-BBL B B Bx  xB B B LBB-",
         "-         X  X         -",
         "-BBL L L Lx  xL L L LBB-",
-        "-    B B B-++-B b B    -",
+        "-    B B B-++-B B B    -",
         "-BBL B B B-  -B B B LBB-",
         "-----------  -----------"
       ],
@@ -1358,7 +1364,7 @@
       "rows": [
         "-----------++-----------",
         "-BBL   LBB=  ==========-",
-        "-         =  =tx ?? x]=-",
+        "-         =  =tx bb x]=-",
         "-BBL   LBB=  ===    ===-",
         "-         =  =tx bb x]=-",
         "-BBL   LBB=  ===    ===-",
@@ -1367,8 +1373,8 @@
         "-         =  x       f=-",
         "-BBL   LBB=  =T       =-",
         "-====x=====  ==[C[C[C[=-",
-        "+            P=========-",
-        "+            P=========-",
+        "+            ==========-",
+        "+            ==========-",
         "-====x=====  ==[C[C[C[=-",
         "-BBL   LBB=  =T       =-",
         "-         =  x       }=-",
@@ -1397,7 +1403,8 @@
         "}": "f_vending_c",
         "[": "f_sink",
         "]": "f_shower",
-        "t": "f_toilet"
+        "t": "f_toilet",
+        "T": "f_table"
       },
       "mapping": {
         "}": { "items": { "item": "vending_food_items", "chance": 60 } },
@@ -1425,7 +1432,7 @@
       "rows": [
         "-----------++-----------",
         "-==========  =BBL   LBB-",
-        "-=tx ?? x[=  =         -",
+        "-=tx bb x[=  =         -",
         "-===    ===  =BBL   LBB-",
         "-=tx bb x[=  =         -",
         "-===    ===  =BBL   LBB-",
@@ -1434,8 +1441,8 @@
         "-=f       x  =         -",
         "-=       T=  =BBL   LBB-",
         "-=]C]C]C]==  =====x====-",
-        "-=========P            +",
-        "-=========P            +",
+        "-==========            +",
+        "-==========            +",
         "-=[C[C[C[==  =====x====-",
         "-=        x  =BBL   LBB-",
         "-=}      T=  =         -",
@@ -1458,12 +1465,14 @@
       "furniture": {
         "B": "f_bed",
         "b": "f_bench",
+        "C": "f_counter",
         "L": "f_locker",
         "f": "f_rack",
         "}": "f_vending_c",
         "[": "f_sink",
         "]": "f_shower",
-        "?": "f_toilet"
+        "t": "f_toilet",
+        "T": "f_table"
       },
       "mapping": {
         "}": { "items": { "item": "vending_food_items", "chance": 60 } },
@@ -1587,6 +1596,7 @@
         "f": "f_rack",
         "b": "f_bench",
         "c": "f_chair",
+        "C": "f_counter",
         "A": "f_arcade_machine",
         "P": "f_pinball_machine",
         "s": "f_sofa",
@@ -1637,7 +1647,7 @@
         "- ????           =L b L-",
         "- ????    ....   =L b L-",
         "- ????   ......  =D   D-",
-        "- ????  ........ ===X==-",
+        "- ????  ........ ===x==-",
         "-      ...    ...      -",
         "-e    ...      ...     -",
         "-e   ...  TTTT  ...    -",
@@ -2026,6 +2036,8 @@
         "d": "f_desk",
         "f": "f_rack",
         "L": "f_locker",
+        "T": "f_table",
+        "^": "f_indoor_plant",
         "]": "f_sink"
       },
       "mapping": {
@@ -2183,6 +2195,7 @@
         "d": "f_desk",
         "f": "f_rack",
         "L": "f_locker",
+        "]": "f_sink",
         "}": "f_glass_fridge",
         "D": "f_displaycase"
       },
@@ -2318,6 +2331,7 @@
         " ": "t_thconc_floor",
         "x": "t_door_metal_locked",
         "+": [ "t_door_metal_c", "t_door_metal_c", "t_door_metal_pickable", "t_door_metal_pickable", "t_door_metal_o" ],
+        "4": "t_door_c",
         "6": [ "t_console_broken", "t_console" ]
       },
       "furniture": {
@@ -2410,6 +2424,7 @@
         "f": "f_rack",
         "L": "f_locker",
         "T": "f_table",
+        "]": "f_sink",
         "}": "f_glass_fridge",
         "D": "f_displaycase"
       },
@@ -2492,6 +2507,7 @@
         "d": "f_desk",
         "f": "f_rack",
         "L": "f_locker",
+        "]": "f_sink",
         "}": "f_glass_fridge",
         "D": "f_displaycase",
         "t": "f_toilet"
@@ -2630,6 +2646,7 @@
           "t_door_metal_o"
         ],
         "+": [ "t_door_metal_c", "t_door_metal_c", "t_door_metal_pickable", "t_door_metal_pickable", "t_door_metal_o" ],
+        "1": "t_radio_controls",
         "6": [ "t_console_broken", "t_console" ],
         "5": [ "t_console_broken", "t_console" ],
         "7": "t_gates_control_metal",
@@ -2644,6 +2661,7 @@
         "d": "f_desk",
         "f": "f_rack",
         "L": "f_locker",
+        "]": "f_sink",
         "}": "f_glass_fridge",
         "8": "f_shackle"
       },
@@ -2718,6 +2736,7 @@
         "=": "t_wall_metal",
         ".": "t_metal_floor",
         ",": "t_thconc_floor",
+        "X": "t_door_metal_locked",
         "x": [
           "t_door_metal_locked",
           "t_door_metal_locked",
@@ -2727,6 +2746,7 @@
           "t_door_metal_o"
         ],
         "+": [ "t_door_metal_c", "t_door_metal_c", "t_door_metal_pickable", "t_door_metal_pickable", "t_door_metal_o" ],
+        "t": "t_water_pump",
         "6": [ "t_console_broken", "t_console" ],
         "7": "t_gates_control_metal",
         "_": "t_reinforced_glass",
@@ -2813,7 +2833,7 @@
         "#": "t_dirtmound",
         ".": "t_dirtfloor"
       },
-      "furniture": { "C": "f_counter", "c": "f_chair", "p": "f_cupboard", "f": "f_rack", "L": "f_locker" },
+      "furniture": { "C": "f_counter", "c": "f_chair", "p": "f_cupboard", "f": "f_rack", "]": "f_sink", "L": "f_locker" },
       "mapping": {
         "#": { "items": { "item": "hydro", "chance": 15 } },
         "2": { "items": { "item": "hydro", "chance": 35 } },
@@ -2958,6 +2978,7 @@
         "------------------------"
       ],
       "terrain": {
+        "9": [ "t_card_science", "t_card_science", "t_card_science", "t_card_reader_broken" ],
         "0": [ "t_card_military", "t_card_military", "t_card_military", "t_card_reader_broken" ],
         "-": "t_sconc_wall",
         "=": "t_reinforced_glass",
@@ -3210,7 +3231,14 @@
         "4": "t_machinery_heavy",
         "5": "t_machinery_electronic"
       },
-      "furniture": { "X": [ "f_crate_c", "f_crate_c", "f_crate_o" ], "&": "f_robotic_arm", "c": "f_chair", "L": "f_locker", "d": "f_desk" },
+      "furniture": {
+        "X": [ "f_crate_c", "f_crate_c", "f_crate_o" ],
+        "&": "f_robotic_arm",
+        "c": "f_chair",
+        "L": "f_locker",
+        "d": "f_desk",
+        "^": "f_indoor_plant"
+      },
       "mapping": {
         "L": { "items": { "item": "home_hw", "chance": 40 } },
         "X": { "items": [ { "item": "home_hw", "chance": 5 }, { "item": "hardware_bulk", "chance": 10 } ] }
@@ -3274,6 +3302,7 @@
           "t_door_metal_o"
         ],
         "+": [ "t_door_metal_c", "t_door_metal_c", "t_door_metal_pickable", "t_door_metal_pickable", "t_door_metal_o" ],
+        "1": "t_radio_controls",
         "6": [ "t_console_broken", "t_console" ],
         "7": "t_generator_broken",
         "5": "t_machinery_electronic",
@@ -3287,6 +3316,7 @@
         "&": "f_robotic_arm",
         "C": "f_counter",
         "c": "f_chair",
+        "d": "f_desk",
         "S": "f_statue",
         "p": "f_cupboard",
         "B": "f_bed",
@@ -3300,6 +3330,7 @@
         "p": { "items": { "item": "harddrugs", "chance": 35 } },
         "f": { "items": { "item": "lmoe_guns", "chance": 20 } },
         "L": { "items": { "item": "mil_armor", "chance": 35 } },
+        "d": { "items": { "item": "cubical_office", "chance": 15 } },
         "X": { "items": [ { "item": "cannedfood", "chance": 20 }, { "item": "harddrugs", "chance": 10 } ] }
       },
       "place_monsters": [
@@ -3506,6 +3537,7 @@
         "c": "f_chair",
         "p": "f_cupboard",
         "L": "f_locker",
+        "^": "f_indoor_plant",
         "]": "f_sink"
       },
       "mapping": { "X": { "items": { "item": "electronics", "chance": 10 } }, "p": { "items": { "item": "softdrugs", "chance": 20 } } },
@@ -3536,7 +3568,7 @@
         "-  ------------------  -",
         "-  -               C-  -",
         "-  - 63663      66 C-  -",
-        "-  - C2C2C      33 &-  -",
+        "-  - C&C&C      33 &-  -",
         "-  -            66 C-  -",
         "-  -            66 &-  -",
         "-  -     ---+-- 33 C-  -",
@@ -3571,6 +3603,7 @@
         "C": "f_counter",
         "c": "f_chair",
         "p": "f_cupboard",
+        "&": "f_robotic_arm",
         "L": "f_locker"
       },
       "place_monsters": [
@@ -3636,6 +3669,7 @@
         "c": "f_chair",
         "p": "f_cupboard",
         "]": "f_sink",
+        "^": "f_indoor_plant",
         "L": "f_locker"
       },
       "mapping": { "p": { "items": { "item": "chem_school", "chance": 20 } } },
@@ -3678,7 +3712,7 @@
         "-  -XXX             -  -",
         "-  -XXX 222 222  XX -  -",
         "-  -    2 2 2 2 & 5 -  -",
-        "-  -   64 232 5  12 -  -",
+        "-  -   64 232 5  72 -  -",
         "-  +          22232 -  -",
         "-  ------------------  -",
         "-                      -",
@@ -3707,6 +3741,7 @@
         "p": "f_cupboard",
         "L": "f_locker",
         "]": "f_sink",
+        "S": "f_statue",
         "&": "f_robotic_arm"
       },
       "mapping": { "X": { "items": { "item": "hardware_plumbing", "chance": 15 } } },
