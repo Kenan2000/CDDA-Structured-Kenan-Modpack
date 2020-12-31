@@ -1,0 +1,613 @@
+[
+  {
+    "id": [ "TALK_MAID_ALLY" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "is_by_radio": " *pshhhttt* I'm reading you master, over.",
+      "no": { "has_reason": { "use_reason": true }, "no": "What is it, master?" }
+    },
+	"speaker_effect": {
+		"sentinel": "maid_init",
+		"condition": {"npc_rule": "allow_pick_up"},
+		"effect": {
+			"toggle_npc_rule": "allow_pick_up",
+			"opinion": { "trust": 5, "value": 5, "anger": -5, "fear": -5 }
+		}
+	},
+    "responses": [
+      { "text": "I want to give you some commands for combat.", "topic": "TALK_COMBAT_COMMANDS" },
+      { "text": "I want to set some miscellaneous rules.", "topic": "TALK_MISC_RULES_MAID" },
+      {
+        "text": "I'd like to know a bit more about your abilities.",
+        "topic": "TALK_MAID_ALLY",
+        "effect": "reveal_stats"
+      },
+      { "text": "There's something I want you to do.", "topic": "TALK_MAID_ORDERS" },
+      { "text": "I just wanted to talk for a bit.", "topic": "TALK_MAID_SOCIAL" },
+	  {
+        "text": "It's time for your milking.",
+        "topic": "TALK_MAID_MILK",
+        "condition": { "and": [
+          {"npc_has_trait": "BOUNTIFUL"},
+		  {"not": {"npc_has_effect": "maid_milked"}}
+		  ]
+        }
+      },
+      { "text": "I'm going to go my own way for a while.", "topic": "TALK_LEAVE" },
+      { "text": "Let's go.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": [ "TALK_MAID_SOCIAL" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "is_by_radio": " *tshk* Whatever you desire, master. Though perhaps we should meet up first?",
+      "no": "Is there something you need help with, master?"
+    },
+    "responses": [
+      {
+        "text": "Mind if we just chat for a bit about your history?",
+        "topic": "TALK_MAID_CONVERSATION",
+        "condition": {
+          "and": [ "at_safe_space", { "or": [ { "npc_has_trait_flag": "BG_SURVIVAL_STORY" }, { "npc_has_trait": "NPC_STATIC_NPC" } ] } ]
+        },
+        "//": "If the NPC already has a BG story, or started out as a static NPC (and so probably doesn't need a random bg story), then go on.",
+        "switch": true
+      },
+      {
+        "text": "Mind if we just chat for a bit about your history?",
+        "topic": "TALK_MAID_CONVERSATION",
+        "condition": "at_safe_space",
+        "switch": true,
+        "effect": { "npc_add_trait": "BGSS_Confused_1" },
+        "//": "If the NPC doesn't have a BG survival story flagged trait, and didn't start the game as a static NPC, give them a BG story.",
+        "//2": "This is a stand-in for some kind of better system to add a random trait."
+      },
+      {
+        "text": "Mind if we just chat for a bit about your history?",
+        "topic": "TALK_CONVERSATION_DANGER_MAID",
+        "condition": { "not": "at_safe_space" },
+        "switch": true
+      },
+      {
+        "text": "Mind if we just chat for a bit about your history?",
+        "topic": "TALK_MAID_CONVERSATION",
+        "condition": { "not": "is_by_radio" },
+        "switch": true
+      },
+      {
+        "text": "Let's just chitchat for a while, I could use some relaxation.",
+        "topic": "TALK_FRIEND_CHAT",
+        "condition": { "not": { "or": [{"npc_has_effect": "asked_to_socialize"}, {"npc_has_trait": "THRESH_SHOGGOTH"}] } }
+      },
+	  {
+        "text": "Let's just chitchat for a while, I could use some relaxation.",
+        "topic": "TALK_SHOGGOTH_CHAT",
+        "condition": { "not": { "or": [{"npc_has_effect": "asked_to_socialize"}, {"not": { "npc_has_trait": "THRESH_SHOGGOTH"}}] } }
+      },
+      { "text": "Can I do anything for you?", "topic": "TALK_MISSION_LIST" },
+	  {
+		"text": "I don't want to ever be apart from you.",
+		"topic": "TALK_SHOGGOTH_HEART",
+		"condition": {"npc_has_trait": "THRESH_SHOGGOTH"}
+	  },
+      { "text": "I changed my mind, wanted to ask you something else.", "topic": "TALK_MAID_ALLY" },
+      { "text": "Let's go.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+	"id": "TALK_MAID_MILK",
+	"type": "talk_topic",
+	"dynamic_line": "Milking time♪ Please treat me well, master!",
+	"responses": [
+		{
+			"text": "Later, then.",
+			"topic": "TALK_DONE",
+			"condition": {"npc_has_effect": "maid_milked"}
+		},
+		{
+			"text": "Let's get to work.",
+			"topic": "TALK_MAID_MILK2",
+			"condition": {"not": {"npc_has_effect": "maid_milked"}}
+		}
+	]
+  },
+  {
+	"id": "TALK_MAID_MILK2",
+	"type": "talk_topic",
+	"dynamic_line": "Ah...Ahn♪ Oh master, that feels so...good...",
+	"speaker_effect": {
+		"effect": [{"u_buy_item": "milk", "count": 4}, {"npc_add_effect": "maid_milked", "duration": 28000}]
+	},
+	"responses": [
+		{
+			"text": "We're not done yet. I want your 'milk' too.",
+			"topic": "TALK_MAID_MILK3",
+			"condition": {"npc_has_trait": "futanari"}
+		},
+		{
+			"text": "That's all for now.",
+			"topic": "TALK_DONE"
+		}
+	]
+  },
+  {
+	"id": "TALK_MAID_MILK3",
+	"type": "talk_topic",
+	"dynamic_line": "Th-there too? N-no, wait, I'm going to...! Master, please, I can't stop - urgh, please, just let me rest...!",
+	"speaker_effect": {
+		"effect": [{"u_buy_item": "protein_milk", "count": 1}]
+	},
+	"responses": [
+		{
+			"text": "That's all for now.",
+			"topic": "TALK_DONE"
+		}
+	]
+  },
+  {
+	"id": "TALK_SHOGGOTH_HEART",
+	"type": "talk_topic",
+	"dynamic_line": "Oh master...♪ I feel the same way! But you know, there is a way we can be together forever, no matter how cold or cruel this world is...",
+	"responses": [
+		{
+			"text": "Tell me more.",
+			"topic": "TALK_SHOGGOTH_HEART2"
+		}
+	]
+  },
+  {
+	"id": "TALK_SHOGGOTH_HEART2",
+	"type": "talk_topic",
+	"dynamic_line": "Take my heart and eat it. Ah, don't worry♪ I won't die. My strength will become our strength, and nobody will be able to separate us then!",
+	"responses": [
+		{
+			"text": "This...let's do it. Now.",
+			"topic": "TALK_SHOGGOTH_HEART3"
+		},
+		{
+			"text": "You know what? Never mind.",
+			"topic": "TALK_DONE"
+		}
+	]
+  },
+  {
+	"id": "TALK_SHOGGOTH_HEART3",
+	"type": "talk_topic",
+	"dynamic_line": "For my beloved master, I would do anything! Oh, if you ever change your mind, just put my heart back in the flask - I'll be back in no time!",
+	"speaker_effect": {
+		"effect": [{"u_buy_item": "meat_shoggoth", "count": 2}, "npc_die"]
+	},
+	"responses": [
+		{
+			"text": "...",
+			"topic": "TALK_DONE"
+		}
+	]
+  },
+  {
+    "id": [ "TALK_MAID_ORDERS" ],
+    "type": "talk_topic",
+    "dynamic_line": [ "As you command, my master.", "Do you have orders for me?", "How can I serve you?", "Just say the word." ],
+    "responses": [
+      {
+        "text": "Can you teach me anything?",
+        "condition": { "not": "is_by_radio" },
+        "trial": {
+          "type": "CONDITION",
+          "condition": {
+            "or": [
+              { "npc_need": "thirst", "amount": 80 },
+              { "npc_need": "hunger", "amount": 160 },
+              { "npc_need": "fatigue", "level": "TIRED" },
+              { "npc_has_effect": "asked_to_train" },
+              "u_driving",
+              "npc_driving"
+            ]
+          }
+        },
+        "success": { "topic": "TALK_DENY_TRAIN" },
+        "failure": { "topic": "TALK_TRAIN_PERSUADE_MAID" }
+      },
+      {
+        "text": "Let's trade items.",
+        "condition": { "not": {"or": ["is_by_radio", {"npc_has_trait": "MAID_RESTRICT"}]} },
+        "topic": "TALK_MAID_ALLY",
+        "effect": "start_trade",
+        "switch": true,
+        "default": true
+      },
+      {
+        "text": "Let's trade items",
+        "topic": "TRADE_HALLU",
+        "condition": { "npc_has_trait": "HALLUCINATION" },
+        "switch": true,
+        "default": false
+      },
+      {
+        "text": "I want you to use this item.",
+        "condition": { "not": {"or": ["is_by_radio", {"npc_has_trait": "MAID_RESTRICT"}]} },
+        "topic": "TALK_MAID_ALLY",
+        "effect": "npc_gets_item_to_use"
+      },
+      {
+        "text": "Hold on to this item.",
+        "condition": { "not": {"or": ["is_by_radio", {"npc_has_trait": "MAID_RESTRICT"}]} },
+        "topic": "TALK_MAID_ALLY",
+        "effect": "npc_gets_item"
+      },
+      {
+        "text": "Guard this position.",
+        "condition": { "not": "is_by_radio" },
+        "topic": "TALK_MAID_GUARD",
+        "effect": "assign_guard"
+      },
+      {
+        "text": "I want to assign you to work at this camp.",
+        "condition": { "npc_at_om_location": "FACTION_CAMP_ANY" },
+        "topic": "TALK_MAID_GUARD",
+        "effect": "assign_camp"
+      },
+      {
+        "text": "Find a horse and mount up!",
+        "condition": { "not": "npc_is_riding" },
+        "topic": "TALK_DONE",
+        "effect": "find_mount"
+      },
+      {
+        "text": "Get off your mount, please.",
+        "condition": "npc_is_riding",
+        "topic": "TALK_DONE",
+        "effect": "dismount"
+      },
+      {
+        "text": "Please go to this location.",
+        "topic": "TALK_GOTO_LOCATION",
+        "condition": { "or": [ "is_by_radio", "u_has_camp" ] },
+        "effect": "goto_location"
+      },
+      {
+        "text": "I want you to build a camp here.",
+        "topic": "TALK_HALLU_CAMP",
+        "condition": { "npc_has_trait": "HALLUCINATION" },
+        "switch": true
+      },
+      {
+        "text": "I want you to build a camp here.",
+        "topic": "TALK_DONE",
+        "effect": "start_camp",
+        "condition": { "npc_at_om_location": "FACTION_CAMP_START" },
+        "switch": true,
+        "default": true
+      },
+      {
+        "text": "Since we can't build a camp here, I want you to tell me where can we build a camp?",
+        "topic": "TALK_CAMP_SITES",
+        "condition": { "not": { "npc_at_om_location": "FACTION_CAMP_START" } },
+        "switch": true,
+        "default": true
+      },
+      {
+        "text": "We need to abandon this camp.",
+        "condition": { "npc_at_om_location": "FACTION_CAMP_ANY" },
+        "topic": "TALK_DONE",
+        "effect": "abandon_camp"
+      },
+      {
+        "text": "Show me what needs to be done at the camp.",
+        "topic": "TALK_DONE",
+        "effect": "basecamp_mission",
+        "condition": { "npc_at_om_location": "FACTION_CAMP_ANY" }
+      },
+      { "text": "Let's talk about your current activity.", "topic": "TALK_ACTIVITIES" },
+      { "text": "Let's go.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_MAID_GUARD",
+    "type": "talk_topic",
+    "dynamic_line": "With my life, master!",
+    "responses": [
+      { "text": "I need you to come with me.", "topic": "TALK_MAID_ALLY", "effect": "stop_guard" },
+      { "text": "See you around.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_TRAIN_PERSUADE_MAID",
+    "type": "talk_topic",
+    "dynamic_line": "But master...you can just leave everything to me!",
+    "responses": [
+      {
+        "text": "Come on, we're friends.",
+        "trial": { "type": "PERSUADE", "difficulty": 0, "mod": [ [ "TRUST", 6 ], [ "VALUE", 2 ], [ "ANGER", -6 ] ] },
+        "success": { "topic": "TALK_TRAIN" },
+        "failure": { "topic": "TALK_DENY_PERSONAL", "effect": { "npc_add_effect": "asked_to_train", "duration": 3600 } }
+      },
+      { "text": "Forget it, let's get going.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CONVERSATION_DANGER_MAID",
+    "type": "talk_topic",
+    "dynamic_line": "Are you sure?  This doesn't seem like a particularly safe place for small talk…",
+    "responses": [
+      {
+        "text": "It's fine, we've got a moment.",
+        "topic": "TALK_MAID_CONVERSATION"
+      },
+      { "text": "You're right.  Forget I said anything, let's get moving.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_MAID_CONVERSATION",
+    "type": "talk_topic",
+    "dynamic_line": "My history? You mean before I served you? ...I'm sorry, but...",
+    "responses": [ { "text": "Actually, never mind.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_SHOGGOTH_CHAT",
+    "type": "talk_topic",
+    "dynamic_line": "<shoggoth_chat>",
+    "responses": [
+      {
+        "text": "<chitchat_player_responses>",
+        "topic": "TALK_DONE",
+        "switch": true,
+        "effect": [ "morale_chat_activity", { "npc_add_effect": "asked_to_socialize", "duration": 7000 } ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_MISC_RULES_MAID",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "and": [
+        {
+          "and": [
+            { "npc_override": "allow_pick_up", "yes": "OVERRIDE: " },
+            {
+              "npc_rule": "allow_pick_up",
+              "yes": { "has_pickup_list": "<ally_rule_allow_pick_up_true_list_text>", "no": "<ally_rule_allow_pick_up_true_text>" },
+              "no": "<ally_rule_allow_pick_up_false_text>"
+            }
+          ]
+        },
+        {
+          "and": [
+            { "npc_override": "allow_bash", "yes": "  OVERRIDE: ", "no": "  " },
+            {
+              "npc_rule": "allow_bash",
+              "yes": "<ally_rule_allow_bash_true_text>",
+              "no": "<ally_rule_allow_bash_false_text>"
+            }
+          ]
+        },
+        {
+          "and": [
+            { "npc_override": "allow_sleep", "yes": "  OVERRIDE: ", "no": "  " },
+            {
+              "npc_rule": "allow_sleep",
+              "yes": "<ally_rule_allow_sleep_true_text>",
+              "no": "<ally_rule_allow_sleep_false_text>"
+            }
+          ]
+        },
+        {
+          "and": [
+            { "npc_override": "allow_complain", "yes": "  OVERRIDE: ", "no": "  " },
+            {
+              "npc_rule": "allow_complain",
+              "yes": "<ally_rule_allow_complain_true_text>",
+              "no": "<ally_rule_allow_complain_false_text>"
+            }
+          ]
+        },
+        {
+          "and": [
+            { "npc_override": "allow_pulp", "yes": "  OVERRIDE: ", "no": "  " },
+            {
+              "npc_rule": "allow_pulp",
+              "yes": "<ally_rule_allow_pulp_true_text>",
+              "no": "<ally_rule_allow_pulp_false_text>"
+            }
+          ]
+        },
+        {
+          "and": [
+            { "npc_override": "close_doors", "yes": "  OVERRIDE: ", "no": "  " },
+            {
+              "npc_rule": "close_doors",
+              "yes": "<ally_rule_close_doors_true_text>",
+              "no": "<ally_rule_close_doors_false_text>"
+            }
+          ]
+        },
+        {
+          "and": [
+            { "npc_override": "ignore_noise", "yes": "  OVERRIDE: ", "no": "  " },
+            {
+              "npc_rule": "ignore_noise",
+              "yes": "<ally_rule_ignore_noise_true_text>",
+              "no": "<ally_rule_ignore_noise_false_text>"
+            }
+          ]
+        },
+        {
+          "and": [
+            { "npc_override": "avoid_doors", "yes": "  OVERRIDE: ", "no": "  " },
+            {
+              "npc_rule": "avoid_doors",
+              "yes": "<ally_rule_avoid_doors_true_text>",
+              "no": "<ally_rule_avoid_doors_false_text>"
+            }
+          ]
+        },
+        {
+          "and": [
+            { "npc_override": "forbid_engage", "yes": "  OVERRIDE: ", "no": "  " },
+            {
+              "npc_rule": "forbid_engage",
+              "yes": "<ally_rule_forbid_engage_true_text>",
+              "no": "<ally_rule_forbid_engage_false_text>"
+            }
+          ]
+        }
+      ]
+    },
+    "responses": [
+      {
+        "truefalsetext": { "condition": { "npc_rule": "allow_pick_up" }, "true": "Don't pick up items.", "false": "You can pick up items now." },
+        "topic": "TALK_MISC_RULES_MAID",
+		"condition": {"not": {"npc_has_trait": "MAID_RESTRICT"}},
+        "effect": { "toggle_npc_rule": "allow_pick_up" }
+      },
+      {
+        "truefalsetext": { "condition": { "npc_rule": "allow_bash" }, "true": "Don't bash obstacles.", "false": "You can bash obstacles." },
+        "topic": "TALK_MISC_RULES_MAID",
+        "effect": { "toggle_npc_rule": "allow_bash" }
+      },
+      {
+        "truefalsetext": { "condition": { "npc_rule": "allow_sleep" }, "true": "Stay awake.", "false": "Sleep when you feel tired." },
+        "topic": "TALK_MISC_RULES_MAID",
+        "effect": { "toggle_npc_rule": "allow_sleep" }
+      },
+      {
+        "truefalsetext": { "condition": { "npc_rule": "allow_complain" }, "true": "Stay quiet.", "false": "Tell me when you need something." },
+        "topic": "TALK_MISC_RULES_MAID",
+        "effect": { "toggle_npc_rule": "allow_complain" }
+      },
+      {
+        "truefalsetext": { "condition": { "npc_rule": "allow_pulp" }, "true": "Leave corpses alone.", "false": "Smash zombie corpses." },
+        "topic": "TALK_MISC_RULES_MAID",
+        "effect": { "toggle_npc_rule": "allow_pulp" }
+      },
+      {
+        "truefalsetext": { "condition": { "npc_rule": "close_doors" }, "true": "Leave doors open.", "false": "Close the doors." },
+        "topic": "TALK_MISC_RULES_MAID",
+        "effect": { "toggle_npc_rule": "close_doors" }
+      },
+      {
+        "truefalsetext": {
+          "condition": { "npc_rule": "avoid_doors" },
+          "true": "Open doors to get where you're going.",
+          "false": "Don't walk through closed doors."
+        },
+        "topic": "TALK_MISC_RULES_MAID",
+        "effect": { "toggle_npc_rule": "avoid_doors" }
+      },
+      {
+        "truefalsetext": {
+          "condition": { "npc_rule": "ignore_noise" },
+          "true": "If you hear a noise but can't see the source, move to investigate it.",
+          "false": "Don't investigate noises that you can't see."
+        },
+        "topic": "TALK_MISC_RULES_MAID",
+        "effect": { "toggle_npc_rule": "ignore_noise" }
+      },
+      { "text": "Set up pickup rules.", "topic": "TALK_MISC_RULES_MAID","condition": {"not": {"npc_has_trait": "MAID_RESTRICT"}}, "effect": "set_npc_pickup" },
+      { "text": "Clear all overrides.", "topic": "TALK_MISC_RULES_MAID", "effect": "clear_overrides" },
+      { "text": "Never mind.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+	"id": "TALK_FRIEND",
+	"type": "talk_topic",
+	"responses": [
+		{
+			"text": "Here, use this serum.",
+			"topic": "TALK_MILKIFY",
+			"condition": {
+				"u_has_item": "milk_serum"
+			}
+		}
+	]
+  },
+  {
+	"id": "TALK_MILKIFY",
+	"dynamic_line": "Why should I do that?",
+	"type": "talk_topic",
+	"responses": [
+		{
+			"text": "It will help us survive.",
+			"trial": { "type": "PERSUADE", "difficulty": 0, "mod": [ [ "TRUST", 6 ], [ "VALUE", 3 ], [ "ANGER", -3 ] ] },
+			"success": {"topic": "TALK_MILKIFY2"},
+			"failure": {"topic": "TALK_DONE"}
+		},
+		{
+			"text": "You won't stand a chance without it. You have to take it.",
+			"trial": { "type": "INTIMIDATE", "difficulty": 0, "mod": [ [ "FEAR", 8 ], [ "VALUE", 3 ], [ "BRAVERY", -2 ] ] },
+			"success": {"topic": "TALK_MILKIFY2"},
+			"failure": {"topic": "TALK_DONE"}
+		},
+		{
+			"text": "Never mind.",
+			"topic": "TALK_DONE"
+		}
+	]
+  },
+  {
+	"id": "TALK_MILKIFY2",
+	"type": "talk_topic",
+	"dynamic_line": "Huh? Wh-what's happening to...me......master?",
+	"speaker_effect": {
+		"effect": [
+			{"npc_add_trait": "THRESH_MILK"},
+			{"npc_add_trait": "GRAZER"},
+			{"npc_add_trait": "BOUNTIFUL"},
+			{"npc_add_trait": "MILK_PRECURSOR"},
+			{"npc_add_trait": "TAIL_CATTLE"},
+			{"npc_add_trait": "FELINE_EARS"},
+			{"npc_add_trait": "THRESH_MILK"},
+			{"npc_add_trait": "HORNS"},
+			"leave",
+			{"u_consume_item": "milk_serum"},
+			"follow_only",
+			{"npc_first_topic": "TALK_MAID_ALLY"}
+		]
+	},
+	"responses": [
+		{
+			"text": "You're my maid now. Understood?",
+			"topic": "TALK_MILKIFY3"
+		},
+		{
+			"text": "It seems the serum made you more than just a woman...well, you're my maid either way. (FUTANARI)",
+			"condition": "npc_female",
+			"topic": "TALK_MILKIFY4"
+		}
+	]
+  },
+  {
+	"id": "TALK_MILKIFY3",
+	"type": "talk_topic",
+	"dynamic_line": "Why can't I remember...I-I understand. Please take care of me...master.",
+	"speaker_effect": {
+		"condition": "npc_male",
+		"effect": [
+			{"npc_add_trait": "futanari"}
+		]
+	},
+	"responses": [
+		{
+			"text": "...",
+			"topic": "TALK_DONE"
+		}
+	]
+  },
+  {
+	"id": "TALK_MILKIFY4",
+	"type": "talk_topic",
+	"dynamic_line": "Why can't I remember...I-I understand. Please take care of me...master.",
+	"speaker_effect": {
+		"effect": [
+			{"npc_add_trait": "futanari"}
+		]
+	},
+	"responses": [
+		{
+			"text": "...",
+			"topic": "TALK_DONE"
+		}
+	]
+  }
+]

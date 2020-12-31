@@ -109,7 +109,7 @@
     "clip_size": 10,
     "extend": { "flags": [ "MODE_BURST", "PRIMITIVE_RANGED_WEAPON" ] },
     "delete": { "flags": [ "FIRE_100" ] },
-	"pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "flammable": 10 }, "watertight": true } ]
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "flammable": 10 }, "watertight": true } ]
   },
   {
     "id": "ninja_decoy",
@@ -132,7 +132,7 @@
       "difficulty": 1,
       "moves": 30,
       "place_randomly": false,
-      "skill1": "survival"
+      "skills": [ "survival" ]
     }
   },
   {
@@ -189,12 +189,20 @@
         "max_contains_volume": "2500 ml",
         "max_contains_weight": "5 kg",
         "moves": 175
+      },
+      {
+        "pocket_type": "CONTAINER",
+        "holster": true,
+        "min_item_volume": "0 ml",
+        "max_contains_volume": "500 ml",
+        "max_contains_weight": "1 kg",
+        "moves": 10
       }
     ],
     "warmth": 8,
     "material_thickness": 3,
     "environmental_protection": 4,
-    "use_action": { "type": "holster", "max_volume": 2, "draw_cost": 10, "skills": [ "pistol", "rifle", "launcher" ] },
+    "use_action": { "type": "holster" },
     "flags": [ "VARSIZE", "RAINPROOF", "STURDY", "POCKETS", "FANCY", "TARDIS" ]
   },
   {
@@ -360,15 +368,17 @@
     "warmth": 8,
     "material_thickness": 2,
     "environmental_protection": 18,
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Sheath knife",
-      "holster_msg": "You sheath your %s",
-      "max_volume": 1,
-      "draw_cost": 80,
-      "multi": 2,
-      "flags": [ "SHEATH_KNIFE" ]
-    },
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "min_item_volume": "0 ml",
+        "max_contains_volume": "250 ml",
+        "max_contains_weight": "1 kg",
+        "moves": 80,
+        "flag_restriction": [ "SHEATH_KNIFE" ]
+      }
+    ],
+    "use_action": { "type": "holster", "holster_prompt": "Sheath knife", "holster_msg": "You sheath your %s" },
     "flags": [ "VARSIZE", "STURDY", "RAINPROOF", "FANCY" ]
   },
   {

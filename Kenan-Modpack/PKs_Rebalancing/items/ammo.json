@@ -7,7 +7,6 @@
     "description": "a thickened water solution, primed to evaporate into smoke.  Probably safer not to consume",
     "category": "other",
     "color": "cyan",
-    "count": 21,
     "container": "bottle_plastic",
     "nutrition": 3,
     "quench": 9,
@@ -279,8 +278,8 @@
       "type": "explosion",
       "fields_type": "fd_fire",
       "fields_radius": 0,
-      "fields_min_density": 0,
-      "fields_max_density": 2,
+      "fields_min_intensity": 0,
+      "fields_max_intensity": 2,
       "no_deactivate_msg": "Throw it!"
     },
     "flags": [ "LIGHT_15", "TRADER_AVOID", "NPC_THROW_NOW" ]
@@ -469,15 +468,11 @@
     "use_action": {
       "type": "explosion",
       "emp_blast_radius": 5,
-      "explosion": {
-        "power": 60,
-        "distance_factor": 0.4,
-        "shrapnel": 4,
-        "fields_type": "fd_rubble",
-        "fields_radius": 2,
-        "fields_min_density": 0,
-        "fields_max_density": 1
-      }
+      "explosion": { "power": 60, "distance_factor": 0.4, "shrapnel": 4 },
+      "fields_type": "fd_rubble",
+      "fields_radius": 2,
+      "fields_min_intensity": 0,
+      "fields_max_intensity": 1
     }
   },
   {

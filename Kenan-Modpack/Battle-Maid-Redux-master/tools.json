@@ -1,16 +1,20 @@
 [
   {
-    "type": "GENERIC",
+    "type": "COMESTIBLE",
+	"comestible_type": "MED",
     "id": "meat_shoggoth",
-    "name": { "str": "shoggoth meat", "str_pl": "shoggoth meats" },
-    "description": "A piece of meat left behind by a shoggoth. It sometimes twitches around, but it doesn't seem hostile.",
+    "name": { "str": "shoggoth heart", "str_pl": "shoggoth meats" },
+    "description": "The heart of a shoggoth. You could eat it to master the beast's morphogenic prowess, or you could use it to 'master' the beast in another way.",
     "weight": "1000 g",
     "symbol": ")",
     "color": "dark_gray",
     "price": 5000,
     "material": [ "maid" ],
     "volume": "250 ml",
-    "category": "tools"
+    "category": "tools",
+	"use_action": {
+		"type": "mutagen_iv", "mutation_category": "SHOGGOTH"
+	}
   },
   {
     "type": "GENERIC",
@@ -40,15 +44,15 @@
     "symbol": "M",
     "color": "dark_gray",
     "name": { "str": "growing shoggoth maid" },
-    "description": "The meat inside this flask glow with iridescent colors. It's lightly shivering.",
+    "description": "The meat inside this flask glows with iridescent colors. It's lightly shivering.",
     "price": 60000,
     "material": [ "glass", "maid" ],
     "weight": "1200 g",
     "volume": "250 ml",
     "use_action": {
-      "type": "place_monster",
-      "monster_id": "mon_shoggoth_maid",
-      "friendly_msg": "The odd meat is released from its glass flask prison and begins to rapidly and violently expand, extending numerous disjointed tentacles in every direction. The tentacles intertwine with each other and transform into an organism, resembling a beautiful woman, not quite like the horrible nightmare creature it used to be. She suddenly speaks up: 'Finally, I am able to meet you like this! Thank you for helping me, master!'",
+      "type": "place_npc",
+      "npc_class_id": "shoggoth_maid",
+      "summon_msg": "The odd meat is released from its glass flask prison and begins to rapidly and violently expand, extending numerous disjointed tentacles in every direction. The tentacles intertwine with each other and transform into an organism, resembling a beautiful woman, not quite like the horrible nightmare creature it used to be. She suddenly speaks up: 'Finally, I am able to meet you like this! Thank you for helping me, master!'",
       "place_randomly": true
     }
   },
@@ -86,9 +90,9 @@
     "weight": "1200 g",
     "volume": "250 ml",
     "use_action": {
-      "type": "place_monster",
-      "monster_id": "mon_shoggoth_maid",
-      "friendly_msg": "'Sorry I kept you waiting, master! I will do my best to serve you and support you to the best of my abilities!'",
+      "type": "place_npc",
+      "npc_class_id": "shoggoth_maid",
+      "summon_msg": "'Sorry I kept you waiting, master! I will do my best to serve you and support you to the best of my abilities!'",
       "place_randomly": true
     }
   },
@@ -148,7 +152,7 @@
     "symbol": "m",
     "color": "brown",
     "name": { "str": "master doll (vibrator) (off)" },
-    "description": "his is a doll in the shape of your beloved master, but with an additional 'special attachment.' By using it in a certain (rather embarassing) type of private ritual, you can release an explosion of desire towards your beloved master and transform it into a usable type of energy.",
+    "description": "This is a doll in the shape of your beloved master, but with an additional 'special attachment.' By using it in a certain (rather embarassing) type of private ritual, you can release an explosion of desire towards your beloved master and transform it into a usable type of energy.",
     "price": 5400,
     "material": [ "cotton", "plastic" ],
     "weight": "400 g",

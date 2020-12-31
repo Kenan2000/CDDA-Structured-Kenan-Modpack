@@ -143,7 +143,6 @@
     "responses": [
       {
         "text": "From henceforth, you will be my psychic thrall, forever bound to my will! (only one attempt per NPC)",
-        "topic": "TALK_DONE",
         "condition": { "not": { "npc_has_any_trait": [ "THRALL", "UNTHRALL" ] } },
         "trial": { "type": "PERSUADE", "difficulty": 0, "mod": [ [ "BRAVERY", -2 ], [ "POS_FEAR", -1 ], [ "AGGRESSION", -2 ] ] },
         "success": {
@@ -159,7 +158,6 @@
       },
       {
         "text": "Set down your weapon.  There is no need for violence.",
-        "topic": "TALK_DONE",
         "condition": "npc_has_weapon",
         "trial": { "type": "PERSUADE", "difficulty": 50 },
         "success": { "topic": "TALK_DONE", "effect": "drop_weapon", "opinion": { "fear": 3, "anger": -3 } },
@@ -167,7 +165,6 @@
       },
       {
         "text": "We should travel together as companions.  Doesn't that sound like a good idea?  A good idea.",
-        "topic": "TALK_DONE",
         "condition": { "not": "npc_following" },
         "trial": { "type": "PERSUADE", "difficulty": 50 },
         "success": { "topic": "TALK_DONE", "effect": "follow", "opinion": { "trust": 1, "fear": 2, "anger": -2 } },
@@ -324,8 +321,11 @@
         "switch": true,
         "text": "* DUEL * [0/3]",
         "condition": { "npc_has_var": "psyduel_contact", "type": "general", "context": "mesmer", "value": "2" },
-        "trial": { "type": "PERSUADE", "difficulty": -20 },
-        "mod": [ [ "ALTRUISM", 1 ], [ "AGRESSION", -1 ], [ "ANGER", 1 ], [ "BRAVERY", 2 ], [ "FEAR", -2 ] ],
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": -20,
+          "mod": [ [ "ALTRUISM", 1 ], [ "AGRESSION", -1 ], [ "ANGER", 1 ], [ "BRAVERY", 2 ], [ "FEAR", -2 ] ]
+        },
         "success": {
           "topic": "TALK_MESMER_DUEL_1c",
           "effect": [ { "u_add_var": "psyduel_contact", "type": "general", "context": "mesmer", "value": "1" } ]
@@ -341,8 +341,11 @@
       {
         "switch": true,
         "text": "* DUEL * [0/3]",
-        "trial": { "type": "PERSUADE", "difficulty": -10 },
-        "mod": [ [ "ALTRUISM", 2 ], [ "AGRESSION", -2 ], [ "ANGER", 1 ], [ "BRAVERY", -1 ], [ "FEAR", 1 ] ],
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": -10,
+          "mod": [ [ "ALTRUISM", 2 ], [ "AGRESSION", -2 ], [ "ANGER", 1 ], [ "BRAVERY", -1 ], [ "FEAR", 1 ] ]
+        },
         "condition": { "npc_has_var": "psyduel_contact", "type": "general", "context": "mesmer", "value": "1" },
         "success": {
           "topic": "TALK_MESMER_DUEL_1c",
@@ -356,8 +359,11 @@
       {
         "switch": true,
         "text": "* DUEL * [0/3]",
-        "trial": { "type": "PERSUADE", "difficulty": 0 },
-        "mod": [ [ "ALTRUISM", -1 ], [ "AGRESSION", 2 ], [ "ANGER", 2 ], [ "BRAVERY", 1 ], [ "FEAR", -3 ] ],
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 0,
+          "mod": [ [ "ALTRUISM", -1 ], [ "AGRESSION", 2 ], [ "ANGER", 2 ], [ "BRAVERY", 1 ], [ "FEAR", -3 ] ]
+        },
         "condition": { "npc_has_var": "psyduel_contact", "type": "general", "context": "mesmer", "value": "0" },
         "success": {
           "topic": "TALK_MESMER_DUEL_1c",
@@ -391,8 +397,11 @@
       {
         "switch": true,
         "text": "* DUEL * [1/3]",
-        "trial": { "type": "PERSUADE", "difficulty": -10 },
-        "mod": [ [ "ALTRUISM", -2 ], [ "AGRESSION", 2 ], [ "ANGER", 1 ], [ "BRAVERY", -1 ], [ "FEAR", 0 ] ],
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": -10,
+          "mod": [ [ "ALTRUISM", -2 ], [ "AGRESSION", 2 ], [ "ANGER", 1 ], [ "BRAVERY", -1 ], [ "FEAR", 0 ] ]
+        },
         "condition": { "npc_has_var": "psyduel_contact", "type": "general", "context": "mesmer", "value": "2" },
         "success": {
           "topic": "TALK_MESMER_DUEL_2c",
@@ -409,8 +418,11 @@
       {
         "switch": true,
         "text": "* DUEL * [1/3]",
-        "trial": { "type": "PERSUADE", "difficulty": 0 },
-        "mod": [ [ "ALTRUISM", 1 ], [ "AGRESSION", -3 ], [ "ANGER", -2 ], [ "BRAVERY", 3 ], [ "FEAR", -1 ] ],
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 0,
+          "mod": [ [ "ALTRUISM", 1 ], [ "AGRESSION", -3 ], [ "ANGER", -2 ], [ "BRAVERY", 3 ], [ "FEAR", -1 ] ]
+        },
         "condition": { "npc_has_var": "psyduel_contact", "type": "general", "context": "mesmer", "value": "1" },
         "success": {
           "topic": "TALK_MESMER_DUEL_2c",
@@ -424,8 +436,11 @@
       {
         "switch": true,
         "text": "* DUEL * [1/3]",
-        "trial": { "type": "PERSUADE", "difficulty": 10 },
-        "mod": [ [ "ALTRUISM", 1 ], [ "AGRESSION", -1 ], [ "ANGER", 2 ], [ "BRAVERY", -2 ], [ "FEAR", 2 ] ],
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 10,
+          "mod": [ [ "ALTRUISM", 1 ], [ "AGRESSION", -1 ], [ "ANGER", 2 ], [ "BRAVERY", -2 ], [ "FEAR", 2 ] ]
+        },
         "condition": { "npc_has_var": "psyduel_contact", "type": "general", "context": "mesmer", "value": "0" },
         "success": {
           "topic": "TALK_MESMER_DUEL_2c",
@@ -465,8 +480,11 @@
       {
         "switch": true,
         "text": "* DUEL * [2/3]",
-        "trial": { "type": "PERSUADE", "difficulty": 0 },
-        "mod": [ [ "ALTRUISM", 3 ], [ "AGRESSION", 0 ], [ "ANGER", -2 ], [ "BRAVERY", -1 ], [ "FEAR", 0 ] ],
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 0,
+          "mod": [ [ "ALTRUISM", 3 ], [ "AGRESSION", 0 ], [ "ANGER", -2 ], [ "BRAVERY", -1 ], [ "FEAR", 0 ] ]
+        },
         "condition": { "npc_has_var": "psyduel_contact", "type": "general", "context": "mesmer", "value": "2" },
         "success": {
           "topic": "TALK_MESMER_DUEL_VICTORY",
@@ -486,8 +504,11 @@
       {
         "switch": true,
         "text": "* DUEL * [2/3]",
-        "trial": { "type": "PERSUADE", "difficulty": 10 },
-        "mod": [ [ "ALTRUISM", 0 ], [ "AGRESSION", -2 ], [ "ANGER", 2 ], [ "BRAVERY", 0 ], [ "FEAR", 1 ] ],
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 10,
+          "mod": [ [ "ALTRUISM", 0 ], [ "AGRESSION", -2 ], [ "ANGER", 2 ], [ "BRAVERY", 0 ], [ "FEAR", 1 ] ]
+        },
         "condition": { "npc_has_var": "psyduel_contact", "type": "general", "context": "mesmer", "value": "1" },
         "success": {
           "topic": "TALK_MESMER_DUEL_VICTORY",
@@ -504,8 +525,11 @@
       {
         "switch": true,
         "text": "* DUEL * [2/3]",
-        "trial": { "type": "PERSUADE", "difficulty": 20 },
-        "mod": [ [ "NPC_PERSUASION", 1 ], [ "AGRESSION", 3 ], [ "ANGER", 3 ], [ "BRAVERY", 0 ], [ "FEAR", -4 ] ],
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 20,
+          "mod": [ [ "NPC_PERSUASION", 1 ], [ "AGRESSION", 3 ], [ "ANGER", 3 ], [ "BRAVERY", 0 ], [ "FEAR", -4 ] ]
+        },
         "condition": { "npc_has_var": "psyduel_contact", "type": "general", "context": "mesmer", "value": "0" },
         "success": {
           "topic": "TALK_MESMER_DUEL_VICTORY",

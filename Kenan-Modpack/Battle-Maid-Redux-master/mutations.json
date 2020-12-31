@@ -4,7 +4,7 @@
     "id": "MARTIAL_ARTS_maid",
     "name": { "str": "Servant's fighting technique" },
     "points": 3,
-    "description": "You have learned the secret assassination techniques of a first-class servant.",
+    "description": "Your master was more hated than most, forcing you to learn some unorthodox combat techniques.",
     "starting_trait": true,
     "initial_ma_styles": [ "style_maid" ],
     "valid": false
@@ -14,7 +14,7 @@
     "id": "PROF_MA_MAID",
     "name": { "str": "Servant's fighting technique" },
     "points": 0,
-    "description": "You have learned the secret assassination techniques of a first-class servant.",
+    "description": "Your master was more hated than most, forcing you to learn some unorthodox combat techniques.",
     "initial_ma_styles": [ "style_maid" ],
     "valid": false,
     "purifiable": false,
@@ -23,9 +23,21 @@
   {
     "type": "mutation",
     "id": "PROF_NEKOMIMI",
-    "name": { "str": "Cat characteristics" },
+    "name": { "str": "Nekomimi" },
     "points": 0,
-    "description": "You have grown features that of a cat.",
+    "description": "You have grown features resembling those of a catgirl.",
+	"visibility": 10,
+    "ugliness": -5,
+    "valid": false,
+    "purifiable": false,
+    "profession": true
+  },
+  {
+    "type": "mutation",
+    "id": "MAID_RESTRICT",
+    "name": { "str": "Summoned Maid" },
+    "points": 0,
+    "description": "Summoned maids cannot use items. NPC only trait - if you have this, something went wrong.",
     "valid": false,
     "purifiable": false,
     "profession": true
@@ -38,5 +50,281 @@
     "description": "Practicality is far less important than style.  Your morale is improved by wearing fashionable and attractive clothing.",
     "starting_trait": true,
     "valid": false
+  },
+  {
+    "type": "mutation",
+    "id": "SHOGGOTH_BUFF_OK",
+    "name": { "str": "Polymorphic Structure" },
+    "points": 5,
+	"visibility": 10,
+    "ugliness": 10,
+	"purifiable": false,
+    "description": "Muscle, chitin, and bone splinter and mend into the optimal shape for the task at hand.  Dexterity + 2, Strength + 4",
+    "prereqs": [ "SHOGGOTH_BUFF" ],
+    "threshreq": ["THRESH_SHOGGOTH"],
+    "category": [ "SHOGGOTH" ],
+    "passive_mods": { "dex_mod": 2, "str_mod": 4 }
+  },
+  {
+    "type": "mutation",
+    "id": "SHOGGOTH_BUFF",
+    "name": { "str": "Unstable Structure" },
+    "points": 4,
+	"visibility": 10,
+    "ugliness": 10,
+    "description": "Your skeletal structure spontaneously shifts into alien forms. This will take some getting used to. Dexterity -4",
+    "threshreq": [ "THRESH_SHOGGOTH" ],
+    "category": [ "SHOGGOTH" ],
+	"changes_to": ["SHOGGOTH_BUFF_OK"],
+    "passive_mods": { "dex_mod": -4 }
+  },
+  {
+    "type": "mutation",
+    "id": "PER_SLIME_OK",
+    "name": { "str": "Distributed Senses" },
+    "points": 7,
+    "visibility": 10,
+    "ugliness": 10,
+    "description": "You can now extend and reabsorb sensory organs at will, and can therefore ignore most shocks that would overwhelm lesser beings.",
+    "valid": false,
+    "purifiable": false,
+    "leads_to": [ "SLIMESPAWNER" ],
+    "prereqs": [ "PER_SLIME" ],
+    "prereqs2": [ "AMORPHOUS" ],
+    "threshreq": [ "THRESH_SLIME", "THRESH_SHOGGOTH" ],
+    "category": [ "SLIME", "SHOGGOTH" ],
+    "passive_mods": { "per_mod": 5 }
+  },
+  {
+    "type": "mutation",
+    "id": "SHOGGOTH_BODY",
+    "name": { "str": "Unbound Flesh" },
+    "points": -2,
+    "visibility": 10,
+    "ugliness": 10,
+    "consume_time_modifier": 1.1,
+	"mixed_effect": true,
+    "description": "Your twisted, crackling flesh roils with new vigor. External damage pales in comparison to the chaotic knitting and reknitting taking place just beneath the surface.\n\nGain +4 cut armor, reduced move cost, and improved healing",
+    "purifiable": false,
+    "threshreq": [ "THRESH_SHOGGOTH" ],
+    "category": [ "SHOGGOTH" ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "cut": 4
+      }
+    ],
+    "movecost_modifier": 0.8,
+	"healing_awake": 1.0,
+    "healing_resting": 0.75,
+    "mending_modifier": 32.0
+  },
+  {
+    "type": "mutation",
+    "id": "SHOGGOTH_BODY_NPC",
+    "name": { "str": "Eldritch Doppelgänger" },
+    "points": -2,
+    "visibility": 10,
+    "ugliness": 10,
+	"mixed_effect": true,
+    "description": "Alien flesh and bone inhabits a human frame. This fell abomination once was, and still is, an eldritch being beyond our understanding.\n\nNPC version of Unbound Flesh, approx. 3x as strong.",
+    "purifiable": false,
+	"valid": false,
+    "threshreq": [ "THRESH_SHOGGOTH" ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "cut": 12,
+		"bash": 8
+      }
+    ],
+    "movecost_modifier": 0.8,
+	"healing_awake": 3.0,
+    "healing_resting": 2.25,
+    "mending_modifier": 100.0
+  },
+  {
+    "type": "mutation",
+    "id": "PER_SLIME",
+    "name": { "str": "Sensory Disintegration" },
+    "points": -7,
+    "visibility": 10,
+    "ugliness": 10,
+    "description": "Your sense organs are all over the place: eyes extending and retracting, 'ears' of various shapes migrating about, and taste & smell are uncontrollable.  The world is a horrible mixup.  Ugh!",
+    "valid": false,
+    "purifiable": false,
+    "changes_to": [ "PER_SLIME_OK" ],
+    "prereqs": [ "PER_UP" ],
+    "prereqs2": [ "AMORPHOUS" ],
+    "threshreq": [ "THRESH_SLIME", "THRESH_SHOGGOTH" ],
+    "category": [ "SLIME", "SHOGGOTH" ],
+    "passive_mods": { "per_mod": -8 }
+  },
+  {
+    "type": "mutation",
+    "id": "AMORPHOUS",
+    "name": { "str": "Amorphous Body" },
+    "points": -2,
+    "visibility": 10,
+    "ugliness": 10,
+    "consume_time_modifier": 1.1,
+    "description": "Your flesh is a pleasing gel-like consistency.  Your bodily functions seem to be moving around, and your leg-equivalents flow comfortably - if a little slower than your old meat-legs.",
+    "purifiable": false,
+    "leads_to": [ "INT_SLIME", "PER_SLIME" ],
+    "threshreq": [ "THRESH_SLIME", "THRESH_SHOGGOTH" ],
+    "category": [ "SLIME", "SHOGGOTH" ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "bash": 4
+      }
+    ],
+    "movecost_modifier": 1.25
+  },
+  {
+    "type": "mutation",
+    "id": "SHUFFLING_HORROR",
+    "name": { "str": "Shuffling Horror" },
+    "points": 6,
+    "visibility": 10,
+    "ugliness": 20,
+    "mixed_effect": true,
+	"purifiable": false,
+    "description": "Your limbs are a nightmare of splintered bone, gaping maws, and jagged fangs. You can make devastating bonus attacks, but basically everyone will attempt to kill you on sight. Also prevents wearing gloves and shoes, though you wish you could.",
+    "prereqs": [ "SHOGGOTH_BUFF_OK" ],
+    "threshreq": [ "THRESH_SHOGGOTH" ],
+    "category": [ "SHOGGOTH" ],
+    "restricts_gear": [ "hand_r", "hand_l", "foot_l", "foot_r" ],
+    "destroys_gear": true,
+    "social_modifiers": { "intimidate": -30, "persuade": -50 },
+    "attacks": {
+      "attack_text_u": "You rend %s with nightmare made flesh",
+      "attack_text_npc": "%1$s tears into %2$s with their monstrous limbs",
+      "chance": 20,
+      "base_damage": { "damage_type": "stab", "amount": 25 },
+      "strength_damage": { "damage_type": "cut", "amount": 2 }
+    }
+  },
+  {
+    "type": "mutation",
+    "id": "HUNGER3",
+    "name": { "str": "Extreme Metabolism" },
+    "points": -2,
+    "description": "You consume three times as much food as the average human to maintain your truly superhuman endurance.",
+    "prereqs": [ "HUNGER2" ],
+    "leads_to": [ "EATHEALTH" ],
+    "types": [ "METABOLISM" ],
+    "category": [ "CHIMERA", "SHOGGOTH" ],
+    "metabolism_modifier": 2.0,
+    "stamina_regen_modifier": 0.5
+  },
+  {
+    "type": "mutation",
+    "id": "EATHEALTH",
+    "name": { "str": "Hyper-Metabolism" },
+    "points": 15,
+    "description": "Your particular metabolism allows you to burn calories at a prodigious rate to regenerate tissues in a matter of minutes, this is however a very wasteful process.  Activate to start healing.",
+    "prereqs": [ "HUNGER3" ],
+    "types": [ "METABOLISM" ],
+    "threshreq": [ "THRESH_CHIMERA", "THRESH_SHOGGOTH" ],
+    "category": [ "CHIMERA", "SHOGGOTH" ],
+    "valid": false,
+    "active": true,
+    "transform": {
+      "target": "EATHEALTH_active",
+      "msg_transform": "Your hyper-metabolism starts burning up calories.",
+      "active": true,
+      "moves": 0
+    }
+  },
+  {
+    "type": "mutation",
+    "id": "MUT_TOUGH",
+    "name": { "str": "Resilient" },
+    "points": 2,
+    "description": "You can survive injuries that would incapacitate humans: you get a 20% bonus to all hit points.  Stacks with Tough, etc.",
+    "social_modifiers": { "intimidate": 2 },
+    "prereqs": [ "LARGE_OK", "HUGE_OK", "STR_UP_3", "STR_UP_4", "MASOCHIST_MED", "SHOGGOTH_BUFF_OK" ],
+    "threshreq": [ "THRESH_URSINE", "THRESH_CATTLE", "THRESH_CHIMERA", "THRESH_MEDICAL", "THRESH_LIZARD", "THRESH_BEAST", "THRESH_SHOGGOTH" ],
+    "cancels": [ "FLIMSY", "FLIMSY2", "FLIMSY3", "GLASSJAW" ],
+    "changes_to": [ "MUT_TOUGH2" ],
+    "category": [ "URSINE", "CATTLE", "CHIMERA", "BEAST", "LIZARD", "MEDICAL", "SHOGGOTH" ],
+    "hp_modifier_secondary": 0.2
+  },
+  {
+    "type": "mutation",
+    "id": "THRESH_SHOGGOTH",
+    "name": { "str": "Tekeli-li?" },
+    "points": 1,
+    "description": "Tekeli-li.",
+    "valid": false,
+    "purifiable": false,
+    "threshold": true
+  },
+  {
+    "type": "mutation",
+    "id": "THRESH_MILK",
+    "name": { "str": "Milk Maid" },
+    "points": 1,
+    "description": "This maid's body has been altered to produce large amounts of useful fluids.",
+    "valid": false,
+    "purifiable": false,
+    "threshold": true
+  },
+  {
+    "type": "mutation",
+    "id": "SHOGGOTH_PRECURSOR",
+    "name": { "str": "Eldritch Precursor" },
+    "points": 0,
+    "description": "Something feels off. Your brain itches, and you swear you can feel your bones twitching.",
+	"visibility": 0,
+    "ugliness": 0,
+	"category": [ "SHOGGOTH", "SHOGGOTH", "SHOGGOTH", "SHOGGOTH", "SHOGGOTH", "SHOGGOTH", "SHOGGOTH", "SHOGGOTH", "SHOGGOTH" ],
+    "purifiable": false
+  },
+  {
+	"type": "mutation",
+    "id": "MILK_PRECURSOR",
+    "name": { "str": "Milk Maid's Adoration" },
+    "points": 0,
+    "description": "Master is a good person. They make me feel warm and fuzzy inside.",
+	"visibility": 0,
+    "ugliness": 0,
+	"mixed_effect": true,
+	"passive_mods": { "int_mod": -4, "per_mod": -2 },
+	"category": [ "MILK", "MILK", "MILK", "MILK", "MILK", "MILK", "MILK", "MILK", "MILK", "MILK", "MILK", "MILK", "MILK" ],
+    "purifiable": false
+  },
+  {
+	"type": "mutation",
+    "id": "CATTLE_EARS",
+    "name": { "str": "Cattle Ears" },
+    "points": 0,
+    "description": "You have a pair of soft and floppy ears, like a cow.",
+	"visibility": 5,
+    "ugliness": -2,
+	"category": [ "MILK", "CATTLE" ],
+    "purifiable": true
+  },
+  {
+	"type": "mutation",
+    "id": "BOUNTIFUL",
+    "name": { "str": "Bountiful Milk" },
+    "points": 0,
+    "description": "You may not be pregnant, but sweet milk flows forth nonetheless. The sheer size of your breasts can be difficult to manage, however.",
+	"visibility": 10,
+    "ugliness": -10,
+	"category": [ "MILK" ],
+	"mixed_effect": true,
+    "purifiable": true,
+	"passive_mods": { "dex_mod": -6 },
+	"encumbrance_always": [ [ "torso", 30 ] ],
+	"movecost_modifier": 1.25
+  },
+  {
+    "type": "effect_type",
+    "id": "maid_milked",
+    "name": [ "Recently Milked" ],
+    "desc": [ "Your maid stumbles around with a blissful expression. Best give them some time to recharge.\n\nNPC only trait - if you have this something went wrong." ]
   }
 ]

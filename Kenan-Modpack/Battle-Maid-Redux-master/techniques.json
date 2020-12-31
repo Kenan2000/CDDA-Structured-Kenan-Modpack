@@ -2,45 +2,48 @@
   {
     "type": "technique",
     "id": "tec_maid_precise",
-    "name": "Assassination",
-    "min_melee": 3,
-    "unarmed_allowed": true,
+    "name": "Coup de Grâce",
+    "skill_requirements": [ { "name": "melee", "level": 5 } ],
+	"weighting": 4,
     "melee_allowed": true,
-    "crit_tec": true,
-    "messages": [ "You strike %s from the shadows", "<npcname> strikes %s from the shadows" ],
-    "stun_dur": 2,
+	"crit_ok": true,
+	"downed_target": true,
+	"req_buffs": [ "maid_pause_bonus" ],
+    "messages": [ "You strike %s with an elegant coup de grâce", "<npcname> strikes %s in one elegant motion" ],
     "mult_bonuses": [
-      { "stat": "damage", "type": "bash", "scale": 1.2 },
-      { "stat": "damage", "type": "cut", "scale": 1.2 },
-      { "stat": "damage", "type": "stab", "scale": 1.2 }
-    ]
+		{ "stat": "movecost", "scale": 1.5 },
+		{ "stat": "damage", "type": "bash", "scale": 2.0 },
+        { "stat": "damage", "type": "cut", "scale": 2.0 },
+        { "stat": "damage", "type": "stab", "scale": 2.0 }	]
   },
   {
     "type": "technique",
     "id": "tec_maid_counter",
-    "name": "Abandonment",
-    "min_unarmed": 5,
-    "dodge_counter": true,
-    "unarmed_allowed": true,
-    "stun_dur": 1,
-    "messages": [ "You cancelled the strike from %s", "<npcname> cancles the strike from %s" ],
-    "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 } ],
-    "flat_bonuses": [ { "stat": "movecost", "scale": 33 } ]
+    "name": "Desperate Counter",
+    "skill_requirements": [ { "name": "melee", "level": 1 } ],
+    "block_counter": true,
+	"melee_allowed": true,
+    "knockback_dist": 1,
+    "messages": [ "You block %s's attack and shove them back. Back!", "<npcname> struggles and forces %s back" ],
+    "mult_bonuses": [
+		{ "stat": "movecost", "scale": 0.0 },
+		{ "stat": "damage", "type": "bash", "scale": 0.25 },
+        { "stat": "damage", "type": "cut", "scale": 0.25 },
+        { "stat": "damage", "type": "stab", "scale": 0.25 }	],
+    "flat_bonuses": [ { "stat": "movecost", "scale": 50 } ]
   },
   {
     "type": "technique",
     "id": "tec_maid_meleecounter",
-    "name": "Removal",
-    "min_melee": 5,
+    "name": "Spurn",
+    "skill_requirements": [ { "name": "melee", "level": 5 } ],
+	"req_buffs": [ "maid_pause_bonus" ],
     "dodge_counter": true,
-    "block_counter": true,
     "melee_allowed": true,
     "down_dur": 1,
-    "knockback_dist": 1,
-    "aoe": "spin",
     "messages": [
-      "You dodged the strike and hit %s and everything around it",
-      "<npcname> dodges the strike from %s and hits everything around it"
+      "You whirl away and strike %s",
+      "<npcname> strikes with a malice that surprises you"
     ],
     "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 } ],
     "flat_bonuses": [ { "stat": "movecost", "scale": 50 } ]
@@ -48,36 +51,44 @@
   {
     "type": "technique",
     "id": "tec_maid_miyage",
-    "name": "Maid's Offering",
-    "min_melee": 6,
+    "name": "Measured Strike",
+    "skill_requirements": [ { "name": "melee", "level": 3 } ],
     "melee_allowed": true,
-    "req_buffs": [ "maid_evaded_bonus" ],
-    "crit_tec": true,
-    "down_dur": 1,
-    "knockback_dist": 1,
-    "messages": [ "%s receives the offering of pain", "<npcname> offers %s pain" ],
+    "req_buffs": [ "maid_pause_bonus" ],
+    "stun_dur": 1,
+    "messages": [ "Your carefully placed strike sunders %s's guard", "<npcname> lands a measured strike on %s" ],
     "mult_bonuses": [
-      { "stat": "damage", "type": "bash", "scale": 2.5 },
-      { "stat": "damage", "type": "cut", "scale": 2.5 },
-      { "stat": "damage", "type": "stab", "scale": 2.5 }
+      { "stat": "damage", "type": "bash", "scale": 1.33 },
+      { "stat": "damage", "type": "cut", "scale": 1.33 }
     ]
   },
   {
     "type": "technique",
     "id": "tec_maid_kyusyu",
-    "name": "Assault",
-    "min_unarmed": 6,
-    "unarmed_allowed": true,
-    "crit_tec": true,
-    "req_buffs": [ "maid_moved" ],
-    "down_dur": 3,
-    "knockback_dist": 2,
-    "messages": [ "You assault %s", "<npcname> assaults %s" ],
-    "flat_bonuses": [ { "stat": "arpen", "type": "bash", "scale": 5 } ],
+    "name": "Measured Assault",
+    "skill_requirements": [ { "name": "melee", "level": 3 } ],
+    "req_buffs": [ "maid_pause_bonus" ],
+    "down_dur": 2,
+	"melee_allowed": true,
+    "knockback_dist": 1,
+    "messages": [ "You assault %s with fury and dedication", "<npcname> assaults %s with fury and dedication" ],
+    "flat_bonuses": [
+		{ "stat": "arpen", "type": "bash", "scale": 5 },
+		{ "stat": "arpen", "type": "cut", "scale": 5 },	
+		{ "stat": "arpen", "type": "stab", "scale": 5 }],
     "mult_bonuses": [
-      { "stat": "damage", "type": "bash", "scale": 1.75 },
-      { "stat": "damage", "type": "cut", "scale": 1.75 },
-      { "stat": "damage", "type": "stab", "scale": 1.75 }
+      { "stat": "damage", "type": "bash", "scale": 1.66 },
+      { "stat": "damage", "type": "cut", "scale": 1.66 }
     ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_maid_grab",
+    "name": "Anti-Molestation Technique No.15",
+    "messages": [ "You dodge %s's groping lunge. Only master can touch that!", "The %s tries to grab <npcname>, but they slip away!" ],
+    "skill_requirements": [ { "name": "melee", "level": 1 } ],
+    "melee_allowed": true,
+    "defensive": true,
+    "grab_break": true
   }
 ]
