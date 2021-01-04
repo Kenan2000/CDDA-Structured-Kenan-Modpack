@@ -505,10 +505,7 @@
     "start": {
       "assign_mission_target": { "om_terrain": "wo5", "reveal_radius": 2, "search_range": 80 },
       "effect": [ "follow_only", { "u_add_trait": "wrsgoing" } ],
-      "update_mapgen": {
-        "om_terrain": "wo5",
-        "place_nested": [ { "chunks": [ "wasteland_radio_tower" ], "x": 0, "y": 0 } ]
-      }
+      "update_mapgen": { "om_terrain": "wo5", "place_nested": [ { "chunks": [ "wasteland_radio_tower" ], "x": 0, "y": 0 } ] }
     },
     "end": { "effect": [ "stop_following", { "npc_change_faction": "wastelander" }, { "u_add_trait": "wrsdone" } ] },
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -571,8 +568,8 @@
     "type": "mission_definition",
     "name": "Dark Descendant",
     "description": "Ask a <color_yellow>lone vampire</color> to join your party.\nYou must earn their trust by doing their favor.",
-    "goal": "MGOAL_RECRUIT_NPC",
-    "recruit_class ": [ "VAMP_LONELY_M", "VAMP_LONELY_F" ],
+    "goal": "MGOAL_RECRUIT_NPC_CLASS",
+    "recruit_class": [ "VAMP_LONELY_M", "VAMP_LONELY_F" ],
     "difficulty": 10,
     "value": 0,
     "origins": [ "ORIGIN_GAME_START" ]

@@ -8,11 +8,14 @@
     "broken_symbol": "#",
     "broken_color": "yellow",
     "item": "ups_rifle",
-    "difficulty": 6,
     "folded_volume": 8,
     "//": "Haven't figured out the breaks_into...",
     "breaks_into": [ { "item": "ups_rifle", "prob": 50 } ],
-    "extend": { "flags": [ "FOLDABLE" ] }
+    "extend": { "flags": [ "FOLDABLE" ] },
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 6 ], [ "electronics", 6 ] ] },
+      "removal": { "skills": [ [ "mechanics", 4 ] ] }
+    }
   },
   {
     "type": "vehicle_part",
@@ -23,10 +26,10 @@
     "broken_symbol": "#",
     "broken_color": "dark_gray",
     "item": "sur_pnu_lmg",
-    "difficulty": 4,
     "folded_volume": 8,
     "breaks_into": [ { "item": "sur_pnu_lmg", "prob": 50 } ],
-    "extend": { "flags": [ "FOLDABLE" ] }
+    "extend": { "flags": [ "FOLDABLE" ] },
+    "requirements": { "install": { "skills": [ [ "mechanics", 4 ], [ "rifle", 2 ] ] }, "removal": { "skills": [ [ "mechanics", 2 ] ] } }
   },
   {
     "type": "GENERIC",
@@ -56,7 +59,6 @@
     "damage_modifier": 80,
     "durability": 100,
     "item": "surv_station",
-    "difficulty": 6,
     "location": "center",
     "flags": [ "OBSTACLE" ],
     "pseudo_tools": [
@@ -83,7 +85,12 @@
       { "item": "circuit", "count": [ 30, 40 ] },
       { "item": "e_scrap", "count": [ 30, 40 ] },
       { "item": "amplifier", "count": [ 30, 40 ] }
-    ]
+    ],
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 6 ] ], "time": "60 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "removal": { "skills": [ [ "mechanics", 5 ] ], "time": "30 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 7 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] }
+    }
   },
   {
     "type": "vehicle_part",
@@ -94,8 +101,8 @@
     "broken_symbol": "#",
     "broken_color": "brown",
     "item": "surv_full_223",
-    "difficulty": 4,
-    "breaks_into": [ { "item": "surv_full_223", "prob": 50 } ]
+    "breaks_into": [ { "item": "surv_full_223", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 4 ], [ "rifle", 2 ] ] }, "removal": { "skills": [ [ "mechanics", 2 ] ] } }
   },
   {
     "type": "vehicle_part",
@@ -106,8 +113,8 @@
     "broken_symbol": "#",
     "broken_color": "brown",
     "item": "surv_full_308",
-    "difficulty": 4,
-    "breaks_into": [ { "item": "surv_full_308", "prob": 50 } ]
+    "breaks_into": [ { "item": "surv_full_308", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 4 ], [ "rifle", 2 ] ] }, "removal": { "skills": [ [ "mechanics", 2 ] ] } }
   },
   {
     "type": "vehicle_part",
@@ -118,8 +125,8 @@
     "broken_symbol": "#",
     "broken_color": "brown",
     "item": "surv_full_762",
-    "difficulty": 4,
-    "breaks_into": [ { "item": "surv_full_762", "prob": 50 } ]
+    "breaks_into": [ { "item": "surv_full_762", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 4 ], [ "rifle", 2 ] ] }, "removal": { "skills": [ [ "mechanics", 2 ] ] } }
   },
   {
     "type": "vehicle_part",
@@ -130,8 +137,8 @@
     "broken_symbol": "#",
     "broken_color": "brown",
     "item": "surv_full_762R",
-    "difficulty": 4,
-    "breaks_into": [ { "item": "surv_full_762R", "prob": 50 } ]
+    "breaks_into": [ { "item": "surv_full_762R", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 4 ], [ "rifle", 2 ] ] }, "removal": { "skills": [ [ "mechanics", 2 ] ] } }
   },
   {
     "type": "vehicle_part",
@@ -142,8 +149,8 @@
     "broken_symbol": "#",
     "broken_color": "brown",
     "item": "surv_full_12",
-    "difficulty": 4,
-    "breaks_into": [ { "item": "surv_full_12", "prob": 50 } ]
+    "breaks_into": [ { "item": "surv_full_12", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 4 ], [ "shotgun", 2 ] ] }, "removal": { "skills": [ [ "mechanics", 2 ] ] } }
   },
   {
     "type": "vehicle_part",
@@ -154,8 +161,8 @@
     "broken_symbol": "#",
     "broken_color": "brown",
     "item": "surv_lmg_308",
-    "difficulty": 4,
-    "breaks_into": [ { "item": "surv_lmg_308", "prob": 50 } ]
+    "breaks_into": [ { "item": "surv_lmg_308", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 4 ], [ "rifle", 2 ] ] }, "removal": { "skills": [ [ "mechanics", 2 ] ] } }
   },
   {
     "type": "vehicle_part",
@@ -166,8 +173,8 @@
     "broken_symbol": "#",
     "broken_color": "brown",
     "item": "surv_lmg_223",
-    "difficulty": 4,
-    "breaks_into": [ { "item": "surv_lmg_223", "prob": 50 } ]
+    "breaks_into": [ { "item": "surv_lmg_223", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 4 ], [ "rifle", 2 ] ] }, "removal": { "skills": [ [ "mechanics", 2 ] ] } }
   },
   {
     "type": "vehicle_part",
@@ -178,8 +185,8 @@
     "broken_symbol": "#",
     "broken_color": "brown",
     "item": "surv_lmg_762",
-    "difficulty": 4,
-    "breaks_into": [ { "item": "surv_lmg_762", "prob": 50 } ]
+    "breaks_into": [ { "item": "surv_lmg_762", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 4 ], [ "rifle", 2 ] ] }, "removal": { "skills": [ [ "mechanics", 2 ] ] } }
   },
   {
     "type": "vehicle_part",
@@ -191,8 +198,8 @@
     "broken_symbol": "#",
     "broken_color": "brown",
     "item": "surv_lmg_762R",
-    "difficulty": 4,
-    "breaks_into": [ { "item": "surv_lmg_762R", "prob": 50 } ]
+    "breaks_into": [ { "item": "surv_lmg_762R", "prob": 50 } ],
+    "requirements": { "install": { "skills": [ [ "mechanics", 4 ], [ "rifle", 2 ] ] }, "removal": { "skills": [ [ "mechanics", 2 ] ] } }
   },
   {
     "type": "vehicle_part",
@@ -328,7 +335,6 @@
     "name": "tiny electric dynamo",
     "description": "An electric motor improvised to serve as an electric generator, to be attached to an internal combustion engine.  Its small size makes it rather inefficient compared to its normal efficiency as a motor.",
     "item": "motor_tiny",
-    "difficulty": 1,
     "durability": 80,
     "power": -750,
     "epower": 370,
@@ -340,7 +346,12 @@
       { "item": "scrap", "count": [ 1, 2 ] },
       { "item": "cable", "charges": [ 1, 3 ] }
     ],
-    "extend": { "flags": [ "TOOL_SCREWDRIVER", "FOLDABLE" ] }
+    "extend": { "flags": [ "FOLDABLE" ] },
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 1 ] ], "time": "60 m", "using": [ [ "vehicle_screw", 1 ] ] },
+      "removal": { "skills": [ [ "mechanics", 2 ] ], "time": "30 m", "using": [ [ "vehicle_screw", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 2 ] ], "time": "60 m", "using": [ [ "adhesive", 1 ] ] }
+    }
   },
   {
     "id": "generator_electric_small",
@@ -349,7 +360,6 @@
     "name": "small electric dynamo",
     "description": "An electric motor improvised to serve as an electric generator, to be attached to an internal combustion engine.  Its small size has a negative impact on its efficiency.",
     "item": "motor_small",
-    "difficulty": 1,
     "durability": 120,
     "power": -7460,
     "epower": 5300,
@@ -362,8 +372,13 @@
       { "item": "scrap", "count": [ 1, 2 ] },
       { "item": "cable", "charges": [ 3, 6 ] }
     ],
-    "extend": { "flags": [ "TOOL_SCREWDRIVER", "FOLDABLE" ] },
-    "damage_reduction": { "all": 6 }
+    "extend": { "flags": [ "FOLDABLE" ] },
+    "damage_reduction": { "all": 6 },
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 1 ] ], "time": "60 m", "using": [ [ "vehicle_screw", 1 ] ] },
+      "removal": { "skills": [ [ "mechanics", 2 ] ], "time": "30 m", "using": [ [ "vehicle_screw", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 2 ] ], "time": "60 m", "using": [ [ "adhesive", 1 ] ] }
+    }
   },
   {
     "id": "generator_electric",
@@ -372,7 +387,6 @@
     "name": "electric dynamo",
     "description": "An electric motor improvised to serve as an electric generator, to be attached to an internal combustion engine.  While relatively energy-intensive, it makes about as efficient a dynamo as it does a motor.",
     "item": "motor",
-    "difficulty": 2,
     "durability": 200,
     "power": -37300,
     "epower": 33500,
@@ -384,8 +398,12 @@
       { "item": "scrap", "count": [ 3, 5 ] },
       { "item": "cable", "charges": [ 10, 15 ] }
     ],
-    "extend": { "flags": [ "TOOL_WRENCH" ] },
-    "damage_reduction": { "all": 32 }
+    "damage_reduction": { "all": 32 },
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 2 ] ], "time": "60 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "removal": { "skills": [ [ "mechanics", 2 ] ], "time": "30 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 3 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] }
+    }
   },
   {
     "id": "generator_electric_large",
@@ -394,7 +412,6 @@
     "name": "large electric generator",
     "description": "An electric motor improvised to serve as an electric generator, to be attached to an internal combustion engine.  It would need a fairly powerful engine to effectively generate power.",
     "item": "motor_large",
-    "difficulty": 3,
     "durability": 400,
     "power": -149200,
     "epower": 134100,
@@ -406,8 +423,12 @@
       { "item": "scrap", "count": [ 3, 5 ] },
       { "item": "cable", "charges": [ 10, 15 ] }
     ],
-    "extend": { "flags": [ "TOOL_WRENCH" ] },
-    "damage_reduction": { "all": 43 }
+    "damage_reduction": { "all": 43 },
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 3 ] ], "time": "60 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "removal": { "skills": [ [ "mechanics", 2 ] ], "time": "30 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 4 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] }
+    }
   },
   {
     "id": "generator_electric_enhanced",
@@ -416,7 +437,6 @@
     "name": "enhanced electric dynamo",
     "description": "An electric motor improvised to serve as an electric generator, to be attached to an internal combustion engine.  While it retains much of its efficiency, it still requires a rather powerful engine to operate.",
     "item": "motor_enhanced",
-    "difficulty": 4,
     "durability": 200,
     "power": -313300,
     "epower": 283200,
@@ -428,8 +448,12 @@
       { "item": "scrap", "count": [ 3, 5 ] },
       { "item": "cable", "charges": [ 10, 15 ] }
     ],
-    "extend": { "flags": [ "TOOL_WRENCH" ] },
-    "damage_reduction": { "all": 50 }
+    "damage_reduction": { "all": 50 },
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 4 ] ], "time": "60 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "removal": { "skills": [ [ "mechanics", 2 ] ], "time": "30 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 5 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] }
+    }
   },
   {
     "id": "generator_electric_super",
@@ -438,7 +462,6 @@
     "name": "super electric dynamo",
     "description": "An electric motor improvised to serve as an electric generator, to be attached to an internal combustion engine.  You would need one hell of an engine to use this as a generator!",
     "item": "motor_super",
-    "difficulty": 5,
     "durability": 400,
     "power": -400000,
     "epower": 359500,
@@ -450,7 +473,11 @@
       { "item": "scrap", "count": [ 6, 10 ] },
       { "item": "cable", "charges": [ 20, 30 ] }
     ],
-    "extend": { "flags": [ "TOOL_WRENCH" ] },
-    "damage_reduction": { "all": 60 }
+    "damage_reduction": { "all": 60 },
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 5 ] ], "time": "60 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "removal": { "skills": [ [ "mechanics", 3 ] ], "time": "30 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 6 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] }
+    }
   }
 ]
