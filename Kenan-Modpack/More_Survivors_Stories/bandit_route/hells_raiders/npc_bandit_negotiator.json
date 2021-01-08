@@ -1,0 +1,123 @@
+[
+  {
+    "//": "TODO add everything: info, unlocks, prices etc, maybe remove",
+    "type": "npc",
+    "id": "NPC_bandit_negotiator",
+    "class": "NC_NONE",
+    "name_suffix": "negotiator",
+    "gender": "male",
+    "attitude": 1,
+    "mission": 8,
+    "chat": "TALK_bandit_negotiator_start",
+    "faction": "no_faction"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_negotiator_start",
+    "dynamic_line": "Псст, подойди сюда.  Дело есть.",
+    "responses": [ { "text": "What do you want?", "topic": "TALK_bandit_negotiator_start1" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_negotiator_start1",
+    "dynamic_line": "Прими мои поздравления.  Ты неплохо поработал в том центре, и заслужил доверие местной банды.  Не каждому такое удаётся в такие короткие сроки.",
+    "responses": [ { "text": "Thanks, I guess.", "topic": "TALK_bandit_negotiator_start2" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [
+      "TALK_bandit_negotiator_start2",
+      "TALK_bandit_negotiator_start_who",
+      "TALK_bandit_negotiator_start_why",
+      "TALK_bandit_negotiator_start_favor",
+      "TALK_bandit_negotiator_start_contacts"
+    ],
+    "dynamic_line": "Но я обратился к тебе не за этим.  Как ты мог слышать, те преступные группировки, которым посчастливилось выжить после <the_cataclysm>, решили не разбегаться кто куда, а продолжили свои совместные делишки.  Поскольку законности стало меньше, их помыслы стали более извращенными, а методы более жестокими.  Некоторые совсем утратили здравый смысл, и вернулись обратно на животную стадию развития.  Но некоторые не потеряли свою человечность, и с ними можно найти общий язык.",
+    "responses": [ { "text": "Who are you exactly?", "topic": "TALK_bandit_negotiator_start_who" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [
+      "TALK_bandit_negotiator_start_who",
+      "TALK_bandit_negotiator_start_why",
+      "TALK_bandit_negotiator_start_favor",
+      "TALK_bandit_negotiator_start_contacts"
+    ],
+    "dynamic_line": "Я представляю из себя нейтральную сторону.  Благодаря своим навыкам, я сумел наладить контакт с крупнейшими из группировок, и даже завоевать их расположение к себе.",
+    "responses": [ { "text": "Why are you telling me this?", "topic": "TALK_bandit_negotiator_start_why" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "TALK_bandit_negotiator_start_why", "TALK_bandit_negotiator_start_favor", "TALK_bandit_negotiator_start_contacts" ],
+    "dynamic_line": "Как бы это банально не звучало, Я вижу в тебе потенциал, и я уверен, что я смогу оказать тебе очень полезную услугу.  Ты должен понимать, что неизвестного человека скорее пустят на мясо, или закуют в кандалы, чем начнут говорить с ним.  Так как я имею выход на лидеров крупнейших банд, я смогу замолвить за тебя словечко, если такая потребность появится.",
+    "responses": [
+      {
+        "text": "И за свою услугу, ты попросишь ответную услугу.  Я прав?",
+        "topic": "TALK_bandit_negotiator_start_favor"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "TALK_bandit_negotiator_start_favor", "TALK_bandit_negotiator_start_contacts" ],
+    "dynamic_line": "Какой сообразительный!\" he smiled. \"Даже в мире после <the_cataclysm> король остался неизменным - деньги.  Деньги нужны всем, и даже преступникам иногда приходится добывать их честным путём, торгуя или обменивая их на услуги.  Я тоже не исключение, и за несколько вечнозелё… хм, пора отвыкать от этого.  В общем, за что-нибудь, что представляет ценность, я готов решать твои проблемы с отношениями между бандами.",
+    "responses": [
+      {
+        "text": "А что если я сам налажу все контакты без твоей помощи?",
+        "topic": "TALK_bandit_negotiator_start_contacts"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_negotiator_start_contacts",
+    "dynamic_line": "Я бы посмотрел, как у тебя это получится.\" he chuckled. \"А теперь давай серьёзно.  Я ведь не шутил про цепи и мясо.  Процент вменяемых слишком мал, и без хороших отношений с лидером твоя встреча с членом банды закончится быстрее, чем ты успеешь заметить.  Сочти это за дружеский совет.",
+    "responses": [ { "text": "OK, I got it.", "topic": "TALK_bandit_negotiator_start_end" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_negotiator_start_end",
+    "dynamic_line": "Главное, не забудь про меня, когда появится потребность в услугах подобного рода.  Ах да, чуть не забыл.  Я хочу тебе сделать небольшой подарок, в знак нашего знакомства.  Ты поймёшь, когда его получишь.  Удачи, <name_g>.",
+    "speaker_effect": { "effect": [ { "npc_change_faction": "red_suns" }, { "u_faction_rep": 25 }, { "npc_change_faction": "no_faction" } ] },
+    "responses": [ { "text": "Weird guy…", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_bandit_negotiator1" } } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_negotiator1",
+    "dynamic_line": "Hi.",
+    "responses": [
+      { "text": "Change relation, please.", "topic": "TALK_bandit_negotiator1_change" },
+      { "text": "Hello.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_negotiator1_change",
+    "dynamic_line": {
+      "and": [
+        "I can change your relations with:",
+        "\nForest Snakes.  Price: n money.",
+        "\nRed Suns.  Price: n money.",
+        "\nSunset Bikers.  Price: n money."
+      ]
+    },
+    "responses": [
+      {
+        "text": "Forest Snakes.",
+        "effect": [ { "npc_change_faction": "forest_snakes" }, { "u_faction_rep": 25 }, { "npc_change_faction": "no_faction" } ],
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "Red Suns.",
+        "effect": [ { "npc_change_faction": "red_suns" }, { "u_faction_rep": 25 }, { "npc_change_faction": "no_faction" } ],
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "Sunset Bikers.",
+        "effect": [ { "npc_change_faction": "sunset_bikers" }, { "u_faction_rep": 25 }, { "npc_change_faction": "no_faction" } ],
+        "topic": "TALK_DONE"
+      },
+      { "text": "Bye.", "topic": "TALK_DONE" }
+    ]
+  }
+]

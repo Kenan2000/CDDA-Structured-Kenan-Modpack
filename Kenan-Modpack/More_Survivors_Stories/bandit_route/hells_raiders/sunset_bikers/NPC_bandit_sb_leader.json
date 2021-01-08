@@ -1,0 +1,147 @@
+[
+  {
+    "type": "npc",
+    "id": "NPC_bandit_sb_leader",
+    "class": "NC_SCAVENGER",
+    "name_suffix": "Head of the Pack",
+    "attitude": 1,
+    "mission": 8,
+    "gender": "male",
+    "chat": "TALK_bandit_sb_leader_start",
+    "faction": "sunset_bikers"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_leader_start",
+    "dynamic_line": "What are you doing in here?",
+    "responses": [
+      {
+        "text": "I brought a package.",
+        "topic": "TALK_bandit_sb_leader_package",
+        "condition": { "u_has_item": "bandit_item_2" }
+      },
+      { "text": "Just passing by.", "topic": "TALK_bandit_sb_leader_done", "effect": { "u_faction_rep": -5 } }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_leader_done",
+    "dynamic_line": "I've had enough of you, begone.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_leader_package",
+    "dynamic_line": "Package?  Okay, give it to me then.",
+    "responses": [
+      {
+        "text": "Here you go.",
+        "topic": "TALK_bandit_sb_leader_package_give",
+        "effect": { "u_consume_item": "bandit_item_2" }
+      },
+      { "text": "What about payment?", "topic": "TALK_bandit_sb_leader_package_money" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_leader_package_money",
+    "dynamic_line": "Payment?  We have already discussed everything with Mister T.  Your business is to give me the package.",
+    "responses": [
+      {
+        "text": "I'm not going anywhere without payment.",
+        "trial": { "type": "INTIMIDATE", "difficulty": 25 },
+        "success": { "topic": "TALK_bandit_sb_leader_package_money_ok" },
+        "failure": { "topic": "TALK_bandit_sb_leader_package_money1" }
+      },
+      {
+        "text": "Here you go.",
+        "topic": "TALK_bandit_sb_leader_package_give",
+        "effect": { "u_consume_item": "bandit_item_2" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_leader_package_give",
+    "dynamic_line": "Now get out, I have things to do.",
+    "responses": [
+      { "text": "Hey, what about my payment?", "topic": "TALK_bandit_sb_leader_package_money1" },
+      { "text": "…", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_bandit_sb_leader_1" } }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_leader_package_money1",
+    "dynamic_line": "You probably don't understand something, <name_b>.  Everything has already been discussed without you.  So do as you were told before you piss me off.",
+    "responses": [
+      { "text": "I'm not going anywhere without payment.", "topic": "TALK_bandit_sb_leader_package_money2" },
+      {
+        "text": "Here you go.",
+        "topic": "TALK_bandit_sb_leader_package_give",
+        "condition": { "u_has_item": "bandit_item_2" },
+        "effect": { "u_consume_item": "bandit_item_2" },
+        "switch": true
+      },
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": { "npc_first_topic": "TALK_bandit_sb_leader_1" },
+        "switch": true
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_leader_package_money2",
+    "dynamic_line": "My guys will show you the exit.  <kill_npc_h>, <name_b>!",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": { "u_faction_rep": -100 } } ]
+  },
+  {
+    "//": "TODO make money reward",
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_leader_package_money_ok",
+    "dynamic_line": "Fine, I don't have time for this.  Now get out.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_bandit_sb_leader_1" } } ]
+  },
+  {
+    "//": "TODO make ask for money reward after talking to merchant",
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_leader_1",
+    "dynamic_line": "<greet>",
+    "responses": [
+      {
+        "text": "About that job…",
+        "condition": { "and": [ "has_many_assigned_missions", "mission_complete" ] },
+        "topic": "TALK_MISSION_INQUIRE"
+      },
+      { "text": "I would like to ask you about something…", "topic": "TALK_bandit_sb_leader_questions" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "MISSION_bandit_sb_leader_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met Head of the Pack" },
+    "description": "This person is alive and well.  If this mission fails, it means that this person is dead.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "npc_has_var": "-", "type": "-", "context": "-", "value": "-" },
+    "difficulty": 0,
+    "value": 0,
+    "start": { "effect": { "u_add_var": "bandit_sb_leader", "type": "switch", "context": "alive_dead", "value": "alive" } },
+    "fail": { "effect": { "u_add_var": "bandit_sb_leader", "type": "switch", "context": "alive_dead", "value": "dead" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  }
+]

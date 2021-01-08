@@ -1,0 +1,18 @@
+[
+  {
+    "id": [ "TALK_GUARD", "TALK_EVAC_GUARD2", "TALK_EVAC_GUARD1" ],
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "Get bent, traitor!",
+        "topic": "TALK_DONE",
+        "condition": { "u_has_var": "search_for_bandit", "type": "flag", "context": "bandits", "value": "yes" },
+        "effect": [
+          { "npc_change_faction": "hells_raiders" },
+          { "u_add_var": "search_for_bandit", "type": "flag", "context": "bandits", "value": "done" },
+          "insult_combat"
+        ]
+      }
+    ]
+  }
+]

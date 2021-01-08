@@ -1,0 +1,28 @@
+[
+  {
+    "type": "npc",
+    "id": "NPC_bandit_rs_broker",
+    "name_suffix": "Broker",
+    "class": "NC_SCAVENGER",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "TALK_bandit_rs_broker1",
+    "faction": "red_suns"
+  },
+  {
+    "id": [ "TALK_bandit_rs_broker1", "TALK_bandit_rs_broker_Background" ],
+    "type": "talk_topic",
+    "dynamic_line": "<greet>",
+    "responses": [
+      { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_bandit_rs_broker_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_rs_broker_Background",
+    "dynamic_line": "Insert text."
+  }
+]

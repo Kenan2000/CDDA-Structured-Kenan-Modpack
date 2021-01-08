@@ -1,0 +1,27 @@
+[
+  {
+    "type": "npc",
+    "id": "NPC_bandit_sb_drugmaker",
+    "class": "NC_SCAVENGER",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "TALK_bandit_sb_drugmaker1",
+    "faction": "sunset_bikers"
+  },
+  {
+    "id": [ "TALK_bandit_sb_drugmaker1", "TALK_bandit_sb_drugmaker_Background" ],
+    "type": "talk_topic",
+    "dynamic_line": "<greet>",
+    "responses": [
+      { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_bandit_sb_drugmaker_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_drugmaker_Background",
+    "dynamic_line": "I was a chemist before <the_cataclysm>.  Now I'm making drugs for Sunset Bikers.  Hell Yeah!"
+  }
+]

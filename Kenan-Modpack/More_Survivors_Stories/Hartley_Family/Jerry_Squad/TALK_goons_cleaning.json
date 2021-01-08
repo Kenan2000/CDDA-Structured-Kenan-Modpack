@@ -1,0 +1,171 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_goon_parking",
+    "dynamic_line": "Are we there yet?",
+    "responses": [
+      {
+        "text": "Yes, we're here.",
+        "topic": "TALK_Jerry_Bumpkin_goon_start_clean",
+        "condition": {
+          "and": [
+            { "npc_has_var": "jerry_cleaning", "type": "count", "context": "cleaning", "value": "0" },
+            {
+              "or": [
+                { "npc_at_om_location": "hotel_tower_1_1" },
+                { "npc_at_om_location": "hotel_tower_1_2" },
+                { "npc_at_om_location": "hotel_tower_1_3" }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_goon_start_clean",
+    "dynamic_line": "Alright, here's the deal.  We start at first floor, killing everything we can, then we will go to basement.  After cleaning basement, we'll continue with the second floor and so on, finishing at roof level.  Understood?",
+    "responses": [
+      { "text": "Yes, let's do it.", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_Jerry_Bumpkin_goon_cleaning" } }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_goon_cleaning",
+    "dynamic_line": "Is it safe, <name_g>?",
+    "responses": [
+      {
+        "text": "Yes.  Ground floor is safe.",
+        "topic": "TALK_Jerry_Bumpkin_goon_cleaned",
+        "condition": {
+          "and": [
+            { "npc_has_var": "jerry_cleaning", "type": "count", "context": "cleaning", "value": "0" },
+            "at_safe_space",
+            {
+              "or": [
+                { "npc_at_om_location": "hotel_tower_1_4" },
+                { "npc_at_om_location": "hotel_tower_1_5" },
+                { "npc_at_om_location": "hotel_tower_1_6" },
+                { "npc_at_om_location": "hotel_tower_1_7" },
+                { "npc_at_om_location": "hotel_tower_1_8" },
+                { "npc_at_om_location": "hotel_tower_1_9" }
+              ]
+            }
+          ]
+        },
+        "effect": { "u_adjust_var": "jerry_cleaning", "type": "count", "context": "cleaning", "adjustment": 1 }
+      },
+      {
+        "text": "Yes.  Basement is safe.",
+        "topic": "TALK_Jerry_Bumpkin_goon_cleaned",
+        "condition": {
+          "and": [
+            { "npc_has_var": "jerry_cleaning", "type": "count", "context": "cleaning", "value": "1" },
+            "at_safe_space",
+            {
+              "or": [
+                { "npc_at_om_location": "hotel_tower_b_1" },
+                { "npc_at_om_location": "hotel_tower_b_2" },
+                { "npc_at_om_location": "hotel_tower_b_3" }
+              ]
+            }
+          ]
+        },
+        "effect": { "u_adjust_var": "jerry_cleaning", "type": "count", "context": "cleaning", "adjustment": 1 }
+      },
+      {
+        "text": "Yes.  Second floor is safe.",
+        "topic": "TALK_Jerry_Bumpkin_goon_cleaned",
+        "condition": {
+          "and": [
+            { "npc_has_var": "jerry_cleaning", "type": "count", "context": "cleaning", "value": "2" },
+            "at_safe_space",
+            {
+              "or": [
+                { "npc_at_om_location": "hotel_tower_flr2_1_7" },
+                { "npc_at_om_location": "hotel_tower_flr2_1_8" },
+                { "npc_at_om_location": "hotel_tower_flr2_1_9" }
+              ]
+            }
+          ]
+        },
+        "effect": { "u_adjust_var": "jerry_cleaning", "type": "count", "context": "cleaning", "adjustment": 1 }
+      },
+      {
+        "text": "Yes.  Third floor is safe.",
+        "topic": "TALK_Jerry_Bumpkin_goon_cleaned",
+        "condition": {
+          "and": [
+            { "npc_has_var": "jerry_cleaning", "type": "count", "context": "cleaning", "value": "3" },
+            "at_safe_space",
+            {
+              "or": [
+                { "npc_at_om_location": "hotel_tower_flr3_1_7" },
+                { "npc_at_om_location": "hotel_tower_flr3_1_8" },
+                { "npc_at_om_location": "hotel_tower_flr3_1_9" }
+              ]
+            }
+          ]
+        },
+        "effect": { "u_adjust_var": "jerry_cleaning", "type": "count", "context": "cleaning", "adjustment": 1 }
+      },
+      {
+        "text": "Yes.  Fourth floor is safe.",
+        "topic": "TALK_Jerry_Bumpkin_goon_cleaned",
+        "condition": {
+          "and": [
+            { "npc_has_var": "jerry_cleaning", "type": "count", "context": "cleaning", "value": "4" },
+            "at_safe_space",
+            {
+              "or": [
+                { "npc_at_om_location": "hotel_tower_flr4_1_7" },
+                { "npc_at_om_location": "hotel_tower_flr4_1_8" },
+                { "npc_at_om_location": "hotel_tower_flr4_1_9" }
+              ]
+            }
+          ]
+        },
+        "effect": { "u_adjust_var": "jerry_cleaning", "type": "count", "context": "cleaning", "adjustment": 1 }
+      },
+      {
+        "text": "Yes.  Roof is safe.",
+        "topic": "TALK_Jerry_Bumpkin_goon_cleaned_done",
+        "condition": {
+          "and": [
+            { "npc_has_var": "jerry_cleaning", "type": "count", "context": "cleaning", "value": "5" },
+            "at_safe_space",
+            {
+              "or": [
+                { "npc_at_om_location": "hotel_tower_flr3_1_7" },
+                { "npc_at_om_location": "hotel_tower_flr3_1_8" },
+                { "npc_at_om_location": "hotel_tower_flr3_1_9" }
+              ]
+            }
+          ]
+        },
+        "effect": { "u_adjust_var": "jerry_cleaning", "type": "count", "context": "cleaning", "adjustment": 1 },
+        "switch": true
+      },
+      { "text": "Not yet.", "topic": "TALK_DONE", "switch": true }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_goon_cleaned",
+    "dynamic_line": "<its_safe>  Let's clean the next floor.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_goon_cleaned_done",
+    "dynamic_line": "Nice.  All done.  I'll stay here to finish my part of work.  Go back to Jerry.",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [ "mission_success", "clear_mission", "stop_following", { "npc_first_topic": "TALK_Jerry_Bumpkin_GOON" } ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_ALLY_ORDERS",
+    "responses": [ { "text": "What do you think about transferring to another faction?", "topic": "TALK_ally_transfer" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ally_transfer",
+    "dynamic_line": {
+      "and": [
+        "I can transfer to:",
+        {
+          "u_has_var": "ally_transfer_fs",
+          "type": "flag",
+          "context": "transfer",
+          "value": "yes",
+          "yes": "  Forest Snakes."
+        },
+        "  Where do you want me to go?"
+      ]
+    },
+    "responses": [
+      {
+        "text": "What do you think about Forest Snakes?",
+        "topic": "TALK_ally_transfer_forest_snakes",
+        "condition": { "and": [ { "u_has_var": "ally_transfer_fs", "type": "flag", "context": "transfer", "value": "yes" } ] }
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ally_transfer_forest_snakes",
+    "dynamic_line": "Forest Snakes sounds cool!  If you are sure about it, lead me to their leader, so he can accept me.",
+    "responses": [
+      {
+        "text": "Yes, Forest Snakes needs you.  Now go.",
+        "topic": "TALK_DONE",
+        "condition": { "or": [ { "npc_at_om_location": "bandit_camp_1" },{ "npc_at_om_location": "bandit_camp_2" },{ "npc_at_om_location": "bandit_camp_3" },{ "npc_at_om_location": "bandit_camp_4" } ] },
+        "effect": [
+          "leave",
+          { "npc_change_faction": "forest_snakes" },
+          "assign_guard",
+          { "npc_first_topic": "TALK_FOREST_SNAKES" },
+          { "u_adjust_var": "forest_snakes", "type": "count", "context": "bandits", "adjustment": 1 },
+          { "npc_add_var": "ally_transfered", "type": "flag", "context": "transfered", "value": "fs" }
+        ]
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" }
+    ]
+  }
+]

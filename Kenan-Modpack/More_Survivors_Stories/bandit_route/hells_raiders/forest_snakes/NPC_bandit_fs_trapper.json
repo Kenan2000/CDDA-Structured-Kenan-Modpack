@@ -1,0 +1,239 @@
+[
+  {
+    "type": "npc",
+    "id": "NPC_bandit_fs_trapper",
+    "class": "NC_HUNTER",
+    "attitude": 0,
+    "mission": 8,
+    "name_suffix": "Trapper",
+    "chat": "TALK_bandit_fs_trapper",
+    "mission_offered": "MISSION_bandit_fs_trapper_1",
+    "faction": "forest_snakes"
+  },
+  {
+    "id": [ "TALK_bandit_fs_trapper" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_var": "bandit_camp_unlocked",
+      "type": "flag",
+      "context": "missions_fs",
+      "value": "yes",
+      "yes": "Hello there.",
+      "no": "I'm busy.  Talk to me later."
+    },
+    "responses": [
+      {
+        "text": "Hi.",
+        "topic": "TALK_bandit_fs_trapper1",
+        "condition": { "u_has_var": "bandit_camp_unlocked", "type": "flag", "context": "missions_fs", "value": "yes" },
+        "effect": { "npc_first_topic": "TALK_bandit_fs_trapper1" }
+      }
+    ]
+  },
+  {
+    "id": [
+      "TALK_bandit_fs_trapper1",
+      "TALK_bandit_fs_trapper_Background",
+      "TALK_bandit_fs_trapper_busy",
+      "TALK_bandit_fs_trapper_got_reward"
+    ],
+    "type": "talk_topic",
+    "dynamic_line": "<greet>",
+    "responses": [
+      {
+        "text": "About that job…",
+        "condition": { "and": [ "has_assigned_mission", "mission_complete" ] },
+        "topic": "TALK_MISSION_INQUIRE"
+      },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_bandit_fs_trapper_Background" },
+      {
+        "text": "Do you need any help?",
+        "trial": {
+          "type": "CONDITION",
+          "condition": { "not": { "npc_compare_time_since_var": "hunting", "type": "time", "context": "wait", "op": "<", "time": "5 days" } }
+        },
+        "success": { "effect": [ { "npc_lose_var": "hunting", "type": "time", "context": "wait" } ], "topic": "TALK_MISSION_LIST" },
+        "failure": { "topic": "TALK_bandit_fs_trapper_busy" }
+      },
+      {
+        "text": "Let's trade.",
+        "condition": { "npc_has_var": "trade", "type": "flag", "context": "open_trade", "value": "yes" },
+        "topic": "TALK_bandit_fs_trapper1",
+        "effect": "start_trade"
+      },
+      {
+        "text": "What about that reward?",
+        "condition": { "npc_compare_var": "reward", "type": "count", "context": "missions_rewards", "op": ">", "value": 0 },
+        "effect": { "npc_adjust_var": "reward", "type": "count", "context": "missions_rewards", "adjustment": -1 },
+        "topic": "TALK_bandit_fs_trapper_reward"
+      },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_fs_trapper_reward",
+    "dynamic_line": "What do you want to get?",
+    "responses": [
+      { "text": "Arrows.", "effect": { "u_buy_item": "arrow_cf", "count": 10 }, "topic": "TALK_bandit_fs_trapper_got_reward" },
+      {
+        "text": "Bolts.",
+        "effect": { "u_buy_item": "bolt_cf", "count": 10 },
+        "topic": "TALK_bandit_fs_trapper_got_reward"
+      },
+      {
+        "text": "Rifle ammo.",
+        "effect": { "u_buy_item": "270win_jsp", "count": 20 },
+        "topic": "TALK_bandit_fs_trapper_got_reward"
+      },
+      {
+        "text": "Shotgun ammo.",
+        "effect": { "u_buy_item": "shot_00", "count": 20 },
+        "topic": "TALK_bandit_fs_trapper_got_reward"
+      },
+      {
+        "text": "Bear traps.",
+        "effect": { "u_buy_item": "beartrap", "count": 5 },
+        "topic": "TALK_bandit_fs_trapper_got_reward"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_fs_trapper_Background",
+    "dynamic_line": "Before <the_cataclysm>, my main activity was hunting.  Fresh meat was always in the price and I had enough regular customers for it.  I have known these guys for a long time, because once I was 'lucky' to meet them during one of their forest training sessions.  In short, the meeting was unsuccessful for me, but somehow we got talking and decided to go our separate ways.  When the riots began, I gathered everything useful that I could take away and immediately moved here.  It seemed to me that with a bunch of armed guys I would be calmer, and they weren't against it.  Here I do the same: I hunt game, prepare meat reserves, teach other guys my craft."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_fs_trapper_busy",
+    "dynamic_line": "I haven't met a suitable beast yet.  Come and see me later."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_fs_trapper_got_reward",
+    "dynamic_line": "Excellent choice, hunter."
+  },
+  {
+    "id": "MISSION_bandit_fs_trapper_1",
+    "type": "mission_definition",
+    "name": { "str": "Wild hunting" },
+    "description": "Kill 25 wild animals and report back to Forest Snakes trapper.",
+    "goal": "MGOAL_KILL_MONSTER_SPEC",
+    "monster_species": "MAMMAL",
+    "monster_kill_goal": 25,
+    "difficulty": 0,
+    "value": 5000,
+    "end": {
+      "effect": [
+        { "npc_add_var": "trade", "type": "flag", "context": "open_trade", "value": "yes" },
+        { "npc_adjust_var": "reward", "type": "count", "context": "missions_rewards", "adjustment": 1 }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_bandit_fs_trapper_2",
+    "dialogue": {
+      "describe": "-",
+      "offer": "I'm bored.  I need to collect supplies for winter and I don't feel like it.  Listen, don't you want to learn how to hunt?  I can help you with this if you help me.  What do you say?",
+      "accepted": "Fine.  Let's start with a little test.  Hunt down 25 animals.  It doesn't matter what kind.  Choose the method at your discretion.",
+      "rejected": "What a shame.  More work for me then…",
+      "advice": "There are many ways to hunt game, but not many ways are effective.  If you have a rifle with optics, then the task becomes simple, but it all depends on your shooting skill.  If you have several traps, lure your victim into it and finish it off with one quick blow to the heart.  If you are a fan of primitive hunting methods, then the skill of disguise is your best friend.  Hang on yourself a few blades of grass, twigs, brush your face with mud and grass and you will be indistinguishable from a tall bush.  Check your bow, sharpen your spear well, and then it's a matter of technique.  Good luck!",
+      "inquire": "How is the hunt going?",
+      "success": "Well done, <name_g>.  Remember my advises, and you will never have problems finding food.  By the way, good work need to be rewarded, right?",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_bandit_fs_trapper_2",
+    "type": "mission_definition",
+    "name": { "str": "Зимние запасы" },
+    "description": "Deliver 100 chunks of meat to Forest Snakes trapper.",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 0,
+    "value": 7500,
+    "item": "meat",
+    "count": 100,
+    "end": { "effect": [ { "npc_adjust_var": "reward", "type": "count", "context": "missions_rewards", "adjustment": 1 } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_bandit_fs_trapper_3",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Hello there hunter.  I see you are doing a pretty good job of learning hunting craft.  I have prepared another little test for you.  Are you ready for it, hunter?",
+      "accepted": "All right.  Let's continue.  Bring me 100 pieces of raw meat.  These forests are full of game, so follow my advises and it shouldn't be difficult for you to get enough meat.",
+      "rejected": "What a shame.  More work for me then…",
+      "advice": "There are many ways to cut game, but much less effective ones.  The most important tool is, of course, your knife.  There is no point in hunting without a well-sharpened knife.  Also, don't forget to grab the rope.  If you need to butcher the game on the spot, you can hang it on a tree.  When cutting, the main thing is not to damage the skin and tendons, but this will come with experience.  Good luck!",
+      "inquire": "How is the hunt going?",
+      "success": "Well done, <name_g>.  Remember my advises, and you will never have problems finding food.  By the way, good work need to be rewarded, right?",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_bandit_fs_trapper_3",
+    "type": "mission_definition",
+    "name": { "str": "Shakalaka" },
+    "description": "Track down and kill the legendary Shakalaka.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 0,
+    "value": 25000,
+    "has_generic_rewards": false,
+    "start": {
+      "assign_mission_target": { "om_terrain": "cave", "om_terrain_replace": "forest", "search_range": 150, "min_distance": 50, "random": true },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_bear_mutant_3headed", "name": "Shakalaka", "x": 12, "y": 12, "target": true } ] }
+    },
+    "end": {
+      "effect": [
+        { "npc_add_var": "hunting", "type": "time", "context": "wait", "time": true },
+        { "npc_adjust_var": "reward", "type": "count", "context": "missions_rewards", "adjustment": 2 },
+        { "u_buy_item": "remington700_270" },
+        { "u_buy_item": "270win_jsp", "count": 30 }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_bandit_fs_trapper_4",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Hello there hunter.  I see you are doing a pretty good job of learning hunting craft.  I have prepared another important test for you.  Are you ready for it, hunter?",
+      "accepted": "I'm glad to hear that.  Listen carefully.  During one of my last hunt, I discovered something very interesting - the Shakalaka cave!  What, you have never heard of the legendary Shakalaka?  This is truly a terrible beast, <name_g>.  People said that he looks like a bear, but with three heads… I'm not deceiving you!  In short, go and hunt this beast and do not return until you hunt him down.",
+      "rejected": "What a shame.  More work for me then…",
+      "advice": "No one really knew that he really existed, but I managed to track down his hideout.  There were rumors in my town that this beast was capable of destroying whole shed with livestock inside in one fell swoop!  So be careful <very>.",
+      "inquire": "How is the hunt going?",
+      "success": "I see my lessons haven't gone to waste for you, <name_g>.  Having defeated such a beast, you have earned the title of the first hunter in this state!  After me, of course, hehe.  You will receive a double award, as well as my old rifle.  She served me faithfully for a long time, but the time has come to hand her over to you.  Treat her well, okay?  Oh yeah, if you want to hunt down some more rare beast, I can leave some for you if you want.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "//": "TODO change monster spawn to random rare monster",
+    "id": "MISSION_bandit_fs_trapper_4",
+    "type": "mission_definition",
+    "name": { "str": "Rare beast" },
+    "description": "Track down and kill a rare beast.",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 0,
+    "value": 15000,
+    "start": {
+      "assign_mission_target": { "om_terrain": "cave", "om_terrain_replace": "forest", "min_distance": 50, "cant_see": true },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_bear_mutant_3headed", "x": 12, "y": 12, "target": true } ] }
+    },
+    "end": {
+      "effect": [
+        { "npc_add_var": "hunting", "type": "time", "context": "wait", "time": true },
+        { "npc_adjust_var": "reward", "type": "count", "context": "missions_rewards", "adjustment": 1 }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_bandit_fs_trapper_4",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Hello there hunter.  Would you like to hunt some more?  I have discovered the lair of another rare beast, and I can tell you where it is.",
+      "accepted": "I'm glad to hear that.  Here are the coordinates of this place, where you will meet your prey.  Good luck!",
+      "rejected": "What a shame.  More work for me then…",
+      "advice": "You are skilled enough to have your own approach to hunting the beast, but do not forget about the basic things: disguise, patience and one shot - one kill.",
+      "inquire": "How is the hunt going?",
+      "success": "Well done, <name_g>.  I'll let you know if I track down more rare beasts.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  }
+]

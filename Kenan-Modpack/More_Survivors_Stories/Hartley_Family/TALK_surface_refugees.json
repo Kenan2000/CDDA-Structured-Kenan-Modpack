@@ -1,0 +1,65 @@
+[
+  {
+    "type": "talk_topic",
+    "id": [
+      "TALK_REFUGEE_Alonso_1",
+      "TALK_REFUGEE_Boris_1",
+      "TALK_REFUGEE_Aleesha_1",
+      "TALK_REFUGEE_Draco_1",
+      "TALK_REFUGEE_Fatima_1",
+      "TALK_REFUGEE_Garry_1",
+      "TALK_REFUGEE_Guneet_1",
+      "TALK_REFUGEE_JENNY_1",
+      "TALK_REFUGEE_John_1",
+      "TALK_REFUGEE_Rhyzaea_1",
+      "TALK_REFUGEE_Stan_1",
+      "TALK_REFUGEE_Uyen_1",
+      "TALK_REFUGEE_Vanessa_1"
+    ],
+    "responses": [
+      {
+        "text": "Want to take care of this girl?  She's all alone in this world, without family.",
+        "topic": "TALK_REFUGEE_Rosalyn_Hartley_NO",
+        "condition": { "u_has_var": "Rosalyn_Hartley_alone", "type": "flag", "context": "alone", "value": "yes" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "TALK_REFUGEE_Pablo_1", "TALK_REFUGEE_Dana_1", "TALK_REFUGEE_Mandeep_1", "TALK_REFUGEE_Mangalpreet_1" ],
+    "responses": [
+      {
+        "text": "Want to take care of this girl?  She's all alone in this world, without family.",
+        "topic": "TALK_REFUGEE_Rosalyn_Hartley_YES",
+        "condition": { "u_has_var": "Rosalyn_Hartley_alone", "type": "flag", "context": "alone", "value": "yes" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_REFUGEE_Rosalyn_Hartley_NO",
+    "dynamic_line": "I'm struggling to take care of myself here, and I can't take of anyone else.  I'm sorry.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_REFUGEE_Rosalyn_Hartley_YES",
+    "dynamic_line": "Well, we can try.",
+    "responses": [
+      {
+        "text": "[MERCH] Thank you.  Here, take this.  It'll cover your expenses for some time.",
+        "topic": "TALK_DONE",
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 35 } },
+        "effect": [
+          { "u_add_var": "Rosalyn_Hartley_alone", "type": "flag", "context": "alone", "value": "no" },
+          { "u_sell_item": "FMCNote", "count": 35 }
+        ]
+      },
+      {
+        "text": "Thank you.",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "Rosalyn_Hartley_alone", "type": "flag", "context": "alone", "value": "no" }
+      }
+    ]
+  }
+]

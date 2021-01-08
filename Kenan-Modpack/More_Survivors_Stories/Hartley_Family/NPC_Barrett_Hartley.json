@@ -1,0 +1,422 @@
+[
+  {
+    "type": "npc",
+    "id": "NPC_Barrett_Hartley",
+    "gender": "male",
+    "class": "NC_Barrett_Hartley",
+    "name_unique": "Barrett Hartley",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_Barrett_Hartley_1",
+    "faction": "Hartley_family",
+    "mission_offered": "MISSION_Barrett_Hartley_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_Barrett_Hartley",
+    "name": { "str": "Barrett Hartley" },
+    "common": false,
+    "job_description": "I'm just wandering.",
+    "traits": [ { "trait": "BGSS_Barrett_Hartley" }, { "group": "NPC_starting_traits" }, { "group": "Appearance_Germanic" } ],
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 4, 2 ] }, { "rng": [ -4, -1 ] } ] } ] } }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "TALK_Barrett_Hartley_1", "TALK_Barrett_Hartley_Background" ],
+    "dynamic_line": "<greet>",
+    "responses": [
+      { "text": "<BGSS_intro_question>", "topic": "TALK_Barrett_Hartley_Background" },
+      {
+        "text": "How are you here?",
+        "topic": "TALK_Barrett_Hartley_safe_hay",
+        "condition": { "u_has_var": "u_helped_Barrett_Hartley", "type": "flag", "context": "end", "value": "yes" },
+        "switch": true
+      },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_OFFER", "switch": true },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_Background",
+    "dynamic_line": "Nothing special to say.  I was just lucky, like all of us.  The moment <the_cataclysm> arrived, I was at home with my family.  My wife turned into a <zombie>, tried to eat our daughter… it was terrible, <name_g>, and I don't want to talk about that.  Let's close this topic, please."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_wait",
+    "dynamic_line": "Did you find her?",
+    "responses": [
+      {
+        "text": "I'm sorry, I couldn't make it in time…",
+        "topic": "TALK_Barrett_Hartley_daughter_lost",
+        "condition": { "and": [ "mission_complete", { "not": { "u_has_mission": "MISSION_Rosalyn_Hartley_0" } } ] }
+      },
+      {
+        "text": "I'm sorry, I couldn't bring her alive…",
+        "topic": "TALK_Barrett_Hartley_daughter_lost",
+        "condition": {
+          "and": [ "mission_complete", { "u_has_var": "Rosalyn_Hartley_dead", "type": "flag", "context": "death", "value": "yes" } ]
+        }
+      },
+      {
+        "text": "She's here, alive and well.",
+        "topic": "TALK_Barrett_Hartley_ask_lead",
+        "condition": { "and": [ { "not": "mission_complete" }, { "u_has_mission": "MISSION_Rosalyn_Hartley_0" } ] },
+        "effect": [ "mission_success", "clear_mission", { "add_mission": "MISSION_Barrett_Hartley_2" }, "follow_only" ]
+      },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_daughter_lost",
+    "dynamic_line": "Oh no, my daughter…",
+    "responses": [
+      {
+        "text": "I'm sorry, I failed you…",
+        "topic": "TALK_Barrett_Hartley_daughter_lost1",
+        "effect": [ "mission_failure", "clear_mission", { "u_lose_var": "Rosalyn_Hartley_dead", "type": "flag", "context": "death" } ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_daughter_lost1",
+    "dynamic_line": "I lost my wife, my mother, my father, my friends and now… my daughter is… I don't want to live anymore…",
+    "responses": [
+      {
+        "text": "What do you think about traveling with me?",
+        "trial": { "type": "PERSUADE", "difficulty": 25 },
+        "success": { "topic": "TALK_Barrett_Hartley_join" },
+        "failure": { "topic": "TALK_DONE", "effect": [ "end_conversation", "stop_following", "flee" ] }
+      },
+      { "text": "…", "topic": "TALK_DONE", "effect": [ "end_conversation", "stop_following", "flee" ] }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_join",
+    "dynamic_line": "Well, I have nothing left, so…",
+    "responses": [ { "text": "<end_talking>", "topic": "TALK_DONE", "effect": "follow" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_ask_lead",
+    "dynamic_line": "You are my savior, thank you!  I'm very uncomfortable asking you, but… could you take us to an evacuation shelter?  I have a map showing such shelters.  Maybe there will be people with whom it will be easier for us to survive with my daughter…",
+    "responses": [
+      { "text": "Sure, no problem.  Follow me.", "topic": "TALK_DONE" },
+      { "text": "I'm kinda busy right now.  Maybe next time?", "topic": "TALK_Barrett_Hartley_ask_lead_plead" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_ask_lead_plead",
+    "dynamic_line": "Please, you are our last hope!",
+    "responses": [ { "text": "OK, OK.  Follow me then.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_lead_shelter",
+    "dynamic_line": { "u_has_mission": "MISSION_Rosalyn_Hartley_0", "yes": "Are we there yet, <name_g>?", "no": "Rosalyn!" },
+    "responses": [
+      {
+        "text": "I think we should avoid this shelter.",
+        "topic": "TALK_Barrett_Hartley_lead_shelter1",
+        "condition": {
+          "and": [
+            {
+              "or": [ { "u_has_var": "evac_problem_done", "type": "flag", "context": "problem", "value": "yes" }, "mission_complete" ]
+            },
+            { "u_has_mission": "MISSION_Barrett_Hartley_2" }
+          ]
+        }
+      },
+      {
+        "text": "We're here.",
+        "condition": { "and": [ "mission_complete", { "u_has_mission": "MISSION_Barrett_Hartley_3" } ] },
+        "trial": {
+          "type": "CONDITION",
+          "condition": { "u_has_var": "Rosalyn_Hartley_safe", "type": "flag", "context": "safe", "value": "yes" }
+        },
+        "success": { "topic": "TALK_Barrett_Hartley_evac_center" },
+        "failure": { "topic": "TALK_Barrett_Hartley_evac_center_daughter" }
+      },
+      {
+        "text": "I'm sorry, I failed you…",
+        "topic": "TALK_Barrett_Hartley_daughter_lost",
+        "condition": { "not": { "u_has_mission": "MISSION_Rosalyn_Hartley_0" } },
+        "switch": true
+      },
+      { "text": "Let's go.", "topic": "TALK_DONE", "switch": true }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_lead_shelter1",
+    "dynamic_line": "Looks like you're right.  Hmm, what is this lying here…\" he reached for a piece of paper lying on the ground and took it. \"Look, here's written about some kind of refugee center.  Even with a map how to get there.  Maybe we should try our luck there?",
+    "responses": [
+      {
+        "text": "Let's go.",
+        "topic": "TALK_DONE",
+        "effect": [ "mission_success", "clear_mission", { "add_mission": "MISSION_Barrett_Hartley_3" } ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_evac_center",
+    "dynamic_line": "Good.  Let me talk to someone in charge.  Maybe they'll let us in.",
+    "responses": [
+      {
+        "text": "Sure.",
+        "topic": "TALK_DONE",
+        "effect": [
+          "stop_following",
+          { "npc_first_topic": "TALK_Barrett_Hartley_evac_center_lobby" },
+          { "u_add_var": "merchant_center_Barrett_Hartley", "type": "ask", "context": "stay", "value": "0" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_evac_center_daughter",
+    "dynamic_line": "Is my daughter alright?  Is she safe?",
+    "responses": [ { "text": "I'll ask her.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_evac_center_lobby",
+    "dynamic_line": "I tried to talk to them, but they refused to let us in.  Maybe you can try?",
+    "responses": [
+      {
+        "text": "Nope, got the same answer.  Sorry.",
+        "topic": "TALK_Barrett_Hartley_evac_center_refused",
+        "condition": { "u_has_var": "merchant_center_Barrett_Hartley", "type": "ask", "context": "stay", "value": "no" }
+      },
+      { "text": "I can try.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_evac_center_refused",
+    "dynamic_line": "Ah, that's bad.  Thanks for your help anyway.",
+    "responses": [
+      {
+        "text": "No problem, <name_g>.  Good luck.",
+        "topic": "TALK_DONE",
+        "effect": [ "mission_success", "clear_mission", { "npc_first_topic": "TALK_Barrett_Hartley_1" } ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_safe_hay",
+    "dynamic_line": {
+      "npc_compare_time_since_var": "Barrett_Hartley_safe",
+      "type": "flag",
+      "context": "safe",
+      "op": ">",
+      "time": "7 days",
+      "yes": "I'm fine, thank you.  Everything is going well, <name_g>.  The people here are good, there is always some work available: sometimes I help to distribute the brought habar, there is always a need to repair the barriers, and sometimes they are put me in post when there are no extra hands.  I even managed to join the Old Guard, can you imagine?  Well, almost.  It will only be necessary to fulfill their simple task, and I'll be considered as full member!  There will be a salary, and rations will be enough for the two of us.",
+      "no": "I'm fine, thank you. It's a little cramped here, but we can handle it.  The main thing is that it's safe here and at least we have some food for ourselves. They don't feed here for free, tough, but there is enough work for guys like me, so I'm not complaining."
+    },
+    "responses": [
+      {
+        "text": "Maybe I can help you with it?",
+        "topic": "TALK_Barrett_Hartley_safe_help",
+        "condition": { "npc_compare_time_since_var": "Barrett_Hartley_safe", "type": "flag", "context": "safe", "op": ">", "time": "7 days" }
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_safe_help",
+    "dynamic_line": "Do you really want to help me?  Then listen.  The representative assigned me and another <name_g> to check one of the possible Hell Riders' caches.  My partner has disappeared somewhere, but I don't want to go alone.  Can you keep me company and cover my back while I carry out my task?",
+    "responses": [
+      { "text": "Sure, let's go.", "topic": "TALK_DONE", "effect": { "add_mission": "MISSION_Barrett_Hartley_4" } },
+      { "text": "Maybe later.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_help_mission_follow",
+    "dynamic_line": "Are we there yet, <name_g>?",
+    "responses": [
+      {
+        "text": "We're here.  Let's start our search.",
+        "topic": "TALK_Barrett_Hartley_help_mission",
+        "condition": "mission_complete",
+        "switch": true
+      },
+      { "text": "Not yet.", "topic": "TALK_DONE", "switch": true }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_help_mission",
+    "dynamic_line": "*looked around and said: \"Okay, now I need to find some clues…\" He started snooping around the room while you decided to take a little rest, closing your eyes.  You were awakened by a strange noise from the side of the stairs.  You quickly realized that you had guests, but it was too late.  Several guns were looking towards Barrett.",
+    "responses": [ { "text": "Look out!", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Barrett_Hartley_help_mission",
+    "dynamic_line": "*turned around, but it was too late.  The first shot hit him in the head, leaving only a beautiful hole, from which blood poured like a fountain, with pieces of his brain.  Now unwanted guests have turned their attention to you.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": [ "mission_success", "clear_mission", "npc_die" ] } ]
+  },
+  {
+    "id": "MISSION_Barrett_Hartley_1",
+    "type": "mission_definition",
+    "name": { "str": "Find daughter" },
+    "description": "Help Barrett find his daughter and bring her back to him.",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 0,
+    "has_generic_rewards": false,
+    "start": {
+      "effect": { "npc_first_topic": "TALK_Barrett_Hartley_wait" },
+      "assign_mission_target": { "om_terrain": "school_1_2" },
+      "update_mapgen": { "om_terrain": "school_3_6", "place_npcs": [ { "class": "NPC_Rosalyn_Hartley", "x": 12, "y": 6, "target": true } ] }
+    },
+    "fail": { "effect": { "u_add_var": "Barrett_Hartley_dead", "type": "flag", "context": "death", "value": "yes" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "I am very uncomfortable asking you about this, but… the fact is that my daughter and I were hiding together in the school building.  It was pretty quiet on the upper floors, and there was plenty of supplies in the dining room.  When it was time to leave, in a hurry I forgot to take my daughter's favorite doll, and she was so worried about her that she decided to return for it.  I tried to dissuade her, but she did not obey me that night, and ran to school after her beloved doll.  Please help me get my daughter back!",
+      "accepted": "Thank you!  I'll wait for you right here.",
+      "rejected": "Please, you're my last hope!",
+      "advice": "Be careful.  She's the only one I have left.",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_Barrett_Hartley_2",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Evac shelter" },
+    "description": "Lead Hartley family to evac shelter",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "effect": [ "follow_only", { "npc_first_topic": "TALK_Barrett_Hartley_lead_shelter" } ],
+      "assign_mission_target": { "om_terrain": "shelter_vandal", "om_special": "Evac Shelter Vandalized" },
+      "update_mapgen": {
+        "place_npcs": [
+          { "class": "NPC_Jerry_Bumpkin", "x": 12, "y": 12, "target": true },
+          { "class": "NPC_Jerry_Bumpkin_goon", "x": [ 5, 20 ], "y": [ 5, 20 ], "repeat": [ 3, 7 ] }
+        ]
+      }
+    },
+    "fail": { "effect": { "u_add_var": "Barrett_Hartley_dead", "type": "flag", "context": "death", "value": "yes" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_Barrett_Hartley_3",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Evac center" },
+    "description": "Lead Hartley family to evac center.",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "destination": "evac_center_18",
+    "difficulty": 0,
+    "value": 0,
+    "start": { "assign_mission_target": { "om_terrain": "evac_center_18" } },
+    "end": {
+      "effect": [
+        { "u_add_var": "u_helped_Barrett_Hartley", "type": "flag", "context": "end", "value": "yes" },
+        { "npc_add_var": "Barrett_Hartley_safe", "type": "flag", "context": "safe", "time": true }
+      ]
+    },
+    "fail": { "effect": { "u_add_var": "Barrett_Hartley_dead", "type": "flag", "context": "death", "value": "yes" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_Barrett_Hartley_4",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "First OG task" },
+    "description": "Help Barrett with his first Old Guard task.  Lead him to the potential stash of Hell's Raiders and look around for anything suspicious.",
+    "goal": "MGOAL_GO_TO",
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "effect": [ "follow_only", { "npc_first_topic": "TALK_Barrett_Hartley_help_mission_follow" } ],
+      "assign_mission_target": { "om_terrain": "pawn_pf_under" }
+    },
+    "end": {
+      "update_mapgen": {
+        "om_terrain": "pawn_pf_under",
+        "place_npcs": [ { "class": "bandit", "x": [ 9, 12 ], "y": [ 14, 15 ], "repeat": [ 2, 4 ] } ]
+      },
+      "effect": [
+        { "u_add_var": "Barrett_Hartley_mission_end", "type": "flag", "context": "mission", "value": "yes" },
+        { "u_add_var": "Barrett_Hartley_dead", "type": "flag", "context": "death", "value": "yes" }
+      ]
+    },
+    "fail": { "effect": { "u_add_var": "Barrett_Hartley_dead", "type": "flag", "context": "death", "value": "yes" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_Barrett_Hartley_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met Barrett Hartley" },
+    "description": "He looks like a nice guy.  Maybe you should not let him die?",
+    "goal": "MGOAL_CONDITION",
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_add_var": "Barrett_Hartley_dead", "type": "flag", "context": "death", "value": "yes" } }
+  }
+]

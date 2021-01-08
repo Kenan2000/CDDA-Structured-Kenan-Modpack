@@ -1,0 +1,118 @@
+[
+  {
+    "id": "TALK_OLD_GUARD_REP",
+    "type": "talk_topic",
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_OLD_GUARD_status" } }
+  },
+  {
+    "id": "TALK_SCIENCE_REP",
+    "type": "talk_topic",
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_SCIENCE_REP_status" } }
+  },
+  {
+    "id": "TALK_EVAC_MERCHANT",
+    "type": "talk_topic",
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_EVAC_SHOPKEEP_status" } }
+  },
+  {
+    "id": "TALK_FREE_MERCHANT_STOCKS",
+    "type": "talk_topic",
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_FREE_MERCHANT_STOCKS_status" } }
+  },
+  {
+    "id": "MISSION_EVAC_SHOPKEEP_status",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met FM merchant" },
+    "description": "This person is alive and well.  If this mission fails, it means that this person is dead.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "npc_has_var": "-", "type": "-", "context": "-", "value": "-" },
+    "difficulty": 0,
+    "value": 0,
+    "fail": { "effect": { "u_add_var": "fm_merchant", "type": "flag", "context": "death", "value": "yes" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "*asked you to ignore this mission :)",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_FREE_MERCHANT_STOCKS_status",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met FM broker" },
+    "description": "This person is alive and well.  If this mission fails, it means that this person is dead.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "npc_has_var": "-", "type": "-", "context": "-", "value": "-" },
+    "difficulty": 0,
+    "value": 0,
+    "fail": { "effect": { "u_add_var": "fm_food", "type": "flag", "context": "death", "value": "yes" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "*asked you to ignore this mission :)",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_SCIENCE_REP_status",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met FM doctor" },
+    "description": "This person is alive and well.  If this mission fails, it means that this person is dead.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "npc_has_var": "-", "type": "-", "context": "-", "value": "-" },
+    "difficulty": 0,
+    "value": 0,
+    "fail": { "effect": { "u_add_var": "fm_doctor", "type": "flag", "context": "death", "value": "yes" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "*asked you to ignore this mission :)",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_OLD_GUARD_status",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met OG rep" },
+    "description": "This person is alive and well.  If this mission fails, it means that this person is dead.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "npc_has_var": "-", "type": "-", "context": "-", "value": "-" },
+    "difficulty": 0,
+    "value": 0,
+    "fail": { "effect": { "u_add_var": "og_rep", "type": "flag", "context": "death", "value": "yes" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "*asked you to ignore this mission :)",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  }
+]

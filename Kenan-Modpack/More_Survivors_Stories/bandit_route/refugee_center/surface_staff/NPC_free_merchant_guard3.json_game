@@ -1,0 +1,267 @@
+[
+  {
+    "type": "npc",
+    "id": "evac_guard3",
+    "//": "Appears in the refugee center as a guard with custom dialogue.",
+    "name_suffix": "Guard",
+    "class": "NC_BOUNTY_HUNTER",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "TALK_EVAC_GUARD3",
+    "faction": "free_merchants",
+    "mission_offered": "MISSION_evac_guard3_1"
+  },
+  {
+    "id": "TALK_EVAC_GUARD3",
+    "type": "talk_topic",
+    "dynamic_line": "Keep to yourself and you won't find any problems.",
+    "responses": [
+      {
+        "text": "I talked to your leader.  He ordered your extraction.",
+        "condition": { "u_has_mission": "MISSION_bandit_fs_leader_2" },
+        "topic": "TALK_EVAC_GUARD3_EXTRACTION",
+        "switch":true
+      },
+      {
+        "text": "All done.",
+        "condition": {
+          "and": [ { "not": { "u_has_mission": "MISSION_OLD_GUARD_REP_2" } }, { "not": { "u_has_mission": "MISSION_evac_guard3_1" } } ]
+        },
+        "topic": "TALK_MISSION_OFFER",
+        "switch":true
+      },
+      { "text": "What do you do around here?", "topic": "TALK_EVAC_GUARD3_NEW" },
+      { "text": "Got tips for avoiding trouble?", "topic": "TALK_EVAC_GUARD3_RULES" },
+      { "text": "Have you seen anyone who might be hiding something?", "topic": "TALK_EVAC_GUARD3_HIDE1", 
+        "condition":{
+          "and":
+          [
+            {"u_has_mission": "MISSION_OLD_GUARD_REP_2" },
+            { "not":{"u_has_var": "search_for_bandit", "type": "flag", "context": "bandits", "value": "yes" } } 
+          ]
+        }
+      },
+      { "text": "Bye…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_NEW",
+    "type": "talk_topic",
+    "dynamic_line": "I haven't been here for long but I do my best to watch who comes and goes.  You can't always predict who will bring trouble.",
+    "responses": [ { "text": "…", "topic": "TALK_EVAC_GUARD3" } ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_RULES",
+    "type": "talk_topic",
+    "dynamic_line": "Keep your head down and stay out of my way.",
+    "responses": [ { "text": "OK…", "topic": "TALK_EVAC_GUARD3" } ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_HIDE1",
+    "type": "talk_topic",
+    "dynamic_line": "Like what?",
+    "responses": [
+      { "text": "I'm not sure…", "topic": "TALK_EVAC_GUARD3_WASTE" },
+      { "text": "Like they could be working for someone else?", "topic": "TALK_EVAC_GUARD3_HIDE2" }
+    ]
+  },
+  {
+    "id": ["TALK_EVAC_GUARD3_HIDE2","TALK_EVAC_GUARD3_BANDITS1","TALK_EVAC_GUARD3_BANDITS2"],
+    "type": "talk_topic",
+    "dynamic_line": "You're new here, who the hell put you up to this crap?",
+    "responses": [
+      {
+        "text": "Get bent, traitor!",
+        "trial": { "type": "INTIMIDATE", "difficulty": 20, "mod": [ [ "FEAR", 3 ] ] },
+        "success": {
+          "topic": "TALK_EVAC_GUARD3_HOSTILE"
+           
+        },
+        "failure": { "topic": "TALK_EVAC_GUARD3_INSULT" }
+      },
+      {
+        "text": "Got something to hide?",
+        "trial": { "type": "PERSUADE", "difficulty": 10, "mod": [ [ "TRUST", 3 ] ] },
+        "success": { "topic": "TALK_EVAC_GUARD3_DEAD" },
+        "failure": { "topic": "TALK_EVAC_GUARD3_INSULT" }
+      },
+      { "text": "Sorry, I didn't mean to offend you…", "topic": "TALK_EVAC_GUARD3_WASTE" }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_HIDE2",
+    "type": "talk_topic",
+    "responses": [ 
+      {
+        "text": "Мне кажется, ты прекрасно знаешь, что именно ты - предатель.  Нет смысла пытаться это скрыть.",
+        "trial": { "type": "INTIMIDATE", "difficulty": 25, "mod": [ [ "TRUST", 3 ] ] },
+        "success": { "topic": "TALK_EVAC_GUARD3_BANDITS1" },
+        "failure": { "topic": "TALK_EVAC_GUARD3_INSULT" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_WASTE",
+    "type": "talk_topic",
+    "dynamic_line": "If you don't get on with your business I'm going to have to ask you to leave and not come back.",
+    "responses": [ { "text": "Sorry.", "topic": "TALK_EVAC_GUARD3" } ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_DEAD",
+    "type": "talk_topic",
+    "dynamic_line": "That's it, you're dead!",
+    "speaker_effect":{ "effect": { "npc_change_faction": "hells_raiders" }},
+    "responses": [ { "text": "I didn't mean it!", "topic": "TALK_DONE" }, { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_HOSTILE",
+    "type": "talk_topic",
+    "dynamic_line": "You must really have a death wish!",
+    "speaker_effect":{"effect": [ { "u_faction_rep": -15 }, { "npc_change_faction": "hells_raiders" }]},
+    "responses": [ { "text": "I didn't mean it!", "topic": "TALK_DONE" }, { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_INSULT",
+    "type": "talk_topic",
+    "dynamic_line": "We don't put-up with garbage like you, finish your business and get the hell out.",
+    "speaker_effect":{"effect": { "u_faction_rep": -5 }},
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_BANDITS1",
+    "type": "talk_topic",
+    "dynamic_line": "I honestly don't know what you're talking about.",
+    "responses": [
+      {
+        "text": "Старая гвардия знает, что в центре есть крыса, и меня послали на её поиски.  Скажи всё, что знаешь, и может быть у тебя есть шанс выйти из этой ситуации живым.",
+        "trial": { "type": "PERSUADE", "difficulty": 25, "mod": [ [ "TRUST", 3 ] ] },
+        "success": { "topic": "TALK_EVAC_GUARD3_BANDITS2" },
+        "failure": { "topic": "TALK_EVAC_GUARD3_HOSTILE" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_BANDITS2",
+    "type": "talk_topic",
+    "dynamic_line": "*заметно занервничал и потянулся к своему оружию. \"Видимо, нет смысла это скрывать, верно?  Делай, что должен.  Но знай, что без боя я не сдамся.\"",
+    "responses": [
+      {
+        "text": "Я узнал всё, что хотел.  Get bent, traitor!",
+        "topic": "TALK_EVAC_GUARD3_DEAD"
+      },
+      {
+        "text": "Знаешь, я мог бы сдать тебя старой гвардии, но не буду.  Мне они тоже осточертели со своими пустыми лозунгами.  Я хочу стать одним из вас.  Что мне для этого нужно сделать?",
+        "topic": "TALK_EVAC_GUARD3_BANDITS3"
+      }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_BANDITS3",
+    "type": "talk_topic",
+    "dynamic_line": "Ладно, убедил.  Слушай сюда, <name_g>.  Этот представитель давно уже подозревает, что здесь есть крот, и как видишь, он есть.  Раз уж он нанял тебя чтобы покончить с этим, значит, он уже на пределе, и не остановится пока не увидит труп крота.  Чтобы сбить его со следа, нам нужно подставить кого-нибудь.  Подойди к какому-нибудь <name_b> и попробуй его спровоцировать на драку, а дальше как-бы 'случайно' нанеси ему несколько ран, желательно смертельных.  После этого, иди к представителю и навешай ему лапши на уши.  Думаю, он клюнет на это, и успокоится.  Ну или просто кончи его, чтобы не мешался под ногами.  Когда решишь проблему с представителем, подойди ко мне, поговорим.",
+    "responses": [
+      {
+        "text": "It will be done.",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "search_for_bandit", "type": "flag", "context": "bandits", "value": "yes" }
+      }
+    ]
+  },  
+  {
+    "id": "TALK_EVAC_GUARD3_EXTRACTION",
+    "type": "talk_topic",
+    "dynamic_line": "Are you ready to go?",
+    "speaker_effect":{"sentinel":"mission", "effect": [ "mission_success", "clear_mission" ] },
+    "responses": [
+      {
+        "text": "Let's go.",
+        "topic": "TALK_DONE",
+        "effect": "assign_mission"
+      },
+      { "text": "I need some time to prepare.  Wait here.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_FOLLOW",
+    "type": "talk_topic",
+    "dynamic_line": "Долго ещё идти?",
+    "responses": [
+      {
+        "text": "We're here.",
+        "condition":"mission_complete",
+        "topic":"TALK_MISSION_INQUIRE"
+      }
+    ]
+  },
+  {
+    "id": "MISSION_evac_guard3_1",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find Hell's Raiders leader" },
+    "description": "Talk to Hell's Raiders leader.",
+    "goal": "MGOAL_TALK_TO_NPC",
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "bandit_camp_1",
+        "om_special": "bandit_camp",
+        "om_terrain_replace": "forest",
+        "reveal_radius": 1,
+        "min_distance": 10,
+        "search_range": 50
+      },
+      "update_mapgen": { "place_npcs": [ { "class": "NPC_bandit_fs_leader", "x": 17, "y": 9, "target": true } ] },
+      "effect": [ { "npc_change_faction": "forest_snakes" }, { "u_faction_rep": 25 }, { "npc_change_faction": "free_merchants" } ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_evac_guard3_2",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Отлично сработано.   Проблема с представителем решена.  If you <really> want to join us, направляйся в этот лес и ищи наш лагерь.",
+      "accepted": "Good.  Я сообщу кому следует, чтобы тебя пропустили.",
+      "rejected": "Huh?",
+      "advice": "Направляйся прямо в главное здание, там ты встретишься с моим боссом.",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_evac_guard3_2",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Protect bandit" },
+    "description": "Bandit leader will hurt you if you lose his men.",
+    "goal": "MGOAL_GO_TO",
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "assign_mission_target":{"om_terrain":"bandit_camp_1", "om_special":"bandit_camp"},
+      "update_mapgen": { "om_terrain": "evac_center_19", "place_npcs": [ { "class": "evac_guard4", "x": 5, "y": 11 } ] },
+      "effect": [ { "npc_change_faction": "no_faction" }, "follow_only", { "npc_first_topic": "TALK_EVAC_GUARD3_FOLLOW" } ]
+    },
+    "end": { 
+      "effect": [ 
+        "stop_following",
+        { "npc_first_topic": "TALK_FOREST_SNAKES" },
+        { "npc_change_faction": "forest_snakes" },
+        { "u_add_var": "evac_bandit_safe", "type": "flag", "context": "safe", "value": "yes" }
+      ] 
+    },
+    "fail": { "effect": { "u_add_var": "evac_bandit_safe", "type": "flag", "context": "safe", "value": "no" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "Я уже устал идти, <name_g>.",
+      "success": "Спасибо что вывел меня оттуда.  Ещё день-другой, меня бы вычислили и застрелили в каком-нибудь тихом углу того центра.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  }
+]

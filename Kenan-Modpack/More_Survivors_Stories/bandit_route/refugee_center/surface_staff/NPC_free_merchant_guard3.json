@@ -1,0 +1,179 @@
+[
+  {
+    "id": "TALK_EVAC_GUARD3",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "I talked to your leader.  He ordered your extraction.",
+        "condition": { "u_has_mission": "MISSION_bandit_fs_leader_2" },
+        "topic": "TALK_EVAC_GUARD3_EXTRACTION",
+        "switch":true
+      },
+      {
+        "text": "All done.",
+        "condition": {
+          "and": [ { "not": { "u_has_mission": "MISSION_OLD_GUARD_REP_2" } }, { "not": { "u_has_mission": "MISSION_evac_guard3_1" } } ]
+        },
+        "topic": "TALK_EVAC_GUARD3_MISSION",
+        "switch":true
+      }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_MISSION",
+    "type": "talk_topic",
+    "dynamic_line": "Well done.  Problem with representative is resolved.  If you <really> want to join us, head to this forest and find our camp.",
+    "responses": [
+      { "text": "Sure.", "topic": "TALK_DONE", "effect": { "add_mission": "MISSION_evac_guard3_1" } },
+      { "text": "Maybe later.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_EXTRACTION",
+    "type": "talk_topic",
+    "dynamic_line": "Are you ready to go?",
+    "speaker_effect":{"sentinel":"mission", "effect": [ "mission_success", "clear_mission" ] },
+    "responses": [
+      {
+        "text": "Let's go.",
+        "topic": "TALK_DONE",
+        "effect": {"add_mission":"MISSION_evac_guard3_2"}
+      },
+      { "text": "I need some time to prepare.  Wait here.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_FOLLOW",
+    "type": "talk_topic",
+    "dynamic_line": "Are we there yet?",
+    "responses": [
+      {
+        "text": "We're here.",
+        "condition":"mission_complete",
+        "topic":"TALK_MISSION_INQUIRE"
+      }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_HIDE2",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "I think you know perfectly well that you are the informant.  There is no point in trying to hide it.",
+        "trial": { "type": "INTIMIDATE", "difficulty": 25, "mod": [ [ "TRUST", 3 ] ] },
+        "success": { "topic": "TALK_EVAC_GUARD3_BANDITS1" },
+        "failure": { "topic": "TALK_EVAC_GUARD3_INSULT" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_BANDITS1",
+    "type": "talk_topic",
+    "dynamic_line": "I honestly don't know what you're talking about.",
+    "responses": [
+      {
+        "text": "The old guard knows there is a rat in the center, and I was sent to find it.  Tell me everything you know, and maybe you have a chance to get out of this situation alive.",
+        "trial": { "type": "PERSUADE", "difficulty": 25, "mod": [ [ "TRUST", 3 ] ] },
+        "success": { "topic": "TALK_EVAC_GUARD3_BANDITS2" },
+        "failure": { "topic": "TALK_EVAC_GUARD3_HOSTILE" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_BANDITS2",
+    "type": "talk_topic",
+    "dynamic_line": "*got nervous and reached for a weapon.  \"Apparently, there is no point in hiding it, right?  Do what you must.  But know that I will not give up without a fight.\"",
+    "responses": [
+      {
+        "text": "I learned everything I wanted.  Get bent, traitor!",
+        "topic": "TALK_EVAC_GUARD3_DEAD"
+      },
+      {
+        "text": "You know, I could turn you over to the old guard, but I won't.  I'm sick of them too with their empty slogans.  I want to become one of you.  What do I need to do for this?",
+        "topic": "TALK_EVAC_GUARD3_BANDITS3"
+      }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_GUARD3_BANDITS3",
+    "type": "talk_topic",
+    "dynamic_line": "Okay, you convinced me.  Listen here, <name_g>.  This representative has long suspected that there is a informant here, and as you can see, it is.  Since they hired you to end this, then they is already at the limit, and will not stop until they see the corpse of a informant.  To knock them off the trail, we need to frame someone.  Find some loser guard and try to make an provocation for a fight, and then, as if 'accidentally' inflict several wounds, preferably fatal.  After that, go to the representative.  I think they take it and calm down after that.  When you solve the problem with a representative, come to me and then we'll talk.",
+    "responses": [
+      {
+        "text": "It will be done.",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "search_for_bandit", "type": "flag", "context": "bandits", "value": "yes" }
+      }
+    ]
+  },
+  {
+    "id": "MISSION_evac_guard3_1",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Forest camp" },
+    "description": "Talk to bandit leader.",
+    "goal": "MGOAL_TALK_TO_NPC",
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "bandit_camp_1",
+        "om_special": "bandit_camp",
+        "om_terrain_replace": "forest",
+        "reveal_radius": 1,
+        "min_distance": 10,
+        "search_range": 50
+      },
+      "update_mapgen": { "place_npcs": [ { "class": "NPC_bandit_fs_leader", "x": 17, "y": 9, "target": true } ] },
+      "effect": [ { "npc_change_faction": "forest_snakes" }, { "u_faction_rep": 25 }, { "npc_change_faction": "free_merchants" } ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_evac_guard3_2",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Protect bandit" },
+    "description": "Bandit leader will hurt you if you lose his men.",
+    "goal": "MGOAL_GO_TO",
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "assign_mission_target":{"om_terrain":"bandit_camp_1", "om_special":"bandit_camp"},
+      "update_mapgen": { "om_terrain": "evac_center_19", "place_npcs": [ { "class": "evac_guard4", "x": 5, "y": 11 } ] },
+      "effect": [ { "npc_change_faction": "no_faction" }, "follow_only", { "npc_first_topic": "TALK_EVAC_GUARD3_FOLLOW" } ]
+    },
+    "end": {
+      "effect": [
+        "stop_following",
+        { "npc_first_topic": "TALK_FOREST_SNAKES" },
+        { "npc_change_faction": "forest_snakes" },
+        { "u_add_var": "evac_bandit_safe", "type": "flag", "context": "safe", "value": "yes" }
+      ]
+    },
+    "fail": { "effect": { "u_add_var": "evac_bandit_safe", "type": "flag", "context": "safe", "value": "no" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "I'm tired of walking, <name_g>.",
+      "success": "Thank you for getting me out of there.  Day or two, and I would have been identified and shot in some quiet corner of that center.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  }
+]

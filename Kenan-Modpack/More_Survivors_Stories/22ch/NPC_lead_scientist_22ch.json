@@ -1,0 +1,425 @@
+[
+  {
+    "//": "TODO write something place him in cool basement, prob 5-20%(?), add dialogues, check code",
+    "type": "npc",
+    "id": "NPC_lead_scientist_22ch",
+    "name_unique": "Marinam 'Adu' Obmazov",
+    "gender": "male",
+    "name_suffix": "Professor",
+    "class": "NC_lead_scientist_22ch",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_lead_scientist_22ch_1",
+    "faction": "no_faction",
+    "mission_offered": "MISSION_lead_scientist_22ch_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_lead_scientist_22ch",
+    "name": { "str": "Professor Adu" },
+    "job_description": "Professor Adu.",
+    "common": false,
+    "bonus_str": { "rng": [ 2, 4 ] },
+    "bonus_dex": { "rng": [ 2, 4 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
+    "worn_override": "NC_lead_scientist_22ch_worn",
+    "weapon_override": "EMPTY_GROUP",
+    "traits": [ { "group": "Appearance_SouthAsian" }, { "trait": "BGSS_lead_scientist_22ch" }, { "group": "NPC_starting_traits" } ],
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 4, 2 ] }, { "rng": [ -4, -1 ] } ] } ] } },
+      { "skill": "melee", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 2, 6 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_lead_scientist_22ch_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "briefs" },
+      { "item": "coat_lab" },
+      { "item": "dress_shirt" },
+      { "item": "pants" },
+      { "item": "socks" },
+      { "item": "boots" },
+      { "item": "gloves_rubber" },
+      { "item": "wristwatch" },
+      { "item": "glasses_safety" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_lead_scientist_22ch_1",
+    "dynamic_line": "AHA!",
+    "responses": [
+      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_lead_scientist_22ch_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Can you teach me something?", "topic": "TALK_lead_scientist_22ch_teach_check" },
+      {
+        "text": "Do you now how to work with bionics?",
+        "topic": "TALK_lead_scientist_22ch_bionics",
+        "condition": { "npc_has_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes" }
+      },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_lead_scientist_22ch_bionics",
+    "type": "talk_topic",
+    "dynamic_line": "Sure, what do you need?",
+    "responses": [
+      {
+        "text": "I was wondering if you could install a cybernetic implant.",
+        "topic": "TALK_DONE",
+        "effect": "bionic_install"
+      },
+      { "text": "I need help removing an implant.", "topic": "TALK_DONE", "effect": "bionic_remove" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_lead_scientist_22ch_teach_check",
+    "dynamic_line": "I'm currently busy with something. Come back later.",
+    "responses": [
+      {
+        "text": "What about now?",
+        "condition": { "npc_has_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes" },
+        "trial": {
+          "type": "CONDITION",
+          "condition": { "npc_has_var": "lead_scientist_22ch_teach", "type": "general", "context": "meeting", "value": "yes" }
+        },
+        "success": {
+          "effect": [
+            { "u_buy_item": "iv_mutagen_medical" },
+            { "npc_add_var": "lead_scientist_22ch_teach", "type": "general", "context": "meeting", "value": "no" }
+          ],
+          "topic": "TALK_lead_scientist_22ch_teach"
+        },
+        "failure": { "topic": "TALK_lead_scientist_22ch_teach_done" }
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_lead_scientist_22ch_teach",
+    "dynamic_line": "I don't know what to teach you, but take this. Don't know what it is, and I can't remember where I found it.",
+    "responses": [ { "text": "Thanks.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_lead_scientist_22ch_teach_done",
+    "dynamic_line": "Nope.",
+    "responses": [ { "text": "Thanks again, teacher.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_lead_scientist_22ch_Background",
+    "dynamic_line": "I came from Azerbaijan to build robots-desu, and to launch Cloudnet so I can reprogram all remain robots to clean our <very> great country from this <zombies>",
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_lead_scientist_22ch_panic",
+    "dynamic_line": "WE'RE GOING TO DIE!!!",
+    "responses": [
+      { "text": "It's all over, my man.", "condition": "mission_complete", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "Relax, i'm working on it.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_lead_scientist_22ch_transmitters",
+    "dynamic_line": "Any results?",
+    "responses": [
+      {
+        "text": "We did it, both here.",
+        "topic": "TALK_MISSION_SUCCESS",
+        "condition": {
+          "and": [
+            { "not": "mission_complete" },
+            { "u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes" }
+          ]
+        },
+        "effect": [ "mission_success", { "npc_first_topic": "TALK_lead_scientist_22ch_1" } ]
+      },
+      {
+        "text": "We did it, i'm here, he's dead.",
+        "topic": "TALK_MISSION_SUCCESS",
+        "condition": {
+          "and": [
+            "mission_complete",
+            { "u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes" }
+          ]
+        },
+        "effect": [ "mission_success", { "npc_first_topic": "TALK_lead_scientist_22ch_1" } ]
+      },
+      {
+        "text": "We failed, and…I couldn't help him. Sorry.",
+        "topic": "TALK_lead_scientist_22ch_fail",
+        "condition": {
+          "and": [
+            "mission_complete",
+            {
+              "not": { "u_has_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes" }
+            }
+          ]
+        },
+        "effect": [ "mission_failure", "clear_mission" ]
+      },
+      { "text": "I should probably get going.", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_lead_scientist_22ch_fail",
+    "dynamic_line": "So, you failed, huh. Then we have no hope. 10 years down the drain…",
+    "responses": [
+      {
+        "text": "Maybe something can be done?",
+        "trial": { "type": "PERSUADE", "difficulty": 15 },
+        "success": { "topic": "TALK_lead_scientist_22ch_fail1" },
+        "failure": { "topic": "TALK_lead_scientist_22ch_fail_lost" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_lead_scientist_22ch_fail1",
+    "dynamic_line": "What can be done, my <name_g>? I lost all hope.",
+    "responses": [
+      {
+        "text": "Maybe we can try to do something else. Come with me.",
+        "trial": { "type": "INTIMIDATE", "difficulty": 15 },
+        "success": { "topic": "TALK_lead_scientist_22ch_follow" },
+        "failure": { "topic": "TALK_lead_scientist_22ch_fail_lost" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_lead_scientist_22ch_follow",
+    "dynamic_line": "Hmm, maybe you're right. I'll go with you.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "follow" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_lead_scientist_22ch_fail_lost",
+    "dynamic_line": "No, my <name_g>. We lost our last chance. All is lost for us, and for me…[*he got his pistol from his pocket*]",
+    "responses": [ { "text": "Wait, no…", "topic": "TALK_DONE", "effect": "npc_die" } ]
+  },
+  {
+    "id": "MISSION_lead_scientist_22ch_1",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find plutonium cell 20" },
+    "description": "Find plutonium cell 20",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "plut_cell",
+    "count": 20,
+    "difficulty": 0,
+    "value": 100,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lead_scientist_22ch_2",
+    "dialogue": {
+      "describe": "-",
+      "offer": "I need to lit up this place, and for that I need generator. For starters, find me plutonium cell 20.",
+      "accepted": "Good. I'll wait for you.",
+      "rejected": "Afraid?!",
+      "advice": "~",
+      "inquire": "I'm waiting.",
+      "success": "Nice!",
+      "success_lie": "~",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_lead_scientist_22ch_2",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find minireactor 1" },
+    "description": "Find minireactor 1",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "minireactor",
+    "count": 1,
+    "difficulty": 0,
+    "value": 1000,
+    "end": {
+      "update_mapgen": {
+        "om_terrain": "22ch_bunker_z-1",
+        "place_terrain": [
+          { "ter": "t_thconc_floor_olight", "x": 5, "y": 5 },
+          { "ter": "t_thconc_floor_olight", "x": 7, "y": 7 },
+          { "ter": "t_thconc_floor_olight", "x": 9, "y": 9 },
+          { "ter": "t_thconc_floor_olight", "x": 11, "y": 11 }
+        ]
+      }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lead_scientist_22ch_3",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Good, let's continue with generator. Find minireactor 1",
+      "accepted": "Good. I'll wait for you.",
+      "rejected": "Are you scared?",
+      "advice": "~",
+      "inquire": "I'm waiting.",
+      "success": "Nice!",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_lead_scientist_22ch_3",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find ai_module_basic 20 " },
+    "description": "End Flame Knuckle!",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "ai_module_basic",
+    "count": 20,
+    "difficulty": 0,
+    "value": 100,
+    "end": { "effect": [ { "u_buy_monster": "mon_robofac_prototype", "pacified": true } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lead_scientist_22ch_4",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Now we start working on our AI. Find ai_module_basic 20",
+      "accepted": "Good. I'll wait for you.",
+      "rejected": "Hmm.",
+      "advice": "-",
+      "inquire": "So?",
+      "success": "Good. Take this pet robot.",
+      "success_lie": "~",
+      "failure": "-"
+    }
+  },
+  {
+    "//": "TODO add AI when talk to fur will be a thing",
+    "id": "MISSION_lead_scientist_22ch_4",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find ai_module_advanced 10" },
+    "description": "Find ai_module_advanced 10",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "ai_module_advanced",
+    "count": 10,
+    "difficulty": 0,
+    "value": 1000,
+    "end": { "effect": { "u_add_var": "22ch_ai", "type": "flag", "context": "ai", "value": "yes" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lead_scientist_22ch_5",
+    "dialogue": {
+      "describe": "-",
+      "offer": "We still need more materials for our AI. Find ai_module_advanced 10",
+      "accepted": "Good. I'll wait for you.",
+      "rejected": "Afraid?",
+      "advice": "Go.",
+      "inquire": "I'm waiting.",
+      "success": "Nice! You can talk to our AI if you want.",
+      "success_lie": "~",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_lead_scientist_22ch_5",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Find laptop 1" },
+    "description": "Find laptop 1",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "laptop",
+    "difficulty": 0,
+    "value": 1000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lead_scientist_22ch_6",
+    "dialogue": {
+      "describe": "-",
+      "offer": "If I want to launch my AI to controll all reamin robots, I need to make myself a control laptop. Find laptop 1",
+      "accepted": "Good. I'll wait for you.",
+      "rejected": "Afraid?",
+      "advice": "Go.",
+      "inquire": "I'm waiting.",
+      "success": "Nice!",
+      "success_lie": "~",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_lead_scientist_22ch_6",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Help my fellow scientist" },
+    "description": "Help my fellow scientist",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 1000,
+    "start": {
+      "update_mapgen": {
+        "om_terrain": "22ch_bunker_z-1",
+        "place_npcs": [ { "class": "NPC_scientist_22ch", "x": 15, "y": 1, "target": true } ]
+      },
+      "effect": [
+        { "npc_first_topic": "TALK_lead_scientist_22ch_transmitters" },
+        { "u_add_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes" }
+      ]
+    },
+    "end": { "effect": { "npc_first_topic": "TALK_lead_scientist_22ch_1" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_lead_scientist_22ch_7",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Until I'm working on control laptop, I need to place 5 transmitters on 5 high points, like radiotowers. My fellow scientist will help you with this task. Oh, he's here. Talk to him.",
+      "accepted": "Good. Talk to my fellow scientist, help him with his task.",
+      "rejected": "Afraid?",
+      "advice": "Go.",
+      "inquire": "I'm waiting.",
+      "success": "Good. Super. Now we need to launch this thing. Talk to me if you want to be here when it happens.",
+      "success_lie": "~",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_lead_scientist_22ch_7",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "SAVE ME PLEASE!" },
+    "description": "SAVE ME PLEASE! KILL THOSE ROBOTS!",
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 0,
+    "value": 1000,
+    "start": {
+      "effect": [
+        { "u_add_var": "22ch_ai", "type": "flag", "context": "ai", "value": "no" },
+        { "npc_first_topic": "TALK_lead_scientist_22ch_panic" }
+      ],
+      "update_mapgen": {
+        "om_terrain": "22ch_bunker_z0",
+        "place_monster": [ { "monster": "mon_secubot", "x": [ 5, 20 ], "y": [ 5, 20 ], "repeat": [ 3, 5 ], "target": true } ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "npc_first_topic": "TALK_lead_scientist_22ch_1" },
+        { "npc_add_var": "u_helped_lead_scientist_22ch", "type": "general", "context": "meeting", "value": "yes" },
+        { "npc_add_var": "lead_scientist_22ch_teach", "type": "general", "context": "meeting", "value": "yes" }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "So, now we launch our Cloudnet! Are you ready for this moment?",
+      "accepted": "Good. So, now we have… what was that?! Robots attacking our base? SAVE ME PLEASE! KILL THOSE ROBOTS!",
+      "rejected": "Afraid?",
+      "advice": "Go.",
+      "inquire": "I'm waiting.",
+      "success": "Good. You saved me. Thank you! Now I can help you with stuff.",
+      "success_lie": "~",
+      "failure": "-"
+    }
+  }
+]

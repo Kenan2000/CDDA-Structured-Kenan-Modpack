@@ -1,0 +1,224 @@
+[
+  {
+    "type": "npc",
+    "id": "NPC_Rosalyn_Hartley",
+    "name_unique": "Rosalyn Hartley",
+    "gender": "female",
+    "class": "NC_Rosalyn_Hartley",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_Rosalyn_Hartley_1",
+    "faction": "Hartley_family",
+    "mission_offered": "MISSION_Rosalyn_Hartley_0"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_Rosalyn_Hartley",
+    "name": { "str": "Rosalyn Hartley" },
+    "common": false,
+    "carry_override": "EMPTY_GROUP",
+    "weapon_override": "EMPTY_GROUP",
+    "job_description": "I'm just wandering.",
+    "traits": [ { "trait": "BGSS_Rosalyn_Hartley" }, { "group": "NPC_starting_traits" }, { "group": "Appearance_Germanic" } ],
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 4, 2 ] }, { "rng": [ -4, -1 ] } ] } ] } }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Rosalyn_Hartley_1",
+    "dynamic_line": {
+      "u_has_var": "Barrett_Hartley_dead",
+      "type": "flag",
+      "context": "death",
+      "value": "yes",
+      "yes": "Daddy…",
+      "no": { "u_has_mission": "MISSION_Barrett_Hartley_1", "yes": "I'm scared. Where is my dad?", "no": "I'm scared…" }
+    },
+    "speaker_effect": { "sentinel": "met", "effect": "assign_mission" },
+    "responses": [
+      {
+        "text": "Follow me, I'll lead you to your dad.",
+        "topic": "TALK_DONE",
+        "condition": { "not": "npc_following" },
+        "effect": "follow_only",
+        "switch": true
+      },
+      {
+        "text": "We're safe.",
+        "topic": "TALK_Rosalyn_Hartley_safe",
+        "condition": { "and": [ { "u_has_mission": "MISSION_Barrett_Hartley_3" }, { "npc_at_om_location": "evac_center_18" } ] },
+        "effect": [
+          "stop_following",
+          { "u_add_var": "Rosalyn_Hartley_safe", "type": "flag", "context": "safe", "value": "yes" },
+          { "npc_first_topic": "TALK_Rosalyn_Hartley_safe" }
+        ]
+      },
+      {
+        "text": "These people will take care of you. Be nice to them.",
+        "topic": "TALK_Rosalyn_Hartley_safe_alone",
+        "condition": { "u_has_var": "Rosalyn_Hartley_alone", "type": "flag", "context": "alone", "value": "no" },
+        "switch": true
+      },
+      {
+        "text": "I'm sorry…",
+        "topic": "TALK_Rosalyn_Hartley_father_dead",
+        "condition": { "u_has_var": "Barrett_Hartley_dead", "type": "flag", "context": "death", "value": "yes" },
+        "switch": true
+      },
+      { "text": "Let's go.", "topic": "TALK_DONE", "switch": true }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Rosalyn_Hartley_father_dead",
+    "dynamic_line": "*cries",
+    "responses": [
+      {
+        "text": "Maybe you want to travel with me?",
+        "trial": { "type": "PERSUADE", "difficulty": 25 },
+        "success": { "topic": "TALK_Rosalyn_Hartley_follow" },
+        "failure": { "topic": "TALK_Rosalyn_Hartley_follow_no" }
+      },
+      {
+        "text": "Don't worry. I'll lead you somewhere safe. To evac center.",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "u_lose_var": "Barrett_Hartley_dead", "type": "flag", "context": "death" },
+          { "u_add_var": "Rosalyn_Hartley_alone", "type": "flag", "context": "alone", "value": "yes" },
+          { "npc_add_var": "alone", "type": "time", "context": "time_alone", "time": true }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Rosalyn_Hartley_follow",
+    "dynamic_line": "Umm, I don't have anyone left, so…",
+    "responses": [ { "text": "<end_talking>", "topic": "TALK_DONE", "effect": [ "follow", "mission_success", "clear_mission" ] } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Rosalyn_Hartley_follow_no",
+    "dynamic_line": "*cries more",
+    "responses": [
+      {
+        "text": "OK, OK, I'll lead you somewhere safe. To evac center.",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "u_lose_var": "Barrett_Hartley_dead", "type": "flag", "context": "death" },
+          { "u_add_var": "Rosalyn_Hartley_alone", "type": "flag", "context": "alone", "value": "yes" },
+          { "npc_add_var": "alone", "type": "time", "context": "time_alone", "time": true }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Rosalyn_Hartley_safe",
+    "dynamic_line": "Thank you!",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [ "stop_following", { "npc_first_topic": "TALK_Rosalyn_Hartley_evac_lobby" } ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Rosalyn_Hartley_safe_alone",
+    "dynamic_line": "Thank you…",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [ "mission_success", "clear_mission", "stop_following", { "npc_first_topic": "TALK_Rosalyn_Hartley_adopted" } ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Rosalyn_Hartley_evac_lobby",
+    "dynamic_line": {
+      "u_has_var": "Barrett_Hartley_dead",
+      "type": "flag",
+      "context": "death",
+      "value": "yes",
+      "yes": "Where is my daddy?",
+      "no": {
+        "u_has_mission": "MISSION_Barrett_Hartley_4",
+        "yes": "Where are you taking my father?",
+        "no": "I don't like it here…"
+      }
+    },
+    "speaker_effect": {
+      "sentinel": "safe",
+      "condition": { "u_has_var": "u_helped_Barrett_Hartley", "type": "flag", "context": "end", "value": "yes" },
+      "effect": [ "mission_success", "clear_mission" ]
+    },
+    "responses": [
+      {
+        "truefalsetext": {
+          "true": "Don't worry, I'll return your father back to you soon.",
+          "false": "…",
+          "condition": { "u_has_mission": "MISSION_Barrett_Hartley_4" }
+        },
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "//": "Add more dialogues maybe? That will open after some time",
+    "type": "talk_topic",
+    "id": "TALK_Rosalyn_Hartley_adopted",
+    "dynamic_line": "Hello…",
+    "responses": [
+      { "text": "How are you?", "topic": "TALK_Rosalyn_Hartley_adopted_hay" },
+      { "text": "I'm glad you're OK.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "//": "Add more dialogues maybe? That will open after some time",
+    "type": "talk_topic",
+    "id": "TALK_Rosalyn_Hartley_adopted_hay",
+    "dynamic_line": "I'm fine, thank you for not forgetting about me…",
+    "responses": [ { "text": "I'm glad you're OK.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "MISSION_Rosalyn_Hartley_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met Rosalyn Hartley" },
+    "description": "She looks like a nice girl.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "and": [
+        { "u_has_var": "Rosalyn_Hartley_alone", "type": "flag", "context": "alone", "value": "yes" },
+        {
+          "not": { "npc_compare_time_since_var": "alone", "type": "time", "context": "time_alone", "op": "<", "time": "1 day" }
+        }
+      ]
+    },
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": {
+      "effect": [
+        { "u_lose_var": "Rosalyn_Hartley_alone", "type": "flag", "context": "alone" },
+        { "u_add_var": "Rosalyn_Hartley_dead", "type": "flag", "context": "death", "value": "yes" }
+      ]
+    }
+  }
+]

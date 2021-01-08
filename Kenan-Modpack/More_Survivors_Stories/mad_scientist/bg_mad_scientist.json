@@ -1,0 +1,81 @@
+[
+  {
+    "id": "BGSS_mad_scientist_STORY1",
+    "type": "talk_topic",
+    "dynamic_line": "I was studying animals my whole life, until <the_cataclysm> came right to my home. I managed to run away and hide in the woods, until I found that lovely shelter, where I continued to study animals.",
+    "responses": [
+      {
+        "text": "Mycus are love, Mycus are life.",
+        "topic": "BGSS_mad_scientist_MYCUS",
+        "condition": { "u_has_trait_flag": "mycus" },
+        "switch": true
+      },
+      {
+        "text": "Listen, those berries that I found for you, are they really have healing?",
+        "condition": { "not": { "npc_has_var": "confronted_ms", "type": "flag", "context": "bg", "value": "yes" } },
+        "topic": "BGSS_mad_scientist_SEEDS",
+        "switch": true
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
+      { "text": "<end_talking>", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "BGSS_mad_scientist_SEEDS",
+    "type": "talk_topic",
+    "dynamic_line": "Yes, very healing berries, I would say magic berries.  You have experienced their effect on yourself.  Those two berries that you brought me, of course, were only enough for one dose, but that doesn't stop us from going and collecting more, right?",
+    "responses": [
+      {
+        "text": "Wait, but I brought you three berries.",
+        "topic": "BGSS_mad_scientist_SEEDS2"
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
+      { "text": "<end_talking>", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "BGSS_mad_scientist_SEEDS2",
+    "type": "talk_topic",
+    "dynamic_line": "Did I say two?  I meant three, of course, hehe.  My memory has become poor lately.",
+    "responses": [
+      {
+        "text": "Are you sure you're not lying to me?  You look strange, and you smell like mushrooms.",
+        "trial": { "type": "PERSUADE", "difficulty": 30 },
+        "success": { "topic": "BGSS_mad_scientist_SEEDS3" },
+        "failure": {
+          "topic": "BGSS_mad_scientist_LIE",
+          "effect": { "npc_add_var": "confronted_ms", "type": "flag", "context": "bg", "value": "yes" }
+        }
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
+      { "text": "<end_talking>", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "BGSS_mad_scientist_SEEDS3",
+    "type": "talk_topic",
+    "dynamic_line": "Okay, I tricked, sorry.  I was able to make the medicine without the help of these berries.  I just wanted to enjoy their great taste again.  They taste so magical, like heavenly honey.  As if the angels themselves descended from heaven and planted berries from their paradise gardens on earth.  My friend, you should try them too!  They are wonderful, have wonderful, just delicious taste.  Do you want me to give you one such berry?  I have one left and I want to share this enchanting nectar with you.",
+    "responses": [
+      { "text": "Sure, pass me one.", "topic": "TALK_DONE", "effect": { "u_buy_item": "marloss_berry" } },
+      {
+        "text": "<no>, <name_b>.  Get away from me, you <swear> psycho!",
+        "topic": "TALK_DONE",
+        "effect": [ "leave", "flee" ]
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
+      { "text": "<end_talking>", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "BGSS_mad_scientist_LIE",
+    "type": "talk_topic",
+    "dynamic_line": "You're mistaken, <name_g>.",
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" }, { "text": "<end_talking>", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "BGSS_mad_scientist_MYCUS",
+    "type": "talk_topic",
+    "dynamic_line": "Mycus are love, Mycus are life.",
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" }, { "text": "<end_talking>", "topic": "TALK_DONE" } ]
+  }
+]

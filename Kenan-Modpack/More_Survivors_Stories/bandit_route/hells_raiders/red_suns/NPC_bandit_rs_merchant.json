@@ -1,0 +1,203 @@
+[
+  {
+    "//": "TODO make him unique shop stock, maybe make him repeated delivery quest (deliver package to other gang leaders)",
+    "type": "npc",
+    "id": "NPC_bandit_rs_merchant",
+    "class": "NC_EVAC_SHOPKEEP",
+    "name_unique": "Mister T",
+    "name_suffix": "shady dealer",
+    "gender": "male",
+    "attitude": 0,
+    "mission": 3,
+    "chat": "TALK_bandit_rs_merchant1",
+    "faction": "red_suns",
+    "mission_offered": "MISSION_bandit_rs_merchant_1"
+  },
+  {
+    "id": [ "TALK_bandit_rs_merchant1" ],
+    "type": "talk_topic",
+    "dynamic_line": "<greet>",
+    "responses": [
+      { "text": "I would like to ask you about something…", "topic": "TALK_bandit_rs_merchant_questions" },
+      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_bandit_rs_merchant1" },
+      {
+        "text": "About that job…",
+        "condition": { "and": [ "has_assigned_mission", "mission_complete" ] },
+        "topic": "TALK_MISSION_INQUIRE"
+      },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [
+      "TALK_bandit_rs_merchant_questions",
+      "TALK_bandit_rs_merchant_Background",
+      "TALK_bandit_rs_merchant_questions_faction",
+      "TALK_bandit_rs_merchant_questions_faction_hr",
+      "TALK_bandit_rs_merchant_questions_bands",
+      "TALK_bandit_rs_merchant_questions_hh",
+      "TALK_bandit_rs_merchant_questions_hh_deal",
+      "TALK_bandit_rs_merchant_questions_merch",
+      "TALK_bandit_rs_merchant_questions_leader"
+    ],
+    "dynamic_line": "Make it quick.  I don't have all day for chit-chat, you know.",
+    "responses": [
+      {
+        "text": "Who's in charge now?",
+        "topic": "TALK_bandit_rs_merchant_questions_leader",
+        "condition": { "u_has_var": "hell_hound", "type": "switch", "context": "alive_dead", "value": "dead" }
+      },
+      {
+        "text": "I'm from Comandante.  Did you agree on something?",
+        "condition": { "u_has_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "3" },
+        "effect": { "u_add_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "4" },
+        "topic": "TALK_bandit_rs_merchant_questions_hh_deal"
+      },
+      {
+        "text": "Your guys slipped words that they don't really like the new leader.  Is it true?",
+        "condition": { "u_has_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "2" },
+        "topic": "TALK_bandit_rs_merchant_questions_hh"
+      },
+      { "text": "What's your story?", "topic": "TALK_bandit_rs_merchant_Background" },
+      { "text": "Who are you all?", "topic": "TALK_bandit_rs_merchant_questions_faction" },
+      {
+        "text": "Why do you use Free Merchant merch?",
+        "topic": "TALK_bandit_rs_merchant_questions_merch"
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_bandit_rs_merchant1" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_rs_merchant_questions_leader",
+    "dynamic_line": "Well, I."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_rs_merchant_Background",
+    "dynamic_line": "Listen, <name_g>, even though I did the same thing as now, that life is already in the past.  So let's close this topic and start looking to the future."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_rs_merchant_questions_merch",
+    "dynamic_line": "Why not?  There is a large supply of these pieces of paper, a lot of material for drawing new ones, and they did a good job at introducing them into the 'new' economy.  In truth, we just didn't have a replacement for them.  We got along well with barter, but it will be easier to work with these pieces of paper."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_rs_merchant_questions_faction",
+    "dynamic_line": "We are ordinary smugglers who decided to unite for the sake of survival."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_rs_merchant_questions_hh",
+    "dynamic_line": "Who told you such nonsen…\"  He looked around him with his eyes.  Sighing with relief, he said in a whisper:  \"Yes, it's true.  This monster does not give us any life.  Wasting our men, our resources, constantly dragging us into all sorts of stupid undertakings.  It would have been better without him."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_rs_merchant_questions_hh_deal",
+    "dynamic_line": "We talked about it, and we decided that without this <name_b> we will all be better.  If you want to finish him off, provoke him into a fight, and we will not interfere with you."
+  },
+  {
+    "id": "MISSION_bandit_rs_merchant_1",
+    "type": "mission_definition",
+    "name": { "str": "Defend Refugee center" },
+    "description": "Repel attack of Free Merchants on Refugee Center.",
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 35000,
+    "start": {
+      "assign_mission_target": { "om_terrain": "evac_center_23" },
+      "update_mapgen": {
+        "rows": [
+          "                        ",
+          "                        ",
+          "                        ",
+          "                        ",
+          "                        ",
+          "                4       ",
+          "                        ",
+          "               44       ",
+          "               44       ",
+          "                        ",
+          "                        ",
+          "                        ",
+          "                        ",
+          "                        ",
+          "            4           ",
+          "                        ",
+          "           44           ",
+          "           44           ",
+          "                        ",
+          "                        ",
+          "                        ",
+          "                        ",
+          "                        ",
+          "                        "
+        ],
+        "terrain": { " ": "t_null" },
+        "place_vehicles": [
+          { "vehicle": "pickup", "fuel": 35, "rotation": 270, "status": 0, "x": 17, "y": 5 },
+          { "vehicle": "pickup", "fuel": 35, "rotation": 270, "status": 0, "x": 13, "y": 14 }
+        ],
+        "place_npcs": [ { "class": "hostile_guard", "x": 15, "y": 5 }, { "class": "hostile_guard", "x": 13, "y": 14, "target": true } ],
+        "nested": { "4": { "chunks": [ [ "null", 35 ], [ "evac_hostile_guards", 65 ] ] } }
+      }
+    },
+    "end": {
+      "opinion": { "trust": 4, "value": 4 },
+      "update_mapgen": { "om_terrain": "evac_center_13", "place_npcs": [ { "class": "NPC_bandit_rs_bomber", "x": 2, "y": 15 } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_bandit_rs_merchant_2",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Listen.  I need a courier to deliver one very important package.  One condition: do not damage the package.  If you can do it, I'll make worth your time.  Agree?",
+      "accepted": "Good.  Here's a package for you, take it to the…\"  suddenly, the front door of the center threw open loudly and some guy flew into it.  After catching his breath, he said:  \n\nThug:  \"Hey, there's some <name_b>'s moving here on pickup trucks armed, to the teeth.  Get the guys together while there is time, otherwise they will shoot us one by one!\"\n\nMister T, shady dealer:  \"Delivery is canceled.  Urgently grab what you have and run out to shoot these dogs.",
+      "rejected": "Okay, I'll look for someone else.",
+      "advice": "No time for advice!",
+      "inquire": "They're dead?",
+      "success": "Well done, <name_g>.  Now let these dog kids try to poke their heads around here once more!  By the way, this guy that flew in, it was our local demolition man.  Talk to him, maybe he need help with smoking out those <name_b>'s who are underground.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_bandit_rs_merchant_2",
+    "type": "mission_definition",
+    "name": { "str": "Package delivery" },
+    "goal": "MGOAL_TALK_TO_NPC",
+    "difficulty": 0,
+    "value": 10000,
+    "start": {
+      "assign_mission_target": { "om_terrain": "ws_biker_dump_2_2" },
+      "update_mapgen": { "place_npcs": [ { "class": "NPC_bandit_sb_leader", "x": 10, "y": 5, "target": true } ] },
+      "effect": [
+        { "u_buy_item": "bandit_item_2" },
+        { "npc_change_faction": "sunset_bikers" },
+        { "u_faction_rep": 25 },
+        { "npc_change_faction": "red_suns" }
+      ]
+    },
+    "end": { "opinion": { "trust": 2, "value": 2 } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "So, I still need to deliver that package.  Conditions are the same.  Agree?",
+      "accepted": "Good. Grab the package and go.",
+      "rejected": "Okay, I'll look for someone else.",
+      "advice": "You take the parcel and, without a second thought, bring it to the addressee.",
+      "inquire": "Well, what is it?",
+      "success": "Good job. I will periodically need to send packages, so if interested, I can offer you more similar work.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "nested_mapgen_id": "evac_hostile_guards",
+    "object": { "mapgensize": [ 1, 1 ], "place_npcs": [ { "class": "hostile_guard", "x": 0, "y": 0 } ] }
+  }
+]

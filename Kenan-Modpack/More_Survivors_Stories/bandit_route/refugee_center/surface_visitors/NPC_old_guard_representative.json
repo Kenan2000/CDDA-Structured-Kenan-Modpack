@@ -1,0 +1,34 @@
+[
+  {
+    "id": "TALK_OLD_GUARD_REP",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "I've got your traitor.",
+        "topic": "TALK_OLD_GUARD_REP_TRAITOR",
+        "condition":  { "u_has_var": "search_for_bandit", "type": "flag", "context": "bandits", "value": "done" },
+        "switch":true
+      }
+    ]
+  },
+  {
+    "id": "TALK_OLD_GUARD_REP_TRAITOR",
+    "type": "talk_topic",
+    "dynamic_line": "Thank you, I'll do the explaining if anyone else asks about it.",
+    "speaker_effect": {
+      "effect": [
+        "mission_success",
+        "clear_mission",
+        { "npc_first_topic": "TALK_OLD_GUARD_REP_BUSY" },
+        { "u_lose_var": "search_for_bandit", "type": "flag", "context": "bandits" }
+      ]
+    },
+    "responses": [ { "text": "No problem.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_OLD_GUARD_REP_BUSY",
+    "type": "talk_topic",
+    "dynamic_line": "I'm busy.  Let's talk some other time.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  }
+]

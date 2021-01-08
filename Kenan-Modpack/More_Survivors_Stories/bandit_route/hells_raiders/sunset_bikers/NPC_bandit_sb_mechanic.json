@@ -1,0 +1,48 @@
+[
+  {
+    "type": "npc",
+    "id": "NPC_bandit_sb_mechanic",
+    "class": "NC_SCAVENGER",
+    "attitude": 0,
+    "mission": 8,
+    "name_suffix": "Mechanic",
+    "chat": "TALK_bandit_sb_mechanic",
+    "faction": "sunset_bikers"
+  },
+  {
+    "id": [ "TALK_bandit_sb_mechanic" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_var": "biker_dump_unlocked",
+      "type": "flag",
+      "context": "missions_sb",
+      "value": "yes",
+      "yes": "Hello there.",
+      "no": "I'm busy.  Talk to me later."
+    },
+    "responses": [
+      {
+        "text": "Hi.",
+        "topic": "TALK_bandit_sb_mechanic1",
+        "condition": { "u_has_var": "biker_dump_unlocked", "type": "flag", "context": "missions_sb", "value": "yes" },
+        "effect": { "npc_first_topic": "TALK_bandit_sb_mechanic1" }
+      }
+    ]
+  },
+  {
+    "id": [ "TALK_bandit_sb_mechanic1", "TALK_bandit_sb_mechanic_Background" ],
+    "type": "talk_topic",
+    "dynamic_line": "<greet>",
+    "responses": [
+      { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_bandit_sb_mechanic_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_mechanic_Background",
+    "dynamic_line": "When the first riots began, I gathered everything I had and moved to live in the forest, away from all the fuss.  For a while, I managed to live quietly without attracting much attention, but one day these guys found me and captured me.  When the first <zombies> began to roam the streets, they decided to involve me in the common cause.  I didn’t mind much, because there’s more chance of surviving with them than alone.  Here I am a kind of local mechanic.  I go through the insides of the wrecked motorcycles that are being dragged out of the city, and all other things."
+  }
+]

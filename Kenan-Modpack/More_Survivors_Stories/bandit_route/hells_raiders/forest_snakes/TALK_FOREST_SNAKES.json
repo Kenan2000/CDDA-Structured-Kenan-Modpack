@@ -1,0 +1,285 @@
+[
+  {
+    "type": "talk_topic",
+    "id": [
+      "TALK_FOREST_SNAKES",
+      "TALK_FOREST_SNAKES_BACKGROUND",
+      "TALK_FOREST_SNAKES_WORK_1",
+      "TALK_FOREST_SNAKES_WORK_2",
+      "TALK_FOREST_SNAKES_WORK_3",
+      "TALK_FOREST_SNAKES_WORK_1_DONE",
+      "TALK_FOREST_SNAKES_WORK_2_DONE",
+      "TALK_FOREST_SNAKES_WORK_3_DONE"
+    ],
+    "dynamic_line": {
+      "npc_has_var": "ally_transfered",
+      "type": "flag",
+      "context": "transfered",
+      "value": "fs",
+      "yes": "Hey, <name_g>.  Forest Snakes is alright.  There are a lot of cool people here.  What's up?",
+      "no": "Get lost, <name_b>."
+    },
+    "responses": [
+      {
+        "text": "Wanna help me raid that refugee center?",
+        "topic": "TALK_FOREST_SNAKES_CHOOSE",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_bandit_fs_leader_3" },
+            { "u_compare_var": "leader_lend_bandits", "type": "flag", "context": "bandits_fs", "op": ">", "value": 0 }
+          ]
+        }
+      },
+      {
+        "truefalsetext": {
+          "true": "What have you asked for again?",
+          "false": "Wanna help with building the fence?",
+          "condition": { "npc_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" }
+        },
+        "topic": "TALK_FOREST_SNAKES_WORK_3",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_bandit_fs_recruiter_2" },
+            { "u_has_var": "bandit_camp_helpers", "type": "count", "context": "help_count", "value": "2" },
+            {
+              "not": { "npc_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "done" }
+            },
+            {
+              "or": [
+                { "u_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" },
+                { "npc_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "truefalsetext": {
+          "true": "What have you asked for again?",
+          "false": "Wanna help with building the fence?",
+          "condition": { "npc_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" }
+        },
+        "topic": "TALK_FOREST_SNAKES_WORK_2",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_bandit_fs_recruiter_2" },
+            { "u_has_var": "bandit_camp_helpers", "type": "count", "context": "help_count", "value": "1" },
+            {
+              "not": { "npc_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "done" }
+            },
+            {
+              "or": [
+                { "u_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" },
+                { "npc_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "truefalsetext": {
+          "true": "What have you asked for again?",
+          "false": "Wanna help with building the fence?",
+          "condition": { "npc_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" }
+        },
+        "topic": "TALK_FOREST_SNAKES_WORK_1",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_bandit_fs_recruiter_2" },
+            { "u_has_var": "bandit_camp_helpers", "type": "count", "context": "help_count", "value": "0" },
+            {
+              "not": { "npc_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "done" }
+            },
+            {
+              "or": [
+                { "u_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" },
+                { "npc_has_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" }
+              ]
+            }
+          ]
+        }
+      },
+      { "text": "How did you get saddled with bandit life?", "topic": "TALK_FOREST_SNAKES_BACKGROUND" },
+      { "text": "…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_FOREST_SNAKES_BACKGROUND",
+    "dynamic_line": {
+      "npc_has_var": "ally_transfered",
+      "type": "flag",
+      "context": "transfered",
+      "value": "fs",
+      "yes": "I'm not sure if I'm saddled with life like this.",
+      "no": [ "Doing bandit stuff.", "I like to kill people." ]
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_FOREST_SNAKES_CHOOSE",
+    "dynamic_line": "Sure.  Shall we go?",
+    "responses": [
+      { "text": "Show me what you've got!", "topic": "TALK_FOREST_SNAKES_CHOOSE", "effect": "reveal_stats" },
+      {
+        "text": "Yes, let's go.",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "set_npc_engagement_rule": "ENGAGE_ALL" },
+          { "toggle_npc_rule": "follow_distance_2" },
+          "follow_only",
+          { "add_mission": "MISSION_FOREST_SNAKES_0" },
+          { "u_adjust_var": "leader_lend_bandits", "type": "flag", "context": "bandits_fs", "adjustment": -1 },
+          { "npc_first_topic": "TALK_FOREST_SNAKES_FOLLOW" }
+        ]
+      },
+      { "text": "Maybe later.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_FOREST_SNAKES_FOLLOW",
+    "dynamic_line": "What is it, friend?",
+    "responses": [
+      { "text": "I want you to use this item.", "topic": "TALK_FOREST_SNAKES_FOLLOW", "effect": "npc_gets_item_to_use" },
+      {
+        "text": "You are no longer needed.",
+        "topic": "TALK_DONE",
+        "effect": [ "leave", { "npc_first_topic": "TALK_FOREST_SNAKES" }, "mission_success", "clear_mission" ]
+      },
+      { "text": "<end_talking>", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_FOREST_SNAKES_WORK_1",
+    "dynamic_line": {
+      "npc_has_var": "bandit_camp_help",
+      "type": "flag",
+      "context": "search_for_help",
+      "value": "yes",
+      "yes": "2 blocks of cigs and I'm yours for a day.  No pun intended.",
+      "no": "<no>, <okay>?  I ain't doing nothing, unless I get myself some cigs.  If you bring me 2 blocks of cigs, I'll think about it."
+    },
+    "speaker_effect": {
+      "effect": [
+        { "npc_add_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" },
+        { "u_lose_var": "bandit_camp_help", "type": "flag", "context": "search_for_help" }
+      ]
+    },
+    "responses": [
+      {
+        "text": "Here's your cigs.  Now get to work, <name_b>.",
+        "condition": { "u_has_items": { "item": "cig", "count": 400 } },
+        "topic": "TALK_FOREST_SNAKES_WORK_1_DONE",
+        "effect": [
+          { "u_sell_item": "cig", "count": 400 },
+          { "npc_add_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "done" },
+          { "u_adjust_var": "bandit_camp_helpers", "type": "count", "context": "help_count", "adjustment": 1 },
+          { "u_add_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_FOREST_SNAKES_WORK_2",
+    "dynamic_line": {
+      "npc_has_var": "bandit_camp_help",
+      "type": "flag",
+      "context": "search_for_help",
+      "value": "yes",
+      "yes": "One deck of cards and I'm yours for a day.  No pun intended.",
+      "no": "<no>, <okay>?  That <name_b> burned my deck when he caught us playing, and I ain't doing nothing for him, unless I get myself a new one.  If you bring me a new deck of cards, I'll think about it."
+    },
+    "speaker_effect": {
+      "effect": [
+        { "npc_add_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" },
+        { "u_lose_var": "bandit_camp_help", "type": "flag", "context": "search_for_help" }
+      ]
+    },
+    "responses": [
+      {
+        "text": "Here's your cards.  Now get to work, <name_b>.",
+        "condition": { "u_has_item": "deck_of_cards" },
+        "topic": "TALK_FOREST_SNAKES_WORK_2_DONE",
+        "effect": [
+          { "u_sell_item": "deck_of_cards" },
+          { "npc_add_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "done" },
+          { "u_adjust_var": "bandit_camp_helpers", "type": "count", "context": "help_count", "adjustment": 1 },
+          { "u_add_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_FOREST_SNAKES_WORK_3",
+    "dynamic_line": {
+      "npc_has_var": "bandit_camp_help",
+      "type": "flag",
+      "context": "search_for_help",
+      "value": "yes",
+      "yes": "One scrap cuirass and I'm yours for a day.  No pun intended.",
+      "no": "<no>, <okay>?  There are a lot of <zombies> out there and I ain't doing nothing, unless I get myself some protection.  I want something sturdy and cool… hey, what about metal armor?  I would be invincible against <zombies>, just like in the movies.  If you bring me a metal cuirass, I'll think about it.  No need for something fancy, one made of scrap is enough."
+    },
+    "speaker_effect": {
+      "effect": [
+        { "npc_add_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" },
+        { "u_lose_var": "bandit_camp_help", "type": "flag", "context": "search_for_help" }
+      ]
+    },
+    "responses": [
+      {
+        "text": "Here's your cuirass.  Now get to work, <name_b>.",
+        "condition": { "u_has_item": "cuirass_scrap" },
+        "topic": "TALK_FOREST_SNAKES_WORK_3_DONE",
+        "effect": [
+          { "u_sell_item": "cuirass_scrap" },
+          { "npc_add_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "done" },
+          { "u_adjust_var": "bandit_camp_helpers", "type": "count", "context": "help_count", "adjustment": 1 },
+          { "u_add_var": "bandit_camp_help", "type": "flag", "context": "search_for_help", "value": "yes" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_FOREST_SNAKES_WORK_1_DONE",
+    "dynamic_line": "Cool, cool.  I'll get to it right away."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_FOREST_SNAKES_WORK_2_DONE",
+    "dynamic_line": "Hey, nice deck of cards, <name_g>.  I'll get to it right away."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_FOREST_SNAKES_WORK_3_DONE",
+    "dynamic_line": "Hey, nice armor, <name_g>.  I'll get to it right away."
+  },
+  {
+    "id": "MISSION_FOREST_SNAKES_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Protect bandit" },
+    "description": "Bandit leader will hurt you if you lose his men.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "not": { "u_has_mission": "MISSION_bandit_fs_leader_3" } },
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_adjust_var": "lend_bandits_fs", "type": "flag", "context": "death", "adjustment": 1 } }
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "type": "effect_type",
+    "id": "asked_about_HH",
+    "//": "Defined here because this should be the only time this effect is referenced."
+  },
+  {
+    "type": "talk_topic",
+    "id": [
+      "TALK_RED_SUNS",
+      "TALK_RED_SUNS_BACKGROUND",
+      "TALK_RED_SUNS_HELL_HOUND_no",
+      "TALK_RED_SUNS_HELL_HOUND_yes",
+      "TALK_RED_SUNS_HELL_HOUND",
+      "TALK_RED_SUNS_former_leader",
+      "TALK_RED_SUNS_LEADER"
+    ],
+    "dynamic_line": "What's up, doc?",
+    "responses": [
+      {
+        "text": "Who's in charge now?",
+        "topic": "TALK_RED_SUNS_LEADER",
+        "condition": { "u_has_var": "hell_hound", "type": "switch", "context": "alive_dead", "value": "dead" },
+        "switch": true
+      },
+      {
+        "text": "Listen, who is that big hairy guy?",
+        "topic": "TALK_RED_SUNS_HELL_HOUND",
+        "condition": { "u_has_var": "hell_hound", "type": "switch", "context": "alive_dead", "value": "alive" },
+        "switch": true
+      },
+      { "text": "How did you get saddled with bandit life?", "topic": "TALK_RED_SUNS_BACKGROUND" },
+      { "text": "Bye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_RED_SUNS_BACKGROUND",
+    "dynamic_line": [ "Doing bandit stuff.", "I like to kill people." ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_RED_SUNS_LEADER",
+    "dynamic_line": "Now Mister T is in charge.  He is no match for our first leader, but he is the best candidate available.  I hope he doesn't go mad like that jackal before him…"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_RED_SUNS_HELL_HOUND",
+    "dynamic_line": "This is our leader, he calls himself the Hell Hound.  He is the strongest in our gang and even the leaders of other gangs are afraid of him!",
+    "responses": [
+      {
+        "text": "And how do you feel about him?",
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "asked_about_HH" } },
+            {
+              "u_has_var": "fs_leader_mission_khh",
+              "type": "count",
+              "context": "unmarked_mission_progress",
+              "value": "1"
+            }
+          ]
+        },
+        "trial": { "type": "PERSUADE", "difficulty": 10 },
+        "success": { "topic": "TALK_RED_SUNS_HELL_HOUND_yes" },
+        "failure": { "topic": "TALK_RED_SUNS_HELL_HOUND_no", "effect": { "u_add_effect": "asked_about_HH", "duration": "3600 s" } }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_RED_SUNS_HELL_HOUND_no",
+    "dynamic_line": "As our wonderful leader, of course!\" You thought that he was not completely sincere with you. \"Why are you asking?"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_RED_SUNS_HELL_HOUND_yes",
+    "dynamic_line": "I'll tell you a secret, we don't really like him here.  He's mad!  He often has psychoses, during which he begins to pounce on everyone around.  During a recent psychosis, he just turned one of our guys into a bloody mess.  Poor guy… the old leader was many times better than this psycho.",
+    "speaker_effect": {
+      "effect": { "u_add_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "2" }
+    }
+  }
+]

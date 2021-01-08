@@ -1,0 +1,327 @@
+[
+  {
+    "type": "npc",
+    "id": "NPC_Jerry_Bumpkin",
+    "gender": "male",
+    "class": "NC_SCAVENGER",
+    "name_unique": "Jerry Bumpkin",
+    "name_suffix": "local kingpin",
+    "attitude": 1,
+    "mission": 8,
+    "chat": "TALK_Jerry_Bumpkin_start",
+    "faction": "jerry_squad",
+    "mission_offered": "MISSION_Jerry_Bumpkin_1"
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "TALK_Jerry_Bumpkin_start", "TALK_Jerry_Bumpkin_talk1", "TALK_Jerry_Bumpkin_talk2" ],
+    "responses": [ { "text": "Shove your threats up your ass, <name_b>.", "topic": "TALK_Jerry_Bumpkin_talk_nope" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_start",
+    "dynamic_line": "Hello.  You are on my territory.  Show me respect or leave this place with new holes in your body.",
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_Jerry_Bumpkin_0" } },
+    "responses": [
+      {
+        "text": "[COP] I'm a cop, so step aside, citizen.",
+        "topic": "TALK_Jerry_Bumpkin_talk_nope",
+        "condition": { "u_has_any_trait": [ "PROF_CYBERCOP", "PROF_FED", "PROF_PD_DET", "PROF_POLICE", "PROF_SWAT" ] }
+      },
+      { "text": "We're just passing by, <name_g>.  No need for violence.", "topic": "TALK_Jerry_Bumpkin_talk" },
+      { "text": "Please don't hurt me!", "topic": "TALK_Jerry_Bumpkin_talk_nope" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_talk",
+    "dynamic_line": "You think so?  Well, you are my guests, after all, and it's rude for guests to not please their host.",
+    "responses": [
+      {
+        "text": "You don't need to hurt us, my friend.  I can compensate your hospitality.",
+        "trial": { "type": "PERSUADE", "difficulty": 30 },
+        "success": { "topic": "TALK_Jerry_Bumpkin_talk1" },
+        "failure": { "topic": "TALK_Jerry_Bumpkin_talk_nope" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_talk1",
+    "dynamic_line": "And how is that?",
+    "responses": [
+      {
+        "text": "Just tell me what need to be done, and I will do it.",
+        "trial": { "type": "INTIMIDATE", "difficulty": 30 },
+        "success": { "topic": "TALK_Jerry_Bumpkin_talk2" },
+        "failure": { "topic": "TALK_Jerry_Bumpkin_talk_nope" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_talk2",
+    "dynamic_line": "Ha!  You alright.  I like the way you talk, stranger.  I have some work that has to be done.  Deal with your babysitting and come back to me, so we could discuss our business.",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "u_add_var": "evac_problem_done", "type": "flag", "context": "problem", "value": "yes" },
+          { "npc_first_topic": "TALK_Jerry_Bumpkin_1" },
+          { "u_faction_rep": 15 }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_talk_nope",
+    "dynamic_line": "I don't like people like you.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": [ "insult_combat", { "u_faction_rep": -50 } ] } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [
+      "TALK_Jerry_Bumpkin_1",
+      "TALK_Jerry_Bumpkin_busy",
+      "TALK_Jerry_Bumpkin_Background",
+      "TALK_Jerry_Bumpkin_nickels",
+      "TALK_Jerry_Bumpkin_nickels_robber"
+    ],
+    "dynamic_line": "Yo, stranger, what's up?",
+    "responses": [
+      { "text": "About that job…", "condition": "has_many_assigned_missions", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_Jerry_Bumpkin_Background" },
+      {
+        "text": "Nickels?  Really?",
+        "condition": { "npc_has_var": "nickel", "type": "flag", "context": "open_reply", "value": "1" },
+        "topic": "TALK_Jerry_Bumpkin_nickels"
+      },
+      {
+        "text": "You were a famous piggy bank robber before <the_cataclysm> or something?",
+        "condition": { "npc_has_var": "nickel", "type": "flag", "context": "open_reply", "value": "2" },
+        "topic": "TALK_Jerry_Bumpkin_nickels_robber"
+      },
+      {
+        "text": "Listen, where do you keep these coins?  If I hit you, will they fall out of you like in video games?",
+        "condition": { "npc_has_var": "nickel", "type": "flag", "context": "open_reply", "value": "3" },
+        "topic": "TALK_Jerry_Bumpkin_nickels_fu"
+      },
+      {
+        "text": "Do you need any help?",
+        "trial": {
+          "type": "CONDITION",
+          "condition": {
+            "or": [
+              { "u_has_var": "u_helped_Barrett_Hartley", "type": "flag", "context": "end", "value": "yes" },
+              { "not": { "u_has_mission": "MISSION_Rosalyn_Hartley_0" } }
+            ]
+          }
+        },
+        "success": { "topic": "TALK_MISSION_LIST" },
+        "failure": { "topic": "TALK_Jerry_Bumpkin_busy" }
+      },
+      {
+        "text": "Umm, I lost your goon.  Maybe you can give me another?",
+        "condition": {
+          "and": [
+            { "u_compare_var": "lend_goons", "type": "flag", "context": "death", "op": ">", "value": 0 },
+            { "not": { "u_has_mission": "MISSION_Jerry_Bumpkin_goon_0" } }
+          ]
+        },
+        "trial": {
+          "type": "CONDITION",
+          "condition": { "u_compare_var": "lend_goons", "type": "flag", "context": "death", "op": ">=", "value": 2 }
+        },
+        "success": { "topic": "TALK_Jerry_Bumpkin_talk_nope" },
+        "failure": { "topic": "TALK_Jerry_Bumpkin_give_goon" }
+      },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_give_goon",
+    "dynamic_line": "FINE, take another one!",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "jerry_give_goon", "type": "flag", "context": "goons", "value": "yes" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_busy",
+    "dynamic_line": "Are you sure you're not busy with something?"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_Background",
+    "dynamic_line": "Me and my guys sailed here by ship from Philly.  The situation there was just disastrous, not like here.  We decided to sail away from there, wherever.  Unfortunately, we ran into a flock of some strange <monster> that damaged our ship, and we had to quickly change our plan.  For a while we just wandered aimlessly, but then we decided to settle in the first shelter we came across.  And here we are."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_nickels",
+    "dynamic_line": "Yeah, what about them?  You don't recognize one of the stablest currencies in the world?  Did you now that one nickel coin worth more than 5 cents?  Or it was about cent coin… anyway, I don't see any problem using old coins as currency, even after <the_cataclysm>.",
+    "speaker_effect": { "effect": { "npc_lose_var": "nickel", "type": "flag", "context": "open_reply" } }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_nickels_robber",
+    "dynamic_line": "<fuck_you>.  One more joke and <ill_kill_you>.",
+    "speaker_effect": { "effect": { "npc_lose_var": "nickel", "type": "flag", "context": "open_reply" } }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_nickels_fu",
+    "dynamic_line": "You know what?  I'm tired of your stupid jokes!  <fuck_you>!",
+    "speaker_effect": { "effect": [ { "npc_lose_var": "nickel", "type": "flag", "context": "open_reply" }, { "u_faction_rep": -100 } ] },
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "MISSION_Jerry_Bumpkin_1",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "New goons" },
+    "description": "Jerry asked you to bring him more men for his crew.  At least two will be enough.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "jerry_goons", "type": "flag", "context": "goons", "value": "2" },
+    "difficulty": 0,
+    "value": 0,
+    "start": { "effect": [ { "u_add_var": "ally_transfer_js", "type": "flag", "context": "transfer", "value": "yes" } ] },
+    "end": {
+      "effect": [
+        { "u_buy_item": "coin_nickel", "count": 2000, "container": "bag_plastic" },
+        { "u_buy_item": "coin_nickel", "count": 2000, "container": "bag_plastic" },
+        { "u_buy_item": "coin_nickel", "count": 1600, "container": "bag_plastic" },
+        { "npc_add_var": "nickel", "type": "flag", "context": "open_reply", "value": "1" },
+        { "u_lose_var": "ally_transfer_js", "type": "flag", "context": "transfer" }
+      ]
+    },
+    "fail": {
+      "effect": [
+        { "u_lose_var": "jerry_goons", "type": "flag", "context": "goons" },
+        { "u_lose_var": "ally_transfer_js", "type": "flag", "context": "transfer" }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_Jerry_Bumpkin_2",
+    "dialogue": {
+      "describe": "-",
+      "offer": "I want to expand my little crew.  Bring me new men, that would die for me.  I'm good with at least two.",
+      "accepted": "Don't delay it.",
+      "rejected": "Afraid?",
+      "advice": "You can bring any, but I would prefer beautiful girls.",
+      "inquire": "I'm waiting.",
+      "success": "Good job!  Here, take this as payment.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_Jerry_Bumpkin_2",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Clean hotel" },
+    "description": "Help Jerry make hotel his new base.  For that, clean it from <zombies>.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "jerry_cleaning", "type": "count", "context": "cleaning", "value": "6" },
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "reveal_om_ter": "hotel_tower_1_2",
+      "effect": [
+        { "u_add_var": "jerry_cleaning", "type": "count", "context": "cleaning", "value": "0" },
+        { "u_add_var": "jerry_give_goon", "type": "flag", "context": "goons", "value": "yes" }
+      ]
+    },
+    "end": {
+      "effect": [
+        { "u_lose_var": "jerry_cleaning", "type": "count", "context": "meeting" },
+        { "u_lose_var": "lend_goons", "type": "flag", "context": "death" },
+        { "u_buy_item": "coin_nickel", "count": 1125, "container": "bag_plastic" },
+        { "u_buy_item": "coin_nickel", "count": 1125, "container": "bag_plastic" },
+        { "npc_add_var": "nickel", "type": "flag", "context": "open_reply", "value": "2" }
+      ]
+    },
+    "fail": {
+      "effect": [
+        { "u_lose_var": "jerry_cleaning", "type": "count", "context": "meeting" },
+        { "u_lose_var": "lend_goons", "type": "flag", "context": "death" }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_Jerry_Bumpkin_3",
+    "dialogue": {
+      "describe": "-",
+      "offer": "You did well, <name_g>.  Thanks to you, I can expand my influence a little in this part of the world.  But how can I gain the respect of others if my base is an old ruined hideout?  I need something bigger, something high… I know, a skyscraper!  Too many worries though… a hotel!  I need a big and beautiful hotel that will shine at night and attract various survivors, whom the boyz and I will then rob at the entrance, hehe.  Do you want to help me buy my own hotel?",
+      "accepted": "<very> good, <name_g>, <very> good.  I have one in mind, but before I move there, I need to clear it of swarm of <zombies>.  I want to be updated on any development of this case, so take one of my goons with you, and listen what they'll say to you.",
+      "rejected": "Afraid?",
+      "advice": "Try not to break anything inside.",
+      "inquire": "Are you done?",
+      "success": "I am glad to hear it.  When I'll get in contact with my men, we will begin preparations for the move.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_Jerry_Bumpkin_3",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Drowned baggage" },
+    "description": "Find briefcase somewhere in the wrecked ship.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "photo_album",
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "effect": "follow_only",
+      "assign_mission_target": { "om_terrain": "shipwreck_river_1" },
+      "update_mapgen": { "om_terrain": "shipwreck_river_4", "place_items": [ { "item": "photo_album", "x": 10, "y": 10 } ] }
+    },
+    "end": {
+      "effect": [
+        { "u_buy_item": "coin_nickel", "count": 1800, "container": "bag_plastic" },
+        { "npc_add_var": "nickel", "type": "flag", "context": "open_reply", "value": "3" }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "Preparations for the move are in full swing.  Now, I have a small personal request.  We sailed to this state by ship, but it was attacked by some <monster>.  At first, we were able to fight him off, but he brought his friends with him and the sides of our ship quickly turned into a sieve.  We had to quickly leave it, leaving our personal belongings and various supplies behind.  The thing is, I had to give up something important, and I would like to return it.  Will you help me?",
+      "accepted": "Thank you, <name_g>.  Find my album.  As far as I remember, I left it in my suitcase, but I don't know exactly where it might be.  You have to look for him.",
+      "rejected": "Afraid?",
+      "advice": "Be <very> careful.  If this <monster> with his friends decided to make our wrecked ship his new home, you may be forced to get there with hard fight.",
+      "inquire": "Did you find it?",
+      "success": "A little wet, but still in good condition.  Thank you!",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_Jerry_Bumpkin_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "You met Jerry" },
+    "description": "Jerry looks like a nice fella.",
+    "goal": "MGOAL_CONDITION",
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_add_var": "jerry_bumpkin", "type": "flag", "context": "death", "value": "yes" } }
+  }
+]

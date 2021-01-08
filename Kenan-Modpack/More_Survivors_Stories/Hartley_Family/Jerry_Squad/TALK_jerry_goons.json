@@ -1,0 +1,82 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_GOON",
+    "dynamic_line": {
+      "npc_has_var": "ally_transfered",
+      "type": "flag",
+      "context": "transfered",
+      "value": "js",
+      "yes": "Hey, <name_g>.  Jerry's squad is alright.  There are a lot of cool people here.  What's up?",
+      "no": "Don't make any trouble and you'll be fine."
+    },
+    "responses": [
+      {
+        "text": "Wanna help me clean that hotel?",
+        "topic": "TALK_Jerry_Bumpkin_GOON_CHOOSE",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_Jerry_Bumpkin_2" },
+            { "not": { "u_has_mission": "MISSION_Jerry_Bumpkin_goon_0" } },
+            { "u_has_var": "jerry_give_goon", "type": "flag", "context": "goons", "value": "yes" }
+          ]
+        }
+      },
+      {
+        "text": "Hey, Jerry is dead.  Want to travel with me?",
+        "topic": "TALK_SUGGEST_FOLLOW",
+        "condition": { "u_has_var": "jerry_bumpkin", "type": "flag", "context": "death", "value": "yes" }
+      },
+      { "text": "…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_GOON_CHOOSE",
+    "dynamic_line": "Sure.  Shall we go?",
+    "responses": [
+      { "text": "Show me what you've got!", "topic": "TALK_Jerry_Bumpkin_GOON_CHOOSE", "effect": "reveal_stats" },
+      {
+        "text": "Yes, let's go.",
+        "topic": "TALK_Jerry_Bumpkin_GOON_FOLLOW",
+        "effect": [
+          "follow_only",
+          { "add_mission": "MISSION_Jerry_Bumpkin_goon_0" },
+          { "u_lose_var": "jerry_give_goon", "type": "flag", "context": "goons" },
+          { "npc_first_topic": "TALK_Jerry_Bumpkin_goon_parking" }
+        ]
+      },
+      { "text": "Maybe later.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_Jerry_Bumpkin_GOON_FOLLOW",
+    "dynamic_line": "What is it, <name_g>?",
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "MISSION_Jerry_Bumpkin_goon_0",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Protect goon" },
+    "description": "Jerry will hurt you if you lose his men.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "not": { "u_has_mission": "MISSION_Jerry_Bumpkin_2" } },
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    },
+    "fail": { "effect": { "u_adjust_var": "lend_goons", "type": "flag", "context": "death", "adjustment": 1 } }
+  }
+]

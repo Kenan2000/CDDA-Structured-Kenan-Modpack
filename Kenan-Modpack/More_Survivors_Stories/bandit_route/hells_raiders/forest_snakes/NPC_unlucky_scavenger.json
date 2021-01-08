@@ -1,0 +1,98 @@
+[
+  {
+    "type": "npc",
+    "id": "NPC_unlucky_scavenger",
+    "class": "NC_SCAVENGER",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "TALK_unlucky_scavenger",
+    "faction": "no_faction",
+    "mission_offered": "MISSION_unlucky_scavenger_1"
+  },
+  {
+    "id": [ "TALK_unlucky_scavenger" ],
+    "type": "talk_topic",
+    "dynamic_line": "Oh, are you here t-to k-kill me?!  Please don't, please don't!",
+    "responses": [
+      { "text": "How do you managed to get caught?", "topic": "TALK_unlucky_scavenger_ask" },
+      { "text": "Nothing personal, kid.", "topic": "TALK_DONE", "effect": "insult_combat" }
+    ]
+  },
+  {
+    "id": [ "TALK_unlucky_scavenger_ask" ],
+    "type": "talk_topic",
+    "dynamic_line": "Made a mistake and got caught.  I was in the city nearby, looking around shops, houses, trying to find something of value.  In one of the houses I stayed longer than usual, sat down to rest, began to read a book and fell asleep.  During a nap, I felt some kind of shaking, I open my eyes.  I saw a gun in front of my eyes and feel like someone is tying my hands.  Then a gag in my mouth, a bag on my head and a strong blow to the temple.  I woke up already here, bound and beaten.  You're not with them, are you?  You must help me escape, <name_g>!  I helped the survivors at the nearby refugee center, they will pay you for saving me.  Please…",
+    "responses": [
+      {
+        "text": "I'll see what I can do.",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "npc_first_topic": "TALK_unlucky_scavenger1" },
+          { "u_add_var": "ask_bandit", "type": "mission", "context": "scavenger", "value": "yes" }
+        ]
+      },
+      { "text": "Sorry kid, nothing personal.", "topic": "TALK_DONE", "effect": "insult_combat" }
+    ]
+  },
+  {
+    "id": [ "TALK_unlucky_scavenger1" ],
+    "type": "talk_topic",
+    "dynamic_line": "What did he say?  Can I go now?",
+    "responses": [
+      {
+        "text": "Let's go, fast.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "or": [
+            { "u_has_var": "ask_bandit", "type": "mission", "context": "scavenger", "value": "done" },
+            { "u_has_var": "bandit_fs_leader", "type": "switch", "context": "alive_dead", "value": "dead" }
+          ]
+        },
+        "effect": [
+          { "npc_first_topic": "TALK_unlucky_scavenger_follow" },
+          { "u_lose_var": "ask_bandit", "type": "mission", "context": "scavenger" },
+          "assign_mission"
+        ]
+      },
+      { "text": "I changed my mind.  Nothing personal, kid.", "topic": "TALK_DONE", "effect": "insult_combat" },
+      { "text": "…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": [ "TALK_unlucky_scavenger_follow" ],
+    "type": "talk_topic",
+    "dynamic_line": "Are we there yet, <name_g>?",
+    "responses": [ { "text": "We're here.", "topic": "TALK_MISSION_INQUIRE", "condition": "mission_complete" } ]
+  },
+  {
+    "id": "MISSION_unlucky_scavenger_1",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Back to Refugee Center" },
+    "description": "Scavenger asked you to bring him to refugee center, to his friends - Free Merchants.",
+    "goal": "MGOAL_GO_TO",
+    "difficulty": 0,
+    "value": 0,
+    "start": { "assign_mission_target": { "om_terrain": "evac_center_18", "om_special": "evac_center" }, "effect": "follow_only" },
+    "end": {
+      "effect": [
+        "stop_following",
+        { "npc_first_topic": "TALK_DONE" },
+        { "npc_change_faction": "free_merchants" },
+        { "u_add_var": "unlucky_scavenger_safe", "type": "flag", "context": "safe", "value": "yes" }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "We made it!",
+      "success": "Thank you, <name_g>, you are my hero.  Now, as promised, talk to the merchant over there.  He will pay you for my rescue.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  }
+]

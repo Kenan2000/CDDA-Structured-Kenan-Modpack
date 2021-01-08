@@ -1,0 +1,494 @@
+[
+  {
+    "type": "npc",
+    "id": "NPC_mad_scientist",
+    "gender": "male",
+    "name_suffix": "scientist",
+    "class": "NC_mad_scientist",
+    "attitude": 1,
+    "mission": 8,
+    "chat": "TALK_mad_scientist_start",
+    "faction": "no_faction",
+    "mission_offered": "MISSION_mad_scientist_1"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_mad_scientist",
+    "name": { "str": "Scientist" },
+    "job_description": "Scientist.",
+    "common": false,
+    "bonus_str": { "rng": [ -3, -1 ] },
+    "bonus_dex": { "rng": [ -3, -1 ] },
+    "bonus_int": { "rng": [ 2, 8 ] },
+    "bonus_per": { "rng": [ -1, 4 ] },
+    "worn_override": "NC_mad_scientist_worn",
+    "traits": [ { "group": "Appearance_Germanic" }, { "trait": "BGSS_mad_scientist" }, { "group": "NPC_starting_traits" } ],
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "constant": -4 } ] } ] } },
+      { "skill": "computer", "bonus": { "rng": [ 1, 4 ] } },
+      { "skill": "electronics", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "cooking", "bonus": { "rng": [ 1, 4 ] } },
+      { "skill": "chemistry", "bonus": { "rng": [ 2, 5 ] } },
+      { "skill": "firstaid", "bonus": { "rng": [ 2, 4 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_mad_scientist_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "briefs" },
+      { "item": "coat_lab" },
+      { "item": "dress_shirt" },
+      { "item": "pants" },
+      { "item": "socks" },
+      { "item": "boots" },
+      { "item": "gloves_rubber" },
+      { "item": "wristwatch" },
+      { "item": "glasses_safety" }
+    ]
+  },
+  {
+    "id": "TALK_mad_scientist_start",
+    "type": "talk_topic",
+    "dynamic_line": "Who the <swear> are you, <name_b>, and how do you managed to bypass all my traps?",
+    "responses": [
+      {
+        "text": "Hey, relax, <name_g>.  Put the gun down, please.",
+        "trial": { "type": "PERSUADE", "difficulty": 50, "mod": [ [ "BRAVERY", 2 ], [ "FEAR", -2 ], [ "TRUST", 2 ] ] },
+        "success": { "topic": "TALK_mad_scientist_start_check", "opinion": { "trust": 2, "fear": -2 } },
+        "failure": { "topic": "TALK_mad_scientist_start_check" }
+      },
+      { "text": "I'm just traveling, I didn't meant to disturb you.", "topic": "TALK_mad_scientist_start_check" }
+    ]
+  },
+  {
+    "id": "TALK_mad_scientist_start_check",
+    "type": "talk_topic",
+    "dynamic_line": "You are lying, <name_b>.  THEY sent you, yes?  It's all THEY FALT!  THEY tricked me like everybody else!  I didn't mean to do harm, I swear!",
+    "responses": [
+      {
+        "text": "I don't know what you are talking about, honestly, <name_g>.",
+        "trial": { "type": "LIE", "difficulty": 25, "mod": [ [ "TRUST", 3 ] ] },
+        "success": { "topic": "TALK_mad_scientist_start_trust" },
+        "failure": { "topic": "TALK_mad_scientist_start_insult" }
+      },
+      { "text": "You are nuts!", "topic": "TALK_mad_scientist_start_insult" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_start_insult",
+    "dynamic_line": "I don't believe any of your lies!  Die, liar!",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_start_trust",
+    "dynamic_line": "Huh, maybe you're right.  I apologize for what I said earlier.",
+    "responses": [
+      {
+        "text": "No problem, <name_g>.",
+        "topic": "TALK_mad_scientist_1",
+        "effect": { "npc_first_topic": "TALK_mad_scientist_1" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [ "TALK_mad_scientist_1", "TALK_mad_scientist_Background", "TALK_mad_scientist_Background_they" ],
+    "dynamic_line": "<greet>",
+    "responses": [
+      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_mad_scientist_Background" },
+      {
+        "text": "What about that serum?",
+        "topic": "TALK_mad_scientist_serum",
+        "condition": { "npc_has_var": "mad_scientist_experiment", "type": "flag", "context": "experiment", "value": "yes" },
+        "switch": true
+      },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST", "switch": true },
+      {
+        "text": "Do you want to follow me?",
+        "topic": "TALK_SUGGEST_FOLLOW",
+        "condition": { "npc_has_var": "u_helped_mad_scientist", "type": "flag", "context": "help", "value": "yes" }
+      },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_Background",
+    "dynamic_line": "I worked on a large pharmaceutic corporation, I was studying animals my whole life, until <the_cataclysm> came right to my home.  I managed to run away and hide in the woods, until I found this lovely shelter, where I could work in piece.",
+    "responses": [
+      {
+        "text": "When we first met, you shouted something about THEM who came for you.  What was it?",
+        "topic": "TALK_mad_scientist_Background_they"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_Background_they",
+    "dynamic_line": "Ah, don't worry about it.  I breathed in fumes after the reaction, and I started to have various hallucinations, and I took you for one of them.  As you can see, there is no normal ventilation here, and I don't really want to work outside.  It's quieter here, and safer."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_serum",
+    "dynamic_line": "I can make special serum that may give you animal strength!  Do you want to be my test subject, <name_g>?",
+    "responses": [
+      { "text": "Sure, make me one.", "topic": "TALK_mad_scientist_serum_make" },
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_serum_make",
+    "dynamic_line": "OK, I need a day to make it.  Return to me later.",
+    "responses": [
+      {
+        "text": "I'll wait.",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "npc_lose_var": "mad_scientist_experiment", "type": "flag", "context": "experiment" },
+          { "npc_first_topic": "TALK_mad_scientist_serum_making" },
+          { "npc_add_var": "making_serum", "type": "flag", "context": "experiment", "time": true }
+        ]
+      },
+      { "text": "Actually, I changed my mind.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_serum_making",
+    "dynamic_line": {
+      "npc_compare_time_since_var": "making_serum",
+      "type": "flag",
+      "context": "experiment",
+      "op": ">",
+      "time": "1 day",
+      "yes": "Good, the serum is ready.  Shall we try it?",
+      "no": "I need more time, <name_g>.  Come back later."
+    },
+    "responses": [
+      {
+        "text": "Let's do it!",
+        "topic": "TALK_mad_scientist_experiment",
+        "condition": { "npc_compare_time_since_var": "making_serum", "type": "flag", "context": "experiment", "op": ">", "time": "1 day" }
+      },
+      { "text": "…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_experiment",
+    "dynamic_line": "Let's start…\"  he took a syringe from his pocket.  \"Relax, it wouldn't hurt.",
+    "responses": [ { "text": "I hope so…", "topic": "TALK_mad_scientist_experiment1" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_experiment1",
+    "dynamic_line": "*injects something in you.  \"Feeling something strange?\"",
+    "responses": [ { "text": "Nothing, doc.", "topic": "TALK_mad_scientist_experiment2" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_experiment2",
+    "dynamic_line": "Hmm, maybe I forgot to add something…",
+    "responses": [
+      {
+        "text": "Wait a second, doc.  I'm feeling something strange…",
+        "topic": "TALK_mad_scientist_experiment3",
+        "effect": "assign_mission"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_experiment3",
+    "dynamic_line": "You look norm… bloody hell!  <name_g>, what happened to you!",
+    "speaker_effect": {
+      "sentinel": "hadnt_trait",
+      "condition": { "not": { "u_has_trait": "CHAOTIC_BAD" } },
+      "effect": { "u_add_trait": "CHAOTIC_BAD" }
+    },
+    "responses": [ { "text": "What is it, doc?", "topic": "TALK_mad_scientist_experiment4" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_experiment4",
+    "dynamic_line": "*gave you his pocket mirror.  \"I'm sorry, <name_g>, I just remembered what I forgot to add.  It's all my fault…\"\n\nYou looked in the mirror and screamed in shock.",
+    "responses": [ { "text": "Doc, what did you do to me?  I've become an abomination! ", "topic": "TALK_mad_scientist_experiment5" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_experiment5",
+    "dynamic_line": "Don't worry, I know how to fix it.  I just need to find more berries…",
+    "responses": [ { "text": "What are you talking about?!", "topic": "TALK_mad_scientist_experiment6" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_experiment6",
+    "dynamic_line": "There are some very interesting berries growing nearby, which I had never met before <the_cataclysm>.  I managed to pick a couple and having studied them.  I discovered their amazing healing properties.  I will show you the place where I last saw them.  Go there and bring me 3 of that berries, so I can make a cure for you.  But please hurry, if you don't make it in time, I'm afraid the changes will be irreversible.",
+    "responses": [ { "text": "I hope it helps…", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_mad_scientist_wait" } } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_wait",
+    "dynamic_line": "Did you find them?",
+    "responses": [
+      {
+        "text": "Here, take it.",
+        "topic": "TALK_mad_scientist_wait_done",
+        "condition": { "u_has_items": { "item": "marloss_berry", "count": 3 } },
+        "effect": [ { "u_consume_item": "marloss_berry", "count": 3 }, { "npc_add_trait": "MARLOSS" } ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_wait_done",
+    "dynamic_line": "Good.  Wait here for some time.  It will take no more than a day.",
+    "responses": [
+      {
+        "text": "Please hurry, doc…",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "npc_add_var": "mad_scientist_need_time", "type": "flag", "context": "wait", "time": true },
+          { "npc_first_topic": "TALK_mad_scientist_brew" }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_brew",
+    "dynamic_line": {
+      "npc_compare_time_since_var": "mad_scientist_need_time",
+      "type": "flag",
+      "context": "wait",
+      "op": ">",
+      "time": "12 hours",
+      "yes": "It's done!  Let's test it?",
+      "no": "I need more time."
+    },
+    "responses": [
+      {
+        "text": "Just inject it already!",
+        "topic": "TALK_mad_scientist_brew_check",
+        "condition": {
+          "npc_compare_time_since_var": "mad_scientist_need_time",
+          "type": "flag",
+          "context": "wait",
+          "op": ">",
+          "time": "12 hours"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_brew_check",
+    "dynamic_line": "OK, let's wait for a while.",
+    "responses": [
+      {
+        "text": "…",
+        "trial": { "type": "CONDITION", "condition": { "u_has_mission": "MISSION_mad_scientist_5" } },
+        "success": { "topic": "TALK_mad_scientist_brew_good" },
+        "failure": { "topic": "TALK_mad_scientist_brew_bad" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_brew_good",
+    "dynamic_line": "Phew, you look normal again.  I'm <very> glad that worked well, <name_g>.  You know, I don't want to engage in such experimentation anymore.  It's time to rest a little.  By the way, I have some leftovers here, I'll throw them out of harm's way.  You can take some of this if you want.",
+    "speaker_effect": [
+      { "effect": [ "mission_success", "clear_mission", { "npc_first_topic": "TALK_mad_scientist_1" } ] },
+      { "sentinel": "hadnt_trait", "effect": { "u_lose_trait": "CHAOTIC_BAD" } }
+    ],
+    "responses": [
+      {
+        "text": "Dark red liquid.",
+        "topic": "TALK_DONE",
+        "effect": { "u_buy_item": "iv_mutagen_alpha", "container": "test_tube" }
+      },
+      {
+        "text": "Red liquid.",
+        "topic": "TALK_DONE",
+        "effect": { "u_buy_item": "iv_mutagen_beast", "container": "test_tube" }
+      },
+      {
+        "text": "Sky blue liquid.",
+        "topic": "TALK_DONE",
+        "effect": { "u_buy_item": "iv_mutagen_bird", "container": "test_tube" }
+      },
+      {
+        "text": "Orange liquid.",
+        "topic": "TALK_DONE",
+        "effect": { "u_buy_item": "iv_mutagen_ursine", "container": "test_tube" }
+      },
+      {
+        "text": "Rainbow liquid.",
+        "topic": "TALK_DONE",
+        "effect": { "u_buy_item": "iv_mutagen_raptor", "container": "test_tube" }
+      },
+      { "text": "Thanks, I'll pass.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_mad_scientist_brew_bad",
+    "dynamic_line": "Sorry, <name_g>, you didn't make it in time.  Better luck next time, I guess.",
+    "speaker_effect": { "effect": [ { "npc_first_topic": "TALK_mad_scientist_1" }, "clear_mission" ] },
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "MISSION_mad_scientist_1",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Spider eggs" },
+    "description": "Bring 15 spider eggs.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "spider_egg",
+    "count": 15,
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_mad_scientist_2",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Before <the_cataclysm> I was doing researching various drugs and viruses that we tested on animals.  I assume that one of the reasons for all this is a virus that was released from one of our laboratories.  To be completely sure of this, I need to study the changed fauna.  Are you ready to help me with this?",
+      "accepted": "Good.  First, I want to study how the virus affected cute little animals like spiders.  Perhaps you saw what happened to them.  A terrible sight.  Bring me 15 spider eggs.",
+      "rejected": "Bah.",
+      "advice": "Spiders love to settle in forests and near swamps.",
+      "inquire": "How’s your search going?",
+      "success": "Wonderful.  I start studying it immediately!",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_mad_scientist_2",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Ant eggs" },
+    "description": "Bring 20 ant eggs.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "ant_egg",
+    "count": 20,
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_mad_scientist_3",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Thanks to the samples you brought me, I am one step closer to solving the mystery of <the_cataclysm>.  Do you want to help me get some more samples?",
+      "accepted": "Good. This time, I want to study how the virus affected cute animals like ants.  Perhaps you saw what happened to them.  These poor hard workers have mutated into terrible creatures: the size of a car, blade-paws, chitinous armor, and some also know how to spit fire!  A terrible sight.  Bring me 20 ant eggs.",
+      "rejected": "Bah.",
+      "advice": "As far as I know, they have always liked to hide underground.  Surely these versions of them also hide their queen somewhere below.",
+      "inquire": "How’s your search going?",
+      "success": "Wonderful.  I start studying it immediately!",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_mad_scientist_3",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Razorclaw roe" },
+    "description": "Bring 8 razorclaw roe.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "razorclaw_roe",
+    "count": 8,
+    "difficulty": 0,
+    "value": 0,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_mad_scientist_4",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Thanks to the samples you brought me, I am one step closer to solving the mystery of <the_cataclysm>.  Do you want to help me get some more samples?",
+      "accepted": "Good.  This time, I want to study how the virus affected cute animals like razorclaw.  These creatures have mutated into real death machines!  A terrible sight.  Bring me 8 razorclaw roe.",
+      "rejected": "Bah.",
+      "advice": "They can be found near various water sources, like rivers or lakes.",
+      "inquire": "How’s your search going?",
+      "success": "Wonderful.  I start studying it immediately!",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_mad_scientist_4",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Royal jelly" },
+    "description": "Bring 5 royal jelly.",
+    "goal": "MGOAL_FIND_ITEM",
+    "item": "royal_jelly",
+    "count": 5,
+    "difficulty": 0,
+    "value": 0,
+    "end": { "effect": { "npc_add_var": "mad_scientist_experiment", "type": "flag", "context": "experiment", "value": "yes" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_mad_scientist_5",
+    "dialogue": {
+      "describe": "-",
+      "offer": "Thanks to the samples you brought me, I am one step closer to solving the mystery of <the_cataclysm>.  Do you want to help me get some more samples?",
+      "accepted": "Good.  This time, I want to study how the virus affected cute animals like bees.  These critters have mutated into real flying and buzzing killers!  A terrible sight.  Bring me 5 royal jelly.",
+      "rejected": "Bah",
+      "advice": "They still build their hives in warm places, but since they are now the size of a cow, the hives take up a lot more space and you shouldn't have a hard time finding them.",
+      "inquire": "How’s your search going?",
+      "success": "Wonderful. Immediately I begin to study.  By the way, thanks to the samples that you brought me, I was able to make some progress in my own research.  I won't go into details, but based on my findings, I can make an experimental serum that can enhance human potential.  Tell me if you want to experience it for yourself.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_mad_scientist_5",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Wild experiment" },
+    "description": "That didn't go well for you.  If you bring 3 berries in time, maybe it can be reverted…",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "npc_has_var": "-", "type": "-", "context": "-", "value": "-" },
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "reveal_om_ter": "fungal_flowers",
+      "effect": [
+        { "u_add_effect": "mad_scientist_experiment", "duration": "PERMANENT" },
+        { "u_add_trait": "FEATHERS" },
+        { "u_add_trait": "ARM_TENTACLES" },
+        { "u_add_trait": "PER_SLIME" },
+        { "u_add_trait": "LIZ_EYE" },
+        { "u_add_trait": "HORNS" }
+      ]
+    },
+    "end": {
+      "effect": [
+        { "npc_add_var": "u_helped_mad_scientist", "type": "flag", "context": "help", "value": "yes" },
+        { "u_lose_effect": "mad_scientist_experiment" },
+        { "u_lose_trait": "FEATHERS" },
+        { "u_lose_trait": "ARM_TENTACLES" },
+        { "u_lose_trait": "PER_SLIME" },
+        { "u_lose_trait": "LIZ_EYE" },
+        { "u_lose_trait": "HORNS" }
+      ]
+    },
+    "deadline_low": 3,
+    "deadline_high": 7,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  }
+]

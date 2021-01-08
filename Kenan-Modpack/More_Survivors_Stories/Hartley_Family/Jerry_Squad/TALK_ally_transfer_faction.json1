@@ -1,0 +1,63 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_ALLY_ORDERS",
+    "responses": [ { "text": "What do you think about transferring to another faction?", "topic": "TALK_ally_transfer" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ally_transfer",
+    "dynamic_line": {
+      "and": [
+        "So, I can transfer to:",
+        {
+          "u_has_var": "ally_transfer_js",
+          "type": "flag",
+          "context": "transfer",
+          "value": "yes",
+          "yes": "  Jerry's squad."
+        },
+        "  Where do you want me to go?"
+      ]
+    },
+    "responses": [
+      {
+        "text": "What do you think about Jerry's squad?",
+        "topic": "TALK_ally_transfer_jerry_squad",
+        "condition": {
+          "and": [
+            { "u_compare_var": "jerry_goons", "type": "flag", "context": "goons", "op": "<", "value": 2 },
+            { "u_has_var": "ally_transfer_js", "type": "flag", "context": "transfer", "value": "yes" }
+          ]
+        }
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_ally_transfer_jerry_squad",
+    "dynamic_line": "Jerry's squad sounds cool! If you are sure about it, lead me to their leader, so he can accept me.",
+    "responses": [
+      {
+        "text": "Yes, Jerry needs you. Now go.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            { "npc_at_om_location": "shelter_vandal" },
+            { "u_has_var": "ally_transfer_js", "type": "flag", "context": "transfer", "value": "yes" }
+          ]
+        },
+        "effect": [
+          "leave",
+          { "npc_change_faction": "jerry_squad" },
+          "assign_guard",
+          { "npc_first_topic": "TALK_Jerry_Bumpkin_GOON" },
+          { "u_adjust_var": "jerry_goons", "type": "flag", "context": "goons", "adjustment": 1 },
+          { "npc_add_var": "ally_transfered", "type": "flag", "context": "transfered", "value": "js" }
+        ]
+      },
+      { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" }
+    ]
+  }
+]

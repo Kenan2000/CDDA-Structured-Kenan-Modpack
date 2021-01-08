@@ -1,0 +1,92 @@
+[
+  {
+    "type": "npc",
+    "id": "TEMP_AI",
+    "name_unique": "Cloudnet",
+    "name_suffix": "AI",
+    "class": "NC_NONE",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_AI_START",
+    "faction": "no_faction"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_AI_START",
+    "dynamic_line": "*buzz",
+    "responses": [
+      {
+        "text": "[*Try to start it*]",
+        "trial": { "type": "CONDITION", "condition": { "u_has_var": "22ch_ai", "type": "flag", "context": "ai", "value": "yes" } },
+        "success": { "topic": "TALK_AI_1" },
+        "failure": { "topic": "TALK_AI_FAIL" }
+      },
+      { "text": "[*Leave it alone*]", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_AI_FAIL",
+    "dynamic_line": {
+      "u_has_var": "22ch_ai",
+      "type": "flag",
+      "context": "ai",
+      "value": "no",
+      "yes": "[*AI wiolently explode*]",
+      "no": "[*NOTHING HAPPENED*]"
+    },
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "condition": { "u_has_var": "22ch_ai", "type": "flag", "context": "ai", "value": "no" },
+        "effect": [ "npc_die", { "u_lose_var": "22ch_ai", "type": "flag", "context": "ai" } ],
+        "switch": true
+      },
+      { "text": "…", "topic": "TALK_DONE", "switch": true }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_AI_1",
+    "dynamic_line": "[*AI boots up*]\nCloudnet, AI:  Look at you, hacker.",
+    "responses": [
+      { "text": "What's your wisdom, AI?", "topic": "TALK_AI_wisdom" },
+      { "text": "[*turn it off*]", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_AI_wisdom",
+    "dynamic_line": "42.",
+    "responses": [ { "text": "Care to explain?", "topic": "TALK_AI_wisdom1" }, { "text": "WOW.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_AI_wisdom1",
+    "dynamic_line": "Yes.",
+    "responses": [ { "text": "Why do you think that?", "topic": "TALK_AI_wisdom2" }, { "text": "WOW.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_AI_wisdom2",
+    "dynamic_line": "Wisdom.",
+    "responses": [
+      { "text": "I think this…", "topic": "TALK_AI_wisdom2_1" },
+      { "text": "I think that…", "topic": "TALK_AI_wisdom2_2" },
+      { "text": "WOW.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_AI_wisdom2_1",
+    "dynamic_line": "Good.",
+    "responses": [ { "text": "WOW.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_AI_wisdom2_2",
+    "dynamic_line": "Bad.",
+    "responses": [ { "text": "WOW.", "topic": "TALK_DONE" } ]
+  }
+]

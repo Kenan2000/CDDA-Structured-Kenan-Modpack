@@ -1,0 +1,44 @@
+[
+  {
+    "id": "TALK_OLD_GUARD_REP",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "Do you know a guy named Barrett Hartley?",
+        "topic": "TALK_OLD_GUARD_REP_BH",
+        "condition": { "u_has_var": "Barrett_Hartley_mission_end", "type": "flag", "context": "mission", "value": "yes" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_OLD_GUARD_REP_BH",
+    "type": "talk_topic",
+    "dynamic_line": "Yes, I remember him.  Good guy, with his pretty daughter.  Something happened?",
+    "responses": [
+      {
+        "text": "About the task you gave him.  I'm afraid I have bad news… *tell how it was*",
+        "topic": "TALK_OLD_GUARD_REP_BH1"
+      },
+      { "text": "Never mind…", "topic": "TALK_OLD_GUARD_REP" }
+    ]
+  },
+  {
+    "id": "TALK_OLD_GUARD_REP_BH1",
+    "type": "talk_topic",
+    "dynamic_line": "*listened carefully, then said: \"Yeah, it didn't work out well.  This second one will get his punishment, for cowardice.  If he is still alive… well, you completed the task, and there was a reward for it.  You can take it for yourself.\"",
+    "speaker_effect": { "effect": { "u_add_var": "Barrett_Hartley_mission_end", "type": "flag", "context": "mission", "value": "done" } },
+    "responses": [
+      { "text": "[take the money]", "topic": "TALK_DONE", "effect": { "u_buy_item": "FMCNote", "count": 50 } },
+      {
+        "text": "Keep the money.  Better take care of the girl, she's left all alone.",
+        "topic": "TALK_OLD_GUARD_REP_BH2"
+      }
+    ]
+  },
+  {
+    "id": "TALK_OLD_GUARD_REP_BH2",
+    "type": "talk_topic",
+    "dynamic_line": "Don't worry, the Old Guard will take care of her.  We do not abandon our own people, even those who didn't officially join our ranks.",
+    "responses": [ { "text": "Good to hear.", "topic": "TALK_DONE" } ]
+  }
+]

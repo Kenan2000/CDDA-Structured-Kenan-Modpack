@@ -1,0 +1,29 @@
+[
+  {
+    "id": "TALK_EVAC_MERCHANT",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "I saved your man here, and he said there was a reward for it.",
+        "topic": "TALK_EVAC_MERCHANT_SCAV_REWARD",
+        "condition": { "u_has_var": "unlucky_scavenger_safe", "type": "flag", "context": "safe", "value": "yes" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_MERCHANT_SCAV_REWARD",
+    "type": "talk_topic",
+    "dynamic_line": "No problem, <name_g>.  He told us everything how it was.  Now I will ask the guys to give you your reward.",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [
+          "end_conversation",
+          { "u_faction_rep": -100 },
+          { "u_lose_var": "unlucky_scavenger_safe", "type": "flag", "context": "safe" }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,55 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_EVAC_MERCHANT",
+    "responses": [
+      {
+        "text": "Is there any way you can accept my friends over there?",
+        "topic": "TALK_EVAC_MERCHANT_Hartley_family",
+        "condition": {
+          "and": [
+            { "u_has_var": "merchant_center_Barrett_Hartley", "type": "ask", "context": "stay", "value": "0" },
+            { "u_has_mission": "MISSION_Barrett_Hartley_3" }
+          ]
+        }
+      },
+      {
+        "text": "Is there any way you can accept the girl over there?",
+        "topic": "TALK_EVAC_MERCHANT_Rosalyn_Hartley",
+        "condition": { "u_has_var": "Rosalyn_Hartley_alone", "type": "flag", "context": "alone", "value": "yes" }
+      }
+    ]
+  },
+  {
+    "//": "Maybe make more checks that will let them in?",
+    "type": "talk_topic",
+    "id": "TALK_EVAC_MERCHANT_Hartley_family",
+    "dynamic_line": "I'm sorry, we still don't have the space, nor the food, to take in more refugees.",
+    "responses": [
+      {
+        "text": "Maybe you reconsider?",
+        "trial": { "type": "PERSUADE", "difficulty": 15 },
+        "success": { "topic": "TALK_EVAC_MERCHANT_Hartley_family_nope" },
+        "failure": { "topic": "TALK_EVAC_MERCHANT_Hartley_family_nope" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_EVAC_MERCHANT_Hartley_family_nope",
+    "dynamic_line": "No way.",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": { "u_add_var": "merchant_center_Barrett_Hartley", "type": "ask", "context": "stay", "value": "no" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_EVAC_MERCHANT_Rosalyn_Hartley",
+    "dynamic_line": "Hmm, we are full, but… if someone wants to share their ration, you can ask around.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  }
+]
