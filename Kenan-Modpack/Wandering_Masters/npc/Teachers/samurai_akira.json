@@ -27,7 +27,11 @@
     "carry_override": "NC_samurai_akira_carried",
     "weapon_override": "NC_samurai_akira_weapon",
     "traits": [ { "group": "Appearance_EastAsian" }, { "group": "NPC_starting_traits" }, { "trait": "PAINRESIST" } ],
-    "skills": [ { "skill": "melee", "bonus": { "rng": [ 2, 6 ] } }, { "skill": "cutting", "bonus": { "rng": [ 2, 6 ] } }, { "skill": "dodge", "bonus": { "rng": [ 2, 6 ] } } ]
+    "skills": [
+      { "skill": "melee", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "cutting", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 2, 6 ] } }
+    ]
   },
   {
     "type": "item_group",
@@ -72,7 +76,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_samurai_akira_Background",
-    "dynamic_line": "I came from Japan to retrieve ancient relics from the past: parts of armour of Kentaro the Great.",
+    "dynamic_line": "I came from Japan to retrieve ancient relics from the past: parts of armor of Kentaro the Great.",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
@@ -128,7 +132,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_samurai_akira_test1",
-    "dynamic_line": "Good, good.  This is the armour that you found for me.  Put it on, and then speak to me.",
+    "dynamic_line": "Good, good.  This is the armor that you found for me.  Put it on, and then speak to me.",
     "responses": [
       {
         "text": "…",
@@ -166,7 +170,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_samurai_akira_test3",
-    "dynamic_line": "Yes, good, good.  You look like a fine warrior in his armour and with his weapon.  Prepare my student.  Training will be hard, but I hope you succeed in it.  And now, the training: fight to the death!  BANZAI!",
+    "dynamic_line": "Yes, good, good.  You look like a fine warrior in his armor and with his weapon.  Prepare my student.  Training will be hard, but I hope you succeed in it.  And now, the training: fight to the death!  BANZAI!",
     "responses": [
       {
         "text": "Wait, whaa…",
@@ -211,7 +215,7 @@
       "rejected": "Coward!",
       "advice": "If you want to become a great warrior, that will be sung about in the legends, you need to learn how to deal with problems by yourself!",
       "inquire": "…",
-      "success": "Yes, yes, it's his tabi.  It even smells like him.  Good, good.  One step closer to the end of my quest.",
+      "success": "Yes, yes, it's his Tabi.  It even smells like him.  Good, good.  One step closer to the end of my quest.",
       "success_lie": "Coward!",
       "failure": "Coward!"
     }
@@ -257,7 +261,7 @@
     "type": "mission_definition",
     "has_generic_rewards": false,
     "name": { "str": "Find Armour" },
-    "description": "Find armour of the great hero Kentaro.",
+    "description": "Find armor of the great hero Kentaro.",
     "goal": "MGOAL_FIND_ITEM",
     "item": "armor_samurai",
     "difficulty": 0,
@@ -278,12 +282,12 @@
     "followup": "MISSION_samurai_akira_4",
     "dialogue": {
       "describe": "-",
-      "offer": "Third item: Kentaro's armour.  A 35 years ago, his armour was donated to the museum located in this state, so that kids could look at it and… damn those kids.  I hate kids!  Quick, find his armour and bring it back to me!",
+      "offer": "Third item: Kentaro's armor.  A 35 years ago, his armor was donated to the museum located in this state, so that kids could look at it and… damn those kids.  I hate kids!  Quick, find his armor and bring it back to me!",
       "accepted": "Good.  I'll wait.",
       "rejected": "Coward!",
       "advice": "If you want to become a great warrior, that will be song about in the legends, you need to learn how to deal with problems by yourself!",
       "inquire": "…",
-      "success": "Yes, yes, it's his armour.  It even smells like… I need to stop smelling things, do I?  AHEM!  Good, good.  Three steps closer to the end of my quest.",
+      "success": "Yes, yes, it's his armor.  It even smells like… I need to stop smelling things, do I?  AHEM!  Good, good.  Three steps closer to the end of my quest.",
       "success_lie": "…",
       "failure": "…"
     }
@@ -298,20 +302,7 @@
     "item": "katana",
     "difficulty": 0,
     "value": 100,
-    "start": {
-      "assign_mission_target":{
-        "om_terrain": "mansion_t2",
-        "om_special": "Mansion_Road",
-        "om_terrain_replace": "forest",
-        "om_terrain_match_type": "PREFIX",
-        "search_range": 300,
-        "min_distance": 100,
-        "cant_see": true
-      },
-      "update_mapgen": {
-        "place_item": [ { "item": "katana", "x": 13, "y": 8 } ]
-      }
-    },
+    "start": { "update_mapgen": { "om_terrain": "mansion_t2", "place_item": [ { "item": "katana", "x": 13, "y": 8 } ] } },
     "end": { "effect": [ { "npc_add_var": "u_helped_samurai_akira", "type": "general", "context": "meeting", "value": "yes" } ] },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {

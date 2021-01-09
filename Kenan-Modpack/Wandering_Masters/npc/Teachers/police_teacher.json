@@ -109,7 +109,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_police_teacher_teach_check",
-    "dynamic_line": "Look, right now I can only think about one thing, and that's definitely not about teaching, ok?",
+    "dynamic_line": "Look, right now I can only think about one thing, and that's definitely not about teaching, OK?",
     "responses": [
       {
         "text": "So, what about now?",
@@ -145,10 +145,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_police_teacher_truth",
-    "dynamic_line": "Ok, ok, I'll tell you.  The truth is, I was afraid when first <zombies> tried to enter our department, and didn't even notice how I got myself locked up here, in this cell.  Maybe I panicked, and instead of running away, or helping my fellow co-workers, I thought, maybe, this metal bars would protect me.  I'm so ashamed of myself, really.  Officers should be calm in emergencies like this, to help civilians with anything they need, to protect them, but… What done is done.",
+    "dynamic_line": "OK, OK, I'll tell you.  The truth is, I was afraid when first <zombies> tried to enter our department, and didn't even notice how I got myself locked up here, in this cell.  Maybe I panicked, and instead of running away, or helping my fellow co-workers, I thought, maybe, this metal bars would protect me.  I'm so ashamed of myself, really.  Officers should be calm in emergencies like this, to help civilians with anything they need, to protect them, but… What done is done.",
     "responses": [
       {
-        "text": "Oh, uh, well, ok then?",
+        "text": "Oh, uh, well, OK then?",
         "topic": "TALK_police_teacher_1",
         "effect": [
           { "npc_add_var": "police_teacher_background", "type": "general", "context": "meeting", "value": "yes" },
@@ -176,7 +176,7 @@
     },
     "responses": [
       {
-        "text": "Ok, <name_g>, take your time.",
+        "text": "OK, <name_g>, take your time.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -234,7 +234,7 @@
     "dynamic_line": "What? What secret room?  I don't know what you're talking about!",
     "responses": [
       {
-        "text": "Bill told me everything.  You want to screw me over and got all neat stuff from Billy's secret stash all by yourself? Not this time.  Ha-Ha!",
+        "text": "Bill told me everything.  You want to screw me over and got all neat stuff from Billy's secret stash all by yourself? Not this time.  Ha-Ha on You!",
         "topic": "TALK_police_teacher_basement1"
       }
     ]
@@ -246,11 +246,7 @@
     "dynamic_line": "<name_g> did you actually believed that <name_b>?  I don't hide anything from you!  Kill him please and please don't kill me!",
     "responses": [
       { "text": "I'll think about that.", "topic": "TALK_police_teacher_basement1" },
-      {
-        "text": "Nah.",
-        "topic": "TALK_DONE",
-        "effect": [ "insult_combat", { "u_add_var": "police_teacher_dead", "type": "general", "context": "meeting", "value": "yes" } ]
-      }
+      { "text": "Nah.", "topic": "TALK_DONE", "effect": "insult_combat" }
     ]
   },
   {
@@ -399,7 +395,7 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "-",
-      "offer": "OK, I might know where to find him.  Kill the real Bill.",
+      "offer": "OK, I might know where to find him.  I'll give you approximate location of the real Bill.  Find that bastard and kill him.",
       "accepted": "I'll wait.  Be careful.",
       "rejected": "Why?",
       "advice": "He's <very> dangerous, so you might want not to approach him directly.  The more distance you have between you and him, the better.",
@@ -430,6 +426,11 @@
       "success_lie": "-",
       "failure": "-"
     },
-    "fail": { "effect": { "u_buy_item": "pt_head" } }
+    "fail": {
+      "effect": [
+        { "u_buy_item": "pt_head" },
+        { "u_add_var": "police_teacher_dead", "type": "general", "context": "meeting", "value": "yes" }
+      ]
+    }
   }
 ]

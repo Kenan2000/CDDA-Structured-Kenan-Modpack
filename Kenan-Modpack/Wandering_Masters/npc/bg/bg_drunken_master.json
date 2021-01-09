@@ -2,7 +2,7 @@
   {
     "id": "BGSS_drunken_master_STORY1",
     "type": "talk_topic",
-    "dynamic_line": "123",
+    "dynamic_line": "Before <the_cataclysm>, I traveled around the country.  During the day I made money by performing various shows on the streets, and at night I went to bars in search of rare liquor.  Often my campaigns ended in fights, and since I really like to drink, I had to fight a little drunk.  Thus, I improved my skills and soon it turned into a full-fledged fighting style.",
     "responses": [
       { "text": "Say, do you continue brewing something?", "topic": "BGSS_drunken_master_STORY2" },
       { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
@@ -12,21 +12,8 @@
   {
     "id": "BGSS_drunken_master_STORY2",
     "type": "talk_topic",
-    "dynamic_line": "*cries",
-    "responses": [
-	    { "text": "Maybe I can do something for you?", "topic": "BGSS_Barrett_Hartley_MISSION1" },
-		{ "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
-		{ "text": "<end_talking>", "topic": "TALK_DONE" }
-		]
-  },
-  {
-    "id": "BGSS_drunken_master_STORY3",
-    "type": "talk_topic",
-    "dynamic_line": "Yes. Do this for me.",
-    "responses": [
-	    { "text": "Ok.", "topic": "TALK_DONE", "effect":{ "add_mission": "MISSION_GET_CITY_COP_MOMENTO" } },
-		{ "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
-		{ "text": "<end_talking>", "topic": "TALK_DONE" }
-		]
+    "dynamic_line": "You bet!  I'm not traveling anywhere without few bottles with different brewing liquids.  I can give you a few samples if you want some.",
+    "speaker_effect": { "sentinel": "know_brew", "effect": { "npc_add_var": "know_brew", "type": "flag", "context": "brew", "value": "yes" } },
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" }, { "text": "<end_talking>", "topic": "TALK_DONE" } ]
   }
 ]

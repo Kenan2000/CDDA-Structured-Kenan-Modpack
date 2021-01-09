@@ -12,10 +12,7 @@
             "not": { "npc_compare_time_since_var": "time_brew", "type": "time", "context": "brew", "op": "<", "time": "14 days" }
           }
         },
-        "success": {
-          "topic": "TALK_DRUNKEN_BREW",
-          "effect": { "npc_add_var": "need_time", "type": "time", "context": "brew", "time": true }
-        },
+        "success": { "topic": "TALK_DRUNKEN_BREW" },
         "failure": { "topic": "TALK_DRUNKEN_BREW_nope" }
       }
     ]
@@ -23,20 +20,24 @@
   {
     "type": "talk_topic",
     "id": "TALK_DRUNKEN_BREW",
-    "dynamic_line": "123",
-    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_ALLY_ORDERS",
-    "dynamic_line": "Are you sure?",
+    "dynamic_line": "Sure, I have some leftovers.  Wanna drink it now?",
     "responses": [
       {
-        "text": "Yes.",
+        "text": "Yeah, give it to me.",
         "topic": "TALK_DONE",
-        "effect": [ { "npc_add_var": "need_time", "type": "time", "context": "brew", "time": true } ]
+        "effect": [
+          { "npc_add_var": "need_time", "type": "time", "context": "brew", "time": true },
+          { "npc_add_effect": "dm_brew", "duration": "14400 s" },
+          { "u_add_effect": "dm_brew", "duration": "14400 s" }
+        ]
       },
       { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
     ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_DRUNKEN_BREW_nope",
+    "dynamic_line": "Nothing right now, <name_g>, but I'm making a new one.  Ask me later.",
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   }
 ]
