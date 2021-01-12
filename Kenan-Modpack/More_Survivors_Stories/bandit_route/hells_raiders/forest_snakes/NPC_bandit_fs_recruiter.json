@@ -48,14 +48,14 @@
       { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       {
         "text": "I'm here for the reward.",
-        "condition": { "u_has_var": "bandit_recruiter_reward", "type": "flag", "context": "reward", "value": "yes" },
+        "condition": { "u_compare_var": "bandit_recruiter_reward", "type": "count", "context": "reward", "op": ">", "value": 0 },
         "trial": {
           "type": "CONDITION",
           "condition": { "u_compare_var": "lend_bandits_fs", "type": "flag", "context": "death", "op": ">=", "value": 2 }
         },
         "success": {
           "topic": "TALK_bandit_fs_recruiter_bad",
-          "effect": { "u_lose_var": "bandit_recruiter_reward", "type": "flag", "context": "reward" }
+          "effect": { "u_adjust_var": "bandit_recruiter_reward", "type": "count", "context": "reward", "adjustment": -1 }
         },
         "failure": {
           "topic": "TALK_bandit_fs_recruiter_reward",
@@ -128,10 +128,11 @@
     "dynamic_line": {
       "and": [
         {
-          "u_has_var": "bandit_recruiter_reward",
-          "type": "flag",
+          "u_compare_var": "bandit_recruiter_reward",
+          "type": "count",
           "context": "reward",
-          "value": "yes",
+          "op": ">",
+          "value": 1,
           "yes": "Good job out there.",
           "no": [
             "This one is not bad.",
@@ -145,7 +146,7 @@
         "  Choose."
       ]
     },
-    "speaker_effect": { "effect": { "u_lose_var": "bandit_recruiter_reward", "type": "flag", "context": "reward" } },
+    "speaker_effect": { "effect": { "u_adjust_var": "bandit_recruiter_reward", "type": "count", "context": "reward", "adjustment": -1 } },
     "responses": [
       {
         "text": "Army supplies.",
@@ -199,7 +200,7 @@
     "value": 10000,
     "item": "wire_barbed",
     "count": 150,
-    "end": { "effect": { "u_add_var": "bandit_recruiter_reward", "type": "flag", "context": "reward", "value": "yes" } },
+    "end": { "effect": { "u_adjust_var": "bandit_recruiter_reward", "type": "count", "context": "reward", "adjustment": 1 } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_bandit_fs_recruiter_2",
     "dialogue": {
@@ -264,13 +265,13 @@
       ],
       "effect": [
         { "u_lose_var": "bandit_camp_help", "type": "count", "context": "help_count" },
-        { "u_add_var": "bandit_recruiter_reward", "type": "flag", "context": "reward", "value": "yes" }
+        { "u_adjust_var": "bandit_recruiter_reward", "type": "count", "context": "reward", "adjustment": 1 }
       ]
     },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "-",
-      "offer": "Rookie, why are you not on duty… oh, it's you again.  I mistook you for someone else, sorry.  We're still doing this <swear> construction, and these <swear> <name_b>'s don't want to work!  I'm busy with another important job right now, so I can't kick all these <name_b>'s asses.  Help me put together a construction team, and I will make it worth your while.",
+      "offer": "Rookie, why are you not on… oh, it's you again.  I mistook you for someone else, sorry.  We're still doing this <swear> construction, and these <swear> <name_b>'s don't want to work!  I'm busy with another important job right now, so I can't kick all these <name_b>'s asses.  Help me put together a construction team, and I will make it worth your while.",
       "accepted": "Fine. The camp is full of lazy asses.  Just ask around and someone may agree to work.",
       "rejected": "Fine, I'll ask someone else.",
       "advice": "Kicking ass without my order is not allowed!",
