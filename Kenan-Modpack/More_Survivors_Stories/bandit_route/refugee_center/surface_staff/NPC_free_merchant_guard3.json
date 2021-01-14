@@ -7,7 +7,7 @@
         "text": "I talked to your leader.  He ordered your extraction.",
         "condition": { "u_has_mission": "MISSION_bandit_fs_leader_2" },
         "topic": "TALK_EVAC_GUARD3_EXTRACTION",
-        "switch":true
+        "switch": true
       },
       {
         "text": "All done.",
@@ -15,7 +15,7 @@
           "and": [ { "not": { "u_has_mission": "MISSION_OLD_GUARD_REP_2" } }, { "not": { "u_has_mission": "MISSION_evac_guard3_1" } } ]
         },
         "topic": "TALK_EVAC_GUARD3_MISSION",
-        "switch":true
+        "switch": true
       }
     ]
   },
@@ -32,13 +32,9 @@
     "id": "TALK_EVAC_GUARD3_EXTRACTION",
     "type": "talk_topic",
     "dynamic_line": "Are you ready to go?",
-    "speaker_effect":{"sentinel":"mission", "effect": [ "mission_success", "clear_mission" ] },
+    "speaker_effect": { "sentinel": "mission", "effect": [ "mission_success", "clear_mission" ] },
     "responses": [
-      {
-        "text": "Let's go.",
-        "topic": "TALK_DONE",
-        "effect": {"add_mission":"MISSION_evac_guard3_2"}
-      },
+      { "text": "Let's go.", "topic": "TALK_DONE", "effect": { "add_mission": "MISSION_evac_guard3_2" } },
       { "text": "I need some time to prepare.  Wait here.", "topic": "TALK_DONE" }
     ]
   },
@@ -46,13 +42,7 @@
     "id": "TALK_EVAC_GUARD3_FOLLOW",
     "type": "talk_topic",
     "dynamic_line": "Are we there yet?",
-    "responses": [
-      {
-        "text": "We're here.",
-        "condition":"mission_complete",
-        "topic":"TALK_MISSION_INQUIRE"
-      }
-    ]
+    "responses": [ { "text": "We're here.", "condition": "mission_complete", "topic": "TALK_MISSION_INQUIRE" } ]
   },
   {
     "id": "TALK_EVAC_GUARD3_HIDE2",
@@ -84,10 +74,7 @@
     "type": "talk_topic",
     "dynamic_line": "*got nervous and reached for a weapon.  \"Apparently, there is no point in hiding it, right?  Do what you must.  But know that I will not give up without a fight.\"",
     "responses": [
-      {
-        "text": "I learned everything I wanted.  Get bent, traitor!",
-        "topic": "TALK_EVAC_GUARD3_DEAD"
-      },
+      { "text": "I learned everything I wanted.  Get bent, traitor!", "topic": "TALK_EVAC_GUARD3_DEAD" },
       {
         "text": "You know, I could turn you over to the old guard, but I won't.  I'm sick of them too with their empty slogans.  I want to become one of you.  What do I need to do for this?",
         "topic": "TALK_EVAC_GUARD3_BANDITS3"
@@ -150,7 +137,7 @@
     "difficulty": 0,
     "value": 0,
     "start": {
-      "assign_mission_target":{"om_terrain":"bandit_camp_1", "om_special":"bandit_camp"},
+      "assign_mission_target": { "om_terrain": "bandit_camp_1", "om_special": "bandit_camp" },
       "update_mapgen": { "om_terrain": "evac_center_19", "place_npcs": [ { "class": "evac_guard4", "x": 5, "y": 11 } ] },
       "effect": [ { "npc_change_faction": "no_faction" }, "follow_only", { "npc_first_topic": "TALK_EVAC_GUARD3_FOLLOW" } ]
     },

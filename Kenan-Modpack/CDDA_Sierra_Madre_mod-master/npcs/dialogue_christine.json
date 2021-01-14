@@ -1,119 +1,149 @@
 [
-	{
-		"id": "TALK_CHRISTINE",
-		"type": "talk_topic",
-		"dynamic_line": "Wait! Who the hell are you? What the hell are you even doing here?! How... How... Nobody, since the Courier, (God/Dog) and Dean left... Nobody...",
-		"responses": [
-		  { "text": "No, who the hell are YOU! What the hell are YOU even doing here?!", "topic": "WHAT" },
-		  { "text": "Step aside... Madre's mine mine mine!!!!!!!!!", "topic": "GREED_CONFRONT" },
-		  { "text": "You speak like Vera Keyes...", "topic": "VOICE" },
-		  { "text": "Alright, calm down and let's talk this over", "topic": "DISCUSS" },
-		  { "text": "What the hell is going here? Why are you standing here?", "topic": "WHAT" }
-		]
-	},
-	{
-		"id": "GREED_CONFRONT",
-		"type": "talk_topic",
-		"dynamic_line": "No... You don't understand. I can't let you in... That's my job. To protect the world from him. From the Sierra Madre and it's curse of greed and neediness as a whole. If you enter the vault... No, you can't enter the vault. You shouldn't have come here.",
-		"responses": [
-		  { "text": "NO! I WON'T PLAY STUPID GAMES! MADRE'S MINE MINE MINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "topic": "TALK_DONE", "effect": "insult_combat" },
-		  { "text": "Why not? I came so far. I went through so much. I can't leave. I'm not letting go. Not now.", "topic": "REASON" }
-		]
-	},
-	{
-		"id": "WHAT",
-		"type": "talk_topic",
-		"dynamic_line": "I... I'm guarding the Sierra Madre. To protect the world from it. I was trapped. Together with Dean, (Dog/God) and the Courier. The four of us... All enslaved... Father Elijah forced us to work for him to break into the vault, then told the Courier to kill us all... But Courier was a human, not a monster. The Courier saved us all.",
-		"responses": [
-		  { "text": "Did... Did he use collars to force obedience?", "topic": "SLAVE" },
-		  { "text": "What can you tell me about the Courier, (Dog/God) and Dean Domino?", "topic": "CREW" },
-		  { "text": "What happened to the Father Elijah?", "topic": "FATHER" }
-		]
-	},
-	{
-		"id": "VOICE",
-		"type": "talk_topic",
-		"dynamic_line": "Dean Domino was planning this heist himself, long before the rest of us saw the Sierra Madre walls... He forced me into one of the villa's clinic autodocs to operate my voice... So that, upon figuring out the password, he could use me to unlock the vault...",
-		"responses": [
-		  { "text": "I'm sorry you had to go through this...", "topic": "DISCUSS" }
-		]
-	},
-	{
-		"id": "DISCUSS",
-		"type": "talk_topic",
-		"dynamic_line": "Okay, so, to sum up our current situation, I'm here guarding the Sierra Madre and you came here... You should leave. There's nothing awaiting you in the Sierra Madre.",
-		"responses": [
-		  { "text": "Why not? I came so far. I went through so much. I can't leave. I'm not letting go. Not now.", "topic": "REASON" },
-		  { "text": "What can you tell me about the Courier, (Dog/God) and Dean Domino?", "topic": "CREW" },
-		  { "text": "You speak like Vera Keyes...", "topic": "VOICE" }
-		]
-	},
-	{
-		"id": "REASON",
-		"type": "talk_topic",
-		"dynamic_line": "I see... You went so far. Like me. Like the Courier, like Dean Domino, like (God/Dog), like Father Elijah... But getting to it... That's not the hard part. It's letting go. Greed, jealously, hate, vengeance, power, control, hunger, money, even love... We all came here for different reaasons... But that's what we had to learn. To let go. Hell, Frederick Sinclair, the Founder himself couldn't let go... And so he himself died in the Sierra Madre... Everyone who left this place learned to let go. The majority didn't... And they all died. Neither could Father Elijah.",
-		"responses": [
-		  { "text": "That collar on my neck... I have to obey Father Elijah. One of the inscriptions on the villa wall says \"Try to leave and BOOM\"...", "condition": { "u_has_trait": "SIERRA_HUNTER" }, "topic": "SLAVE" },
-		  { "text": "I entered the Casino only because of the guidance of the voice that spoke to me through the fountain hologram and Casino intercom at the lobby... We both know to whom this voice belongs at this point, am I right?", "topic": "SLAVE" }
-		]
-	},
-	{
-		"id": "CREW",
-		"type": "talk_topic",
-		"dynamic_line": "The Courier managed to enter the vault... And learned to let go. (Dog/God) was a savage mutant with double personality disorder... One was an ever-hungry monster, the other was a power-thirsty narcissist... But the Courier... The Courier had patience both for Dog and God, merging two personalities into one, gentle and peaceful... Dean Domino, that asshole... Even he finally let go and just left the Sierra Madre... And I... I stayed. I need to protect the outer world from the horrors of this doomed place... And Father Elijah...",
-		"responses": [
-		  { "text": "So, what happened to the Father Elijah?", "topic": "FATHER" },
-		  { "text": "Alright, I have some more questions.", "topic": "DISCUSS" }
-		]
-	},
-	{
-		"id": "FATHER",
-		"type": "talk_topic",
-		"dynamic_line": "He forced the Courier to unlock the vault and disengage its security protocols for him... Then confronted him down there... Wanted to kill the Courier like throwing away a disposable tool once the job is done and claim Madre for himself alone... But the Courier was smart and outmaneouvered Elijah, reached the exit and locked him in the vault from the inside... He must have survived down there till this very moment we're talking right now. That's the main reason why I'm here. And I'm going to stay, whether he's already dead or still alive down there, I'll be guarding the Sierra Madre and the vault entrance.",
-		"responses": [
-		  { "text": "I'm afraid he's still alive. And on top of that able to communicate with me. And force me to do his dirty job...", "condition": { "u_has_trait": "SIERRA_HUNTER" }, "topic": "SLAVE" },
-		  { "text": "Alright, I have some more questions.", "topic": "DISCUSS" }
-		]
-	},
-	{
-		"id": "SLAVE",
-		"type": "talk_topic",
-		"dynamic_line": { "u_has_trait": "SIERRA_HUNTER", "yes": "Holy shit, how could I not notice this earlier? That collar on your neck... He... He's alive... And he's doing it again... Doing what he did to me, (Dog/God), the Courier and Dean Domino... History repeats itself... He's never let go... Alright, if so, you need to finish it once and for all, walking the Courier's Mile down there and once again confront him...", "no": "Yeah... Unfortunately... The collars... The voice at the fountain... I remember it all... And now you're here, standing in the Vera's apartment, where the vault door has been placed... Alright... There's no choice... You need to get down there... Finish the job... Stop this madman from freeing himself using you in the process and then unleashing yet another apocalypse upon this world... The Cloud, the security holograms, the vending machines, the collars... It's all part of a bigger plan, and that plan ain't nothing good for everything that lives... You need to continue your heist and stop him... But please... Remember... Getting there won't be the hardest part. It's letting go..." },
-		"responses": [
-		  { "text": "O... Okay... I'll go... Enter the vault... Find him... I'll do it... I'll try to... No, I WILL stop him...", "topic": "GOODLUCK" }
-		]
-	},
-	{
-		"id": "GOODLUCK",
-		"type": "talk_topic",
-		"dynamic_line": "Take care... Good luck down there... And one more thing! Don't mention my presence here if you happen to speak with Father Elijah through the intercom or fountain hologram before you unlock the vault. Otherwise he'll be prepared. Sure, he'll attempt to kill you, but if he learns that you met me, he'll want to do so as soon as you peek inside, leaving you with no way to prepare yourself.",
-		"responses": [
-		  { "text": "Okay, I will... And I won't. Wish me luck. The vault of the Sierra Madre Casino, here I come...", "topic": "TALK_DONE", "effect": { "npc_first_topic": "MID" } }
-		]
-	},
-	{
-		"id": "MID",
-		"type": "talk_topic",
-		"dynamic_line": "Have you dealt with Father Elijah? Please, hurry!",
-		"responses": [
-		  { "text": "Still working to get inside...", "condition": { "not": { "u_has_trait": "win" } }, "topic": "TALK_DONE" },
-		  { "text": "Yeah... I went down there, he gave me no choice...", "condition": { "u_has_trait": "win" }, "topic": "FINAL" }
-		]
-	},
-	{
-		"id": "FINAL",
-		"type": "talk_topic",
-		"dynamic_line": "So that means that it's truly over now... But I'll continue my watch regardless. To warn those who'll come after you, to protect them from their own greed... Now the best thing you can do is to simply leave. Let go and begin again, beyond those walls...",
-		"responses": [
-		  { "text": "...", "topic": "TALK_DONE", "effect": { "npc_first_topic": "FINAL2" } }
-		]
-	},
-	{
-		"id": "FINAL2",
-		"type": "talk_topic",
-		"dynamic_line": "Why are you still here? There's nothing for you in the Sierra Madre. Let go and begin again...",
-		"responses": [
-		  { "text": "...", "topic": "TALK_DONE" }
-		]
-	}
+  {
+    "id": "TALK_CHRISTINE",
+    "type": "talk_topic",
+    "dynamic_line": "Wait! Who the hell are you? What the hell are you even doing here?! How... How... Nobody, since the Courier, (God/Dog) and Dean left... Nobody...",
+    "responses": [
+      { "text": "No, who the hell are YOU! What the hell are YOU even doing here?!", "topic": "WHAT" },
+      { "text": "Step aside... Madre's mine mine mine!!!!!!!!!", "topic": "GREED_CONFRONT" },
+      { "text": "You speak like Vera Keyes...", "topic": "VOICE" },
+      { "text": "Alright, calm down and let's talk this over", "topic": "DISCUSS" },
+      { "text": "What the hell is going here? Why are you standing here?", "topic": "WHAT" }
+    ]
+  },
+  {
+    "id": "GREED_CONFRONT",
+    "type": "talk_topic",
+    "dynamic_line": "No... You don't understand. I can't let you in... That's my job. To protect the world from him. From the Sierra Madre and it's curse of greed and neediness as a whole. If you enter the vault... No, you can't enter the vault. You shouldn't have come here.",
+    "responses": [
+      {
+        "text": "NO! I WON'T PLAY STUPID GAMES! MADRE'S MINE MINE MINE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+        "topic": "TALK_DONE",
+        "effect": "insult_combat"
+      },
+      {
+        "text": "Why not? I came so far. I went through so much. I can't leave. I'm not letting go. Not now.",
+        "topic": "REASON"
+      }
+    ]
+  },
+  {
+    "id": "WHAT",
+    "type": "talk_topic",
+    "dynamic_line": "I... I'm guarding the Sierra Madre. To protect the world from it. I was trapped. Together with Dean, (Dog/God) and the Courier. The four of us... All enslaved... Father Elijah forced us to work for him to break into the vault, then told the Courier to kill us all... But Courier was a human, not a monster. The Courier saved us all.",
+    "responses": [
+      { "text": "Did... Did he use collars to force obedience?", "topic": "SLAVE" },
+      { "text": "What can you tell me about the Courier, (Dog/God) and Dean Domino?", "topic": "CREW" },
+      { "text": "What happened to the Father Elijah?", "topic": "FATHER" }
+    ]
+  },
+  {
+    "id": "VOICE",
+    "type": "talk_topic",
+    "dynamic_line": "Dean Domino was planning this heist himself, long before the rest of us saw the Sierra Madre walls... He forced me into one of the villa's clinic autodocs to operate my voice... So that, upon figuring out the password, he could use me to unlock the vault...",
+    "responses": [ { "text": "I'm sorry you had to go through this...", "topic": "DISCUSS" } ]
+  },
+  {
+    "id": "DISCUSS",
+    "type": "talk_topic",
+    "dynamic_line": "Okay, so, to sum up our current situation, I'm here guarding the Sierra Madre and you came here... You should leave. There's nothing awaiting you in the Sierra Madre.",
+    "responses": [
+      {
+        "text": "Why not? I came so far. I went through so much. I can't leave. I'm not letting go. Not now.",
+        "topic": "REASON"
+      },
+      { "text": "What can you tell me about the Courier, (Dog/God) and Dean Domino?", "topic": "CREW" },
+      { "text": "You speak like Vera Keyes...", "topic": "VOICE" }
+    ]
+  },
+  {
+    "id": "REASON",
+    "type": "talk_topic",
+    "dynamic_line": "I see... You went so far. Like me. Like the Courier, like Dean Domino, like (God/Dog), like Father Elijah... But getting to it... That's not the hard part. It's letting go. Greed, jealously, hate, vengeance, power, control, hunger, money, even love... We all came here for different reaasons... But that's what we had to learn. To let go. Hell, Frederick Sinclair, the Founder himself couldn't let go... And so he himself died in the Sierra Madre... Everyone who left this place learned to let go. The majority didn't... And they all died. Neither could Father Elijah.",
+    "responses": [
+      {
+        "text": "That collar on my neck... I have to obey Father Elijah. One of the inscriptions on the villa wall says \"Try to leave and BOOM\"...",
+        "condition": { "u_has_trait": "SIERRA_HUNTER" },
+        "topic": "SLAVE"
+      },
+      {
+        "text": "I entered the Casino only because of the guidance of the voice that spoke to me through the fountain hologram and Casino intercom at the lobby... We both know to whom this voice belongs at this point, am I right?",
+        "topic": "SLAVE"
+      }
+    ]
+  },
+  {
+    "id": "CREW",
+    "type": "talk_topic",
+    "dynamic_line": "The Courier managed to enter the vault... And learned to let go. (Dog/God) was a savage mutant with double personality disorder... One was an ever-hungry monster, the other was a power-thirsty narcissist... But the Courier... The Courier had patience both for Dog and God, merging two personalities into one, gentle and peaceful... Dean Domino, that asshole... Even he finally let go and just left the Sierra Madre... And I... I stayed. I need to protect the outer world from the horrors of this doomed place... And Father Elijah...",
+    "responses": [
+      { "text": "So, what happened to the Father Elijah?", "topic": "FATHER" },
+      { "text": "Alright, I have some more questions.", "topic": "DISCUSS" }
+    ]
+  },
+  {
+    "id": "FATHER",
+    "type": "talk_topic",
+    "dynamic_line": "He forced the Courier to unlock the vault and disengage its security protocols for him... Then confronted him down there... Wanted to kill the Courier like throwing away a disposable tool once the job is done and claim Madre for himself alone... But the Courier was smart and outmaneouvered Elijah, reached the exit and locked him in the vault from the inside... He must have survived down there till this very moment we're talking right now. That's the main reason why I'm here. And I'm going to stay, whether he's already dead or still alive down there, I'll be guarding the Sierra Madre and the vault entrance.",
+    "responses": [
+      {
+        "text": "I'm afraid he's still alive. And on top of that able to communicate with me. And force me to do his dirty job...",
+        "condition": { "u_has_trait": "SIERRA_HUNTER" },
+        "topic": "SLAVE"
+      },
+      { "text": "Alright, I have some more questions.", "topic": "DISCUSS" }
+    ]
+  },
+  {
+    "id": "SLAVE",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "SIERRA_HUNTER",
+      "yes": "Holy shit, how could I not notice this earlier? That collar on your neck... He... He's alive... And he's doing it again... Doing what he did to me, (Dog/God), the Courier and Dean Domino... History repeats itself... He's never let go... Alright, if so, you need to finish it once and for all, walking the Courier's Mile down there and once again confront him...",
+      "no": "Yeah... Unfortunately... The collars... The voice at the fountain... I remember it all... And now you're here, standing in the Vera's apartment, where the vault door has been placed... Alright... There's no choice... You need to get down there... Finish the job... Stop this madman from freeing himself using you in the process and then unleashing yet another apocalypse upon this world... The Cloud, the security holograms, the vending machines, the collars... It's all part of a bigger plan, and that plan ain't nothing good for everything that lives... You need to continue your heist and stop him... But please... Remember... Getting there won't be the hardest part. It's letting go..."
+    },
+    "responses": [
+      {
+        "text": "O... Okay... I'll go... Enter the vault... Find him... I'll do it... I'll try to... No, I WILL stop him...",
+        "topic": "GOODLUCK"
+      }
+    ]
+  },
+  {
+    "id": "GOODLUCK",
+    "type": "talk_topic",
+    "dynamic_line": "Take care... Good luck down there... And one more thing! Don't mention my presence here if you happen to speak with Father Elijah through the intercom or fountain hologram before you unlock the vault. Otherwise he'll be prepared. Sure, he'll attempt to kill you, but if he learns that you met me, he'll want to do so as soon as you peek inside, leaving you with no way to prepare yourself.",
+    "responses": [
+      {
+        "text": "Okay, I will... And I won't. Wish me luck. The vault of the Sierra Madre Casino, here I come...",
+        "topic": "TALK_DONE",
+        "effect": { "npc_first_topic": "MID" }
+      }
+    ]
+  },
+  {
+    "id": "MID",
+    "type": "talk_topic",
+    "dynamic_line": "Have you dealt with Father Elijah? Please, hurry!",
+    "responses": [
+      { "text": "Still working to get inside...", "condition": { "not": { "u_has_trait": "win" } }, "topic": "TALK_DONE" },
+      {
+        "text": "Yeah... I went down there, he gave me no choice...",
+        "condition": { "u_has_trait": "win" },
+        "topic": "FINAL"
+      }
+    ]
+  },
+  {
+    "id": "FINAL",
+    "type": "talk_topic",
+    "dynamic_line": "So that means that it's truly over now... But I'll continue my watch regardless. To warn those who'll come after you, to protect them from their own greed... Now the best thing you can do is to simply leave. Let go and begin again, beyond those walls...",
+    "responses": [ { "text": "...", "topic": "TALK_DONE", "effect": { "npc_first_topic": "FINAL2" } } ]
+  },
+  {
+    "id": "FINAL2",
+    "type": "talk_topic",
+    "dynamic_line": "Why are you still here? There's nothing for you in the Sierra Madre. Let go and begin again...",
+    "responses": [ { "text": "...", "topic": "TALK_DONE" } ]
+  }
 ]

@@ -1,47 +1,47 @@
 [
-	{
-		"type": "terrain",
-		"id": "t_fountain",
-		"name": "dried fountain",
-		"description": "A paved bed of a dried fountain, slowly but inevitably eroding due to lack of maintenance.",
-		"symbol": "*",
-		"color": "dark_gray",
-		"looks_like": "t_concrete",
-		"move_cost": 2,
-		"flags": [ "TRANSPARENT", "FLAT", "ROAD", "MINEABLE" ],
-		"bash": {
-		  "ter_set": "t_null",
-		  "str_min": 50,
-		  "str_max": 400,
-		  "str_min_supported": 100,
-		  "items": [ { "item": "rock", "count": [ 2, 10 ] } ]
-		}
-	},
-	{
-		"id": "t_sierra_wall",
-		"type": "terrain",
-		"name": "Sierra Madre Casino wall",
-		"looks_like": "t_wall_y",
-		"description": "An outer wall used in building of the Sierra Madre Casino. Truly impenetrable - can survive several direct hits with nuclear warheads almost unscratched.",
-		"symbol": "LINE_OXOX",
-		"color": "dark_gray",
-		"move_cost": 0,
-		"coverage": 100,
-		"roof": "t_sierra_roof",
-		"flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "BLOCK_WIND" ]
-	},
-	{
-		"id": "t_sierra_roof",
-		"type": "terrain",
-		"name": "Sierra Madre Casino roof",
-		"description": "Roof covering the Sierra Madre Casino, made out of the same material as its walls, making it indestructible.",
-		"symbol": ".",
-		"looks_like": "t_flat_roof",
-		"color": "dark_gray",
-		"move_cost": 2,
-		"flags": [ "TRANSPARENT", "FLAT" ]
-	},
-	{
+  {
+    "type": "terrain",
+    "id": "t_fountain",
+    "name": "dried fountain",
+    "description": "A paved bed of a dried fountain, slowly but inevitably eroding due to lack of maintenance.",
+    "symbol": "*",
+    "color": "dark_gray",
+    "looks_like": "t_concrete",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "FLAT", "ROAD", "MINEABLE" ],
+    "bash": {
+      "ter_set": "t_null",
+      "str_min": 50,
+      "str_max": 400,
+      "str_min_supported": 100,
+      "items": [ { "item": "rock", "count": [ 2, 10 ] } ]
+    }
+  },
+  {
+    "id": "t_sierra_wall",
+    "type": "terrain",
+    "name": "Sierra Madre Casino wall",
+    "looks_like": "t_wall_y",
+    "description": "An outer wall used in building of the Sierra Madre Casino. Truly impenetrable - can survive several direct hits with nuclear warheads almost unscratched.",
+    "symbol": "LINE_OXOX",
+    "color": "dark_gray",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_sierra_roof",
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "BLOCK_WIND" ]
+  },
+  {
+    "id": "t_sierra_roof",
+    "type": "terrain",
+    "name": "Sierra Madre Casino roof",
+    "description": "Roof covering the Sierra Madre Casino, made out of the same material as its walls, making it indestructible.",
+    "symbol": ".",
+    "looks_like": "t_flat_roof",
+    "color": "dark_gray",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "FLAT" ]
+  },
+  {
     "id": "sierra_air",
     "type": "terrain",
     "name": "open air",
@@ -53,293 +53,295 @@
     "roof": "t_sierra_roof",
     "examine_action": "ledge",
     "flags": [ "TRANSPARENT", "NO_FLOOR", "INDOORS" ]
-	},
-	{
-		"id": "t_STORMSIERRAMADRE_fl_casino_red",
-		"type": "terrain",
-		"looks_like": "t_floor_red",
-		"name": "Sierra Madre Casino floor",
-		"description": "Red tiles out of which the floor inside the Sierra Madre Casino is made.",
-		"symbol": ".",
-		"color": "light_red",
-		"move_cost": 2,
-		"roof": "t_sierra_roof",
-		"flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "ROAD" ],
-		"bash": {
-		  "sound": "SMASH!",
-		  "ter_set": "t_null",
-		  "str_min": 200,
-		  "str_max": 500,
-		  "str_min_supported": 200,
-		  "items": [ { "item": "scrap", "count": [ 2, 8 ] } ]
-		}
-	},
-	{
-		"id": "sierra_floor_noroof",
-		"type": "terrain",
-		"looks_like": "t_STORMSIERRAMADRE_fl_casino_red",
-		"name": "Sierra Madre Casino floor",
-		"description": "Red tiles out of which the floor inside the Sierra Madre Casino is made.",
-		"symbol": ".",
-		"color": "light_red",
-		"move_cost": 2,
-		"flags": [ "TRANSPARENT", "COLLAPSES", "FLAT", "ROAD" ],
-		"bash": {
-		  "sound": "SMASH!",
-		  "ter_set": "t_null",
-		  "str_min": 200,
-		  "str_max": 500,
-		  "str_min_supported": 200,
-		  "items": [ { "item": "scrap", "count": [ 2, 8 ] } ]
-		}
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_floor_light",
-		"looks_like": "t_STORMSIERRAMADRE_fl_casino_red",
-		"name": "Sierra Madre Casino floor, with overhead light",
-		"description": "Red tiles out of which the floor inside the Sierra Madre Casino is made, with a still-functioning light attached to the ceiling above.",
-		"symbol": ".",
-		"color": "light_red",
-		"move_cost": 2,
-		"light_emitted": 100,
-		"roof": "t_sierra_roof",
-		"flags": [ "TRANSPARENT", "INDOORS", "FLAT", "ROAD" ],
-		"bash": {
-		  "sound": "thump",
-		  "ter_set": "t_null",
-		  "str_min": 200,
-		  "str_max": 500,
-		  "str_min_supported": 200,
-		  "items": [
-			{ "item": "scrap", "count": [ 4, 12 ] }
-		  ]
-		}
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_floor_light_noroof",
-		"looks_like": "t_STORMSIERRAMADRE_fl_casino_red",
-		"name": "Sierra Madre Casino floor, with overhead light",
-		"description": "Red tiles out of which the floor inside the Sierra Madre Casino is made, with a still-functioning light attached to the ceiling above.",
-		"symbol": ".",
-		"color": "light_red",
-		"move_cost": 2,
-		"light_emitted": 100,
-		"flags": [ "TRANSPARENT", "FLAT", "ROAD" ],
-		"bash": {
-		  "sound": "thump",
-		  "ter_set": "t_null",
-		  "str_min": 200,
-		  "str_max": 500,
-		  "str_min_supported": 200,
-		  "items": [
-			{ "item": "scrap", "count": [ 4, 12 ] }
-		  ]
-		}
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_carpet",
-		"name": "Sierra Madre red carpet",
-		"symbol": ".",
-		"color": "red",
-		"move_cost": 2,
-		"looks_like": "t_carpet_red",
-		"description": "Fancy and durable red carpet used to decorate the interiors of the Sierra Madre Casino.",
-		"flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "RUG", "EASY_DECONSTRUCT" ],
-		"roof": "t_sierra_roof",
-		"bash": {
-		"sound": "SMASH!",
-		"ter_set": "t_STORMSIERRAMADRE_fl_casino_red",
-		"str_min": 5,
-		"str_max": 15,
-		"str_min_supported": 100,
-		"items": [ { "item": "rag", "count": [ 10, 20 ] }, { "item": "nail", "charges": [ 1, 3 ] } ]
-		},
-		"deconstruct": { "items": [ { "item": "r_carpet", "charges": 1 }, { "item": "nail", "charges": 5 } ], "ter_set": "t_STORMSIERRAMADRE_fl_casino_red" }
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_carpet_noroof",
-		"name": "Sierra Madre red carpet",
-		"symbol": ".",
-		"color": "red",
-		"move_cost": 2,
-		"looks_like": "t_carpet_red",
-		"description": "Fancy and durable red carpet used to decorate the interiors of the Sierra Madre Casino.",
-		"flags": [ "TRANSPARENT", "COLLAPSES", "FLAT", "RUG", "EASY_DECONSTRUCT", "FLAMMABLE_HARD" ],
-		"bash": {
-		"sound": "SMASH!",
-		"ter_set": "sierra_floor_noroof",
-		"str_min": 5,
-		"str_max": 15,
-		"str_min_supported": 100,
-		"items": [ { "item": "rag", "count": [ 10, 20 ] }, { "item": "nail", "charges": [ 1, 3 ] } ]
-		},
-		"deconstruct": { "items": [ { "item": "r_carpet", "charges": 1 }, { "item": "nail", "charges": 5 } ], "ter_set": "sierra_floor_noroof" }
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_door_locked",
-		"name": "locked Sierra Madre Casino entrance door",
-		"description": "entrance to the Sierra Madre Casino, locked and indestructible.",
-		"symbol": "+",
-		"looks_like": "t_door_metal_locked",
-		"color": "red",
-		"move_cost": 0,
-		"coverage": 100,
-		"roof": "t_sierra_roof",
-		"flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "LOCKED", "BLOCK_WIND" ]
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_entrance_c",
-		"name": "Sierra Madre Casino entrance door",
-		"description": "entrance to the Sierra Madre Casino, unlocked, but still indestructible.",
-		"symbol": "'",
-		"looks_like": "t_door_metal_c",
-		"color": "red",
-		"move_cost": 0,
-		"coverage": 100,
-		"roof": "t_sierra_roof",
-		"flags": [ "NOITEM", "DOOR", "CONNECT_TO_WALL", "BLOCK_WIND" ],
-		"open": "sierra_entrance"
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_entrance",
-		"name": "open Sierra Madre Casino entrance door",
-		"description": "entrance to the Sierra Madre Casino, open, but still indestructible.",
-		"symbol": "'",
-		"looks_like": "t_door_metal_o",
-		"color": "red",
-		"move_cost": 2,
-		"coverage": 50,
-		"roof": "t_sierra_roof",
-		"flags": [ "TRANSPARENT", "FLAT", "CONNECT_TO_WALL", "ROAD" ],
-		"close": "sierra_entrance_c"
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_door_l",
-		"name": "locked Sierra Madre Casino door",
-		"description": "door to the more important interiors of the Sierra Madre Casino. Locked and indestructible just like the entrance door.",
-		"symbol": "+",
-		"looks_like": "t_door_metal_locked",
-		"color": "red",
-		"move_cost": 0,
-		"coverage": 100,
-		"roof": "t_sierra_roof",
-		"flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "LOCKED", "BLOCK_WIND" ]
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_door",
-		"name": "Sierra Madre Casino door",
-		"description": "door to the more important interiors of the Sierra Madre Casino. Indestructible just like the entrance door.",
-		"symbol": "+",
-		"looks_like": "t_door_metal_c",
-		"open": "sierra_door_o",
-		"color": "red",
-		"move_cost": 0,
-		"coverage": 100,
-		"roof": "t_sierra_roof",
-		"flags": [ "NOITEM", "DOOR", "CONNECT_TO_WALL", "BLOCK_WIND" ]
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_door_o",
-		"name": "open Sierra Madre Casino door",
-		"description": "Sierra Madre Casino internal door, currently open, still indestructible.",
-		"symbol": "'",
-		"looks_like": "t_door_metal_o",
-		"color": "red",
-		"move_cost": 2,
-		"coverage": 50,
-		"roof": "t_sierra_roof",
-		"flags": [ "TRANSPARENT", "FLAT", "CONNECT_TO_WALL", "ROAD" ],
-		"close": "sierra_door"
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_door_vault",
-		"name": "locked Sierra Madre Vault door",
-		"description": "door to the legendary Sierra Madre Vault, locked and indestructible.",
-		"symbol": "+",
-		"looks_like": "t_door_metal_locked",
-		"color": "red",
-		"move_cost": 0,
-		"coverage": 100,
-		"roof": "t_sierra_roof",
-		"flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "LOCKED", "BLOCK_WIND" ]
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_door_vault_c",
-		"name": "Sierra Madre Vault door",
-		"description": "door to the legendary Sierra Madre Vault, unlocked, but still indestructible.",
-		"symbol": "+",
-		"looks_like": "t_door_metal_c",
-		"color": "red",
-		"move_cost": 0,
-		"coverage": 100,
-		"roof": "t_sierra_roof",
-		"flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "BLOCK_WIND" ],
-		"open": "sierra_door_vault_o"
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_door_vault_o",
-		"name": "open Sierra Madre Vault door",
-		"description": "door to the legendary Sierra Madre Vault, while indestructible, unlocked and opened right in front of you, waiting for you to enter the Vault and crack the Sierra Madre Treasure open...",
-		"symbol": "'",
-		"looks_like": "t_door_metal_o",
-		"color": "red",
-		"move_cost": 2,
-		"coverage": 50,
-		"roof": "t_sierra_roof",
-		"flags": [ "TRANSPARENT", "FLAT", "CONNECT_TO_WALL", "ROAD" ],
-		"close": "sierra_door_vault_c"
-	},
-	{
+  },
+  {
+    "id": "t_STORMSIERRAMADRE_fl_casino_red",
+    "type": "terrain",
+    "looks_like": "t_floor_red",
+    "name": "Sierra Madre Casino floor",
+    "description": "Red tiles out of which the floor inside the Sierra Madre Casino is made.",
+    "symbol": ".",
+    "color": "light_red",
+    "move_cost": 2,
+    "roof": "t_sierra_roof",
+    "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "ROAD" ],
+    "bash": {
+      "sound": "SMASH!",
+      "ter_set": "t_null",
+      "str_min": 200,
+      "str_max": 500,
+      "str_min_supported": 200,
+      "items": [ { "item": "scrap", "count": [ 2, 8 ] } ]
+    }
+  },
+  {
+    "id": "sierra_floor_noroof",
+    "type": "terrain",
+    "looks_like": "t_STORMSIERRAMADRE_fl_casino_red",
+    "name": "Sierra Madre Casino floor",
+    "description": "Red tiles out of which the floor inside the Sierra Madre Casino is made.",
+    "symbol": ".",
+    "color": "light_red",
+    "move_cost": 2,
+    "flags": [ "TRANSPARENT", "COLLAPSES", "FLAT", "ROAD" ],
+    "bash": {
+      "sound": "SMASH!",
+      "ter_set": "t_null",
+      "str_min": 200,
+      "str_max": 500,
+      "str_min_supported": 200,
+      "items": [ { "item": "scrap", "count": [ 2, 8 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_floor_light",
+    "looks_like": "t_STORMSIERRAMADRE_fl_casino_red",
+    "name": "Sierra Madre Casino floor, with overhead light",
+    "description": "Red tiles out of which the floor inside the Sierra Madre Casino is made, with a still-functioning light attached to the ceiling above.",
+    "symbol": ".",
+    "color": "light_red",
+    "move_cost": 2,
+    "light_emitted": 100,
+    "roof": "t_sierra_roof",
+    "flags": [ "TRANSPARENT", "INDOORS", "FLAT", "ROAD" ],
+    "bash": {
+      "sound": "thump",
+      "ter_set": "t_null",
+      "str_min": 200,
+      "str_max": 500,
+      "str_min_supported": 200,
+      "items": [ { "item": "scrap", "count": [ 4, 12 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_floor_light_noroof",
+    "looks_like": "t_STORMSIERRAMADRE_fl_casino_red",
+    "name": "Sierra Madre Casino floor, with overhead light",
+    "description": "Red tiles out of which the floor inside the Sierra Madre Casino is made, with a still-functioning light attached to the ceiling above.",
+    "symbol": ".",
+    "color": "light_red",
+    "move_cost": 2,
+    "light_emitted": 100,
+    "flags": [ "TRANSPARENT", "FLAT", "ROAD" ],
+    "bash": {
+      "sound": "thump",
+      "ter_set": "t_null",
+      "str_min": 200,
+      "str_max": 500,
+      "str_min_supported": 200,
+      "items": [ { "item": "scrap", "count": [ 4, 12 ] } ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_carpet",
+    "name": "Sierra Madre red carpet",
+    "symbol": ".",
+    "color": "red",
+    "move_cost": 2,
+    "looks_like": "t_carpet_red",
+    "description": "Fancy and durable red carpet used to decorate the interiors of the Sierra Madre Casino.",
+    "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "RUG", "EASY_DECONSTRUCT" ],
+    "roof": "t_sierra_roof",
+    "bash": {
+      "sound": "SMASH!",
+      "ter_set": "t_STORMSIERRAMADRE_fl_casino_red",
+      "str_min": 5,
+      "str_max": 15,
+      "str_min_supported": 100,
+      "items": [ { "item": "rag", "count": [ 10, 20 ] }, { "item": "nail", "charges": [ 1, 3 ] } ]
+    },
+    "deconstruct": {
+      "items": [ { "item": "r_carpet", "charges": 1 }, { "item": "nail", "charges": 5 } ],
+      "ter_set": "t_STORMSIERRAMADRE_fl_casino_red"
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_carpet_noroof",
+    "name": "Sierra Madre red carpet",
+    "symbol": ".",
+    "color": "red",
+    "move_cost": 2,
+    "looks_like": "t_carpet_red",
+    "description": "Fancy and durable red carpet used to decorate the interiors of the Sierra Madre Casino.",
+    "flags": [ "TRANSPARENT", "COLLAPSES", "FLAT", "RUG", "EASY_DECONSTRUCT", "FLAMMABLE_HARD" ],
+    "bash": {
+      "sound": "SMASH!",
+      "ter_set": "sierra_floor_noroof",
+      "str_min": 5,
+      "str_max": 15,
+      "str_min_supported": 100,
+      "items": [ { "item": "rag", "count": [ 10, 20 ] }, { "item": "nail", "charges": [ 1, 3 ] } ]
+    },
+    "deconstruct": {
+      "items": [ { "item": "r_carpet", "charges": 1 }, { "item": "nail", "charges": 5 } ],
+      "ter_set": "sierra_floor_noroof"
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_door_locked",
+    "name": "locked Sierra Madre Casino entrance door",
+    "description": "entrance to the Sierra Madre Casino, locked and indestructible.",
+    "symbol": "+",
+    "looks_like": "t_door_metal_locked",
+    "color": "red",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_sierra_roof",
+    "flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "LOCKED", "BLOCK_WIND" ]
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_entrance_c",
+    "name": "Sierra Madre Casino entrance door",
+    "description": "entrance to the Sierra Madre Casino, unlocked, but still indestructible.",
+    "symbol": "'",
+    "looks_like": "t_door_metal_c",
+    "color": "red",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_sierra_roof",
+    "flags": [ "NOITEM", "DOOR", "CONNECT_TO_WALL", "BLOCK_WIND" ],
+    "open": "sierra_entrance"
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_entrance",
+    "name": "open Sierra Madre Casino entrance door",
+    "description": "entrance to the Sierra Madre Casino, open, but still indestructible.",
+    "symbol": "'",
+    "looks_like": "t_door_metal_o",
+    "color": "red",
+    "move_cost": 2,
+    "coverage": 50,
+    "roof": "t_sierra_roof",
+    "flags": [ "TRANSPARENT", "FLAT", "CONNECT_TO_WALL", "ROAD" ],
+    "close": "sierra_entrance_c"
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_door_l",
+    "name": "locked Sierra Madre Casino door",
+    "description": "door to the more important interiors of the Sierra Madre Casino. Locked and indestructible just like the entrance door.",
+    "symbol": "+",
+    "looks_like": "t_door_metal_locked",
+    "color": "red",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_sierra_roof",
+    "flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "LOCKED", "BLOCK_WIND" ]
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_door",
+    "name": "Sierra Madre Casino door",
+    "description": "door to the more important interiors of the Sierra Madre Casino. Indestructible just like the entrance door.",
+    "symbol": "+",
+    "looks_like": "t_door_metal_c",
+    "open": "sierra_door_o",
+    "color": "red",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_sierra_roof",
+    "flags": [ "NOITEM", "DOOR", "CONNECT_TO_WALL", "BLOCK_WIND" ]
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_door_o",
+    "name": "open Sierra Madre Casino door",
+    "description": "Sierra Madre Casino internal door, currently open, still indestructible.",
+    "symbol": "'",
+    "looks_like": "t_door_metal_o",
+    "color": "red",
+    "move_cost": 2,
+    "coverage": 50,
+    "roof": "t_sierra_roof",
+    "flags": [ "TRANSPARENT", "FLAT", "CONNECT_TO_WALL", "ROAD" ],
+    "close": "sierra_door"
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_door_vault",
+    "name": "locked Sierra Madre Vault door",
+    "description": "door to the legendary Sierra Madre Vault, locked and indestructible.",
+    "symbol": "+",
+    "looks_like": "t_door_metal_locked",
+    "color": "red",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_sierra_roof",
+    "flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "LOCKED", "BLOCK_WIND" ]
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_door_vault_c",
+    "name": "Sierra Madre Vault door",
+    "description": "door to the legendary Sierra Madre Vault, unlocked, but still indestructible.",
+    "symbol": "+",
+    "looks_like": "t_door_metal_c",
+    "color": "red",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_sierra_roof",
+    "flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "BLOCK_WIND" ],
+    "open": "sierra_door_vault_o"
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_door_vault_o",
+    "name": "open Sierra Madre Vault door",
+    "description": "door to the legendary Sierra Madre Vault, while indestructible, unlocked and opened right in front of you, waiting for you to enter the Vault and crack the Sierra Madre Treasure open...",
+    "symbol": "'",
+    "looks_like": "t_door_metal_o",
+    "color": "red",
+    "move_cost": 2,
+    "coverage": 50,
+    "roof": "t_sierra_roof",
+    "flags": [ "TRANSPARENT", "FLAT", "CONNECT_TO_WALL", "ROAD" ],
+    "close": "sierra_door_vault_c"
+  },
+  {
     "type": "terrain",
     "id": "sierra_vault_opener",
-	"looks_like": "t_intercom",
+    "looks_like": "t_intercom",
     "name": "Sierra Madre Vault intercom",
     "description": "The intercom located next to the Sierra Madre Vault, protecting it with a voice password.",
     "symbol": "6",
     "color": "pink",
     "move_cost": 0,
     "flags": [ "NOITEM", "CONNECT_TO_WALL" ]
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_wall_interior",
-		"name": "Sierra Madre Casino wall",
-		"description": "A solid brick wall used inside the Sierra Madre Casino. Years of accumulating dirt made this once white wall yellow. From time to time you can spot golden letters \"SM\" on it, the logo of the Sierra Madre.",
-		"symbol": "LINE_OXOX",
-		"color": "yellow",
-		"looks_like": "t_sierra_wall",
-		"move_cost": 0,
-		"coverage": 100,
-		"roof": "t_sierra_roof",
-		"flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND" ],
-		"connects_to": "WALL",
-		"bash": {
-		  "str_min": 60,
-		  "str_max": 160,
-		  "sound": "crash!",
-		  "sound_fail": "bash!",
-		  "ter_set": "t_null",
-		  "items": [ { "item": "rock", "count": [ 8, 15 ] }, { "item": "brick", "count": [ 2, 6 ] } ]
-		}
-	},
-	{
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_wall_interior",
+    "name": "Sierra Madre Casino wall",
+    "description": "A solid brick wall used inside the Sierra Madre Casino. Years of accumulating dirt made this once white wall yellow. From time to time you can spot golden letters \"SM\" on it, the logo of the Sierra Madre.",
+    "symbol": "LINE_OXOX",
+    "color": "yellow",
+    "looks_like": "t_sierra_wall",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_sierra_roof",
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND" ],
+    "connects_to": "WALL",
+    "bash": {
+      "str_min": 60,
+      "str_max": 160,
+      "sound": "crash!",
+      "sound_fail": "bash!",
+      "ter_set": "t_null",
+      "items": [ { "item": "rock", "count": [ 8, 15 ] }, { "item": "brick", "count": [ 2, 6 ] } ]
+    }
+  },
+  {
     "type": "terrain",
     "id": "t_slot_machine_sm",
     "name": "slot machine",
-	"looks_like": "t_slot_machine",
+    "looks_like": "t_slot_machine",
     "description": "A machine with a bright screen flashing hypnotic promises of wealth.  If gambling with your life on a daily basis isn't enough for you, you can also gamble with this.",
     "symbol": "6",
     "color": "green",
@@ -366,30 +368,30 @@
         { "item": "scrap", "count": [ 2, 6 ], "prob": 50 }
       ]
     }
-	},
-	{
-		"type": "terrain",
-		"id": "t_guardrail_sm",
-		"name": "golden guard rail",
-		"description": "A golden guard rail found inside the Sierra Madre Casino.",
-		"symbol": "#",
-		"color": "yellow",
-		"move_cost": 3,
-		"flags": [ "TRANSPARENT", "NOITEM", "REDUCE_SCENT", "MOUNTABLE", "SHORT", "THIN_OBSTACLE", "ROAD", "BURROWABLE" ],
-		"looks_like": "t_guardrail_bg_dp",
-		"bash": {
-		  "str_min": 8,
-		  "str_max": 150,
-		  "sound": "crunch!",
-		  "sound_fail": "clang!",
-		  "ter_set": "t_STORMSIERRAMADRE_fl_casino_red",
-		  "items": [ { "item": "pipe", "count": [ 1, 2 ] }, { "item": "gold_small", "count": [ 3, 6 ] } ]
-		}
-	},
-	{
+  },
+  {
+    "type": "terrain",
+    "id": "t_guardrail_sm",
+    "name": "golden guard rail",
+    "description": "A golden guard rail found inside the Sierra Madre Casino.",
+    "symbol": "#",
+    "color": "yellow",
+    "move_cost": 3,
+    "flags": [ "TRANSPARENT", "NOITEM", "REDUCE_SCENT", "MOUNTABLE", "SHORT", "THIN_OBSTACLE", "ROAD", "BURROWABLE" ],
+    "looks_like": "t_guardrail_bg_dp",
+    "bash": {
+      "str_min": 8,
+      "str_max": 150,
+      "sound": "crunch!",
+      "sound_fail": "clang!",
+      "ter_set": "t_STORMSIERRAMADRE_fl_casino_red",
+      "items": [ { "item": "pipe", "count": [ 1, 2 ] }, { "item": "gold_small", "count": [ 3, 6 ] } ]
+    }
+  },
+  {
     "type": "terrain",
     "id": "window_sierra",
-	"looks_like": "t_window_domestic",
+    "looks_like": "t_window_domestic",
     "name": "Sierra Madre armored window.",
     "description": "A window appearing in the Sierra Madre suites. While it looks like any other fancy window, it's supposed to withstand a direct hit by a nuclear warhead, just like the entire Sierra Madre Casino. Tech used to design this wonder comes, of course, from the Big Mountain research facility.",
     "symbol": "\"",
@@ -397,22 +399,14 @@
     "move_cost": 0,
     "coverage": 60,
     "roof": "t_sierra_roof",
-    "flags": [
-      "TRANSPARENT",
-      "NOITEM",
-      "BARRICADABLE_WINDOW_CURTAINS",
-      "REDUCE_SCENT",
-      "CONNECT_TO_WALL",
-      "BLOCK_WIND",
-      "WINDOW"
-    ],
+    "flags": [ "TRANSPARENT", "NOITEM", "BARRICADABLE_WINDOW_CURTAINS", "REDUCE_SCENT", "CONNECT_TO_WALL", "BLOCK_WIND", "WINDOW" ],
     "curtain_transform": "window_sierra_no_curtains",
     "examine_action": "curtains",
     "close": "sierra_curtains"
-	},
-	{
+  },
+  {
     "type": "terrain",
-	"id": "window_sierra_no_curtains",
+    "id": "window_sierra_no_curtains",
     "looks_like": "t_window_no_curtains",
     "name": "Sierra Madre armored window without curtains",
     "description": "A window appearing in the Sierra Madre suites. While it looks like any other fancy window (except it doesn't have curtains), it's supposed to withstand a direct hit by a nuclear warhead, just like the entire Sierra Madre Casino. Tech used to design this wonder comes, of course, from the Big Mountain research facility.",
@@ -421,21 +415,13 @@
     "move_cost": 0,
     "coverage": 60,
     "roof": "t_sierra_roof",
-    "flags": [
-      "TRANSPARENT",
-      "NOITEM",
-      "BARRICADABLE_WINDOW",
-      "REDUCE_SCENT",
-      "CONNECT_TO_WALL",
-      "BLOCK_WIND",
-      "WINDOW"
-    ],
+    "flags": [ "TRANSPARENT", "NOITEM", "BARRICADABLE_WINDOW", "REDUCE_SCENT", "CONNECT_TO_WALL", "BLOCK_WIND", "WINDOW" ],
     "examine_action": "locked_object"
-	},
-	{
+  },
+  {
     "type": "terrain",
     "id": "sierra_curtains",
-	"looks_like": "t_curtains",
+    "looks_like": "t_curtains",
     "name": "Sierra Madre armored window with closed curtains",
     "description": "A window appearing in the Sierra Madre suites. While it looks like any other fancy window with closed curtains would, it's supposed to withstand a direct hit by a nuclear warhead, just like the entire Sierra Madre Casino. Tech used to design this wonder comes, of course, from the Big Mountain research facility.",
     "symbol": "\"",
@@ -455,27 +441,18 @@
     "curtain_transform": "window_sierra_no_curtains",
     "open": "window_sierra",
     "examine_action": "curtains"
-	},
-	{
+  },
+  {
     "type": "terrain",
     "id": "t_fence_sierra",
-	"looks_like": "t_fence",
+    "looks_like": "t_fence",
     "alias": [ "t_fence_h", "t_fence_v" ],
     "name": "picket fence",
     "description": "A barrier made of wood, it's nothing complicated.  Mildly suggests where not to go.",
     "symbol": "LINE_OXOX",
     "color": "brown",
     "move_cost": 3,
-    "flags": [
-      "TRANSPARENT",
-      "FLAMMABLE_ASH",
-      "NOITEM",
-      "THIN_OBSTACLE",
-      "REDUCE_SCENT",
-      "MOUNTABLE",
-      "SHORT",
-      "AUTO_WALL_SYMBOL"
-    ],
+    "flags": [ "TRANSPARENT", "FLAMMABLE_ASH", "NOITEM", "THIN_OBSTACLE", "REDUCE_SCENT", "MOUNTABLE", "SHORT", "AUTO_WALL_SYMBOL" ],
     "connects_to": "WOODFENCE",
     "deconstruct": { "ter_set": "t_fence_post_sierra", "items": [ { "item": "2x4", "count": 5 }, { "item": "nail", "charges": 8 } ] },
     "bash": {
@@ -486,11 +463,11 @@
       "ter_set": "t_flat_roof",
       "items": [ { "item": "2x4", "count": [ 1, 3 ] }, { "item": "nail", "charges": [ 2, 6 ] }, { "item": "splinter", "count": 1 } ]
     }
-	},
-	{
+  },
+  {
     "type": "terrain",
     "id": "t_fence_post_sierra",
-	"looks_like": "t_fence_post",
+    "looks_like": "t_fence_post",
     "name": "fence post",
     "description": "A couple of posts that support the fence.  They look alone without the fence.",
     "symbol": "#",
@@ -507,24 +484,77 @@
       "items": [ { "item": "pointy_stick", "count": [ 0, 2 ] } ]
     }
   },
-	{
+  {
     "id": "sierra_gas",
     "type": "field_type",
-	"looks_like": "fd_fatigue",
+    "looks_like": "fd_fatigue",
     "intensity_levels": [
       {
         "name": "Sierra Madre toxic gas",
         "color": "red",
-		"sym": "8",
+        "sym": "8",
         "translucency": 25,
-		"transparent": false,
+        "transparent": false,
         "effects": [
-          { "effect_id": "sierra_poison", "intensity": 20, "body_part": "head", "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false, "message": "Sierra Madre toxic gas burns through your entire body", "message_type": "bad" },
-		  { "effect_id": "sierra_poison_display", "intensity": 20, "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false, "message": "Sierra Madre toxic gas burns through your entire body", "message_type": "bad" },
-		  { "effect_id": "sierra_poison", "intensity": 20, "body_part": "leg_r", "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false, "message": "Sierra Madre toxic gas burns through your entire body", "message_type": "bad" },
-		  { "effect_id": "sierra_poison", "intensity": 20, "body_part": "leg_l", "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false, "message": "Sierra Madre toxic gas burns through your entire body", "message_type": "bad" },
-		  { "effect_id": "sierra_poison", "intensity": 20, "body_part": "arm_l", "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false, "message": "Sierra Madre toxic gas burns through your entire body", "message_type": "bad" },
-		  { "effect_id": "sierra_poison", "intensity": 20, "body_part": "arm_r", "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false, "message": "Sierra Madre toxic gas burns through your entire body", "message_type": "bad" }
+          {
+            "effect_id": "sierra_poison",
+            "intensity": 20,
+            "body_part": "head",
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false,
+            "message": "Sierra Madre toxic gas burns through your entire body",
+            "message_type": "bad"
+          },
+          {
+            "effect_id": "sierra_poison_display",
+            "intensity": 20,
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false,
+            "message": "Sierra Madre toxic gas burns through your entire body",
+            "message_type": "bad"
+          },
+          {
+            "effect_id": "sierra_poison",
+            "intensity": 20,
+            "body_part": "leg_r",
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false,
+            "message": "Sierra Madre toxic gas burns through your entire body",
+            "message_type": "bad"
+          },
+          {
+            "effect_id": "sierra_poison",
+            "intensity": 20,
+            "body_part": "leg_l",
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false,
+            "message": "Sierra Madre toxic gas burns through your entire body",
+            "message_type": "bad"
+          },
+          {
+            "effect_id": "sierra_poison",
+            "intensity": 20,
+            "body_part": "arm_l",
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false,
+            "message": "Sierra Madre toxic gas burns through your entire body",
+            "message_type": "bad"
+          },
+          {
+            "effect_id": "sierra_poison",
+            "intensity": 20,
+            "body_part": "arm_r",
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false,
+            "message": "Sierra Madre toxic gas burns through your entire body",
+            "message_type": "bad"
+          }
         ]
       }
     ],
@@ -537,24 +567,65 @@
     "phase": "gas",
     "display_items": false,
     "display_field": true
-	},
-	{
+  },
+  {
     "id": "cloud",
     "type": "field_type",
     "intensity_levels": [
       {
         "name": "Sierra Madre Cloud",
         "color": "light_red",
-		"sym": "O",
+        "sym": "O",
         "translucency": 0,
-		"transparent": true,
+        "transparent": true,
         "effects": [
-          { "effect_id": "sierra_cloud", "intensity": 10, "body_part": "head", "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false },
-		  { "effect_id": "sierra_cloud_display", "intensity": 10, "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false },
-		  { "effect_id": "sierra_cloud", "intensity": 10, "body_part": "leg_r", "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false },
-		  { "effect_id": "sierra_cloud", "intensity": 10, "body_part": "leg_l", "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false },
-		  { "effect_id": "sierra_cloud", "intensity": 10, "body_part": "arm_r", "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false },
-		  { "effect_id": "sierra_cloud", "intensity": 10, "body_part": "arm_l", "min_duration": "5 seconds", "max_duration": "5 seconds", "immune_inside_vehicle": false }
+          {
+            "effect_id": "sierra_cloud",
+            "intensity": 10,
+            "body_part": "head",
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false
+          },
+          {
+            "effect_id": "sierra_cloud_display",
+            "intensity": 10,
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false
+          },
+          {
+            "effect_id": "sierra_cloud",
+            "intensity": 10,
+            "body_part": "leg_r",
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false
+          },
+          {
+            "effect_id": "sierra_cloud",
+            "intensity": 10,
+            "body_part": "leg_l",
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false
+          },
+          {
+            "effect_id": "sierra_cloud",
+            "intensity": 10,
+            "body_part": "arm_r",
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false
+          },
+          {
+            "effect_id": "sierra_cloud",
+            "intensity": 10,
+            "body_part": "arm_l",
+            "min_duration": "5 seconds",
+            "max_duration": "5 seconds",
+            "immune_inside_vehicle": false
+          }
         ]
       }
     ],
@@ -567,47 +638,47 @@
     "phase": "gas",
     "display_items": true,
     "display_field": false
-	},
-	{
+  },
+  {
     "type": "terrain",
     "id": "vault_floor",
     "name": "Sierra Madre Vault floor",
-	"looks_like": "t_metal_floor",
+    "looks_like": "t_metal_floor",
     "description": "The floor used to cover the ground of the Sierra Madre legendary vault, made of the strongest metal alloys ever produced by humans.",
     "symbol": ".",
     "color": "light_cyan",
     "move_cost": 2,
     "roof": "t_sierra_roof",
     "flags": [ "TRANSPARENT", "INDOORS", "FLAT", "ROAD" ]
-	},
-	{
+  },
+  {
     "type": "terrain",
     "id": "vault_floor_light",
     "name": "Sierra Madre Vault floor",
-	"looks_like": "t_metal_floor_olight",
+    "looks_like": "t_metal_floor_olight",
     "description": "The floor used to cover the ground of the Sierra Madre legendary vault, made of the strongest metal alloys ever produced by humans, with a still-functioning light attached to the ceiling above.",
     "symbol": ".",
     "color": "light_cyan",
     "move_cost": 2,
     "roof": "t_sierra_roof",
-	"light_emitted": 40,
+    "light_emitted": 40,
     "flags": [ "TRANSPARENT", "INDOORS", "FLAT", "ROAD" ]
-	},
-	{
+  },
+  {
     "type": "terrain",
     "id": "vault_floor_noroof",
     "name": "Sierra Madre Vault floor",
-	"looks_like": "t_metal_floor",
+    "looks_like": "t_metal_floor",
     "description": "The floor used to cover the ground of the Sierra Madre legendary vault, made of the strongest metal alloys ever produced by humans.",
     "symbol": ".",
     "color": "light_cyan",
     "move_cost": 2,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD" ]
-	},
-	{
+  },
+  {
     "type": "terrain",
     "id": "vault_wall",
-	"looks_like": "t_wall_metal",
+    "looks_like": "t_wall_metal",
     "name": "Sierra Madre Vault wall",
     "description": "Thick, practically indestructible wall used to protect the Sierra Madre Vault. Even tougher than the outer walls of the Casino, this one can sustain direct hits from at least a dozen nuclear warheads unscratched.",
     "symbol": "LINE_OXOX",
@@ -616,36 +687,36 @@
     "coverage": 100,
     "roof": "t_sierra_roof",
     "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "BLOCK_WIND" ]
-	},
-	{
-		"type": "terrain",
-		"id": "vault_inter_door",
-		"name": "Sierra Madre Vault interior door",
-		"description": "Closed indestructible door separating the interiors of the Sierra Madre Vault.",
-		"symbol": "+",
-		"looks_like": "t_door_metal_c",
-		"open": "vault_inter_door_o",
-		"color": "red",
-		"move_cost": 0,
-		"coverage": 100,
-		"roof": "t_sierra_roof",
-		"flags": [ "NOITEM", "DOOR", "CONNECT_TO_WALL", "BLOCK_WIND" ]
-	},
-	{
-		"type": "terrain",
-		"id": "vault_inter_door_o",
-		"name": "open Sierra Madre Vault interior door",
-		"description": "Opened indestructible door separating the interiors of the Sierra Madre Vault.",
-		"symbol": "'",
-		"looks_like": "t_door_metal_o",
-		"color": "red",
-		"move_cost": 2,
-		"coverage": 50,
-		"roof": "t_sierra_roof",
-		"flags": [ "TRANSPARENT", "FLAT", "CONNECT_TO_WALL", "ROAD" ],
-		"close": "vault_inter_door"
-	},
-	{
+  },
+  {
+    "type": "terrain",
+    "id": "vault_inter_door",
+    "name": "Sierra Madre Vault interior door",
+    "description": "Closed indestructible door separating the interiors of the Sierra Madre Vault.",
+    "symbol": "+",
+    "looks_like": "t_door_metal_c",
+    "open": "vault_inter_door_o",
+    "color": "red",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_sierra_roof",
+    "flags": [ "NOITEM", "DOOR", "CONNECT_TO_WALL", "BLOCK_WIND" ]
+  },
+  {
+    "type": "terrain",
+    "id": "vault_inter_door_o",
+    "name": "open Sierra Madre Vault interior door",
+    "description": "Opened indestructible door separating the interiors of the Sierra Madre Vault.",
+    "symbol": "'",
+    "looks_like": "t_door_metal_o",
+    "color": "red",
+    "move_cost": 2,
+    "coverage": 50,
+    "roof": "t_sierra_roof",
+    "flags": [ "TRANSPARENT", "FLAT", "CONNECT_TO_WALL", "ROAD" ],
+    "close": "vault_inter_door"
+  },
+  {
     "type": "terrain",
     "id": "vault_glass",
     "name": "Sierra Madre Vault glass wall",
@@ -656,10 +727,10 @@
     "move_cost": 0,
     "roof": "t_sierra_roof",
     "flags": [ "TRANSPARENT", "NOITEM", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "BLOCK_WIND" ]
-	},
-	{
+  },
+  {
     "type": "terrain",
-	"id": "sierra_pipe",
+    "id": "sierra_pipe",
     "looks_like": "t_sewage_pipe",
     "name": "high gauge pipe",
     "description": "This is a section of high gauge pipe.",
@@ -667,7 +738,7 @@
     "color": "light_gray",
     "move_cost": 5,
     "coverage": 50,
-	"roof": "t_sierra_roof",
+    "roof": "t_sierra_roof",
     "flags": [ "TRANSPARENT", "MOUNTABLE", "PERMEABLE", "THIN_OBSTACLE", "MINEABLE" ],
     "bash": {
       "str_min": 30,
@@ -677,18 +748,18 @@
       "ter_set": "vault_floor",
       "items": [ { "item": "scrap", "count": [ 4, 8 ] }, { "item": "steel_plate", "count": [ 0, 2 ] } ]
     }
-	},
-	{
-		"type": "terrain",
-		"id": "sierra_trap",
-		"name": "locked Sierra Madre Vault door",
-		"description": "door to the legendary Sierra Madre Vault, permanently locked due to vault's trap activation, turning it from a vault into a coffin. YOUR coffin...",
-		"symbol": "+",
-		"looks_like": "t_door_metal_locked",
-		"color": "red",
-		"move_cost": 0,
-		"coverage": 100,
-		"roof": "t_sierra_roof",
-		"flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "LOCKED", "BLOCK_WIND" ]
-	}
+  },
+  {
+    "type": "terrain",
+    "id": "sierra_trap",
+    "name": "locked Sierra Madre Vault door",
+    "description": "door to the legendary Sierra Madre Vault, permanently locked due to vault's trap activation, turning it from a vault into a coffin. YOUR coffin...",
+    "symbol": "+",
+    "looks_like": "t_door_metal_locked",
+    "color": "red",
+    "move_cost": 0,
+    "coverage": 100,
+    "roof": "t_sierra_roof",
+    "flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "LOCKED", "BLOCK_WIND" ]
+  }
 ]
