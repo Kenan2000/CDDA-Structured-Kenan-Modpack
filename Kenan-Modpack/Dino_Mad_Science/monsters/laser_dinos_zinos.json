@@ -99,11 +99,92 @@
         "targeting_timeout_extend": -1,
         "targeting_sound": "\"TARGET *zZzZzz* ACQUIRED.\"",
         "targeting_volume": 70,
-        "no_ammo_sound": "*zZzzz*-TARGET ACQUIRED. *beeeeeeeeep*. OUT OF AMMO.-*zZzZ*"
+        "no_ammo_sound": "*zZzzz*-TARGET ACQUIRED.  *beeeeeeeeep*.  OUT OF AMMO.-*zZzZ*"
       }
     ],
-    "description": "A shiny finned dinosaur corpse covered with armor and crackling bionics. It shambles quickly as it hunts. Is... is that a laser rifle on its head?",
+    "description": "A shiny finned dinosaur corpse covered with armor and crackling bionics.  It shambles quickly as it hunts.  Is…  is that a laser rifle on its head?",
     "special_when_hit": [ "ZAPBACK", 20 ],
     "harvest": "CBM_ZINO"
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_utahraptor_bio_op",
+    "name": { "str_sp": "Utahraptor bio-operator" },
+    "copy-from": "mon_utahraptor",
+    "diff": 5,
+    "proportional": { "hp": 1.2, "speed": 1.05 },
+    "morale": 95,
+    "aggression": 80,
+    "relative": { "melee_skill": 10, "melee_dice": 5, "dodge": 4, "armor_bash": 3, "armor_cut": 3, "armor_bullet": 3 },
+    "extend": { "flags": [ "ACIDPROOF", "ELECTRIC" ] },
+    "melee_damage": [ { "damage_type": "electric", "amount": 4 } ],
+    "vision_day": 100,
+    "vision_night": 100,
+    "luminance": 2,
+    "starting_ammo": { "battery": 15 },
+    "special_attacks": [
+      [ "BIO_OP_TAKEDOWN", 20 ],
+      {
+        "type": "gun",
+        "cooldown": 7,
+        "move_cost": 20,
+        "gun_type": "laser_rifle_dino2",
+        "fake_skills": [ [ "gun", 3 ], [ "rifle", 2 ] ],
+        "fake_dex": 3,
+        "ranges": [ [ 0, 36, "DEFAULT" ] ],
+        "require_targeting_npc": true,
+        "require_targeting_monster": true,
+        "laser_lock": false,
+        "targeting_cost": 1,
+        "targeting_timeout_extend": -1,
+        "targeting_sound": "\"TARGET *beeep* ACQUIRED.\"",
+        "targeting_volume": 70,
+        "no_ammo_sound": "*beeep*-TARGET ACQUIRED.  *beeeeeeeeep*.  OUT OF AMMO.-*beeep*"
+      }
+    ],
+    "zombify_into": "mon_zutahraptor_bio_op",
+    "description": "An intimidating cyber-raptor with hair-like filaments and crackling bionics protruding from its silvery armor plating.  Its eyes glow red as it scans with its laser rifle shoulder-mount.",
+    "special_when_hit": [ "ZAPBACK", 30 ],
+    "harvest": "CBM_DINO_FEATHER"
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_zutahraptor_bio_op",
+    "name": { "str_sp": "Utahraptor zombie bio-operator" },
+    "copy-from": "mon_zutahraptor",
+    "diff": 5,
+    "proportional": { "hp": 1.4, "speed": 1.15 },
+    "morale": 100,
+    "aggression": 100,
+    "relative": { "melee_skill": 9, "melee_dice": 5, "dodge": 2, "armor_bash": 3, "armor_cut": 3, "armor_bullet": 3 },
+    "extend": { "flags": [ "ACIDPROOF", "ELECTRIC" ] },
+    "melee_damage": [ { "damage_type": "electric", "amount": 4 } ],
+    "vision_day": 100,
+    "vision_night": 100,
+    "luminance": 2,
+    "starting_ammo": { "battery": 15 },
+    "special_attacks": [
+      [ "BIO_OP_TAKEDOWN", 20 ],
+      {
+        "type": "gun",
+        "cooldown": 8,
+        "move_cost": 20,
+        "gun_type": "laser_rifle_dino2",
+        "fake_skills": [ [ "gun", 2 ], [ "rifle", 2 ] ],
+        "fake_dex": 1,
+        "ranges": [ [ 0, 24, "DEFAULT" ] ],
+        "require_targeting_npc": true,
+        "require_targeting_monster": true,
+        "laser_lock": false,
+        "targeting_cost": 1,
+        "targeting_timeout_extend": -1,
+        "targeting_sound": "\"TARGET *zZzZzz* ACQUIRED.\"",
+        "targeting_volume": 70,
+        "no_ammo_sound": "*zZzzz*-TARGET ACQUIRED.  *beeeep*.  OUT OF AMMO.-*zZzZ*"
+      }
+    ],
+    "description": "The corpse of an intimidatingly large cyber-raptor.  Bloody hair-like filaments and crackling bionics coat its silvery armor plating.  Its eyes glow blood red as it scans with its laser rifle shoulder-mount.",
+    "special_when_hit": [ "ZAPBACK", 40 ],
+    "harvest": "CBM_ZINO_FEATHER"
   }
 ]
