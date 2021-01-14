@@ -67,7 +67,9 @@ Updated and even more awesome Otopack soundpack maintained by me
 
 Bright Nights modpack
 
-**4) https://github.com/Kenan2000/Bright-Nights-Kenan-Mod-Pack**
+**4) https://github.com/Kenan2000/Bright-Nights-Kenan-Mod-Pack - Bright Nights Modpack**
+
+**5) https://github.com/Kenan2000/CDDA-NoMods-Anthology - monster and rebalancing exclusions/inclusions Modpack**
 
 ## Link to my CDDA modding server 
 
