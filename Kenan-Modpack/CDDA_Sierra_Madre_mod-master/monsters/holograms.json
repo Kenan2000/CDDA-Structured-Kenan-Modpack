@@ -1,140 +1,118 @@
 [
-	{
-		"type": "MONSTER_FACTION",
-		"name": "holograms",
-		"neutral": [ "mon_holo_guard_neutral" ]
-	},
-	{
-		"id": "mon_holo_guard",
-		"type": "MONSTER",
-		"looks_like": "mon_hologram",
-		"name": { "str": "Sierra Madre security hologram" },
-		"description": "One of the greatest Big Mountain achievements, this hologram is far more than just display - it's capable of detecting hostile targets and firing its internal laser beam at them. Completely invincible, so don't waste your ammo and whatever other combat supplies you might have. Can only be switched off if you find and access its emitter.",
-		"default_faction": "holograms",
-		"bodytype": "human",
-		"species": [ "ROBOT" ],
-		"diff": 20,
-		"volume": "62500 ml",
-		"weight": "0 g",
-		"hp": 999999999,
-		"regenerates": 999999999,
-		"speed": 110,
-		"material": [ "superalloy" ],
-		"phase": "NULL",
-		"symbol": "H",
-		"color": "light_cyan",
-		"aggression": 100,
-		"morale": 100,
-		"luminance": 10,
-		"vision_day": 35,
-		"vision_night": 35,
-		"path_settings": { "avoid_traps" : true, "allow_climb_stairs" : false, "avoid_sharp": true, "max_dist": 50 },
-		"special_attacks": [
-			{
-				"type": "gun",
-				"cooldown": 5,
-				"gun_type": "holo_gun",
-				"fake_skills": [ [ "gun", 3 ], [ "pistol", 3 ] ],
-				"ranges": [ [ 0, 25, "DEFAULT" ] ]
-			}
-		],
-		"death_function": [ "DISAPPEAR" ],
-		"flags": [
-		  "SEES",
-		  "HEARS",
-		  "NO_BREATHE",
-		  "FIREPROOF",
-		  "ACIDPROOF",
-		  "PRIORITIZE_TARGETS"
-		]
-	},
-	{
-		"id": "mon_holo_guard_neutral",
-		"type": "MONSTER",
-		"looks_like": "mon_hologram",
-		"name": { "str": "Sierra Madre security hologram" },
-		"description": "One of the greatest Big Mountain achievements, this hologram is far more than just display - it's capable of detecting hostile targets and firing its internal laser beam at them. Completely invincible, so don't waste your ammo and whatever other combat supplies you might have. Can only be switched off if you find and access its emitter. This one act as a friendly immobile sentry though, since it was you who took control of it.",
-		"default_faction": "holograms",
-		"bodytype": "human",
-		"species": [ "ROBOT" ],
-		"diff": 20,
-		"volume": "62500 ml",
-		"weight": "0 g",
-		"hp": 999999999,
-		"regenerates": 999999999,
-		"speed": 110,
-		"material": [ "superalloy" ],
-		"phase": "NULL",
-		"symbol": "H",
-		"color": "light_cyan",
-		"aggression": 100,
-		"morale": 100,
-		"luminance": 10,
-		"vision_day": 35,
-		"vision_night": 35,
-		"special_attacks": [
-			{
-				"type": "gun",
-				"cooldown": 5,
-				"gun_type": "holo_gun",
-				"fake_skills": [ [ "gun", 3 ], [ "pistol", 3 ] ],
-				"ranges": [ [ 0, 25, "DEFAULT" ] ]
-			}
-		],
-		"death_function": [ "DISAPPEAR" ],
-		"flags": [
-		  "SEES",
-		  "HEARS",
-		  "NO_BREATHE",
-		  "FIREPROOF",
-		  "ACIDPROOF",
-		  "IMMOBILE",
-		  "PRIORITIZE_TARGETS"
-		]
-	},
-	{
-		"id": "mon_vera",
-		"type": "MONSTER",
-		"looks_like": "mon_hologram",
-		"name": { "str": "Sierra Madre Vera Keyes' hologram" },
-		"description": "One of the greatest Big Mountain achievements, this hologram is far more than just display - it's capable of detecting hostile targets and firing its internal laser beam at them. Completely invincible, so don't waste your ammo and whatever other combat supplies you might have. Can only be switched off if you find and access its emitter. This one seems to have taken the form of Vera Keyes for some strange reason.",
-		"default_faction": "holograms",
-		"bodytype": "human",
-		"species": [ "ROBOT" ],
-		"diff": 20,
-		"volume": "62500 ml",
-		"weight": "0 g",
-		"hp": 999999999,
-		"regenerates": 999999999,
-		"speed": 110,
-		"material": [ "superalloy" ],
-		"phase": "NULL",
-		"symbol": "H",
-		"color": "light_cyan",
-		"aggression": 100,
-		"morale": 100,
-		"luminance": 10,
-		"vision_day": 35,
-		"vision_night": 35,
-		"path_settings": { "avoid_traps" : true, "allow_climb_stairs" : false, "avoid_sharp": true, "allow_open_doors": true, "max_dist": 50 },
-		"special_attacks": [
-			[ "PARROT", 10 ],
-			{
-				"type": "gun",
-				"cooldown": 5,
-				"gun_type": "holo_gun",
-				"fake_skills": [ [ "gun", 3 ], [ "pistol", 3 ] ],
-				"ranges": [ [ 0, 25, "DEFAULT" ] ]
-			}
-		],
-		"death_function": [ "DISAPPEAR" ],
-		"flags": [
-		  "SEES",
-		  "HEARS",
-		  "NO_BREATHE",
-		  "FIREPROOF",
-		  "ACIDPROOF",
-		  "PRIORITIZE_TARGETS"
-		]
-	}
+  {
+    "type": "MONSTER_FACTION",
+    "name": "holograms",
+    "neutral": [ "mon_holo_guard_neutral" ]
+  },
+  {
+    "id": "mon_holo_guard",
+    "type": "MONSTER",
+    "looks_like": "mon_hologram",
+    "name": { "str": "Sierra Madre security hologram" },
+    "description": "One of the greatest Big Mountain achievements, this hologram is far more than just display - it's capable of detecting hostile targets and firing its internal laser beam at them. Completely invincible, so don't waste your ammo and whatever other combat supplies you might have. Can only be switched off if you find and access its emitter.",
+    "default_faction": "holograms",
+    "bodytype": "human",
+    "species": [ "ROBOT" ],
+    "diff": 20,
+    "volume": "62500 ml",
+    "weight": "0 g",
+    "hp": 999999999,
+    "regenerates": 999999999,
+    "speed": 110,
+    "material": [ "superalloy" ],
+    "phase": "NULL",
+    "symbol": "H",
+    "color": "light_cyan",
+    "aggression": 100,
+    "morale": 100,
+    "luminance": 10,
+    "vision_day": 35,
+    "vision_night": 35,
+    "path_settings": { "avoid_traps": true, "allow_climb_stairs": false, "avoid_sharp": true, "max_dist": 50 },
+    "special_attacks": [
+      {
+        "type": "gun",
+        "cooldown": 5,
+        "gun_type": "holo_gun",
+        "fake_skills": [ [ "gun", 3 ], [ "pistol", 3 ] ],
+        "ranges": [ [ 0, 25, "DEFAULT" ] ]
+      }
+    ],
+    "death_function": [ "DISAPPEAR" ],
+    "flags": [ "SEES", "HEARS", "NO_BREATHE", "FIREPROOF", "ACIDPROOF", "PRIORITIZE_TARGETS" ]
+  },
+  {
+    "id": "mon_holo_guard_neutral",
+    "type": "MONSTER",
+    "looks_like": "mon_hologram",
+    "name": { "str": "Sierra Madre security hologram" },
+    "description": "One of the greatest Big Mountain achievements, this hologram is far more than just display - it's capable of detecting hostile targets and firing its internal laser beam at them. Completely invincible, so don't waste your ammo and whatever other combat supplies you might have. Can only be switched off if you find and access its emitter. This one act as a friendly immobile sentry though, since it was you who took control of it.",
+    "default_faction": "holograms",
+    "bodytype": "human",
+    "species": [ "ROBOT" ],
+    "diff": 20,
+    "volume": "62500 ml",
+    "weight": "0 g",
+    "hp": 999999999,
+    "regenerates": 999999999,
+    "speed": 110,
+    "material": [ "superalloy" ],
+    "phase": "NULL",
+    "symbol": "H",
+    "color": "light_cyan",
+    "aggression": 100,
+    "morale": 100,
+    "luminance": 10,
+    "vision_day": 35,
+    "vision_night": 35,
+    "special_attacks": [
+      {
+        "type": "gun",
+        "cooldown": 5,
+        "gun_type": "holo_gun",
+        "fake_skills": [ [ "gun", 3 ], [ "pistol", 3 ] ],
+        "ranges": [ [ 0, 25, "DEFAULT" ] ]
+      }
+    ],
+    "death_function": [ "DISAPPEAR" ],
+    "flags": [ "SEES", "HEARS", "NO_BREATHE", "FIREPROOF", "ACIDPROOF", "IMMOBILE", "PRIORITIZE_TARGETS" ]
+  },
+  {
+    "id": "mon_vera",
+    "type": "MONSTER",
+    "looks_like": "mon_hologram",
+    "name": { "str": "Sierra Madre Vera Keyes' hologram" },
+    "description": "One of the greatest Big Mountain achievements, this hologram is far more than just display - it's capable of detecting hostile targets and firing its internal laser beam at them. Completely invincible, so don't waste your ammo and whatever other combat supplies you might have. Can only be switched off if you find and access its emitter. This one seems to have taken the form of Vera Keyes for some strange reason.",
+    "default_faction": "holograms",
+    "bodytype": "human",
+    "species": [ "ROBOT" ],
+    "diff": 20,
+    "volume": "62500 ml",
+    "weight": "0 g",
+    "hp": 999999999,
+    "regenerates": 999999999,
+    "speed": 110,
+    "material": [ "superalloy" ],
+    "phase": "NULL",
+    "symbol": "H",
+    "color": "light_cyan",
+    "aggression": 100,
+    "morale": 100,
+    "luminance": 10,
+    "vision_day": 35,
+    "vision_night": 35,
+    "path_settings": { "avoid_traps": true, "allow_climb_stairs": false, "avoid_sharp": true, "allow_open_doors": true, "max_dist": 50 },
+    "special_attacks": [
+      [ "PARROT", 10 ],
+      {
+        "type": "gun",
+        "cooldown": 5,
+        "gun_type": "holo_gun",
+        "fake_skills": [ [ "gun", 3 ], [ "pistol", 3 ] ],
+        "ranges": [ [ 0, 25, "DEFAULT" ] ]
+      }
+    ],
+    "death_function": [ "DISAPPEAR" ],
+    "flags": [ "SEES", "HEARS", "NO_BREATHE", "FIREPROOF", "ACIDPROOF", "PRIORITIZE_TARGETS" ]
+  }
 ]

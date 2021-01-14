@@ -13,18 +13,18 @@
         "description": "A servant stands between their master and the world.\n\nBlocked damage reduced by 100% of Dexterity, -1 Dodge skill, +1 Block attempt",
         "unarmed_allowed": true,
         "melee_allowed": true,
-		"bonus_blocks": 1,
-        "flat_bonuses": [ { "stat": "block", "scaling-stat": "dex", "scale": 1.0 }, { "stat": "dodge", "scale": -1.0 }]
+        "bonus_blocks": 1,
+        "flat_bonuses": [ { "stat": "block", "scaling-stat": "dex", "scale": 1.0 }, { "stat": "dodge", "scale": -1.0 } ]
       },
-	  {
+      {
         "id": "maid_defense_2",
         "name": "Silent Presence",
         "description": "A servant must carry out their duties with the appropriate poise and grace.\n\n+2 Dodge skill, +1 Dodge attempts.",
-		"skill_requirements": [ { "name": "melee", "level": 3 } ],
+        "skill_requirements": [ { "name": "melee", "level": 3 } ],
         "bonus_dodges": 1,
         "unarmed_allowed": true,
         "melee_allowed": true,
-        "flat_bonuses": [{ "stat": "dodge", "scale": 2.0 }]
+        "flat_bonuses": [ { "stat": "dodge", "scale": 2.0 } ]
       }
     ],
     "onmove_buffs": [
@@ -36,12 +36,9 @@
         "melee_allowed": true,
         "skill_requirements": [ { "name": "unarmed", "level": 0 } ],
         "buff_duration": 1,
-		"max_stacks": 1,
-        "flat_bonuses": [
-          { "stat": "hit", "scale": -1 },
-          { "stat": "dodge", "scale": 2.0 }
-        ],
-		"mult_bonuses": [
+        "max_stacks": 1,
+        "flat_bonuses": [ { "stat": "hit", "scale": -1 }, { "stat": "dodge", "scale": 2.0 } ],
+        "mult_bonuses": [
           { "stat": "damage", "type": "bash", "scale": 0.7 },
           { "stat": "damage", "type": "cut", "scale": 0.7 },
           { "stat": "damage", "type": "stab", "scale": 0.7 }
@@ -58,23 +55,30 @@
         "skill_requirements": [ { "name": "unarmed", "level": 0 } ],
         "buff_duration": 1,
         "max_stacks": 1,
-		"bonus_blocks": -2,
-		"bonus_dodges": -1
+        "bonus_blocks": -2,
+        "bonus_dodges": -1
       }
     ],
-	"ongethit_buffs": [
-		{
-			"id": "maid_gethit",
-			"name": "Flustered",
-			"description": "Ah! N-not there!\n\n-1 Dodge attempts, -2 Dodge skill.",
-			"unarmed_allowed": true,
-			"melee_allowed": true,
-			"buff_duration": 1,
-			"bonus_dodges": -1,
-			"flat_bonuses": [{ "stat": "dodge", "scale": -2.0 }]
-		}
-	],
-    "techniques": [ "tec_maid_precise", "tec_maid_counter", "tec_maid_meleecounter", "tec_maid_miyage", "tec_maid_kyusyu", "tec_maid_grab" ],
+    "ongethit_buffs": [
+      {
+        "id": "maid_gethit",
+        "name": "Flustered",
+        "description": "Ah! N-not there!\n\n-1 Dodge attempts, -2 Dodge skill.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "buff_duration": 1,
+        "bonus_dodges": -1,
+        "flat_bonuses": [ { "stat": "dodge", "scale": -2.0 } ]
+      }
+    ],
+    "techniques": [
+      "tec_maid_precise",
+      "tec_maid_counter",
+      "tec_maid_meleecounter",
+      "tec_maid_miyage",
+      "tec_maid_kyusyu",
+      "tec_maid_grab"
+    ],
     "weapons": [
       "battle_mop",
       "maid_claw",
@@ -92,13 +96,13 @@
       "mop",
       "knife_butter",
       "knife_steak",
-	  "knife_chef",
-	  "knife_carving",
+      "knife_chef",
+      "knife_carving",
       "spoon",
       "fork",
       "pan",
       "vibrator",
-	  "umbrella"
+      "umbrella"
     ]
   }
 ]

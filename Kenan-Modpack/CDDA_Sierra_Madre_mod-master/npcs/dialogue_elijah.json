@@ -1,82 +1,111 @@
 [
-	{
-		"id": "TALK_ELIJAH",
-		"type": "talk_topic",
-		"dynamic_line": "And so here you are, down there in the Sierra Madre Vault...",
-		"responses": [
-		  { "text": "You've been here the entire time? It wasn't possible for you to enter this vault before me!", "topic": "TRAP" },
-		  { "text": "Sierra Madre is mine, and mine alone!!!", "topic": "START_BATTLE" },
-		  { "text": "So what happens next?...", "topic": "PLAN" },
-		  { "text": "So, can I finally get an explanation of what's going on here?", "topic": "EXPLAIN" }
-		]
-	},
-	{
-		"id": "START_BATTLE",
-		"type": "talk_topic",
-		"dynamic_line": "If you say so... You think you can snatch victory from me like that? You think you're smarter, better?! This ends here, you piece of shit. You were going to get evaporated anyways, just like the rest of the wasteland!",
-		"responses": [
-		  { "text": "[As you prepare for the final battle, you notice that Father Elijah starts powering up laser turrets positioned around the vault room that you previously missed in the dark. Their charging will take a while, but it's going to be a rather quick one.]", "topic": "TALK_DONE", "effect": [ "hostile", { "mapgen_update": "fight_mapgen" } ] }
-		]
-	},
-	{
-		"id": "TRAP",
-		"type": "talk_topic",
-		"dynamic_line": "You think you're the first one that cracked the Sierra Madre open? Oh no, the Courier did it before you, but then I got betrayed and the Courier trapped me here, leaving the vault, making it lock from the outside... I suspect it's because of the other companions that formed that crew... They had... Bad influence for the Courier, convincing him somehow that I had... Evil plans for them... Though I meant no harm, I planned to release and reward them upon completing the heist.",
-		"responses": [
-		  { "text": "And that's why you put collars on them, right, and then sent them on a life-threatening mission? That's what \"no harm and reward at the end\" stands for, right?", "topic": "BEEP" },
-		  { "text": "I met one of those \"crew members\" just outside the vault. She's guarding it. She's guarding it so that the outside world won't learn your cruelty. According to her, you can't get Sierra Madre. You should just let go.", "topic": "START_BATTLE" },
-		  { "text": "So how about rewarding me now? I did my job of unlocking the vault, bot so I could get in and apparently so that you can now get out. I expect a fair share.", "topic": "PLAN" }
-		]
-	},
-	{
-		"id": "PLAN",
-		"type": "talk_topic",
-		"dynamic_line": "Hold on, not so fast... You think you came here for the legendary Old World treasure, right? The truth is, the real treasure of the Sierra Madre is its technology... Just think of it... Those matter replicators serving as vending machines, capable of providing resources, the holograms for security and winning every battle, the Cloud of toxic gas for wiping up everyone that opposes me, and I can use the collars for the obedience as well... The Sierra Madre can help build or destroy the entire nations... And on top of that is quiet, quiet just like the wasteland should be.",
-		"responses": [
-		  { "text": "You're... insane, completely insane...", "topic": "INSANE" },
-		  { "text": "So... What's next? Is there really no richies inside this vault? Can I... Just walk away then?", "topic": "PRE_FIGHT" }
-		]
-	},
-	{
-		"id": "EXPLAIN",
-		"type": "talk_topic",
-		"dynamic_line": "You've heard the legends of the Sierra Madre... We all have... And so you went to seek its richies... truth is, there's nothing specific awaiting you at the vault. Though it doesn't change the fact that the entire Sierra Madre is a treasure in itself and I plan on utilizing it.",
-		"responses": [
-		  { "text": "What are you going to do?", "topic": "PLAN2" }
-		]
-	},
-	{
-		"id": "PLAN2",
-		"type": "talk_topic",
-		"dynamic_line": "The Sierra Madre technology... Just think of it... Those matter replicators serving as vending machines, capable of providing resources, the holograms for security and winning every battle, the Cloud of toxic gas for wiping up everyone that opposes me, and I can use the collars for the obedience as well... The Sierra Madre can help build or destroy the entire nations... And on top of that is quiet, quiet just like the wasteland should be.",
-		"responses": [
-		  { "text": "You're... insane, completely insane...", "topic": "INSANE" },
-		  { "text": "So... What's next? Is there really no richies inside this vault? Can I... Just walk away then?", "topic": "PRE_FIGHT" }
-		]
-	},
-	{
-		"id": "BEEP",
-		"type": "talk_topic",
-		"dynamic_line": "The collars, you say? Oh, it was nothing personal... I wish I could just make them cooperate without them, but human nature is what it is, collars were sadly a must-have. Even if they were willing to cooperate, without linked collars they'd end up killing themselves as their greed and the darkest side of human nature were taking over. Yeah, the collars were harsh but a neccessity.",
-		"responses": [
-		  { "text": "How ironic that some madman like you now starts talking about \"the darkest side of human nature\".", "topic": "INSANE" },
-		  { "text": "So, will you tell me at last what's going to happen?", "topic": "EXPLAIN" }
-		]
-	},
-	{
-		"id": "INSANE",
-		"type": "talk_topic",
-		"dynamic_line": "Isn't this entire planet insane since the day the bombs dropped, the dead rose and the aliens invaded? Or maybe it was like that long before the apocalypse, only did we not notice because we were too busy with our comfortable lives? Anyways, I'll use the Sierra Madre to wipe the wasteland clean, to let go of the Old World and then begin again, build a new nation on its aches, a nation free from the burden of the past.",
-		"responses": [
-		  { "text": "So you want to commit a genocide, kill off the remaining survivors, that's what you wanna do? No way this is happening.", "topic": "START_BATTLE" }
-		]
-	},
-	{
-		"id": "PRE_FIGHT",
-		"type": "talk_topic",
-		"dynamic_line": "I've explained everything to you already, and now it's time for you to bow down in front of my superiority... You're of no use for me anymore, you fool!",
-		"responses": [
-		  { "text": "This world is already in a condition shitty enough to on top of that worry about some maniacs wanting to finish it off. I'll not let you harm any of the remaining surviviors.", "topic": "START_BATTLE" }
-		]
-	}
+  {
+    "id": "TALK_ELIJAH",
+    "type": "talk_topic",
+    "dynamic_line": "And so here you are, down there in the Sierra Madre Vault...",
+    "responses": [
+      {
+        "text": "You've been here the entire time? It wasn't possible for you to enter this vault before me!",
+        "topic": "TRAP"
+      },
+      { "text": "Sierra Madre is mine, and mine alone!!!", "topic": "START_BATTLE" },
+      { "text": "So what happens next?...", "topic": "PLAN" },
+      { "text": "So, can I finally get an explanation of what's going on here?", "topic": "EXPLAIN" }
+    ]
+  },
+  {
+    "id": "START_BATTLE",
+    "type": "talk_topic",
+    "dynamic_line": "If you say so... You think you can snatch victory from me like that? You think you're smarter, better?! This ends here, you piece of shit. You were going to get evaporated anyways, just like the rest of the wasteland!",
+    "responses": [
+      {
+        "text": "[As you prepare for the final battle, you notice that Father Elijah starts powering up laser turrets positioned around the vault room that you previously missed in the dark. Their charging will take a while, but it's going to be a rather quick one.]",
+        "topic": "TALK_DONE",
+        "effect": [ "hostile", { "mapgen_update": "fight_mapgen" } ]
+      }
+    ]
+  },
+  {
+    "id": "TRAP",
+    "type": "talk_topic",
+    "dynamic_line": "You think you're the first one that cracked the Sierra Madre open? Oh no, the Courier did it before you, but then I got betrayed and the Courier trapped me here, leaving the vault, making it lock from the outside... I suspect it's because of the other companions that formed that crew... They had... Bad influence for the Courier, convincing him somehow that I had... Evil plans for them... Though I meant no harm, I planned to release and reward them upon completing the heist.",
+    "responses": [
+      {
+        "text": "And that's why you put collars on them, right, and then sent them on a life-threatening mission? That's what \"no harm and reward at the end\" stands for, right?",
+        "topic": "BEEP"
+      },
+      {
+        "text": "I met one of those \"crew members\" just outside the vault. She's guarding it. She's guarding it so that the outside world won't learn your cruelty. According to her, you can't get Sierra Madre. You should just let go.",
+        "topic": "START_BATTLE"
+      },
+      {
+        "text": "So how about rewarding me now? I did my job of unlocking the vault, bot so I could get in and apparently so that you can now get out. I expect a fair share.",
+        "topic": "PLAN"
+      }
+    ]
+  },
+  {
+    "id": "PLAN",
+    "type": "talk_topic",
+    "dynamic_line": "Hold on, not so fast... You think you came here for the legendary Old World treasure, right? The truth is, the real treasure of the Sierra Madre is its technology... Just think of it... Those matter replicators serving as vending machines, capable of providing resources, the holograms for security and winning every battle, the Cloud of toxic gas for wiping up everyone that opposes me, and I can use the collars for the obedience as well... The Sierra Madre can help build or destroy the entire nations... And on top of that is quiet, quiet just like the wasteland should be.",
+    "responses": [
+      { "text": "You're... insane, completely insane...", "topic": "INSANE" },
+      {
+        "text": "So... What's next? Is there really no richies inside this vault? Can I... Just walk away then?",
+        "topic": "PRE_FIGHT"
+      }
+    ]
+  },
+  {
+    "id": "EXPLAIN",
+    "type": "talk_topic",
+    "dynamic_line": "You've heard the legends of the Sierra Madre... We all have... And so you went to seek its richies... truth is, there's nothing specific awaiting you at the vault. Though it doesn't change the fact that the entire Sierra Madre is a treasure in itself and I plan on utilizing it.",
+    "responses": [ { "text": "What are you going to do?", "topic": "PLAN2" } ]
+  },
+  {
+    "id": "PLAN2",
+    "type": "talk_topic",
+    "dynamic_line": "The Sierra Madre technology... Just think of it... Those matter replicators serving as vending machines, capable of providing resources, the holograms for security and winning every battle, the Cloud of toxic gas for wiping up everyone that opposes me, and I can use the collars for the obedience as well... The Sierra Madre can help build or destroy the entire nations... And on top of that is quiet, quiet just like the wasteland should be.",
+    "responses": [
+      { "text": "You're... insane, completely insane...", "topic": "INSANE" },
+      {
+        "text": "So... What's next? Is there really no richies inside this vault? Can I... Just walk away then?",
+        "topic": "PRE_FIGHT"
+      }
+    ]
+  },
+  {
+    "id": "BEEP",
+    "type": "talk_topic",
+    "dynamic_line": "The collars, you say? Oh, it was nothing personal... I wish I could just make them cooperate without them, but human nature is what it is, collars were sadly a must-have. Even if they were willing to cooperate, without linked collars they'd end up killing themselves as their greed and the darkest side of human nature were taking over. Yeah, the collars were harsh but a neccessity.",
+    "responses": [
+      {
+        "text": "How ironic that some madman like you now starts talking about \"the darkest side of human nature\".",
+        "topic": "INSANE"
+      },
+      { "text": "So, will you tell me at last what's going to happen?", "topic": "EXPLAIN" }
+    ]
+  },
+  {
+    "id": "INSANE",
+    "type": "talk_topic",
+    "dynamic_line": "Isn't this entire planet insane since the day the bombs dropped, the dead rose and the aliens invaded? Or maybe it was like that long before the apocalypse, only did we not notice because we were too busy with our comfortable lives? Anyways, I'll use the Sierra Madre to wipe the wasteland clean, to let go of the Old World and then begin again, build a new nation on its aches, a nation free from the burden of the past.",
+    "responses": [
+      {
+        "text": "So you want to commit a genocide, kill off the remaining survivors, that's what you wanna do? No way this is happening.",
+        "topic": "START_BATTLE"
+      }
+    ]
+  },
+  {
+    "id": "PRE_FIGHT",
+    "type": "talk_topic",
+    "dynamic_line": "I've explained everything to you already, and now it's time for you to bow down in front of my superiority... You're of no use for me anymore, you fool!",
+    "responses": [
+      {
+        "text": "This world is already in a condition shitty enough to on top of that worry about some maniacs wanting to finish it off. I'll not let you harm any of the remaining surviviors.",
+        "topic": "START_BATTLE"
+      }
+    ]
+  }
 ]

@@ -1,177 +1,147 @@
 [
-	{
-		"type": "mutation",
-		"id": "HOLOGRAMS",
-		"name": { "str": "Sierra Madre hologram" },
-		"points": 10,
-		"description": "Sierra Madre hologram staff",
-		"valid": false,
-		"purifiable": false,
-		"ignored_by": [ "ZOMBIE", "MUTANT", "ROBOT", "HUMAN", "INSECT", "MYCUS" ]
-	},
-	{
-		"type": "npc_class",
-		"id": "holo_staff",
-		"name": "Sierra Madre hologram workers",
-		"common": false,
-		"bonus_str": { "constant": 5 },
-		"bonus_dex": { "constant": 5 },
-		"bonus_per": { "constant": 5 },
-		"bonus_int": { "constant": 5 },
-		"skills": [
-		  { "skill": "ALL", "bonus": { "rng": [ 9, 11 ] } } 
-		],
-		"job_description": "Holograms deployed to serve as vendors, helping customers exchange Sierra Madre chips and various commodities.",
-		"worn_override": "HOLO_CLOTHES",
-		"weapon_override": "EMPTY_GROUP",
-		"carry_override": "holo_vendor_items",
-		"traits": [
-			{ "trait": "HOLOGRAMS" },
-			{ "trait": "DEBUG_NODMG" },
-			{ "trait": "DEBUG_CLOAK" }
-		]
-	},
-	{
-		"type": "npc",
-		"id": "holo_vendor",
-		"gender": "male",
-		"name_unique": "Sierra Madre hologram vendor",
-		"class": "holo_staff",
-		"attitude": 0,
-		"mission": 3,
-		"chat": "TALK_HOLO_VENDOR",
-		"faction": "no_faction"
-	},
-	{
-		"type": "npc_class",
-		"id": "sierra_vending",
-		"name": "Sierra Madre vending machines",
-		"common": false,
-		"bonus_str": { "constant": 5 },
-		"bonus_dex": { "constant": 5 },
-		"bonus_per": { "constant": 5 },
-		"bonus_int": { "constant": 5 },
-		"skills": [
-		  { "skill": "ALL", "bonus": { "rng": [ 9, 11 ] } } 
-		],
-		"job_description": "Vending machines capable of disposing all kinds of goods in return for Sierra Madre chips. ",
-		"worn_override": "VENDING_CLOTHES",
-		"weapon_override": "EMPTY_GROUP",
-		"carry_override": "EMPTY_GROUP",
-		"traits": [
-			{ "trait": "HOLOGRAMS" },
-			{ "trait": "DEBUG_NODMG" },
-			{ "trait": "DEBUG_CLOAK" }
-		]
-	},
-	{
-		"type": "npc",
-		"id": "vending_machine_sierra",
-		"gender": "male",
-		"name_unique": "Sierra Madre vending machine",
-		"class": "sierra_vending",
-		"attitude": 0,
-		"mission": 3,
-		"chat": "TALK_VENDING",
-		"faction": "no_faction"
-	},
-	{
-		"type": "npc_class",
-		"id": "vera_fountain",
-		"name": "Vera Keyes' fountain hologram",
-		"common": false,
-		"bonus_str": { "constant": 5 },
-		"bonus_dex": { "constant": 5 },
-		"bonus_per": { "constant": 5 },
-		"bonus_int": { "constant": 5 },
-		"skills": [
-		  { "skill": "ALL", "bonus": { "rng": [ 9, 11 ] } }
-		],
-		"job_description": "Sierra Madre fountain hologram of Vera Keyes, welcoming guests and broadcasting the Gala Event advertisement...",
-		"worn_override": "HOLO_CLOTHES",
-		"weapon_override": "EMPTY_GROUP",
-		"carry_override": "EMPTY_GROUP",
-		"traits": [
-			{ "trait": "HOLOGRAMS" },
-			{ "trait": "DEBUG_NODMG" },
-			{ "trait": "DEBUG_CLOAK" }
-		]
-	},
-	{
-		"type": "npc",
-		"id": "fountain_npc",
-		"gender": "female",
-		"name_unique": "Vera Keyes' fountain hologram",
-		"class": "vera_fountain",
-		"attitude": 1,
-		"mission": 7,
-		"chat": "TALK_FOUNTAIN",
-		"faction": "no_faction"
-	},
-	{
-		"type": "npc_class",
-		"id": "intercomm",
-		"name": "Sierra Madre Casino intercom",
-		"common": false,
-		"bonus_str": { "constant": 5 },
-		"bonus_dex": { "constant": 5 },
-		"bonus_per": { "constant": 5 },
-		"bonus_int": { "constant": 5 },
-		"skills": [
-		  { "skill": "ALL", "bonus": { "rng": [ 9, 11 ] } } 
-		],
-		"job_description": "Sierra Madre Casino intercom system. Still operational. And there's someone using it to talk to you out there...",
-		"worn_override": "HOLO_CLOTHES",
-		"weapon_override": "EMPTY_GROUP",
-		"carry_override": "EMPTY_GROUP",
-		"traits": [
-			{ "trait": "HOLOGRAMS" },
-			{ "trait": "DEBUG_NODMG" },
-			{ "trait": "DEBUG_CLOAK" }
-		]
-	},
-	{
-		"type": "npc",
-		"id": "sierra_intercom",
-		"gender": "male",
-		"name_unique": "Sierra Madre Casino intercom",
-		"class": "intercomm",
-		"attitude": 1,
-		"mission": 7,
-		"chat": "TALK_INTER",
-		"faction": "no_faction"
-	},
-	{
-		"type": "npc_class",
-		"id": "casino_staff",
-		"name": "Sierra Madre hologram casino vendor",
-		"common": false,
-		"bonus_str": { "constant": 5 },
-		"bonus_dex": { "constant": 5 },
-		"bonus_per": { "constant": 5 },
-		"bonus_int": { "constant": 5 },
-		"skills": [
-		  { "skill": "ALL", "bonus": { "rng": [ 9, 11 ] } } 
-		],
-		"job_description": "Holograms deployed at the casino to help customers exchange money and chips.",
-		"worn_override": "HOLO_CLOTHES",
-		"weapon_override": "EMPTY_GROUP",
-		"carry_override": "vendor_chips",
-		"traits": [
-			{ "trait": "HOLOGRAMS" },
-			{ "trait": "DEBUG_NODMG" },
-			{ "trait": "DEBUG_CLOAK" }
-		]
-	},
-	{
-		"type": "npc",
-		"id": "casino_vendor",
-		"gender": "male",
-		"name_unique": "Sierra Madre hologram vendor",
-		"class": "casino_staff",
-		"attitude": 0,
-		"mission": 3,
-		"chat": "TALK_CASINO_VENDOR",
-		"faction": "no_faction"
-	}
+  {
+    "type": "mutation",
+    "id": "HOLOGRAMS",
+    "name": { "str": "Sierra Madre hologram" },
+    "points": 10,
+    "description": "Sierra Madre hologram staff",
+    "valid": false,
+    "purifiable": false,
+    "ignored_by": [ "ZOMBIE", "MUTANT", "ROBOT", "HUMAN", "INSECT", "MYCUS" ]
+  },
+  {
+    "type": "npc_class",
+    "id": "holo_staff",
+    "name": "Sierra Madre hologram workers",
+    "common": false,
+    "bonus_str": { "constant": 5 },
+    "bonus_dex": { "constant": 5 },
+    "bonus_per": { "constant": 5 },
+    "bonus_int": { "constant": 5 },
+    "skills": [ { "skill": "ALL", "bonus": { "rng": [ 9, 11 ] } } ],
+    "job_description": "Holograms deployed to serve as vendors, helping customers exchange Sierra Madre chips and various commodities.",
+    "worn_override": "HOLO_CLOTHES",
+    "weapon_override": "EMPTY_GROUP",
+    "carry_override": "holo_vendor_items",
+    "traits": [ { "trait": "HOLOGRAMS" }, { "trait": "DEBUG_NODMG" }, { "trait": "DEBUG_CLOAK" } ]
+  },
+  {
+    "type": "npc",
+    "id": "holo_vendor",
+    "gender": "male",
+    "name_unique": "Sierra Madre hologram vendor",
+    "class": "holo_staff",
+    "attitude": 0,
+    "mission": 3,
+    "chat": "TALK_HOLO_VENDOR",
+    "faction": "no_faction"
+  },
+  {
+    "type": "npc_class",
+    "id": "sierra_vending",
+    "name": "Sierra Madre vending machines",
+    "common": false,
+    "bonus_str": { "constant": 5 },
+    "bonus_dex": { "constant": 5 },
+    "bonus_per": { "constant": 5 },
+    "bonus_int": { "constant": 5 },
+    "skills": [ { "skill": "ALL", "bonus": { "rng": [ 9, 11 ] } } ],
+    "job_description": "Vending machines capable of disposing all kinds of goods in return for Sierra Madre chips. ",
+    "worn_override": "VENDING_CLOTHES",
+    "weapon_override": "EMPTY_GROUP",
+    "carry_override": "EMPTY_GROUP",
+    "traits": [ { "trait": "HOLOGRAMS" }, { "trait": "DEBUG_NODMG" }, { "trait": "DEBUG_CLOAK" } ]
+  },
+  {
+    "type": "npc",
+    "id": "vending_machine_sierra",
+    "gender": "male",
+    "name_unique": "Sierra Madre vending machine",
+    "class": "sierra_vending",
+    "attitude": 0,
+    "mission": 3,
+    "chat": "TALK_VENDING",
+    "faction": "no_faction"
+  },
+  {
+    "type": "npc_class",
+    "id": "vera_fountain",
+    "name": "Vera Keyes' fountain hologram",
+    "common": false,
+    "bonus_str": { "constant": 5 },
+    "bonus_dex": { "constant": 5 },
+    "bonus_per": { "constant": 5 },
+    "bonus_int": { "constant": 5 },
+    "skills": [ { "skill": "ALL", "bonus": { "rng": [ 9, 11 ] } } ],
+    "job_description": "Sierra Madre fountain hologram of Vera Keyes, welcoming guests and broadcasting the Gala Event advertisement...",
+    "worn_override": "HOLO_CLOTHES",
+    "weapon_override": "EMPTY_GROUP",
+    "carry_override": "EMPTY_GROUP",
+    "traits": [ { "trait": "HOLOGRAMS" }, { "trait": "DEBUG_NODMG" }, { "trait": "DEBUG_CLOAK" } ]
+  },
+  {
+    "type": "npc",
+    "id": "fountain_npc",
+    "gender": "female",
+    "name_unique": "Vera Keyes' fountain hologram",
+    "class": "vera_fountain",
+    "attitude": 1,
+    "mission": 7,
+    "chat": "TALK_FOUNTAIN",
+    "faction": "no_faction"
+  },
+  {
+    "type": "npc_class",
+    "id": "intercomm",
+    "name": "Sierra Madre Casino intercom",
+    "common": false,
+    "bonus_str": { "constant": 5 },
+    "bonus_dex": { "constant": 5 },
+    "bonus_per": { "constant": 5 },
+    "bonus_int": { "constant": 5 },
+    "skills": [ { "skill": "ALL", "bonus": { "rng": [ 9, 11 ] } } ],
+    "job_description": "Sierra Madre Casino intercom system. Still operational. And there's someone using it to talk to you out there...",
+    "worn_override": "HOLO_CLOTHES",
+    "weapon_override": "EMPTY_GROUP",
+    "carry_override": "EMPTY_GROUP",
+    "traits": [ { "trait": "HOLOGRAMS" }, { "trait": "DEBUG_NODMG" }, { "trait": "DEBUG_CLOAK" } ]
+  },
+  {
+    "type": "npc",
+    "id": "sierra_intercom",
+    "gender": "male",
+    "name_unique": "Sierra Madre Casino intercom",
+    "class": "intercomm",
+    "attitude": 1,
+    "mission": 7,
+    "chat": "TALK_INTER",
+    "faction": "no_faction"
+  },
+  {
+    "type": "npc_class",
+    "id": "casino_staff",
+    "name": "Sierra Madre hologram casino vendor",
+    "common": false,
+    "bonus_str": { "constant": 5 },
+    "bonus_dex": { "constant": 5 },
+    "bonus_per": { "constant": 5 },
+    "bonus_int": { "constant": 5 },
+    "skills": [ { "skill": "ALL", "bonus": { "rng": [ 9, 11 ] } } ],
+    "job_description": "Holograms deployed at the casino to help customers exchange money and chips.",
+    "worn_override": "HOLO_CLOTHES",
+    "weapon_override": "EMPTY_GROUP",
+    "carry_override": "vendor_chips",
+    "traits": [ { "trait": "HOLOGRAMS" }, { "trait": "DEBUG_NODMG" }, { "trait": "DEBUG_CLOAK" } ]
+  },
+  {
+    "type": "npc",
+    "id": "casino_vendor",
+    "gender": "male",
+    "name_unique": "Sierra Madre hologram vendor",
+    "class": "casino_staff",
+    "attitude": 0,
+    "mission": 3,
+    "chat": "TALK_CASINO_VENDOR",
+    "faction": "no_faction"
+  }
 ]

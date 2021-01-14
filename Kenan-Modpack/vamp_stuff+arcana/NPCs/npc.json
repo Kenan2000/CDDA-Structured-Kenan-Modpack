@@ -1,486 +1,270 @@
-[{
-        "//": "I don't know if this NPC will tell you about HIM. Actually, I'm unsure about it",
-        "type": "npc_class",
-        "id": "V_SEEKER",
-        "name": "Vampire Arcane Seeker",
-        "job_description": "Seeker of the arcane.",
-        "common": false,
-        "bonus_str": {
-            "rng": [
-                4,
-                6
-            ]
-        },
-        "bonus_dex": {
-            "rng": [
-                4,
-                6
-            ]
-        },
-        "bonus_int": {
-            "rng": [
-                4,
-                6
-            ]
-        },
-        "bonus_per": {
-            "rng": [
-                4,
-                6
-            ]
-        },
-        "skills": [{
-                "skill": "ALL",
-                "level": {
-                    "mul": [{
-                            "one_in": 2
-                        }, {
-                            "sum": [{
-                                    "dice": [
-                                        2,
-                                        5
-                                    ]
-                                }, {
-                                    "constant": -1
-                                }
-                            ]
-                        }
-                    ]
-                }
-            }, {
-                "skill": "dodge",
-                "bonus": {
-                    "rng": [
-                        1,
-                        3
-                    ]
-                }
-            }, {
-                "skill": "melee",
-                "bonus": {
-                    "rng": [
-                        1,
-                        3
-                    ]
-                }
-            }, {
-                "skill": "unarmed",
-                "bonus": {
-                    "rng": [
-                        1,
-                        3
-                    ]
-                }
-            }, {
-                "skill": "speech",
-                "bonus": {
-                    "rng": [
-                        1,
-                        6
-                    ]
-                }
-            }, {
-                "skill": "cutting",
-                "bonus": {
-                    "rng": [
-                        1,
-                        2
-                    ]
-                }
-            }, {
-                "skill": "stabbing",
-                "bonus": {
-                    "rng": [
-                        1,
-                        2
-                    ]
-                }
-            }, {
-                "skill": "survival",
-                "bonus": {
-                    "rng": [
-                        1,
-                        6
-                    ]
-                }
-            }, {
-                "skill": "bashing",
-                "bonus": {
-                    "rng": [
-                        1,
-                        2
-                    ]
-                }
-            }
-        ],
-        "worn_override": "VAMP_UNDERGUARD_worn",
-        "carry_override": "VAMP_carry",
-        "weapon_override": "VAMP_wielded_weapon",
-        "traits": [
-            [
-                "VAMP",
-                100
-            ],
-            [
-                "PALE",
-                100
-            ],
-            [
-                "NOPAIN",
-                100
-            ],
-            [
-                "SUNBURN",
-                100
-            ],
-            [
-                "BEAUTIFUL3",
-                100
-            ],
-            [
-                "QUICK",
-                100
-            ],
-            [
-                "REGEN",
-                100
-            ],
-            [
-                "NIGHTVISION3",
-                100
-            ],
-            [
-                "FANGS",
-                100
-            ],
-            [
-                "CARNIVORE",
-                100
-            ]
+[
+  {
+    "//": "I don't know if this NPC will tell you about HIM. Actually, I'm unsure about it",
+    "type": "npc_class",
+    "id": "V_SEEKER",
+    "name": "Vampire Arcane Seeker",
+    "job_description": "Seeker of the arcane.",
+    "common": false,
+    "bonus_str": { "rng": [ 4, 6 ] },
+    "bonus_dex": { "rng": [ 4, 6 ] },
+    "bonus_int": { "rng": [ 4, 6 ] },
+    "bonus_per": { "rng": [ 4, 6 ] },
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 2 }, { "sum": [ { "dice": [ 2, 5 ] }, { "constant": -1 } ] } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "speech", "bonus": { "rng": [ 1, 6 ] } },
+      { "skill": "cutting", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "stabbing", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "survival", "bonus": { "rng": [ 1, 6 ] } },
+      { "skill": "bashing", "bonus": { "rng": [ 1, 2 ] } }
+    ],
+    "worn_override": "VAMP_UNDERGUARD_worn",
+    "carry_override": "VAMP_carry",
+    "weapon_override": "VAMP_wielded_weapon",
+    "traits": [
+      [ "VAMP", 100 ],
+      [ "PALE", 100 ],
+      [ "NOPAIN", 100 ],
+      [ "SUNBURN", 100 ],
+      [ "BEAUTIFUL3", 100 ],
+      [ "QUICK", 100 ],
+      [ "REGEN", 100 ],
+      [ "NIGHTVISION3", 100 ],
+      [ "FANGS", 100 ],
+      [ "CARNIVORE", 100 ]
+    ]
+  },
+  {
+    "type": "npc",
+    "id": "VAMP_ASEEKER",
+    "name_suffix": "Arcane Seeker",
+    "gender": "female",
+    "class": "V_SEEKER",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "VAMP_ASEEKER_main",
+    "faction": "vamps"
+  },
+  {
+    "id": "VAMP_ASEEKER_main",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "npc_has_trait": "metvaseeker",
+      "yes": [
+        "We've met again, adventurer.",
+        "Now what could be your problem this time...",
+        "Well, We've met again, adventurer.",
+        "Greetings, my fellow survivor.",
+        "What brings you to my lair again?"
+      ],
+      "no": "Greetings, my fellow adventurer. What brings you to my safe haven?"
+    },
+    "responses": [
+      {
+        "text": "Who are you?",
+        "topic": "VAMP_ASEEKER_main_intro",
+        "condition": { "not": { "npc_has_trait": "vaseekeruaccepttherisk" } }
+      },
+      {
+        "text": "Who are you?",
+        "topic": "VAMP_ASEEKER_main_introduced",
+        "condition": { "and": [ { "npc_has_trait": "vaseekeruaccepttherisk" }, { "not": { "npc_has_trait": "introducedvaseeker" } } ] }
+      },
+      {
+        "text": "Any tips for this hunt?",
+        "topic": "VAMP_ASEEKER_main_tipsforu",
+        "condition": { "npc_has_trait": "vaseekeruaccepttherisk" }
+      },
+      {
+        "text": "What kind of arcane items and artifacts do you accept?",
+        "topic": "VAMP_ASEEKER_questinquire",
+        "condition": {
+          "and": [ { "not": { "npc_has_trait": "vaseekerigotchaeverything" } }, { "npc_has_trait": "vaseekeruaccepttherisk" } ]
+        }
+      },
+      {
+        "text": "I got something that would interest you.",
+        "topic": "VAMP_ASEEKER_questinquire_ihave",
+        "condition": { "npc_has_trait": "vaseekeruaccepttherisk" }
+      },
+      {
+        "text": "What can I trade with these tokens?",
+        "topic": "VAMP_ASEEKER_questinquire_tokenexc",
+        "condition": { "u_has_item": "arcanetoken" }
+      },
+      { "text": "Bye...", "topic": "TALK_DONE", "condition": { "npc_has_trait": "metvaseeker" } },
+      {
+        "text": "Bye.",
+        "topic": "TALK_DONE",
+        "condition": { "not": { "npc_has_trait": "metvaseeker" } },
+        "effect": { "npc_add_trait": "metvaseeker" }
+      }
+    ]
+  },
+  {
+    "id": "VAMP_ASEEKER_main_intro",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "npc_has_trait": "vaseekerarcanemys",
+      "yes": {
+        "npc_has_trait": "vaseekerartifactwhat",
+        "yes": "So, What do you think... are you 'in' for this quest? I do not assure your life in this journey you're about to come up just to collect rare stuff for me.",
+        "no": "I seek arcane mysteries and anomalies in this damned world as well as collecting artifacts, utilizing their power for a greater use."
+      },
+      "no": "Who am I you asked?\nI am the seeker of arcane mysteries and anomalies in this damned world as well as collecting artifacts, utilizing their power for a greater use."
+    },
+    "responses": [
+      {
+        "text": "I also have grown fond to magic, so maybe we could collaborate with this.",
+        "topic": "VAMP_ASEEKER_main_collaborate",
+        "condition": {
+          "or": [ { "u_has_trait": "PROF_SANGUINE" }, { "u_has_trait": "PROF_ARCANIST" }, { "u_has_trait": "PROF_CLEANSINGFLAME" } ]
+        }
+      },
+      {
+        "text": "Arcane mysteries?",
+        "topic": "VAMP_ASEEKER_main_arcanemys",
+        "effect": { "npc_add_trait": "vaseekerarcanemys" },
+        "condition": { "not": { "npc_has_trait": "vaseekerarcanemys" } }
+      },
+      {
+        "text": "What kind of artifacts are you collecting?",
+        "topic": "VAMP_ASEEKER_main_artifactwhat",
+        "effect": { "npc_add_trait": "vaseekerartifactwhat" },
+        "condition": { "not": { "npc_has_trait": "vaseekerartifactwhat" } }
+      },
+      {
+        "text": "Yes! I'm in!",
+        "topic": "TALK_DONE",
+        "effect": [ { "npc_add_trait": "metvaseeker" }, { "npc_add_trait": "vaseekeruaccepttherisk" } ],
+        "condition": { "and": [ { "npc_has_trait": "vaseekerartifactwhat" }, { "npc_has_trait": "vaseekerarcanemys" } ] }
+      },
+      {
+        "text": "Wait, I need some time for this.",
+        "topic": "TALK_DONE",
+        "condition": { "and": [ { "npc_has_trait": "vaseekerartifactwhat" }, { "npc_has_trait": "vaseekerarcanemys" } ] }
+      },
+      { "text": "Well, your job looks risky...", "topic": "TALK_DONE", "effect": { "npc_add_trait": "metvaseeker" } }
+    ]
+  },
+  {
+    "id": "VAMP_ASEEKER_main_arcanemys",
+    "type": "talk_topic",
+    "dynamic_line": "Indeed. Arcane, the magic behind this world. With proper knowledge, you could discover more about it, but be wary of its cost.\nI will send you out of this place and look for these anomaly, just ask me if you are curious about a thing.",
+    "responses": [ { "text": "Okay.", "topic": "VAMP_ASEEKER_main_intro" } ]
+  },
+  {
+    "id": "VAMP_ASEEKER_main_artifactwhat",
+    "type": "talk_topic",
+    "dynamic_line": "Artifacts are the supreme objects scattered in this world. From cursed swords to precarious weapons, they are the artifacts.\nI will send you out of this place and look for these ancient objects, just ask me if you are curious about a thing.",
+    "responses": [ { "text": "Okay.", "topic": "VAMP_ASEEKER_main_intro" } ]
+  },
+  {
+    "id": "VAMP_ASEEKER_main_introduced",
+    "type": "talk_topic",
+    "dynamic_line": "Just stop repeating the question, will you?",
+    "responses": [ { "text": "Okay. Sorry...", "topic": "VAMP_ASEEKER_main", "effect": { "npc_add_trait": "introducedvaseeker" } } ]
+  },
+  {
+    "//": "Collaborate with the seeker for some rewards, BUT! Expect lesser missions from her. It's all up to your decision.",
+    "id": "VAMP_ASEEKER_main_collaborate",
+    "type": "talk_topic",
+    "dynamic_line": "What will be the cost of your partnership with me?",
+    "responses": [
+      {
+        "text": "Exchange all your requested items with something else as rewards.",
+        "topic": "VAMP_ASEEKER_main_collaborateforitem",
+        "effect": [
+          { "npc_add_trait": "vaseekerarcanemys" },
+          { "npc_add_trait": "vaseekerartifactwhat" },
+          { "npc_add_trait": "vaseekerrewardingcollabitems" }
         ]
-    }, {
-        "type": "npc",
-        "id": "VAMP_ASEEKER",
-        "name_suffix": "Arcane Seeker",
-        "gender": "female",
-        "class": "V_SEEKER",
-        "attitude": 0,
-        "mission": 7,
-        "chat": "VAMP_ASEEKER_main",
-        "faction": "vamps"
-    }, {
-        "id": "VAMP_ASEEKER_main",
-        "type": "talk_topic",
-        "dynamic_line": {
-            "npc_has_trait": "metvaseeker",
-            "yes": [
-                "We've met again, adventurer.",
-                "Now what could be your problem this time...",
-                "Well, We've met again, adventurer.",
-                "Greetings, my fellow survivor.",
-                "What brings you to my lair again?"
-            ],
-            "no": "Greetings, my fellow adventurer. What brings you to my safe haven?"
-        },
-        "responses": [{
-                "text": "Who are you?",
-                "topic": "VAMP_ASEEKER_main_intro",
-                "condition": {
-                    "not": {
-                        "npc_has_trait": "vaseekeruaccepttherisk"
-                    }
-                }
-            }, {
-                "text": "Who are you?",
-                "topic": "VAMP_ASEEKER_main_introduced",
-                "condition": {
-                    "and": [{
-                            "npc_has_trait": "vaseekeruaccepttherisk"
-                        }, {
-                            "not": {
-                                "npc_has_trait": "introducedvaseeker"
-                            }
-                        }
-                    ]
-                }
-            }, {
-                "text": "Any tips for this hunt?",
-                "topic": "VAMP_ASEEKER_main_tipsforu",
-                "condition": {
-                    "npc_has_trait": "vaseekeruaccepttherisk"
-                }
-            }, {
-                "text": "What kind of arcane items and artifacts do you accept?",
-                "topic": "VAMP_ASEEKER_questinquire",
-                "condition": {
-                    "and": [{
-                            "not": {
-                                "npc_has_trait": "vaseekerigotchaeverything"
-                            }
-                        }, {
-                            "npc_has_trait": "vaseekeruaccepttherisk"
-                        }
-                    ]
-                }
-            }, {
-                "text": "I got something that would interest you.",
-                "topic": "VAMP_ASEEKER_questinquire_ihave",
-                "condition": {
-                    "npc_has_trait": "vaseekeruaccepttherisk"
-                }
-            }, {
-                "text": "What can I trade with these tokens?",
-                "topic": "VAMP_ASEEKER_questinquire_tokenexc",
-                "condition": {
-                    "u_has_item": "arcanetoken"
-                }
-            }, {
-                "text": "Bye...",
-                "topic": "TALK_DONE",
-                "condition": {
-                    "npc_has_trait": "metvaseeker"
-                }
-            }, {
-                "text": "Bye.",
-                "topic": "TALK_DONE",
-                "condition": {
-                    "not": {
-                        "npc_has_trait": "metvaseeker"
-                    }
-                },
-                "effect": {
-                    "npc_add_trait": "metvaseeker"
-                }
-            }
+      },
+      {
+        "text": "Money as payment from your life-risking quests.",
+        "topic": "VAMP_ASEEKER_main_collaborateformoney",
+        "effect": [
+          { "npc_add_trait": "vaseekerarcanemys" },
+          { "npc_add_trait": "vaseekerartifactwhat" },
+          { "npc_add_trait": "vaseekerrewardingcollabmoney" }
         ]
-    }, {
-        "id": "VAMP_ASEEKER_main_intro",
-        "type": "talk_topic",
-        "dynamic_line": {
-            "npc_has_trait": "vaseekerarcanemys",
-            "yes": {
-                "npc_has_trait": "vaseekerartifactwhat",
-                "yes": "So, What do you think... are you 'in' for this quest? I do not assure your life in this journey you're about to come up just to collect rare stuff for me.",
-                "no": "I seek arcane mysteries and anomalies in this damned world as well as collecting artifacts, utilizing their power for a greater use."
-            },
-            "no": "Who am I you asked?\nI am the seeker of arcane mysteries and anomalies in this damned world as well as collecting artifacts, utilizing their power for a greater use."
-        },
-        "responses": [{
-                "text": "I also have grown fond to magic, so maybe we could collaborate with this.",
-                "topic": "VAMP_ASEEKER_main_collaborate",
-                "condition": {
-                    "or": [{
-                            "u_has_trait": "PROF_SANGUINE"
-                        }, {
-                            "u_has_trait": "PROF_ARCANIST"
-                        }, {
-                            "u_has_trait": "PROF_CLEANSINGFLAME"
-                        }
-                    ]
-                }
-            }, {
-                "text": "Arcane mysteries?",
-                "topic": "VAMP_ASEEKER_main_arcanemys",
-                "effect": {
-                    "npc_add_trait": "vaseekerarcanemys"
-                },
-                "condition": {
-                    "not": {
-                        "npc_has_trait": "vaseekerarcanemys"
-                    }
-                }
-            }, {
-                "text": "What kind of artifacts are you collecting?",
-                "topic": "VAMP_ASEEKER_main_artifactwhat",
-                "effect": {
-                    "npc_add_trait": "vaseekerartifactwhat"
-                },
-                "condition": {
-                    "not": {
-                        "npc_has_trait": "vaseekerartifactwhat"
-                    }
-                }
-            }, {
-                "text": "Yes! I'm in!",
-                "topic": "TALK_DONE",
-                "effect": [{
-                        "npc_add_trait": "metvaseeker"
-                    }, {
-                        "npc_add_trait": "vaseekeruaccepttherisk"
-                    }
-                ],
-                "condition": {
-                    "and": [{
-                            "npc_has_trait": "vaseekerartifactwhat"
-                        }, {
-                            "npc_has_trait": "vaseekerarcanemys"
-                        }
-                    ]
-                }
-            }, {
-                "text": "Wait, I need some time for this.",
-                "topic": "TALK_DONE",
-                "condition": {
-                    "and": [{
-                            "npc_has_trait": "vaseekerartifactwhat"
-                        }, {
-                            "npc_has_trait": "vaseekerarcanemys"
-                        }
-                    ]
-                }
-            }, {
-                "text": "Well, your job looks risky...",
-                "topic": "TALK_DONE",
-                "effect": {
-                    "npc_add_trait": "metvaseeker"
-                }
-            }
+      },
+      {
+        "text": "You don't need to pay me that much for this and I am glad to serve you.",
+        "topic": "VAMP_ASEEKER_main_collaboratefornothing",
+        "effect": [
+          { "npc_add_trait": "vaseekerarcanemys" },
+          { "npc_add_trait": "vaseekerartifactwhat" },
+          { "npc_add_trait": "vaseekernorewardcollab" }
         ]
-    }, {
-        "id": "VAMP_ASEEKER_main_arcanemys",
-        "type": "talk_topic",
-        "dynamic_line": "Indeed. Arcane, the magic behind this world. With proper knowledge, you could discover more about it, but be wary of its cost.\nI will send you out of this place and look for these anomaly, just ask me if you are curious about a thing.",
-        "responses": [{
-                "text": "Okay.",
-                "topic": "VAMP_ASEEKER_main_intro"
-            }
-        ]
-    }, {
-        "id": "VAMP_ASEEKER_main_artifactwhat",
-        "type": "talk_topic",
-        "dynamic_line": "Artifacts are the supreme objects scattered in this world. From cursed swords to precarious weapons, they are the artifacts.\nI will send you out of this place and look for these ancient objects, just ask me if you are curious about a thing.",
-        "responses": [{
-                "text": "Okay.",
-                "topic": "VAMP_ASEEKER_main_intro"
-            }
-        ]
-    }, {
-        "id": "VAMP_ASEEKER_main_introduced",
-        "type": "talk_topic",
-        "dynamic_line": "Just stop repeating the question, will you?",
-        "responses": [{
-                "text": "Okay. Sorry...",
-                "topic": "VAMP_ASEEKER_main",
-                "effect": {
-                    "npc_add_trait": "introducedvaseeker"
-                }
-            }
-        ]
-    }, {
-        "//": "Collaborate with the seeker for some rewards, BUT! Expect lesser missions from her. It's all up to your decision.",
-        "id": "VAMP_ASEEKER_main_collaborate",
-        "type": "talk_topic",
-        "dynamic_line": "What will be the cost of your partnership with me?",
-        "responses": [{
-                "text": "Exchange all your requested items with something else as rewards.",
-                "topic": "VAMP_ASEEKER_main_collaborateforitem",
-                "effect": [{
-                        "npc_add_trait": "vaseekerarcanemys"
-                    }, {
-                        "npc_add_trait": "vaseekerartifactwhat"
-                    }, {
-                        "npc_add_trait": "vaseekerrewardingcollabitems"
-                    }
-                ]
-            }, {
-                "text": "Money as payment from your life-risking quests.",
-                "topic": "VAMP_ASEEKER_main_collaborateformoney",
-                "effect": [{
-                        "npc_add_trait": "vaseekerarcanemys"
-                    }, {
-                        "npc_add_trait": "vaseekerartifactwhat"
-                    }, {
-                        "npc_add_trait": "vaseekerrewardingcollabmoney"
-                    }
-                ]
-            }, {
-                "text": "You don't need to pay me that much for this and I am glad to serve you.",
-                "topic": "VAMP_ASEEKER_main_collaboratefornothing",
-                "effect": [{
-                        "npc_add_trait": "vaseekerarcanemys"
-                    }, {
-                        "npc_add_trait": "vaseekerartifactwhat"
-                    }, {
-                        "npc_add_trait": "vaseekernorewardcollab"
-                    }
-                ]
-            }
-        ]
-    }, {
-        "//": "Rewards are literally low.",
-        "id": "VAMP_ASEEKER_main_collaborateforitem",
-        "type": "talk_topic",
-        "dynamic_line": "I agree, but in form of tokens. Work hard, collect more and earn our exclusive items to fulfill your endeavors.",
-        "responses": [{
-                "text": "Okay. I understood.",
-                "topic": "TALK_DONE",
-                "effect": [{
-                        "npc_add_trait": "vaseekeruaccepttherisk"
-                    }, {
-                        "npc_add_trait": "metvaseeker"
-                    }
-                ]
-            }
-        ]
-    }, {
-        "id": "VAMP_ASEEKER_main_collaborateformoney",
-        "type": "talk_topic",
-        "dynamic_line": "I agree, but you should know that our wealth isn't that high, so expect my fundings to be low.",
-        "responses": [{
-                "text": "Okay. I understood.",
-                "topic": "TALK_DONE",
-                "effect": [{
-                        "npc_add_trait": "vaseekeruaccepttherisk"
-                    }, {
-                        "npc_add_trait": "metvaseeker"
-                    }
-                ]
-            }
-        ]
-    }, {
-        "id": "VAMP_ASEEKER_main_collaboratefornothing",
-        "type": "talk_topic",
-        "dynamic_line": "I see you're different from the others who are desperate in this greedy situations. I thank you for your kind answer. I will still give you some profit as payment for your job.",
-        "responses": [{
-                "text": "Okay...",
-                "topic": "TALK_DONE",
-                "effect": [{
-                        "npc_add_trait": "vaseekeruaccepttherisk"
-                    }, {
-                        "npc_add_trait": "metvaseeker"
-                    }
-                ]
-            }
-        ]
-    }, {
-        "id": "VAMP_ASEEKER_main_tipsforu",
-        "type": "talk_topic",
-        "dynamic_line": [
-            "Its up to you if you'd exchange everything you have in stock. Just remember: they also have different applications other than selling them.",
-            "You can't get something if you don't put an effort to it.",
-            "If you want talk to me about something like artifacts, make sure to bring them all at once to ease my time.",
-            "I bet those odd, shimmering vapors that draws out of a dead creature worths a thing for me if you collect them.",
-            "Killing any creatures might give you its arcane elements.",
-            "Those odd looking ruins from the past civilizations might have left something... Strange.",
-            "Raiding a peculiar structure might be a suicidal idea if you don't prepare for it.",
-            "Structures in the forest surely hides something underneath it.",
-            "Swamps are not the only place you'll ever hate the most.",
-            "Don't trust those highways. If you're looking for odd structures, you should walk past through the forest.",
-            "Every monsters you fight might leave you with something upon its death.",
-            "Those anomalous creatures can provide you with something when you kill it.",
-            "Rare monsters drop rare items. If you see one of them, slay immediately!",
-            "An artifact wields a high bounty, but aren't that easy to obtain...",
-            "Artifacts are powerful, but costs more than your life...",
-            "A guardian protects an artifact. Its on you if you're up for the loot.",
-            "If you're on to fast profits, I suggest retrieving artifacts and run away from any risks you encounter.",
-            "Books are common, and I've read almost everything.",
-            "Don't try to sell me with some stupid books you've collected.",
-            "I can't accept some artifacts, because I can't."
-        ],
-        "responses": [{
-                "text": "Okay... Thanks.",
-                "topic": "VAMP_ASEEKER_main"
-            }
-        ]
-    }
+      }
+    ]
+  },
+  {
+    "//": "Rewards are literally low.",
+    "id": "VAMP_ASEEKER_main_collaborateforitem",
+    "type": "talk_topic",
+    "dynamic_line": "I agree, but in form of tokens. Work hard, collect more and earn our exclusive items to fulfill your endeavors.",
+    "responses": [
+      {
+        "text": "Okay. I understood.",
+        "topic": "TALK_DONE",
+        "effect": [ { "npc_add_trait": "vaseekeruaccepttherisk" }, { "npc_add_trait": "metvaseeker" } ]
+      }
+    ]
+  },
+  {
+    "id": "VAMP_ASEEKER_main_collaborateformoney",
+    "type": "talk_topic",
+    "dynamic_line": "I agree, but you should know that our wealth isn't that high, so expect my fundings to be low.",
+    "responses": [
+      {
+        "text": "Okay. I understood.",
+        "topic": "TALK_DONE",
+        "effect": [ { "npc_add_trait": "vaseekeruaccepttherisk" }, { "npc_add_trait": "metvaseeker" } ]
+      }
+    ]
+  },
+  {
+    "id": "VAMP_ASEEKER_main_collaboratefornothing",
+    "type": "talk_topic",
+    "dynamic_line": "I see you're different from the others who are desperate in this greedy situations. I thank you for your kind answer. I will still give you some profit as payment for your job.",
+    "responses": [
+      {
+        "text": "Okay...",
+        "topic": "TALK_DONE",
+        "effect": [ { "npc_add_trait": "vaseekeruaccepttherisk" }, { "npc_add_trait": "metvaseeker" } ]
+      }
+    ]
+  },
+  {
+    "id": "VAMP_ASEEKER_main_tipsforu",
+    "type": "talk_topic",
+    "dynamic_line": [
+      "Its up to you if you'd exchange everything you have in stock. Just remember: they also have different applications other than selling them.",
+      "You can't get something if you don't put an effort to it.",
+      "If you want talk to me about something like artifacts, make sure to bring them all at once to ease my time.",
+      "I bet those odd, shimmering vapors that draws out of a dead creature worths a thing for me if you collect them.",
+      "Killing any creatures might give you its arcane elements.",
+      "Those odd looking ruins from the past civilizations might have left something... Strange.",
+      "Raiding a peculiar structure might be a suicidal idea if you don't prepare for it.",
+      "Structures in the forest surely hides something underneath it.",
+      "Swamps are not the only place you'll ever hate the most.",
+      "Don't trust those highways. If you're looking for odd structures, you should walk past through the forest.",
+      "Every monsters you fight might leave you with something upon its death.",
+      "Those anomalous creatures can provide you with something when you kill it.",
+      "Rare monsters drop rare items. If you see one of them, slay immediately!",
+      "An artifact wields a high bounty, but aren't that easy to obtain...",
+      "Artifacts are powerful, but costs more than your life...",
+      "A guardian protects an artifact. Its on you if you're up for the loot.",
+      "If you're on to fast profits, I suggest retrieving artifacts and run away from any risks you encounter.",
+      "Books are common, and I've read almost everything.",
+      "Don't try to sell me with some stupid books you've collected.",
+      "I can't accept some artifacts, because I can't."
+    ],
+    "responses": [ { "text": "Okay... Thanks.", "topic": "VAMP_ASEEKER_main" } ]
+  }
 ]
