@@ -49,9 +49,10 @@
       }
     ],
     "zombify_into": "mon_zpinosaurus_bio_op",
-    "description": "A massive therapod with a huge fin on its back and a crocodile-like snout. It is silver from armor plating and cybernetics crackle all over its body. There seems to be a laser rifle mounted to its head. It scans endlessly for its next target.",
-    "special_when_hit": [ "ZAPBACK", 10 ],
-    "harvest": "CBM_DINO_LARGE"
+    "description": "A massive therapod with a huge fin on its back and a crocodile-like snout. It is silver from armor plating and cybernetics crackle all over its body. There seems to be a laser rifle mounted to its head. It scans endlessly for its next target.   The laser could probably be retrived through field dressing or dissection.",
+    "special_when_hit": [ "ZAPBACK", 30 ],
+    "harvest": "CBM_DINO_LASER",
+    "death_drops": "laser_cbm_dino_drops"
   },
   {
     "type": "MONSTER",
@@ -104,9 +105,10 @@
         "no_ammo_sound": "*zZzzz*-TARGET ACQUIRED.  *beeeeeeeeep*.  OUT OF AMMO.-*zZzZ*"
       }
     ],
-    "description": "A shiny finned dinosaur corpse covered with armor and crackling bionics.  It shambles quickly as it hunts.  Is…  is that a laser rifle on its head?",
-    "special_when_hit": [ "ZAPBACK", 20 ],
-    "harvest": "CBM_ZINO"
+    "description": "A shiny finned dinosaur corpse covered with armor and crackling bionics.  It shambles quickly as it hunts.  Is…  is that a laser rifle on its head?   The laser could probably be retrived through field dressing or dissection.",
+    "special_when_hit": [ "ZAPBACK", 60 ],
+    "harvest": "CBM_ZINO_LASER",
+    "death_drops": "laser_cbm_dino_drops"
   },
   {
     "type": "MONSTER",
@@ -114,21 +116,21 @@
     "name": { "str_sp": "Utahraptor bio-operator" },
     "copy-from": "mon_utahraptor",
     "diff": 5,
-    "proportional": { "hp": 1.2, "speed": 1.05 },
+    "proportional": { "hp": 1.4, "speed": 1.15 },
     "morale": 95,
     "aggression": 80,
-    "relative": { "melee_skill": 10, "melee_dice": 4, "dodge": 4, "armor_bash": 3, "armor_cut": 3, "armor_bullet": 3 },
+    "relative": { "melee_skill": 10, "melee_dice": 4, "dodge": 4, "armor_bash": 5, "armor_cut": 5, "armor_bullet": 5 },
     "extend": { "flags": [ "ACIDPROOF", "ELECTRIC" ] },
     "melee_damage": [ { "damage_type": "electric", "amount": 4 } ],
     "vision_day": 100,
     "vision_night": 100,
     "luminance": 2,
-    "starting_ammo": { "battery": 8 },
+    "starting_ammo": { "battery": 10 },
     "special_attacks": [
       [ "BIO_OP_TAKEDOWN", 20 ],
       {
         "type": "gun",
-        "cooldown": 7,
+        "cooldown": 5,
         "move_cost": 20,
         "gun_type": "laser_rifle_dino2",
         "fake_skills": [ [ "gun", 3 ], [ "rifle", 2 ] ],
@@ -145,9 +147,10 @@
       }
     ],
     "zombify_into": "mon_zutahraptor_bio_op",
-    "description": "An intimidating cyber-raptor with hair-like filaments and crackling bionics protruding from its silvery armor plating.  Its eyes glow red as it scans with its laser rifle shoulder-mount.",
-    "special_when_hit": [ "ZAPBACK", 30 ],
-    "harvest": "CBM_DINO_FEATHER"
+    "description": "An intimidating cyber-raptor with hair-like filaments and crackling bionics protruding from its silvery armor plating.  Its eyes glow red as it scans with its laser rifle shoulder-mount.   The laser could probably be retrived through field dressing or dissection.",
+    "special_when_hit": [ "ZAPBACK", 75 ],
+    "harvest": "CBM_DINO_LASER",
+    "death_drops": "laser_cbm_dino_drops"
   },
   {
     "type": "MONSTER",
@@ -155,21 +158,21 @@
     "name": { "str_sp": "Utahraptor zombie bio-operator" },
     "copy-from": "mon_zutahraptor",
     "diff": 5,
-    "proportional": { "hp": 1.4, "speed": 0.95 },
+    "proportional": { "hp": 1.6, "speed": 1.15 },
     "morale": 100,
     "aggression": 100,
-    "relative": { "melee_skill": 9, "melee_dice": 4, "dodge": 2, "armor_bash": 2, "armor_cut": 3, "armor_bullet": 2 },
+    "relative": { "melee_skill": 9, "melee_dice": 4, "dodge": 2, "armor_bash": 5, "armor_cut": 5, "armor_bullet": 5 },
     "extend": { "flags": [ "ACIDPROOF", "ELECTRIC" ] },
     "melee_damage": [ { "damage_type": "electric", "amount": 4 } ],
     "vision_day": 100,
     "vision_night": 100,
     "luminance": 2,
-    "starting_ammo": { "battery": 8 },
+    "starting_ammo": { "battery": 10 },
     "special_attacks": [
       [ "BIO_OP_TAKEDOWN", 20 ],
       {
         "type": "gun",
-        "cooldown": 8,
+        "cooldown": 5,
         "move_cost": 20,
         "gun_type": "laser_rifle_dino2",
         "fake_skills": [ [ "gun", 2 ], [ "rifle", 2 ] ],
@@ -185,8 +188,9 @@
         "no_ammo_sound": "*zZzzz*-TARGET ACQUIRED.  *beeeep*.  OUT OF AMMO.-*zZzZ*"
       }
     ],
-    "description": "The corpse of an intimidatingly large cyber-raptor.  Bloody hair-like filaments and crackling bionics coat its silvery armor plating.  Its eyes glow blood red as it scans with its laser rifle shoulder-mount.",
-    "special_when_hit": [ "ZAPBACK", 40 ],
-    "harvest": "CBM_ZINO_FEATHER"
+    "description": "The corpse of an intimidatingly large cyber-raptor.  Bloody hair-like filaments and crackling bionics coat its silvery armor plating.  Its eyes glow blood red as it scans with its laser rifle shoulder-mount.  The laser could probably be retrived through field dressing or dissection.",
+    "special_when_hit": [ "ZAPBACK", 75 ],
+    "harvest": "CBM_ZINO_LASER",
+    "death_drops": "laser_cbm_dino_drops"
   }
 ]
