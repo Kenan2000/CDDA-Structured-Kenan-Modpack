@@ -1,0 +1,61 @@
+[
+  {
+    "abstract": "ram_blaze",
+    "type": "vehicle_part",
+    "location": "structure",
+    "symbol": "X",
+    "broken_symbol": "*",
+    "damage_modifier": 300,
+    "description": "A reinforced ram.  Place at the edge of vehicle to reduce damage taken in collisions, and to increase damaged delivered in collisions, if the ram is the first vehicle part to collide.",
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 3 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] },
+      "removal": { "skills": [ [ "mechanics", 3 ] ], "time": "30 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 5 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] }
+    },
+    "flags": [ "PROTRUSION", "OBSTACLE" ]
+  },
+  {
+    "id": "bullbar_tech",
+    "copy-from": "ram_blaze",
+    "type": "vehicle_part",
+    "name": { "str": "military bullbar" },
+    "item": "mil_bullbar",
+    "color": "cyan",
+    "broken_color": "cyan",
+    "durability": 4600,
+    "breaks_into": [
+      { "item": "steel_lump", "count": [ 4, 9 ] },
+      { "item": "steel_chunk", "count": [ 4, 9 ] },
+      { "item": "scrap", "count": [ 5, 9 ] }
+    ],
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 5 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] },
+      "removal": { "skills": [ [ "mechanics", 5 ] ], "time": "30 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 7 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] }
+    },
+    "damage_reduction": { "all": 300 }
+  },
+  {
+    "id": "rambar_tech",
+    "copy-from": "ram_blaze",
+    "type": "vehicle_part",
+    "name": { "str": "military rambar" },
+    "item": "mil_rambar",
+    "color": "red",
+    "broken_color": "red",
+    "durability": 9000,
+    "damage_modifier": 1000,
+    "breaks_into": [
+      { "item": "steel_lump", "count": [ 4, 6 ] },
+      { "item": "steel_chunk", "count": [ 4, 6 ] },
+      { "item": "scrap", "count": [ 4, 6 ] },
+      { "item": "spike", "count": [ 0, 2 ] }
+    ],
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 5 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] },
+      "removal": { "skills": [ [ "mechanics", 5 ] ], "time": "30 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 7 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] }
+    },
+    "damage_reduction": { "all": 450 }
+  }
+]

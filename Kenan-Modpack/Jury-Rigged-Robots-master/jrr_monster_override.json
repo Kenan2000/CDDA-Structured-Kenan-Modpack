@@ -23,8 +23,27 @@
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 80,
     "death_function": "BROKEN",
-    "special_attacks": { "SMG": 2 },
     "starting_ammo": { "9mm": 100 },
+    "special_attacks": [
+      {
+        "type": "gun",
+        "cooldown": 3,
+        "move_cost": 150,
+        "gun_type": "hk_mp5",
+        "ammo_type": "9mm",
+        "fake_skills": [ [ "gun", 5 ], [ "smg", 5 ] ],
+        "fake_dex": 12,
+        "ranges": [ [ 0, 14, "DEFAULT" ] ],
+        "require_targeting_npc": true,
+        "require_targeting_monster": true,
+        "laser_lock": false,
+        "targeting_cost": 400,
+        "targeting_timeout_extend": -10,
+        "targeting_sound": "\"Hostile detected.\"",
+        "targeting_volume": 20,
+        "no_ammo_sound": "a chk!"
+      }
+    ],
     "description": "The Northrop Watchman X-1 is a production series of armored combat robots.  Initially designed for military patrol and escort service, it rolls on a set of hydraulic treads and is armed with twins SMGs.",
     "flags": [ "SEES", "HEARS", "BASHES", "ATTACKMON", "ELECTRONIC", "NO_BREATHE" ]
   },
@@ -78,7 +97,7 @@
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 90,
     "death_function": "BROKEN",
-    "special_attacks": { "CHICKENBOT": 4 },
+    "special_attacks": [ [ "CHICKENBOT", 4 ] ],
     "starting_ammo": { "556": 1000, "40x46mm_m433": 100 },
     "description": "The Northrup ATSV, a massive, heavily-armed and armored robot walking on a pair of reverse-jointed legs.  Armed with a 40mm anti-vehicle grenade launcher, 5.56 anti-personnel gun, and the ability to electrify itself against attackers, it is an effective automated sentry, though production was limited due to a legal dispute.",
     "flags": [ "SEES", "HEARS", "BASHES", "NO_BREATHE", "ELECTRONIC" ]

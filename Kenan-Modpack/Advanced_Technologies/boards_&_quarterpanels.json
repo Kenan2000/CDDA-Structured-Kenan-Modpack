@@ -1,0 +1,111 @@
+[
+  {
+    "abstract": "ehdboard",
+    "type": "vehicle_part",
+    "name": { "str": "extra heavy duty board" },
+    "symbol": "b",
+    "item": "double_mil_plate",
+    "location": "center",
+    "color": "dark_gray",
+    "durability": 1200,
+    "description": "A strong metal wall.  Keeps zombies outside the vehicle and prevents people from seeing through it.",
+    "breaks_into": "ig_vp_steel_plate",
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 5 ] ], "time": "90 m", "using": [ [ "welding_standard", 5 ] ] },
+      "removal": { "skills": [ [ "mechanics", 6 ] ], "time": "45 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 5 ] ], "time": "90 m", "using": [ [ "welding_standard", 5 ] ] }
+    },
+    "flags": [ "OPAQUE", "OBSTACLE", "FULL_BOARD", "NO_ROOF_NEEDED" ],
+    "damage_reduction": { "all": 165, "cut": 120, "stab": 120 }
+  },
+  {
+    "abstract": "ehdhalfboard",
+    "copy-from": "ehdboard",
+    "type": "vehicle_part",
+    "name": { "str": "extra heavy duty quarterpanel" },
+    "symbol": "q",
+    "description": "A half-height strong metal wall.  Keeps zombies outside the vehicle but allows people to see over it.",
+    "proportional": { "durability": 0.8 },
+    "extend": { "flags": [ "HALF_BOARD" ] },
+    "delete": { "flags": [ "OPAQUE", "FULL_BOARD" ] },
+    "damage_reduction": { "all": 135, "cut": 120, "stab": 120 }
+  },
+  {
+    "id": "ehdboard_horizontal",
+    "copy-from": "ehdboard",
+    "type": "vehicle_part",
+    "symbol": "h"
+  },
+  {
+    "id": "ehdhalfboard_horizontal_2",
+    "copy-from": "ehdhalfboard",
+    "type": "vehicle_part",
+    "symbol": "="
+  },
+  {
+    "id": "ehdboard_ne",
+    "copy-from": "ehdboard",
+    "type": "vehicle_part",
+    "symbol": "u"
+  },
+  {
+    "id": "ehdhalfboard_ne",
+    "copy-from": "ehdhalfboard",
+    "type": "vehicle_part",
+    "symbol": "u"
+  },
+  {
+    "id": "ehdhalfboard_horizontal",
+    "copy-from": "ehdhalfboard",
+    "type": "vehicle_part",
+    "symbol": "h"
+  },
+  {
+    "id": "ehdboard_nw",
+    "copy-from": "ehdboard",
+    "type": "vehicle_part",
+    "symbol": "y"
+  },
+  {
+    "id": "ehdhalfboard_nw",
+    "copy-from": "hdhalfboard",
+    "type": "vehicle_part",
+    "symbol": "y"
+  },
+  {
+    "id": "ehdboard_se",
+    "copy-from": "ehdboard",
+    "type": "vehicle_part",
+    "symbol": "n"
+  },
+  {
+    "id": "ehdhalfboard_se",
+    "copy-from": "ehdhalfboard",
+    "type": "vehicle_part",
+    "symbol": "n"
+  },
+  {
+    "id": "ehdboard_sw",
+    "copy-from": "ehdboard",
+    "type": "vehicle_part",
+    "symbol": "b"
+  },
+  {
+    "id": "ehdhalfboard_sw",
+    "copy-from": "ehdhalfboard",
+    "type": "vehicle_part",
+    "symbol": "b"
+  },
+  {
+    "id": "ehdboard_vertical",
+    "copy-from": "ehdboard",
+    "type": "vehicle_part",
+    "symbol": "j"
+  },
+  {
+    "id": "ehdhalfboard_vertical",
+    "copy-from": "ehdhalfboard",
+    "type": "vehicle_part",
+    "symbol": "j"
+  }
+]

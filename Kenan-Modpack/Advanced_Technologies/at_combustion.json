@@ -1,0 +1,103 @@
+[
+  {
+    "abstract": "engine_combustion",
+    "type": "vehicle_part",
+    "location": "engine_block",
+    "symbol": "*",
+    "color": "light_red",
+    "broken_color": "red",
+    "damage_modifier": 80,
+    "backfire_threshold": 0.25,
+    "backfire_freq": 20,
+    "noise_factor": 15,
+    "damaged_power_factor": 0.25,
+    "m2c": 50,
+    "flags": [ "ENGINE", "E_COMBUSTION", "E_ALTERNATOR", "E_HIGHER_SKILL", "E_HEATER" ],
+    "description": "A combustion engine.  Burns fuel from a tank in the vehicle."
+  },
+  {
+    "abstract": "diesel_engine",
+    "copy-from": "engine_combustion",
+    "type": "vehicle_part",
+    "fuel_type": "diesel",
+    "fuel_options": [ "diesel", "biodiesel", "lamp_oil", "motor_oil", "jp8" ],
+    "m2c": 65,
+    "//": "40% energy efficiency",
+    "extend": { "flags": [ "E_COLD_START" ] },
+    "description": "A combustion engine.  Burns diesel fuel from a tank in the vehicle.  Can also burn biodiesel or lamp oil, though somewhat less efficiently."
+  },
+  {
+    "abstract": "military_diesel_engine",
+    "copy-from": "engine_combustion",
+    "type": "vehicle_part",
+    "fuel_type": "diesel",
+    "fuel_options": [ "diesel", "biodiesel", "jp8" ],
+    "m2c": 65,
+    "//": "45% energy efficiency",
+    "extend": { "flags": [ "E_COLD_START" ] },
+    "description": "A combustion engine.  Burns diesel fuel from a tank in the vehicle.  Can also burn biodiesel or lamp oil, though somewhat less efficiently."
+  },
+  {
+    "abstract": "industrial_diesel_engine",
+    "copy-from": "engine_combustion",
+    "type": "vehicle_part",
+    "fuel_type": "diesel",
+    "fuel_options": [ "diesel", "biodiesel", "lamp_oil", "motor_oil" ],
+    "m2c": 72,
+    "//": "43% energy efficiency",
+    "extend": { "flags": [ "E_COLD_START" ] },
+    "description": "A combustion engine.  Burns diesel fuel from a tank in the vehicle.  Can also burn biodiesel or lamp oil, though somewhat less efficiently."
+  },
+  {
+    "abstract": "gas_turbine_engine",
+    "copy-from": "engine_combustion",
+    "type": "vehicle_part",
+    "fuel_type": "gasoline",
+    "fuel_options": [ "gasoline", "diesel", "lamp_oil", "jp8", "motor_oil", "avgas", "biodiesel" ],
+    "m2c": 60,
+    "//": "25% energy efficiency",
+    "description": "An advanced combustion engine.  Burns gasoline or diesel or aviation fuel from a tank in the vehicle.  Can also burn lamp oil, though somewhat less efficiently.  Better power-to-weight ratio than a traditional engine, but consumes more fuel."
+  },
+  {
+    "id": "diesel_engine_v8M",
+    "copy-from": "military_diesel_engine",
+    "type": "vehicle_part",
+    "item": "v8M_diesel",
+    "durability": 2200,
+    "epower": -650,
+    "power": 1445600,
+    "energy_consumption": 2359000,
+    "breaks_into": [
+      { "item": "steel_lump", "count": [ 45, 58 ] },
+      { "item": "steel_chunk", "count": [ 45, 58 ] },
+      { "item": "scrap", "count": [ 45, 58 ] }
+    ],
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 8 ] ], "time": "90 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "removal": { "skills": [ [ "mechanics", 5 ] ], "time": "45 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 9 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] }
+    },
+    "damage_reduction": { "all": 180 }
+  },
+  {
+    "id": "diesel_engine_W32",
+    "copy-from": "industrial_diesel_engine",
+    "type": "vehicle_part",
+    "item": "W32_diesel",
+    "durability": 900,
+    "epower": -500,
+    "power": 1800000,
+    "energy_consumption": 2509000,
+    "breaks_into": [
+      { "item": "steel_lump", "count": [ 40, 50 ] },
+      { "item": "steel_chunk", "count": [ 40, 50 ] },
+      { "item": "scrap", "count": [ 40, 50 ] }
+    ],
+    "requirements": {
+      "install": { "skills": [ [ "mechanics", 8 ] ], "time": "90 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "removal": { "skills": [ [ "mechanics", 5 ] ], "time": "45 m", "using": [ [ "vehicle_bolt", 1 ] ] },
+      "repair": { "skills": [ [ "mechanics", 9 ] ], "time": "60 m", "using": [ [ "welding_standard", 5 ] ] }
+    },
+    "damage_reduction": { "all": 110 }
+  }
+]

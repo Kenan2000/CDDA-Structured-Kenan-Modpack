@@ -1,13 +1,15 @@
 [
   {
     "type": "mutation",
-    "id": "SUM",
-    "name": { "str": "Summoner" },
+    "id": "ATRO",
+    "name": { "str": "Atromancer" },
     "points": 0,
-    "description": "A school of magic based from Animism, Summoners focus mainly upon summoning physical objects, whilst allowing for the utilization of other schools.",
+    "description": "A sub-school of Animism, those of this focus of study have opted to shift their focus away from Blood Magic, summoning, and the undead, instead focusing upon the summoning of other creatures and other areas of Animism. To specialize in this manner, one gains acess to many fantastical creatures which may be summoned, as well as others.",
     "starting_trait": false,
     "purifiable": false,
-    "valid": false
+    "valid": false,
+    "prereqs": [ "ANIMIST" ],
+    "spells_learned": [ [ "summon_owlcub", 1 ] ]
   },
   {
     "type": "mutation",
@@ -19,20 +21,30 @@
     "purifiable": false,
     "valid": false,
     "prereqs": [ "ANIMIST" ],
-    "cancels": [ "ATRO" ],
-    "spells_learned": [ [ "summon_decayed_zombie", 1 ] ]
+    "spells_learned": [ [ "mass_summon_zombie", 1 ] ]
   },
   {
     "type": "mutation",
-    "id": "ATRO",
-    "name": { "str": "Atromancer" },
+    "id": "PYRO",
+    "name": { "str": "Pyromancer" },
     "points": 0,
-    "description": "A sub-school of Animism, those of this class have opted to shift their focus away from Blood Magic, summoning, and the undead, instead focusing upon the summoning of other creatures and other areas of Animism. To specialize in this manner, one gains acess to many fantastical creatures which may be summoned, as well as others.",
+    "description": "A sub-school of Kelvinism, those who specialize such have shifted focus upon the use of flames in spellcasting.",
     "starting_trait": false,
     "purifiable": false,
     "valid": false,
-    "prereqs": [ "ANIMIST" ],
-    "cancels": [ "NECRO" ],
-    "spells_learned": [ [ "summon_ghost", 1 ] ]
+    "prereqs": [ "KELVINIST" ],
+    "spells_learned": [ [ "fpunch", 1 ] ]
+  },
+  {
+    "type": "mutation",
+    "id": "ICEWIZ",
+    "name": { "str": "Frostmonger" },
+    "points": 0,
+    "description": "A sub-school of Kelvinism, those who specialize such have shifted focus upon the use of frost.",
+    "starting_trait": false,
+    "purifiable": false,
+    "valid": false,
+    "prereqs": [ "KELVINIST" ],
+    "spells_learned": [ [ "ipunch", 1 ] ]
   }
 ]
