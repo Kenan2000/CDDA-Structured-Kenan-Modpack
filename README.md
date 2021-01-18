@@ -9,7 +9,7 @@ Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for **LATEST** expe
 
 **1) Download the modpack by clicking Code - Download ZIP, or clicking** [**here**](https://github.com/Kenan2000/CDDA-Kenan-Modpack/archive/master.zip) ;
 
-**2) Copy all of the mods from the modpack folder (**Kenan-Modpack**) as shown in the** [**picture**](https://imgur.com/a/cpok2UT) ;
+**2) Copy all of the mods from the modpack folder (`CDDA-Kenan-Modpack/Kenan-Modpack`) as shown in the** [**picture**](https://imgur.com/a/cpok2UT) ;
 
 **3) Paste them all into the `cdda/data/mods` directory as shown in the** [**picture**](https://imgur.com/a/mK1cEER) ;
 
