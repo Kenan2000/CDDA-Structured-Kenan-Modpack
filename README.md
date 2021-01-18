@@ -7,11 +7,11 @@ Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for **LATEST** expe
 
 # Installation Guide (MUST-READ)
 
-**1) Download the modpack** ;
+**1) Download the modpack by clicking Code - Download ZIP, or clicking** [**here**](https://github.com/Kenan2000/CDDA-Kenan-Modpack/archive/master.zip) ;
 
-**2) Copy all of the mods from the modpack folder as shown in the picture** https://imgur.com/a/cpok2UT ;
+**2) Copy all of the mods from the modpack folder as shown in the** [**picture**](https://imgur.com/a/cpok2UT) ;
 
-**3) Paste them all into the `cdda/data/mods` directory as shown in the picture** https://imgur.com/a/mK1cEER ;
+**3) Paste them all into the `cdda/data/mods` directory as shown in the** [**picture**](https://imgur.com/a/mK1cEER) ;
 
 **4) Overwrite and replace all the files if you get a prompt** ;
 
@@ -24,6 +24,17 @@ Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for **LATEST** expe
 **7) Repeat 2) , 3) , 4) and 5)** ;
 
 **8) Enjoy the mods**
+
+# FAQ:
+
+* Q: Why should I remove manually some specific non-mainlined mods when updating?
+  * A: Because sometimes some mod files become obsolete and no longer used, so you won't need them inside your mods folder anymore, so for dealing with these problems you need to delete the mod and fully reinstall it.
+
+* Q: After updating my save file no longer loading!
+  * A: It is rare, but will happen when some mod that've been used in your save has new ID and/or name, or you're trying to load the mod that is no longer used/merged with other one. You can fix it by reading `debug.log` to view what's mod should be changed, then go to `cdda\save\world_name\mods.json` and replace target mod ID with the new one, or delete it's entry from this file if there is no replacement. Also, you can read latest commits to see what is happening, if you want
+
+* Q: I have some other issues to report!
+  * A: Feel free to submit your issue into the [**issues tab**](https://github.com/Kenan2000/CDDA-Kenan-Modpack/issues).
 
 # Link to Supporters' and Contributors ASTOUNDINGLY NOICE WORKS
 
