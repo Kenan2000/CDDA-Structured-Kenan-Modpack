@@ -139,7 +139,16 @@
     "techniques": [ "WIDE", "BRUTAL", "WBLOCK_2", "VORPAL" ],
     "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 1 ] ],
     "flags": [ "DURABLE_MELEE", "NO_SALVAGE" ],
-    "artifact_data": { "effects_wielded": [ "AEP_SAP_LIFE", "AEP_SPEED_UP" ] }
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [ { "value": "SPEED", "add": 25 } ],
+          "hit_you_effect": [ { "id": "rs_healing", "hit_self": true } ]
+        }
+      ]
+    }
   },
   {
     "id": "scythe_ornate",
@@ -159,7 +168,15 @@
     "techniques": [ "WIDE", "BRUTAL", "WBLOCK_2" ],
     "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 1 ] ],
     "flags": [ "UNBREAKABLE_MELEE", "NONCONDUCTIVE" ],
-    "artifact_data": { "effects_wielded": [ "AEP_PSYSHIELD", "AEP_STR_UP", "AEP_SPEED_UP", "AEP_PER_UP" ] }
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [ { "value": "STRENGTH", "add": 2 }, { "value": "SPEED", "add": 25 }, { "value": "PERCEPTION", "add": 2 } ]
+        }
+      ]
+    }
   },
   {
     "id": "scythe_bone",

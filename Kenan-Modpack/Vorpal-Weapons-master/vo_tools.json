@@ -62,52 +62,6 @@
     "use_action": "MOP"
   },
   {
-    "id": "blood_transfusion_off_vo",
-    "type": "TOOL",
-    "symbol": "b",
-    "color": "red",
-    "name": { "str": "Autologous blood transfusion kit (off)" },
-    "description": "It is a kit for using blood for transfusion. Save it when you are healthy, and use it when you need it. Start turning blood on by turning it on.",
-    "price": 80000,
-    "material": [ "plastic" ],
-    "weight": "500 g",
-    "volume": "500 ml",
-    "bashing": 1,
-    "to_hit": 2,
-    "flags": [ "NO_UNLOAD" ],
-    "max_charges": 20,
-    "ammo": [ "blood_clearn_vo" ],
-    "use_action": [
-      {
-        "type": "transform",
-        "msg": "I connected the blood collector to my body.",
-        "target": "blood_transfusion_on_vo",
-        "active": true
-      }
-    ]
-  },
-  {
-    "id": "blood_transfusion_on_vo",
-    "type": "TOOL",
-    "symbol": "b",
-    "color": "red",
-    "name": { "str": "Autologous blood transfusion kit (on)" },
-    "description": "It is a kit for using blood for transfusion. Blood is being accumulated ... · · ·. Saved blood can be used as it is, or it can be removed from production. Let's draw it out when it is full.",
-    "price": 80000,
-    "material": [ "plastic" ],
-    "weight": "500 g",
-    "volume": "500 ml",
-    "bashing": 1,
-    "to_hit": 2,
-    "flags": [ "NO_UNLOAD" ],
-    "max_charges": 20,
-    "charges_per_use": 2,
-    "ammo": [ "blood_clearn_vo" ],
-    "revert_to": "blood_transfusion_off_vo",
-    "use_action": [ { "type": "transform", "msg": "I pulled out the blood collector.", "target": "blood_transfusion_off_vo" } ],
-    "artifact_data": { "charge_type": "ARTC_HP" }
-  },
-  {
     "id": "brainwash_off_vo",
     "type": "TOOL",
     "symbol": "*",
