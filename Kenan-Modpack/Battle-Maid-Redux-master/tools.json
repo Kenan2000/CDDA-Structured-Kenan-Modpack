@@ -128,7 +128,7 @@
     "flags": [ "NO_UNLOAD", "NO_RELOAD" ],
     "max_charges": 48,
     "initial_charges": 48,
-    "artifact_data": { "charge_type": "ARTC_TIME" }
+    "relic_data": { "charge_info": { "regenerate_ammo": true, "recharge_type": "periodic", "time": "1 h" } }
   },
   {
     "type": "GENERIC",
@@ -175,7 +175,7 @@
     "symbol": "m",
     "color": "brown",
     "name": { "str": "master doll (vibrator) (on)" },
-    "description": "his is a doll in the shape of your beloved master, but with an additional 'special attachment.' By using it in a certain (rather embarassing) type of private ritual, you can release an explosion of desire towards your beloved master and transform it into a usable type of energy.",
+    "description": "This is a doll in the shape of your beloved master, but with an additional 'special attachment.' By using it in a certain (rather embarassing) type of private ritual, you can release an explosion of desire towards your beloved master and transform it into a usable type of energy.",
     "price": 5400,
     "material": [ "cotton", "plastic" ],
     "weight": "400 g",
@@ -185,13 +185,16 @@
     "initial_charges": 16,
     "charges_per_use": 1,
     "revert_to": "master_doll_vibe_off",
-    "use_action": {
-      "type": "transform",
-      "msg": "Finally, after your body tightens up and you reach your limit, you collapse on the doll with a delighted and exhausted smile...",
-      "target": "master_doll_vibe_off",
-      "need_charges": 0
-    },
-    "artifact_data": { "charge_type": "ARTC_HP", "effects_activated": [ "AEA_ADRENALINE", "AEA_PARALYZE" ] }
+    "use_action": [
+      {
+        "type": "transform",
+        "msg": "Finally, after your body tightens up and you reach your limit, you collapse on the doll with a delighted and exhausted smile...",
+        "target": "master_doll_vibe_off",
+        "need_charges": 0
+      },
+      { "type": "cast_spell", "spell_id": "bmd_pleasure", "no_fail": true, "level": 1, "need_wielding": true }
+    ],
+    "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "3 h", "regenerate_ammo": true } }
   },
   {
     "id": "summon_little_maid",

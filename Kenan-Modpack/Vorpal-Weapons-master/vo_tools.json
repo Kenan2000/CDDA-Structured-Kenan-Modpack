@@ -84,7 +84,7 @@
         "need_charges": 1
       }
     ],
-    "artifact_data": { "charge_type": "ARTC_SOLAR" }
+    "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "12 h", "regenerate_ammo": true } }
   },
   {
     "id": "brainwash_on_vo",
@@ -100,7 +100,7 @@
     "max_charges": 1,
     "turns_per_charge": 201,
     "revert_to": "brainwash_off_vo",
-    "use_action": [ "ARTIFACT" ],
-    "artifact_data": { "charge_type": "ARTC_SOLAR", "effects_activated": [ "AEA_ENTRANCE" ], "effects_carried": [ "AEP_SCHIZO" ] }
+    "use_action": { "type": "cast_spell", "spell_id": "AEA_ENTRANCE", "no_fail": true, "level": 1, "need_wielding": true },
+    "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "12 h", "regenerate_ammo": true } }
   }
 ]
