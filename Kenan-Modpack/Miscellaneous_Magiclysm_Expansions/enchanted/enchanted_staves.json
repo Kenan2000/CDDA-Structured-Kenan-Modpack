@@ -1,14 +1,14 @@
 [
   {
-    "type": "GENERIC",
-    "id": "staff_magic",
+    "type": "TOOL",
+    "abstract": "staff_magic",
     "name": { "str": "Magic Stave" },
     "price": 4000,
     "material": [ "wood" ],
     "symbol": "/",
     "color": "brown",
     "techniques": [ "WBLOCK_2", "RAPID", "SWEEP" ],
-    "flags": [ "DURABLE_MELEE", "SHEATH_SPEAR", "ALWAYS_TWOHAND" ],
+    "flags": [ "BELT_CLIP", "DURABLE_MELEE", "NONCONDUCTIVE", "SHEATH_SPEAR", "ALWAYS_TWOHAND", "MAGIC_FOCUS" ],
     "weight": "1400 g",
     "description": "A fake item for all staves.",
     "volume": "3 L",
@@ -30,165 +30,558 @@
   },
   {
     "type": "TOOL",
-    "charges_per_use": 1,
-    "ammo": [ "crystallized_mana" ],
     "id": "stave_magic_missile",
     "name": { "str": "stave of magic missile", "str_pl": "staves of magic missile" },
     "copy-from": "staff_magic",
     "description": "A slender wooden staff with a mana crystal socket at the head that casts a spell when activated.  This stave casts magic missile.",
-    "use_action": { "type": "cast_spell", "spell_id": "magic_missile", "no_fail": true, "level": 10, "need_wielding": true },
-    "pocket_data": [
-      {
-        "magazine_well": "250 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "small_mana_crystal" ]
-      }
-    ]
+    "use_action": { "type": "cast_spell", "spell_id": "magic_missile", "no_fail": true, "level": 10, "need_wielding": true }
   },
   {
     "type": "TOOL",
-    "charges_per_use": 1,
-    "ammo": [ "crystallized_mana" ],
     "id": "gstave_magic_missile",
     "name": { "str": "greater stave of magic missile", "str_pl": "greater staves of magic missile" },
     "copy-from": "staff_magic",
     "description": "A wooden staff with a mana crystal socket at the head that casts a spell when activated.  This stave casts magic missile.",
-    "use_action": { "type": "cast_spell", "spell_id": "magic_missile", "no_fail": true, "level": 20, "need_wielding": true },
-    "pocket_data": [
-      {
-        "magazine_well": "250 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "small_mana_crystal" ]
-      }
-    ]
+    "use_action": { "type": "cast_spell", "spell_id": "magic_missile", "no_fail": true, "level": 20, "need_wielding": true }
   },
   {
     "type": "TOOL",
-    "charges_per_use": 1,
-    "ammo": [ "crystallized_mana" ],
+    "id": "stave_gravity_well",
+    "name": { "str": "stave of gravity well", "str_pl": "staves of gravity well" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden staff with a mana crystal socket at the head that casts a spell when activated.  This stave casts gravity well.",
+    "use_action": { "type": "cast_spell", "spell_id": "gravity_well", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_gravity_well",
+    "name": { "str": "greater stave of gravity well", "str_pl": "greater staves of gravity well" },
+    "copy-from": "staff_magic",
+    "description": "A wooden staff with a mana crystal socket at the head that casts a spell when activated.  This stave casts gravity well.",
+    "use_action": { "type": "cast_spell", "spell_id": "gravity_well", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_mana_blast",
+    "name": { "str": "stave of mana blast", "str_pl": "staves of mana blast" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden staff with a mana crystal socket at the head that casts a spell when activated.  This stave casts mana blast.",
+    "use_action": { "type": "cast_spell", "spell_id": "magus_mana_blast", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_mana_blast",
+    "name": { "str": "greater stave of gravity well", "str_pl": "greater staves of gravity well" },
+    "copy-from": "staff_magic",
+    "description": "A wooden staff with a mana crystal socket at the head that casts a spell when activated.  This stave casts gravity well.",
+    "use_action": { "type": "cast_spell", "spell_id": "magus_mana_blast", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
     "id": "stave_fireball",
     "name": { "str": "stave of fireball", "str_pl": "staves of fireball" },
     "copy-from": "staff_magic",
     "description": "A slender wooden staff with a mana crystal socket at the head that casts a spell when activated.  This stave casts fireball.",
-    "use_action": { "type": "cast_spell", "spell_id": "fireball", "no_fail": true, "level": 10, "need_wielding": true },
-    "pocket_data": [
-      {
-        "magazine_well": "250 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "small_mana_crystal" ]
-      }
-    ]
+    "use_action": { "type": "cast_spell", "spell_id": "fireball", "no_fail": true, "level": 10, "need_wielding": true }
   },
   {
     "type": "TOOL",
-    "charges_per_use": 1,
-    "ammo": [ "crystallized_mana" ],
     "id": "gstave_fireball",
     "name": { "str": "greater stave of fireball", "str_pl": "greater staves of fireball" },
     "copy-from": "staff_magic",
     "price": 20000,
     "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts fireball.",
-    "use_action": { "type": "cast_spell", "spell_id": "fireball", "no_fail": true, "level": 20, "need_wielding": true },
-    "pocket_data": [
-      {
-        "magazine_well": "250 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "small_mana_crystal" ]
-      }
-    ]
+    "use_action": { "type": "cast_spell", "spell_id": "fireball", "no_fail": true, "level": 20, "need_wielding": true }
   },
   {
     "type": "TOOL",
-    "charges_per_use": 1,
-    "ammo": [ "crystallized_mana" ],
+    "id": "stave_point_flare",
+    "name": { "str": "stave of point flare", "str_pl": "staves of point flare" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden staff with a mana crystal socket at the head that casts a spell when activated.  This stave casts point flare.",
+    "use_action": { "type": "cast_spell", "spell_id": "point_flare", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_point_flare",
+    "name": { "str": "greater stave of point flare", "str_pl": "greater staves of point flare" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts point flare.",
+    "use_action": { "type": "cast_spell", "spell_id": "point_flare", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_ice_spike",
+    "name": { "str": "stave of ice spike", "str_pl": "staves of ice spike" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden staff with a mana crystal socket at the head that casts a spell when activated.  This stave casts ice spike.",
+    "use_action": { "type": "cast_spell", "spell_id": "ice_spike", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_ice_spike",
+    "name": { "str": "greater stave of ice spike", "str_pl": "greater staves of ice spike" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts ice spike.",
+    "use_action": { "type": "cast_spell", "spell_id": "ice_spike", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
     "id": "stave_hoaryblast",
     "name": { "str": "stave of hoary blast", "str_pl": "staves of hoary blast" },
     "copy-from": "staff_magic",
     "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts hoary blast.",
-    "use_action": { "type": "cast_spell", "spell_id": "hoary_blast", "no_fail": true, "level": 10, "need_wielding": true },
-    "pocket_data": [
-      {
-        "magazine_well": "250 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "small_mana_crystal" ]
-      }
-    ]
+    "use_action": { "type": "cast_spell", "spell_id": "hoary_blast", "no_fail": true, "level": 10, "need_wielding": true }
   },
   {
     "type": "TOOL",
-    "charges_per_use": 1,
-    "ammo": [ "crystallized_mana" ],
     "id": "gstave_hoaryblast",
     "name": { "str": "greater stave of hoary blast", "str_pl": "greater staves of hoary blast" },
     "copy-from": "staff_magic",
     "price": 20000,
     "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts hoary blast.",
-    "use_action": { "type": "cast_spell", "spell_id": "hoary_blast", "no_fail": true, "level": 20, "need_wielding": true },
-    "pocket_data": [
-      {
-        "magazine_well": "250 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "small_mana_crystal" ]
-      }
-    ]
+    "use_action": { "type": "cast_spell", "spell_id": "hoary_blast", "no_fail": true, "level": 20, "need_wielding": true }
   },
   {
     "type": "TOOL",
-    "charges_per_use": 1,
-    "ammo": [ "crystallized_mana" ],
+    "id": "stave_summon_zombie",
+    "name": { "str": "stave of summon zombie", "str_pl": "staves of summon zombie" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts summon zombie.",
+    "use_action": { "type": "cast_spell", "spell_id": "summon_zombie", "no_fail": true, "level": 15, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_summon_zombie",
+    "name": { "str": "greater stave of summon zombie", "str_pl": "greater staves of summon zombie" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts summon zombie.",
+    "use_action": { "type": "cast_spell", "spell_id": "summon_zombie", "no_fail": true, "level": 30, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_summon_skeleton",
+    "name": { "str": "stave of summon skeleton", "str_pl": "staves of summon skeleton" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts summon skeleton.",
+    "use_action": { "type": "cast_spell", "spell_id": "summon_skeleton", "no_fail": true, "level": 15, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_summon_skeleton",
+    "name": { "str": "greater stave of summon skeleton", "str_pl": "greater staves of summon skeleton" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts summon skeleton.",
+    "use_action": { "type": "cast_spell", "spell_id": "summon_skeleton", "no_fail": true, "level": 30, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_decayed_pouncer",
+    "name": { "str": "stave of decayed pouncer", "str_pl": "staves of decayed pouncer" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts decayed pouncer.",
+    "use_action": { "type": "cast_spell", "spell_id": "summon_decayed_pouncer", "no_fail": true, "level": 15, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_decayed_pouncer",
+    "name": { "str": "greater stave of decayed pouncer", "str_pl": "greater staves of decayed pouncer" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts decayed pouncer.",
+    "use_action": { "type": "cast_spell", "spell_id": "summon_decayed_pouncer", "no_fail": true, "level": 30, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_summon_wisps",
+    "name": { "str": "stave of ignus fatuus", "str_pl": "staves of ignus fatuus" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts ignus fatuus.",
+    "use_action": { "type": "cast_spell", "spell_id": "summon_wisps", "no_fail": true, "level": 15, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_summon_wisps",
+    "name": { "str": "greater stave of ignus fatuus", "str_pl": "greater staves of ignus fatuus" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts ignus fatuus.",
+    "use_action": { "type": "cast_spell", "spell_id": "summon_wisps", "no_fail": true, "level": 30, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_veggrasp",
+    "name": { "str": "stave of vegetative grasp", "str_pl": "staves of vegetative grasp" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts vegetative grasp.",
+    "use_action": { "type": "cast_spell", "spell_id": "druid_veggrasp", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_veggrasp",
+    "name": { "str": "greater stave of vegetative grasp", "str_pl": "greater staves of vegetative grasp" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts vegetative grasp.",
+    "use_action": { "type": "cast_spell", "spell_id": "druid_veggrasp", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_rootstrike",
+    "name": { "str": "stave of root strike", "str_pl": "staves of root strike" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts root strike.",
+    "use_action": { "type": "cast_spell", "spell_id": "druid_rootstrike", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_rootstrike",
+    "name": { "str": "greater stave of root strike", "str_pl": "greater staves of root strike" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts root strike.",
+    "use_action": { "type": "cast_spell", "spell_id": "druid_rootstrike", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_fungicide",
+    "name": { "str": "stave of fungicide", "str_pl": "staves of fungicide" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts fungicide.",
+    "use_action": { "type": "cast_spell", "spell_id": "fungicide", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_fungicide",
+    "name": { "str": "greater stave of fungicide", "str_pl": "greater staves of fungicide" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts fungicide.",
+    "use_action": { "type": "cast_spell", "spell_id": "fungicide", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_regrowth",
+    "name": { "str": "stave of druidic regrowth", "str_pl": "staves of druidic regrowth" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts druidic regrowth.",
+    "use_action": { "type": "cast_spell", "spell_id": "druidic_regrowth", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_regrowth",
+    "name": { "str": "greater stave of druidic regrowth", "str_pl": "greater staves of druidic regrowth" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts druidic regrowth.",
+    "use_action": { "type": "cast_spell", "spell_id": "druidic_regrowth", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_druidic_healing",
+    "name": { "str": "stave of druidic healing", "str_pl": "staves of druidic healing" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts druidic healing.",
+    "use_action": { "type": "cast_spell", "spell_id": "druidic_healing", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_druidic_healing",
+    "name": { "str": "greater stave of druidic healing", "str_pl": "greater staves of druidic healing" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts druidic healing.",
+    "use_action": { "type": "cast_spell", "spell_id": "druidic_healing", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_shardspray",
+    "name": { "str": "stave of shardspray", "str_pl": "staves of shardspray" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts shardspray.",
+    "use_action": { "type": "cast_spell", "spell_id": "eshaper_shardspray", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_shardspray",
+    "name": { "str": "greater stave of shardspray", "str_pl": "greater staves of shardspray" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts shardspray.",
+    "use_action": { "type": "cast_spell", "spell_id": "eshaper_shardspray", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_piercing_bolt",
+    "name": { "str": "stave of piercing bolt", "str_pl": "staves of piercing bolt" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts piercing bolt.",
+    "use_action": { "type": "cast_spell", "spell_id": "eshaper_piercing_bolt", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_piercing_bolt",
+    "name": { "str": "greater stave of piercing bolt", "str_pl": "greater staves of piercing bolt" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts piercing bolt.",
+    "use_action": { "type": "cast_spell", "spell_id": "eshaper_piercing_bolt", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_move_earth",
+    "name": { "str": "stave of move earth", "str_pl": "staves of move earth" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts move earth.",
+    "use_action": { "type": "cast_spell", "spell_id": "move_earth", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_move_earth",
+    "name": { "str": "greater stave of move earth", "str_pl": "greater staves of move earth" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts move earth.",
+    "use_action": { "type": "cast_spell", "spell_id": "move_earth", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "//": "This stave's recipe shall be of greater difficulty and material requirement in ratio to others of it's kind, due to the spell's potency. Place within a seperate recipe book.",
+    "id": "stave_lava_bomb",
+    "name": { "str": "stave of lava bomb", "str_pl": "staves of lava bomb" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts lava bomb.",
+    "use_action": { "type": "cast_spell", "spell_id": "lava_bomb_main", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "//": "This stave's recipe shall be of greater difficulty and material requirement in ratio to others of it's kind, due to the spell's potency. Place within a seperate recipe book.",
+    "id": "gstave_lava_bomb",
+    "name": { "str": "greater stave of lava bomb", "str_pl": "greater staves of lava bomb" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts lava bomb. Wonderful when one is required to destroy the world.",
+    "use_action": { "type": "cast_spell", "spell_id": "lava_bomb_main", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_lightning_bolt",
+    "name": { "str": "stave of lightning bolt", "str_pl": "staves of lightning bolt" },
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts lightning bolt.",
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "use_action": { "type": "cast_spell", "spell_id": "lightning_bolt", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_lightning_bolt",
+    "name": { "str": "greater stave of lightning bolt", "str_pl": "greater staves of lightning bolt" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts lightning bolt.",
+    "use_action": { "type": "cast_spell", "spell_id": "lightning_bolt", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_lightning_blast",
+    "name": { "str": "stave of lightning blast", "str_pl": "staves of lightning blast" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts lightning blast.",
+    "use_action": { "type": "cast_spell", "spell_id": "lightning_blast", "no_fail": true, "level": 15, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_lightning_blast",
+    "name": { "str": "greater stave of lightning blast", "str_pl": "greater staves of lightning blast" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts lightning blast.",
+    "use_action": { "type": "cast_spell", "spell_id": "lightning_blast", "no_fail": true, "level": 30, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_lightning_storm",
+    "name": { "str": "stave of lightning storm", "str_pl": "staves of lightning storm" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts lightning storm.",
+    "use_action": { "type": "cast_spell", "spell_id": "lightning_storm", "no_fail": true, "level": 15, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_lightning_storm",
+    "name": { "str": "greater stave of lightning storm", "str_pl": "greater staves of lightning storm" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts lightning storm.",
+    "use_action": { "type": "cast_spell", "spell_id": "lightning_storm", "no_fail": true, "level": 30, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_wall_of_fog",
+    "name": { "str": "stave of wall of fog", "str_pl": "staves of wall of fog" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts wall of fog.",
+    "use_action": { "type": "cast_spell", "spell_id": "stormshaper_wall_of_fog", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_wall_of_fog",
+    "name": { "str": "greater stave of wall of fog", "str_pl": "greater staves of wall of fog" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts wall of fog.",
+    "use_action": { "type": "cast_spell", "spell_id": "stormshaper_wall_of_fog", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_laze",
+    "name": { "str": "stave of laze", "str_pl": "staves of laze" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts laze.",
+    "use_action": { "type": "cast_spell", "spell_id": "laze", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_laze",
+    "name": { "str": "greater stave of laze", "str_pl": "greater staves of laze" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts laze.",
+    "use_action": { "type": "cast_spell", "spell_id": "laze", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_quantum_tunnel_lesser",
+    "name": { "str": "stave of lesser quantum tunnel", "str_pl": "staves of lesser quantum tunnel" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts lesser quantum tunnel.",
+    "use_action": { "type": "cast_spell", "spell_id": "quantum_tunnel_lesser", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_quantum_tunnel_lesser",
+    "name": { "str": "greater stave of lesser quantum tunnel", "str_pl": "greater staves of lesser quantum tunnel" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts lesser quantum tunnel.",
+    "use_action": { "type": "cast_spell", "spell_id": "quantum_tunnel_lesser", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_animated_blade",
+    "name": { "str": "stave of animated blade", "str_pl": "staves of animated blade" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts animated blade.",
+    "use_action": { "type": "cast_spell", "spell_id": "animated_blade", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_animated_blade",
+    "name": { "str": "greater stave of animated blade", "str_pl": "greater staves of animated blade" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts animated blade.",
+    "use_action": { "type": "cast_spell", "spell_id": "animated_blade", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_overcharge_eyes",
+    "name": { "str": "stave of optical sneeze beam", "str_pl": "staves of optical sneeze beam" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts optical sneeze beam.",
+    "use_action": { "type": "cast_spell", "spell_id": "overcharge_eyes", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_overcharge_eyes",
+    "name": { "str": "greater stave of optical sneeze beam", "str_pl": "greater staves of optical sneeze beam" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts optical sneeze beam.",
+    "use_action": { "type": "cast_spell", "spell_id": "overcharge_eyes", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_bio_acidicspray",
+    "name": { "str": "stave of biomancer's acidic spray", "str_pl": "staves of biomancer's acidic spray" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts acidic spray.",
+    "use_action": { "type": "cast_spell", "spell_id": "bio_acidicspray", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_bio_acidicspray",
+    "name": { "str": "greater stave of biomancer's acidic spray", "str_pl": "greater staves of biomancer's acidic spray" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts acidic spray.",
+    "use_action": { "type": "cast_spell", "spell_id": "bio_acidicspray", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_visceral_projection",
+    "name": { "str": "stave of visceral projection", "str_pl": "staves of visceral projection" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts visceral projection.",
+    "use_action": {
+      "type": "cast_spell",
+      "spell_id": "biomancer_visceral_projection",
+      "no_fail": true,
+      "level": 10,
+      "need_wielding": true
+    }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_visceral_projection",
+    "name": { "str": "greater stave of visceral projection", "str_pl": "greater staves of visceral projection" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts visceral projection.",
+    "use_action": {
+      "type": "cast_spell",
+      "spell_id": "biomancer_visceral_projection",
+      "no_fail": true,
+      "level": 20,
+      "need_wielding": true
+    }
+  },
+  {
+    "type": "TOOL",
+    "id": "stave_paralytic_dart",
+    "name": { "str": "stave of paralytic dart", "str_pl": "staves of paralytic dart" },
+    "copy-from": "staff_magic",
+    "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts paralytic dart.",
+    "use_action": { "type": "cast_spell", "spell_id": "biomancer_paralytic_dart", "no_fail": true, "level": 10, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
+    "id": "gstave_paralytic_dart",
+    "name": { "str": "greater stave of paralytic dart", "str_pl": "greater staves of paralytic dart" },
+    "copy-from": "staff_magic",
+    "price": 20000,
+    "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts paralytic dart.",
+    "use_action": { "type": "cast_spell", "spell_id": "biomancer_paralytic_dart", "no_fail": true, "level": 20, "need_wielding": true }
+  },
+  {
+    "type": "TOOL",
     "id": "stave_zompack",
     "name": { "str": "stave of zombie pack", "str_pl": "staves of zombie pack" },
     "copy-from": "staff_magic",
     "description": "A slender wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts zombie pack.",
-    "use_action": { "type": "cast_spell", "spell_id": "mass_summon_zombie", "no_fail": true, "level": 10, "need_wielding": true },
-    "pocket_data": [
-      {
-        "magazine_well": "250 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "small_mana_crystal" ]
-      }
-    ]
+    "use_action": { "type": "cast_spell", "spell_id": "mass_summon_zombie", "no_fail": true, "level": 12, "need_wielding": true }
   },
   {
     "type": "TOOL",
-    "charges_per_use": 1,
-    "ammo": [ "crystallized_mana" ],
     "id": "gstave_zompack",
     "name": { "str": "greater stave of zombie pack", "str_pl": "greater staves of zombie pack" },
     "copy-from": "staff_magic",
     "price": 20000,
     "description": "A wooden stave with a mana crystal socket at the head that casts a spell when activated.  This stave casts zombie pack.",
-    "use_action": { "type": "cast_spell", "spell_id": "mass_summon_zombie", "no_fail": true, "level": 25, "need_wielding": true },
-    "pocket_data": [
-      {
-        "magazine_well": "250 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "small_mana_crystal" ]
-      }
-    ]
+    "use_action": { "type": "cast_spell", "spell_id": "mass_summon_zombie", "no_fail": true, "level": 25, "need_wielding": true }
   }
 ]

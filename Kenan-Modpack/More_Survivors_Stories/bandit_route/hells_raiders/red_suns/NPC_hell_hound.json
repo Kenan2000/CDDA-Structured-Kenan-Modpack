@@ -2,7 +2,7 @@
   {
     "type": "npc",
     "id": "NPC_hell_hound",
-    "class": "NC_SCAVENGER",
+    "class": "NC_hell_hound",
     "attitude": 1,
     "mission": 8,
     "gender": "male",
@@ -10,6 +10,45 @@
     "name_suffix": "Beast",
     "chat": "TALK_hell_hound_start",
     "faction": "red_suns"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_hell_hound",
+    "name": { "str": "Hell Hound" },
+    "job_description": "Hell Hound.",
+    "common": false,
+    "bonus_str": { "rng": [ -1, 4 ] },
+    "bonus_dex": { "rng": [ -2, 6 ] },
+    "bonus_int": { "rng": [ -2, 4 ] },
+    "bonus_per": { "rng": [ -2, 2 ] },
+    "worn_override": "EMPTY_GROUP",
+    "carry_override": "EMPTY_GROUP",
+    "weapon_override": "EMPTY_GROUP",
+    "traits": [
+      { "group": "Appearance_demographics" },
+      { "trait": "URSINE_FUR" },
+      { "trait": "CLAWS" },
+      { "trait": "PADDED_FEET" },
+      { "trait": "TAIL_STUB" },
+      { "trait": "HIBERNATE" },
+      { "trait": "MUT_TOUGH3" },
+      { "trait": "PRED2" },
+      { "trait": "SAPIOVORE" },
+      { "trait": "URSINE_EARS" },
+      { "trait": "FAT" },
+      { "trait": "HUGE" },
+      { "trait": "STR_UP_3" },
+      { "trait": "SMELLY2" },
+      { "trait": "DEFORMED2" },
+      { "trait": "MUZZLE_BEAR" },
+      { "trait": "PAWS_LARGE" },
+      { "trait": "PONDEROUS1" },
+      { "trait": "GROWL" },
+      { "group": "NPC_starting_traits" }
+    ],
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 4, 2 ] }, { "rng": [ -4, -1 ] } ] } ] } }
+    ]
   },
   {
     "id": [

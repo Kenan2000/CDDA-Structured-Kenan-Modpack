@@ -25,7 +25,11 @@
     "weapon_override": "NC_moneylender_weapon",
     "shopkeeper_item_group": "NC_moneylender_shop",
     "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" }, { "trait": "PAINRESIST" } ],
-    "skills": [ { "skill": "melee", "bonus": { "rng": [ 2, 6 ] } }, { "skill": "dodge", "bonus": { "rng": [ 2, 6 ] } }, { "skill": "unarmed", "bonus": { "rng": [ 2, 6 ] } } ]
+    "skills": [
+      { "skill": "melee", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 2, 6 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 2, 6 ] } }
+    ]
   },
   {
     "type": "item_group",
@@ -353,7 +357,7 @@
     "//": "TODO change spawn point when make him unique building",
     "type": "talk_topic",
     "id": "TALK_moneylender_book_more",
-    "dynamic_line": "Alright, accepted.  Here's your money.",
+    "dynamic_line": "Alright, accepted.",
     "responses": [
       {
         "text": "…",
@@ -384,46 +388,31 @@
         "text": "Nice.",
         "topic": "TALK_NONE",
         "condition": { "npc_has_var": "moneylender_job_turret", "type": "flag", "context": "meeting", "value": "5" },
-        "effect": [
-          { "mapgen_update": "moneylender_share_turret", "origin_npc": true },
-          { "mapgen_update": "moneylender_turret_5", "origin_npc": true, "z": 0 }
-        ]
+        "effect": [ { "mapgen_update": "moneylender_share_turret", "origin_npc": true } ]
       },
       {
         "text": "Nice.",
         "topic": "TALK_NONE",
         "condition": { "npc_has_var": "moneylender_job_turret", "type": "flag", "context": "meeting", "value": "4" },
-        "effect": [
-          { "mapgen_update": "moneylender_share_turret", "origin_npc": true },
-          { "mapgen_update": "moneylender_turret_4", "origin_npc": true, "z": 0 }
-        ]
+        "effect": [ { "mapgen_update": "moneylender_share_turret", "origin_npc": true } ]
       },
       {
         "text": "Nice.",
         "topic": "TALK_NONE",
         "condition": { "npc_has_var": "moneylender_job_turret", "type": "flag", "context": "meeting", "value": "3" },
-        "effect": [
-          { "mapgen_update": "moneylender_share_turret", "origin_npc": true },
-          { "mapgen_update": "moneylender_turret_3", "origin_npc": true, "z": 0 }
-        ]
+        "effect": [ { "mapgen_update": "moneylender_share_turret", "origin_npc": true } ]
       },
       {
         "text": "Nice.",
         "topic": "TALK_NONE",
         "condition": { "npc_has_var": "moneylender_job_turret", "type": "flag", "context": "meeting", "value": "2" },
-        "effect": [
-          { "mapgen_update": "moneylender_share_turret", "origin_npc": true },
-          { "mapgen_update": "moneylender_turret_2", "origin_npc": true, "z": 0 }
-        ]
+        "effect": [ { "mapgen_update": "moneylender_share_turret", "origin_npc": true } ]
       },
       {
         "text": "Nice.",
         "topic": "TALK_NONE",
         "condition": { "npc_has_var": "moneylender_job_turret", "type": "flag", "context": "meeting", "value": "1" },
-        "effect": [
-          { "mapgen_update": "moneylender_turret_1", "origin_npc": true, "z": 0 },
-          { "npc_add_var": "moneylender_premium", "type": "flag", "context": "meeting", "value": "yes" }
-        ]
+        "effect": [ { "npc_add_var": "moneylender_premium", "type": "flag", "context": "meeting", "value": "yes" } ]
       }
     ]
   },

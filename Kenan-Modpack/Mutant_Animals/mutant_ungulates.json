@@ -6,8 +6,7 @@
     "name": { "str": "mutant cow" },
     "categories": [ "NULL" ],
     "species": [ "MUTANT" ],
-    "remove:ammo": [ "milk" ],
-    "remove:flags": [ "CATTLEFODDER", "PET_WONT_FOLLOW", "MILKABLE" ]
+    "delete": { "ammo": [ "milk" ], "flags": [ "CATTLEFODDER", "PET_WONT_FOLLOW", "MILKABLE" ] }
   },
   {
     "abstract": "mon_cow_calf_mutant",
@@ -16,7 +15,7 @@
     "name": { "str": "mutant cow calf" },
     "categories": [ "NULL" ],
     "species": [ "MUTANT" ],
-    "remove:flags": [ "CATTLEFODDER" ]
+    "delete": { "flags": [ "CATTLEFODDER" ] }
   },
   {
     "id": "mon_cow_sick_twisthorn",
@@ -100,7 +99,7 @@
     "description": "A mutated cow that can photosynthesize sunlight through its moss-like fur.  This green beast is quite lethargic and is often mistaken for a bush or hedge.",
     "reproduction": { "baby_monster": "mon_cow_calf_mutant_moss", "baby_count": 1, "baby_timer": 20 },
     "default_faction": "triffid",
-    "death_drops": { "item": "withered", "count": [ 20, 30 ] },
+    "death_drops": "mutant_cowmoss_death_drops",
     "color": "green"
   },
   {
@@ -110,7 +109,7 @@
     "name": { "str": "auroch calf", "str_pl": "auroch calves" },
     "description": "A young mutated cow that can photosynthesize sunlight through its moss-like fur.  This green beast is quite lethargic and is often mistaken for a bush or hedge.",
     "default_faction": "plant",
-    "death_drops": { "item": "withered", "count": [ 10, 20 ] },
+    "death_drops": "mutant_cowmoss_death_drops",
     "upgrades": { "age_grow": 28, "into": "mon_cow_mutant_moss" },
     "color": "light_gray"
   },
@@ -149,7 +148,7 @@
     "copy-from": "mon_horse",
     "name": { "str": "mutant horse" },
     "categories": [ "NULL" ],
-    "remove:flags": [ "CATTLEFODDER" ],
+    "delete": { "flags": [ "CATTLEFODDER" ] },
     "species": [ "MUTANT" ]
   },
   {
@@ -181,7 +180,7 @@
     "copy-from": "mon_sheep",
     "name": { "str": "mutant sheep", "str_pl": "mutant sheep" },
     "categories": [ "NULL" ],
-    "remove:flags": [ "CATTLEFODDER" ],
+    "delete": { "flags": [ "CATTLEFODDER" ] },
     "species": [ "MUTANT" ]
   },
   {
@@ -213,9 +212,8 @@
     "description": "A mutated ungulate whose flesh and bones have become almost completely transparent.  This natural camoflauge makes it difficult to see at a distance or at night.",
     "harvest": "animal_noskin",
     "symbol": "G",
-    "armor_heat": 30,
-    "//": "laser resist",
-    "extend": { "flags": [ "NIGHT_INVISIBILITY", "NO_BREED" ] },
+    "//": "heat resist",
+    "extend": { "flags": [ "NIGHT_INVISIBILITY", "NO_BREED", "FIREPROOF" ] },
     "color": "white"
   },
   {

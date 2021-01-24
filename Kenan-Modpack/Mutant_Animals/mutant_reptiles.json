@@ -62,14 +62,19 @@
     "anger_triggers": [ "PLAYER_WEAK" ],
     "fear_triggers": [ "FIRE" ],
     "placate_triggers": [ "MEAT" ],
+    "attack_effs": [ { "id": "grabbed", "duration": 1000, "bp": "torso" } ],
     "special_attacks": [
+      { "type": "leap", "cooldown": 20, "max_range": 15 },
       {
-        "type": "leap",
-        "cooldown": 20,
-        "accuracy": 10,
-        "max_range": 15,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 10, "armor_multiplier": 0.5 }, { "damage_type": "bash", "amount": 20 } ],
-        "effects": [ { "id": "grabbed", "duration": 1000, "bp": "torso" } ]
+        "type": "monster_attack",
+        "attack_type": "melee",
+        "cooldown": 15,
+        "move_cost": 100,
+        "damage_max_instance": [ { "damage_type": "bash", "amount": 25, "armor_multiplier": 0.5 } ],
+        "hit_dmg_u": "The %1$s strangles you with it's body!",
+        "hit_dmg_npc": "The %1$s strangles <npcname> with it's body!",
+        "miss_msg_u": "The %s tries to strangle you, but you dodge!",
+        "miss_msg_npc": "The %s tries to strangle <npcname>, but they dodge!"
       }
     ]
   },

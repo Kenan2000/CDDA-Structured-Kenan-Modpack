@@ -89,8 +89,6 @@
     "category": "weapons",
     "looks_like": "grapnel",
     "flags": [ "STAB", "REACH_ATTACK", "NONCONDUCTIVE" ],
-    "ammo": [ "NULL" ],
-    "revert_to": "null",
     "price": 300
   },
   {
@@ -176,12 +174,10 @@
     "max_charges": 1,
     "charges_per_use": 1,
     "category": "weapons",
-    "use_action": "ARTIFACT",
-    "artifact_data": {
-      "charge_type": "ARTC_TIME",
-      "effects_activated": [ "AEA_RADIATION", "AEA_MAP" ],
-      "effects_wielded": [ "AEP_RADIOACTIVE", "AEP_SUPER_CLAIRVOYANCE" ],
-      "effects_carried": [ "AEP_CLAIRVOYANCE" ]
+    "use_action": { "type": "cast_spell", "spell_id": "vo_plut_sword", "no_fail": true, "level": 0, "need_wielding": true },
+    "relic_data": {
+      "passive_effects": [ { "mutations": [ "DEBUG_CLAIRVOYANCE" ] } ],
+      "charge_info": { "recharge_type": "periodic", "time": "12 h", "regenerate_ammo": true }
     }
   }
 ]

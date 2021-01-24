@@ -81,7 +81,8 @@
     "vision_night": 5,
     "hp": 10,
     "death_function": "SMOKEBURST",
-    "special_attacks": { "SMOKECLOUD": 3 },
+    "starting_ammo": { "bot_flashbang_hack": 10, "bot_gasbomb_hack": 10 },
+    "special_attacks": [ [ "GRENADIER_ELITE", 3 ] ],
     "description": "A manhack tinkered into a flying smoke generator. It makes a less effective weapon, but provides a good smoke screen. It's currently inactive and ready to be deployed.",
     "flags": [ "SEES", "GOODHEARING", "FLIES", "NOHEAD", "ELECTRONIC", "HIT_AND_RUN", "NO_BREATHE" ]
   },
@@ -138,7 +139,7 @@
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 30,
     "death_function": "BROKEN",
-    "special_attacks": { "TAZER": 40 },
+    "special_attacks": [ [ "TAZER", 12 ] ],
     "special_when_hit": [ "ZAPBACK", 100 ],
     "description": "A salvaged skitterbot with wheels kludged to the ends of its insectoid legs. It sparks dangerously as it moves across the ground and omits a faint smell of ozone.",
     "flags": [ "SEES", "HEARS", "GOODHEARING", "ATTACKMON", "ELECTRONIC", "NO_BREATHE", "HIT_AND_RUN" ]
@@ -168,7 +169,7 @@
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 80,
     "death_function": "BROKEN",
-    "special_attacks": { "SHOCKSTORM": 50 },
+    "special_attacks": [ [ "SHOCKSTORM", 17 ] ],
     "special_when_hit": [ "ZAPBACK", 10 ],
     "description": "A salvaged police bot mended with old circuit boards and car batteries. It's been covered with electrified barbed wire and given a makeshift shock gun. With its safety protocols wiped, the shockbot no longers respects police authority or cares much for the safety of its allies.",
     "flags": [ "SEES", "HEARS", "BASHES", "ELECTRONIC", "NO_BREATHE" ]
@@ -199,7 +200,15 @@
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 80,
     "death_function": "BROKEN",
-    "special_attacks": { "LASER": 1 },
+    "special_attacks": [
+      {
+        "type": "gun",
+        "cooldown": 1,
+        "gun_type": "v29_turret",
+        "fake_skills": [ [ "gun", 4 ], [ "pistol", 4 ] ],
+        "ranges": [ [ 0, 30, "DEFAULT" ] ]
+      }
+    ],
     "description": "A salvaged riot-control bot awkwardly welded together with an experimental laser turret. A layer of solar cells and blinking LED lights cover it's hull.",
     "flags": [ "SEES", "HEARS", "GOODHEARING", "ELECTRONIC", "NO_BREATHE" ]
   },
@@ -228,8 +237,27 @@
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 100,
     "death_function": "BROKEN",
-    "special_attacks": { "SMG": 4 },
-    "starting_ammo": { "9mm": 100 },
+    "starting_ammo": { "556": 100 },
+    "special_attacks": [
+      {
+        "type": "gun",
+        "cooldown": 4,
+        "move_cost": 150,
+        "gun_type": "m249",
+        "ammo_type": "556",
+        "fake_skills": [ [ "gun", 8 ], [ "rifle", 8 ] ],
+        "fake_dex": 12,
+        "ranges": [ [ 0, 36, "DEFAULT" ] ],
+        "require_targeting_npc": true,
+        "require_targeting_monster": true,
+        "laser_lock": false,
+        "targeting_cost": 200,
+        "targeting_timeout_extend": -10,
+        "targeting_sound": "\"Hostile detected.\"",
+        "targeting_volume": 50,
+        "no_ammo_sound": "a chk!"
+      }
+    ],
     "description": "A salvaged security bot repurposed into a lumbering engine of destruction. Extra layers of mismatched armor plates and a pair of chainsaws have been welded to the chasis.",
     "flags": [ "SEES", "HEARS", "BASHES", "ATTACKMON", "ELECTRONIC", "NO_BREATHE", "STUMBLES" ]
   },
@@ -258,8 +286,29 @@
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 90,
     "death_function": "BROKEN",
-    "special_attacks": { "RIFLE_TUR": 5, "SMOKECLOUD": 4, "SHRIEK": 20 },
-    "starting_ammo": { "556": 2000 },
+    "starting_ammo": { "762_51": 1000, "bot_flashbang_hack": 10, "bot_gasbomb_hack": 10 },
+    "special_attacks": [
+      {
+        "type": "gun",
+        "cooldown": 5,
+        "move_cost": 150,
+        "gun_type": "m240",
+        "ammo_type": "762_51",
+        "fake_skills": [ [ "gun", 8 ], [ "rifle", 8 ] ],
+        "fake_dex": 12,
+        "ranges": [ [ 0, 60, "DEFAULT" ] ],
+        "require_targeting_npc": true,
+        "require_targeting_monster": true,
+        "laser_lock": false,
+        "targeting_cost": 200,
+        "targeting_timeout_extend": -10,
+        "targeting_sound": "\"Hostile detected.\"",
+        "targeting_volume": 50,
+        "no_ammo_sound": "a chk!"
+      },
+      [ "GRENADIER_ELITE", 4 ],
+      [ "SHRIEK", 20 ]
+    ],
     "description": "A salvaged chickenbot, pieced back together into a shambling combat robot that's more terrifying than effective. The flamethrower has been converted into a smoke generator, and the grenade launcher removed to make room for extra belts of 5.56 ammo. For intimidation, rusty spikes and grisly junk adorn the murder machine's hull while loudspeakers play earsplitting shrieks.",
     "flags": [ "SEES", "HEARS", "GOODHEARING", "BASHES", "NO_BREATHE", "ELECTRONIC" ]
   },
@@ -288,7 +337,7 @@
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 240,
     "death_function": "BROKEN",
-    "special_attacks": { "SMASH": 8 },
+    "special_attacks": [ [ "SMASH", 8 ] ],
     "description": "A gutted tank bot refurbished with vehicle parts and questionable wiring. The cannon has been replaced with a rapid-fire pneumatic hammer.",
     "flags": [ "SEES", "HEARS", "GOODHEARING", "NOHEAD", "BASHES", "DESTROYS", "NO_BREATHE", "ELECTRONIC" ]
   },
@@ -315,7 +364,7 @@
     "vision_day": 10,
     "vision_night": 5,
     "hp": 100,
-    "special_attacks": { "ACID_BARF": 22 },
+    "special_attacks": [ [ "ACID_BARF", 22 ] ],
     "special_when_hit": [ "ACIDSPLASH", 100 ],
     "death_function": [ "BROKEN" ],
     "description": "A salvaged HAZMAT robot refitted with second-hand circuits and plumbing supplies. It cleans by spraying caustic fluids from an internal boiler. Although not meant for combat, it can burn enemies effectively.",

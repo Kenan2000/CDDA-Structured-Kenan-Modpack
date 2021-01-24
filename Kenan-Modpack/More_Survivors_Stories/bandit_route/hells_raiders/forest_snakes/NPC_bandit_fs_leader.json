@@ -82,18 +82,6 @@
         "failure": { "topic": "TALK_bandit_fs_leader_busy" }
       },
       {
-        "text": "Test missions.",
-        "topic": "TALK_DONE",
-        "condition": { "u_has_trait": "DEBUG_MIND_CONTROL" },
-        "effect": [
-          { "u_add_var": "fm_merchant", "type": "flag", "context": "death", "value": "yes" },
-          { "u_add_var": "fm_food", "type": "flag", "context": "death", "value": "yes" },
-          { "u_add_var": "fm_doctor", "type": "flag", "context": "death", "value": "yes" },
-          { "u_add_var": "og_rep", "type": "flag", "context": "death", "value": "yes" },
-          { "u_add_var": "evac_bandit_safe", "type": "flag", "context": "safe", "value": "yes" }
-        ]
-      },
-      {
         "text": "About that scavenger…",
         "topic": "TALK_bandit_fs_leader_scavenger",
         "condition": { "u_has_var": "ask_bandit", "type": "mission", "context": "scavenger", "value": "yes" }
@@ -190,7 +178,7 @@
     "dynamic_line": {
       "and": [
         "This is not true, but at the same time it is true.  And vice versa.  We are part of a larger organization, but at the same time, we are on our own.  I would describe it as a flimsy alliance of different gangs, which sometimes feel comfortable under one common flag.  Although often we just fight each other for influence and territory.  But what influence is there, influence on what?  A pile of rubbish and rot?  I don't understand this, honestly, <name_g>.  Sometimes it seems to me that all this is an illusion, and in fact, everything is arranged much more complicated.",
-        { "days_since_cataclysm": 120, "yes": "I think that during the shod everything will become clear ..." }
+        { "days_since_cataclysm": 120, "yes": "I think that during the shod everything will become clear…" }
       ]
     },
     "responses": [
@@ -318,7 +306,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_bandit_fs_leader_rc_rs_hh",
-    "dynamic_line": "Hmmm, I don't even know how you can help me.  But if you can find a way to solve this problem, I will be grateful to you.",
+    "dynamic_line": "Hmmm, I don't even know how you can help me.  But if you can find a way to solve this problem, I will be grateful.",
     "speaker_effect": {
       "effect": [
         { "u_add_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "1" },
@@ -344,22 +332,22 @@
       "context": "unmarked_mission_progress",
       "op": ">=",
       "value": 3,
-      "yes": "Dead, and the hell with him.  Thanks for dealing with it.  Take your reward.",
-      "no": "Dead, and the hell with him.  Thanks for dealing with it.  Take your reward."
+      "yes": "Dead, and the hell with him.  Thanks for dealing with him.  Go get your reward from our recruiter.",
+      "no": "Dead, and the hell with him."
     },
-    "speaker_effect": {
-      "condition": {
-        "u_compare_var": "fs_leader_mission_khh",
-        "type": "count",
-        "context": "unmarked_mission_progress",
-        "op": ">=",
-        "value": 3
+    "speaker_effect": [
+      {
+        "condition": {
+          "u_compare_var": "fs_leader_mission_khh",
+          "type": "count",
+          "context": "unmarked_mission_progress",
+          "op": ">=",
+          "value": 3
+        },
+        "effect": { "u_adjust_var": "bandit_recruiter_reward", "type": "count", "context": "reward", "adjustment": 1 }
       },
-      "effect": [
-        { "u_lose_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress" },
-        { "u_buy_item": "rock" }
-      ]
-    }
+      { "effect": { "u_lose_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress" } }
+    ]
   },
   {
     "id": "MISSION_bandit_fs_leader_1",
@@ -511,7 +499,7 @@
       ],
       "effect": [
         { "u_add_var": "refugee_center", "type": "time", "context": "captured", "time": true },
-        { "u_add_var": "bandit_recruiter_reward", "type": "flag", "context": "reward", "value": "yes" },
+        { "u_adjust_var": "bandit_recruiter_reward", "type": "count", "context": "reward", "adjustment": 1 },
         { "npc_add_var": "m3_complete", "type": "flag", "context": "mission", "value": "yes" },
         { "u_lose_var": "leader_lend_bandits", "type": "flag", "context": "bandits_fs" }
       ]

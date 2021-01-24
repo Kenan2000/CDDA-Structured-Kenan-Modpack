@@ -13,7 +13,7 @@
   },
   {
     "type": "mutation",
-    "id": "MAGIC",
+    "id": "THRESH_MAGIC",
     "name": { "str": "Magical Attunement" },
     "points": 1,
     "description": "Your attunement to magic has heightened itself, allowing for mroe effective spell use.",
@@ -141,7 +141,6 @@
     "prereqs": [ "MANA_REGEN2" ],
     "cancels": [ "BAD_MANA_REGEN1", "BAD_MANA_REGEN2", "BAD_MANA_REGEN3" ],
     "types": [ "MANA_REGEN" ],
-    "threshreq": [ "THRESH_PLANT" ],
     "category": [ "MAGIC" ],
     "flags": [ "NON_THRESH" ],
     "mana_regen_multiplier": 1.5
@@ -276,5 +275,25 @@
     "points": 20,
     "description": "Gives all of the debug spells at max level.",
     "spells_learned": [ [ "example_template", 10 ], [ "debug_stamina", 0 ], [ "debug_hp", 0 ], [ "debug_bionic", 0 ], [ "debug_effect", 0 ] ]
+  },
+  {
+    "type": "mutation",
+    "id": "MAG1",
+    "name": { "str": "Innate Spell: Mage Hand" },
+    "points": 2,
+    "description": "Your attunement to the Magi allows one to summon an ethereal hand.",
+    "category": [ "MAGIC" ],
+    "prereqs": [ "MAGUS" ],
+    "spells_learned": [ [ "mhand", 1 ] ]
+  },
+  {
+    "type": "mutation",
+    "id": "MAG2",
+    "name": { "str": "Innate Spell: Shockwave" },
+    "points": 2,
+    "description": "Your attunement to the Magi allows one to blast opponents to the ground.",
+    "category": [ "MAGIC" ],
+    "prereqs": [ "MAGUS" ],
+    "spells_learned": [ [ "cone_force", 1 ] ]
   }
 ]

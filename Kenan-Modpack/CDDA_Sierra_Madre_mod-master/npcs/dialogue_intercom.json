@@ -1,126 +1,179 @@
 [
-	{
-		"id": "TALK_INTER",
-		"type": "talk_topic",
-		"dynamic_line": "And so you've entered the Sierra Madre casino and can look at all the glory of the Old World, even at the brink of its end. Few people saw it before you... No one else will... Thought the same thing I told the Courier and yet somehow here you are... Anyways, let's get down to business, shall we? The heist still requires a lot of work.",
-		"responses": [
-		  { "text": "Who's this \"Courier\"?", "topic": "COURIER2", "effect": { "u_add_trait": "entered_casino" } },
-		  { "text": "Alright, what do I need to do to get inside the vault?", "topic": "QUEST", "effect": { "u_add_trait": "entered_casino" } },
-		  { "text": "So this is it... This is really it... Madre's mine mine mine MINE!", "topic": "GREED", "effect": { "u_add_trait": "entered_casino" } },
-		  { "text": "Alright, alright, enough of this circus. Stop hiding behind holograms and speakers, show yourself!", "topic": "CONFRONT", "effect": { "u_add_trait": "entered_casino" } },
-		  { "text": "Would I get to know who you are at last?", "condition": { "not": { "u_has_item": "martini_recipe" } }, "topic": "WHO2", "effect": { "u_add_trait": "entered_casino" } }
-		]
-	},
-	{
-		"id": "COURIER2",
-		"type": "talk_topic",
-		"dynamic_line": "The Courier... The Courier... I... We... We planned and executed this heist together. Along with three other survivors, but the other three... They lacked the skills, they weren't that useful, you know? But the Courier... The Courier could have gotten the Sierra Madre together with me, but the greed... Oh, the greed consumed the Courier's soul... I barely survived the betrayal... But enough of this! The Courier is gone, let's focus on the heist, we're so close!",
-		"responses": [
-		  { "text": "Don't lie to me. One of the three other \"useless\" survivors, Dean Domino himself, left his journal in the villa. The Courier saved his life, while it was you being the evil one here all along, Father Elijah!", "condition": { "u_has_item": "martini_recipe" } , "topic": "TRUTH" },
-		  { "text": "What happened to the other survivors?", "topic": "OTHER" },
-		  { "text": "Fair enough.", "topic": "INTERCOM_MAIN" }
-		]
-	},
-	{
-		"id": "OTHER",
-		"type": "talk_topic",
-		"dynamic_line": "Enough is enough, they were bad candidates... All driven by greed, hunger, thirst for power, jealously, vengeance... All survived, all left Sierra Madre, despite none of them being able to let go. Again, enough is enough, let's focus on your task, shall we?",
-		"responses": [
-		  { "text": "Alright, let's crack the Sierra Madre open!", "topic": "QUEST" },
-		  { "text": "Don't lie to me. One of the three other \"bad candidates\", Dean Domino himself, left his journal in the villa. The Courier saved his life, while it was you being the evil one here all along, Father Elijah! And after all this you dare to say that it's them who \"failed to let go?\"", "condition": { "u_has_item": "martini_recipe" } , "topic": "TRUTH" }
-		]
-	},
-	{
-		"id": "TRUTH",
-		"type": "talk_topic",
-		"dynamic_line": "Ahhh, I see... Dean Domino, actor, singer... Thief. Liar. Manipulator. Blackmailer. You don't know what happened in the Sierra Madre the night the portals opened, the dead rose and the bombs fell, do you? Then I suggest you take a look around, the evidence is still laying around here in this very Casino you find yourself in, go see for yourself who Dean Domino truly was. After all, he planned that heist himself as well. He wanted Sierra Madre to be his, his alone... But not even for its treasure itself. He wanted it solely because Sinclair was a happier man than him.",
-		"responses": [
-		  { "text": "Yeah, I noticed those parts in his journal too... Still don't believe you. Him being who he was doesn't suddenly make you a \"good guy\".", "topic": "INTERCOM_MAIN" }
-		]
-	},
-	{
-		"id": "GREED",
-		"type": "talk_topic",
-		"dynamic_line": "Be careful with such statements. You've seen the Sierra Madre villa. You know what happened to those who thought the way you do. Their skeletons and desperate wall inscriptions and notes still lay around the streets and buildings... Some killed because they didn't have what it takes to survive in the villa... Most killed each other out of greed though. You don't have to say anything. Just think about it.",
-		"responses": [
-		  { "text": "...", "topic": "INTERCOM_MAIN" }
-		]
-	},
-	{
-		"id": "CONFRONT",
-		"type": "talk_topic",
-		"dynamic_line": "Hahaha, you really think I'm that stupid? You'll meet me... When the time comes. Saw those people around the villa? Or rather what was left of them? Messages full of greed and hate, evidence of them killing each other... And their corpses. All of them, no exceptions. Some preserved their humanity, you might say, as they left stashes of supplies and useful tips on the walls for others, but they were the first ones to die every time the dark side of human nature took over their companions.",
-		"responses": [
-		  { "text": "You owe me an explanation. Remember this. I'm not stupid hence I don't trust you either.", "topic": "INTERCOM_MAIN" }
-		]
-	},
-	{
-		"id": "WHO2",
-		"type": "talk_topic",
-		"dynamic_line": "So you still don't know? Well, so let it be! We'll talk... If you successfully complete your mission, that is.",
-		"responses": [
-		  { "text": "Damn you...", "topic": "INTERCOM_MAIN" }
-		]
-	},
-	{
-		"id": "INTERCOM_MAIN",
-		"type": "talk_topic",
-		"dynamic_line": "Alright, anything else you feel like wasting time to ask? Or are you ready to proceed with the heist?",
-		"responses": [
-		  { "text": "Who's this \"Courier\"?", "topic": "COURIER2" },
-		  { "text": "Alright, what do I need to do to get inside the vault?", "topic": "QUEST" },
-		  { "text": "So this is it... This is really it... Madre's mine mine mine MINE!", "topic": "GREED" },
-		  { "text": "Alright, alright, enough of this circus. Stop hiding behind holograms and speakers, show yourself!", "topic": "CONFRONT" },
-		  { "text": "Would I get to know who you are at last?", "condition": { "not": { "u_has_item": "martini_recipe" } }, "topic": "WHO2" }
-		]
-	},
-	{
-		"id": "QUEST",
-		"type": "talk_topic",
-		"dynamic_line": "So here's what comes next: the vault is protected by a password... Of course it is, but the problem is, it must be spoken in Vera Keyes' voice, Sinclair's true love... There are three recordings of Vera's songs scaterred around the casino - one in the Tampico, one in the Cantina Madrid and finally one in her own suites on the top floor. Combining them together will yeld the sample of her speech capable of unlocking the door... I've marked the locations of those three recordings for you on your navigation device with cyan \"S\" signs.",
-		"responses": [
-		  { "text": "...", "topic": "QUEST2" }
-		]
-	},
-	{
-		"id": "QUEST2",
-		"type": "talk_topic",
-		"dynamic_line": "The catch is, as of now, all three locations are locked behind doors as strong as the entrance you've just opened and walked through. That's caused by the casino's lockdown state cutting out power from said doors. To open them you'll need to go to the power control room and manually restore the power, waking the casino up. Just walk across the lobby to the door leading to the casino area, cross the hall until you reach the storage room on the other side and then go through it to reach the power control room... I've marked it using blue \"S\".",
-		"responses": [
-		  { "text": "...", "topic": "QUEST3" }
-		]
-	},
-	{
-		"id": "QUEST3",
-		"type": "talk_topic",
-		"dynamic_line": "Once you're done, bring those three pieces of music here and speak through the intercom. And beware of the security holograms... The Sierra Madre casino is crawling with them, placed in key positions.",
-		"responses": [
-		  { "text": "Got it. Three songs of Vera Keyes.", "topic": "TALK_DONE", "effect": { "npc_first_topic": "MIDQUEST" } }
-		]
-	},
-	{
-		"id": "MIDQUEST",
-		"type": "talk_topic",
-		"dynamic_line": "Have you found the songs already?",
-		"responses": [
-		  { "text": "Yeah, found them, got them, all three of them.", "condition": { "and": [ { "u_has_item": "tomorrow_in" }, { "u_has_item": "go_faraway" }, { "u_has_item": "begin_again" } ] } , "topic": "QUEST_END" },
-		  { "text": "No, still struggling with it.", "condition": { "or": [ { "not": { "u_has_item": "tomorrow_in" } }, { "not": { "u_has_item": "go_faraway" } }, { "not": { "u_has_item": "begin_again" } } ] }, "topic": "HURRY" }
-		]
-	},
-	{
-		"id": "QUEST_END",
-		"type": "talk_topic",
-		"dynamic_line": "Good, you continue to amaze me... Now combine those recordings in the correct order I'm going to describe to you in a moment and use it to enter the vault... Not sure if you searched Vera's and Sinclair's apartment throroughtfully, but the entrance to the vault is in one of their rooms. Once you're down there... Then... Then you'll uncover everything and crack the Sierra Madre open... Don't let me down, survivor. You've come so far... Good luck, I won't respond on the intercom anymore.",
-		"responses": [
-		  { "text": "Alright, so here we go... The Heist of the Centuries...", "topic": "TALK_DONE", "effect": [ { "npc_first_topic": "HURRY3" }, { "u_sell_item" : "tomorrow_in" }, { "u_sell_item" : "go_faraway" }, { "u_sell_item" : "begin_again" }, { "npc_consume_item": "tomorrow_in" }, { "npc_consume_item": "go_faraway" }, { "npc_consume_item": "begin_again" }, { "u_buy_item": "vera_voice" } ] }
-		]
-	},
-	{
-		"id": "HURRY3",
-		"type": "talk_topic",
-		"dynamic_line": "[The intercom is eerily silent... Nobody responds to your calls.]",
-		"responses": [
-		  { "text": "...", "topic": "TALK_DONE" }
-		]
-	}
+  {
+    "id": "TALK_INTER",
+    "type": "talk_topic",
+    "dynamic_line": "And so you've entered the Sierra Madre casino and can look at all the glory of the Old World, even at the brink of its end. Few people saw it before you... No one else will... Thought the same thing I told the Courier and yet somehow here you are... Anyways, let's get down to business, shall we? The heist still requires a lot of work.",
+    "responses": [
+      { "text": "Who's this \"Courier\"?", "topic": "COURIER2", "effect": { "u_add_trait": "entered_casino" } },
+      {
+        "text": "Alright, what do I need to do to get inside the vault?",
+        "topic": "QUEST",
+        "effect": { "u_add_trait": "entered_casino" }
+      },
+      {
+        "text": "So this is it... This is really it... Madre's mine mine mine MINE!",
+        "topic": "GREED",
+        "effect": { "u_add_trait": "entered_casino" }
+      },
+      {
+        "text": "Alright, alright, enough of this circus. Stop hiding behind holograms and speakers, show yourself!",
+        "topic": "CONFRONT",
+        "effect": { "u_add_trait": "entered_casino" }
+      },
+      {
+        "text": "Would I get to know who you are at last?",
+        "condition": { "not": { "u_has_item": "martini_recipe" } },
+        "topic": "WHO2",
+        "effect": { "u_add_trait": "entered_casino" }
+      }
+    ]
+  },
+  {
+    "id": "COURIER2",
+    "type": "talk_topic",
+    "dynamic_line": "The Courier... The Courier... I... We... We planned and executed this heist together. Along with three other survivors, but the other three... They lacked the skills, they weren't that useful, you know? But the Courier... The Courier could have gotten the Sierra Madre together with me, but the greed... Oh, the greed consumed the Courier's soul... I barely survived the betrayal... But enough of this! The Courier is gone, let's focus on the heist, we're so close!",
+    "responses": [
+      {
+        "text": "Don't lie to me. One of the three other \"useless\" survivors, Dean Domino himself, left his journal in the villa. The Courier saved his life, while it was you being the evil one here all along, Father Elijah!",
+        "condition": { "u_has_item": "martini_recipe" },
+        "topic": "TRUTH"
+      },
+      { "text": "What happened to the other survivors?", "topic": "OTHER" },
+      { "text": "Fair enough.", "topic": "INTERCOM_MAIN" }
+    ]
+  },
+  {
+    "id": "OTHER",
+    "type": "talk_topic",
+    "dynamic_line": "Enough is enough, they were bad candidates... All driven by greed, hunger, thirst for power, jealously, vengeance... All survived, all left Sierra Madre, despite none of them being able to let go. Again, enough is enough, let's focus on your task, shall we?",
+    "responses": [
+      { "text": "Alright, let's crack the Sierra Madre open!", "topic": "QUEST" },
+      {
+        "text": "Don't lie to me. One of the three other \"bad candidates\", Dean Domino himself, left his journal in the villa. The Courier saved his life, while it was you being the evil one here all along, Father Elijah! And after all this you dare to say that it's them who \"failed to let go?\"",
+        "condition": { "u_has_item": "martini_recipe" },
+        "topic": "TRUTH"
+      }
+    ]
+  },
+  {
+    "id": "TRUTH",
+    "type": "talk_topic",
+    "dynamic_line": "Ahhh, I see... Dean Domino, actor, singer... Thief. Liar. Manipulator. Blackmailer. You don't know what happened in the Sierra Madre the night the portals opened, the dead rose and the bombs fell, do you? Then I suggest you take a look around, the evidence is still laying around here in this very Casino you find yourself in, go see for yourself who Dean Domino truly was. After all, he planned that heist himself as well. He wanted Sierra Madre to be his, his alone... But not even for its treasure itself. He wanted it solely because Sinclair was a happier man than him.",
+    "responses": [
+      {
+        "text": "Yeah, I noticed those parts in his journal too... Still don't believe you. Him being who he was doesn't suddenly make you a \"good guy\".",
+        "topic": "INTERCOM_MAIN"
+      }
+    ]
+  },
+  {
+    "id": "GREED",
+    "type": "talk_topic",
+    "dynamic_line": "Be careful with such statements. You've seen the Sierra Madre villa. You know what happened to those who thought the way you do. Their skeletons and desperate wall inscriptions and notes still lay around the streets and buildings... Some killed because they didn't have what it takes to survive in the villa... Most killed each other out of greed though. You don't have to say anything. Just think about it.",
+    "responses": [ { "text": "...", "topic": "INTERCOM_MAIN" } ]
+  },
+  {
+    "id": "CONFRONT",
+    "type": "talk_topic",
+    "dynamic_line": "Hahaha, you really think I'm that stupid? You'll meet me... When the time comes. Saw those people around the villa? Or rather what was left of them? Messages full of greed and hate, evidence of them killing each other... And their corpses. All of them, no exceptions. Some preserved their humanity, you might say, as they left stashes of supplies and useful tips on the walls for others, but they were the first ones to die every time the dark side of human nature took over their companions.",
+    "responses": [
+      {
+        "text": "You owe me an explanation. Remember this. I'm not stupid hence I don't trust you either.",
+        "topic": "INTERCOM_MAIN"
+      }
+    ]
+  },
+  {
+    "id": "WHO2",
+    "type": "talk_topic",
+    "dynamic_line": "So you still don't know? Well, so let it be! We'll talk... If you successfully complete your mission, that is.",
+    "responses": [ { "text": "Damn you...", "topic": "INTERCOM_MAIN" } ]
+  },
+  {
+    "id": "INTERCOM_MAIN",
+    "type": "talk_topic",
+    "dynamic_line": "Alright, anything else you feel like wasting time to ask? Or are you ready to proceed with the heist?",
+    "responses": [
+      { "text": "Who's this \"Courier\"?", "topic": "COURIER2" },
+      { "text": "Alright, what do I need to do to get inside the vault?", "topic": "QUEST" },
+      { "text": "So this is it... This is really it... Madre's mine mine mine MINE!", "topic": "GREED" },
+      {
+        "text": "Alright, alright, enough of this circus. Stop hiding behind holograms and speakers, show yourself!",
+        "topic": "CONFRONT"
+      },
+      {
+        "text": "Would I get to know who you are at last?",
+        "condition": { "not": { "u_has_item": "martini_recipe" } },
+        "topic": "WHO2"
+      }
+    ]
+  },
+  {
+    "id": "QUEST",
+    "type": "talk_topic",
+    "dynamic_line": "So here's what comes next: the vault is protected by a password... Of course it is, but the problem is, it must be spoken in Vera Keyes' voice, Sinclair's true love... There are three recordings of Vera's songs scaterred around the casino - one in the Tampico, one in the Cantina Madrid and finally one in her own suites on the top floor. Combining them together will yeld the sample of her speech capable of unlocking the door... I've marked the locations of those three recordings for you on your navigation device with cyan \"S\" signs.",
+    "responses": [ { "text": "...", "topic": "QUEST2" } ]
+  },
+  {
+    "id": "QUEST2",
+    "type": "talk_topic",
+    "dynamic_line": "The catch is, as of now, all three locations are locked behind doors as strong as the entrance you've just opened and walked through. That's caused by the casino's lockdown state cutting out power from said doors. To open them you'll need to go to the power control room and manually restore the power, waking the casino up. Just walk across the lobby to the door leading to the casino area, cross the hall until you reach the storage room on the other side and then go through it to reach the power control room... I've marked it using blue \"S\".",
+    "responses": [ { "text": "...", "topic": "QUEST3" } ]
+  },
+  {
+    "id": "QUEST3",
+    "type": "talk_topic",
+    "dynamic_line": "Once you're done, bring those three pieces of music here and speak through the intercom. And beware of the security holograms... The Sierra Madre casino is crawling with them, placed in key positions.",
+    "responses": [ { "text": "Got it. Three songs of Vera Keyes.", "topic": "TALK_DONE", "effect": { "npc_first_topic": "MIDQUEST" } } ]
+  },
+  {
+    "id": "MIDQUEST",
+    "type": "talk_topic",
+    "dynamic_line": "Have you found the songs already?",
+    "responses": [
+      {
+        "text": "Yeah, found them, got them, all three of them.",
+        "condition": { "and": [ { "u_has_item": "tomorrow_in" }, { "u_has_item": "go_faraway" }, { "u_has_item": "begin_again" } ] },
+        "topic": "QUEST_END"
+      },
+      {
+        "text": "No, still struggling with it.",
+        "condition": {
+          "or": [
+            { "not": { "u_has_item": "tomorrow_in" } },
+            { "not": { "u_has_item": "go_faraway" } },
+            { "not": { "u_has_item": "begin_again" } }
+          ]
+        },
+        "topic": "HURRY"
+      }
+    ]
+  },
+  {
+    "id": "QUEST_END",
+    "type": "talk_topic",
+    "dynamic_line": "Good, you continue to amaze me... Now combine those recordings in the correct order I'm going to describe to you in a moment and use it to enter the vault... Not sure if you searched Vera's and Sinclair's apartment throroughtfully, but the entrance to the vault is in one of their rooms. Once you're down there... Then... Then you'll uncover everything and crack the Sierra Madre open... Don't let me down, survivor. You've come so far... Good luck, I won't respond on the intercom anymore.",
+    "responses": [
+      {
+        "text": "Alright, so here we go... The Heist of the Centuries...",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "npc_first_topic": "HURRY3" },
+          { "u_sell_item": "tomorrow_in" },
+          { "u_sell_item": "go_faraway" },
+          { "u_sell_item": "begin_again" },
+          { "npc_consume_item": "tomorrow_in" },
+          { "npc_consume_item": "go_faraway" },
+          { "npc_consume_item": "begin_again" },
+          { "u_buy_item": "vera_voice" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "HURRY3",
+    "type": "talk_topic",
+    "dynamic_line": "[The intercom is eerily silent... Nobody responds to your calls.]",
+    "responses": [ { "text": "...", "topic": "TALK_DONE" } ]
+  }
 ]

@@ -2,7 +2,7 @@
   {
     "id": "blazingtest",
     "type": "SPELL",
-    "name": "ABLAZE!!!",
+    "name": { "str": "ABLAZE!!!" },
     "description": "SET THE WORLD ON FIRE!!",
     "message": "",
     "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE" ],
@@ -19,7 +19,7 @@
   {
     "id": "stairs_creation",
     "type": "SPELL",
-    "name": "Stairs appears",
+    "name": { "str": "Stairs appears" },
     "description": "Stairs appears, HAHA!!!",
     "message": "<color_light_green>H A H A\nStairs go<color_red>appears</color></color>",
     "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE" ],
@@ -34,7 +34,7 @@
   {
     "id": "buildinggoesboomhahafunny_boom",
     "type": "SPELL",
-    "name": "House go boom!",
+    "name": { "str": "House go boom!" },
     "description": "HAHA!!!",
     "message": "<color_light_green>H A H A\nBuilding go<color_red>ka-boooooom!</color></color>",
     "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE" ],
@@ -50,7 +50,7 @@
   {
     "id": "BL9_item_herb_stun",
     "type": "SPELL",
-    "name": "Herb Stun",
+    "name": { "str": "Herb Stun" },
     "description": "Herb stuns you",
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
@@ -63,7 +63,7 @@
   {
     "id": "BL9_pain_relieve",
     "type": "SPELL",
-    "name": "Pain Relief",
+    "name": { "str": "Pain Relief" },
     "description": "Herb relieves your pain!",
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
@@ -78,10 +78,10 @@
   {
     "id": "BL9_item_mild_curing_herb",
     "type": "SPELL",
-    "name": "Mild Curing Herb healing",
+    "name": { "str": "Mild Curing Herb healing" },
     "description": "Mild healing thanks to the Mild Curing Herb",
     "message": "You consume the herb and your wounds are slightly healed up!",
-    "valid_targets": [ "self" ],
+    "valid_targets": [ "self", "ally" ],
     "flags": [ "SILENT", "NO_PROJECTILE" ],
     "effect_str": "herb_cleanse",
     "min_damage": -20,
@@ -95,10 +95,10 @@
   {
     "id": "BL9_item_medium_curing_herb",
     "type": "SPELL",
-    "name": "Medium Curing Herb healing",
+    "name": { "str": "Medium Curing Herb healing" },
     "description": "Medium healing thanks to the Medium Curing Herb",
     "message": "You consume the herb and you feel well-healed to a certain extent!",
-    "valid_targets": [ "self" ],
+    "valid_targets": [ "self", "ally" ],
     "flags": [ "SILENT", "NO_PROJECTILE" ],
     "effect_str": "herb_cleanse",
     "min_damage": -35,
@@ -112,10 +112,10 @@
   {
     "id": "BL9_item_strong_curing_herb",
     "type": "SPELL",
-    "name": "Strong Curing Herb healing",
+    "name": { "str": "Strong Curing Herb healing" },
     "description": "Strong healing thanks to the Strong Curing Herb",
     "message": "You consume the herb and you feel very well healed!",
-    "valid_targets": [ "self" ],
+    "valid_targets": [ "self", "ally" ],
     "flags": [ "SILENT", "NO_PROJECTILE" ],
     "effect_str": "herb_cleanse",
     "min_damage": -45,
@@ -129,7 +129,7 @@
   {
     "id": "BL9_teleport_spell",
     "type": "SPELL",
-    "name": "Secret teleport",
+    "name": { "str": "Secret teleport" },
     "description": "Teleports the user to an attuned gate.",
     "message": "You teleport to the attuned gate!",
     "valid_targets": [ "self" ],
@@ -141,7 +141,7 @@
     "//": "Let's push the charger back from the player. This does work SOMETIMES, and this'll prevent the glitch to occur.",
     "id": "mon_charge_push",
     "type": "SPELL",
-    "name": "Stop",
+    "name": { "str": "Stop" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster stops by the target.'",
     "effect": "area_push",
     "shape": "blast",
@@ -153,7 +153,7 @@
   {
     "id": "boulder_throw",
     "type": "SPELL",
-    "name": "Boulder Throw",
+    "name": { "str": "Boulder Throw" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster strikes the weakpoint, applying stunned effect for 3 turns.'",
     "flags": [ "SILENT", "RANDOM_DAMAGE" ],
     "affected_body_parts": [ "head", "arm_l", "torso", "leg_r" ],
@@ -172,7 +172,7 @@
   {
     "id": "mon_giant_charge",
     "type": "SPELL",
-    "name": "Charge!",
+    "name": { "str": "Charge!" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster gains momentum, increasing movement speed, hit chance and impact damage as it takes effect.'",
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
@@ -190,7 +190,7 @@
   {
     "id": "mon_giant_charge_pull",
     "type": "SPELL",
-    "name": "Charge",
+    "name": { "str": "Charge" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster sprints toward the target. This is casted randomly between 15 to 25 times.'",
     "effect": "area_pull",
     "shape": "blast",
@@ -203,7 +203,7 @@
   {
     "type": "SPELL",
     "id": "mon_giant_charge_target_random",
-    "name": "a spell",
+    "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks it's line of sight onto the target, then casts one of the Spell(s).'",
     "extra_effects": [ { "id": "mon_giant_charge_pull" } ],
     "flags": [ "SILENT", "WONDER", "RANDOM_DAMAGE" ],
@@ -221,7 +221,7 @@
   {
     "type": "SPELL",
     "id": "mon_giant_random",
-    "name": "a spell",
+    "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks it's line of sight onto the target, then casts the Spell(s).'",
     "extra_effects": [ { "id": "mon_giant_charge_target_random" }, { "id": "boulder_throw" } ],
     "flags": [ "SILENT", "WONDER", "NO_PROJECTILE" ],
@@ -236,7 +236,7 @@
   {
     "id": "mon_clawer_charge",
     "type": "SPELL",
-    "name": "Charge!",
+    "name": { "str": "Charge!" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster gains momentum, increasing movement speed, hit chance and impact damage as it takes effect.'",
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
@@ -254,7 +254,7 @@
   {
     "id": "mon_clawer_charge_pull",
     "type": "SPELL",
-    "name": "Charge",
+    "name": { "str": "Charge" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster sprints toward the target. This is casted randomly between 20 to 30 times.'",
     "effect": "area_pull",
     "shape": "blast",
@@ -267,7 +267,7 @@
   {
     "type": "SPELL",
     "id": "mon_clawer_charge_target_random",
-    "name": "a spell",
+    "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks it's line of sight onto the target, then casts one of the Spell(s).'",
     "extra_effects": [ { "id": "mon_clawer_charge_pull" } ],
     "flags": [ "SILENT", "WONDER", "RANDOM_DAMAGE" ],
@@ -285,7 +285,7 @@
   {
     "id": "scrawler_acidbarf",
     "type": "SPELL",
-    "name": "Acid Barf",
+    "name": { "str": "Acid Barf" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster barfs at the target, dealing acid damage.'",
     "affected_body_parts": [ "head", "arm_l", "arm_r", "torso" ],
     "flags": [ "SILENT", "RANDOM_DAMAGE" ],
@@ -301,7 +301,7 @@
   {
     "id": "BL9_1_violentwrithe",
     "type": "SPELL",
-    "name": "Violent Writhe",
+    "name": { "str": "Violent Writhe" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'After an accurate slash, caster's bladed tendril becomes wilder in motion, randomly slicing through the air that deals cutting damage to all affected targets.'",
     "affected_body_parts": [ "head", "torso" ],
     "flags": [ "SILENT", "RANDOM_TARGET", "RANDOM_DAMAGE" ],
@@ -319,7 +319,7 @@
   {
     "id": "BL9_1_horizontalslash",
     "type": "SPELL",
-    "name": "Horizontal Slash",
+    "name": { "str": "Horizontal Slash" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster swipes it's bladed tendril to it's target in a cone, dealing cutting damage.'",
     "affected_body_parts": [ "head", "arm_l", "arm_r", "torso" ],
     "flags": [ "SILENT", "RANDOM_DAMAGE" ],
@@ -338,7 +338,7 @@
   {
     "id": "BL9_3_acidbarf",
     "type": "SPELL",
-    "name": "Acid Barf",
+    "name": { "str": "Acid Barf" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster barfs at the target, dealing acid damage.'",
     "affected_body_parts": [ "head", "arm_l", "arm_r", "torso" ],
     "flags": [ "SILENT", "RANDOM_DAMAGE" ],
@@ -354,7 +354,7 @@
   {
     "id": "twisted_one_tentwhip",
     "type": "SPELL",
-    "name": "Tentacle Whip",
+    "name": { "str": "Tentacle Whip" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster's tentacle slaps the target, dealing bash damage.'",
     "affected_body_parts": [ "head", "arm_l", "arm_r", "torso" ],
     "flags": [ "SILENT", "RANDOM_DAMAGE" ],
@@ -370,7 +370,7 @@
   {
     "id": "BL9_1evo_violentwrithe",
     "type": "SPELL",
-    "name": "Violent Writhe",
+    "name": { "str": "Violent Writhe" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'After an accurate slash, caster's bladed tendril becomes wilder in motion, randomly slicing through the air that deals cutting damage to all affected targets.'",
     "affected_body_parts": [ "head", "torso" ],
     "flags": [ "SILENT", "RANDOM_TARGET", "RANDOM_DAMAGE" ],
@@ -388,7 +388,7 @@
   {
     "id": "BL9_1evo_horizontalslash",
     "type": "SPELL",
-    "name": "Horizontal Slash",
+    "name": { "str": "Horizontal Slash" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster swipes it's bladed tendril to it's target in a cone, dealing cutting damage.'",
     "affected_body_parts": [ "head", "arm_l", "arm_r", "torso" ],
     "flags": [ "SILENT", "RANDOM_DAMAGE" ],
@@ -407,7 +407,7 @@
   {
     "id": "BL9_3evo_acidbarf",
     "type": "SPELL",
-    "name": "Acid Barf",
+    "name": { "str": "Acid Barf" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster barfs at the target, dealing acid damage.'",
     "affected_body_parts": [ "head", "arm_l", "arm_r", "torso" ],
     "flags": [ "SILENT", "RANDOM_DAMAGE" ],
@@ -423,7 +423,7 @@
   {
     "id": "scrawlerevo_acidbarf",
     "type": "SPELL",
-    "name": "Acid Barf",
+    "name": { "str": "Acid Barf" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster barfs at the target, dealing acid damage.'",
     "affected_body_parts": [ "head", "arm_l", "arm_r", "torso" ],
     "flags": [ "SILENT", "RANDOM_DAMAGE" ],
@@ -439,7 +439,7 @@
   {
     "id": "chimera_mutated_pincerpinch",
     "type": "SPELL",
-    "name": "Pincer Pinch",
+    "name": { "str": "Pincer Pinch" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster's tentacle strikes the target wth it's pincer end, dealing cut damage.'",
     "flags": [ "SILENT", "RANDOM_DAMAGE" ],
     "affected_body_parts": [ "head", "torso" ],
@@ -455,7 +455,7 @@
   {
     "id": "merc_leaping_slash",
     "type": "SPELL",
-    "name": "Leaping Slash",
+    "name": { "str": "Leaping Slash" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster leaps towards it's target and slashes them with it's arm-blade that deals high cutting damage then the caster leaps back to the same position where he initially was'",
     "flags": [ "SILENT", "RANDOM_DAMAGE" ],
     "affected_body_parts": [ "head", "arm_l", "arm_r", "torso" ],
@@ -471,7 +471,7 @@
   {
     "id": "vile_one_mandiblecrunch",
     "type": "SPELL",
-    "name": "Mandible Crunch",
+    "name": { "str": "Mandible Crunch" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster's head stretches towards it's target, biting them that deals high cutting damage'",
     "flags": [ "SILENT", "RANDOM_DAMAGE" ],
     "affected_body_parts": [ "head", "arm_l", "arm_r", "torso", "leg_l", "leg_r" ],
