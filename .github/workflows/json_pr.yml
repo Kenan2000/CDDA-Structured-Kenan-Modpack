@@ -1,7 +1,9 @@
 name: JSON PR style check
 
 on:
-  pull_request
+  pull_request:
+    paths:
+    - '**.json'
 
 jobs:
   style-json:
@@ -13,6 +15,8 @@ jobs:
       - uses: actions/checkout@v1
         with:
           fetch-depth: 10
+      - name: install astyle
+        run: sudo apt-get install -y astyle
       - name: JSON style check
         run: make style-json
       - name: Display Corrections
