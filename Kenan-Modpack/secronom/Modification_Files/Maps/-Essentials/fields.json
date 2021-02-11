@@ -263,36 +263,10 @@
     "dirty_transparency_cache": true,
     "percent_spread": 25,
     "immunity_data": { "body_part_env_resistance": [ [ "eyes", 10 ] ] },
+    "immune_mtypes": [ "mon_zombie_nix" ],
     "half_life": "2 seconds",
     "phase": "gas",
     "accelerated_decay": true,
-    "display_field": false
-  },
-  {
-    "//": "This field provides immunity to the gorepit's constant damage.",
-    "id": "fd_gorepit_center",
-    "type": "field_type",
-    "intensity_levels": [
-      {
-        "name": "gorepit orb",
-        "sym": "o",
-        "color": "pink",
-        "dangerous": true,
-        "effects": [
-          {
-            "effect_id": "secro_gorepit_dmg_immune",
-            "body_part": "torso",
-            "min_duration": "1 seconds",
-            "max_duration": "1 seconds"
-          }
-        ]
-      }
-    ],
-    "dirty_transparency_cache": true,
-    "priority": -1,
-    "half_life": "1 seconds",
-    "phase": "solid",
-    "display_items": false,
     "display_field": false
   },
   {
@@ -321,6 +295,7 @@
       }
     ],
     "immunity_data": { "body_part_env_resistance": [ [ "leg_l", 25 ], [ "leg_r", 25 ] ] },
+    "immune_mtypes": [ "mon_zombie_gorepit", "mon_zombie_gorepit_tent" ],
     "priority": 1,
     "half_life": "1 seconds",
     "phase": "solid",
@@ -492,7 +467,6 @@
     "display_field": false
   },
   {
-    "//": "This web doesn't break when a creature moves through it.",
     "id": "fd_mawy_web",
     "type": "field_type",
     "intensity_levels": [
@@ -500,43 +474,58 @@
         "name": "flesh strands",
         "sym": "}",
         "color": "pink",
-        "effects": [ { "effect_id": "secro_mawy_web", "body_part": "torso", "min_duration": "5 seconds", "max_duration": "10 seconds" } ]
+        "effects": [
+          {
+            "effect_id": "secro_mawy_web",
+            "body_part": "torso",
+            "min_duration": "5 seconds",
+            "immune_in_vehicle": true,
+            "is_environmental": false
+          }
+        ]
       },
       {
         "name": "flesh webs",
         "color": "light_red",
-        "effects": [ { "effect_id": "secro_mawy_web", "body_part": "torso", "min_duration": "10 seconds", "max_duration": "20 seconds" } ]
+        "effects": [
+          {
+            "effect_id": "secro_mawy_web",
+            "body_part": "torso",
+            "min_duration": "10 seconds",
+            "immune_in_vehicle": true,
+            "is_environmental": false
+          }
+        ]
       },
       {
         "name": "thick flesh webs",
         "transparent": false,
         "color": "red",
-        "effects": [ { "effect_id": "secro_mawy_web", "body_part": "torso", "min_duration": "20 seconds", "max_duration": "40 seconds" } ]
-      }
-    ],
-    "priority": 2,
-    "half_life": "3 seconds",
-    "phase": "solid",
-    "display_items": false,
-    "display_field": true
-  },
-  {
-    "id": "fd_mawy_web_immune",
-    "type": "field_type",
-    "intensity_levels": [
-      {
-        "name": "...",
-        "color": "black",
         "effects": [
-          { "effect_id": "secro_mawy_web_immune", "body_part": "torso", "min_duration": "1 seconds", "max_duration": "1 seconds" }
+          {
+            "effect_id": "secro_mawy_web",
+            "body_part": "torso",
+            "min_duration": "20 seconds",
+            "immune_in_vehicle": true,
+            "is_environmental": false
+          }
         ]
       }
     ],
-    "priority": -1,
-    "half_life": "1 seconds",
-    "phase": "gas",
+    "priority": 2,
+    "immune_mtypes": [ "mon_zombieworm_mawy" ],
+    "half_life": "30 seconds",
+    "bash": {
+      "str_min": 10,
+      "str_max": 20,
+      "sound_vol": 2,
+      "sound_fail_vol": 2,
+      "sound": "hsh!",
+      "msg_success": "You brush aside some fleshy webbings."
+    },
+    "phase": "solid",
     "display_items": false,
-    "display_field": false
+    "display_field": true
   },
   {
     "id": "fd_revenant_trigger_immune",
@@ -996,30 +985,24 @@
     "half_life": "1 seconds",
     "phase": "gas",
     "immunity_data": { "body_part_env_resistance": [ [ "head", 2 ] ] },
-    "display_items": true,
-    "display_field": false
-  },
-  {
-    "id": "fd_flesh_biome_immune",
-    "type": "field_type",
-    "intensity_levels": [
-      {
-        "name": "...",
-        "color": "black",
-        "effects": [
-          {
-            "effect_id": "secro_flesh_biome_immune",
-            "body_part": "torso",
-            "min_duration": "1 seconds",
-            "max_duration": "1 seconds"
-          }
-        ]
-      }
+    "immune_mtypes": [
+      "mon_sflesh_surface_spawner",
+      "mon_sflesh_tendril",
+      "mon_sflesh_jaw",
+      "mon_sflesh_entrance",
+      "mon_sflesh_sack",
+      "mon_sflesh_parasyte",
+      "mon_sflesh_vbeast",
+      "mon_sflesh_vrumbler",
+      "mon_sflesh_taken",
+      "mon_sflesh_taken_potent",
+      "mon_sflesh_flesh_wall",
+      "mon_sflesh_flesh_wall_city",
+      "mon_sflesh_flesh",
+      "mon_sflesh_flesh_city",
+      "mon_sflesh_flesh_weak"
     ],
-    "priority": -1,
-    "half_life": "1 seconds",
-    "phase": "gas",
-    "display_items": false,
+    "display_items": true,
     "display_field": false
   },
   {
