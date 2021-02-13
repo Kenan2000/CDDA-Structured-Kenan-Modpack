@@ -1,0 +1,162 @@
+[
+  {
+    "type": "effect_type",
+    "id": "guards_distracted"
+  },
+  {
+    "type": "npc",
+    "id": "NPC_bandit_gs_prisoner1",
+    "class": "NC_GS_SLAVE",
+    "attitude": 1,
+    "mission": 8,
+    "gender": "male",
+    "chat": "TALK_bandit_gs_prisoner1_1",
+    "faction": "hells_raiders_slaves"
+  },
+  {
+    "id": "TALK_bandit_gs_prisoner1_1",
+    "type": "talk_topic",
+    "dynamic_line": { "u_male": true, "yes": "Psst, hey, you, come 'ere, <name_g>.", "no": "AHH, NO MORE INSERTION PUNISHMENTS, PLEASE!" },
+    "responses": [
+      { "text": "Huh?  You talking to me?", "topic": "TALK_bandit_gs_prisoner1_2", "condition": "u_male", "switch": true },
+      { "text": "Weird.", "topic": "TALK_DONE", "effect": "end_conversation", "switch": true }
+    ]
+  },
+  {
+    "id": "TALK_bandit_gs_prisoner1_2",
+    "type": "talk_topic",
+    "dynamic_line": "Yes, you, come here.  I haven't see you before, <name_g>.  Did they caught you and bring here for work?",
+    "responses": [ { "text": "Nah, I'm not a looser.", "topic": "TALK_bandit_gs_prisoner1_3" } ]
+  },
+  {
+    "id": [ "TALK_bandit_gs_prisoner1_3" ],
+    "type": "talk_topic",
+    "responses": [ { "text": "Aren't you afraid that I might turn you over? ", "topic": "TALK_bandit_gs_prisoner1_3_tyo" } ]
+  },
+  {
+    "id": [ "TALK_bandit_gs_prisoner1_3", "TALK_bandit_gs_prisoner1_3_tyo" ],
+    "type": "talk_topic",
+    "dynamic_line": "Look, <name_g>, I'm planing to breaking out of this place.  Wanna help me with it?",
+    "responses": [ { "text": "Sounds interesting.  What do you need?", "topic": "TALK_bandit_gs_prisoner1_4" } ]
+  },
+  {
+    "id": "TALK_bandit_gs_prisoner1_4",
+    "type": "talk_topic",
+    "dynamic_line": "Finish your business with those chicks and talk to me.  Until then, let's pretend that we don't know each other.",
+    "responses": [ { "text": "Sure thing.", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_bandit_gs_prisoner1_m1" } } ]
+  },
+  {
+    "id": "TALK_bandit_gs_prisoner1_3_tyo",
+    "type": "talk_topic",
+    "dynamic_line": "Who would believe you?  These bitches are real lunatics, <name_g>, I tell ya.  They wouldn't believe someone like you and me.  Besides, where's your male solidarity, huh?  C'mon, give me a hand, please."
+  },
+  {
+    "id": [
+      "TALK_bandit_gs_prisoner1_1",
+      "TALK_bandit_gs_prisoner1_2",
+      "TALK_bandit_gs_prisoner1_3",
+      "TALK_bandit_gs_prisoner1_3_tyo"
+    ],
+    "type": "talk_topic",
+    "responses": [ { "text": "I'm not supposed to talk to slaves.", "topic": "TALK_DONE", "effect": "end_conversation" } ]
+  },
+  {
+    "id": "TALK_bandit_gs_prisoner1_m1",
+    "type": "talk_topic",
+    "dynamic_line": "*whistles.",
+    "responses": [
+      {
+        "text": "So, what's the plan?",
+        "topic": "TALK_bandit_gs_prisoner1_m1_1",
+        "condition": { "not": { "u_has_mission": "MISSION_bandit_sb_drugmaker_3" } }
+      },
+      { "text": "…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_bandit_gs_prisoner1_m1_1",
+    "type": "talk_topic",
+    "dynamic_line": "I'm glad you're in.  Here's the deal: first, we need to distract those chicks that guards this wing, then, we run.  Find a way to deal with them.",
+    "responses": [
+      {
+        "text": "I'll see what I can do.",
+        "topic": "TALK_DONE",
+        "effect": { "npc_first_topic": "TALK_bandit_gs_prisoner1_m1_wait" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_bandit_gs_prisoner1_m1_wait",
+    "type": "talk_topic",
+    "dynamic_line": "*whistles.",
+    "responses": [ { "text": "All done.  What's next?", "topic": "TALK_bandit_gs_prisoner1_m1_2" } ]
+  },
+  {
+    "id": "TALK_bandit_gs_prisoner1_m1_2",
+    "type": "talk_topic",
+    "dynamic_line": "Good, let's <swear> break out of here.\"  he grabbed a bunch of sheets sewed together, and covered the bars with them.  After that, he took a little metal pipe and opened a secret hole in floor with it.  \"That's our way to freedom, <name_g>.  Let's go.  You first.",
+    "responses": [
+      {
+        "text": "…",
+        "topic": "TALK_DONE",
+        "effect": [
+          "follow_only",
+          { "npc_first_topic": "TALK_bandit_gs_prisoner1_follow" },
+          { "npc_change_faction": "grim_sisters" },
+          { "u_faction_rep": -200 },
+          { "npc_change_faction": "hells_raiders_slaves" },
+          { "mapgen_update": "bandit_gs_prisoner1_escape1", "origin_npc": true },
+          { "mapgen_update": "bandit_gs_prisoner1_escape2", "om_terrain": "prison_1_gs_b_1" },
+          { "mapgen_update": "bandit_gs_prisoner1_escape3", "om_terrain": "prison_1_gs_1", "offset_z": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_bandit_gs_prisoner1_follow",
+    "type": "talk_topic",
+    "dynamic_line": "Freedom is near, I can feel it.",
+    "responses": [
+      {
+        "text": "Whew, we made it.",
+        "topic": "TALK_bandit_gs_prisoner1_follow_end",
+        "condition": { "npc_at_om_location": "prison_1_gs_1" },
+        "effect": [
+          "stop_following",
+          "leave",
+          "end_conversation",
+          { "npc_change_faction": "grim_sisters" },
+          { "u_faction_rep": 100 },
+          { "npc_change_faction": "hells_raiders_slaves" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_bandit_gs_prisoner1_follow_end",
+    "type": "talk_topic",
+    "dynamic_line": "Ah, sweet wind of freedom.  <name_g>, I don't even know how to thank you.  I'll find a way, you have my word.  Now, let's run!",
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "bandit_gs_prisoner1_escape1",
+    "method": "json",
+    "object": {
+      "set": [ { "line": "furniture", "id": "f_curtain", "x": 12, "y": 18, "x2": 12, "y2": 20 } ],
+      "place_terrain": [ { "ter": "t_hole", "x": 13, "y": 20 } ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "bandit_gs_prisoner1_escape2",
+    "method": "json",
+    "object": { "place_terrain": [ { "ter": "t_ladder_up", "x": 10, "y": 5 } ] }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "bandit_gs_prisoner1_escape3",
+    "method": "json",
+    "object": { "place_terrain": [ { "ter": "t_ladder_down", "x": 10, "y": 5 } ] }
+  }
+]

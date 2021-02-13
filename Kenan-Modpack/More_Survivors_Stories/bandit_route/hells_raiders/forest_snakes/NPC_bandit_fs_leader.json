@@ -15,6 +15,7 @@
     "type": "talk_topic",
     "id": "TALK_bandit_fs_leader_start",
     "dynamic_line": "<greet>  My man told me about you.  You want to become one of us?",
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_bandit_fs_leader_0" } },
     "responses": [
       {
         "text": "I'm working on it.",
@@ -58,7 +59,7 @@
       },
       {
         "text": "About that job…",
-        "condition": { "and": [ "has_assigned_mission", "mission_complete" ] },
+        "condition": { "and": [ "has_many_assigned_missions", "mission_complete" ] },
         "topic": "TALK_MISSION_INQUIRE"
       },
       {
@@ -75,7 +76,7 @@
         "trial": {
           "type": "CONDITION",
           "condition": {
-            "not": { "npc_compare_time_since_var": "need_time", "type": "time", "context": "mission", "op": "<", "time": "7 days" }
+            "not": { "npc_compare_time_since_var": "need_time", "type": "time", "context": "mission", "op": "<", "time": "5 days" }
           }
         },
         "success": { "effect": [ { "npc_lose_var": "need_time", "type": "time", "context": "mission" } ], "topic": "TALK_MISSION_LIST" },
@@ -126,7 +127,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_bandit_fs_leader_laugh",
-    "dynamic_line": "What a joker.  Do what you was tald to do or get the hell out.",
+    "dynamic_line": "What a joker.  Do what you was told to do or get the hell out.",
     "speaker_effect": { "effect": { "u_lose_var": "ask_bandit", "type": "mission", "context": "scavenger" } },
     "responses": [
       { "text": "Don't laugh at me, <name_b>!", "topic": "TALK_DONE", "effect": { "u_faction_rep": -100 } },
@@ -167,7 +168,7 @@
     "dynamic_line": "We are freedom fighters.  We are the Quebec Liberation Army and we believe that Quebec should be free and independent!  Although, why are all these slogans now… now only a shadow of our former greatness remains now.  After <the_cataclysm>, we lost all sense of continuing our movement.  Quebec gained independence, but at what cost?  At the cost of the death of all usurpers, but also of all people?  And almost nothing was left from the region… everything that did not burn, was bombed, and now there are only ruins.  Ruins full of <zombies>.  Now we are an ordinary gang of thugs who simply had nowhere else to go.  We are called Forest Snakes.  A fitting name for a bunch of daredevils who haven't left the woods for years.",
     "responses": [
       {
-        "text": "Whait a minute, I heard you were called Hell's Raiders.",
+        "text": "Wait a minute, I heard you were called Hell's Raiders.",
         "topic": "TALK_bandit_fs_leader_questions_faction_hr"
       }
     ]
@@ -235,7 +236,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_bandit_fs_leader_questions_base",
-    "dynamic_line": "This is our little fort, hehe.  We have been sitting in these forests for many years, and as you can see, we managed to settle down here a little.  A bit cramped, but enough for us.  We was lucky the local authorities were greedy enough for money to forget about our presence for a while.  After <the_cataclysm>, purely decorative structures suddenly became quite a decent defense against hordes of <zombies> and other <monster>."
+    "dynamic_line": "This is our little fort, he-he.  We have been sitting in these forests for many years, and as you can see, we managed to settle down here a little.  A bit cramped, but enough for us.  We was lucky the local authorities were greedy enough for money to forget about our presence for a while.  After <the_cataclysm>, purely decorative structures suddenly became quite a decent defense against hordes of <zombies> and other <monster>."
   },
   {
     "type": "talk_topic",
@@ -306,7 +307,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_bandit_fs_leader_rc_rs_hh",
-    "dynamic_line": "Hmmm, I don't even know how you can help me.  But if you can find a way to solve this problem, I will be grateful.",
+    "dynamic_line": "Hmm, I don't even know how you can help me.  But if you can find a way to solve this problem, I would be grateful.",
     "speaker_effect": {
       "effect": [
         { "u_add_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "1" },
@@ -317,13 +318,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_bandit_fs_leader_rc_khh",
-    "dynamic_line": "Hmm, that's how it is.  I think I have an idea.  Now I need to contact Mister T to see what we can agree on.  When you have time, talk to him about it, say I sent you.  Now go.",
+    "dynamic_line": "Hmm, that's how it is.  I think I have an idea.  Now I need to contact Mister T to see what we can agree on.  When you have time, talk to him about it, say that I sent you.  Now go.",
     "speaker_effect": {
       "effect": { "u_add_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "3" }
     }
   },
   {
-    "//": "TODO make reward, edit text",
     "type": "talk_topic",
     "id": "TALK_bandit_fs_leader_rc_hh_dead",
     "dynamic_line": {
@@ -345,8 +345,7 @@
           "value": 3
         },
         "effect": { "u_adjust_var": "bandit_recruiter_reward", "type": "count", "context": "reward", "adjustment": 1 }
-      },
-      { "effect": { "u_lose_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress" } }
+      }
     ]
   },
   {
@@ -434,67 +433,39 @@
         { "om_terrain": "bandit_camp_1", "place_npcs": [ { "class": "NPC_bandit_negotiator", "x": 15, "y": 20 } ] },
         {
           "om_terrain": "evac_center_7",
-          "faction_owner": [ { "id": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_zones": [ { "type": "NPC_INVESTIGATE_ONLY", "faction": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_npcs": [ { "class": "bandit_rs", "x": 19, "y": 21 } ]
+          "place_nested": [ { "chunks": [ "nest_evac_center_red_suns_7" ], "x": 0, "y": 0 } ]
         },
         {
           "om_terrain": "evac_center_8",
-          "faction_owner": [ { "id": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_zones": [ { "type": "NPC_INVESTIGATE_ONLY", "faction": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_npcs": [ { "class": "NPC_bandit_rs_broker", "x": 2, "y": 20 } ]
+          "place_nested": [ { "chunks": [ "nest_evac_center_red_suns_8" ], "x": 0, "y": 0 } ]
         },
         {
           "om_terrain": "evac_center_9",
-          "faction_owner": [ { "id": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_zones": [ { "type": "NPC_INVESTIGATE_ONLY", "faction": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_npcs": [ { "class": "bandit_rs", "x": 6, "y": 20 }, { "class": "bandit_rs", "x": 15, "y": 15 } ]
+          "place_nested": [ { "chunks": [ "nest_evac_center_red_suns_9" ], "x": 0, "y": 0 } ]
         },
         {
           "om_terrain": "evac_center_12",
-          "faction_owner": [ { "id": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_zones": [ { "type": "NPC_INVESTIGATE_ONLY", "faction": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_npcs": [ { "class": "bandit_rs", "x": 18, "y": 18 } ]
+          "place_nested": [ { "chunks": [ "nest_evac_center_red_suns_12" ], "x": 0, "y": 0 } ]
         },
         {
           "om_terrain": "evac_center_13",
-          "faction_owner": [ { "id": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_zones": [ { "type": "NPC_INVESTIGATE_ONLY", "faction": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_npcs": [ { "class": "bandit_rs", "x": 9, "y": 21 }, { "class": "bandit_rs", "x": 14, "y": 21 } ]
+          "place_nested": [ { "chunks": [ "nest_evac_center_red_suns_13" ], "x": 0, "y": 0 } ]
         },
         {
           "om_terrain": "evac_center_14",
-          "faction_owner": [ { "id": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_zones": [ { "type": "NPC_INVESTIGATE_ONLY", "faction": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ]
+          "place_nested": [ { "chunks": [ "nest_evac_center_red_suns_14" ], "x": 0, "y": 0 } ]
         },
         {
           "om_terrain": "evac_center_17",
-          "faction_owner": [ { "id": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_zones": [ { "type": "NPC_INVESTIGATE_ONLY", "faction": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_npcs": [
-            { "class": "bandit_rs", "x": 15, "y": 4 },
-            { "class": "bandit_rs", "x": 15, "y": 7 },
-            { "class": "bandit_rs", "x": 22, "y": 3 },
-            { "class": "NPC_hh_girl", "x": 10, "y": 6 },
-            { "class": "NPC_hh_girl", "x": 12, "y": 6 },
-            { "class": "NPC_hell_hound", "x": 11, "y": 7 }
-          ]
+          "place_nested": [ { "chunks": [ "nest_evac_center_red_suns_17" ], "x": 0, "y": 0 } ]
         },
         {
           "om_terrain": "evac_center_18",
-          "faction_owner": [ { "id": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_zones": [ { "type": "NPC_INVESTIGATE_ONLY", "faction": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_npcs": [ { "class": "NPC_bandit_rs_merchant", "x": 23, "y": 0 } ]
+          "place_nested": [ { "chunks": [ "nest_evac_center_red_suns_18" ], "x": 0, "y": 0 } ]
         },
         {
           "om_terrain": "evac_center_19",
-          "faction_owner": [ { "id": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_zones": [ { "type": "NPC_INVESTIGATE_ONLY", "faction": "red_suns", "x": [ 0, 23 ], "y": [ 0, 23 ] } ],
-          "place_npcs": [
-            { "class": "bandit_rs", "x": 1, "y": 3 },
-            { "class": "bandit_rs", "x": 17, "y": 3 },
-            { "class": "bandit_rs", "x": 16, "y": 19 }
-          ]
+          "place_nested": [ { "chunks": [ "nest_evac_center_red_suns_19" ], "x": 0, "y": 0 } ]
         }
       ],
       "effect": [
@@ -510,7 +481,7 @@
     "dialogue": {
       "describe": "-",
       "offer": "It's time to act.  We have been looking closely at this center for quite some time.  It is quite spacious, there are many different supplies, and most importantly, it is full of helpless survivors.  In short, we need to capture this center.  Are you in business?",
-      "accepted": "Raid Refugee Center and kill Merchant, Broker, Doctor and OG Rep.  If you need help, take my men with you, they can help you.  You're free to go.",
+      "accepted": "Raid Refugee Center and kill everyone inside.  If you need help, take my men with you, they can help you.  You're free to go.",
       "rejected": "Then don't waste my time, <name_b>.",
       "advice": "Remember to do some scouting before you start.  If you can, from the inside.  Find out the route of their patrols, the sentry posts, all that.",
       "inquire": "How is it going?",

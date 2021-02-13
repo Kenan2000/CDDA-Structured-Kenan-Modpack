@@ -9,7 +9,8 @@
     "name_unique": "Hell Hound",
     "name_suffix": "Beast",
     "chat": "TALK_hell_hound_start",
-    "faction": "red_suns"
+    "faction": "red_suns",
+    "mission_offered": "MISSION_hell_hound_1"
   },
   {
     "type": "npc_class",
@@ -17,9 +18,9 @@
     "name": { "str": "Hell Hound" },
     "job_description": "Hell Hound.",
     "common": false,
-    "bonus_str": { "rng": [ -1, 4 ] },
-    "bonus_dex": { "rng": [ -2, 6 ] },
-    "bonus_int": { "rng": [ -2, 4 ] },
+    "bonus_str": { "rng": [ 1, 4 ] },
+    "bonus_dex": { "rng": [ 2, 6 ] },
+    "bonus_int": { "rng": [ 2, 4 ] },
     "bonus_per": { "rng": [ -2, 2 ] },
     "worn_override": "EMPTY_GROUP",
     "carry_override": "EMPTY_GROUP",
@@ -51,6 +52,22 @@
     ]
   },
   {
+    "id": [ "TALK_hell_hound_start" ],
+    "type": "talk_topic",
+    "dynamic_line": "*looks like a huge animal-like creature: thick fur all over its body, steel claws on its hands, more like the paws of an animal, sharp fangs in its huge, animal mouth.  Seeing you, he sniffed, wiggling his whiskers in time with the movement of his black nose.  \"I smell blood on your hands.  Who are you, wanderer?\"",
+    "speaker_effect": { "effect": [ { "npc_first_topic": "TALK_hell_hound" }, { "add_mission": "MISSION_hell_hound_0" } ] },
+    "responses": [ { "text": "*shiver a little*", "topic": "TALK_hell_hound_start1" } ]
+  },
+  {
+    "id": [ "TALK_hell_hound_start1" ],
+    "type": "talk_topic",
+    "dynamic_line": "I can smell the blood on you.  Blood that flowed between these walls.  Tell me, are you the reaper who sprinkled this place with the lives of the innocent?",
+    "responses": [
+      { "text": "Yeah, it's my work.  So what?", "topic": "TALK_hell_hound_start1_mw" },
+      { "text": "No, you confused me with someone else.", "topic": "TALK_hell_hound_start1_nm" }
+    ]
+  },
+  {
     "id": [
       "TALK_hell_hound_start1_mw_rm_money",
       "TALK_hell_hound_start1_mw_rm_chick",
@@ -62,28 +79,6 @@
     ],
     "type": "talk_topic",
     "responses": [ { "text": "Gotta go, sorry…", "topic": "TALK_DONE" } ]
-  },
-  {
-    "id": [ "TALK_hell_hound_start" ],
-    "type": "talk_topic",
-    "dynamic_line": "*looks like a huge animal-like creature: thick fur all over its body, steel claws on its hands, more like the paws of an animal, sharp fangs in its huge, animal mouth.  Seeing you, he sniffed, wiggling his whiskers in time with the movement of his black nose.  \"I smell the blood on your hands.  Who are you, wanderer?\"",
-    "speaker_effect": {
-      "effect": [
-        { "npc_first_topic": "TALK_hell_hound" },
-        { "add_mission": "MISSION_hell_hound_0" },
-        { "u_add_var": "met_hell_hound", "type": "flag", "context": "meeting", "value": "yes" }
-      ]
-    },
-    "responses": [ { "text": "*shiver a little*", "topic": "TALK_hell_hound_start1" } ]
-  },
-  {
-    "id": [ "TALK_hell_hound_start1" ],
-    "type": "talk_topic",
-    "dynamic_line": "I can smell the blood on you.  Blood that flowed between these walls.  Tell me, are you the reaper who sprinkled this place with the lives of the innocent?",
-    "responses": [
-      { "text": "Yeah, it's my work.  So what?", "topic": "TALK_hell_hound_start1_mw" },
-      { "text": "No, you confused me with someone else.", "topic": "TALK_hell_hound_start1_nm" }
-    ]
   },
   {
     "id": [ "TALK_hell_hound_start1_nm" ],
@@ -173,33 +168,141 @@
   {
     "//": "remake threat reply, add option to kill snek leader",
     "type": "talk_topic",
-    "id": [ "TALK_hell_hound", "TALK_hell_hound_questions" ],
+    "id": [ "TALK_hell_hound", "TALK_hell_hound_questions", "TALK_hell_hound_busy" ],
     "dynamic_line": "What do YOU want?",
     "responses": [
       {
-        "text": "About that job…",
-        "condition": { "and": [ "has_many_assigned_missions", "mission_complete" ] },
-        "topic": "TALK_MISSION_INQUIRE"
+        "text": "About your task…",
+        "condition": { "npc_has_var": "wait_kill", "type": "flag", "context": "unmarked_mission", "value": "yes" },
+        "topic": "TALK_hell_hound_kill_ask"
       },
-      { "text": "I would like to ask you about something…", "topic": "TALK_hell_hound_questions" },
-      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
       {
         "text": "You will die tonight, <name_b>.",
-        "condition": { "u_has_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "4" },
-        "effect": [
-          { "u_add_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "5" },
-          { "npc_change_faction": "no_faction" },
-          "insult_combat"
-        ],
+        "condition": {
+          "and": [
+            { "u_has_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "4" },
+            { "not": { "npc_has_var": "wait_kill", "type": "flag", "context": "unmarked_mission", "value": "yes" } }
+          ]
+        },
+        "topic": "TALK_hell_hound_kill"
+      },
+      {
+        "text": "I'm sorry, I couldn't get him back alive…",
+        "topic": "TALK_MISSION_FAILURE",
+        "condition": { "and": [ { "u_has_mission": "MISSION_hell_hound_1" }, "mission_complete" ] },
+        "effect": "mission_failure",
+        "switch": true
+      },
+      {
+        "text": "About that job…",
+        "condition": { "and": [ "has_many_assigned_missions", "mission_complete" ] },
+        "topic": "TALK_MISSION_INQUIRE",
+        "switch": true
+      },
+      { "text": "I would like to ask you about something…", "topic": "TALK_hell_hound_questions" },
+      {
+        "text": "Do you need any help?",
+        "trial": {
+          "type": "CONDITION",
+          "condition": { "u_has_var": "rc_basement", "type": "flag", "context": "basement_cleaned", "value": "yes" }
+        },
+        "success": { "topic": "TALK_MISSION_LIST" },
+        "failure": { "topic": "TALK_hell_hound_busy" }
+      },
+      {
+        "text": "Here's your syringe.",
+        "condition": { "u_has_item": "bandit_item_3" },
+        "effect": [ { "u_consume_item": "bandit_item_3" }, "npc_die" ],
         "topic": "TALK_DONE"
       },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
   {
+    "id": [ "TALK_hell_hound_kill_ask" ],
+    "type": "talk_topic",
+    "dynamic_line": "I'm waiting, wanderer.",
+    "responses": [
+      {
+        "text": "He's dead.",
+        "condition": { "npc_has_var": "bandit_fs_leader", "type": "switch", "context": "alive_dead", "value": "dead" },
+        "topic": "TALK_hell_hound_kill_done"
+      },
+      { "text": "…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": [ "TALK_hell_hound_kill" ],
+    "type": "talk_topic",
+    "dynamic_line": "You, wanderer?  Is that you who was chosen to be the hunter that should strike me down?  And I was getting used to you, wanderer.\"  he released his claws, walked towards you and suddenly stopped.  \"You know, I’m ready to give you another chance.  I’m ready to forget about your insolence and give you a chance to regain my trust.  For this, I’ll ask you for a small favor.  As you yourself have already learned, I have plenty of enemies, both external and internal.  It will not be difficult to deal with the internal ones, I will take it upon myself.  But I will entrust the external enemy to you.  Spill his blood, sprinkle the blood of this coward in the forest in which he is hiding, and I will think about returning you to my family.",
+    "responses": [
+      {
+        "text": "I'll think about it.",
+        "effect": [ { "npc_add_var": "wait_kill", "type": "flag", "context": "unmarked_mission", "value": "yes" } ],
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "id": [ "TALK_hell_hound_kill", "TALK_hell_hound_kill_ask" ],
+    "type": "talk_topic",
+    "responses": [ { "text": "I don't care about your lies.  You will die tonight, <name_b>.", "topic": "TALK_hell_hound_kill_fight" } ]
+  },
+  {
+    "id": [ "TALK_hell_hound_kill_fight" ],
+    "type": "talk_topic",
+    "dynamic_line": "So be it, wanderer.",
+    "speaker_effect": {
+      "effect": [
+        { "u_add_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "5" },
+        { "npc_change_faction": "no_faction" },
+        "insult_combat"
+      ]
+    },
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": [ "TALK_hell_hound_kill_done" ],
+    "type": "talk_topic",
+    "dynamic_line": "I always knew you wouldn't let me down, wanderer.  Too bad you betrayed me, and I don't have another choice.  Too bad I have to lose such valuable, person.",
+    "speaker_effect": { "effect": "insult_combat" },
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
     "id": [ "TALK_hell_hound_questions" ],
     "type": "talk_topic",
     "dynamic_line": "I don't have time for talking, wanderer."
+  },
+  {
+    "id": [ "TALK_hell_hound_busy" ],
+    "type": "talk_topic",
+    "dynamic_line": "I don't have anything for you right now, wanderer."
+  },
+  {
+    "id": "MISSION_hell_hound_1",
+    "type": "mission_definition",
+    "name": { "str": "Retrieve scientist" },
+    "goal": "MGOAL_ASSASSINATE",
+    "has_generic_rewards": false,
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "assign_mission_target": { "om_terrain": "lmoe_under_empty", "cant_see": true },
+      "update_mapgen": { "place_npcs": [ { "class": "NPC_bandit_rs_scientist", "x": 12, "y": 12, "target": true } ] }
+    },
+    "fail": { "effect": "insult_combat" },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "You never cease to amaze me, wanderer.  I have a job for you.  We need to deliver one, let's say, person here.  I will show you where they're hiding.  By completing my assignment, you will earn my respect, wanderer.",
+      "accepted": "Go and bring me this, person.  We'll arrange place for they to work in the back room.",
+      "rejected": "Don't angry me, stranger.",
+      "advice": "Take care of this, person as your child.  You will lose your life if you don't.",
+      "inquire": "My patience is not unlimited.",
+      "success": "Ha-ha-ha, you did well, wanderer.  I'll reward you well, in time.  For now, you can help that, person in starting projects for us.",
+      "success_lie": "-",
+      "failure": "*got all tense.  A red light flashed in his eyes, the fur stood, the paws extended their claws, and white, thick foam went from his mouth.  \"I'm <very> disappointed in you, wanderer.\""
+    }
   },
   {
     "id": "MISSION_hell_hound_0",

@@ -1,0 +1,97 @@
+[
+  {
+    "type": "npc",
+    "id": "NPC_bandit_gs_leader",
+    "class": "NC_NONE",
+    "attitude": 1,
+    "mission": 8,
+    "gender": "female",
+    "chat": "TALK_bandit_gs_leader_start",
+    "faction": "grim_sisters"
+  },
+  {
+    "id": [ "TALK_bandit_gs_leader_start" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_var": "open_gs_base",
+      "type": "flag",
+      "context": "give_access",
+      "value": "yes",
+      "yes": { "u_male": true, "yes": "What do you want, swine?", "no": "What do you want, sis?" },
+      "no": {
+        "u_male": true,
+        "yes": "How did you get here?  Sisters, let's punch this little swine until he start squeaking.",
+        "no": "Can't you see I'm busy, sis?"
+      }
+    },
+    "speaker_effect": {
+      "condition": {
+        "and": [ { "not": { "u_has_var": "open_gs_base", "type": "flag", "context": "give_access", "value": "yes" } }, "u_male" ]
+      },
+      "effect": { "u_faction_rep": -100 }
+    },
+    "responses": [
+      {
+        "text": "[RECEIPT] I came here for your goods.",
+        "condition": {
+          "and": [
+            { "u_has_var": "open_gs_base", "type": "flag", "context": "give_access", "value": "yes" },
+            { "u_has_item": "bandit_item_4" }
+          ]
+        },
+        "topic": "TALK_bandit_gs_leader_start1",
+        "effect": { "u_consume_item": "bandit_item_4" }
+      }
+    ]
+  },
+  {
+    "id": [ "TALK_bandit_gs_leader_start1" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_male": true,
+      "yes": "You're lucky that you have that piece of paper.  You would be chained in a second without it.  You can take no more than four of our slaves.  And look closely when you do.  One bad move and you'll be locked like them.",
+      "no": "Yes, yes sis, we were waiting for you.  We can give no more than four of our slaves to you.  I'll open cages for you, so you can choose whoever you like."
+    },
+    "speaker_effect": {
+      "effect": [
+        { "mapgen_update": "mapgen_bandit_gs_slave_spawn", "om_terrain": "prison_1_gs_4" },
+        { "mapgen_update": "mapgen_bandit_gs_leader_cages1", "om_terrain": "prison_1_gs_6" },
+        { "mapgen_update": "mapgen_bandit_gs_leader_cages2", "om_terrain": "prison_1_gs_4" },
+        { "u_add_var": "gs_take_slaves", "type": "count", "context": "take_slaves", "value": "4" }
+      ]
+    },
+    "responses": [
+      { "text": "Thanks.", "topic": "TALK_DONE", "condition": "u_male", "effect": "end_conversation", "switch": true },
+      {
+        "text": "Thanks.",
+        "topic": "TALK_DONE",
+        "effect": { "npc_first_topic": "TALK_bandit_gs_leader" },
+        "switch": true
+      }
+    ]
+  },
+  {
+    "id": [ "TALK_bandit_gs_leader" ],
+    "type": "talk_topic",
+    "dynamic_line": "Hi.",
+    "responses": [ { "text": "Hello.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "mapgen_bandit_gs_slave_spawn",
+    "method": "json",
+    "object": { "place_nested": [ { "chunks": [ "NPC_bandit_gs_slave_spawn" ], "x": 0, "y": 0 } ] }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "mapgen_bandit_gs_leader_cages1",
+    "method": "json",
+    "object": { "set": [ { "line": "terrain", "id": "t_door_bar_c", "x": 13, "y": 17, "x2": 14, "y2": 17 } ] }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "mapgen_bandit_gs_leader_cages2",
+    "method": "json",
+    "object": { "set": [ { "line": "terrain", "id": "t_door_bar_c", "x": 9, "y": 17, "x2": 10, "y2": 17 } ] }
+  }
+]

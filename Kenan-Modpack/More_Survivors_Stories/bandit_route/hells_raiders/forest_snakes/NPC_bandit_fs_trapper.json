@@ -50,7 +50,7 @@
         "text": "Do you need any help?",
         "trial": {
           "type": "CONDITION",
-          "condition": { "not": { "npc_compare_time_since_var": "hunting", "type": "time", "context": "wait", "op": "<", "time": "5 days" } }
+          "condition": { "not": { "npc_compare_time_since_var": "hunting", "type": "time", "context": "wait", "op": "<", "time": "7 days" } }
         },
         "success": { "effect": [ { "npc_lose_var": "hunting", "type": "time", "context": "wait" } ], "topic": "TALK_MISSION_LIST" },
         "failure": { "topic": "TALK_bandit_fs_trapper_busy" }
@@ -75,10 +75,10 @@
     "id": "TALK_bandit_fs_trapper_reward",
     "dynamic_line": "What do you want to get?",
     "responses": [
-      { "text": "Arrows.", "effect": { "u_buy_item": "arrow_cf", "count": 10 }, "topic": "TALK_bandit_fs_trapper_got_reward" },
+      { "text": "Arrows.", "effect": { "u_buy_item": "arrow_cf", "count": 8 }, "topic": "TALK_bandit_fs_trapper_got_reward" },
       {
         "text": "Bolts.",
-        "effect": { "u_buy_item": "bolt_cf", "count": 10 },
+        "effect": { "u_buy_item": "bolt_cf", "count": 8 },
         "topic": "TALK_bandit_fs_trapper_got_reward"
       },
       {
@@ -175,7 +175,7 @@
     "description": "Track down and kill the legendary Shakalaka.",
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 0,
-    "value": 25000,
+    "value": 10000,
     "has_generic_rewards": false,
     "start": {
       "assign_mission_target": { "om_terrain": "cave", "om_terrain_replace": "forest", "search_range": 150, "min_distance": 50, "random": true },
@@ -198,23 +198,23 @@
       "rejected": "What a shame.  More work for me then…",
       "advice": "No one really knew that he really existed, but I managed to track down his hideout.  There were rumors in my town that this beast was capable of destroying whole shed with livestock inside in one fell swoop!  So be careful <very>.",
       "inquire": "How is the hunt going?",
-      "success": "I see my lessons haven't gone to waste for you, <name_g>.  Having defeated such a beast, you have earned the title of the first hunter in this state!  After me, of course, hehe.  You will receive a double award, as well as my old rifle.  She served me faithfully for a long time, but the time has come to hand her over to you.  Treat her well, okay?  Oh yeah, if you want to hunt down some more rare beast, I can leave some for you if you want.",
+      "success": "I see my lessons haven't gone to waste for you, <name_g>.  Having defeated such a beast, you have earned the title of the first hunter in this state!  After me, of course, hehe.  You will receive a double reward, as well as my old rifle.  She served me faithfully for a long time, but the time has come to hand her over to you.  Treat her well, okay?  Oh yeah, if you want to hunt down some more rare beast, I can leave some for you if you want.",
       "success_lie": "-",
       "failure": "-"
     }
   },
   {
-    "//": "TODO change monster spawn to random rare monster",
     "id": "MISSION_bandit_fs_trapper_4",
     "type": "mission_definition",
-    "name": { "str": "Rare beast" },
+    "name": { "str": "Rare Beast" },
     "description": "Track down and kill a rare beast.",
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 0,
-    "value": 15000,
+    "value": 0,
+    "has_generic_rewards": false,
     "start": {
-      "assign_mission_target": { "om_terrain": "cave", "om_terrain_replace": "forest", "min_distance": 50, "cant_see": true },
-      "update_mapgen": { "place_monster": [ { "monster": "mon_bear_mutant_3headed", "x": 12, "y": 12, "target": true } ] }
+      "assign_mission_target": { "om_terrain": "cave", "om_terrain_replace": "forest", "min_distance": 35, "cant_see": true },
+      "update_mapgen": { "place_monster": [ { "group": "GROUP_RARE_BEASTS", "name": "Rare Beast", "x": 12, "y": 12, "target": true } ] }
     },
     "end": {
       "effect": [
