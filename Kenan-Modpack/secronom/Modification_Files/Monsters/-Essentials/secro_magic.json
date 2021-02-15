@@ -1159,9 +1159,7 @@
     "id": "mon_zombie_fake_poly_ichorus_target",
     "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
-    "extra_effects": [
-      { "id": "mon_zombie_fake_poly_ichorus", "hit_self": true }
-    ],
+    "extra_effects": [ { "id": "mon_zombie_fake_poly_ichorus", "hit_self": true } ],
     "flags": [ "SILENT", "NO_PROJECTILE" ],
     "valid_targets": [ "ally", "hostile", "ground" ],
     "effect": "attack",
@@ -2368,6 +2366,19 @@
     "max_aoe": 1
   },
   {
+    "//": "Try to push aside everything in its path. Destination is the target's position (will not follow the target)",
+    "id": "mon_zombie_charger_charge_pushy",
+    "type": "SPELL",
+    "name": { "str": "Push" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster pushes its path.'",
+    "effect": "area_push",
+    "shape": "blast",
+    "flags": [ "SILENT" ],
+    "valid_targets": [ "ally", "hostile", "ground" ],
+    "min_aoe": 2,
+    "max_aoe": 2
+  },
+  {
     "id": "mon_zombie_charger_charge_pull",
     "type": "SPELL",
     "name": { "str": "Charge" },
@@ -2376,7 +2387,11 @@
     "shape": "blast",
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
-    "extra_effects": [ { "id": "mon_zombie_charger_charge" }, { "id": "mon_zombie_charger_charge_push" } ],
+    "extra_effects": [
+      { "id": "mon_zombie_charger_charge" },
+      { "id": "mon_zombie_charger_charge_push" },
+      { "id": "mon_zombie_charger_charge_pushy", "hit_self": true }
+    ],
     "min_aoe": 13,
     "max_aoe": 13
   },
@@ -2387,7 +2402,7 @@
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts one of the Spell(s).'",
     "extra_effects": [ { "id": "mon_zombie_charger_charge_pull" } ],
     "flags": [ "SILENT", "WONDER", "RANDOM_DAMAGE" ],
-    "valid_targets": [ "self" ],
+    "valid_targets": [ "hostile" ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "secro_magic_target",
@@ -2425,7 +2440,11 @@
     "shape": "blast",
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
-    "extra_effects": [ { "id": "mon_zombie_charger_spike_charge" }, { "id": "mon_zombie_charger_charge_push" } ],
+    "extra_effects": [
+      { "id": "mon_zombie_charger_spike_charge" },
+      { "id": "mon_zombie_charger_charge_push" },
+      { "id": "mon_zombie_charger_charge_pushy", "hit_self": true }
+    ],
     "min_aoe": 15,
     "max_aoe": 15
   },
@@ -2474,7 +2493,11 @@
     "shape": "blast",
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
-    "extra_effects": [ { "id": "mon_zombie_charger_plate_charge" }, { "id": "mon_zombie_charger_charge_push" } ],
+    "extra_effects": [
+      { "id": "mon_zombie_charger_plate_charge" },
+      { "id": "mon_zombie_charger_charge_push" },
+      { "id": "mon_zombie_charger_charge_pushy", "hit_self": true }
+    ],
     "min_aoe": 8,
     "max_aoe": 8
   },
@@ -2523,7 +2546,11 @@
     "shape": "blast",
     "flags": [ "SILENT" ],
     "valid_targets": [ "self" ],
-    "extra_effects": [ { "id": "mon_zombie_charger_vanguard_charge" }, { "id": "mon_zombie_charger_charge_push" } ],
+    "extra_effects": [
+      { "id": "mon_zombie_charger_vanguard_charge" },
+      { "id": "mon_zombie_charger_charge_push" },
+      { "id": "mon_zombie_charger_charge_pushy", "hit_self": true }
+    ],
     "min_aoe": 20,
     "max_aoe": 20
   },
