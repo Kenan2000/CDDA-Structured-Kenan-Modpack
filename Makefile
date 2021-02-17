@@ -187,7 +187,7 @@ ifndef CLANG
 endif
 
 # Determine JSON formatter binary name
-JSON_FORMATTER_BIN=tools/format/json_formatter.cgi
+JSON_FORMATTER_BIN=tools/format/json_formatter.exe
 ifeq ($(MSYS2), 1)
   JSON_FORMATTER_BIN=tools/format/json_formatter.exe
 endif
