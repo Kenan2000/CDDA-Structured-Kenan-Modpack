@@ -944,6 +944,33 @@
     "base_mods": { "hurt_min": [ 20 ], "hurt_max": [ 40 ] }
   },
   {
+    "type": "effect_type",
+    "id": "mon_szombie_vessel_arma_biters",
+    "name": [ "Armament - Biters" ],
+    "show_in_info": true,
+    "max_duration": 20,
+    "base_mods": { "bash_mod": [ 8.0 ], "cut_mod": [ 8.0 ], "speed_mod": [ -15 ] },
+    "removes_effects": [ "mon_szombie_vessel_arma_tents", "mon_szombie_vessel_arma_blades" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_szombie_vessel_arma_tents",
+    "name": [ "Armament - Tentacles" ],
+    "show_in_info": true,
+    "max_duration": 20,
+    "base_mods": { "hit_mod": [ 3.0 ], "bash_mod": [ 4.0 ], "speed_mod": [ 15 ] },
+    "removes_effects": [ "mon_szombie_vessel_arma_biters", "mon_szombie_vessel_arma_blades" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_szombie_vessel_arma_blades",
+    "name": [ "Armament - Blades" ],
+    "show_in_info": true,
+    "max_duration": 20,
+    "base_mods": { "hit_mod": [ 2.0 ], "cut_mod": [ 10 ], "speed_mod": [ -5 ] },
+    "removes_effects": [ "mon_szombie_vessel_arma_biters", "mon_szombie_vessel_arma_tents" ]
+  },
+  {
     "//": "Effects for notifying the player. This method is a bit unstable...",
     "type": "effect_type",
     "id": "mon_zombie_swarmer_evo_savage_tension_target_random_YES",
@@ -1224,6 +1251,36 @@
     "type": "effect_type",
     "id": "mon_sflesh_camp_turret_hravager_thrust_YES",
     "apply_message": "<color_pink>The ravager flesh heap rakes at its target!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_szombie_vessel_biters_YES",
+    "apply_message": "<color_pink>Large gaping biters were formed in both of the vessel experimental's arms!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_szombie_vessel_tents_YES",
+    "apply_message": "<color_pink>Slender tentacles burst out of the vessel experimental's body!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_szombie_vessel_blades_YES",
+    "apply_message": "<color_pink>Bone blades protrudes from the vessel experimental arms!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_szombie_vessel_spitter_YES",
+    "apply_message": "<color_light_red>Its spitter armament shoots a glob of blood acid!</color>",
+    "rating": "mixed"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_szombie_vessel_spitter_cs_YES",
+    "apply_message": "<color_red>Its spitter armament showers blood acid!</color>",
     "rating": "mixed"
   },
   {
