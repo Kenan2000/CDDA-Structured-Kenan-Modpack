@@ -1,0 +1,93 @@
+[
+  {
+    "//": "Armored zombie, but can actually hurt you, in many ways.",
+    "id": "mon_szombie_vessel",
+    "type": "MONSTER",
+    "name": { "str": "vessel experimental" },
+    "description": "A human who fell and succumbed to the flesh vessel exoskeleton - an experimental battle suit developed by the Secronom Project. It has completely fused with the body, and seem to have full control over it.",
+    "default_faction": "secro_flesh",
+    "bodytype": "human",
+    "species": [ "SFLESH", "HUMAN" ],
+    "volume": "62500 ml",
+    "weight": "81500 g",
+    "hp": 100,
+    "speed": 70,
+    "material": [ "flesh" ],
+    "symbol": "⒵",
+    "color": "light_red",
+    "aggression": 100,
+    "morale": 100,
+    "melee_skill": 8,
+    "melee_dice": 4,
+    "melee_dice_sides": 2,
+    "melee_cut": 4,
+    "vision_night": 12,
+    "armor_bash": 32,
+    "armor_cut": 32,
+    "armor_stab": 32,
+    "armor_bullet": 32,
+    "armor_acid": 8,
+    "armor_fire": 8,
+    "harvest": "human",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_szombie_vessel_target" },
+        "cooldown": 15,
+        "monster_message": "<color_magenta>%1$s aims at %3$s!</color>"
+      }
+    ],
+    "death_function": [ "NORMAL" ],
+    "death_drops": "mon_szombie_vessel_death_drop",
+    "flags": [
+      "SEES",
+      "HEARS",
+      "SMELLS",
+      "STUMBLES",
+      "WARM",
+      "BASHES",
+      "GROUP_BASH",
+      "POISON",
+      "NO_BREATHE",
+      "PUSH_MON",
+      "FILTHY",
+      "ELECTRIC",
+      "STUN_IMMUNE"
+    ]
+  },
+  {
+    "//": "initially spawns as this, but quickly becomes mobile days later.",
+    "id": "mon_szombie_vessel_inactive",
+    "type": "MONSTER",
+    "name": { "str": "vessel experimental" },
+    "description": "A human who fell and succumbed to the flesh vessel exoskeleton - an experimental battle suit developed by the Secronom Project - and by the looks of it, the body has been recently devoured. Strands of flesh writhe incessantly around it.",
+    "copy-from": "mon_szombie_vessel",
+    "melee_skill": 0,
+    "melee_dice": 0,
+    "melee_dice_sides": 0,
+    "melee_cut": 0,
+    "relative": {
+      "armor_bash": -12,
+      "armor_cut": -12,
+      "armor_stab": -12,
+      "armor_bullet": -12,
+      "armor_acid": -2,
+      "armor_fire": -6,
+      "hp": -50,
+      "vision_day": -10,
+      "vision_night": -10
+    },
+    "extend": { "flags": [ "IMMOBILE" ] },
+    "delete": { "flags": [ "ELECTRIC", "PUSH_MON" ] },
+    "death_drops": "mon_szombie_vessel_inactive_death_drop",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_szombie_vessel_range_target_random" },
+        "cooldown": 35,
+        "monster_message": "<color_magenta>A gunner armament emerges from %1$s's body, aiming at %3$s!</color>"
+      }
+    ],
+    "upgrades": { "half_life": 10, "into": "mon_szombie_vessel" }
+  }
+]

@@ -92,32 +92,69 @@
   },
   {
     "type": "talk_topic",
-    "id": "TALK_bandit_negotiator1_change",
+    "id": [ "TALK_bandit_negotiator1_change", "TALK_bandit_negotiator_broke", "TALK_bandit_negotiator_good" ],
     "dynamic_line": {
       "and": [
         "I can change your relations with:",
-        "\nForest Snakes.  Price: n money.",
-        "\nRed Suns.  Price: n money.",
-        "\nSunset Bikers.  Price: n money."
+        "\nForest Snakes.  Price: 12 emeralds stones.",
+        "\nRed Suns.  Price: 12 ruby stones.",
+        "\nSunset Bikers.  Price: 12 sapphire stones."
       ]
     },
     "responses": [
       {
         "text": "Forest Snakes.",
-        "effect": [ { "npc_change_faction": "forest_snakes" }, { "u_faction_rep": 25 }, { "npc_change_faction": "no_faction" } ],
-        "topic": "TALK_DONE"
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "emerald", "count": 12 } } },
+        "success": {
+          "effect": [
+            { "npc_change_faction": "forest_snakes" },
+            { "u_faction_rep": 25 },
+            { "npc_change_faction": "no_faction" },
+            { "u_sell_item": "emerald", "count": 12 }
+          ],
+          "topic": "TALK_DONE"
+        },
+        "failure": { "topic": "TALK_bandit_negotiator_broke" }
       },
       {
         "text": "Red Suns.",
-        "effect": [ { "npc_change_faction": "red_suns" }, { "u_faction_rep": 25 }, { "npc_change_faction": "no_faction" } ],
-        "topic": "TALK_DONE"
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "ruby", "count": 12 } } },
+        "success": {
+          "effect": [
+            { "npc_change_faction": "red_suns" },
+            { "u_faction_rep": 25 },
+            { "npc_change_faction": "no_faction" },
+            { "u_sell_item": "ruby", "count": 12 }
+          ],
+          "topic": "TALK_DONE"
+        },
+        "failure": { "topic": "TALK_bandit_negotiator_broke" }
       },
       {
         "text": "Sunset Bikers.",
-        "effect": [ { "npc_change_faction": "sunset_bikers" }, { "u_faction_rep": 25 }, { "npc_change_faction": "no_faction" } ],
-        "topic": "TALK_DONE"
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "sapphire", "count": 12 } } },
+        "success": {
+          "effect": [
+            { "npc_change_faction": "sunset_bikers" },
+            { "u_faction_rep": 25 },
+            { "npc_change_faction": "no_faction" },
+            { "u_sell_item": "sapphire", "count": 12 }
+          ],
+          "topic": "TALK_DONE"
+        },
+        "failure": { "topic": "TALK_bandit_negotiator_broke" }
       },
       { "text": "Bye.", "topic": "TALK_DONE" }
     ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_negotiator_broke",
+    "dynamic_line": "You don't have enough resources, <name_g>."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_negotiator_good",
+    "dynamic_line": "All done, <name_g>."
   }
 ]

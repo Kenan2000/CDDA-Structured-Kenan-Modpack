@@ -29,6 +29,7 @@ https://discourse.cataclysmdda.org - CDDA official forums
 +  AMALGAMS (fleshmound offsprings)
 +  SCENARIO/PROFESSION (a simple scenario/profession introducing the use of flesh vessel)
 +  SPIDER (final upgrade path)
++  NOXIOUS EATER (new upgrade path)
 
 ~  SHAPESHIFTER REWORKS (now much more deadly with improved abilities)
 ~  FLESHED TER/FURN (almost all fleshed ter/furn counterparts now has fixed bash resistance)

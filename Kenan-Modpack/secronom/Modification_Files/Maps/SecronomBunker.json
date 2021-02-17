@@ -33,7 +33,7 @@
         "        nmmmmmm         ",
         "         mmmmmmn        "
       ],
-      "furniture": { "h": "f_desk", "j": "f_chair", "f": "f_locker" },
+      "furniture": { "h": "f_desk", "j": "f_chair", "f": "f_locker", "g": "f_console", "i": "f_machinery_electronic" },
       "terrain": {
         "a": "t_strconc_floor",
         "b": [ "t_thconc_floor_olight", "t_strconc_floor" ],
@@ -41,9 +41,7 @@
         "d": "t_reinforced_glass",
         "e": "t_door_metal_locked",
         "f": "t_strconc_floor",
-        "g": "t_console",
         "h": "t_strconc_floor",
-        "i": "t_machinery_electronic",
         "j": "t_strconc_floor",
         "k": [ "t_utility_light", "t_strconc_floor" ],
         "l": "t_ladder_up",
@@ -70,7 +68,75 @@
       }
     },
     "om_terrain": [ "SecronomSSBunker" ],
-    "type": "mapgen"
+    "type": "mapgen",
+    "weight": 200
+  },
+  {
+    "method": "json",
+    "object": {
+      "fill_ter": "t_strconc_wall",
+      "place_items": [
+        { "chance": 100, "group": "tools_medical", "repeat": [ 7 ], "x": 27, "y": [ 13, 15 ] },
+        { "chance": 50, "item": "guns_rifle_rare", "repeat": [ 3 ], "x": 6, "y": [ 13, 15 ] }
+      ],
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "         aaaaaa         ",
+        "       oaaaaaaaao       ",
+        "      aaaabaabaaaa      ",
+        "     aaaaddccddaaaa     ",
+        "    aab ddrrrrdd baa    ",
+        "   aaa  rrrrrrrr  aaa   ",
+        "   aaadrrrrrrrrrrdaaa   ",
+        "  aaaddrrrrrrrrrrddaaa  ",
+        "  aaa frrrrrrrrrrf aaa  ",
+        "  qba fprrrghjrrpf abq  ",
+        "  aaa frrrriirrrrf aaa  ",
+        "  aaaddrrrrrrrrrrddaaa  ",
+        "   aaadrrrrrrrrrrdaaa   ",
+        "   aaa  rrrrrrrr  aaa   ",
+        "    aab ddrklrdd baa    ",
+        "     aaaadd  ddaaaa     ",
+        "      oaaaaaaaaaao      ",
+        "        aaaaaaaa        ",
+        "        nmmmmmm         ",
+        "         mmmmmmn        "
+      ],
+      "furniture": { "h": "f_desk", "j": "f_chair", "f": "f_locker", "g": "f_console", "i": "f_machinery_electronic" },
+      "terrain": {
+        "a": "t_strconc_floor",
+        "b": [ "t_thconc_floor_olight", "t_strconc_floor" ],
+        "c": "t_door_metal_c",
+        "d": "t_reinforced_glass",
+        "e": "t_door_metal_locked",
+        "f": "t_strconc_floor",
+        "h": "t_strconc_floor",
+        "j": "t_strconc_floor",
+        "k": [ "t_utility_light", "t_strconc_floor" ],
+        "l": "t_ladder_up",
+        "m": "t_door_metal_locked",
+        "n": "t_card_science",
+        "o": "t_strconc_floor",
+        "p": "t_strconc_floor",
+        "q": "t_strconc_floor",
+        "r": "t_strconc_floor"
+      },
+      "monster": { "a": { "group": "GROUP_SECROLAB_ALL", "chance": 80 } },
+      "nested": {
+        "a": {
+          "chunks": [ [ "null", 350 ], [ "SecronomSSBunker_nest_bloodmess", 2 ], [ "SecronomSSBunker_nest_deadscientist", 1 ] ]
+        },
+        "o": { "chunks": [ [ "SecronomSSBunker_nest_electurret", 1 ], [ "SecronomSSBunker_nest_electurretbroke", 5 ] ] },
+        "p": { "chunks": [ [ "SecronomSSBunker_nest_gravturret", 1 ], [ "SecronomSSBunker_nest_gravturretbroke", 5 ] ] },
+        "q": { "chunks": [ [ "SecronomSSBunker_nest_laserturret", 1 ], [ "SecronomSSBunker_nest_laserturretbroke", 5 ] ] }
+      }
+    },
+    "om_terrain": [ "SecronomSSBunker" ],
+    "type": "mapgen",
+    "weight": 1000
   },
   {
     "method": "json",

@@ -36,10 +36,11 @@
         "condition":{
           "and":
           [
-            {"u_has_mission": "MISSION_OLD_GUARD_REP_2" },
-            { "not":{"u_has_var": "search_for_bandit", "type": "flag", "context": "bandits", "value": "yes" } } 
+            { "u_has_mission": "MISSION_OLD_GUARD_REP_2" },
+            { "u_compare_var": "rc_search_for_bandit", "type": "count", "context": "unmarked_mission_progress", "op": "<", "value": 1 }
           ]
-        }
+        },
+        "switch":true
       },
       { "text": "Bye…", "topic": "TALK_DONE" }
     ]
@@ -163,7 +164,7 @@
       {
         "text": "It will be done.",
         "topic": "TALK_DONE",
-        "effect": { "u_add_var": "search_for_bandit", "type": "flag", "context": "bandits", "value": "yes" }
+        "effect": { "u_add_var": "rc_search_for_bandit", "type": "count", "context": "unmarked_mission_progress", "value": "1" }
       }
     ]
   },  

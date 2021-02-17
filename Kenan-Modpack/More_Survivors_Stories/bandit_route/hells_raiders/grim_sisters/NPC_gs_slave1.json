@@ -1,0 +1,58 @@
+[
+  {
+    "id": [ "TALK_bandit_gs_slave1_follow" ],
+    "type": "talk_topic",
+    "dynamic_line": "So, are we, like, there?",
+    "responses": [
+      {
+        "text": "We're here.",
+        "topic": "TALK_DONE",
+        "condition": { "npc_at_om_location": "ws_biker_dump_2_2" },
+        "effect": [ "stop_following", { "npc_first_topic": "TALK_bandit_gs_slave1_at_sb" }, "mission_success", "clear_mission" ],
+        "switch": true
+      },
+      {
+        "text": "Not yet.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "npc_add_var": "annoy_player",
+          "type": "time",
+          "context": "annoy_player_like_really_a_lot_at_least_i_want_to_do_it_that_way",
+          "time": true
+        },
+        "switch": true
+      }
+    ]
+  },
+  {
+    "id": [ "TALK_bandit_gs_slave1_at_sb" ],
+    "type": "talk_topic",
+    "dynamic_line": "Hello there, boss.",
+    "responses": [
+      { "text": "Working hard, eh?", "topic": "TALK_bandit_gs_slave1_at_sb_work" },
+      { "text": "Yeah.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": [ "TALK_bandit_gs_slave1_at_sb_work" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_var": "sb_narc_farm",
+      "type": "switch",
+      "context": "farm_status",
+      "value": "burned",
+      "yes": "Farm is burned, so I don't have anything to do around here.  I'm just passing time gambling and drinking.",
+      "no": "Sun is up, meself is working, sun is down, meself is dancing.  Every day, and every day of my new life…"
+    },
+    "responses": [
+      {
+        "truefalsetext": {
+          "true": "Don't worry, they will find you a new task to work on.",
+          "false": "Work hard, and some day, you'll earn your freedom. *chuckle*",
+          "condition": { "u_has_var": "sb_narc_farm", "type": "switch", "context": "farm_status", "value": "burned" }
+        },
+        "topic": "TALK_DONE"
+      }
+    ]
+  }
+]

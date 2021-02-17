@@ -6,6 +6,7 @@
     "description": "A large, flabby worm with hundreds of dreadful teeth aligned inside its little mouth. It has grown fond of eating necrotic flesh.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "WORM", "SECROZED_1" ],
+    "bodytype": "snake",
     "volume": "30000 ml",
     "weight": "40750 g",
     "harvest": "zombie",
@@ -34,8 +35,8 @@
     ],
     "death_function": [ "NORMAL" ],
     "anger_triggers": [ "HURT" ],
-    "upgrades": { "half_life": 6, "into_group": "GROUP_NOX_UPGRADE" },
-    "flags": [ "DIGS", "CAN_DIG", "HEARS", "GOODHEARING", "WARM" ]
+    "upgrades": { "half_life": 14, "into_group": "GROUP_NOX_UPGRADE" },
+    "flags": [ "CAN_DIG", "HEARS", "GOODHEARING", "WARM" ]
   },
   {
     "//": "More on dealing bite damage.",
@@ -45,6 +46,7 @@
     "description": "A huge, crimson worm with its thick skin formed like a tough rubber. Under its quad-interloping fangs hinder thousands of ravenous teeth.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROWORM" ],
+    "bodytype": "snake",
     "volume": "875000 ml",
     "weight": "200000 g",
     "harvest": "zombie",
@@ -63,7 +65,15 @@
     "armor_bash": 18,
     "armor_cut": 4,
     "armor_stab": 1,
+    "vision_day": 10,
+    "vision_night": 2,
     "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombieworm_gravedigger_destroy_target" },
+        "cooldown": 15,
+        "monster_message": "<color_magenta>%1$s ravages!</color>"
+      },
       {
         "type": "bite",
         "cooldown": 27,
@@ -76,7 +86,8 @@
     ],
     "anger_triggers": [ "HURT" ],
     "death_function": [ "NORMAL" ],
-    "flags": [ "DIGS", "CAN_DIG", "HEARS", "GOODHEARING", "SMELLS", "WARM", "PLASTIC" ]
+    "upgrades": { "half_life": 20, "into_group": "GROUP_GRAVEDIGGER_UPGRADEX" },
+    "flags": [ "DIGS", "CAN_DIG", "SEES", "HEARS", "GOODHEARING", "SMELLS", "WARM", "PLASTIC", "BASHES", "DESTROYS" ]
   },
   {
     "//": "More on dealing ranged damage.",
@@ -86,6 +97,7 @@
     "description": "A massive worm with hundreds of tentacle outgrowths twisting incessantly from its sickly pale red skin. Under its flabby head reveals a row of sinister teeth, deeply accompanied by compact tendrils.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROWORM" ],
+    "bodytype": "snake",
     "volume": "875000 ml",
     "weight": "200000 g",
     "harvest": "zombie",
@@ -101,12 +113,14 @@
     "melee_dice": 2,
     "melee_dice_sides": 8,
     "melee_cut": 4,
+    "vision_day": 16,
+    "vision_night": 4,
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombieworm_wriggly_target" },
-        "cooldown": 40,
-        "monster_message": "<color_yellow>%1$s's tentacles pierces through %3$s</color>!"
+        "spell_data": { "id": "mon_zombieworm_wriggly_destroy_target" },
+        "cooldown": 30,
+        "monster_message": "<color_yellow>%1$s ravages as it aims at %3$s!</color>"
       },
       {
         "type": "bite",
@@ -123,7 +137,7 @@
     "armor_stab": 1,
     "death_function": [ "NORMAL" ],
     "anger_triggers": [ "HURT" ],
-    "flags": [ "DIGS", "CAN_DIG", "HEARS", "SMELLS", "GOODHEARING", "WARM" ]
+    "flags": [ "DIGS", "CAN_DIG", "SEES", "HEARS", "SMELLS", "GOODHEARING", "WARM", "BASHES", "DESTROYS" ]
   },
   {
     "//": "Both deals damage and inflicts debuff.",
@@ -133,6 +147,7 @@
     "description": "A colossal worm, mysterious to its origin. Its glistening white surface depicts its sly nature, but once it attempts to feast on its prey, its maw can deliver strands of web-like flesh with an inner mouth allowing to consume from a distance.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROWORM" ],
+    "bodytype": "snake",
     "volume": "875000 ml",
     "weight": "200000 g",
     "harvest": "zombie",
@@ -143,19 +158,18 @@
     "color": "white",
     "aggression": 50,
     "morale": 50,
-    "emit_fields": [ "emit_mawy_web_immunity" ],
     "melee_skill": 10,
     "melee_dice": 4,
     "melee_dice_sides": 6,
     "melee_cut": 4,
-    "vision_day": 7,
-    "vision_night": 1,
+    "vision_day": 16,
+    "vision_night": 4,
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombieworm_mawy_target_random" },
-        "cooldown": 22,
-        "monster_message": "<color_yellow>%1$s points its orifice at %3$s...</color>"
+        "spell_data": { "id": "mon_zombieworm_mawy_destroy_target" },
+        "cooldown": 24,
+        "monster_message": "<color_yellow>%1$s ravages, then points its orifice at %3$s...</color>"
       },
       {
         "type": "bite",
@@ -173,6 +187,69 @@
     "dodge": 2,
     "death_function": [ "NORMAL" ],
     "anger_triggers": [ "HURT" ],
-    "flags": [ "DIGS", "CAN_DIG", "SEES", "HEARS", "SMELLS", "WEBWALK", "WARM" ]
+    "flags": [ "DIGS", "CAN_DIG", "SEES", "HEARS", "SMELLS", "WEBWALK", "WARM", "BASHES", "DESTROYS" ]
+  },
+  {
+    "//": "Only evolves from grave digger. Can destroy nearby terrains.",
+    "id": "mon_zombieworm_onger",
+    "looks_like": "mon_yugg",
+    "type": "MONSTER",
+    "name": { "str": "wormonger" },
+    "description": "A catastrophic worm as wide as a car, with the rest of its body hidden underneath. Its overconsumption of dead bodies must've caused it to suffer from further mutations.",
+    "default_faction": "zombie",
+    "species": [ "ZOMBIE", "SECROWORM" ],
+    "bodytype": "snake",
+    "volume": "1000000 ml",
+    "weight": "375000 g",
+    "harvest": "zombie",
+    "hp": 1005,
+    "speed": 20,
+    "material": [ "flesh" ],
+    "symbol": "⚕",
+    "color": "white_red",
+    "aggression": 50,
+    "morale": 50,
+    "melee_skill": 10,
+    "melee_dice": 4,
+    "melee_dice_sides": 8,
+    "melee_cut": 8,
+    "armor_bash": 24,
+    "armor_cut": 10,
+    "armor_stab": 6,
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombieworm_onger_destroy_target" },
+        "cooldown": 12,
+        "monster_message": "<color_magenta>%1$s ravages as it emits an ear-piercing screech!</color>"
+      },
+      {
+        "type": "bite",
+        "cooldown": 50,
+        "accuracy": 5,
+        "damage_max_instance": [
+          { "damage_type": "stab", "amount": 40, "armor_multiplier": 0.5 },
+          { "damage_type": "bash", "amount": 40, "armor_multiplier": 0.4 }
+        ]
+      }
+    ],
+    "anger_triggers": [ "HURT" ],
+    "death_function": [ "NORMAL" ],
+    "vision_day": 24,
+    "vision_night": 4,
+    "flags": [
+      "DIGS",
+      "CAN_DIG",
+      "HEARS",
+      "SEES",
+      "GOODHEARING",
+      "SMELLS",
+      "WARM",
+      "PLASTIC",
+      "STUN_IMMUNE",
+      "PUSH_VEH",
+      "PUSH_MON",
+      "DESTROYS"
+    ]
   }
 ]

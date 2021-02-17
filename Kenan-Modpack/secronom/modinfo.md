@@ -4,7 +4,7 @@ This wiki is temporary. I'm working on an updated version.
 ## Zombies
 The secronom's main feature - the zeds. They range from weak up to strong variety of them.
 
-* There are 84 zombies in total: 58 city zeds, 16 zed mutants and 10 lab zombies. Only the zombies that spawn individually and their evolved counterparts are counted, while minions and other special zeds aren't.
+* There are 85 zombies in total: 59 city zeds, 16 zed mutants and 10 lab zombies. Only the zombies that spawn individually and their evolved counterparts are counted, while minions and other special zeds aren't.
 
 ### City Zombies
 Listed below are the zombies encountered in a city, along with their upgrade paths:
@@ -70,6 +70,7 @@ Zombie type with enormous health, extremely fast movement speed and slow, but co
 ##### Noxious Eater **!**
 A worm, zombie type that burrows underneath, with fatal biting ability.
 * **Grave Digger**
+* _**Wormonger**_
 * **Writhing Horror**
 * **Sinister Maw**
 

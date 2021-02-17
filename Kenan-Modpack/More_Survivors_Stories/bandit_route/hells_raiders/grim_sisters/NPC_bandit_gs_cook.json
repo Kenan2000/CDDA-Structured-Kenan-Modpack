@@ -1,0 +1,267 @@
+[
+  {
+    "type": "effect_type",
+    "id": "gs_cook_opened_present",
+    "//": "Defined here because this should be the only time this effect is referenced."
+  },
+  {
+    "type": "npc",
+    "id": "NPC_bandit_gs_cook",
+    "class": "NC_SURVIVOR_CHEF",
+    "attitude": 0,
+    "mission": 8,
+    "gender": "female",
+    "chat": "TALK_bandit_gs_cook",
+    "faction": "grim_sisters"
+  },
+  {
+    "//": "'condition': { 'u_has_items': { 'item': 'corpse_generic_human', 'count': 1 },",
+    "id": [ "TALK_bandit_gs_cook" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_male": true,
+      "yes": "Hi <sweetie>.",
+      "no": "What do you want?!  You missed lunch, bitch, so you wont get your meal.  And don't even try to give me excuses."
+    },
+    "responses": [
+      {
+        "text": "Hello.",
+        "topic": "TALK_bandit_gs_cook_1",
+        "condition": "u_male",
+        "effect": { "npc_first_topic": "TALK_bandit_gs_cook_1" },
+        "switch": true
+      },
+      { "text": "Rude.", "topic": "TALK_DONE", "switch": true }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [
+      "TALK_bandit_gs_cook_1",
+      "TALK_bandit_gs_cook_questions_cook4_bad",
+      "TALK_bandit_gs_cook_questions_cook_done",
+      "TALK_bandit_gs_cook_questions_cook4_takesome"
+    ],
+    "dynamic_line": [
+      "What can I get you, <sweetie>?",
+      "Are you hungry, <sweetie>?  I can cook something for you.",
+      "What do you want to eat today, <sweetie>?"
+    ],
+    "responses": [
+      {
+        "text": "About that job…",
+        "condition": { "and": [ "has_assigned_mission", "mission_complete" ] },
+        "topic": "TALK_MISSION_INQUIRE"
+      },
+      { "text": "I would like to ask you about something…", "topic": "TALK_bandit_gs_cook_questions" },
+      {
+        "text": "I found a human finger inside my foodpack.  What did you gave me exactly?",
+        "condition": { "u_has_effect": "gs_cook_opened_present" },
+        "effect": { "u_lose_effect": "gs_cook_opened_present" },
+        "topic": "TALK_bandit_gs_cook_questions_cook4_wit"
+      },
+      {
+        "text": "Do you need any help?",
+        "condition": { "npc_has_var": "know_taste", "type": "flag", "context": "open_missions", "value": "yes" },
+        "topic": "TALK_MISSION_LIST"
+      },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": [
+      "TALK_bandit_gs_cook_questions",
+      "TALK_bandit_gs_cook_questions_cook",
+      "TALK_bandit_gs_cook_questions_cook1",
+      "TALK_bandit_gs_cook_questions_place",
+      "TALK_bandit_gs_cook_questions_story"
+    ],
+    "dynamic_line": "What do you want to know, <sweetie>?",
+    "responses": [
+      { "text": "What is this place?", "topic": "TALK_bandit_gs_cook_questions_place" },
+      { "text": "What do you do here?", "topic": "TALK_bandit_gs_cook_questions_cook" },
+      { "text": "What's your story?", "topic": "TALK_bandit_gs_cook_questions_story" },
+      { "text": "<done_conversation_section>", "topic": "TALK_bandit_gs_cook_1" }
+    ]
+  },
+  {
+    "//": "TODO write something",
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_place",
+    "dynamic_line": "This is our little base, <sweetie>."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_story",
+    "dynamic_line": "Ah, that's a sad story.  Let's talk about you, <sweetie>."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_cook",
+    "dynamic_line": "I'm cooking food for our boys, and for those bitches.",
+    "responses": [
+      {
+        "text": "What are you cooking for them?",
+        "condition": {
+          "not": {
+            "or": [
+              { "npc_has_var": "know_taste", "type": "flag", "context": "open_missions", "value": "yes" },
+              { "npc_has_var": "know_taste", "type": "flag", "context": "open_missions", "value": "no" }
+            ]
+          }
+        },
+        "topic": "TALK_bandit_gs_cook_questions_cook1"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_cook1",
+    "dynamic_line": "Well, various things, <sweetie>.  Different soups, meat dishes, stuff like that.",
+    "responses": [ { "text": "Can I try some?", "topic": "TALK_bandit_gs_cook_questions_cook2" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_cook2",
+    "dynamic_line": "Oh, <sweetie>, I don't even know if you would like it.  Our tastes are quite, unusual.  But if you really want to try some, I can give you something special.",
+    "responses": [
+      { "text": "Yeah, sure, I want to try some.", "topic": "TALK_bandit_gs_cook_questions_cook3" },
+      { "text": "Thanks, I'll pass.", "topic": "TALK_bandit_gs_cook_questions_cook3" }
+    ]
+  },
+  {
+    "//": "TODO write something not that lame dude",
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_cook3",
+    "dynamic_line": {
+      "and": [
+        "Then close your eyes and open your eyes.\"  at first, doubts overcame you, but the interest was so strong that you decided to obey.  You felt the touch of a small spoon on your lips and took the contents into your mouth.   ",
+        {
+          "u_has_trait": "CANNIBAL",
+          "yes": "Familiar taste notes filled all the cavities of your mouth, and you wouldn't confuse this smell with anything in the world.  Paradise honey, heavenly nectar.  Here it is - true pleasure.",
+          "no": "The taste turned out to be strange, sometimes even unpleasant.  The smell was not much better.  Tough, like the meat of an old animal that has been in the freezer for a long time."
+        },
+        "  \"How was it, <sweetie>?"
+      ]
+    },
+    "responses": [
+      {
+        "text": "Delicious, truly delicious.  I didn't hope to find someone with unique tastes like mine in this new world.",
+        "condition": { "u_has_trait": "CANNIBAL" },
+        "topic": "TALK_bandit_gs_cook_questions_cook4_cannibal",
+        "switch": true
+      },
+      {
+        "text": "It tastes… nice.  Can I have some more?",
+        "topic": "TALK_bandit_gs_cook_questions_cook4_more",
+        "switch": true,
+        "default": true
+      },
+      {
+        "text": "It tastes… weird.  What is it?",
+        "topic": "TALK_bandit_gs_cook_questions_cook4_wit",
+        "switch": true,
+        "default": true
+      },
+      {
+        "text": "It tastes… bad, really bad.",
+        "topic": "TALK_bandit_gs_cook_questions_cook4_bad",
+        "switch": true,
+        "default": true
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_cook4_more",
+    "dynamic_line": "Sure thing, <sweetie>.\"  она  she went to the storage room and returned    Here you go.  Would you like to take some with you?",
+    "responses": [
+      {
+        "text": "Yeah, sure.",
+        "topic": "TALK_bandit_gs_cook_questions_cook4_takesome",
+        "effect": { "npc_add_var": "know_taste", "type": "flag", "context": "open_missions", "value": "no" }
+      },
+      {
+        "text": "Thanks, but I'm full.  By the way, what was it?",
+        "topic": "TALK_bandit_gs_cook_questions_cook4_wit"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_cook4_takesome",
+    "dynamic_line": "Here you go.  I put something special there for you, <sweetie>.",
+    "speaker_effect": { "effect": { "u_buy_item": "gs_cook_foodpack" } }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_cook4_wit",
+    "dynamic_line": "Well, we call it 'Two-legged-pig', but you may know it as human, he-he.  We mostly use meat of a better half of human kind, unfortunately.  That bossy bitch doesn't want me to cut those nasty hoes for food.  She talk something about… blah-blah-blah.  To hell with her bullshit.  Oh, does it taste good, <sweetie>?  I put my love and care in your meal.  Don't break my heart by saying rude things about my cooking…",
+    "responses": [
+      {
+        "text": "It was good, I really liked it.",
+        "topic": "TALK_bandit_gs_cook_questions_cook_done",
+        "effect": { "u_add_trait": "CANNIBAL" }
+      },
+      {
+        "text": "Delicious.",
+        "trial": { "type": "LIE", "difficulty": 20 },
+        "success": { "topic": "TALK_bandit_gs_cook_questions_cook_done" },
+        "failure": { "topic": "TALK_bandit_gs_cook_questions_cook4_bad" }
+      },
+      {
+        "text": "It was WHAT? *puke*",
+        "topic": "TALK_bandit_gs_cook_questions_cook4_puke",
+        "effect": { "npc_add_var": "know_taste", "type": "flag", "context": "open_missions", "value": "no" }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_cook4_cannibal",
+    "dynamic_line": "I'm glad you share our tastes, <sweetie>.  Do you want some more?",
+    "responses": [
+      {
+        "text": "Sure, I could eat a whole two-legged pig, if you now what I mean. *wink*",
+        "topic": "TALK_bandit_gs_cook_questions_cook_done",
+        "effect": [ { "npc_add_var": "want_more", "type": "flag", "context": "temp_var", "value": "yes" } ]
+      },
+      { "text": "Thanks, but I'm full.", "topic": "TALK_bandit_gs_cook_questions_cook_done" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_cook4_bad",
+    "dynamic_line": "Ah, that's sad to hear.  You hurt my feelings, <sweetie>.  I thought you would like it…",
+    "speaker_effect": { "effect": { "npc_add_var": "know_taste", "type": "flag", "context": "open_missions", "value": "no" } }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_cook4_puke",
+    "dynamic_line": "You!  Ungrateful!  SWINE!  I made it just for you, and you just threw it out?!  <swear> <name_b>!",
+    "responses": [
+      {
+        "text": "CRAZY BITCH!",
+        "topic": "TALK_DONE",
+        "effect": [ { "u_add_effect": "nausea", "duration": "900 s" }, "end_conversation" ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_gs_cook_questions_cook_done",
+    "dynamic_line": {
+      "and": [
+        { "npc_has_var": "want_more", "type": "flag", "context": "temp_var", "value": "yes", "yes": "My, my, what a man.  Here you go, <sweetie>." },
+        "  Oh, by the way, <sweetie>.  Would you want to help poor lady dealing with a little problem?  Our meat supplies are running low, and we always need more.  If you could spare some of your time to help me, I'm sure I can find a way to properly reward you, <sweetie>."
+      ]
+    },
+    "speaker_effect": {
+      "effect": [
+        { "npc_lose_var": "want_more", "type": "flag", "context": "temp_var" },
+        { "npc_add_var": "know_taste", "type": "flag", "context": "open_missions", "value": "yes" }
+      ]
+    }
+  }
+]

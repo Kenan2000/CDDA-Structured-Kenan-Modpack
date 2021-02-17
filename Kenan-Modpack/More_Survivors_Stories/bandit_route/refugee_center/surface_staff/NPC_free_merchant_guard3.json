@@ -52,7 +52,7 @@
         "text": "I think you know perfectly well that you are the informant.  There is no point in trying to hide it.",
         "trial": { "type": "INTIMIDATE", "difficulty": 25, "mod": [ [ "TRUST", 3 ] ] },
         "success": { "topic": "TALK_EVAC_GUARD3_BANDITS1" },
-        "failure": { "topic": "TALK_EVAC_GUARD3_INSULT" }
+        "failure": { "topic": "TALK_EVAC_GUARD3_WASTE", "effect": { "u_faction_rep": -5 } }
       }
     ]
   },
@@ -65,7 +65,7 @@
         "text": "The old guard knows there is a rat in the center, and I was sent to find it.  Tell me everything you know, and maybe you have a chance to get out of this situation alive.",
         "trial": { "type": "PERSUADE", "difficulty": 25, "mod": [ [ "TRUST", 3 ] ] },
         "success": { "topic": "TALK_EVAC_GUARD3_BANDITS2" },
-        "failure": { "topic": "TALK_EVAC_GUARD3_HOSTILE" }
+        "failure": { "topic": "TALK_EVAC_GUARD3_INSULT", "effect": { "u_faction_rep": -10 } }
       }
     ]
   },
@@ -89,7 +89,7 @@
       {
         "text": "It will be done.",
         "topic": "TALK_DONE",
-        "effect": { "u_add_var": "search_for_bandit", "type": "flag", "context": "bandits", "value": "yes" }
+        "effect": { "u_add_var": "rc_search_for_bandit", "type": "count", "context": "unmarked_mission_progress", "value": "1" }
       }
     ]
   },
