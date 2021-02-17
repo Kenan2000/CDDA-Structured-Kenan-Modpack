@@ -14,9 +14,10 @@
     "type": "talk_topic",
     "id": "TALK_bandit_sb_leader_start",
     "dynamic_line": "What are you doing in here?",
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_bandit_sb_leader_0" } },
     "responses": [
       {
-        "text": "I brought a package.",
+        "text": "I brought you a package.",
         "topic": "TALK_bandit_sb_leader_package",
         "condition": { "u_has_item": "bandit_item_2" }
       },
@@ -56,6 +57,7 @@
       {
         "text": "Here you go.",
         "topic": "TALK_bandit_sb_leader_package_give",
+        "condition": { "u_has_item": "bandit_item_2" },
         "effect": { "u_consume_item": "bandit_item_2" }
       }
     ]
@@ -72,7 +74,11 @@
   {
     "type": "talk_topic",
     "id": "TALK_bandit_sb_leader_package_money1",
-    "dynamic_line": "You probably don't understand something, <name_b>.  Everything has already been discussed without you.  So do as you were told before you piss me off.",
+    "dynamic_line": "You probably don't understand something, <name_b>.  He didn't get me my order in time, and I see no reason to pay for such bad postal service.  So do as you were told before you piss me off.",
+    "speaker_effect": {
+      "sentinel": "bikanul",
+      "effect": { "u_add_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "value": "2" }
+    },
     "responses": [
       { "text": "I'm not going anywhere without payment.", "topic": "TALK_bandit_sb_leader_package_money2" },
       {
@@ -97,27 +103,142 @@
     "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": { "u_faction_rep": -100 } } ]
   },
   {
-    "//": "TODO make money reward",
     "type": "talk_topic",
     "id": "TALK_bandit_sb_leader_package_money_ok",
-    "dynamic_line": "Fine, I don't have time for this.  Now get out.",
+    "dynamic_line": {
+      "npc_has_var": "gamble",
+      "type": "flag",
+      "context": "temp_var",
+      "value": "yes",
+      "yes": "Well, that was a fun game.  Here you go.",
+      "no": "Fine, I don't have time for this.  Now get out."
+    },
+    "speaker_effect": {
+      "effect": [
+        { "npc_lose_var": "gamble", "type": "flag", "context": "temp_var" },
+        { "u_buy_item": "ruby", "count": 60 },
+        { "u_add_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "value": "4" }
+      ]
+    },
     "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_bandit_sb_leader_1" } } ]
   },
   {
     "//": "TODO make ask for money reward after talking to merchant",
     "type": "talk_topic",
-    "id": "TALK_bandit_sb_leader_1",
-    "dynamic_line": "<greet>",
+    "id": [ "TALK_bandit_sb_leader_1", "TALK_bandit_sb_leader_questions", "TALK_bandit_sb_leader_receipt" ],
+    "dynamic_line": "Make it quick, <name_b>.  I don't have time for your mumbling.",
     "responses": [
       {
         "text": "About that job…",
         "condition": { "and": [ "has_many_assigned_missions", "mission_complete" ] },
         "topic": "TALK_MISSION_INQUIRE"
       },
+      {
+        "text": "What about payment for that package?",
+        "condition": { "u_has_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "value": "3" },
+        "topic": "TALK_bandit_sb_leader_package_money_gamble"
+      },
+      {
+        "text": "What about payment for that package?",
+        "condition": { "u_has_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "value": "1" },
+        "topic": "TALK_bandit_sb_leader_package_money"
+      },
       { "text": "I would like to ask you about something…", "topic": "TALK_bandit_sb_leader_questions" },
-      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      {
+        "text": "I want to talk about workforce for the farm…",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_bandit_sb_drugmaker_3" },
+            { "not": { "npc_has_var": "gave_receipt", "type": "flag", "context": "mission_started", "value": "yes" } }
+          ]
+        },
+        "effect": [
+          { "npc_add_var": "gave_receipt", "type": "flag", "context": "mission_started", "value": "yes" },
+          { "u_buy_item": "bandit_item_4" }
+        ],
+        "topic": "TALK_bandit_sb_leader_receipt"
+      },
+      {
+        "text": "Do you need any help?",
+        "condition": { "not": { "u_has_mission": "MISSION_bandit_rs_merchant_2" } },
+        "topic": "TALK_MISSION_LIST"
+      },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
+  },
+  {
+    "id": "TALK_bandit_sb_leader_questions",
+    "type": "talk_topic",
+    "dynamic_line": "I don't have time for talking, <name_b>."
+  },
+  {
+    "//": "TODO change persuade to random roll when available",
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_leader_package_money_gamble",
+    "dynamic_line": {
+      "npc_has_var": "gamble",
+      "type": "flag",
+      "context": "temp_var",
+      "value": "yes",
+      "yes": "Bad luck, <name_g>.  One more time?",
+      "no": "Okay, let's do it nicely.  We play a game of dice.  I win - you pay me 5 merch.  You win - you take the payment.  What do you say?"
+    },
+    "responses": [
+      {
+        "text": "Let's play.",
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 5 } },
+        "trial": { "type": "PERSUADE", "difficulty": 15 },
+        "success": { "topic": "TALK_bandit_sb_leader_package_money_ok" },
+        "failure": {
+          "topic": "TALK_bandit_sb_leader_package_money_gamble",
+          "effect": [
+            { "npc_add_var": "gamble", "type": "flag", "context": "temp_var", "value": "yes" },
+            { "u_sell_item": "FMCNote", "count": 5 }
+          ]
+        }
+      },
+      {
+        "text": "If you don't budge I'll use force to get what I need.",
+        "trial": { "type": "INTIMIDATE", "difficulty": 5 },
+        "success": { "topic": "TALK_bandit_sb_leader_package_money_ok" },
+        "failure": { "topic": "TALK_bandit_sb_leader_package_money2" }
+      },
+      {
+        "text": "<done_conversation_section>",
+        "topic": "TALK_NONE",
+        "effect": { "npc_lose_var": "gamble", "type": "flag", "context": "temp_var" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_bandit_sb_leader_receipt",
+    "type": "talk_topic",
+    "dynamic_line": "Yeah, I asked around and got something that might be worth a shot.  I talked to the Grim Sisters, they can sell us some of their, cattle.  Those bitches are haggling like demons, I barely managed to get out of there with my pants on.  Pun intended, he-he.  Take this receipt, show it to their top bitch or how thefuck she called, and she'll give you some of their, cattle.  Do NOT lose it, I mean it!"
+  },
+  {
+    "id": "MISSION_bandit_sb_leader_gs",
+    "type": "mission_definition",
+    "has_generic_rewards": false,
+    "name": { "str": "Grim Sisters" },
+    "description": "Meet with Grim Sisters leader.",
+    "goal": "MGOAL_TALK_TO_NPC",
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "update_mapgen": { "om_terrain": "prison_1_gs_4", "place_npcs": [ { "class": "NPC_bandit_gs_leader", "x": 11, "y": 8 } ] }
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "-",
+      "accepted": "-",
+      "rejected": "-",
+      "advice": "-",
+      "inquire": "Did you meet with her?",
+      "success": "Nasty bitch, huh?",
+      "success_lie": "-",
+      "failure": "-"
+    }
   },
   {
     "id": "MISSION_bandit_sb_leader_0",
@@ -130,7 +251,13 @@
     "difficulty": 0,
     "value": 0,
     "start": { "effect": { "u_add_var": "bandit_sb_leader", "type": "switch", "context": "alive_dead", "value": "alive" } },
-    "fail": { "effect": { "u_add_var": "bandit_sb_leader", "type": "switch", "context": "alive_dead", "value": "dead" } },
+    "fail": {
+      "effect": [
+        { "u_add_var": "bandit_sb_leader", "type": "switch", "context": "alive_dead", "value": "dead" },
+        { "u_buy_item": "ruby", "count": 60, "container": "bag_plastic" },
+        { "u_add_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "value": "yes" }
+      ]
+    },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "-",

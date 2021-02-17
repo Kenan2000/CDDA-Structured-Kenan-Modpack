@@ -42,9 +42,9 @@
           "has": "WORN",
           "condition": "ALWAYS",
           "values": [
-            { "value": "DEXTERITY", "add": 1 },
-            { "value": "BONUS_DODGE", "add": 1 },
-            { "value": "ATTACK_SPEED", "multiply": 0.025 }
+            { "value": "DEXTERITY", "add": 2 },
+            { "value": "BONUS_DODGE", "add": 2 },
+            { "value": "ATTACK_SPEED", "multiply": 0.05 }
           ]
         }
       ]
@@ -93,9 +93,9 @@
           "has": "WORN",
           "condition": "ALWAYS",
           "values": [
-            { "value": "DEXTERITY", "add": 1 },
-            { "value": "BONUS_DODGE", "add": 1 },
-            { "value": "ATTACK_SPEED", "multiply": 0.025 }
+            { "value": "DEXTERITY", "add": 2 },
+            { "value": "BONUS_DODGE", "add": 2 },
+            { "value": "ATTACK_SPEED", "multiply": 0.05 }
           ]
         }
       ]
@@ -107,7 +107,7 @@
     "type": "TOOL_ARMOR",
     "category": "armor",
     "name": { "str": "flesh vessel" },
-    "description": "A complex battle suit brought to existence using the latest technological advancements. Secronom exoskeleton type \"Vessel\" takes advantage of the flesh's adaptive cell structure and its capability to respond from one's mind, but due to its extreme instability, the wearer is forced to feed it with flesh, and if not, it'll devour them little by little. Limited in interface features, it excels on dealing any situation thanks to its morphing and forming capability.\n\nSecronom exoskeleton type \"Vessel\" provides:\n<color_white>Stamina regeneration: <color_light_green>+3%</color>\nMaximum health: <color_light_green>+5%</color>\nMetabolism: <color_light_green>-2.5%</color></color>",
+    "description": "A complex battle suit brought to existence using the latest technological advancements. Secronom exoskeleton type \"Vessel\" takes advantage of the flesh's adaptive cell structure and its capability to respond from one's mind, but due to its extreme instability, the wearer is forced to feed it with flesh, and if not, it'll devour them little by little. Limited in interface features, it excels on dealing any situation thanks to its morphing and forming capability.\n\nSecronom exoskeleton type \"Vessel\" provides:\n<color_white>Stamina regeneration: <color_light_green>+5%</color>\nMaximum health: <color_light_green>+5%</color>\nMetabolism: <color_light_green>-2.5%</color></color>",
     "weight": "18400 g",
     "volume": "21 L",
     "price": 32300000,
@@ -144,9 +144,62 @@
           "has": "WORN",
           "condition": "ALWAYS",
           "values": [
-            { "value": "REGEN_STAMINA", "multiply": 0.015 },
-            { "value": "MAX_HP", "multiply": 0.025 },
-            { "value": "METABOLISM", "multiply": -0.125 }
+            { "value": "REGEN_STAMINA", "multiply": 0.05 },
+            { "value": "MAX_HP", "multiply": 0.05 },
+            { "value": "METABOLISM", "multiply": -0.25 }
+          ],
+          "ench_effects": [ { "effect": "secro_power_armor_flesh_devouring_note", "intensity": 1 } ]
+        }
+      ]
+    },
+    "qualities": [ [ "SECRO_FLESH_MORPHING", 1 ], [ "SECRO_FLESH_REFORMING", 1 ] ],
+    "flags": [ "WATERPROOF", "STURDY", "ELECTRIC_IMMUNE", "NO_UNLOAD", "SUN_GLASSES", "OVERSIZE" ]
+  },
+  {
+    "id": "secro_power_armor_flesh_unstable",
+    "type": "TOOL_ARMOR",
+    "category": "armor",
+    "name": { "str": "flesh vessel <color_light_red>(unstable)</color>" },
+    "description": "A complex battle suit brought to existence using the latest technological advancements. Secronom exoskeleton type \"Vessel\" takes advantage of the flesh's adaptive cell structure and its capability to respond from one's mind, but due to its extreme instability, the wearer is forced to feed it with flesh, and if not, it'll devour them little by little. Limited in interface features, it excels on dealing any situation thanks to its morphing and forming capability.\n\nSecronom exoskeleton type \"Vessel\" provides:\n<color_white>Stamina regeneration: <color_light_green>+2%</color>\nMaximum health: <color_light_green>+3%</color>\nMetabolism: <color_light_green>-1%</color></color>",
+    "weight": "18400 g",
+    "volume": "21 L",
+    "price": 2300000,
+    "price_postapoc": 30000,
+    "to_hit": 1,
+    "bashing": 1,
+    "material": [ "flesh" ],
+    "symbol": "[",
+    "looks_like": "power_armor_light",
+    "color": "red",
+    "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "head", "eyes", "mouth" ],
+    "coverage": 100,
+    "encumbrance": 50,
+    "pocket_data": [
+      { "pocket_type": "CONTAINER", "max_contains_volume": "5 L", "max_contains_weight": "10 kg", "moves": 85 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "5 L", "max_contains_weight": "10 kg", "moves": 85 },
+      { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "secro_flesh": 100 } }
+    ],
+    "warmth": 30,
+    "material_thickness": 28,
+    "environmental_protection": 6,
+    "power_armor": true,
+    "charges_per_use": 50,
+    "use_action": {
+      "type": "cast_spell",
+      "spell_id": "secro_power_armor_flesh_morphform_list",
+      "no_fail": true,
+      "need_worn": true,
+      "level": 0
+    },
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "REGEN_STAMINA", "multiply": 0.02 },
+            { "value": "MAX_HP", "multiply": 0.03 },
+            { "value": "METABOLISM", "multiply": -0.01 }
           ],
           "ench_effects": [ { "effect": "secro_power_armor_flesh_devouring_note", "intensity": 1 } ]
         }
@@ -197,10 +250,10 @@
           "has": "WORN",
           "condition": "ALWAYS",
           "values": [
-            { "value": "STRENGTH", "add": 1 },
-            { "value": "ATTACK_SPEED", "multiply": 0.015 },
-            { "value": "MAX_HP", "multiply": 0.0375 },
-            { "value": "METABOLISM", "multiply": 0.01 }
+            { "value": "STRENGTH", "add": 2 },
+            { "value": "ATTACK_SPEED", "multiply": 0.03 },
+            { "value": "MAX_HP", "multiply": 0.075 },
+            { "value": "METABOLISM", "multiply": -0.02 }
           ],
           "ench_effects": [ { "effect": "secro_power_armor_flesh_devouring_note", "intensity": 1 } ]
         }
@@ -251,11 +304,11 @@
           "has": "WORN",
           "condition": "ALWAYS",
           "values": [
-            { "value": "STRENGTH", "add": 2 },
-            { "value": "MOVE_COST", "multiply": 0.0375 },
-            { "value": "SPEED", "multiply": -0.025 },
-            { "value": "MAX_HP", "multiply": 0.6125 },
-            { "value": "METABOLISM", "multiply": -0.025 }
+            { "value": "STRENGTH", "add": 4 },
+            { "value": "MOVE_COST", "multiply": 0.075 },
+            { "value": "SPEED", "multiply": -0.05 },
+            { "value": "MAX_HP", "multiply": 0.125 },
+            { "value": "METABOLISM", "multiply": -0.05 }
           ],
           "ench_effects": [ { "effect": "secro_power_armor_flesh_devouring_note", "intensity": 1 } ]
         }
@@ -269,7 +322,7 @@
     "type": "TOOL_ARMOR",
     "category": "armor",
     "name": { "str": "flesh vessel \"Agile\"" },
-    "description": "A complex battle suit brought to existence using the latest technological advancements. Secronom exoskeleton type \"Vessel (Agile)\" is an outcome of mutagenic devolution, having thinner fibers and flesh webbings. Its greatly reduced physical protection has also made it extremely lighter than any other types: the vessel focuses on bringing the wearer speed in order to outrun its foe. Like all other flesh vessels, it requires the wearer to feed it with flesh.\n\nSecronom exoskeleton type \"Vessel (Agile)\" provides:\n<color_white>Speed: <color_light_green>+10</color>\nAttack speed: <color_light_green>+10%</color>\nMovecost: <color_light_green>-5%</color>\nStamina regeneration: <color_light_green>7.5%</color>\nMetabolism: <color_light_green>-1%</color></color>",
+    "description": "A complex battle suit brought to existence using the latest technological advancements. Secronom exoskeleton type \"Vessel (Agile)\" is an outcome of mutagenic devolution, having thinner fibers and flesh webbings. Its greatly reduced physical protection has also made it extremely lighter than any other types; the vessel focuses on bringing the wearer's speed in order to outrun its foe. Like all other flesh vessels, it requires the wearer to feed it with flesh.\n\nSecronom exoskeleton type \"Vessel (Agile)\" provides:\n<color_white>Speed: <color_light_green>+10%</color>\nAttack speed: <color_light_green>+10%</color>\nMovecost: <color_light_green>-5%</color>\nStamina regeneration: <color_light_green>7.5%</color>\nMetabolism: <color_light_green>-1%</color></color>",
     "weight": "12450 g",
     "volume": "13 L",
     "price": 32300000,
@@ -289,7 +342,7 @@
       { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "secro_flesh": 100 } }
     ],
     "warmth": 30,
-    "material_thickness": 28,
+    "material_thickness": 22,
     "environmental_protection": 8,
     "power_armor": true,
     "charges_per_use": 10,
@@ -306,11 +359,11 @@
           "has": "WORN",
           "condition": "ALWAYS",
           "values": [
-            { "value": "SPEED", "add": 5 },
-            { "value": "ATTACK_SPEED", "multiply": 0.5 },
-            { "value": "MOVE_COST", "multiply": -0.25 },
-            { "value": "REGEN_STAMINA", "multiply": 0.375 },
-            { "value": "METABOLISM", "multiply": -0.005 }
+            { "value": "SPEED", "multiply": 0.1 },
+            { "value": "ATTACK_SPEED", "multiply": 0.1 },
+            { "value": "MOVE_COST", "multiply": -0.05 },
+            { "value": "REGEN_STAMINA", "multiply": 0.075 },
+            { "value": "METABOLISM", "multiply": -0.01 }
           ],
           "ench_effects": [ { "effect": "secro_power_armor_flesh_devouring_note", "intensity": 1 } ]
         }
@@ -361,9 +414,9 @@
           "has": "WORN",
           "condition": "ALWAYS",
           "values": [
-            { "value": "PERCEPTION", "add": 2 },
-            { "value": "SIGHT_RANGE", "multiply": 0.25 },
-            { "value": "METABOLISM", "multiply": -0.005 }
+            { "value": "PERCEPTION", "add": 4 },
+            { "value": "SIGHT_RANGE", "multiply": 0.05 },
+            { "value": "METABOLISM", "multiply": -0.01 }
           ],
           "ench_effects": [ { "effect": "secro_power_armor_flesh_devouring_note", "intensity": 1 } ]
         }
@@ -423,9 +476,9 @@
           "has": "WORN",
           "condition": "ALWAYS",
           "values": [
-            { "value": "ARMOR_BIO", "add": -1, "multiply": 0.025 },
-            { "value": "MAX_HP", "multiply": 0.025 },
-            { "value": "METABOLISM", "multiply": -0.0375 }
+            { "value": "ARMOR_BIO", "add": -1 },
+            { "value": "MAX_HP", "multiply": 0.05 },
+            { "value": "METABOLISM", "multiply": -0.075 }
           ],
           "ench_effects": [ { "effect": "secro_power_armor_flesh_devouring_note", "intensity": 1 } ],
           "hit_you_effect": [

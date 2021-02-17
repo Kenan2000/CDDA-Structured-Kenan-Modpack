@@ -1,21 +1,129 @@
 [
   {
+    "//": "TODO write everything, add trade stock with MJ, drugs, maybe something more; 4th quest, something else.",
     "type": "npc",
     "id": "NPC_bandit_sb_drugmaker",
     "class": "NC_SCAVENGER",
     "attitude": 0,
     "mission": 8,
-    "chat": "TALK_bandit_sb_drugmaker1",
-    "faction": "sunset_bikers"
+    "chat": "TALK_bandit_sb_drugmaker",
+    "faction": "sunset_bikers",
+    "mission_offered": "MISSION_bandit_sb_drugmaker_1"
   },
   {
-    "id": [ "TALK_bandit_sb_drugmaker1", "TALK_bandit_sb_drugmaker_Background" ],
+    "type": "npc_class",
+    "id": "NC_bandit_sb_drugmaker",
+    "common": false,
+    "name": { "str": "Drug-maker" },
+    "job_description": "I'm just wandering.",
+    "shopkeeper_item_group": "NC_bandit_sb_drugmaker_shop",
+    "traits": [ { "group": "NPC_starting_traits" }, { "group": "Appearance_demographics" } ],
+    "skills": [
+      { "skill": "ALL", "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 4, 2 ] }, { "rng": [ -4, -1 ] } ] } ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_bandit_sb_drugmaker_shop",
+    "subtype": "collection",
+    "items": [
+      { "group": "stash_drugs", "count": [ 1, 6 ] },
+      { "item": "joint", "count": [ 5, 35 ] },
+      { "item": "weed", "count": [ 10, 50 ] },
+      [ "pipe_glass", 100 ]
+    ]
+  },
+  {
+    "//": "'condition': { 'u_has_var': 'bandit_dump_unlocked', 'type': 'flag', 'context': 'missions_sb', 'value': 'yes' },",
+    "id": [ "TALK_bandit_sb_drugmaker" ],
     "type": "talk_topic",
-    "dynamic_line": "<greet>",
+    "dynamic_line": {
+      "u_has_var": "bandit_dump_unlocked",
+      "type": "flag",
+      "context": "missions_sb",
+      "value": "yes",
+      "yes": "Hello there.",
+      "no": "I'm busy.  Talk to me later."
+    },
     "responses": [
-      { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
+      { "text": "Hi.", "topic": "TALK_bandit_sb_drugmaker1", "effect": { "npc_first_topic": "TALK_bandit_sb_drugmaker1" } }
+    ]
+  },
+  {
+    "id": [ "TALK_bandit_sb_drugmaker1", "TALK_bandit_sb_drugmaker_Background", "TALK_bandit_sb_drugmaker_wait" ],
+    "type": "talk_topic",
+    "dynamic_line": {
+      "npc_compare_time_since_var": "wait_for_farm",
+      "type": "time",
+      "context": "open_mission",
+      "op": ">",
+      "time": "14 days",
+      "yes": "Yo, <name_g>, have you seen my <very> large farm?  Those slaves worked hard on it!  Now I can start selling that stuff to other <name_b>'s around me.  You, on the other hand, will have 50% of our income, as we discussed.  And a special discount if you would want to buy some, he-he.",
+      "no": "<greet>"
+    },
+    "speaker_effect": {
+      "condition": {
+        "npc_compare_time_since_var": "wait_for_farm",
+        "type": "time",
+        "context": "open_mission",
+        "op": ">",
+        "time": "14 days"
+      },
+      "effect": [
+        { "mapgen_update": "bandit_sb_drugmaker_farm1", "om_terrain": "ws_biker_dump_0_1" },
+        { "mapgen_update": "bandit_sb_drugmaker_farm2", "om_terrain": "ws_biker_dump_0_2" },
+        { "npc_lose_var": "wait_for_farm", "type": "time", "context": "open_mission" },
+        { "u_add_var": "sb_narc_farm", "type": "switch", "context": "farm_status", "value": "working" },
+        { "npc_add_var": "wait_for_m4", "type": "time", "context": "open_mission", "time": true }
+      ]
+    },
+    "responses": [
+      {
+        "text": "About that job…",
+        "condition": { "u_has_mission": "MISSION_bandit_sb_drugmaker_3" },
+        "topic": "TALK_bandit_sb_drugmaker_slaves",
+        "switch": true
+      },
+      {
+        "text": "About that job…",
+        "condition": { "and": [ "has_assigned_mission", "mission_complete" ] },
+        "topic": "TALK_MISSION_INQUIRE",
+        "switch": true
+      },
       { "text": "<BGSS_intro_question>", "topic": "TALK_bandit_sb_drugmaker_Background" },
-      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      {
+        "text": "Do you need any help?",
+        "trial": {
+          "type": "CONDITION",
+          "condition": {
+            "and": [
+              {
+                "not": { "npc_compare_time_since_var": "wait_for_m4", "type": "time", "context": "open_mission", "op": "<", "time": "12 days" }
+              },
+              {
+                "not": {
+                  "npc_compare_time_since_var": "wait_for_farm",
+                  "type": "time",
+                  "context": "open_mission",
+                  "op": "<",
+                  "time": "14 days"
+                }
+              }
+            ]
+          }
+        },
+        "success": {
+          "effect": [ { "npc_lose_var": "wait_for_m4", "type": "time", "context": "open_mission" } ],
+          "topic": "TALK_MISSION_LIST"
+        },
+        "failure": { "topic": "TALK_bandit_sb_drugmaker_wait" }
+      },
+      {
+        "text": "Let's trade.",
+        "condition": { "u_has_var": "sb_narc_farm", "type": "switch", "context": "farm_status", "value": "working" },
+        "topic": "TALK_bandit_sb_drugmaker1",
+        "effect": "start_trade"
+      },
       { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
@@ -23,5 +131,190 @@
     "type": "talk_topic",
     "id": "TALK_bandit_sb_drugmaker_Background",
     "dynamic_line": "I was a chemist before <the_cataclysm>.  Now I'm making drugs for Sunset Bikers.  Hell Yeah!"
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_drugmaker_wait",
+    "dynamic_line": "Sorry <name_g>, I got nothing to offer you at the moment.  Come to me later."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_drugmaker_slaves",
+    "dynamic_line": "Did you bring them here, partner?",
+    "responses": [
+      {
+        "text": "I've got only some of them.",
+        "topic": "TALK_bandit_sb_drugmaker_slaves_complete",
+        "condition": {
+          "or": [
+            {
+              "and": [
+                { "u_compare_var": "slaves_for_sb", "type": "count", "context": "alive", "op": ">", "value": 0 },
+                { "not": { "u_has_mission": "MISSION_gs_slaves" } }
+              ]
+            },
+            { "u_has_trait": "DEBUG_MIND_CONTROL" }
+          ]
+        },
+        "switch": true
+      },
+      {
+        "text": "I'm sorry, I couldn't bring them alive…",
+        "topic": "TALK_MISSION_FAILURE",
+        "condition": {
+          "and": [
+            { "u_compare_var": "slaves_for_sb", "type": "count", "context": "dead", "op": ">", "value": 0 },
+            { "not": { "u_has_mission": "MISSION_gs_slaves" } }
+          ]
+        },
+        "effect": "mission_failure",
+        "switch": true
+      },
+      { "text": "Nothing, really.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_bandit_sb_drugmaker_slaves_complete",
+    "dynamic_line": "Why are there so few of them?  Fuck it, as long as they work.",
+    "speaker_effect": [
+      {
+        "effect": [
+          "mission_success",
+          "clear_mission",
+          { "u_lose_var": "slaves_for_sb", "type": "count", "context": "dead" },
+          { "u_lose_var": "slaves_for_sb", "type": "count", "context": "alive" },
+          { "u_lose_var": "gs_take_slaves", "type": "count", "context": "take_slaves" },
+          { "npc_add_var": "wait_for_farm", "type": "time", "context": "open_mission", "time": true }
+        ]
+      }
+    ],
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "MISSION_bandit_sb_drugmaker_1",
+    "type": "mission_definition",
+    "name": { "str": "Narc farm pt. 1" },
+    "description": "Deliver 1000 marijuana seeds.",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 0,
+    "value": 0,
+    "item": "seed_weed",
+    "count": 1000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_bandit_sb_drugmaker_2",
+    "dialogue": {
+      "describe": "-",
+      "offer": "I want to make my own narc farm to make money.  I have some seed supply, but this is not enough to fully develop it.  I can't do it myself, and I need a partner.  Do you want to become my partner?  If you help me with the development of the farm, we will divide the profit 50 by 50.",
+      "accepted": "Good.  So the first thing we need to do is find the seeds.  Bring at least 2kg of cannabis seeds.  I will try to find some more through my channels.  The sooner we plant the seeds, the faster we will get the harvest.",
+      "rejected": "And I wanted to make you my partner…",
+      "advice": "As if I know more than you where you can find them.",
+      "inquire": "Find anything?",
+      "success": "Wow, did you really find that many seeds?  Unfortunately, I managed to find half as many.  Well, I hope 3 kg will be enough.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_bandit_sb_drugmaker_2",
+    "type": "mission_definition",
+    "name": { "str": "Narc farm pt. 2" },
+    "description": "Deliver 15 sacks of commercial fertilizer.",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 0,
+    "value": 0,
+    "item": "fertilizer_commercial",
+    "count": 6750,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_bandit_sb_drugmaker_3",
+    "dialogue": {
+      "describe": "-",
+      "offer": "We got the seeds.  Now, we need to find fertilizer for our farm.  Get me 15 sacks of commercial fertilizer.",
+      "accepted": "I will try to find some more through my channels.  The earlier we plant seeds, the faster we get the harvest.",
+      "rejected": "And I wanted to make you my partner…",
+      "advice": "As if I know more than you where you can find them.",
+      "inquire": "Find anything?",
+      "success": "Wow, did you really find that many sacks?  Unfortunately, I managed to find less that that.  Well, I hope 25 sacks will be enough.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "id": "MISSION_bandit_sb_drugmaker_3",
+    "type": "mission_definition",
+    "name": { "str": "Narc farm pt. 3" },
+    "description": "Deliver 4 slaves.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "npc_has_var": "-", "type": "-", "context": "-", "value": "-" },
+    "difficulty": 0,
+    "value": 15000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_bandit_sb_drugmaker_4",
+    "dialogue": {
+      "describe": "-",
+      "offer": "These were all preparations.  Now, let's make a farm!  The local <name_b>'s will never work, so I need some other workforce.  I recently asked our leader how I can resolve this issue, and he said that he would think about it.  Talk to the leader if he's got anything.",
+      "accepted": "Excellent.  If he agreed on everything, then we will have to deliver at least a dozen workers.",
+      "rejected": "And I wanted to make you my partner…",
+      "advice": "The more you deliver here, the larger our fields will be, and, accordingly, our income.  Try to get them safe and sound.",
+      "inquire": "-",
+      "success": "-",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "//": "TODO write something",
+    "id": "MISSION_bandit_sb_drugmaker_4",
+    "type": "mission_definition",
+    "name": { "str": "Retaliation" },
+    "goal": "MGOAL_ASSASSINATE",
+    "difficulty": 0,
+    "value": 10000,
+    "start": {
+      "assign_mission_target": { "om_terrain": "bandit_garage_1", "cant_see": true, "om_terrain_replace": "field" },
+      "update_mapgen": [
+        { "om_terrain": "ws_biker_dump_0_1", "place_nested": [ { "chunks": [ "nest_narc_farm_burn1" ], "x": 4, "y": 14 } ] },
+        {
+          "om_terrain": "ws_biker_dump_0_2",
+          "place_nested": [ { "chunks": [ "nest_narc_farm_burn2" ], "x": 4, "y": 0 } ]
+        },
+        {
+          "om_terrain": "bandit_garage_2",
+          "place_npcs": [
+            { "class": "bandit", "x": [ 1, 12 ], "y": [ 4, 19 ], "repeat": [ 2, 6 ] },
+            { "class": "bandit", "x": 12, "y": 12, "target": true }
+          ]
+        }
+      ],
+      "effect": [
+        { "u_buy_item": "gasbomb", "count": 5 },
+        { "u_buy_item": "mask_gas" },
+        { "u_add_var": "sb_narc_farm", "type": "switch", "context": "farm_status", "value": "burned" }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "-",
+      "offer": "Ah, <name_g>, it's you again.  Well, how's our new farm?  As soon as all this is ripe, we get the first harvest, we will begin to receive a stable income!  I've already made connections with smaller gangs who are willing to trade their looted belongings for our goods, he-he.  Speaking of smaller gangs.  I need you to do something.",
+      "accepted": "Oh yeah, here's another thing…\"  you started chatting.  After a while, you smelled smoke.  You decided to look out where the smoke was coming from.  \"Oh no, my beautiful crops!  This damn <name_b> decided to screw me up.  Well, we'll figure it out.  Hold these gas grenades and this mask.  Make these bitch children choke!",
+      "rejected": "We can do it later, <name_g>.",
+      "advice": "Gas them, gas them all!",
+      "inquire": "I hope you get bring me some good news, <name_g>.",
+      "success": "Nice.  Too bad our little farm got burned, though.  Ah, We'll think about it some other time.  It was nice to have a business partner like you.",
+      "success_lie": "-",
+      "failure": "-"
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "bandit_sb_drugmaker_farm1",
+    "method": "json",
+    "object": { "place_nested": [ { "chunks": [ "nest_narc_farm1" ], "x": 4, "y": 14 } ] }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "bandit_sb_drugmaker_farm2",
+    "method": "json",
+    "object": { "place_nested": [ { "chunks": [ "nest_narc_farm2" ], "x": 4, "y": 0 } ] }
   }
 ]

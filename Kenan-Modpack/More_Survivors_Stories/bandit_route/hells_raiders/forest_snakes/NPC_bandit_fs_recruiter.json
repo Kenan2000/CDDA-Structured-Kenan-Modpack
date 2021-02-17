@@ -51,7 +51,7 @@
         "condition": { "u_compare_var": "bandit_recruiter_reward", "type": "count", "context": "reward", "op": ">", "value": 0 },
         "trial": {
           "type": "CONDITION",
-          "condition": { "u_compare_var": "lend_bandits_fs", "type": "flag", "context": "death", "op": ">=", "value": 2 }
+          "condition": { "u_compare_var": "lend_bandits_fs", "type": "count", "context": "death", "op": ">=", "value": 2 }
         },
         "success": {
           "topic": "TALK_bandit_fs_recruiter_bad",
@@ -59,7 +59,7 @@
         },
         "failure": {
           "topic": "TALK_bandit_fs_recruiter_reward",
-          "effect": [ { "u_lose_var": "lend_bandits_fs", "type": "flag", "context": "death" } ]
+          "effect": [ { "u_lose_var": "lend_bandits_fs", "type": "count", "context": "death" } ]
         },
         "switch": true
       },
@@ -110,17 +110,17 @@
         "You lost ",
         {
           "u_compare_var": "lend_bandits_fs",
-          "type": "flag",
+          "type": "count",
           "context": "death",
           "op": "==",
           "value": 2,
           "yes": "two",
           "no": "three"
         },
-        " of my men and still came for the reward?  Get out of here, <swear> <name_b>, before I kick your ass!"
+        " of my men and still came for reward?  Get out of here, <swear> <name_b>, before I kick your ass!"
       ]
     },
-    "speaker_effect": { "effect": { "u_lose_var": "lend_bandits_fs", "type": "flag", "context": "death" } }
+    "speaker_effect": { "effect": { "u_lose_var": "lend_bandits_fs", "type": "count", "context": "death" } }
   },
   {
     "type": "talk_topic",
@@ -194,7 +194,7 @@
     "id": "MISSION_bandit_fs_recruiter_1",
     "type": "mission_definition",
     "name": { "str": "Barbed fence" },
-    "description": "Deliver 150 rolls of barbed wire to Forest Snakes recruiter.",
+    "description": "Find 150 rolls of barbed wire fors Forest Snakes recruiter.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 0,
     "value": 10000,
@@ -206,7 +206,7 @@
     "dialogue": {
       "describe": "-",
       "offer": "So listen here, rookie… oh, it's you.  I confused you with one of my soldiers.  We are planning to strengthen the defense of our camp, and this task fell on my shoulders.  I need 150 rolls of barbed wire.  We, of course, do not have such a quantity, but if you can find me some of it, I will make it worth your while.",
-      "accepted": "Nice.  There is no rush, but I will be glad if you will not delay this.",
+      "accepted": "There is no rush, but I will be glad if you will not delay this.",
       "rejected": "Fine, I'll ask someone else.",
       "advice": "Look at a hardware store or similar location.",
       "inquire": "How is the search going?",
@@ -219,7 +219,7 @@
     "id": "MISSION_bandit_fs_recruiter_2",
     "type": "mission_definition",
     "name": { "str": "Lazy builders" },
-    "description": "Уговори 3 человек приступить к работе над ограждениями.",
+    "description": "Convince 3 people to start working on the fences.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": { "u_has_var": "bandit_camp_helpers", "type": "count", "context": "help_count", "value": "3" },
     "difficulty": 0,
@@ -272,9 +272,9 @@
     "dialogue": {
       "describe": "-",
       "offer": "Rookie, why are you not on… oh, it's you again.  I mistook you for someone else, sorry.  We're still doing this <swear> construction, and these <swear> <name_b>'s don't want to work!  I'm busy with another important job right now, so I can't kick all these <name_b>'s asses.  Help me put together a construction team, and I will make it worth your while.",
-      "accepted": "Fine. The camp is full of lazy asses.  Just ask around and someone may agree to work.",
+      "accepted": "Splendid. The camp is full of lazy asses.  Just ask around and someone may agree to work.",
       "rejected": "Fine, I'll ask someone else.",
-      "advice": "Kicking ass without my order is not allowed!",
+      "advice": "Kicking ass without my permission is not allowed!",
       "inquire": "How's it going?",
       "success": "You have a talent, <name_g>, well done.  I can already see that these lazy people are almost done.  You helped me a lot, thanks.  Hope these <name_b>'s put the fence right…",
       "success_lie": "-",

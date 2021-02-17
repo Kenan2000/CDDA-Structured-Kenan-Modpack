@@ -1,0 +1,47 @@
+[
+  {
+    "type": "talk_topic",
+    "id": [ "TALK_GRIM_SISTERS" ],
+    "dynamic_line": {
+      "u_male": true,
+      "yes": {
+        "npc_has_var": "talked_once",
+        "type": "flag",
+        "context": "talked",
+        "value": "yes",
+        "yes": "Prepare to die, pig!",
+        "no": "You turn to me again, pig, and I will cut you into pieces."
+      },
+      "no": "Welcome home, sister."
+    },
+    "speaker_effect": {
+      "condition": {
+        "and": [ { "not": { "npc_has_var": "talked_once", "type": "flag", "context": "talked", "value": "yes" } }, "u_male" ]
+      },
+      "effect": { "npc_add_var": "talked_once", "type": "flag", "context": "talked", "value": "yes" }
+    },
+    "responses": [
+      {
+        "text": "…",
+        "condition": { "npc_has_var": "talked_once", "type": "flag", "context": "talked", "value": "yes" },
+        "effect": "insult_combat",
+        "topic": "TALK_DONE",
+        "switch": true
+      },
+      {
+        "text": "Show what you are capable of.",
+        "condition": "u_male",
+        "topic": "TALK_DONE",
+        "effect": "insult_combat",
+        "switch": true,
+        "default": true
+      },
+      {
+        "truefalsetext": { "true": "Don't be nervous, please.", "false": "Thanks.", "condition": "u_male" },
+        "topic": "TALK_DONE",
+        "switch": true,
+        "default": true
+      }
+    ]
+  }
+]
