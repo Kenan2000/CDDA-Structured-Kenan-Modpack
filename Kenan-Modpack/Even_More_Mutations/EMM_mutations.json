@@ -141,31 +141,31 @@
     "category": [ "CRAB" ],
     "leads_to": [ "CRAB_CLAW" ],
     "wet_protection": [
-      { "part": "HEAD", "ignored": 8 },
-      { "part": "LEG_L", "ignored": 16 },
-      { "part": "LEG_R", "ignored": 16 },
-      { "part": "FOOT_L", "ignored": 6 },
-      { "part": "FOOT_R", "ignored": 6 },
-      { "part": "ARM_L", "ignored": 16 },
-      { "part": "ARM_R", "ignored": 16 },
-      { "part": "HAND_L", "ignored": 6 },
-      { "part": "HAND_R", "ignored": 6 },
-      { "part": "TORSO", "ignored": 20 }
+      { "part": "head", "ignored": 8 },
+      { "part": "leg_l", "ignored": 16 },
+      { "part": "leg_r", "ignored": 16 },
+      { "part": "foot_l", "ignored": 6 },
+      { "part": "foot_r", "ignored": 6 },
+      { "part": "arm_l", "ignored": 16 },
+      { "part": "arm_r", "ignored": 16 },
+      { "part": "hand_l", "ignored": 6 },
+      { "part": "hand_r", "ignored": 6 },
+      { "part": "torso", "ignored": 20 }
     ],
     "encumbrance_always": [
-      [ "TORSO", 40 ],
-      [ "HEAD", 40 ],
-      [ "ARM_L", 30 ],
-      [ "ARM_R", 30 ],
-      [ "HAND_L", 30 ],
-      [ "HAND_R", 30 ],
-      [ "LEG_L", 30 ],
-      [ "LEG_R", 30 ],
-      [ "FOOT_L", 30 ],
-      [ "MOUTH", 10 ],
-      [ "FOOT_R", 30 ]
+      [ "torso", 40 ],
+      [ "head", 40 ],
+      [ "arm_l", 30 ],
+      [ "arm_r", 30 ],
+      [ "hand_l", 30 ],
+      [ "hand_r", 30 ],
+      [ "leg_l", 30 ],
+      [ "leg_r", 30 ],
+      [ "foot_l", 30 ],
+      [ "mouth", 10 ],
+      [ "foot_r", 30 ]
     ],
-    "restricts_gear": [ "HEAD" ],
+    "restricts_gear": [ "head" ],
     "armor": [ { "parts": "ALL", "bash": 11, "cut": 13, "stab": 3, "acid": 2 } ],
     "passive_mods": { "dex_mod": -3 }
   },
@@ -214,14 +214,14 @@
     "ugliness": 8,
     "mixed_effect": true,
     "description": "Instead of your right hand, you now have a giant crab claw. It encumbers you greatly, but you can occasionally use it in melee combat to deal massive damage.",
-    "encumbrance_always": [ [ "HAND_R", 40 ] ],
+    "encumbrance_always": [ [ "hand_r", 40 ] ],
     "valid": false,
     "cancels": [ "NAILS", "CLAWS", "TALONS", "WEBBED", "ARM_TENTACLES", "ARM_TENTACLES_4", "ARM_TENTACLES_8" ],
     "threshreq": [ "THRESH_CRAB" ],
     "category": [ "CRAB" ],
-    "restricts_gear": [ "HAND_R" ],
+    "restricts_gear": [ "hand_r" ],
     "types": [ "HANDS" ],
-    "armor": [ { "parts": [ "HAND_R" ], "bash": 2, "cut": 2 } ],
+    "armor": [ { "parts": [ "hand_r" ], "bash": 2, "cut": 2 } ],
     "attacks": {
       "attack_text_u": "You pinch %s with your giant claw",
       "attack_text_npc": "%1$s pinches %2$s with their giant claw",
@@ -370,7 +370,7 @@
   {
     "type": "mutation",
     "id": "FANGS",
-    "copy-from": "SLEEK_SCALES",
+    "copy-from": "FANGS",
     "extend": { "changes_to": [ "FANGS_SNAKE" ], "category": [ "SNAKE" ] }
   },
   {
@@ -394,7 +394,7 @@
   {
     "type": "mutation",
     "id": "POISONOUS2",
-    "copy-from": "POISONOUS",
+    "copy-from": "POISONOUS2",
     "extend": { "threshreq": [ "THRESH_SNAKE" ], "category": [ "SNAKE" ] }
   },
   {
@@ -446,7 +446,7 @@
         "attack_text_u": "You sink your fangs into %s",
         "attack_text_npc": "%1$s sinks their fangs into %2$s",
         "blocker_mutations": [ "MUZZLE", "MUZZLE_LONG", "MUZZLE_RAT" ],
-        "body_part": "MOUTH",
+        "body_part": "mouth",
         "chance": 20,
         "base_damage": { "damage_type": "stab", "amount": 15 }
       }
@@ -463,7 +463,7 @@
     "description": "Your legs are badly deformed. Permanent leg encumbrance.",
     "category": [ "SNAKE" ],
     "changes_to": [ "TAIL_SNAKE" ],
-    "encumbrance_always": [ [ "LEG_L", 40 ], [ "LEG_R", 40 ] ]
+    "encumbrance_always": [ [ "leg_l", 40 ], [ "leg_r", 40 ] ]
   },
   {
     "type": "mutation",
@@ -480,9 +480,9 @@
     "cancels": [ "TAIL_FIN", "TAIL_FLUFFY", "TAIL_STING", "TAIL_CLUB", "TAIL_RAPTOR", "TAIL_CATTLE", "TAIL_RAT", "TAIL_THICK" ],
     "threshreq": [ "THRESH_SNAKE" ],
     "category": [ "SNAKE" ],
-    "restricts_gear": [ "LEG_L", "LEG_R", "FOOT_L", "FOOT_R" ],
+    "restricts_gear": [ "leg_l", "leg_r", "foot_l", "foot_r" ],
     "allow_soft_gear": false,
-    "encumbrance_always": [ [ "LEG_L", 50 ], [ "LEG_R", 50 ], [ "FOOT_L", 30 ], [ "FOOT_R", 30 ] ],
+    "encumbrance_always": [ [ "leg_l", 50 ], [ "leg_r", 50 ], [ "foot_l", 30 ], [ "foot_r", 30 ] ],
     "attacks": {
       "attack_text_u": "You crush %s with your coils",
       "attack_text_npc": "%1$s crushes %2$s with their coils",
@@ -552,7 +552,7 @@
     "prereqs": [ "LONG_NECK" ],
     "description": "You have a hood on your neck, like a cobra's. It looks striking, but makes you better at intimidating. Adds a slight head encumbrance.",
     "category": [ "SNAKE" ],
-    "encumbrance_always": [ [ "HEAD", 5 ] ],
+    "encumbrance_always": [ [ "head", 5 ] ],
     "social_modifiers": { "intimidate": 15 }
   },
   {
@@ -655,7 +655,7 @@
     "category": [ "RABBIT" ],
     "destroys_gear": true,
     "allow_soft_gear": false,
-    "restricts_gear": [ "FOOT_L", "FOOT_R" ]
+    "restricts_gear": [ "foot_l", "foot_r" ]
   },
   {
     "type": "mutation",
