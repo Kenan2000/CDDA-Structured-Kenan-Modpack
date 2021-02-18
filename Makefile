@@ -972,7 +972,7 @@ endif
 ifeq ($(NATIVE), osx)
 APPTARGETDIR=Cataclysm.app
 APPRESOURCESDIR=$(APPTARGETDIR)/Contents/Resources
-APPDATADIR=$(APPRESOURCESDIR)/data
+APPDATADIR=$(APPRESOURCESDIR)/CDDA-Kenan-Modpack
 ifndef FRAMEWORK
   SDLLIBSDIR=$(shell sdl2-config --libs | sed -n 's/.*-L\([^ ]*\) .*/\1/p')
 endif  # ifndef FRAMEWORK
