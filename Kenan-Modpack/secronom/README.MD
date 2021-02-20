@@ -2,12 +2,12 @@
 
 Its mod thread is at the [official forums](https://discourse.cataclysmdda.org/t/secronom-zombies-mod-thread/16211/1).
 
-Mod made from various references, mixed up with random spices! It was created with its original goal set to imitate the *Dead Frontier*'s zombies. Right now, **Secronom** (name referenced from the game) is a core content mod, with vast assortments of monsters in its bestiary, a collection of items, either finctional or not, newfound mutations, locations and more. If you're up for an action-packed playthrough or just loves beating weird craps, activate this mod and see how your dark days get even darker!
+Mod made from various references, mixed up with random spices! It was created with its original goal set to imitate the *Dead Frontier*'s zombies. Right now, **Secronom** (name referenced from the game) is a core content mod, with vast assortments of monsters in its bestiary, a collection of items, either fictional or not, newfound mutations, locations and more. If you're up for an action-packed playthrough or just loves beating weird craps, activate this mod and see how your dark days get even darker!
 
 - This mod works only with the latest experimental of CDDA. Update your client before activating.
-- This mod is stable. There are no known bugs that can cause fatal error, unless a recent update on CDDA broke something. Please notify me of that.
+- This mod is stable. There are no known bugs that can cause fatal error. Please report an issue otherwise.
 
-For information about the mod contents, open **modinfo.md**.
+Information about the mod's contents is currently unavailable.
 # Credits
 Great people who contributed to this ever-expanding mod :>
 

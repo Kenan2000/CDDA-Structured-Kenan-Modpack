@@ -1,0 +1,134 @@
+[
+  {
+    "id": "secro_power_armor_flesh_starter",
+    "type": "TOOL_ARMOR",
+    "category": "armor",
+    "name": { "str": "flesh vessel" },
+    "description": "It is currently not merged with anything. Activate to permanently merge with it.\n\nA complex battle suit brought to existence using the latest technological advancements. Secronom exoskeleton type \"Vessel\" takes advantage of the flesh's adaptive cell structure and its capability to respond from one's mind. Limited in interface features, it excels on dealing any situation thanks to its morphing and forming capability.\n\nMerging with the secronom exoskeleton type \"Vessel\" provides:\n<color_white>Stamina regeneration: <color_light_green>+25%</color>\nMaximum health: <color_light_green>+5%</color>\nMetabolism: <color_light_green>-5%</color></color>",
+    "weight": "18400 g",
+    "volume": "21 L",
+    "price": 32300000,
+    "price_postapoc": 300000,
+    "to_hit": 1,
+    "bashing": 1,
+    "material": [ "secro_flesh_mesh" ],
+    "symbol": "[",
+    "looks_like": "power_armor_light",
+    "color": "light_red",
+    "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "head", "eyes", "mouth" ],
+    "coverage": 100,
+    "encumbrance": 50,
+    "warmth": 30,
+    "material_thickness": 8,
+    "environmental_protection": 12,
+    "power_armor": true,
+    "use_action": [
+      {
+        "target": "secro_power_armor_flesh_starter_act",
+        "msg": "<color_light_green>The flesh vessel merges with your skin!",
+        "type": "transform",
+        "active": true,
+        "need_worn": true,
+        "menu_text": "Merge with the flesh vessel"
+      }
+    ],
+    "relic_data": {
+      "passive_effects": [
+        { "id": "ench_secro_power_armor_flesh_resist" },
+        { "id": "ench_secro_power_armor_flesh_noeat" },
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "ench_effects": [ { "effect": "secro_power_armor_flesh_devouring_note", "intensity": 1 } ]
+        }
+      ]
+    },
+    "qualities": [ [ "GLARE", 2 ] ],
+    "flags": [ "WATERPROOF", "STURDY", "ELECTRIC_IMMUNE", "NO_UNLOAD", "PARTIAL_DEAF", "SUN_GLASSES", "OVERSIZE" ]
+  },
+  {
+    "id": "secro_power_armor_flesh_starter_act",
+    "copy-from": "secro_power_armor_flesh_starter",
+    "type": "TOOL_ARMOR",
+    "category": "armor",
+    "name": { "str": "flesh vessel" },
+    "description": "It is currently not merged with anything. Activate to permanently merge with it.\n\nA complex battle suit brought to existence using the latest technological advancements. Secronom exoskeleton type \"Vessel\" takes advantage of the flesh's adaptive cell structure and its capability to respond from one's mind. Limited in interface features, it excels on dealing any situation thanks to its morphing and forming capability.\n\nMerging with the secronom exoskeleton type \"Vessel\" provides:\n<color_white>Stamina regeneration: <color_light_green>+25%</color>\nMaximum health: <color_light_green>+5%</color>\nMetabolism: <color_light_green>-5%</color></color>",
+    "looks_like": "power_armor_light",
+    "color": "light_red",
+    "countdown_interval": 1,
+    "countdown_destroy": true,
+    "countdown_action": { "type": "cast_spell", "spell_id": "secro_power_armor_flesh_give_target", "no_fail": true, "level": 0 }
+  },
+  {
+    "id": "secro_power_armor_flesh",
+    "type": "TOOL_ARMOR",
+    "category": "armor",
+    "name": { "str": "flesh vessel" },
+    "description": "A complex battle suit brought to existence using the latest technological advancements. Secronom exoskeleton type \"Vessel\" takes advantage of the flesh's adaptive cell structure and its capability to respond from one's mind. Limited in interface features, it excels on dealing any situation thanks to its morphing and forming capability.\n\nSecronom exoskeleton type \"Vessel\" provides:\n<color_white>Stamina regeneration: <color_light_green>+25%</color>\nMaximum health: <color_light_green>+5%</color>\nMetabolism: <color_light_green>-5%</color></color>",
+    "weight": "18400 g",
+    "volume": "21 L",
+    "price": 32300000,
+    "price_postapoc": 300000,
+    "to_hit": 1,
+    "bashing": 1,
+    "material": [ "secro_flesh_mesh" ],
+    "symbol": "[",
+    "looks_like": "power_armor_light",
+    "color": "light_red",
+    "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "head", "eyes", "mouth" ],
+    "coverage": 100,
+    "encumbrance": 50,
+    "warmth": 30,
+    "material_thickness": 8,
+    "environmental_protection": 12,
+    "power_armor": true,
+    "use_action": [
+      {
+        "target": "secro_power_armor_flesh_act",
+        "msg": "<color_light_green>You took control of the flesh vessel.",
+        "type": "transform",
+        "active": true,
+        "menu_text": "Activate flesh vessel"
+      }
+    ],
+    "relic_data": {
+      "passive_effects": [
+        { "id": "ench_secro_power_armor_flesh_resist" },
+        { "id": "ench_secro_power_armor_flesh_noeat" },
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "REGEN_STAMINA", "multiply": 0.25 },
+            { "value": "MAX_HP", "multiply": 0.05 },
+            { "value": "METABOLISM", "multiply": -0.05 }
+          ],
+          "mutations": [ "SECRO_WEARING_FLESH_VESSEL" ],
+          "ench_effects": [ { "effect": "secro_power_armor_flesh_devouring_note", "intensity": 1 } ]
+        }
+      ]
+    },
+    "qualities": [ [ "GLARE", 2 ] ],
+    "flags": [ "NO_TAKEOFF", "WATERPROOF", "STURDY", "ELECTRIC_IMMUNE", "NO_UNLOAD", "PARTIAL_DEAF", "SUN_GLASSES", "OVERSIZE" ]
+  },
+  {
+    "id": "secro_power_armor_flesh_act",
+    "copy-from": "secro_power_armor_flesh",
+    "type": "TOOL_ARMOR",
+    "category": "armor",
+    "name": { "str": "flesh vessel" },
+    "description": "A complex battle suit brought to existence using the latest technological advancements. Secronom exoskeleton type \"Vessel\" takes advantage of the flesh's adaptive cell structure and its capability to respond from one's mind. Limited in interface features, it excels on dealing any situation thanks to its morphing and forming capability.\n\nSecronom exoskeleton type \"Vessel\" provides:\n<color_white>Stamina regeneration: <color_light_green>+25%</color>\nMaximum health: <color_light_green>+5%</color>\nMetabolism: <color_light_green>-5%</color></color>",
+    "looks_like": "power_armor_light",
+    "power_draw": 1000000,
+    "revert_to": "secro_power_armor_flesh",
+    "use_action": [
+      {
+        "target": "secro_power_armor_flesh",
+        "msg": "<color_light_red>The flesh vessel felt heavier as it powers down",
+        "type": "transform",
+        "menu_text": "Deactivate flesh vessel"
+      }
+    ],
+    "flags": [ "NO_TAKEOFF", "WATERPROOF", "STURDY", "ELECTRIC_IMMUNE", "NO_UNLOAD", "SUN_GLASSES", "OVERSIZE", "USE_UPS" ]
+  }
+]

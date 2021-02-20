@@ -1,0 +1,44 @@
+[
+  {
+    "id": "bio_secro_fv",
+    "type": "bionic",
+    "name": { "str": "Bio-organic Exoskeleton Interface" },
+    "description": "Interfaces your power system with the internal charging port on suits of power armor, allowing them to draw from your bionic power banks.",
+    "occupied_bodyparts": [ [ "torso", 2 ], [ "head", 3 ] ],
+    "flags": [ "BIONIC_ARMOR_INTERFACE", "BIONIC_TOGGLED" ],
+    "react_cost": 1,
+    "time": 1,
+    "included_bionics": [ "bio_secro_fv_link" ]
+  },
+  {
+    "id": "bio_secro_fv_link",
+    "type": "bionic",
+    "name": { "str": "Bio-organic Neural Link" },
+    "description": "An intricate transmission device implanted on your head spreading down towards your spine. Grants full control over most experimental bio-organic exoskeleton worn by its user.",
+    "enchantments": [ "ench_secro_power_armor_flesh_resisted" ],
+    "included": true
+  },
+  {
+    "id": "bio_secro_fv_core",
+    "type": "bionic",
+    "name": { "str": "Artificial Flesh Core" },
+    "description": "A prototype version of the flesh has been installed on your chest. It allows one to consume flesh and convert it into bionic power. The process is slow, but highly renewable.",
+    "occupied_bodyparts": [ [ "torso", 10 ] ],
+    "fuel_options": [ "secro_flesh_fuel" ],
+    "fuel_capacity": 100,
+    "fuel_efficiency": 0.075,
+    "time": 1,
+    "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
+    "included_bionics": [ "bio_secro_fv_core_food" ],
+    "enchantments": [ "ench_bio_secro_fv_core" ]
+  },
+  {
+    "id": "bio_secro_fv_core_food",
+    "type": "bionic",
+    "name": { "str": "Metabolic Distribution" },
+    "description": "Your digestive system is interconnected to the core, which has the ability to distribute nutrition to the bio-organic exoskeleton. This also acts as an alternative to feeding it with flesh. Activating will burn large amount of calories to sate the suit's hunger, but be careful not to overuse it.",
+    "included": true,
+    "act_cost": "50 kJ",
+    "spell_on_activation": { "id": "secro_power_armor_feed_target" }
+  }
+]

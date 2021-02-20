@@ -3,8 +3,10 @@
     "type": "profession",
     "id": "secro_prof_vesselrecruit",
     "name": "Vessel Recruit",
-    "description": "You are a military recruit tasked to perform an alpha field test on the bio-organic power armor - the flesh vessel - installed with necessary bionics. After the Cataclysm struck, your connection with the team was lost, and worst, feeding the suit would be a major problem.",
+    "description": "You are a military recruit tasked to perform an alpha field test on the bio-organic power armor - the flesh vessel - installed with necessary bionics. After the Cataclysm struck, your connection to the team were lost.",
     "points": 4,
+    "proficiencies": [ "prof_gunsmithing_basic" ],
+    "traits": [ "SECRO_FLESH_VESSEL_1" ],
     "skills": [
       { "level": 2, "name": "gun" },
       { "level": 1, "name": "rifle" },
@@ -12,18 +14,71 @@
       { "level": 1, "name": "stabbing" },
       { "level": 1, "name": "dodge" }
     ],
-    "CBMs": [ "bio_power_armor_interface", "bio_batteries", "bio_power_storage_mkII", "bio_power_storage_mkII" ],
+    "CBMs": [ "bio_secro_fv", "bio_secro_fv_core", "bio_power_storage_mkII", "bio_power_storage_mkII" ],
     "items": {
       "both": {
-        "ammo": 100,
-        "magazine": 100,
+        "items": [
+          "secro_power_armor_flesh",
+          "secro_recipe_flesh_field",
+          "backpack_fleshmod"
+        ],
         "entries": [
-          { "item": "secro_flesh", "count": 2 },
-          { "item": "knife_combat" },
-          { "item": "secro_recipe_flesh_field" },
-          { "item": "secro_power_armor_flesh" },
-          { "item": "secro_power_armor_module_core" },
+          { "item": "secro_power_armor_flesh_bor", "ammo-item": "secro_flesh", "charges": 100 },
+          { "item": "knife_combat", "container-item": "secro_power_armor_flesh_sheath" },
+          { "item": "secro_flesh", "count": 4 },
           { "group": "charged_cell_phone" }
+        ]
+      }
+    },
+    "flags": [ "SCEN_ONLY" ]
+  },
+  {
+    "type": "profession",
+    "id": "secro_prof_vesselrecruit_army",
+    "copy-from": "secro_prof_vesselrecruit",
+    "description": "You've been selected to operate the bio-organic exoskeleton \"flesh vessel\".  You were suppose to receive a special training after that as just in the right time, the base were already overwhelmed by the undead.  As far as you can tell, military command abandoned you in this hellhole when you missed the emergency evac."
+  },
+  {
+    "type": "profession",
+    "id": "secro_prof_vesselelite_army",
+    "name": "Vessel Elite",
+    "description": "You are one of the finest super soldiers ever trained and specialized to harness the experimental exoskeleton \"flesh vessel\".  Unfortunately, the outbreak has already took place to the point escaping is impossible.  As far as you can tell, military command abandoned you in this hellhole when you missed the emergency evac",
+    "points": 10,
+    "proficiencies": [ "prof_gunsmithing_basic", "prof_traps", "prof_disarming" ],
+    "traits": [ "SECRO_FLESH_VESSEL_1" ],
+    "skills": [
+      { "level": 6, "name": "gun" },
+      { "level": 4, "name": "smg" },
+      { "level": 4, "name": "rifle" },
+      { "level": 4, "name": "cutting" },
+      { "level": 6, "name": "melee" },
+      { "level": 3, "name": "dodge" },
+      { "level": 3, "name": "traps" },
+      { "level": 4, "name": "firstaid" },
+      { "level": 1, "name": "swimming" },
+      { "level": 4, "name": "survival" }
+    ],
+    "CBMs": [ "bio_secro_fv", "bio_secro_fv_core", "bio_power_storage_mkII", "bio_power_storage_mkII" ],
+    "items": {
+      "both": {
+        "items": [
+          "secro_power_armor_flesh",
+          "secro_power_armor_flesh_bag",
+          "secro_power_armor_flesh_harness"
+        ],
+        "entries": [
+          { "item": "secro_power_armor_flesh_bor", "ammo-item": "secro_flesh", "charges": 250 },
+          { "item": "secro_flesh", "count": 6 },
+          { "group": "charged_cell_phone" },
+          { "item": "kukri", "container-item": "secro_power_armor_flesh_sheath" },
+          { "item": "secro_power_armor_flesh_chestrig", "contents-group": "army_mags_mp5" },
+          {
+            "item": "hk_mp5",
+            "ammo-item": "9mm",
+            "charges": 30,
+            "contents-item": [ "shoulder_strap", "suppressor", "holo_sight" ],
+            "custom-flags": [ "auto_wield" ]
+          }
         ]
       }
     },

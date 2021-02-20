@@ -299,11 +299,11 @@
       "palettes": [ "secro_basement_bunker_flesh" ],
       "terrain": { "o": "t_machinery_electronic" },
       "furniture": { "h": "f_robotic_arm" },
-      "items": { "?": { "item": "secro_fvvault_pa", "chance": 100 } },
-      "mapping": {
-        "?": { "item": [ { "item": "secro_flesh", "repeat": [ 5, 15 ] } ], "terrain": "t_secro_experiment_vat" },
-        "r": { "item": { "item": "secro_power_armor_module_core" }, "furniture": "f_rack" },
-        "p": { "item": [ { "item": "secro_recipe_flesh" } ], "furniture": "f_rack" }
+      "mapping": { "?": { "terrain": "t_secro_experiment_vat" }, "r": { "furniture": "f_rack" }, "p": { "furniture": "f_rack" } },
+      "item": {
+        "?": [ { "item": "secro_flesh", "repeat": [ 5, 15 ] }, { "item": "secro_power_armor_flesh_starter" } ],
+        "r": [ { "item": "bio_secro_fv" }, { "item": "bio_secro_fv_core" } ],
+        "p": [ { "item": "secro_recipe_flesh" }, { "item": "backpack_fleshmod" } ]
       },
       "monster": { "!": { "monster": "mon_turret_rifle" } }
     }
@@ -327,17 +327,5 @@
       "0": "t_secro_door_metal_secrofv"
     },
     "toilets": { "&": {  } }
-  },
-  {
-    "type": "item_group",
-    "id": "secro_fvvault_pa",
-    "subtype": "distribution",
-    "entries": [
-      { "item": "secro_power_armor_flesh", "prob": 30 },
-      { "item": "secro_power_armor_flesh_fite", "prob": 15 },
-      { "item": "secro_power_armor_flesh_tank", "prob": 15 },
-      { "item": "secro_power_armor_flesh_coward", "prob": 15 },
-      { "item": "secro_power_armor_flesh_range", "prob": 15 }
-    ]
   }
 ]

@@ -1,0 +1,251 @@
+[
+  {
+    "id": "secro_power_armor_flesh_bor",
+    "type": "TOOL_ARMOR",
+    "category": "armor",
+    "name": { "str": "bio-organic reconstructors" },
+    "description": "Located on your hands are flesh weavers allowing you to manipulate organic materials at will.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": 0,
+    "price_postapoc": 0,
+    "material": [ "secro_flesh_mesh" ],
+    "symbol": "%",
+    "color": "light_red",
+    "coverage": 0,
+    "encumbrance": 0,
+    "material_thickness": 1,
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "secro_flesh": 250 } } ],
+    "use_action": [
+      {
+        "type": "repair_item",
+        "item_action_type": "repair_fabric",
+        "materials": [ "secro_flesh_mesh", "flesh" ],
+        "skill": "secro_flesh_craft",
+        "tool_quality": 0,
+        "cost_scaling": 0.1,
+        "move_cost": 5000
+      }
+    ],
+    "flags": [
+      "PERSONAL",
+      "SEMITANGIBLE",
+      "OVERSIZE",
+      "ONLY_ONE",
+      "TRADER_AVOID",
+      "NO_TAKEOFF",
+      "NONCONDUCTIVE",
+      "POWERARMOR_COMPATIBLE"
+    ],
+    "qualities": [ [ "SECRO_FLESH_MORPHING", 1 ], [ "SECRO_FLESH_REFORMING", 1 ] ]
+  },
+  {
+    "id": "secro_power_armor_flesh_pouch",
+    "type": "TOOL_ARMOR",
+    "category": "armor",
+    "name": { "str": "vessel pouch", "str_pl": "vessel pouches" },
+    "description": "A small pouch made from bio-organic flesh.",
+    "weight": "400 g",
+    "volume": "1 L",
+    "price": 0,
+    "price_postapoc": 0,
+    "material": [ "flesh" ],
+    "symbol": "[",
+    "color": "pink",
+    "covers": [ "torso" ],
+    "coverage": 15,
+    "encumbrance": 0,
+    "max_encumbrance": 6,
+    "material_thickness": 5,
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "max_contains_volume": "2 L",
+        "max_contains_weight": "8 kg",
+        "max_item_length": "25 cm",
+        "moves": 75
+      }
+    ],
+    "flags": [ "WAIST", "OVERSIZE", "NONCONDUCTIVE", "POWERARMOR_COMPATIBLE" ]
+  },
+  {
+    "id": "secro_power_armor_flesh_bag",
+    "type": "TOOL_ARMOR",
+    "category": "armor",
+    "name": { "str": "vessel backpack" },
+    "description": "A sturdy, fleshy bag with decent storage space.",
+    "weight": "999 g",
+    "volume": "2 L",
+    "price": 0,
+    "price_postapoc": 0,
+    "material": [ "flesh" ],
+    "symbol": "[",
+    "color": "pink",
+    "covers": [ "torso" ],
+    "coverage": 35,
+    "encumbrance": 0,
+    "max_encumbrance": 25,
+    "material_thickness": 5,
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "max_contains_volume": "30 L",
+        "max_contains_weight": "44 kg",
+        "max_item_length": "60 cm",
+        "moves": 95
+      }
+    ],
+    "flags": [ "BELTED", "OVERSIZE", "NONCONDUCTIVE", "POWERARMOR_COMPATIBLE" ]
+  },
+  {
+    "id": "backpack_fleshmod",
+    "type": "ARMOR",
+    "name": { "str": "backpack" },
+    "description": "A small backpack lined with special bio-organic material.  Good storage for a little encumbrance.",
+    "weight": "633 g",
+    "volume": "2 L",
+    "price": 1100,
+    "price_postapoc": 200,
+    "material": [ "cotton", "secro_flesh_mesh" ],
+    "symbol": "[",
+    "looks_like": "ragpouch",
+    "color": "light_red",
+    "covers": [ "torso" ],
+    "coverage": 30,
+    "encumbrance": 2,
+    "max_encumbrance": 25,
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "max_contains_volume": "25 L",
+        "max_contains_weight": "30 kg",
+        "max_item_length": "40 cm",
+        "moves": 300
+      }
+    ],
+    "warmth": 6,
+    "material_thickness": 1,
+    "flags": [ "BELTED", "OVERSIZE", "NONCONDUCTIVE", "POWERARMOR_COMPATIBLE" ]
+  },
+  {
+    "id": "secro_power_armor_flesh_sheath",
+    "type": "ARMOR",
+    "name": { "str": "vessel sheath", "str_pl": "vessel sheathes" },
+    "description": "A fleshy sheath with outlandish looks. Surprisingly easy-to-use. Activate to sheath/unsheath your blade.",
+    "weight": "400 g",
+    "volume": "500 ml",
+    "price": 0,
+    "price_postapoc": 0,
+    "material": [ "flesh" ],
+    "symbol": "|",
+    "color": "red",
+    "covers": [ "leg_l", "leg_r" ],
+    "sided": true,
+    "coverage": 5,
+    "max_encumbrance": 1,
+    "material_thickness": 5,
+    "pocket_data": [
+      {
+        "magazine_well": "350 ml",
+        "holster": true,
+        "max_contains_volume": "750 ml",
+        "max_contains_weight": "3 kg",
+        "max_item_length": "70 cm",
+        "moves": 20,
+        "flag_restriction": [ "SHEATH_KNIFE" ]
+      }
+    ],
+    "use_action": { "type": "holster", "holster_prompt": "Sheath knife", "holster_msg": "You sheath your %s" },
+    "flags": [ "WAIST", "OVERSIZE", "WATER_FRIENDLY", "NONCONDUCTIVE", "POWERARMOR_COMPATIBLE" ]
+  },
+  {
+    "id": "secro_power_armor_flesh_harness",
+    "type": "ARMOR",
+    "name": { "str": "vessel harness", "str_pl": "vessel harnesses" },
+    "description": "A harness carefully formed by flesh weaving. Several small pouches and tactical sling for a small weapon provides better storage whilst being comfortable to wear.  Activate to holster/draw your weapon.",
+    "weight": "490 g",
+    "volume": "1250 ml",
+    "price": 20000,
+    "price_postapoc": 4000,
+    "material": [ "flesh" ],
+    "symbol": "[",
+    "looks_like": "tacvest",
+    "color": "light_red",
+    "covers": [ "torso" ],
+    "coverage": 20,
+    "encumbrance": 4,
+    "max_encumbrance": 13,
+    "material_thickness": 5,
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "holster": true,
+        "min_item_volume": "1250 ml",
+        "max_contains_volume": "8 L",
+        "max_contains_weight": "8200 g",
+        "max_item_length": "120 cm",
+        "moves": 50
+      },
+      {
+        "pocket_type": "CONTAINER",
+        "max_contains_volume": "1500 ml",
+        "max_contains_weight": "5 kg",
+        "max_item_length": "20 cm",
+        "moves": 80
+      },
+      {
+        "pocket_type": "CONTAINER",
+        "max_contains_volume": "1500 ml",
+        "max_contains_weight": "5 kg",
+        "max_item_length": "20 cm",
+        "moves": 80
+      },
+      {
+        "pocket_type": "CONTAINER",
+        "max_contains_volume": "1500 ml",
+        "max_contains_weight": "5 kg",
+        "max_item_length": "20 cm",
+        "moves": 80
+      }
+    ],
+    "use_action": { "type": "holster" },
+    "flags": [ "WATER_FRIENDLY", "STURDY", "WAIST", "NONCONDUCTIVE", "POWERARMOR_COMPATIBLE" ]
+  },
+  {
+    "id": "secro_power_armor_flesh_chestrig",
+    "type": "ARMOR",
+    "name": { "str_sp": "vessel chest rig" },
+    "description": "A chest rig created only by flesh weaving. Modified to hold two magazines at a time.",
+    "weight": "500 g",
+    "volume": "500 ml",
+    "price": 0,
+    "price_postapoc": 0,
+    "material": [ "flesh" ],
+    "symbol": "[",
+    "looks_like": "tool_belt",
+    "color": "red",
+    "covers": [ "torso" ],
+    "coverage": 15,
+    "material_thickness": 5,
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "max_item_length": "240 mm",
+        "max_contains_volume": "750 ml",
+        "max_contains_weight": "3 kg",
+        "moves": 40,
+        "flag_restriction": [ "MAG_COMPACT" ]
+      },
+      {
+        "pocket_type": "CONTAINER",
+        "max_item_length": "240 mm",
+        "max_contains_volume": "750 ml",
+        "max_contains_weight": "3 kg",
+        "moves": 40,
+        "flag_restriction": [ "MAG_COMPACT" ]
+      }
+    ],
+    "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
+    "flags": [ "WATER_FRIENDLY", "BELTED", "NONCONDUCTIVE", "POWERARMOR_COMPATIBLE" ]
+  }
+]
