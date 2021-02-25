@@ -17,5 +17,5 @@ Great people who contributed to this ever-expanding mod :>
 * **Kenan2000** - He helped with some bugfixes. Also a modding companion.
 * **The Go-Goat** - She shared some ideas with mutations.
 * **TheGoatGod** - He fixed some outdated bugs.
-* **SzQ** - He helped on developing/expanding the flesh and flesh vessel exoskeletons.
+* **SzQ** and **QuiteCoyote** - They helped on developing/expanding the flesh and flesh vessel exoskeletons.
 * **Lurak** and **Malkeus42** - They've suggested some in-game rebalances/tweaks.

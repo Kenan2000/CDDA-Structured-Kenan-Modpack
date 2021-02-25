@@ -33,7 +33,7 @@
         ]
       }
     ],
-    "immunity_data": { "traits": [ "ACIDPROOF" ] },
+    "immunity_data": { "traits": [ "ACIDPROOF", "SECRO_WEARING_FLESH_VESSEL" ] },
     "underwater_age_speedup": "2 minutes",
     "has_acid": true,
     "priority": 2,
@@ -265,6 +265,18 @@
     "effect_str": "secro_power_armor_flesh_bor"
   },
   {
+    "type": "SPELL",
+    "id": "secro_power_armor_flesh_check_give",
+    "name": { "str": "Morph" },
+    "description": "Spell casted by an item. If you're seeing this, then read this one instead:\n'Item provides the starter gear for flesh vessel.'",
+    "message": "",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "PERMANENT" ],
+    "valid_targets": [ "self" ],
+    "effect": "spawn_item",
+    "shape": "blast",
+    "effect_str": "secro_power_armor_flesh_check"
+  },
+  {
     "id": "secro_power_armor_flesh_ability_give",
     "type": "SPELL",
     "name": { "str": "Vessel Abilities" },
@@ -285,9 +297,14 @@
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
     "message": "",
     "extra_effects": [
+      { "id": "secro_power_armor_feed", "hit_self": true },
+      { "id": "secro_power_armor_feed", "hit_self": true },
+      { "id": "bio_secro_fv_core_food_cost_act", "hit_self": true },
+      { "id": "bio_secro_fv_core_food_cost_act", "hit_self": true },
       { "id": "secro_power_armor_flesh_give", "hit_self": true },
       { "id": "secro_power_armor_flesh_bor_give", "hit_self": true },
-      { "id": "secro_power_armor_flesh_bor_give", "hit_self": true }
+      { "id": "secro_power_armor_flesh_check_give", "hit_self": true },
+      { "id": "secro_power_armor_flesh_ability_give", "hit_self": true }
     ],
     "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
     "valid_targets": [ "none" ],
@@ -343,7 +360,10 @@
     "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
     "message": "",
-    "extra_effects": [ { "id": "secro_power_armor_feed", "hit_self": true }, { "id": "bio_secro_fv_core_food_cost_act", "hit_self": true } ],
+    "extra_effects": [
+      { "id": "secro_power_armor_feed", "hit_self": true },
+      { "id": "bio_secro_fv_core_food_cost_act", "hit_self": true }
+    ],
     "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_FAIL" ],
     "valid_targets": [ "none" ],
     "effect": "attack",
@@ -355,7 +375,7 @@
     "name": { "str": "<color_light_red>Feed" },
     "description": "Allow the bio-organic exoskeleton to eat your flesh.",
     "message": "<color_light_green>You let the vessel to consume your flesh.</color>",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_FAIL" ],
     "valid_targets": [ "self" ],
     "components": "comp_secro_power_armor_feed_flesh",
     "effect": "attack",
