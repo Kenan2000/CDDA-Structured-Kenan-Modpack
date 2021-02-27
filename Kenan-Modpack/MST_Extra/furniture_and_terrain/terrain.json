@@ -58,7 +58,7 @@
     "move_cost": 0,
     "transforms_into": "t_hive_recovering",
     "examine_action": "harvest_ter",
-    "harvest_by_season": [ { "seasons": [ "spring", "summer", "autumn", "winter" ], "id": "mst_beehive_harv" } ],
+    "harvest_by_season": [ { "seasons": [ "spring", "summer", "autumn", "winter" ], "id": "hive_ready_harv" } ],
     "deconstruct": {
       "ter_set": "t_dirt",
       "items": [ { "item": "beehive_empty", "count": 1 }, { "item": "honeycomb", "count": [ 1, 6 ] } ]
@@ -218,5 +218,31 @@
       "ter_set": "t_null",
       "items": [ { "item": "splinter", "count": [ 15, 30 ] } ]
     }
+  },
+  {
+    "type": "terrain",
+    "id": "t_covered_well_bucket",
+    "name": "well with bucket and pulley",
+    "looks_like": "t_covered_well",
+    "description": "Deep well collecting ground water.  A simple bucket and pulley allows drawing water from it.",
+    "symbol": "&",
+    "color": "light_gray",
+    "move_cost": 2,
+    "coverage": 40,
+    "flags": [ "TRANSPARENT", "THIN_OBSTACLE", "MINEABLE" ],
+    "bash": {
+      "str_min": 80,
+      "str_max": 300,
+      "sound": "crash!",
+      "sound_fail": "whump!",
+      "ter_set": "t_pit",
+      "items": [
+        { "item": "rock", "count": [ 8, 18 ] },
+        { "item": "2x4", "count": [ 0, 2 ] },
+        { "item": "nail", "charges": [ 1, 4 ] },
+        { "item": "splinter", "count": [ 1, 2 ] }
+      ]
+    },
+    "examine_action": "water_source"
   }
 ]
