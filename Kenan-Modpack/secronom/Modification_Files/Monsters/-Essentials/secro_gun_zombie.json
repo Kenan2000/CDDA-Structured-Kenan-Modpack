@@ -52,7 +52,7 @@
     "description": "It sends a highly damaging current to whoever gets close to the entity equipped with this. May shock the user too.",
     "weight": "10000 g",
     "volume": "2500 ml",
-    "price": 100,
+    "price": "1 USD",
     "to_hit": -1,
     "bashing": 12,
     "material": [ "steel" ],
@@ -82,5 +82,35 @@
     "modes": [ [ "N", "near", 5 ], [ "M", "mid", 2 ], [ "L", "far", 1 ] ],
     "dispersion": 1000,
     "ranged_damage": { "damage_type": "acid", "amount": 2 }
+  },
+  {
+    "id": "shifter_shadows",
+    "type": "GUN",
+    "copy-from": "fake_item",
+    "name": { "str": "shapeshifter's shadows" },
+    "description": "An internal something-something that splits thick, errant shadows.",
+    "flags": [ "NEVER_JAMS" ],
+    "ammo_effects": [ "NEVER_MISFIRES", "NO_PENETRATE_OBSTACLES", "SECRO_SHIFTERFOG", "SECRO_SHIFTERFOG_EXPLODE" ],
+    "skill": "rifle",
+    "durability": 10,
+    "range": 25,
+    "modes": [ [ "N", "near", 4 ], [ "M", "mid", 2 ], [ "L", "far", 1 ] ],
+    "dispersion": 5000,
+    "ranged_damage": { "damage_type": "pure", "amount": 1, "armor_multiplier": 0.1 }
+  },
+  {
+    "id": "shifter_illu_shadows",
+    "type": "GUN",
+    "copy-from": "fake_item",
+    "name": { "str": "shapeshifter's shadows" },
+    "description": "An internal something-something that splits thick, errant shadows. This is much less efficient.",
+    "flags": [ "NEVER_JAMS" ],
+    "ammo_effects": [ "NEVER_MISFIRES", "NO_PENETRATE_OBSTACLES", "SECRO_SHIFTERFOG_SMALL", "SECRO_SHIFTERFOG_SMALL_EXPLODE" ],
+    "skill": "rifle",
+    "durability": 10,
+    "range": 25,
+    "modes": [ [ "N", "near", 2 ], [ "M", "mid", 1 ] ],
+    "dispersion": 10000,
+    "ranged_damage": { "damage_type": "pure", "amount": 1, "armor_multiplier": 0.1 }
   }
 ]

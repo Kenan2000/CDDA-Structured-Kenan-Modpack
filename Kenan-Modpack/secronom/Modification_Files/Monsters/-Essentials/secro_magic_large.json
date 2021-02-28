@@ -1,0 +1,119 @@
+[
+  {
+    "id": "mon_shifter_teleport",
+    "type": "SPELL",
+    "name": { "str": "Teleport" },
+    "description": "Spell casted by an monster. If you're seeing this, then read this one instead:\n'Caster teleports away.'",
+    "message": "",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [ "ground" ],
+    "effect": "teleport_random",
+    "shape": "blast",
+    "min_aoe": 3,
+    "max_aoe": 3
+  },
+  {
+    "id": "mon_shifter_spawn_illu_push",
+    "type": "SPELL",
+    "name": { "str": "Spread" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster sends it out farther.'",
+    "effect": "area_push",
+    "shape": "blast",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "ally", "ground" ],
+    "targeted_monster_ids": [ "mon_shifter_illu" ],
+    "min_aoe": 2,
+    "max_aoe": 2
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_shifter_spawn_illu",
+    "name": { "str": "" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster splits out black fogs.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "HOSTILE_SUMMON", "RANDOM_DURATION", "NO_PROJECTILE" ],
+    "valid_targets": [ "ground" ],
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_aoe": 2,
+    "max_aoe": 2,
+    "effect": "summon",
+    "shape": "blast",
+    "effect_str": "mon_shifter_illu",
+    "min_duration": 2000,
+    "max_duration": 6000
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_shifter_spawn_illu_random_target",
+    "name": { "str": "a spell" },
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then randomly casts one of the Spell(s).'",
+    "extra_effects": [
+      { "id": "mon_shifter_teleport", "hit_self": true },
+      { "id": "mon_shifter_spawn_illu", "hit_self": true },
+      { "id": "mon_shifter_spawn_illu_push", "hit_self": true }
+    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
+    "effect": "attack",
+    "shape": "blast"
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_shifter_spawn_illu_random",
+    "name": { "str": "a spell" },
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then randomly casts one of the Spell(s).'",
+    "extra_effects": [ { "id": "mon_shifter_spawn_illu_random_target", "hit_self": true } ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "WONDER", "RANDOM_DAMAGE", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_damage": 3,
+    "max_damage": 6
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_shifter_target",
+    "name": { "str": "a spell" },
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
+    "extra_effects": [ { "id": "mon_shifter_spawn_illu_random" } ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_range": 12,
+    "max_range": 12
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_shifter_illu_target_atk_random",
+    "name": { "str": "a spell" },
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then randomly casts one of the Spell(s).'",
+    "extra_effects": [
+      { "id": "mon_shifter_teleport" },
+      { "id": "secro_spell_null" },
+      { "id": "secro_spell_null" },
+      { "id": "secro_spell_null" }
+    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "WONDER", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_damage": 1,
+    "max_damage": 1,
+    "min_range": 3,
+    "max_range": 3
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_shifter_illu_target",
+    "name": { "str": "a spell" },
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
+    "extra_effects": [ { "id": "mon_shifter_illu_target_atk_random" } ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_range": 10,
+    "max_range": 10
+  }
+]

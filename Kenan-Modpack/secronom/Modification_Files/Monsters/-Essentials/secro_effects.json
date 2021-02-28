@@ -586,14 +586,22 @@
     "name": [ "Intoxicated" ],
     "desc": [ "The toxin flows through you and hastens your reflexes!" ],
     "int_add_val": 1,
-    "int_dur_factor": "5 turns",
+    "int_dur_factor": "4 turns",
     "int_decay_step": -2,
     "int_decay_tick": 5,
     "max_intensity": 5,
     "max_duration": 30,
     "show_in_info": true,
     "base_mods": { "speed_mod": [ 5 ] },
-    "scaling_mods": { "speed_mod": [ 5 ] }
+    "scaling_mods": { "speed_mod": [ 5 ] },
+    "removes_effects": [ "bleed" ],
+    "blocks_effects": [ "bleed" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_zombie_skittyweavy_repair",
+    "removes_effects": [ "bleed" ],
+    "blocks_effects": [ "bleed" ]
   },
   {
     "type": "effect_type",
@@ -1026,15 +1034,30 @@
   },
   {
     "type": "effect_type",
-    "id": "eff_swarmer_stop",
-    "base_mods": { "speed_mod": [ -100 ] }
-  },
-  {
-    "type": "effect_type",
     "id": "eff_carrion_alpha_rally_atk_cmd",
     "max_duration": 100,
     "removes_effects": [ "controlled" ],
     "blocks_effects": [ "controlled" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_bot_secroinforcer_deploy_cost",
+    "base_mods": { "hurt_min": [ 15 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_bot_secromissile_slow",
+    "base_mods": { "speed_mod": [ -150 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_bot_secromissile_limit",
+    "base_mods": { "hurt_min": [ 1 ], "hurt_tick": [ 3 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_bot_secrolauncher_slow",
+    "base_mods": { "speed_mod": [ -70 ] }
   },
   {
     "//": "Effects for notifying the player. This method is a bit unstable...",

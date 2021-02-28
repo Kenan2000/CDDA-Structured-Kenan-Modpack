@@ -1418,6 +1418,85 @@
     "display_field": false
   },
   {
+    "id": "fd_shifter_fog",
+    "type": "field_type",
+    "intensity_levels": [
+      {
+        "name": "black fog",
+        "sym": "8",
+        "color": "dark_gray",
+        "translucency": 1,
+        "effects": [
+          {
+            "effect_id": "blind",
+            "body_part": "eyes",
+            "intensity": 1,
+            "min_duration": "1 seconds",
+            "max_duration": "1 seconds",
+            "immune_inside_vehicle": true
+          }
+        ]
+      },
+      {
+        "name": "thick black fog",
+        "transparent": false,
+        "translucency": 10
+      },
+      {
+        "name": "total darkness",
+        "color": "black",
+        "translucency": 0
+      }
+    ],
+    "immune_mtypes": [ "mon_shifter", "mon_shifter_illu" ],
+    "decay_amount_factor": 4,
+    "gas_absorption_factor": 10,
+    "dirty_transparency_cache": true,
+    "percent_spread": 90,
+    "outdoor_age_speedup": "10 turns",
+    "priority": 10,
+    "half_life": "2 minutes",
+    "phase": "gas",
+    "accelerated_decay": true,
+    "display_items": false,
+    "display_field": true,
+    "looks_like": "fd_fog"
+  },
+  {
+    "id": "fd_shifter_fog_trail",
+    "type": "field_type",
+    "intensity_levels": [
+      {
+        "name": "errant shadows",
+        "sym": "8",
+        "color": "dark_gray",
+        "translucency": 1,
+        "effects": [
+          {
+            "effect_id": "blind",
+            "body_part": "eyes",
+            "intensity": 1,
+            "min_duration": "1 seconds",
+            "max_duration": "1 seconds",
+            "immune_inside_vehicle": true
+          }
+        ]
+      },
+      { }
+    ],
+    "immune_mtypes": [ "mon_shifter", "mon_shifter_illu" ],
+    "priority": 9,
+    "half_life": "5 seconds",
+    "wandering_field": "fd_shifter_fog",
+    "accelerated_decay": true,
+    "gas_absorption_factor": 15,
+    "dirty_transparency_cache": true,
+    "phase": "gas",
+    "display_items": false,
+    "display_field": true,
+    "looks_like": "fd_fog"
+  },
+  {
     "//": "Fields designed for all creatures.",
     "id": "fd_mon_down_immune",
     "type": "field_type",

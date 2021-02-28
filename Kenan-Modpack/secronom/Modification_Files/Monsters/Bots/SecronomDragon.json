@@ -18,8 +18,8 @@
     "default_faction": "bot",
     "species": [ "SECRODRAG" ],
     "harvest": "secrodragon_harvest",
-    "volume": "1300 L",
-    "weight": "463000 g",
+    "volume": "1000 L",
+    "weight": "603000 g",
     "hp": 2325,
     "speed": 0,
     "material": [ "steel", "flesh" ],
@@ -41,8 +41,7 @@
     "path_settings": { "max_dist": 20 },
     "death_drops": { "groups": [ [ "robots", 100 ], [ "secrodrag_drops", 80 ] ] },
     "death_function": [ "NORMAL" ],
-    "upgrades": { "half_life": 22, "into": "mon_secrodragon_woke" },
-    "//": "Might wake up in approximately 1 year.",
+    "upgrades": { "half_life": 22, "into": "mon_secrodragon_woke_armed" },
     "flags": [ "IMMOBILE", "WARM", "POISON", "NO_BREATHE", "BONES", "ELECTRIC", "FIREPROOF" ]
   },
   {
@@ -53,8 +52,8 @@
     "default_faction": "bot",
     "species": [ "SECRODRAG" ],
     "harvest": "secrodragon_harvest",
-    "volume": "1300 L",
-    "weight": "463000 g",
+    "volume": "1000 L",
+    "weight": "603000 g",
     "hp": 2325,
     "speed": 60,
     "material": [ "steel", "flesh" ],
@@ -99,11 +98,31 @@
       "WARM",
       "DESTROYS",
       "POISON",
+      "COLDPROOF",
       "NO_BREATHE",
+      "PRIORITIZE_TARGETS",
       "BONES",
       "FAT",
-      "ELECTRIC"
+      "ELECTRIC",
+      "DROPS_AMMO"
     ],
     "//": "IT IS NOT YOUR FAMILY-FRIENDLY ROBOT. HACKING UNAVAILABLE."
+  },
+  {
+    "id": "mon_secrodragon_woke_armed",
+    "copy-from": "mon_secrodragon_woke",
+    "type": "MONSTER",
+    "name": { "str": "secronom dragon (armed)" },
+    "description": "This massively armored reptilian has its own purpose: ERADICATION.\nIt's the product of technological advancements using mere bionics, altogether with vast weaponry installations to form the \"SAVIOR\".",
+    "color": "white_red",
+    "speed": 30,
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_secrodragon_woke_armed_target" },
+        "cooldown": 5,
+        "monster_message": "<color_light_red>%1$s's reinforcer bots detaches from its hips as it engages for combat!</color>\n<color_dark_gray>The reinforcer bots shoot off and take their distance.</color>"
+      }
+    ]
   }
 ]
