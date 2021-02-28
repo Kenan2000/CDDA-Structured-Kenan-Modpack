@@ -25,6 +25,14 @@
       "clip_size": 250,
       "ammo_to_fire": 50
     },
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE",
+        "rigid": true,
+        "watertight": true,
+        "ammo_restriction": { "diesel": 250, "gasoline": 250, "flammable": 250, "lamp_oil": 250, "motor_oil": 250, "jp8": 250, "avgas": 250 }
+      }
+    ],
     "min_skills": [ [ "weapon", 2 ], [ "launcher", 1 ] ],
     "install_time": "30 m",
     "flags": [ "STR_RELOAD", "PUMP_RAIL_COMPATIBLE", "NON-FOULING" ]
@@ -189,5 +197,30 @@
     "install_time": "20 m",
     "min_skills": [ [ "weapon", 2 ], [ "gun", 1 ] ],
     "flags": [ "DISABLE_SIGHTS" ]
+  },
+  {
+    "id": "shot_crafted_suppressor",
+    "type": "GUNMOD",
+    "name": { "str": "makeshift shotgun suppressor" },
+    "description": "A homemade suppressor made from a pipe and improvised baffles.  It's a lot more complex than a suppressor for a pistol or rifle, and will deteriorate quickly with use.  This suppressor is large and, when attached, will interfere with your ability to aim down the base sights of the gun.",
+    "weight": "920 g",
+    "volume": "750 ml",
+    "price": "9 USD",
+    "price_postapoc": "3 USD",
+    "install_time": "30 s",
+    "to_hit": 1,
+    "bashing": 3,
+    "material": [ "steel" ],
+    "symbol": ":",
+    "color": "dark_gray",
+    "location": "muzzle",
+    "mod_targets": [ "shotgun" ],
+    "consume_chance": 15,
+    "consume_divisor": 80,
+    "damage_modifier": { "damage_type": "bullet", "amount": -5 },
+    "dispersion_modifier": 40,
+    "handling_modifier": 2,
+    "loudness_modifier": -20,
+    "flags": [ "DISABLE_SIGHTS", "CONSUMABLE" ]
   }
 ]

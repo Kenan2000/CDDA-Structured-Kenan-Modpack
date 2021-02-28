@@ -930,5 +930,40 @@
     "use_action": [ "HAMMER", "CROWBAR" ],
     "techniques": [ "WBLOCK_1" ],
     "flags": [ "BELT_CLIP", "FRAGILE_MELEE" ]
+  },
+  {
+    "id": "autoclave_makeshift",
+    "type": "TOOL",
+    "name": { "str": "makeshift autoclave" },
+    "description": "This oversized pressure cooker uses diesel or other readily-available fuels to power a high-pressure sterilization chamber.  Less efficient than a commercial battery-powered autoclave and incompatible with a vehicle power grid, it does the job if nothing else is available.",
+    "weight": "200 kg",
+    "volume": "80 L",
+    "price": 80000,
+    "price_postapoc": 2000,
+    "to_hit": -6,
+    "bashing": 12,
+    "material": [ "steel" ],
+    "symbol": "A",
+    "color": "yellow",
+    "use_action": [ "AUTOCLAVE" ],
+    "flags": [ "ALLOWS_REMOTE_USE" ],
+    "power_draw": 3000000,
+    "looks_like": "autoclave",
+    "ammo": [ "diesel", "lamp_oil", "motor_oil", "jp8" ],
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE",
+        "rigid": true,
+        "watertight": true,
+        "ammo_restriction": { "diesel": 60000, "lamp_oil": 60000, "motor_oil": 60000, "jp8": 60000 }
+      },
+      {
+        "pocket_type": "CONTAINER",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "max_contains_weight": "20 kg",
+        "flag_restriction": [ "CBM" ]
+      }
+    ]
   }
 ]
