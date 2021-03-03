@@ -11,7 +11,6 @@
     "weight": "4000 g",
     "harvest": "arachnid_tainted",
     "hp": 30,
-    "diff": 5,
     "speed": 110,
     "material": [ "iflesh" ],
     "symbol": "⚚",
@@ -51,6 +50,22 @@
     ]
   },
   {
+    "id": "mon_zombie_skittyweavy_idle",
+    "copy-from": "mon_zombie_skittyweavy",
+    "type": "MONSTER",
+    "name": { "str": "skittering weaver" },
+    "description": "A mutated creature, the size of a cat with hybrid appearance of a tick and a beetle. Its forelimbs form a pair of oddly curved needles, tipped with a vented gap and saliva-drooling mandibles.",
+    "default_faction": "zombie",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_skittyweavy_idle_target" },
+        "cooldown": 1,
+        "monster_message": "<color_dark_gray>%1$s skitters.</color>"
+      }
+    ]
+  },
+  {
     "id": "mon_zombie_skittyweavy_repleshy",
     "type": "MONSTER",
     "name": { "str": "replenishing weaver" },
@@ -61,7 +76,6 @@
     "weight": "8000 g",
     "harvest": "arachnid_tainted",
     "hp": 75,
-    "diff": 30,
     "speed": 90,
     "material": [ "iflesh" ],
     "symbol": "⚚",
@@ -100,6 +114,22 @@
     ]
   },
   {
+    "id": "mon_zombie_skittyweavy_repleshy_idle",
+    "copy-from": "mon_zombie_skittyweavy_repleshy",
+    "type": "MONSTER",
+    "name": { "str": "replenishing weaver" },
+    "description": "A vile insect, protected beneath a membranous shelling. Shares similar traits to its predecessor, except the fact that it has grown larger in size.",
+    "default_faction": "zombie",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_skittyweavy_repleshy_idle_target" },
+        "cooldown": 1,
+        "monster_message": "<color_dark_gray>%1$s skitters.</color>"
+      }
+    ]
+  },
+  {
     "id": "mon_zombie_skittyweavy_sickly",
     "type": "MONSTER",
     "name": { "str": "plague weaver" },
@@ -111,7 +141,6 @@
     "harvest": "arachnid_tainted",
     "hp": 55,
     "speed": 120,
-    "diff": 25,
     "material": [ "iflesh" ],
     "symbol": "⚚",
     "color": "red",
@@ -130,7 +159,7 @@
       {
         "type": "spell",
         "spell_data": { "id": "mon_zombie_skittyweavy_sickly_target" },
-        "cooldown": 2,
+        "cooldown": 12,
         "monster_message": "<color_yellow>%1$s injects %3$s!</color>"
       }
     ],
@@ -146,6 +175,22 @@
       "ATTACKMON",
       "HARDTOSHOOT",
       "PATH_AVOID_DANGER_2"
+    ]
+  },
+  {
+    "id": "mon_zombie_skittyweavy_sickly_idle",
+    "copy-from": "mon_zombie_skittyweavy_sickly",
+    "type": "MONSTER",
+    "name": { "str": "plague weaver" },
+    "description": "A heavily mutated insect, with several spindly limbs stretching outwards from its membranous beetle shell. Deformed in every angle, a distinctive proboscis drips an intoxicating substance.",
+    "default_faction": "zombie",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_skittyweavy_sickly_idle_target" },
+        "cooldown": 1,
+        "monster_message": "<color_dark_gray>%1$s skitters.</color>"
+      }
     ]
   }
 ]
