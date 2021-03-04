@@ -5,7 +5,7 @@
     "type": "MONSTER",
     "name": "revenant",
     "description": "Enveloped in odd stench, this severely diluted corpse has became an overseer for its fiendish undeads.",
-    "default_faction": "zombie",
+    "default_faction": "zombie_revenant",
     "species": [ "ZOMBIE", "SECROZED_2", "HUMAN" ],
     "volume": "62500 ml",
     "weight": "81500 g",
@@ -35,6 +35,22 @@
     "death_drops": "default_zombie_death_drops",
     "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "REVIVES", "BONES", "FILTHY" ]
+  },
+  {
+    "id": "mon_zombie_revenant_idle",
+    "copy-from": "mon_zombie_revenant",
+    "type": "MONSTER",
+    "name": "revenant",
+    "description": "Enveloped in odd stench, this severely diluted corpse has became an overseer for its fiendish undeads.",
+    "default_faction": "zombie",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_revenant_idle_target" },
+        "cooldown": 1,
+        "monster_message": "<color_dark_gray>%1$s glares...</color>"
+      }
+    ]
   },
   {
     "id": "mon_zombie_revenant_forsaken",
@@ -75,7 +91,7 @@
     "type": "MONSTER",
     "name": "alluring revenant",
     "description": "Concealed beneath a thick, eerie fog, a slim, humanoid figure stands firm. Mischievous, its claws drip with peculiar black goo.",
-    "default_faction": "zombie",
+    "default_faction": "zombie_revenant",
     "species": [ "ZOMBIE", "SECROZED_2", "HUMAN" ],
     "volume": "62500 ml",
     "weight": "81500 g",
@@ -104,5 +120,21 @@
     "death_drops": "default_zombie_death_drops",
     "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "REVIVES", "BONES", "FILTHY", "HARDTOSHOOT" ]
+  },
+  {
+    "id": "mon_zombie_revenant_allure_idle",
+    "copy-from": "mon_zombie_revenant_allure",
+    "type": "MONSTER",
+    "name": "alluring revenant",
+    "description": "Concealed beneath a thick, eerie fog, a slim humanoid figure stands firm. Mischievous, its claws drip with peculiar black goo.",
+    "default_faction": "zombie",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_revenant_allure_idle_target" },
+        "cooldown": 1,
+        "monster_message": "<color_dark_gray>%1$s stares...</color>"
+      }
+    ]
   }
 ]

@@ -3,28 +3,72 @@
     "type": "monstergroup",
     "name": "GROUP_ZOMBIE",
     "monsters": [
-      { "monster": "mon_zombie_swarmer_weak", "freq": 1, "cost_multiplier": 8, "pack_size": [ 18, 36 ] },
-      { "monster": "mon_zombie_swarmer_segway", "freq": 1, "cost_multiplier": 10, "pack_size": [ 6, 12 ] },
-      { "monster": "mon_zombie_swarmer_weak", "freq": 1, "cost_multiplier": 15, "pack_size": [ 30, 60 ] },
       {
+        "//": "Make swarmers spawn rarer. Horde size increases by time in this formulation: 1*2=2*2=4... (integers shown by days)",
         "monster": "mon_zombie_swarmer_weak",
-        "freq": 1,
-        "cost_multiplier": 23,
-        "pack_size": [ 50, 100 ],
-        "starts": 336
+        "freq": 10,
+        "cost_multiplier": 10,
+        "pack_size": [ 25, 35 ],
+        "ends": 24
       },
       {
-        "//": "Lets fill the streets with these!",
         "monster": "mon_zombie_swarmer_weak",
-        "freq": 1,
-        "cost_multiplier": 40,
-        "pack_size": [ 122, 244 ],
-        "starts": 1460
+        "freq": 10,
+        "cost_multiplier": 10,
+        "pack_size": [ 35, 45 ],
+        "starts": 24,
+        "ends": 48
       },
-      { "monster": "mon_zombie_swarmer_weak", "freq": 100, "cost_multiplier": 0, "pack_size": [ 12, 24 ] },
+      {
+        "monster": "mon_zombie_swarmer_weak",
+        "freq": 10,
+        "cost_multiplier": 10,
+        "pack_size": [ 45, 55 ],
+        "starts": 48,
+        "ends": 96
+      },
+      {
+        "monster": "mon_zombie_swarmer_weak",
+        "freq": 10,
+        "cost_multiplier": 10,
+        "pack_size": [ 55, 65 ],
+        "starts": 96,
+        "ends": 192
+      },
+      {
+        "monster": "mon_zombie_swarmer_weak",
+        "freq": 10,
+        "cost_multiplier": 10,
+        "pack_size": [ 65, 75 ],
+        "starts": 192,
+        "ends": 384
+      },
+      {
+        "monster": "mon_zombie_swarmer_weak",
+        "freq": 10,
+        "cost_multiplier": 10,
+        "pack_size": [ 75, 85 ],
+        "starts": 384,
+        "ends": 768
+      },
+      {
+        "monster": "mon_zombie_swarmer_weak",
+        "freq": 10,
+        "cost_multiplier": 10,
+        "pack_size": [ 85, 100 ],
+        "starts": 768,
+        "ends": 1536
+      },
+      {
+        "monster": "mon_zombie_swarmer_weak",
+        "freq": 10,
+        "cost_multiplier": 10,
+        "pack_size": [ 100, 200 ],
+        "starts": 1536
+      },
+      { "monster": "mon_zombie_swarmer_segway", "freq": 1, "cost_multiplier": 10, "pack_size": [ 5, 15 ] },
       { "monster": "mon_zombie_charger", "freq": 20, "cost_multiplier": 3 },
       { "monster": "mon_zombie_scourge", "freq": 10, "cost_multiplier": 3, "pack_size": [ 1, 2 ] },
-      { "monster": "mon_zombie_revenant", "freq": 5, "cost_multiplier": 3 },
       { "monster": "mon_zombie_blade", "freq": 15, "cost_multiplier": 4 },
       { "monster": "mon_zombie_spoder", "freq": 12, "cost_multiplier": 4, "pack_size": [ 1, 2 ] },
       { "monster": "mon_zombie_tendrils", "freq": 10, "cost_multiplier": 4 },
@@ -32,8 +76,10 @@
       { "monster": "mon_zombie_translucent", "freq": 2, "cost_multiplier": 4 },
       { "monster": "mon_zombie_grubby", "freq": 10, "cost_multiplier": 5 },
       { "monster": "mon_zombie_WALKINGPOTATO", "freq": 1, "cost_multiplier": 10 },
-      { "monster": "mon_zombie_skittyweavy_idle", "freq": 1, "cost_multiplier": 10, "pack_size": [ 2, 3 ] },
       { "monster": "mon_zombieworm_noxeater", "freq": 1, "cost_multiplier": 10 },
+      { "monster": "mon_zombie_skittyweavy_idle", "freq": 1, "cost_multiplier": 10, "pack_size": [ 2, 3 ] },
+      { "monster": "mon_zombie_revenant_idle", "freq": 1, "cost_multiplier": 10 },
+      { "monster": "mon_zombie_bootlegsmoker", "freq": 1, "cost_multiplier": 10 },
       {
         "monster": "mon_zombie_lick",
         "freq": 1,
@@ -50,6 +96,7 @@
         "conditions": [ "DUSK", "NIGHT" ]
       },
       { "monster": "mon_zombie_nix", "freq": 1, "cost_multiplier": 25, "starts": 1460 },
+      { "monster": "mon_zombie_fleshmonger", "freq": 1, "cost_multiplier": 40, "starts": 1460 },
       { "monster": "mon_zombie_fleshmonger", "freq": 1, "cost_multiplier": 40, "starts": 1460 },
       {
         "monster": "mon_zombie_gorepit",

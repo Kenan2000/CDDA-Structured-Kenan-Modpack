@@ -10,8 +10,8 @@
     "volume": "62500 ml",
     "weight": "81500 g",
     "harvest": "zombie",
-    "hp": 75,
-    "speed": 80,
+    "hp": 100,
+    "speed": 65,
     "material": [ "flesh" ],
     "symbol": "✑",
     "color": "red",
@@ -21,26 +21,24 @@
     "melee_dice": 0,
     "melee_dice_sides": 2,
     "melee_cut": 4,
-    "dodge": 1,
+    "dodge": 2,
     "vision_day": 35,
     "path_settings": { "max_dist": 10 },
     "special_attacks": [
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_zombie_bootlegsmoker_target" },
-        "cooldown": 30,
-        "monster_message": "<color_dark_gray>%1$s takes distance...</color>"
-      },
       [ "SHRIEK_ALERT", 10 ],
       {
         "type": "gun",
-        "cooldown": 111,
-        "move_cost": 500,
+        "cooldown": 150,
+        "move_cost": 1000,
         "gun_type": "snatcher_mouth",
         "fake_skills": [ [ "gun", 10 ], [ "rifle", 10 ] ],
         "ranges": [ [ 0, 25, "DEFAULT" ] ],
+        "require_targeting_player": false,
+        "require_targeting_npc": false,
+        "require_targeting_monster": false,
         "description": "The snatcher zombie sends off its tongue!"
-      }
+      },
+      [ "snatcher_tonguewrap", 65 ]
     ],
     "death_drops": "default_zombie_clothes",
     "death_function": [ "NORMAL" ],
