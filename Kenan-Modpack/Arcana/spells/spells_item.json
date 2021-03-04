@@ -8,6 +8,7 @@
     "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE" ],
     "valid_targets": [ "self" ],
     "extra_effects": [
+      { "id": "arcana_item_athame_sanguine_art_fatigue", "hit_self": true },
       { "id": "arcana_item_athame_sanguine_art_corruption", "hit_self": true },
       { "id": "arcana_item_generate_blood_essence", "hit_self": true }
     ],
@@ -17,14 +18,25 @@
     "shape": "blast",
     "base_casting_time": 60000,
     "final_casting_time": 60000,
-    "energy_source": "FATIGUE",
-    "base_energy_cost": 20,
-    "final_energy_cost": 20,
     "min_damage": 1,
     "max_damage": 3,
     "damage_type": "pure",
     "min_duration": 30000,
     "max_duration": 30000
+  },
+  {
+    "id": "arcana_item_athame_sanguine_art_fatigue",
+    "type": "SPELL",
+    "name": { "str": "Sanguine Art Fatigue" },
+    "description": "Dirty hack caused by DDA-specific fuckery.",
+    "valid_targets": [ "self" ],
+    "message": "",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "min_damage": -20,
+    "max_damage": -20,
+    "effect": "recover_energy",
+    "shape": "blast",
+    "effect_str": "FATIGUE"
   },
   {
     "id": "arcana_item_athame_sanguine_art_corruption",
@@ -79,6 +91,7 @@
     "valid_targets": [ "self" ],
     "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE" ],
     "extra_effects": [
+      { "id": "arcana_item_chalice_offering_fatigue", "hit_self": true },
       { "id": "arcana_item_chalice_offering_winding", "hit_self": true },
       { "id": "arcana_item_chalice_offering_corruption", "hit_self": true },
       { "id": "arcana_item_generate_blood_essence", "hit_self": true },
@@ -92,10 +105,21 @@
     "max_damage": 10,
     "damage_type": "pure",
     "base_casting_time": 90000,
-    "final_casting_time": 90000,
-    "energy_source": "FATIGUE",
-    "base_energy_cost": 60,
-    "final_energy_cost": 60
+    "final_casting_time": 90000
+  },
+  {
+    "id": "arcana_item_chalice_offering_fatigue",
+    "type": "SPELL",
+    "name": { "str": "Offering Fatigue" },
+    "description": "Dirty hack caused by DDA-specific fuckery.",
+    "valid_targets": [ "self" ],
+    "message": "",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "min_damage": -60,
+    "max_damage": -60,
+    "effect": "recover_energy",
+    "shape": "blast",
+    "effect_str": "FATIGUE"
   },
   {
     "id": "arcana_item_chalice_offering_winding",
@@ -504,17 +528,31 @@
     "message": "Your armor's mantle shimmers with an odd light, sending the dull ache of healing magic through your body.",
     "valid_targets": [ "self" ],
     "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
-    "extra_effects": [ { "id": "arcana_item_jade_hauberk_pain", "hit_self": true } ],
+    "extra_effects": [
+      { "id": "arcana_item_jade_hauberk_healing_fatigue", "hit_self": true },
+      { "id": "arcana_item_jade_hauberk_pain", "hit_self": true }
+    ],
     "effect_str": "arcana_aegis_mending",
     "min_damage": -4,
     "max_damage": -4,
     "effect": "attack",
     "shape": "blast",
     "min_duration": 100,
-    "max_duration": 100,
-    "energy_source": "FATIGUE",
-    "base_energy_cost": 8,
-    "final_energy_cost": 8
+    "max_duration": 100
+  },
+  {
+    "id": "arcana_item_jade_hauberk_healing_fatigue",
+    "type": "SPELL",
+    "name": { "str": "Hauberk Mending Fatigue" },
+    "description": "Dirty hack caused by DDA-specific fuckery.",
+    "valid_targets": [ "self" ],
+    "message": "",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "min_damage": -8,
+    "max_damage": -8,
+    "effect": "recover_energy",
+    "shape": "blast",
+    "effect_str": "FATIGUE"
   },
   {
     "id": "arcana_item_jade_hauberk_pain",
@@ -1647,19 +1685,31 @@
     "message": "Embers fly from your fingertips, stoking magical flames as they fall to the ground.",
     "effect": "attack",
     "shape": "blast",
+    "extra_effects": [ { "id": "arcana_item_sparks_fatigue", "hit_self": false } ],
     "valid_targets": [ "ground" ],
     "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
     "min_range": 2,
     "max_range": 2,
     "base_casting_time": 80,
     "final_casting_time": 80,
-    "energy_source": "FATIGUE",
-    "base_energy_cost": 18,
-    "final_energy_cost": 18,
     "field_id": "fd_fire",
     "field_chance": 1,
     "min_field_intensity": 1,
     "max_field_intensity": 1
+  },
+  {
+    "id": "arcana_item_sparks_fatigue",
+    "type": "SPELL",
+    "name": { "str": "Hauberk Mending Fatigue" },
+    "description": "Dirty hack caused by DDA-specific fuckery.",
+    "valid_targets": [ "self" ],
+    "message": "",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "min_damage": -18,
+    "max_damage": -18,
+    "effect": "recover_energy",
+    "shape": "blast",
+    "effect_str": "FATIGUE"
   },
   {
     "type": "SPELL",
