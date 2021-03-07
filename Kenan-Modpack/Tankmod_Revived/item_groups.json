@@ -7,7 +7,7 @@
       [ "primer_155mm", 1 ],
       [ "25mm_apds", 1 ],
       [ "25mm_hei", 1 ],
-      [ "belt25mm", 1 ],
+      { "item": "belt25mm", "contents-group": "25mm_ammo", "prob": 1 },
       [ "120mm_usable_heat", 3 ],
       [ "120mm_usable_ap", 1 ],
       [ "155mm_frag", 2 ],
@@ -25,7 +25,7 @@
       [ "atgm_launcher", 1 ],
       [ "25mm_apds", 1 ],
       [ "25mm_hei", 1 ],
-      [ "belt25mm", 1 ],
+      { "item": "belt25mm", "contents-group": "25mm_ammo", "prob": 1 },
       [ "120mm_usable_heat", 3 ],
       [ "120mm_usable_ap", 1 ],
       [ "155mm_frag", 2 ],
@@ -42,7 +42,7 @@
       [ "primer_155mm", 1 ],
       [ "25mm_apds", 1 ],
       [ "25mm_hei", 1 ],
-      [ "belt25mm", 1 ],
+      { "item": "belt25mm", "contents-group": "25mm_ammo", "prob": 1 },
       [ "120mm_usable_heat", 3 ],
       [ "120mm_usable_ap", 1 ],
       [ "155mm_frag", 2 ],
@@ -59,7 +59,7 @@
       [ "primer_155mm", 1 ],
       [ "25mm_apds", 2 ],
       [ "25mm_hei", 2 ],
-      [ "belt25mm", 3 ],
+      { "item": "belt25mm", "contents-group": "25mm_ammo", "prob": 3 },
       [ "105mm_heat", 1 ],
       [ "105mm_ap", 1 ]
     ]
@@ -71,6 +71,11 @@
   },
   {
     "type": "item_group",
+    "id": "bunker_basement_loot",
+    "items": [ { "group": "guns_launcher_heavy", "prob": 50 } ]
+  },
+  {
+    "type": "item_group",
     "id": "guns_launcher_heavy",
     "items": [
       [ "120mm_usable_ap", 15 ],
@@ -79,7 +84,7 @@
       [ "155mm_heat", 10 ],
       [ "25mm_apds", 10 ],
       [ "25mm_hei", 5 ],
-      [ "belt25mm", 10 ],
+      { "item": "belt25mm", "contents-group": "25mm_ammo", "prob": 10 },
       [ "105mm_heat", 10 ],
       [ "105mm_ap", 5 ],
       [ "electric_primer_120mm", 6 ],
@@ -96,7 +101,7 @@
       [ "155mm_heat", 2 ],
       [ "25mm_apds", 2 ],
       [ "25mm_hei", 1 ],
-      [ "belt25mm", 2 ],
+      { "item": "belt25mm", "contents-group": "25mm_ammo", "prob": 2 },
       [ "105mm_heat", 2 ],
       [ "105mm_ap", 1 ],
       [ "electric_primer_120mm", 1 ],
@@ -106,22 +111,43 @@
   {
     "type": "item_group",
     "id": "manuals",
-    "items": [ [ "textbook_launcher", 1 ] ]
+    "subtype": "distribution",
+    "entries": [ { "item": "textbook_launcher", "prob": 1 } ]
   },
   {
     "type": "item_group",
     "id": "book_gunref",
-    "items": [ [ "textbook_launcher", 1 ] ]
+    "subtype": "distribution",
+    "entries": [ { "item": "textbook_launcher", "prob": 5 } ]
   },
   {
     "type": "item_group",
     "id": "mil_surplus",
-    "items": [ [ "textbook_launcher", 4 ], [ "105mm_casing", 12 ], [ "120mm_case_base", 4 ] ]
+    "items": [ [ "textbook_launcher", 2 ], [ "105mm_casing", 12 ], [ "120mm_case_base", 4 ] ]
   },
   {
     "type": "item_group",
     "id": "book_military",
-    "items": [ [ "textbook_launcher", 5 ] ]
+    "subtype": "distribution",
+    "entries": [ { "item": "textbook_launcher", "prob": 20 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "textbooks",
+    "subtype": "distribution",
+    "entries": [ { "item": "textbook_launcher", "prob": 5 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "cop_evidence",
+    "subtype": "distribution",
+    "entries": [ { "item": "textbook_launcher", "prob": 3 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "vfw_books",
+    "subtype": "distribution",
+    "entries": [ { "item": "textbook_launcher", "prob": 5 } ]
   },
   {
     "type": "item_group",
@@ -151,9 +177,9 @@
     "type": "item_group",
     "subtype": "collection",
     "entries": [
-      { "item": "120mm_usable_heat", "count": [ 0, 6 ], "prob": 75 },
-      { "item": "120mm_usable_ap", "count": [ 0, 6 ], "prob": 75 },
-      { "item": "120mm_case_base", "count": [ 0, 5 ], "prob": 90 },
+      { "item": "120mm_usable_heat", "count": [ 1, 6 ], "prob": 75 },
+      { "item": "120mm_usable_ap", "count": [ 1, 6 ], "prob": 75 },
+      { "item": "120mm_case_base", "count": [ 1, 5 ], "prob": 90 },
       { "item": "electric_primer_120mm", "prob": 75 }
     ]
   },
@@ -162,8 +188,8 @@
     "type": "item_group",
     "subtype": "collection",
     "entries": [
-      { "item": "155mm_frag", "count": [ 0, 6 ], "prob": 75 },
-      { "item": "155mm_heat", "count": [ 0, 2 ], "prob": 75 },
+      { "item": "155mm_frag", "count": [ 1, 6 ], "prob": 75 },
+      { "item": "155mm_heat", "count": [ 1, 2 ], "prob": 75 },
       { "item": "primer_155mm", "prob": 75 }
     ]
   },
@@ -173,23 +199,23 @@
     "subtype": "collection",
     "entries": [
       { "item": "atgm_heat", "count": [ 1, 2 ], "prob": 30 },
-      {
-        "distribution": [
-          { "item": "25mm_hei", "container-item": "belt25mm", "prob": 50, "charges": 100 },
-          { "item": "25mm_apds", "container-item": "belt25mm", "prob": 50, "charges": 100 }
-        ],
-        "prob": 30
-      }
+      { "item": "belt25mm", "contents-group": "25mm_ammo", "prob": 50 },
+      { "item": "belt25mm", "contents-group": "25mm_ammo", "prob": 50 }
     ]
+  },
+  {
+    "type": "item_group",
+    "id": "25mm_ammo",
+    "items": [ { "item": "25mm_apds", "prob": 50, "charges": [ 1, 100 ] }, { "item": "25mm_hei", "prob": 50, "charges": [ 1, 100 ] } ]
   },
   {
     "id": "m60_patton_ammo_rack",
     "type": "item_group",
     "subtype": "collection",
     "entries": [
-      { "item": "105mm_heat", "count": [ 0, 6 ], "prob": 75 },
-      { "item": "105mm_ap", "count": [ 0, 6 ], "prob": 75 },
-      { "item": "105mm_casing", "count": [ 0, 5 ], "prob": 90 },
+      { "item": "105mm_heat", "count": [ 1, 6 ], "prob": 75 },
+      { "item": "105mm_ap", "count": [ 1, 6 ], "prob": 75 },
+      { "item": "105mm_casing", "count": [ 1, 5 ], "prob": 90 },
       { "item": "electric_primer_120mm", "prob": 75 }
     ]
   },
@@ -198,5 +224,44 @@
     "type": "item_group",
     "subtype": "distribution",
     "entries": [ { "item": "diesel", "charges": [ 0, 50000 ], "container-item": "30gal_drum", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "killdozer_ammo_shot",
+    "subtype": "collection",
+    "entries": [
+      { "item": "shotbelt_20", "contents-group": "killdozer_shells", "prob": 75 },
+      { "item": "shotbelt_20", "contents-group": "killdozer_shells", "prob": 75 },
+      { "item": "shotbelt_20", "contents-group": "killdozer_shells", "prob": 75 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "killdozer_shells",
+    "items": [ { "item": "shot_00", "prob": 50, "charges": [ 1, 20 ] }, { "item": "reloaded_shot_00", "prob": 25, "charges": [ 1, 20 ] }, { "item": "bp_shot_00", "prob": 25, "charges": [ 1, 20 ] } ]
+  },
+  {
+    "type": "item_group",
+    "id": "killdozer_ammo_cannon",
+    "subtype": "collection",
+    "entries": [
+      {
+        "distribution": [
+          { "item": "25mm_hei", "charges": [ 1, 5 ], "prob": 25 },
+          { "item": "25mm_slug", "charges": [ 1, 5 ], "prob": 50 },
+          { "item": "bp_25mm_slug", "charges": [ 1, 5 ], "prob": 25 }
+        ],
+        "prob": 75
+      },
+      {
+        "distribution": [
+          { "item": "25mm_hei", "charges": [ 1, 5 ], "prob": 25 },
+          { "item": "25mm_slug", "charges": [ 1, 5 ], "prob": 50 },
+          { "item": "bp_25mm_slug", "charges": [ 1, 5 ], "prob": 25 }
+        ],
+        "prob": 75
+      },
+      { "item": "25mm_casing", "count": [ 1, 5 ], "prob": 90 }
+    ]
   }
 ]

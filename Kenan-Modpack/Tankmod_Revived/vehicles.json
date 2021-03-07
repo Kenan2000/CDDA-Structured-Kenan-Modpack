@@ -860,10 +860,10 @@
     "id": "tractor_bandit",
     "name": "Bandit Bulldozer",
     "blueprint": [
-      [ "ooooo x" ],
+      [ "ooo=# x" ],
       [ "|-+'||x" ],
       [ "'=#'||x" ],
-      [ "|-+'||x" ],
+      [ "|-''||x" ],
       [ "ooooo x" ]
     ],
     "parts": [
@@ -875,8 +875,18 @@
       { "x": 0, "y": -2, "part": "tread2" },
       { "x": 1, "y": -2, "part": "frame_horizontal" },
       { "x": 1, "y": -2, "part": "tread2" },
+      { "x": 1, "y": -2, "part": "trunk" },
       { "x": 2, "y": -2, "part": "frame_horizontal" },
       { "x": 2, "y": -2, "part": "tread2" },
+      { "x": 2, "y": -2, "part": "seat" },
+      { "x": 2, "y": -2, "part": "turret_mount" },
+      {
+        "x": 2,
+        "y": -2,
+        "part": "mounted_25mm_autocannon_sawn",
+        "ammo": 80,
+        "ammo_types": [ "25mm_apds", "25mm_hei" ]
+      },
       { "x": 3, "y": -2, "part": "frame_vertical" },
       { "x": -2, "y": -1, "part": "frame_horizontal" },
       { "x": -2, "y": -1, "part": "halfboard_sw" },
@@ -904,7 +914,14 @@
       { "x": 0, "y": 0, "part": "frame_horizontal" },
       { "x": 0, "y": 0, "part": "seat" },
       { "x": 0, "y": 0, "part": "turret_mount" },
-      { "x": 0, "y": 0, "part": "flamethrower" },
+      {
+        "x": 0,
+        "y": 0,
+        "part": "mounted_bigun",
+        "ammo": 80,
+        "ammo_types": [ "shot_00", "reloaded_shot_00", "bp_shot_00" ],
+        "ammo_qty": [ 5, 20 ]
+      },
       { "x": 0, "y": 0, "part": "controls" },
       { "x": 0, "y": 0, "part": "dashboard" },
       { "x": 0, "y": 0, "part": "horn_big" },
@@ -950,7 +967,11 @@
       { "x": 4, "y": 2, "part": "ram_spiked" },
       { "x": 4, "y": -2, "part": "ram_spiked" }
     ],
-    "items": [ { "x": -1, "y": 0, "chance": 25, "item_groups": "fuel_gasoline" } ]
+    "items": [
+      { "x": -1, "y": 0, "chance": 25, "item_groups": "fuel_gasoline" },
+      { "x": -1, "y": 0, "chance": 100, "item_groups": "killdozer_ammo_shot" },
+      { "x": 1, "y": -2, "chance": 100, "item_groups": "killdozer_ammo_cannon" }
+    ]
   },
   {
     "type": "vehicle",

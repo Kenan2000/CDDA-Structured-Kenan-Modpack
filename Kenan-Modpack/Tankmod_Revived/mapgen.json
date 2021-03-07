@@ -585,5 +585,72 @@
         ]
       }
     }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "bunker" ],
+    "object": {
+      "rows": [
+        "------------------------",
+        "|                      |",
+        "|                      |",
+        "|      MMMMMMMMMM      |",
+        "|      MMMMMMMMMM      |",
+        "|      MMMM>>MMMM      |",
+        "|      MM,,,,,,MM      |",
+        "|      MMMM,,MMMM      |",
+        "|      MM,,,,,,MM      |",
+        "//*/   MMMM,,MMMM   /*//",
+        "I#,/   MM,,,,,,MM   /,#I",
+        "I00/   MMMMDDMMMM   /00I",
+        "|      MMMM  6MMM      |",
+        "|                      |",
+        "|  SSS     SSS         |",
+        "+  S         S         +",
+        "+  S         S         +",
+        "+  C                   +",
+        "+                      +",
+        "+                      +",
+        "+  S         S         +",
+        "+  S         S         +",
+        "|  SSS     SSS         |",
+        "|--------++++++--------|"
+      ],
+      "terrain": {
+        " ": [ "t_grass", "t_grass", "t_grass", "t_dirt" ],
+        "#": "t_floor",
+        "*": "t_door_c",
+        "+": "t_chaingate_l",
+        ",": "t_floor",
+        "-": "t_chainfence_h",
+        "/": "t_concrete_wall",
+        "0": "t_window",
+        "6": "t_card_military",
+        ">": "t_stairs_down",
+        "D": "t_door_metal_locked",
+        "I": "t_ballistic_glass",
+        "M": "t_wall_metal",
+        "C": "t_dirt",
+        "S": "t_dirt",
+        "|": "t_chainfence_v"
+      },
+      "furniture": { "#": "f_table", "C": "f_crate_o", "S": "f_sandbag_half" },
+      "place_loot": [ { "group": "m109_ammo_rack", "x": 3, "y": 17, "chance": 100 } ],
+      "place_monster": [
+        { "monster": "mon_turret_rifle", "x": 9, "y": 6 },
+        { "monster": "mon_turret_rifle", "x": 14, "y": 6 },
+        { "monster": "mon_turret_rifle", "x": 9, "y": 8 },
+        { "monster": "mon_turret_rifle", "x": 14, "y": 8 },
+        { "monster": "mon_turret_rifle", "x": 9, "y": 10 },
+        { "monster": "mon_turret_rifle", "x": 14, "y": 10 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 14, 22 ], "y": [ 13, 22 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 14, 22 ], "y": [ 13, 22 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 14, 22 ], "y": [ 13, 22 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 14, 22 ], "y": [ 13, 22 ], "chance": 50 },
+        { "group": "GROUP_MIL_WEAK", "x": [ 14, 22 ], "y": [ 13, 22 ], "chance": 50 }
+      ],
+      "place_vehicles": [ { "vehicle": "howitzer_m109", "x": 10, "y": 17, "chance": 100, "rotation": 0 } ]
+    }
   }
 ]
