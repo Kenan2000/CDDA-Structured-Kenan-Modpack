@@ -1,0 +1,490 @@
+[
+  {
+    "//": "--------------------Custom mutations begin here--------------------------",
+    "type": "mutation",
+    "id": "CHEMREBALANCE",
+    "name": { "str": "Calm Mind" },
+    "points": 1,
+    "description": "Your mind is clear and directed outwards, and you find it easier to experience the world and raw emotions.  You gain a +1 to your perception.",
+    "starting_trait": true,
+    "cancels": [ "SAVANT", "CHEMIMBALANCE" ],
+    "changes_to": [ "CHEMREBALANCE2" ],
+    "category": [ "ALPHA", "ELFA", "RAPTOR", "BIRD", "FELINE", "URSINE", "LIZARD" ],
+    "passive_mods": { "per_mod": 1 }
+  },
+  {
+    "type": "mutation",
+    "id": "CHEMREBALANCE2",
+    "name": { "str": "Tranquil Mind" },
+    "points": 3,
+    "starting_trait": true,
+    "description": "Your mind is a deep well of reflective wisdom and tranquility.  You gain a +1 to intelligence and +2 to perception.",
+    "cancels": [ "SAVANT", "CHEMIMBALANCE" ],
+    "category": [ "ELFA", "URSINE", "BIRD", "CEPHALOPOD" ],
+    "passive_mods": { "per_mod": 2, "int_mod": 1 }
+  },
+  {
+    "type": "mutation",
+    "id": "SPIDER_EYES",
+    "name": "Arachnid Eyes",
+    "points": 2,
+    "visibility": 9,
+    "ugliness": 5,
+    "description": "You have grown 4 additional eyes and all of your eyes have become solid pitch black. This increases your perception by 2 and makes you look more spider-like.",
+    "cancels": [ "ELFAEYES", "LIZ_EYE", "BIRD_EYE", "URSINE_EYE", "FEL_EYE", "FLOWER_HEAD" ],
+    "prereqs": [ "EYEBULGE" ],
+    "category": [ "SPIDER" ],
+    "passive_mods": { "per_mod": 2 }
+  },
+  {
+    "type": "mutation",
+    "id": "SCUTES",
+    "name": "Bony Scutes",
+    "points": 6,
+    "visibility": 8,
+    "ugliness": 2,
+    "description": "A set of sub-dermal bony scutes has grown all over your body, giving you something similar to an insect's exoskeleton. they give your scales a rough and pebbly texture and are nigh impossible to penetrate. reduces wet effects.",
+    "prereqs": [ "THICK_SCALES" ],
+    "threshreq": [ "THRESH_LIZARD" ],
+    "category": [ "LIZARD" ],
+    "types": [ "SKIN" ],
+    "wet_protection": [
+      { "part": "head", "ignored": 5 },
+      { "part": "leg_l", "ignored": 16 },
+      { "part": "leg_r", "ignored": 16 },
+      { "part": "foot_l", "ignored": 5 },
+      { "part": "foot_r", "ignored": 5 },
+      { "part": "arm_l", "ignored": 14 },
+      { "part": "arm_r", "ignored": 14 },
+      { "part": "hand_l", "ignored": 4 },
+      { "part": "hand_r", "ignored": 4 },
+      { "part": "torso", "ignored": 30 }
+    ],
+    "armor": [
+      {
+        "parts": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "cut": 10,
+        "bash": 10,
+        "acid": 6
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "LEG_TENTACLES_ADAPTED",
+    "name": { "str": "Adapted Tentacle Coordination" },
+    "valid": false,
+    "points": 4,
+    "description": "Maybe your brain's starting to decentralize and your tentacles are finally getting minds of their own - or maybe thanks to you simply surviving long enough to adapt - but either way, you now have perfect coordination with your leg tentacles.  This negates the usual movement penalty and makes moving over obstacles easier.",
+    "types": [ "LEGS" ],
+    "prereqs": [ "LEG_TENTACLES" ],
+    "category": [ "CEPHALOPOD" ],
+    "movecost_modifier": 0.84,
+    "movecost_obstacle_modifier": 0.75
+  },
+  {
+    "type": "mutation",
+    "id": "RAZOR_TEETH",
+    "name": { "str": "Razor Teeth" },
+    "points": 1,
+    "visibility": 8,
+    "ugliness": 8,
+    "description": "You have grown multiple rows of razor sharp teeth. They allow you to make an incredibly vicious bite attack, but now you can smile so widely it threatens to split your head in half!  Don't worry, any regular sharks, goblin sharks, or anglerfish you meet will find you quite fetching.",
+    "types": [ "TEETH", "MUZZLE" ],
+    "prereqs": [ "FANGS" ],
+    "threshreq": [ "THRESH_FISH" ],
+    "category": [ "FISH" ],
+    "attacks": [
+      {
+        "attack_text_u": "You RIP and TEAR into %s",
+        "attack_text_npc": "%1$s RIPS and TEARS into %2$s",
+        "body_part": "MOUTH",
+        "chance": 35,
+        "base_damage": { "damage_type": "stab", "amount": 35 }
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "TAIL_RAPTOR_MUTATED",
+    "name": { "str": "Mutated Raptor Tail" },
+    "points": 0,
+    "visibility": 6,
+    "ugliness": 2,
+    "description": "Your long, semi-stiff, lizard-like tail has mutated further, becoming slightly longer and now sharpening down to a savagely pointed bone tip.  It does not improve your balance at all, but allows you to cause significant piercing damage whenever you plunge it into your foes.  Still kind of annoying to modify pants to fit with it, but workable. Now that is a heavy genetic modification.",
+    "prereqs": [ "TAIL_RAPTOR" ],
+    "types": [ "TAIL" ],
+    "threshreq": [ "THRESH_RAPTOR" ],
+    "category": [ "RAPTOR" ],
+    "attacks": {
+      "attack_text_u": "You stab %s with your tail",
+      "attack_text_npc": "%1$s stabs %2$s with their tail",
+      "chance": 25,
+      "base_damage": { "damage_type": "stab", "amount": 15 }
+    }
+  },
+  {
+    "type": "mutation",
+    "id": "INSECT_STINGER",
+    "name": { "str": "Segmented Stinger" },
+    "points": 3,
+    "visibility": 6,
+    "ugliness": 3,
+    "description": "Congratulations, you are now the proud(?) owner of a long, slim, whip-fast and segmented chitinous tail that menaces with a singular curved stinger tipped with wicked barbs meant to tear and mangle skin as you pull it away from the victim.  It doesn't really do much for your balance and It's a bit cumbersome at first, but with practice, you find you can at least adapt to it enough to walk normally once more.  Have fun modifying your pants to acclimate this new limb, champ.",
+    "prereqs": [ "TAIL_STUB" ],
+    "types": [ "TAIL" ],
+    "category": [ "INSECT" ],
+    "changes_to": [ "VENOMOUS_STINGER" ],
+    "encumbrance_covered": [ [ "leg_l", 5 ], [ "leg_r", 5 ] ],
+    "attacks": {
+      "attack_text_u": "You plunge your insectile stinger deep within %s ",
+      "attack_text_npc": "%1$s stabs at %2$s with their insectile stinger",
+      "body_part": "MOUTH",
+      "chance": 20,
+      "base_damage": { "damage_type": "stab", "amount": 20 }
+    }
+  },
+  {
+    "type": "mutation",
+    "id": "VENOMOUS_STINGER",
+    "name": { "str": "Venomous Stinger" },
+    "points": 3,
+    "visibility": 6,
+    "ugliness": 4,
+    "description": "Congratulations, you are now the proud(?) owner of a long, slim, whip-fast and segmented chitinous tail that menaces with a singular curved stinger tipped with wicked barbs meant to tear and mangle skin as you pull it away from the victim.  It doesn't really do much for your balance and It's a bit cumbersome at first, but with practice, you find you can at least adapt to it enough to walk normally once more.  Have fun modifying your pants to acclimate this new limb, champ.",
+    "prereqs": [ "INSECT_STINGER", "POISONOUS" ],
+    "types": [ "TAIL" ],
+    "threshreq": [ "THRESH_INSECT" ],
+    "category": [ "INSECT" ],
+    "encumbrance_covered": [ [ "leg_l", 5 ], [ "leg_r", 5 ] ],
+    "attacks": {
+      "attack_text_u": "You plunge your insectile stinger deep within %s ",
+      "attack_text_npc": "%1$s stabs at %2$s with their insectile stinger",
+      "body_part": "MOUTH",
+      "chance": 30,
+      "base_damage": { "damage_type": "acid", "amount": 10 }
+    }
+  },
+  {
+    "type": "mutation",
+    "id": "FIN_EARS",
+    "name": { "str": "Fin Ears" },
+    "points": -1,
+    "visibility": 4,
+    "ugliness": -2,
+    "description": "Your ears have changed into fin-like appendages. This does not effect your hearing in any way but it does look striking. Slightly reduces wet effects",
+    "category": [ "FISH", "CEPHALOPOD" ],
+    "types": [ "EARS" ],
+    "hearing_modifier": 0.5,
+    "wet_protection": [ { "part": "HEAD", "good": 4 } ]
+  },
+  {
+    "type": "mutation",
+    "id": "RAPTOR_FEATHERS",
+    "name": { "str": "Raptor Feathers" },
+    "points": 2,
+    "visibility": 10,
+    "ugliness": -10,
+    "description": "A set of beautiful colored shiny feathers has grown to cover some parts of your body, acting as natural armor. And making your appereance more majestic than before, with a collar of feathers around your neck, that looks like a crown-like set of feathers you sure, have become a presence to behold. Somewhat reduces wet effects and protects slightly agaisnt cold.",
+    "category": [ "RAPTOR" ],
+    "prereqs": [ "RAPTOR_SCALES" ],
+    "leads_to": [ "RAPTOR_BODY" ],
+    "types": [ "SKIN" ],
+    "bodytemp_modifiers": [ 30, 80 ],
+    "wet_protection": [
+      { "part": "head", "ignored": 3 },
+      { "part": "leg_l", "ignored": 10 },
+      { "part": "leg_r", "ignored": 10 },
+      { "part": "foot_l", "ignored": 3 },
+      { "part": "foot_r", "ignored": 3 },
+      { "part": "arm_l", "ignored": 9 },
+      { "part": "arm_r", "ignored": 9 },
+      { "part": "hand_l", "ignored": 2 },
+      { "part": "hand_r", "ignored": 2 },
+      { "part": "torso", "ignored": 20 }
+    ],
+    "armor": [
+      {
+        "parts": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "cut": 11,
+        "acid": 17,
+        "electric": 8
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "RAPTOR_SCALES",
+    "name": { "str": "Raptor Scales" },
+    "points": 2,
+    "visibility": 10,
+    "ugliness": -10,
+    "description": "A set of flexible iridescent scales has grown to cover your body, acting as natural armor.  Somewhat reduces wet effects.",
+    "category": [ "RAPTOR" ],
+    "prereqs": [ "SCALES" ],
+    "leads_to": [ "RAPTOR_BODY" ],
+    "types": [ "SKIN" ],
+    "wet_protection": [
+      { "part": "head", "ignored": 3 },
+      { "part": "leg_l", "ignored": 10 },
+      { "part": "leg_r", "ignored": 10 },
+      { "part": "foot_l", "ignored": 3 },
+      { "part": "foot_r", "ignored": 3 },
+      { "part": "arm_l", "ignored": 9 },
+      { "part": "arm_r", "ignored": 9 },
+      { "part": "hand_l", "ignored": 2 },
+      { "part": "hand_r", "ignored": 2 },
+      { "part": "torso", "ignored": 20 }
+    ],
+    "armor": [
+      {
+        "parts": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "cut": 6,
+        "acid": 6
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "CATTLE_FUR",
+    "name": { "str": "Bovidae Fur" },
+    "points": 2,
+    "visibility": 10,
+    "ugliness": 2,
+    "bodytemp_modifiers": [ 750, 1500 ],
+    "bodytemp_sleep": 500,
+    "description": "the fur on your body fur has taken on a rough, curly texture. It provides marginal protection against attacks, and considerable protection from cold.  Plus, you kinda look like a demon.  Neat.",
+    "types": [ "SKIN" ],
+    "prereqs": [ "FUR" ],
+    "category": [ "CATTLE" ],
+    "armor": [
+      {
+        "parts": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "bash": 3,
+        "cut": 2
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BEAST_FUR",
+    "name": { "str": "Thick Fur" },
+    "points": 2,
+    "visibility": 10,
+    "ugliness": 1,
+    "bodytemp_modifiers": [ 750, 1750 ],
+    "bodytemp_sleep": 600,
+    "description": "You've grown a thick pelt of rough black fur, providing protection from cold and attacks.",
+    "types": [ "SKIN" ],
+    "prereqs": [ "FUR" ],
+    "category": [ "BEAST" ],
+    "armor": [
+      {
+        "parts": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "bash": 4,
+        "cut": 3
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "copy-from": "MUZZLE",
+    "id": "MUZZLE_BEAST",
+    "name": { "str": "Beastly Muzzle" },
+    "points": -1,
+    "visibility": 7,
+    "ugliness": 5,
+    "mixed_effect": true,
+    "description": "Your jaw and nose have extended into some kind of monstrous muzzle. It delivers a strong bite and looks absolutely beastly, but prevents you from wearing mouthgear.",
+    "types": [ "MUZZLE" ],
+    "prereqs": [ "MUZZLE" ],
+    "category": [ "BEAST" ],
+    "restricts_gear": [ "MOUTH" ],
+    "attacks": {
+      "attack_text_u": "You chomp %s",
+      "attack_text_npc": "%1$s chomps %2$s",
+      "blocker_mutations": [ "FANGS" ],
+      "body_part": "MOUTH",
+      "chance": 18,
+      "base_damage": { "damage_type": "cut", "amount": 12 }
+    }
+  },
+  {
+    "type": "mutation",
+    "id": "DEX_RAT",
+    "name": { "str": "Ratty Finesse" },
+    "points": 3,
+    "description": "Now the cataclysm is here it's better to be quick than slow.  Dexterity + 3",
+    "prereqs": [ "DEX_UP_2" ],
+    "category": [ "RAT" ],
+    "cancels": [ "DEX_UP_3", "DEX_UP_4" ],
+    "passive_mods": { "dex_mod": 3 }
+  },
+  {
+    "type": "mutation",
+    "id": "INT_RAT",
+    "name": { "str": "Ratty Smarts" },
+    "points": 3,
+    "description": "You bet that you could solve any maze or problem faster than those other so-called 'survivors'. Pfeh! Intelligence + 3",
+    "prereqs": [ "INT_UP_2" ],
+    "category": [ "RAT" ],
+    "cancels": [ "INT_UP_3", "INT_UP_4" ],
+    "passive_mods": { "int_mod": 3 }
+  },
+  {
+    "type": "mutation",
+    "id": "FLOWER_HEAD",
+    "name": { "str": "Blossomed" },
+    "points": -3,
+    "visibility": 8,
+    "ugliness": -10,
+    "mixed_effect": true,
+    "description": "Your entire head has become a flower with a deadly stinger in its center - similar to those extraplanar plant-beings scattered about. You're still able to eat, breathe, and see just fine, but you cannot wear anything on or around your head.  Y'know, on account of the stabbity stinger in the center of your beautiful floral pate.",
+    "category": [ "PLANT", "ELFA" ],
+    "prereqs": [ "FLOWERS" ],
+    "prereqs2": [ "POISONOUS2" ],
+    "threshreq": [ "THRESH_PLANT", "THRESH_ELFA" ],
+    "restricts_gear": [ "head", "mouth" ],
+    "attacks": {
+      "attack_text_u": "You stab at %s with the stinger inside your petals",
+      "attack_text_npc": "%1$s stabs at %2$s with the stinger inside their petals",
+      "body_part": "mouth",
+      "chance": 40,
+      "base_damage": { "damage_type": "stab", "amount": 20 }
+    },
+    "wet_protection": [
+      { "part": "head", "neutral": 4, "good": 5 },
+      { "part": "leg_l", "neutral": 8, "good": 15 },
+      { "part": "leg_r", "neutral": 8, "good": 15 },
+      { "part": "foot_l", "neutral": 3, "good": 5 },
+      { "part": "foot_r", "neutral": 3, "good": 5 },
+      { "part": "arm_l", "neutral": 8, "good": 14 },
+      { "part": "arm_r", "neutral": 8, "good": 14 },
+      { "part": "hand_l", "neutral": 3, "good": 4 },
+      { "part": "hand_r", "neutral": 3, "good": 4 },
+      { "part": "torso", "neutral": 15, "good": 27 }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "HOOVES_ADAPTED",
+    "name": { "str": "Adapted Leg Joints" },
+    "valid": false,
+    "points": 1,
+    "visibility": 1,
+    "description": "Thanks to taking some extra time to adapt to your new normal, you're able to use your hooved legs to their full potential.  You get a movement speed bonus when moving on flat ground.  No more wobbling coltishly for you!",
+    "prereqs": [ "HOOVES" ],
+    "category": [ "CATTLE", "CHIMERA" ],
+    "movecost_flatground_modifier": 0.85
+  },
+  {
+    "type": "mutation",
+    "id": "MOSS",
+    "name": { "str": "Mossy" },
+    "points": 1,
+    "visibility": 6,
+    "ugliness": -2,
+    "bodytemp_modifiers": [ 250, 600 ],
+    "bodytemp_sleep": 250,
+    "description": "A deep viridian moss has sprouted in thick, patterned patches over large areas of your body, providing some protection from the cold and making you look hella fly.  Oh, turns out the moss really likes water, so it greatly increases wet benefits as well.",
+    "wet_protection": [
+      { "part": "head", "neutral": 4, "good": 5 },
+      { "part": "leg_l", "neutral": 8, "good": 15 },
+      { "part": "leg_r", "neutral": 8, "good": 15 },
+      { "part": "foot_l", "neutral": 3, "good": 5 },
+      { "part": "foot_r", "neutral": 3, "good": 5 },
+      { "part": "arm_l", "neutral": 8, "good": 14 },
+      { "part": "arm_r", "neutral": 8, "good": 14 },
+      { "part": "hand_l", "neutral": 3, "good": 4 },
+      { "part": "hand_r", "neutral": 3, "good": 4 },
+      { "part": "torso", "neutral": 15, "good": 27 }
+    ],
+    "armor": [
+      {
+        "parts": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "acid": 1
+      }
+    ],
+    "prereqs": [ "PLANTSKIN" ],
+    "category": [ "PLANT", "ELFA" ]
+  },
+  {
+    "type": "mutation",
+    "id": "WINGS_BIRD_ADAPTED",
+    "name": { "str": "Adapted Wing Muscles" },
+    "valid": false,
+    "points": 0,
+    "description": "All that work you've done with strengthening your wings, practicing your balance, and waiting for your brain to catch up with your new bodyparts, has paid off beautifully.  While you still can't fly, you are able to flap your wings to greatly enhance dodging and move faster over obstacles.",
+    "types": [ "WINGS" ],
+    "prereqs": [ "WINGS_BIRD" ],
+    "category": [ "BIRD" ],
+    "dodge_modifier": 9,
+    "movecost_obstacle_modifier": 0.75
+  },
+  {
+    "type": "mutation",
+    "id": "INSECT_STINGER",
+    "name": { "str": "Segmented Stinger" },
+    "points": 3,
+    "visibility": 6,
+    "ugliness": 3,
+    "description": "Congratulations, you are now the proud(?) owner of a long, slim, whip-fast and segmented chitinous tail that menaces with a singular curved stinger tipped with wicked barbs meant to tear and mangle skin as you pull it away from the victim.  It doesn't really do much for your balance and It's a bit cumbersome at first, but with practice, you find you can at least adapt to it enough to walk normally once more.  Have fun modifying your pants to acclimate this new limb, champ.",
+    "prereqs": [ "TAIL_STUB" ],
+    "types": [ "TAIL" ],
+    "category": [ "INSECT" ],
+    "encumbrance_covered": [ [ "leg_l", 5 ], [ "leg_r", 5 ] ],
+    "attacks": {
+      "attack_text_u": "You plunge your insectile stinger deep within %s ",
+      "attack_text_npc": "%1$s stabs at %2$s with their insectile stinger",
+      "body_part": "MOUTH",
+      "chance": 20,
+      "base_damage": { "damage_type": "stab", "amount": 20 }
+    }
+  },
+  {
+    "type": "mutation",
+    "id": "VENOMOUS_STINGER",
+    "name": { "str": "Venomous Stinger" },
+    "points": 3,
+    "visibility": 6,
+    "ugliness": 4,
+    "description": "Congratulations, you are now the proud(?) owner of a long, slim, whip-fast and segmented chitinous tail that menaces with a singular curved stinger tipped with wicked barbs meant to tear and mangle skin as you pull it away from the victim.  It doesn't really do much for your balance and It's a bit cumbersome at first, but with practice, you find you can at least adapt to it enough to walk normally once more.  Have fun modifying your pants to acclimate this new limb, champ.",
+    "prereqs": [ "INSECT_STINGER", "POISONOUS" ],
+    "types": [ "TAIL" ],
+    "threshreq": [ "THRESH_INSECT" ],
+    "category": [ "INSECT" ],
+    "encumbrance_covered": [ [ "leg_l", 5 ], [ "leg_r", 5 ] ],
+    "attacks": {
+      "attack_text_u": "You plunge your insectile stinger deep within %s ",
+      "attack_text_npc": "%1$s stabs at %2$s with their insectile stinger",
+      "body_part": "MOUTH",
+      "chance": 30,
+      "base_damage": { "damage_type": "acid", "amount": 10 }
+    }
+  },
+  {
+    "//": "-----------------Custom muzzle mutations begin here-------------------",
+    "type": "mutation",
+    "copy-from": "MUZZLE_LONG",
+    "id": "MUZZLE_RAPTOR",
+    "name": { "str": "Raptor Muzzle" },
+    "points": -3,
+    "visibility": 8,
+    "ugliness": 9,
+    "mixed_effect": true,
+    "description": "Your facial bones have broken, elongated, and healed, giving you a positively sauropod snout and jaws.  You're not going to be able to use mouthgear any longer but why would you want to obfuscate such a magnificent set of gleaming, viciously serrated and intimidating teeth?",
+    "types": [ "MUZZLE" ],
+    "prereqs": [ "SNOUT" ],
+    "category": [ "RAPTOR" ],
+    "leads_to": [ "RAPTOR_BODY" ],
+    "attacks": {
+      "attack_text_u": "You chomp down on %s",
+      "attack_text_npc": "%1$s chomps down on %2$s",
+      "blocker_mutations": [ "FANGS" ],
+      "body_part": "MOUTH",
+      "chance": 20,
+      "base_damage": { "damage_type": "cut", "amount": 12 }
+    },
+    "restricts_gear": [ "mouth" ]
+  }
+]
