@@ -1,16 +1,50 @@
 [
   {
+    "type": "recipe_category",
+    "id": "CC_SECRONOM",
+    "recipe_subcategories": [
+      "CSC_ALL",
+      "CSC_SECRONOM_FLESH",
+      "CSC_SECRONOM_FLESH ARMOR",
+      "CSC_SECRONOM_FLESH ALTERATION"
+    ]
+  },
+  {
+    "//": "We're basically combining meat with slime.",
     "result": "secro_flesh",
-    "activity_level": "NO_EXERCISE",
+    "activity_level": "LIGHT_EXERCISE",
     "type": "recipe",
-    "category": "CC_OTHER",
-    "subcategory": "CSC_OTHER_MATERIALS",
-    "skill_used": "cooking",
+    "category": "CC_SECRONOM",
+    "subcategory": "CSC_SECRONOM_FLESH",
+    "skill_used": "chemistry",
     "difficulty": 1,
-    "skills_required": [ "cooking", 1 ],
-    "time": "10 s",
-    "batch_time_factors": [ 70, 4 ],
+    "skills_required": [ "chemistry", 1 ],
+    "time": "15 s",
     "book_learn": [ [ "secro_recipe_flesh", 6 ], [ "secro_recipe_flesh_field", 1 ] ],
-    "components": [ [ [ "slime_scrap", 5 ] ], [ [ "meat", 2 ], [ "mutant_meat", 2 ], [ "meat_tainted", 5 ] ] ]
+    "components": [
+      [ [ "slime_scrap", 5 ] ],[
+        [ "meat", 1 ],
+        [ "mutant_meat", 1 ],
+        [ "human_flesh", 1 ],
+        [ "mutant_human_flesh", 1 ],
+        [ "demihuman_flesh", 1 ],
+        [ "meat_tainted", 4 ]
+      ]
+    ],
+    "flags": [ "BLIND_EASY" ]
+  },
+  {
+    "result": "secro_flesh_large",
+    "activity_level": "LIGHT_EXERCISE",
+    "type": "recipe",
+    "category": "CC_SECRONOM",
+    "subcategory": "CSC_SECRONOM_FLESH",
+    "skill_used": "chemistry",
+    "difficulty": 1,
+    "skills_required": [ "chemistry", 1 ],
+    "time": "1 m",
+    "book_learn": [ [ "secro_recipe_flesh", 6 ], [ "secro_recipe_flesh_field", 1 ] ],
+    "components": [ [ [ "secro_flesh", 5 ] ] ],
+    "flags": [ "BLIND_EASY" ]
   }
 ]
