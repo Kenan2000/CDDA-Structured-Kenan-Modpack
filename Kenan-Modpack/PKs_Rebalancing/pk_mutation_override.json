@@ -87,7 +87,7 @@
     "copy-from": "FASTHEALER",
     "name": { "str": "Fast Healer" },
     "points": 2,
-    "description": "You heal faster when sleeping and will even recover small amount of HP when not sleeping.  This change in body chemistry strains your metabolism.",
+    "description": "Your wounds heal themselves quicker than usual.  You heal 50% faster whilst asleep, and 20% faster whilst awake.  Your broken limbs also heal twice as fast.",
     "starting_trait": true,
     "category": [ "LIZARD", "MEDICAL" ],
     "healing_awake": 0.2,
@@ -190,7 +190,7 @@
     "copy-from": "THICKSKIN",
     "name": { "str": "Thick-Skinned" },
     "points": 1,
-    "description": "Your skin is tough.  Cutting damage is slightly reduced for you (all: +1 cut).  Slightly decreases wet penalties.",
+    "description": "Your skin is tough.  Cutting and bashing damage is slightly reduced for you.  There's a small chance you don't cut yourself on sharp terrain.",
     "starting_trait": true
   },
   {
@@ -316,7 +316,7 @@
     "copy-from": "SLOWHEALER",
     "name": { "str": "Slow Healer" },
     "points": -2,
-    "description": "You heal a little slower than most; sleeping will heal less lost HP.",
+    "description": "Your wounds heal a little slower than most.  Your HP whilst asleep, as well as your broken limbs, heal at 75% of the regular rate.",
     "starting_trait": true,
     "healing_resting": -0.25,
     "metabolism_modifier": -0.05
@@ -325,9 +325,9 @@
     "type": "mutation",
     "id": "SLOWHEALER2",
     "copy-from": "SLOWHEALER2",
-    "name": { "str": "Very Slow Sleep Healing" },
+    "name": { "str": "Poor Healer" },
     "points": -4,
-    "description": "You heal much slower than most; sleeping will heal only one third HP compare to the average person.",
+    "description": "Your health recovery is severely impaired.  Your HP whilst asleep, as well as your broken limbs, heal at 33% of the regular rate.",
     "starting_trait": true,
     "valid": false,
     "purifiable": false,
@@ -338,9 +338,9 @@
     "type": "mutation",
     "id": "SLOWHEALER3",
     "copy-from": "SLOWHEALER3",
-    "name": { "str": "Extremely Slow Sleep Healing" },
+    "name": { "str": "Imperceptive Healer" },
     "points": -8,
-    "description": "You almost cannot recover lost health by sleeping; sleeping will heal only one tenth HP compare to the average person.",
+    "description": "Wounds are incredibly dangerous to you, as they barely heal at all.  Your HP whilst asleep, as well as your broken limbs, heal at 10% of the regular rate.",
     "starting_trait": true,
     "valid": false,
     "purifiable": false,
@@ -373,7 +373,7 @@
     "copy-from": "DISORGANIZED",
     "name": { "str": "Disorganized" },
     "points": -3,
-    "description": "You are terrible at organizing and storing your possessions.  You can carry 40% less volume.",
+    "description": "You are terrible at organizing and storing your possessions.  You retrieve things from containers 10% slower.",
     "starting_trait": true,
     "valid": false,
     "category": [ "LUPINE" ]
@@ -417,10 +417,9 @@
     "copy-from": "THINSKIN",
     "name": { "str": "Thin-Skinned" },
     "points": -1,
-    "description": "Your skin is fragile.  Cutting damage is slightly increased for you (all: -2 cut).",
+    "description": "Your skin is fragile.  Cutting and bashing damage is slightly increased for you (all: -2 cut and -2 bash).",
     "starting_trait": true,
     "category": [ "MEDICAL", "CEPHALOPOD" ],
-    "armor": [ { "parts": "ALL", "cut": -2 } ],
     "healing_awake": -0.05
   },
   {
@@ -429,7 +428,7 @@
     "copy-from": "MEATARIAN",
     "name": { "str": "Hates Vegetables" },
     "points": -2,
-    "description": "You, like many, hate eating your vegetables.  It's possible for you to eat them, but you will suffer morale penalties due to nausea.",
+    "description": "You have problems with eating vegetables.  It's possible for you to eat them, but you will suffer morale penalties and obtain less nutrition from them.",
     "starting_trait": true,
     "valid": false,
     "category": [ "SPIDER", "LUPINE" ]
@@ -440,7 +439,7 @@
     "copy-from": "ANTIFRUIT",
     "name": { "str": "Hates Fruit" },
     "points": -3,
-    "description": "You despise eating fruits.  It's possible for you to eat them, but you will suffer morale penalties due to nausea.",
+    "description": "You despise eating fruits.  It's possible for you to eat them, but you will suffer morale penalties and obtain less nutrition from them.",
     "starting_trait": true,
     "valid": false,
     "category": [ "BEAST", "FELINE" ]
@@ -451,7 +450,7 @@
     "copy-from": "LACTOSE",
     "name": { "str": "Lactose Intolerance" },
     "points": -1,
-    "description": "You, like 75 percent of the world, cannot tolerate milk or milk based products.  It's possible for you to eat them, but you will suffer morale penalties due to nausea.",
+    "description": "You, like 75 percent of the world, cannot tolerate milk or milk based products.  It's possible for you to eat them, but you will suffer morale penalties and obtain less nutrition from them.",
     "starting_trait": true,
     "category": [ "TROGLOBITE", "FISH", "PLANT" ]
   },
@@ -461,7 +460,7 @@
     "copy-from": "ANTIJUNK",
     "name": { "str": "Junkfood Intolerance" },
     "points": -1,
-    "description": "Something in those heavily processed foods doesn't agree with you.  It's possible for you to eat them, but you will suffer morale penalties due to nausea.",
+    "description": "Something in those heavily processed foods doesn't agree with you.  It's possible for you to eat them, but you will suffer morale penalties and obtain less nutrition from them.",
     "starting_trait": true,
     "category": [ "FELINE", "BEAST", "RAPTOR", "ALPHA" ]
   },
@@ -471,7 +470,7 @@
     "copy-from": "ANTIWHEAT",
     "name": { "str": "Grain Intolerance" },
     "points": -2,
-    "description": "You have a rare allergy that prevents you from eating most types of grains such as wheat or oats.  It's possible for you to eat them, but you will suffer morale penalties due to nausea.",
+    "description": "You have a rare allergy that prevents you from eating wheat.  It's possible for you to eat wheat-based products, but you will suffer morale penalties and obtain less nutrition from them.",
     "starting_trait": true,
     "category": [ "CHIMERA", "ELFA", "LIZARD" ]
   },
@@ -491,7 +490,7 @@
     "copy-from": "TRIGGERHAPPY",
     "name": { "str": "Trigger Happy" },
     "points": -1,
-    "description": "On rare occasion, you will go full-auto when you intended to fire a single shot.  This has no effect when firing semi-automatic firearms.",
+    "description": "Unimplemented.  To be removed after 0.F. to preserve save compatibility.",
     "starting_trait": true,
     "threshreq": [ "THRESH_MEDICAL", "THRESH_RAT", "THRESH_LUPINE" ],
     "category": [ "MEDICAL", "RAT", "LUPINE" ]
@@ -636,7 +635,7 @@
     "copy-from": "ELFA_FNV",
     "name": { "str": "Fey Nightsight" },
     "points": 5,
-    "description": "You have great low-light vision now, though that doesn't allow you to perform fine tasks such as crafting and reading in darkness.  Activate to toggle NV-visible areas on or off.",
+    "description": "You have great low-light vision now, but it doesn't allow you to perform fine tasks such as crafting and reading in darkness.  Activate to toggle NV-visible areas on or off.",
     "cancels": [ "20_15", "LIZ_IR", "FEL_NV", "NIGHTVISION", "NIGHTVISION2", "NIGHTVISION3" ],
     "active": true,
     "starts_active": true
@@ -649,7 +648,7 @@
     "points": 0,
     "visibility": 2,
     "ugliness": -1,
-    "description": "Your eyes have mutated, now having a slitted pupil and glittering in light, much like those of cats.  This is visually striking, but it isn't helping you see at night.",
+    "description": "Your eyes have mutated; now you have slit pupils, and they glitter in the light, much like a cat's.  This is visually striking, but it isn't helping you see at night.",
     "cancels": [ "20_15", "ELFAEYES", "LIZ_EYE", "BIRD_EYE", "URSINE_EYE", "COMPOUND_EYES" ]
   },
   {
@@ -692,7 +691,7 @@
     "name": { "str": "Avian Eyes" },
     "points": 5,
     "visibility": 1,
-    "description": "Your vision has become particularly acute: you suspect you could pick out zombies much farther away.  +4 Perception.",
+    "description": "Your vision has become particularly acute: you suspect you could pick out zombies much farther away.  Perception +4.",
     "cancels": [ "20_15", "ELFAEYES", "FEL_EYE", "LIZ_EYE", "URSINE_EYE", "COMPOUND_EYES" ]
   },
   {
@@ -748,7 +747,7 @@
     "points": 2,
     "visibility": 10,
     "ugliness": 8,
-    "description": "We have adapted local physical structure to Mycus physiology (all: +2 bash, +1 cut).  Greatly reduces wet effects.",
+    "description": "We have begun adapting local physiology to Mycus physical structure, greatly reducing wet effects.",
     "valid": false,
     "purifiable": false
   },
@@ -760,7 +759,7 @@
     "points": 5,
     "visibility": 10,
     "ugliness": 8,
-    "description": "We have incorporated the dense amphibole fibers used in Mycus core towers.  Greatly reduces speed, but also damage (all: +3 bash, +2 cut), flammability, and wet effects.",
+    "description": "We have spliced the dense, amphibole fibers from Mycus core towers with the resilient, adaptive flesh of local physiology.  This reduces our speed by a moderate amount, but provides powerful armor across our body, nullifies wet effects, and provides complete protection from fire.",
     "valid": false,
     "purifiable": false
   },
@@ -773,7 +772,15 @@
     "visibility": 10,
     "ugliness": 3,
     "description": "A set of flexible green scales has grown to cover your body, acting as natural armor (all: +1 bash, +2 cut, +1 acid, +1 bio).  Somewhat reduces wet effects.",
-    "armor": [ { "parts": "ALL", "bash": 1, "cut": 2, "acid": 1, "biological": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 1,
+        "cut": 2,
+        "acid": 1,
+        "biological": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -785,7 +792,16 @@
     "ugliness": 4,
     "mixed_effect": true,
     "description": "A set of heavy green scales has grown to cover your body, acting as natural armor (all: +2 bash, +5 cut, +3 acid, +1 bio, +1 heat).  While difficult to penetrate, it also limits your flexibility, resulting in a -2 penalty to Dexterity.  Greatly reduces wet effects.",
-    "armor": [ { "parts": "ALL", "bash": 2, "cut": 5, "acid": 3, "biological": 1, "heat": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 2,
+        "cut": 5,
+        "acid": 3,
+        "biological": 1,
+        "heat": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -796,7 +812,16 @@
     "visibility": 10,
     "ugliness": 4,
     "description": "A set of very flexible and slick scales has grown to cover your body.  These act as weak natural armor (all: +1 bash, +2 cut, +2 acid, +2 electric, +2 heat), improve your ability to swim, and make you difficult to grab.  Mostly reduces wet effects.",
-    "armor": [ { "parts": "ALL", "bash": 1, "cut": 2, "acid": 2, "electric": 2, "heat": 2 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 1,
+        "cut": 2,
+        "acid": 2,
+        "electric": 2,
+        "heat": 2
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -816,7 +841,14 @@
     "visibility": 10,
     "ugliness": 3,
     "description": "Iridescent feathers have grown to cover your entire body, providing a marginal protection against attacks and minor protection from cold (all: +2 bash, +1 cut, +1 acid).  They also provide a natural waterproofing.",
-    "armor": [ { "parts": "ALL", "bash": 2, "cut": 1, "acid": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 2,
+        "cut": 1,
+        "acid": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -827,7 +859,16 @@
     "visibility": 4,
     "ugliness": 1,
     "description": "You shan't need to migrate south with your layer of insulated down (all: +5 bash, +1 cut, +2 acid, +2 electric, +1 heat).  It's even better with no apes around to kill you for it!",
-    "armor": [ { "parts": "ALL", "bash": 5, "cut": 1, "acid": 2, "electric": 2, "heat": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 5,
+        "cut": 1,
+        "acid": 2,
+        "electric": 2,
+        "heat": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -838,7 +879,14 @@
     "visibility": 10,
     "ugliness": 3,
     "description": "Thick black fur has grown to cover your entire body, providing a marginal protection against attacks (all: +1 bash, +1 cut, +1 acid), and considerable protection from cold.",
-    "armor": [ { "parts": "ALL", "bash": 1, "cut": 1, "acid": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 1,
+        "cut": 1,
+        "acid": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -849,7 +897,15 @@
     "visibility": 10,
     "ugliness": 3,
     "description": "Your fur has grown out and thickened, providing noticeable protection from attacks as well as considerable insulation (all: +3 bash, +4 cut, +1 acid, +2 heat).",
-    "armor": [ { "parts": "ALL", "bash": 3, "cut": 4, "acid": 1, "heat": 2 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 3,
+        "cut": 4,
+        "acid": 1,
+        "heat": 2
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -860,7 +916,16 @@
     "visibility": 10,
     "ugliness": 3,
     "description": "Dense gray fur has grown to cover your entire body, providing a marginal protection against attacks (all: +2 bash, +3 cut, +1 acid, +1 electric, +1 heat), and considerable protection from cold.",
-    "armor": [ { "parts": "ALL", "bash": 2, "cut": 3, "acid": 1, "electric": 1, "heat": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 2,
+        "cut": 3,
+        "acid": 1,
+        "electric": 1,
+        "heat": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -871,7 +936,15 @@
     "visibility": 10,
     "ugliness": 3,
     "description": "You've grown sleek brown fur, providing some protection from cold (all: +2 bash, +2 cut, +2 acid, +1 electric).",
-    "armor": [ { "parts": "ALL", "bash": 2, "cut": 2, "acid": 2, "electric": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 2,
+        "cut": 2,
+        "acid": 2,
+        "electric": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -893,7 +966,16 @@
     "visibility": 3,
     "ugliness": 2,
     "description": "Your epidermis has turned into a thin, flexible layer of chitin.  It provides minor protection from wounds (all: +1 bash, +2 cut, +2 acid, +1 bio, +1 heat).  Slightly reduces wet effects.",
-    "armor": [ { "parts": "ALL", "bash": 1, "cut": 2, "acid": 2, "biological": 1, "heat": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 1,
+        "cut": 2,
+        "acid": 2,
+        "biological": 1,
+        "heat": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -905,7 +987,16 @@
     "ugliness": 3,
     "mixed_effect": true,
     "description": "You've grown a chitin exoskeleton, much like that of an insect.  It provides considerable physical protection (all: +3 bash, +5 cut, +3 acid, +1 bio, +2 heat), but reduces your dexterity by 1.  Somewhat reduces wet effects.",
-    "armor": [ { "parts": "ALL", "bash": 3, "cut": 5, "acid": 3, "biological": 1, "heat": 2 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 3,
+        "cut": 5,
+        "acid": 3,
+        "biological": 1,
+        "heat": 2
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -929,7 +1020,17 @@
       [ "foot_r", 10 ]
     ],
     "passive_mods": { "dex_mod": -1 },
-    "armor": [ { "parts": "ALL", "bash": 8, "cut": 12, "acid": 3, "biological": 2, "heat": 2 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 8,
+        "cut": 12,
+        "bullet": 2,
+        "acid": 3,
+        "biological": 2,
+        "heat": 2
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -940,7 +1041,12 @@
     "visibility": 10,
     "ugliness": 4,
     "description": "You've developed some sort of hair growing out of your chitin (all: +1 cut).  It's a bit warmer than not having hair.",
-    "armor": [ { "parts": "ALL", "cut": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "cut": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -951,7 +1057,15 @@
     "visibility": 10,
     "ugliness": 4,
     "description": "Your chitin hair has thickened and spread across your body (all: +1 bash, +2 cut, +1 acid, +1 heat).  It provides minor warmth and helps you sense nearby vibrations.",
-    "armor": [ { "parts": "ALL", "bash": 1, "cut": 2, "acid": 1, "heat": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 1,
+        "cut": 2,
+        "acid": 1,
+        "heat": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -974,7 +1088,18 @@
       [ "foot_l", 12 ],
       [ "foot_r", 12 ]
     ],
-    "armor": [ { "parts": "ALL", "bash": 6, "cut": 10, "acid": 4, "electric": 2, "biological": 2, "heat": 2 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 6,
+        "cut": 10,
+        "bullet": 2,
+        "acid": 4,
+        "electric": 2,
+        "biological": 2,
+        "heat": 2
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -985,7 +1110,14 @@
     "visibility": 1,
     "ugliness": 1,
     "description": "Significant amounts of your hairs have loosened (all: +1 bash, +2 cut, +1 heat).  If some creature tries to attack you, your assailant is quite likely to get fine, bristly chitin in an irritating spot; it doesn't carry your venom but it will be distracting.",
-    "armor": [ { "parts": "ALL", "bash": 1, "cut": 2, "heat": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 1,
+        "cut": 2,
+        "heat": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1008,7 +1140,14 @@
     "ugliness": 3,
     "description": "Your body is covered with large quills (all: +1 bash, +2 cut, +1 heat).  Whenever an unarmed opponent strikes a part of your body that is not covered by clothing, they will receive significant damage.",
     "category": [ "CHIMERA" ],
-    "armor": [ { "parts": "ALL", "bash": 1, "cut": 2, "heat": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 1,
+        "cut": 2,
+        "heat": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1019,7 +1158,13 @@
     "visibility": 3,
     "ugliness": 2,
     "description": "Your skin is light green and has a slightly woody quality to it.  This provides a weak armor (all: +2 cut, +1 heat), and helps you retain moisture, resulting in less thirst.  Greatly decreases wet penalties.",
-    "armor": [ { "parts": "ALL", "cut": 2, "heat": 1 } ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "cut": 2,
+        "heat": 1
+      }
+    ],
     "thirst_modifier": -0.2
   },
   {
@@ -1031,7 +1176,13 @@
     "visibility": 10,
     "ugliness": 3,
     "description": "Your skin is coated in a light bark, like that of a tree.  This provides resistance to bashing and cutting damage but makes you vulnerable against fire (all: +5 bash, +2 cut).  Greatly reduces wet effects.",
-    "armor": [ { "parts": "ALL", "bash": 5, "cut": 2 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 5,
+        "cut": 2
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1042,7 +1193,12 @@
     "visibility": 8,
     "ugliness": 3,
     "description": "All the hair on your body has turned to long, grass-like leaves (all: +1 cut).  Apart from being physically striking, these provide you with a minor amount of nutrition while in sunlight.  Slightly reduces wet effects.",
-    "armor": [ { "parts": "ALL", "cut": 1 } ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "cut": 1
+      }
+    ],
     "thirst_modifier": 0.04
   },
   {
@@ -1092,7 +1248,13 @@
     "visibility": 5,
     "ugliness": 4,
     "description": "The skin on your hands is a mucous membrane and produces a thick, acrid slime (all: +1 cut, +3 acid).  Attacks using your hand will cause minor acid damage.  Slightly increases wet benefits.",
-    "armor": [ { "parts": "ALL", "cut": 1, "acid": 3 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "cut": 1,
+        "acid": 3
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1275,7 +1437,13 @@
     "ugliness": 1,
     "mixed_effect": true,
     "description": "You've put on some additional weight around your body (all: +2 bash, +1 cut).  It slows you down a little, but helps your swimming and warmth.",
-    "armor": [ { "parts": "ALL", "bash": 2, "cut": 1 } ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 2,
+        "cut": 1
+      }
+    ],
     "metabolism_modifier": -0.1,
     "thirst_modifier": -0.1
   },
@@ -1603,7 +1771,12 @@
     "visibility": 7,
     "ugliness": 6,
     "description": "Your body is coated with a fine slime (all: +1 cut).  Protects from long term effects of acid, though not short term ones.  Greatly increases wet benefits.",
-    "armor": [ { "parts": "ALL", "cut": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "cut": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1614,7 +1787,13 @@
     "visibility": 7,
     "ugliness": 8,
     "description": "Your body's slime output has become sticky and gel-like (all: +2 cut, +4 acid).  Protects from acid somewhat.  Greatly increases wet benefits.",
-    "armor": [ { "parts": "ALL", "cut": 2, "acid": 4 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "cut": 2,
+        "acid": 4
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1626,7 +1805,13 @@
     "ugliness": 10,
     "description": "Your flesh is a pleasing gel-like consistency (all: +6 bash, +1 cut).  Your bodily functions seem to be moving around, and your leg-equivalents flow comfortably.",
     "purifiable": false,
-    "armor": [ { "parts": "ALL", "bash": 6, "cut": 1 } ]
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth" ],
+        "bash": 6,
+        "cut": 1
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -1742,7 +1927,7 @@
     "visibility": 8,
     "ugliness": 3,
     "description": "You have grown a thick shell over your torso, providing excellent armor (torso: +10 bash, +14 cut).  You find you can use the empty space as 16 storage space, but cannot wear anything on your torso.  Somewhat reduces wet effects.",
-    "armor": [ { "parts": "torso", "bash": 10, "cut": 14 } ]
+    "armor": [ { "parts": "torso", "bash": 10, "cut": 14, "bullet": 4 } ]
   },
   {
     "type": "mutation",
@@ -1754,7 +1939,7 @@
     "ugliness": 3,
     "mixed_effect": true,
     "description": "Your protective shell (torso: +14 bash, +18 cut) has grown large enough to accommodate--if need be--your whole body.  Activate to pull your head and limbs into your shell, trading mobility and vision for warmth and shelter.",
-    "armor": [ { "parts": "torso", "bash": 14, "cut": 18 } ],
+    "armor": [ { "parts": "torso", "bash": 14, "cut": 18, "bullet": 6 } ],
     "active": true
   },
   {
