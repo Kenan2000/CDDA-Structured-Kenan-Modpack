@@ -1,43 +1,29 @@
-# Dark Skies Above
+# The Real Dark Skies Above
 
 This document is intended to not only guide new potential contributors, but also help get my own thoughts on how the game will progress in text. Assume spoilers beyond this point!
 
 # Contributing
 
-Since Dark Skies is distributed with the base game, contributions are welcome. If you have any questions, you can contact me on Discord viazz `@ephemeral_storyteller` through the official developer or official community severs.
-
-Edit: You can also contact me, '@Zlorthishen'.  I have a few ideas for directions for this mod which aren't listed in this file. Expect a free season pass DLC named "Peach Trees" soon™.
-
+You can also contact me, '@Zlorthishen'.  I have a few ideas for directions for this mod which aren't listed in this file. Expect a free season pass DLC named "Peach Trees" soon™.
 
 # Summary of Intent and Content
 
-Mechanically, Dark Skies Above began as a project to demonstrate how you can push the game engine to present different stories. Unlike the base game, a narrative arc is assumed: the player will want find a way to make occupation of Earth too costly for the aliens to continue, or die trying. This is, of course, by no means an "easy" or "short" process, nor is it necessarily a requirement. This is done largely to compensate for the fact that Dark Skies does not play well with other mods or some aspects of active development, thus needing a tighter experience.
+Mechanically, Real Dark Skies Above, aka Dark Skies is a project to demonstrate how you can push the game engine to present different stories while not blacklisting anyone or anything. Unlike the base game, in Dark Skies a basic narrative arc is assumed, but not required: the player cant find a way to make occupation of Earth too costly for the aliens to continue and die trying, or play the game however they want and still die trying.
 
-In short, Dark Skies is a science fiction/science fantasy story focused around an ongoing alien invasion and the survival of those left in one of the hot-sites: the New England Exclusion Zone.
-
-Summarized below are the rough design directions currently intended.
+In short, Dark Skies is a science fiction/science fantasy story focused around an ongoing alien invasion and the survival of those left in one of the hot-sites: the New England Exclusion Zone, Whilst at the same time functioning as a complementary mod which functions in harmony with any and all other community mods, specifically the UndeadPeople TileSet **Legacy dark skies above Mod is Specifically Prohibited.**
 
 
 ## The World
 
-The Earth presented in Dark Skies is a little closer to our current tech level (things you'd reasonably find in the 21st century). It is still roughly "some time in the near future", and some of the advancements in technology reflect this. The effects of global warming are already starting to increase the severity and frequency of natural disasters, unknown dangerous disease rages unchecked while tensions between trade leaders are starting to grow due to global economic depression. As if things couldn't get any worse, astronomical institutions across the globe one day detected a peculiar gravitational anomaly just outside the Moon's orbit, initially considered a quaint discovery before alien spacecraft begin to spill from it...
-
-The game takes place in a different timeline to base game Cataclysm, a different future if you will. Former President Toffer's atomic deregulations didn't go as far as he would've liked and presidential canidate Loft won over Oswald, by however slim a margin.  Loft is generally a better statesman (ie better PR) and more focused on internal affairs: namely, sweet deals with corporations who are looking to start plumbing outer space for resources, while maintaining a general air of concern over increasing natural disasters. 
-
+The Earth presented in Dark Skies is a little closer to our current technology level (things you'd reasonably find in the 21st century). It is still "some time in the near future", and some of the advancements in technology reflect this. The effects of climate change are already starting to increase the severity and frequency of natural disasters, numerous infectious diseases of East Asian origin rage unchecked while tensions between local, regional and national leaders are starting to grow due to global economic depression. As if things couldn't get any worse, astronomical institutions across the globe one day detected a peculiar gravitational anomaly just outside the Moon's orbit, initially considered a quaint discovery before alien spacecraft begin to spill from it...
 
 ## The Arrival and The XENOIDS
 
 "The Arrival" is the term for the first few days of the alien invasion, in which various key points of infrastructure were  knocked out: satellites, power plants, highways, and so forth (implying that the aliens have been watching humanity for some time, or at least are familiar with similar systems), and aerial superiority was quickly established in favor of the aliens. Ground based invasion then began, supported by deployment of bioweapons in the form of their Stray strain crystal bio-parasites. The game begins immediately after the Arrival during the ground invasion phase of alien occupation, and ensuing resistance operations by both the US military and any unevacuated civilians still left in the area.
 
-In truth, the aliens themselves are a part of a rampant artificial intelligence network dedicated to acquiring resources from other planets by way of tunnelling through the multi-verse. The civilization that originally made it is long dead, and any interesting, vaguely religious aesthetics revering technology are essentially reflections of its birth culture. The network concerns itself with little more than expanding its scope, extracting resources, and refining its tools - though it occasionally will show small glimmers of sapience. It uses a mix of drones and cyborgs made from formerly conquered species to do its bidding, with the ultimate intent of turning planets it comes across to balls of rock hosting innumerable farms and factories. Think a mix between the AI from "Universal Paperclips", the Combine from Half-Life 2, and a little bit of The Tyranid Hivemind. 
+In truth, the aliens themselves are a part of a omnipresent artificial intelligence network dedicated to acquiring resources from other planets by way of tunnelling through the omni-verse. The civilization that originally made it is long dead, and any interesting, vaguely religious aesthetics revering technology are essentially reflections of its birth culture. The network concerns itself with little more than expanding its scope, extracting resources, and refining its tools - though it occasionally will show small glimmers of sapience. It uses a mix of drones and cyborgs made from formerly conquered species to do its bidding, with the ultimate intent of turning planets it comes across to balls of rock hosting innumerable farms and factories. Think a mix between AM from "I Have No Mouth and I Must Scream", the Combine from Half-Life 2, and a little bit of implacable evil The Tyranid Hivemind. 
 
 Being an artificial intelligence unconcerned with cordial contact, the aliens have never identified themselves. Where American government institutions are concerned, "novel opposing force" or simply "NOPFOR" is sufficient in referring to its new extra-dimensional enemy. 
-
-
-## Other Aliens
-
-There is potential for other intelligent alien species to have a place on Earth post-Arrival. Their numbers would be quite limited, but scavengers who might be receptive to trade are quite possible and there may be some who are questing to help .
-
 
 ## Alien Technology
 
