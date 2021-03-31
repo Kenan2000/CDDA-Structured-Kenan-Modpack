@@ -1,0 +1,330 @@
+[
+  {
+    "//": "Provides plot hooks and missions arcs",
+    "type": "npc",
+    "id": "DKZ_RANDY_ERIKSON",
+    "class": "NC_Randy_Erikson",
+    "name_unique": "Randy Erikson",
+    "name_suffix": "Technician",
+    "attitude": 0,
+    "mission": 7,
+    "mission_offered": "MISSION_REFUGEE_RANDY_ERIKSON_1",
+    "chat": "TALK_RANDY_ERIKSON_ROOT",
+    "faction": "free_merchants"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_Randy_Erikson",
+    "name": { "str": "Randy Erikson" },
+    "job_description": "I work with the staff at the refugee center to fight the Xenoids.",
+    "skills": [
+      { "skill": "computer", "level": { "rng": [ 7, 8 ] } },
+      { "skill": "electronics", "level": { "rng": [ 4, 5 ] } },
+      { "skill": "dodge", "level": { "rng": [ 2, 3 ] } },
+      { "skill": "gun", "level": { "rng": [ 3, 4 ] } },
+      { "skill": "pistol", "level": { "rng": [ 1, 3 ] } },
+      { "skill": "rifle", "level": { "rng": [ 2, 4 ] } },
+      { "skill": "shotgun", "level": { "rng": [ 1, 2 ] } },
+      { "skill": "smg", "level": { "rng": [ 1, 2 ] } },
+      { "skill": "firstaid", "level": { "rng": [ 1, 2 ] } },
+      { "skill": "fabrication", "level": { "rng": [ 2, 3 ] } },
+      {
+        "skill": "ALL",
+        "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 4, 2 ] }, { "rng": [ -3, 0 ] } ] } ] }
+      }
+    ],
+    "traits": [
+      { "trait": "DKZ_TECH", "prob": 100 },
+      { "trait": "PALE", "prob": 100 },
+      { "trait": "hair_red_mohawk", "prob": 100 },
+      { "trait": "FACIAL_HAIR_3DAYSTUBBLE", "prob": 100 },
+      { "trait": "DISRESISTANT", "prob": 100 },
+      { "trait": "INFRESIST", "prob": 100 },
+      { "trait": "POISRESIST", "prob": 100 },
+      { "trait": "ROBUST", "prob": 100 },
+      { "trait": "SPIRITUAL", "prob": 100 },
+      { "trait": "TOUGH_FEET", "prob": 100 },
+      { "trait": "GLASSJAW", "prob": 100 },
+      { "trait": "BADTEMPER", "prob": 100 }
+    ],
+    "bonus_str": { "rng": [ 0, 1 ] },
+    "bonus_dex": { "rng": [ -1, 1 ] },
+    "bonus_int": { "rng": [ 5, 7 ] },
+    "bonus_per": { "rng": [ -2, -1 ] },
+    "worn_override": "NC_DKZ_RANDY_ERIKSON_worn",
+    "carry_override": "NC_DKZ_RANDY_ERIKSON_carried",
+    "weapon_override": "NC_DKZ_RANDY_ERIKSON_weapon"
+  },
+  {
+    "id": "NC_DKZ_RANDY_ERIKSON_weapon",
+    "type": "item_group",
+    "subtype": "collection",
+    "entries": [ { "item": "ak47" } ]
+  },
+  {
+    "id": "NC_DKZ_RANDY_ERIKSON_worn",
+    "type": "item_group",
+    "subtype": "collection",
+    "entries": [
+      { "item": "boxer_shorts" },
+      { "item": "survivor_goggles" },
+      { "item": "linuxtshirt" },
+      { "item": "pants_cargo" },
+      { "item": "socks" },
+      { "item": "boots_rubber" },
+      { "item": "dkz_zenture_industries_premium_zwatch" },
+      { "item": "backpack" }
+    ]
+  },
+  {
+    "id": "NC_DKZ_RANDY_ERIKSON_carried",
+    "type": "item_group",
+    "subtype": "collection",
+    "items": [ { "item": "radio" }, { "item": "book_fict_soft_scifi_roadp" }, { "item": "multitool" }, { "item": "laptop" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_RANDY_ERIKSON_ROOT",
+    "dynamic_line": {
+      "u_has_var": "u_met_Randy_Erikson",
+      "type": "general",
+      "context": "meeting",
+      "value": "yes",
+      "yes": [ "Hey there. What did you break?", "What's up this time?", "Hello again.", "Oh, hey. What did you do now?" ],
+      "no": "I don't think I've seen you wander in here before. I'm Randy. Close the door behind you when you leave."
+    },
+    "responses": [
+      {
+        "text": "Wow, nice to meet you too, Randy.",
+        "effect": { "u_add_var": "u_met_Randy_Erikson", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "not": { "u_has_var": "u_met_Randy_Erikson", "type": "general", "context": "meeting", "value": "yes" } },
+        "topic": "TALK_RANDY_ERIKSON_FIRSTMEET"
+      },
+      {
+        "text": "Hi, Randy.  Got a second to talk?",
+        "topic": "TALK_RANDY_ERIKSON_QUESTIONS",
+        "condition": { "u_has_var": "u_met_Randy_Erikson", "type": "general", "context": "meeting", "value": "yes" }
+      },
+      {
+        "text": "Hey Randy, nice to meet you too.  Bye.",
+        "effect": { "u_add_var": "u_met_Randy_Erikson", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "not": { "u_has_var": "u_met_Randy_Erikson", "type": "general", "context": "meeting", "value": "yes" } },
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "Hi Randy.  I don't have time to talk.",
+        "condition": { "u_has_var": "u_met_Randy_Erikson", "type": "general", "context": "meeting", "value": "yes" },
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_RANDY_ERIKSON_FIRSTMEET",
+    "dynamic_line": "I don't usually get any visitors back here unless the lights aren't working.  What do you want?  Did you trip over a cord or something.",
+    "responses": [
+      { "text": "No, I just had some questions.", "topic": "TALK_RANDY_ERIKSON_QUESTIONS" },
+      { "text": "Actually I'm just heading out. Bye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_RANDY_ERIKSON_QUESTIONS",
+    "type": "talk_topic",
+    "dynamic_line": [
+      "I don't have forever to chat, whatchya need?",
+      "What is broken now?",
+      { "u_male": [ "Sir, what do you want?" ], "no": [ "Ma'am, want do you want?" ] }
+    ],
+    "responses": [
+      {
+        "text": "I'm trying to put a cleanup crew together to tidy up the back room.  Can you help?",
+        "condition": {
+          "and": [
+            { "u_has_mission": "MISSION_REFUGEE_Boris_CLEANUP" },
+            {
+              "not": { "npc_has_var": "cleanup_asked", "type": "mission", "context": "Boris_mission_1", "value": "yes" }
+            }
+          ]
+        },
+        "trial": { "type": "PERSUADE", "difficulty": 1 },
+        "success": { "topic": "TALK_REFUGEE_Accept_Boris_Mission_1" },
+        "failure": { "topic": "TALK_REFUGEE_Refuse_Boris_Mission_1" }
+      },
+      { "text": "So how did you end up here?", "topic": "TALK_RANDY_ERIKSON_BACKGROUND" },
+      { "text": "So what are you doing here?", "topic": "TALK_RANDY_ERIKSON_GENERATOR" },
+      { "text": "Is there anything I can do to help you out?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Don't mind me…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_RANDY_ERIKSON_BACKGROUND",
+    "dynamic_line": [
+      "I was trying to get in contact with the rest of my family because I'd figure that if anyone would be fighting alien invaders it would be my uncle.  But when it came down to it I ended using my last full magazine to drop half a dozen strays a pair of xenoids that were about to kill me.  Then, I ran here as quick as my feet could carry me and now I'm stuck here in the ruins of this public school, doing the best I can to help these guys keep the lights on.  I could probably rendezvous with my family if I wanted, but I want to make sure these people here are safe before I'd even consider leaving this place.  The people are here are nice and this place kind of grows on you."
+    ],
+    "responses": [
+      { "text": "Its good that you like it here.", "topic": "TALK_NONE" },
+      { "text": "Ok, see you later.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_RANDY_ERIKSON_GENERATOR",
+    "dynamic_line": [
+      "I've been spending most of my time keeping this jury-rigged generator running just slowly enough to trickle charge the batteries that are built into this old machinery so it can keep these utility lights on at night. It as effective as can be considering what I've got to work with."
+    ],
+    "responses": [ { "text": "Something else.", "topic": "TALK_NONE" }, { "text": "Good luck with that.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "MISSION_REFUGEE_RANDY_ERIKSON_1",
+    "type": "mission_definition",
+    "name": { "str": "Find a wrench" },
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 2,
+    "value": 0,
+    "item": "wrench",
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_REFUGEE_RANDY_ERIKSON_2",
+    "dialogue": {
+      "describe": "I need a real wrench to fix shit around here.",
+      "offer": "I feel silly asking this, but can you find a good wrench?  My multi-tool has been working good for most things, but I could get so much done with a nice adjustable crescent wrench.",
+      "accepted": "Thank you.",
+      "rejected": "Then why ask?",
+      "advice": "Remember where you used to go to buy a wrench, try there.  If you see a voltmeter or a soldering iron, grab them too.",
+      "inquire": "How is the search going?",
+      "success": "Thanks!  Now I finally feel ready in case this generator decides it wants to commit suicide.",
+      "success_lie": "What good does this do me?",
+      "failure": "It's okay.  I didn't really expect you to succeed anyway."
+    }
+  },
+  {
+    "id": "MISSION_REFUGEE_RANDY_ERIKSON_2",
+    "type": "mission_definition",
+    "name": { "str": "Find a voltmeter" },
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 3,
+    "value": 0,
+    "item": "voltmeter",
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_REFUGEE_RANDY_ERIKSON_3",
+    "dialogue": {
+      "describe": "I need a voltmeter to diagnose the electrical system.",
+      "offer": "I hope you listened to my advice on your last mission because now I'm going to need a voltmeter to figure out why there are more warning lights flashing than normal.  Go get one.",
+      "accepted": "Thanks.",
+      "rejected": "I think it will work for now, but who knows when the lights will go out for good?",
+      "advice": "I remember seeing a nice voltmeter at the electronics store in the mall before shit hit the fan.  Try there maybe?",
+      "inquire": "How is the search going?",
+      "success": "Thank you so much.  Now lets see what part isn't working.",
+      "success_lie": "What good does this do me?",
+      "failure": "It's okay.  I didn't really expect you to succeed anyway."
+    }
+  },
+  {
+    "id": "MISSION_REFUGEE_RANDY_ERIKSON_3",
+    "type": "mission_definition",
+    "name": { "str": "Find a soldering iron" },
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 3,
+    "value": 0,
+    "item": "soldering_iron",
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_REFUGEE_RANDY_ERIKSON_4",
+    "dialogue": {
+      "describe": "I need a soldering to fix the electrical system.",
+      "offer": "I think I figured out which parts of the power control board are acting up. Luckily I have the replacement circuits, but I'm going to need a good soldering iron. You already wouldn't have one would you?",
+      "accepted": "Thanks.",
+      "rejected": "I think it will work for now, but who knows when the lights will go out for good?",
+      "advice": "Didn't you find one at the electronics store in the mall? Go back and pick up some extra solder while you're there.",
+      "inquire": "How is the search going?",
+      "success": "Great now I actually have to fix it.",
+      "success_lie": "What good does this do me?",
+      "failure": "It's okay.  I didn't really expect you to succeed anyway."
+    }
+  },
+  {
+    "id": "MISSION_REFUGEE_RANDY_ERIKSON_4",
+    "type": "mission_definition",
+    "name": { "str": "Get a pound solder wire" },
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 1,
+    "value": 0,
+    "item": "solder_wire",
+    "count": 225,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_REFUGEE_RANDY_ERIKSON_5",
+    "dialogue": {
+      "describe": "I need more solder.",
+      "offer": "I vastly underestimated how much solder I am going to need to fix this thing. I need at least a pound to fix everything that's broken. Do you have that much on you?",
+      "accepted": "Thanks.",
+      "rejected": "I think it will work for now, but who knows when the lights will go out for good?",
+      "advice": "One pound is 225  units of solder wire. Can you remember that number or do you need me to write it down for you too?",
+      "inquire": "How is the search going?",
+      "success": "Great now I actually have to fix it.",
+      "success_lie": "What good does this do me?",
+      "failure": "It's okay.  I didn't really expect you to succeed anyway."
+    },
+    "end": {
+      "effect": [
+        { "u_add_var": "RANDY_FIXED_GENERATOR", "type": "mission", "context": "flag", "value": "yes" },
+        { "u_adjust_var": "refugee_happiness", "type": "counter", "context": "refugee_center", "adjustment": 1 }
+      ]
+    }
+  },
+  {
+    "id": "MISSION_REFUGEE_RANDY_ERIKSON_5",
+    "type": "mission_definition",
+    "name": { "str": "Get some reference software" },
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 8,
+    "value": 0,
+    "item": "software_electronics_reference",
+    "followup": "MISSION_REFUGEE_RANDY_ERIKSON_6",
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "I need the circuit reference documentation.",
+      "offer": "I've gotten all the loose parts fixed and all wires replaced that needed replacing, but to check every circuit I need a hard copy of the 'Integrated Circuit Archive Database', since I can't just ask the internet for that kind of stuff any more.",
+      "accepted": "Thanks.",
+      "rejected": "I need those reference documents to double check everything.",
+      "advice": "I bet a secret government lab has that somewhere.  It should be on a USB drive somewhere.",
+      "inquire": "How is the search going?",
+      "success": "Wow, you actually found it. Here is a book that will help you use the helicopter parked out there.",
+      "success_lie": "What good does this do me?",
+      "failure": "It's okay.  I didn't really expect you to succeed anyway."
+    },
+    "end": {
+      "effect": [
+        { "u_add_var": "RANDY_HAS_REFERANCE_SOFTWARE", "type": "mission", "context": "flag", "value": "yes" },
+        { "u_buy_item": "dkz_helicopter_flying_handbook", "count": 1 }
+      ]
+    }
+  },
+  {
+    "id": "MISSION_REFUGEE_RANDY_ERIKSON_6",
+    "type": "mission_definition",
+    "name": { "str": "Get some hobby software" },
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 9,
+    "value": 0,
+    "item": "software_useless",
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "I some old hobby software.",
+      "offer": "I need another old piece of software, not sure what it was but I'll know it when I see it..",
+      "accepted": "Thanks.",
+      "rejected": "Whatever.",
+      "advice": "I will know it when I check the files on the USB.  Probably got mislabled as miscellaneous or something.",
+      "inquire": "How is the search going?",
+      "success": "Finally I have all my favorite mods for Cataclysm DDA, this game is so boring unmodded.  Here is a book you'll really like, plus a bunch of paper money the staff here keep giving me.",
+      "success_lie": "What good does this do me?",
+      "failure": "It's okay.  I didn't really expect you to succeed anyway."
+    },
+    "end": {
+      "effect": [
+        { "u_buy_item": "FMCNote", "count": 137 },
+        { "u_add_var": "RANDYS_BUDDY", "type": "mission", "context": "flag", "value": "yes" },
+        { "u_adjust_var": "refugee_happiness", "type": "counter", "context": "refugee_center", "adjustment": 1 },
+        { "u_buy_item": "dkz_helicopter_design_for_dummies", "count": 1 }
+      ]
+    }
+  }
+]
