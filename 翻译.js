@@ -185,7 +185,7 @@ function getFileJSON(inspectData, parentPath = '') {
 function writeToCNMod(foldersWithContent) {
   for (const inspectDataWithContent of foldersWithContent) {
     const newFilePath = inspectDataWithContent.filePath.replace(`${sourceDirName}/`, `${translatedDirName}/`);
-    logger.log('newFilePath', newFilePath)
+    logger.log('newFilePath', newFilePath);
     if (inspectDataWithContent.content) {
       // JSON 文件
       fs.write(newFilePath, JSON.stringify(inspectDataWithContent.content, undefined, '  '));
@@ -229,12 +229,13 @@ function getCDDATranslator(translationCacheFilePath, translationCache = {}) {
 
   // 常用的翻译器
   const nameDesc = async (item) => {
-    if (typeof item === 'string') {
+    if (typeof item?.name === 'string') {
       item.name = await translateFunction(item.name);
-    } else if (typeof item === 'object') {
+    } else if (typeof item?.name === 'object') {
       item.name = await maleFemaleItemDesc(item.name);
     }
     item.description = await translateFunction(item.description);
+    item.detailed_definition = await translateFunction(item.detailed_definition);
   };
   const maleFemaleItemDesc = async (item) => {
     item.male = await translateFunction(item.male);
@@ -389,6 +390,11 @@ function getCDDATranslator(translationCacheFilePath, translationCache = {}) {
     }
   };
 
+  const infoItem = async (item) => {
+    // 注意可能有 <good>protection</good> 这样的标记
+    item.info = await translateFunction(item.info);
+  };
+
   // 注册各种类型数据的翻译器
   translators.profession = nameDesc;
   translators.scenario = async (item) => {
@@ -517,10 +523,7 @@ function getCDDATranslator(translationCacheFilePath, translationCache = {}) {
   };
   translators.emit = noop;
   translators.field_type = noop;
-  translators.json_flag = async (item) => {
-    // 注意有 <good>protection</good> 这样的标记
-    item.info = await translateFunction(item.info);
-  };
+  translators.json_flag = infoItem;
   translators.martial_art = async (item) => {
     item.description = await translateFunction(item.description);
     if (Array.isArray(item.initiate)) {
@@ -584,9 +587,19 @@ function getCDDATranslator(translationCacheFilePath, translationCache = {}) {
   translators.construction_group = nameDesc;
   translators.vehicle_group = noop;
   translators.PET_ARMOR = namePlDesc;
+  translators.item_action = namePlDesc;
+  translators.ITEM_CATEGORY = namePlDesc;
   translators.sound_effect = noop;
   translators.vehicle_placement = noop;
   translators.monster_attack = monsterAttack;
+  translators.EXTERNAL_OPTION = infoItem;
+  translators.region_settings = noop;
+  translators.proficiency = noop;
+  translators.overmap_location = noop;
+  translators.ITEM_BLACKLIST = noop;
+  translators.colordef = noop;
+  translators.MIGRATION = noop;
+  translators.vehicle = nameDesc;
 
   return translators;
 }
