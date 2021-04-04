@@ -88,7 +88,8 @@ function tryTranslation(value) {
           retryCount = number;
           retry();
         })
-        .catch(() => {
+        .catch((error) => {
+          logger.error('Translate failed', error.message, `Value: ${value}`);
           retryCount = number;
           retry();
         }),
