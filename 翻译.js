@@ -9,6 +9,16 @@ const sourceDirName = 'Kenan-Modpack';
 const translatedDirName = `Kenan-Modpack-汉化版`;
 const translateCacheDirName = `中文翻译`;
 
+let logCounter = 0;
+const log = (...message) => {
+  console.log(...message);
+  fs.append(path.join(__dirname, 'log.log'), `Log${logCounter++} ${message.join(' ')}`);
+};
+const error = (...message) => {
+  console.error(...message);
+  fs.append(path.join(__dirname, 'error.log'), `Log${logCounter++} ${message.join(' ')}`);
+};
+
 // 创建容纳翻译的文件夹
 fs.dir(path.join(__dirname, translatedDirName));
 fs.dir(path.join(__dirname, translateCacheDirName));
