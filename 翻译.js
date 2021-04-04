@@ -249,7 +249,7 @@ function getFileJSON(inspectData, parentPath = '') {
  */
 function writeToCNMod(foldersWithContent) {
   // DEBUG: console
-  console.log(`writeToCNMod`, foldersWithContent);
+  logger.log(`writeToCNMod`, foldersWithContent);
   for (const inspectDataWithContent of foldersWithContent) {
     const newFilePath = inspectDataWithContent.filePath.replace(`${sourceDirName}/`, `${translatedDirName}/`);
     logger.log('newFilePath', newFilePath);
@@ -715,7 +715,7 @@ async function translateOneMod(sourceModName) {
     );
     writeToCNMod(contents);
   } catch (error) {
-    logger.error(error);
+    logger.error(`translateOneMod failed for ${sourceModName} ${error.message}`);
   }
   writeTranslationCache(translationCacheFilePath, translationCache);
 }
