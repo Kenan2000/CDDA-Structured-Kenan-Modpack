@@ -13,11 +13,11 @@ let logCounter = 0;
 const logger = {
   log: (...message) => {
     console.log(...message);
-    fs.append(path.join(__dirname, 'log.log'), `Log${logCounter++} ${message.join(' ')}`);
+    fs.appendAsync(path.join(__dirname, 'log.log'), `Log${logCounter++} ${message.join(' ')}`);
   },
   error: (...message) => {
     console.error(...message);
-    fs.append(path.join(__dirname, 'error.log'), `Log${logCounter++} ${message.join(' ')}`);
+    fs.appendAsync(path.join(__dirname, 'error.log'), `Log${logCounter++} ${message.join(' ')}`);
   },
 };
 
@@ -112,6 +112,7 @@ function writeTranslationCache(translationCacheFilePath, translationCache) {
  * @param {Record<string, string>} translationCache 内存里的翻译缓存，会被副作用更新
  */
 async function translateWithCache(value, translationCacheFilePath, translationCache = {}) {
+  if (!value) return undefined;
   logger.log(`\nTranslating ${value}\n`);
   if (translationCache[value]) {
     logger.log(`Use Cached version ${translationCache[value]}\n--\n`);
@@ -581,6 +582,7 @@ async function main() {
   logger.log('sourceModDirs', JSON.stringify(sourceModDirs));
   for (const sourceModDir of sourceModDirs) {
     await translateOneMod(sourceModDir);
+    logger.log(`\n${sourceModDir} Translate done!\n`)
   }
 }
 // 执行翻译脚本
