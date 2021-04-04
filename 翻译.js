@@ -12,11 +12,11 @@ const translateCacheDirName = `中文翻译`;
 let logCounter = 0;
 const logger = {
   log: (...message) => {
-    logger.log(...message);
+    console.log(...message);
     fs.append(path.join(__dirname, 'log.log'), `Log${logCounter++} ${message.join(' ')}`);
   },
   error: (...message) => {
-    logger.error(...message);
+    console.error(...message);
     fs.append(path.join(__dirname, 'error.log'), `Log${logCounter++} ${message.join(' ')}`);
   },
 };
@@ -578,6 +578,7 @@ async function translateOneMod(sourceModName) {
 }
 
 async function main() {
+  logger.log('sourceModDirs', JSON.stringify(sourceModDirs));
   for (const sourceModDir of sourceModDirs) {
     await translateOneMod(sourceModDir);
   }
