@@ -63,8 +63,6 @@ const sougouTranslate = async (value) => {
   }).then(function (response) {
     return response.json();
   });
-  // DEBUG: console
-  console.log(`response`, response);
   if (response.errorCode === '0') {
     return response.translation;
   }
@@ -82,8 +80,19 @@ const baiduTranslate = async (value) => {
     const [{ dst }] = result;
     return dst;
   }
+  throw new Error(`百度翻译又跪了 ${value} ${JSON.stringify(result)}`);
 };
-const unionTranslate = (value) => baiduTranslate(value).catch(() => sougouTranslate(value));
+/**
+ * 先尝试百度再尝试搜狗
+ * @param {string} value 待翻译的值
+ * @returns 
+ */
+const unionTranslate = (value) =>
+  baiduTranslate(value).catch((error) =>
+    sougouTranslate(value).catch((error2) => {
+      throw new Error(error.message + error2.message);
+    })
+  );
 
 function replaceNto1111(text) {
   // 防止 %2$s 影响了翻译，先替换成不会被翻译的占位符，然后之后再替换回来
