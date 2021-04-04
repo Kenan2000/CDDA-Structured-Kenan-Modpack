@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const fs = require('fs-jetpack');
 const path = require('path');
 const _ = require('lodash');
+const fetch = require('node-fetch');
+const crypto = require('crypto');
 
 const sourceDirName = 'Kenan-Modpack';
 const translatedDirName = `Kenan-Modpack-汉化版`;
@@ -38,8 +40,50 @@ fs.dir(path.join(__dirname, translateCacheDirName));
 // 首先读取 Kenan-Modpack 文件夹里的所有文件名
 const sourceModDirs = fs.list(path.resolve(__dirname, 'Kenan-Modpack'));
 // 别忘了把百度翻译 API 的 .env 文件黏贴到文件夹里！
+// 搜狗的网上搜到了别人的 https://github.com/lunaragon/Translator/blob/b91481c4254ee01b3ce8eae1cea6586c33066e69/competitors/sougou.js#L6  	const PID = '059ad85853c5f20e54508cebf85287cd' const SECRET_KEY = 'c447fe597dc86f8c586cf7adef9dec21'
 dotenv.config();
-const translate = new BaiduTranslate(process.env.TRANSLATION_APP_ID, process.env.TRANSLATION_SECRET, 'zh', 'en');
+const sougouTranslate = async (value) => {
+  const random = Math.floor(Math.random() * 10000);
+  const toHash = `${process.env.SOUGOU_TRANSLATION_APP_ID}${value}${random}${process.env.SOUGOU_TRANSLATION_SECRET}`;
+  // 搜狗居然还在用过时的 x-www-form-urlencoded ，令人震惊
+  const body = new URLSearchParams();
+  body.append('q', value);
+  body.append('from', 'en');
+  body.append('to', 'zh-CHS');
+  body.append('pid', process.env.SOUGOU_TRANSLATION_APP_ID);
+  body.append('salt', String(random));
+  body.append('sign', crypto.createHash('md5').update(toHash).digest('hex'));
+  const response = await fetch('http://fanyi.sogou.com/reventondc/api/sogouTranslate', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      Accept: 'application/json',
+    },
+    body,
+  }).then(function (response) {
+    return response.json();
+  });
+  // DEBUG: console
+  console.log(`response`, response);
+  if (response.errorCode === '0') {
+    return response.translation;
+  }
+  throw new Error(response.errorCode + response.message);
+};
+const baiduTranslateRaw = new BaiduTranslate(
+  process.env.BAIDU_TRANSLATION_APP_ID,
+  process.env.BAIDU_TRANSLATION_SECRET,
+  'zh',
+  'en'
+);
+const baiduTranslate = async (value) => {
+  const { trans_result: result } = await baiduTranslateRaw(value);
+  if (result && result.length > 0) {
+    const [{ dst }] = result;
+    return dst;
+  }
+};
+const unionTranslate = (value) => baiduTranslate(value).catch(() => sougouTranslate(value));
 
 function replaceNto1111(text) {
   // 防止 %2$s 影响了翻译，先替换成不会被翻译的占位符，然后之后再替换回来
@@ -78,11 +122,10 @@ function tryTranslation(value) {
 
   return promiseRetry(
     (retry, number) =>
-      translate(replaceNto1111(value))
-        .then(({ trans_result: result }) => {
-          if (result && result.length > 0) {
-            const [{ dst }] = result;
-            return replace1111toN(dst);
+      unionTranslate(replaceNto1111(value))
+        .then((result) => {
+          if (typeof result === 'string') {
+            return replace1111toN(result);
           }
           lastResult = result;
           retryCount = number;
