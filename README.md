@@ -4,7 +4,24 @@
 
 ## Development 开发
 
-如果你想贡献翻译（主要是润色机翻内容），直接打开 `中文翻译` 文件夹里对应 mod 的 json 文件搜索对应中英文搜到改了提交 Pull Request 即可。
+如果你想贡献翻译（主要是润色机翻内容），直接打开 `中文翻译` 文件夹里对应 mod 的 json 文件搜索对应中英文搜到改了提交 Pull Request 即可。 （在 Github 上点击保存应该会自动为你创建 PR 提交贡献给这个代码仓库），我会重新运行翻译脚本生成润色好的最新内容。如果内容过期也请提 issue 通知我。
+
+
+自己运行脚本：
+
+1. 到 https://fanyi-api.baidu.com/ 搞到百度翻译 API key，类似
+
+```env
+TRANSLATION_APP_ID=2019...
+TRANSLATION_SECRET=zEah...
+```
+
+2. 装好 nodejs 然后命令行运行
+
+```
+npm i
+npm start
+```
 
 ## What 这是什么
 
