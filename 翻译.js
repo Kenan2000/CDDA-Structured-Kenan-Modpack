@@ -156,7 +156,7 @@ function tryTranslation(value) {
 /**
  * 共享所有Mod翻译的成果，加速翻译，但之后每个mod自己还是存一份
  */
-const sharedTranslationCache = {};
+let sharedTranslationCache = {};
 function loadSharedTranslationCache() {
   for (const sourceModName of sourceModDirs) {
     const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
