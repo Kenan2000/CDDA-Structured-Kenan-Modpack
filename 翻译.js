@@ -197,11 +197,11 @@ async function translateWithCache(value, translationCacheFilePath, translationCa
   logger.log(`\nTranslating ${value}\n`);
   let translatedValue = value;
   if (translationCache[value] !== undefined || sharedTranslationCache[value] !== undefined) {
-    translatedValue = /* translationCache[value] ??  */ sharedTranslationCache[value] ?? translationCache[value];
+    translatedValue = translationCache[value] ?? sharedTranslationCache[value] /*  ?? translationCache[value] */;
     logger.log(`Use Cached version ${translatedValue}\n--\n`);
     // 如果需要用共享翻译资源刷新此mod翻译
-    translationCache[value] = translatedValue;
-    await debouncedWriteTranslationCache(translationCacheFilePath, translationCache);
+    // translationCache[value] = translatedValue;
+    // await debouncedWriteTranslationCache(translationCacheFilePath, translationCache);
   } else {
     // 没有缓存，就更新缓存
     logger.log(`No Cached Translation for ${value}\n`);
