@@ -161,7 +161,7 @@ function loadSharedTranslationCache() {
   for (const sourceModName of sourceModDirs) {
     const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
     try {
-      translationCache = { ...translationCache, ...JSON.parse(fs.read(translationCacheFilePath, 'utf8')) };
+      sharedTranslationCache = { ...sharedTranslationCache, ...JSON.parse(fs.read(translationCacheFilePath, 'utf8')) };
     } catch {}
   }
 }
