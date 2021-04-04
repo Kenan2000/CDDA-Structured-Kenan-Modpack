@@ -1,4 +1,13 @@
-# CDDA-Kenan-Modpack
+# CDDA-Kenan-Modpack CDDA Kenan Mod 合集的汉化
+
+![HowDownload.png](./HowDownload.png)
+
+## Development 开发
+
+如果你想贡献翻译（主要是润色机翻内容），直接打开 `中文翻译` 文件夹里对应 mod 的 json 文件搜索对应中英文搜到改了提交 Pull Request 即可。
+
+## What 这是什么
+
 Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for **LATEST** experimental versions
 
 **1)** **IF YOU ARE EXPERIENCING ANY BUGS OR ERRORS - EITHER THE FIXES WILL BE RELEASED SOON-ISH OR THE MOD IS WIP** ;
