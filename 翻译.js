@@ -43,7 +43,7 @@ const sourceModDirs = fs.list(path.resolve(__dirname, 'Kenan-Modpack'));
 // 搜狗的网上搜到了别人的 https://github.com/lunaragon/Translator/blob/b91481c4254ee01b3ce8eae1cea6586c33066e69/competitors/sougou.js#L6  	const PID = '059ad85853c5f20e54508cebf85287cd' const SECRET_KEY = 'c447fe597dc86f8c586cf7adef9dec21'
 dotenv.config();
 const sougouTranslate = async (value) => {
-  const random = Math.floor(Math.random() * 10000);
+  const random = Math.floor(Math.random() * 1000000);
   const toHash = `${process.env.SOUGOU_TRANSLATION_APP_ID}${value}${random}${process.env.SOUGOU_TRANSLATION_SECRET}`;
   // 搜狗居然还在用过时的 x-www-form-urlencoded ，令人震惊
   const body = new URLSearchParams();
@@ -85,7 +85,7 @@ const baiduTranslate = async (value) => {
 /**
  * 先尝试百度再尝试搜狗
  * @param {string} value 待翻译的值
- * @returns 
+ * @returns
  */
 const unionTranslate = (value) =>
   baiduTranslate(value).catch((error) =>
@@ -183,6 +183,7 @@ function initializeTranslationCache(translationCacheFilePath, translationCache =
 function writeTranslationCache(translationCacheFilePath, translationCache) {
   return fs.write(translationCacheFilePath, JSON.stringify(translationCache, undefined, '  '));
 }
+const debouncedWriteTranslationCache = _.debounce(writeTranslationCache, 1000);
 
 /**
  * 尝试使用缓存的内容，没有就实际翻译
@@ -194,16 +195,21 @@ async function translateWithCache(value, translationCacheFilePath, translationCa
   if (value === undefined) return undefined;
   if (value === '') return '';
   logger.log(`\nTranslating ${value}\n`);
+  let translatedValue = value;
   if (translationCache[value] !== undefined || sharedTranslationCache[value] !== undefined) {
-    logger.log(`Use Cached version ${translationCache[value]}\n--\n`);
-    return translationCache[value] ?? sharedTranslationCache[value];
+    translatedValue = /* translationCache[value] ??  */ sharedTranslationCache[value] ?? translationCache[value];
+    logger.log(`Use Cached version ${translatedValue}\n--\n`);
+    // 如果需要用共享翻译资源刷新此mod翻译
+    translationCache[value] = translatedValue;
+    await debouncedWriteTranslationCache(translationCacheFilePath, translationCache);
+  } else {
+    // 没有缓存，就更新缓存
+    logger.log(`No Cached Translation for ${value}\n`);
+    translatedValue = await tryTranslation(value);
+    logger.log(`New Translation ${value}\n -> ${translatedValue}\n`);
+    translationCache[value] = translatedValue;
+    await writeTranslationCache(translationCacheFilePath, translationCache);
   }
-  // 没有缓存，就更新缓存
-  logger.log(`No Cached Translation for ${value}\n`);
-  const translatedValue = await tryTranslation(value);
-  logger.log(`New Translation ${value}\n -> ${translatedValue}\n`);
-  translationCache[value] = translatedValue;
-  await writeTranslationCache(translationCacheFilePath, translationCache);
   return translatedValue;
 }
 
