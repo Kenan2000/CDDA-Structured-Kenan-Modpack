@@ -14,12 +14,14 @@ let logs = [];
 let errors = [];
 const logger = {
   log: (...message) => {
-    // console.log(...message);
+    console.log(...message);
     logs.push(`Log${logCounter++} ${message.join(' ')}\n`);
+    debouncedFlushLog();
   },
   error: (...message) => {
     console.error(...message);
     errors.push(`Log${logCounter++} ${message.join(' ')}\n`);
+    debouncedFlushLog();
   },
   flush: () => {
     fs.append(path.join(__dirname, 'log.log'), logs.join('\n'));
@@ -28,6 +30,7 @@ const logger = {
     errors = [];
   },
 };
+const debouncedFlushLog = _.debounce(logger.flush, 1000);
 
 // 创建容纳翻译的文件夹
 fs.dir(path.join(__dirname, translatedDirName));
@@ -91,7 +94,9 @@ function tryTranslation(value) {
         }),
     { retries: 10, maxTimeout: 10000, randomize: true }
   ).catch((error) => {
-    return `Translation Error: ${error} result: ${lastResult}, From: ${value}, Count: ${retryCount}\nRetry Again\n--\n\n `;
+    const errorMessage = `Translation Error: ${error} result: ${lastResult}, From: ${value}, Count: ${retryCount}\nRetry Again\n--\n\n `;
+    logger.error(errorMessage);
+    return errorMessage;
   });
 }
 
@@ -141,6 +146,7 @@ async function translateWithCache(value, translationCacheFilePath, translationCa
     return translationCache[value] ?? sharedTranslationCache[value];
   }
   // 没有缓存，就更新缓存
+  logger.log(`No Cached Translation for ${value}\n`);
   const translatedValue = await tryTranslation(value);
   logger.log(`New Translation ${value}\n -> ${translatedValue}\n`);
   translationCache[value] = translatedValue;
@@ -183,6 +189,8 @@ function getFileJSON(inspectData, parentPath = '') {
  * @param {Object[]} foldersWithContent 一维数组，基本类似于 inspectData https://www.npmjs.com/package/fs-jetpack#inspecttreepath-options ，但是多了 content 包含 JSON parse 过的文件内容，以及 filePath 是完整的原始文件路径
  */
 function writeToCNMod(foldersWithContent) {
+  // DEBUG: console
+  console.log(`writeToCNMod`, foldersWithContent);
   for (const inspectDataWithContent of foldersWithContent) {
     const newFilePath = inspectDataWithContent.filePath.replace(`${sourceDirName}/`, `${translatedDirName}/`);
     logger.log('newFilePath', newFilePath);
@@ -217,8 +225,14 @@ async function translateStringsInContent(fileItem, translationCacheFilePath, tra
     return fileItem;
   } else {
     logger.error(
-      `File content is not an array! ${fileItem.filePath} ,\n this will resulted in "Cannot read property 'filePath' of undefined"`
+      `File content is not an array! ${fileItem.filePath} ,\n this means modder use an unexpected json schema, will resulted in "Cannot read property 'filePath' of undefined"`
     );
+    const translator = translators[fileItem.type];
+    if (!translator) {
+      logger.error(`没有 ${fileItem.type} 的翻译器`);
+    } else {
+      await translator(fileItem);
+    }
   }
 }
 
@@ -600,14 +614,31 @@ function getCDDATranslator(translationCacheFilePath, translationCache = {}) {
   translators.overmap_location = noop;
   translators.ITEM_BLACKLIST = noop;
   translators.MONSTER_BLACKLIST = noop;
+  translators.MONSTER_WHITELIST = noop;
   translators.colordef = noop;
   translators.monster_adjustment = noop;
   translators.MIGRATION = noop;
   translators.vehicle = nameDesc;
   translators.vehicle_spawn = noop;
+  translators.file = noop;
 
   return translators;
 }
+
+/**
+ * 助手函数，帮我们限制一次请求翻译API的量
+ */
+const chunkAsync = (arr, callback, chunkSize = 1) => {
+  const results = [];
+  const chunks = _.chunk(arr, chunkSize);
+  const work = chunks.reduce((previousPromise, chunk) => {
+    return previousPromise.finally(() => {
+      results.push(...chunk.map(callback));
+      return Promise.all(results);
+    });
+  }, Promise.resolve());
+  return work.finally(() => results);
+};
 
 /**
  * 开始翻译，一次翻译一个 Mod
@@ -618,10 +649,10 @@ async function translateOneMod(sourceModName) {
   const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
   const translationCache = initializeTranslationCache(translationCacheFilePath);
   try {
-    const contents = await Promise.all(
-      readSourceFiles(sourceDirName).map((fileItem) =>
-        translateStringsInContent(fileItem, translationCacheFilePath, translationCache)
-      )
+    const contents = await chunkAsync(
+      readSourceFiles(sourceDirName),
+      (fileItem) => translateStringsInContent(fileItem, translationCacheFilePath, translationCache),
+      10
     );
     writeToCNMod(contents);
   } catch (error) {
