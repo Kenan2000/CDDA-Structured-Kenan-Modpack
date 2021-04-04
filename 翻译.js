@@ -14,7 +14,7 @@ let logs = [];
 let errors = [];
 const logger = {
   log: (...message) => {
-    console.log(...message);
+    // console.log(...message);
     logs.push(`Log${logCounter++} ${message.join(' ')}\n`);
   },
   error: (...message) => {
@@ -588,18 +588,23 @@ function getCDDATranslator(translationCacheFilePath, translationCache = {}) {
   translators.vehicle_group = noop;
   translators.PET_ARMOR = namePlDesc;
   translators.item_action = namePlDesc;
+  translators.ENGINE = namePlDesc;
   translators.ITEM_CATEGORY = namePlDesc;
   translators.sound_effect = noop;
   translators.vehicle_placement = noop;
   translators.monster_attack = monsterAttack;
   translators.EXTERNAL_OPTION = infoItem;
+  translators.overmap_land_use_code = nameDesc;
   translators.region_settings = noop;
   translators.proficiency = noop;
   translators.overmap_location = noop;
   translators.ITEM_BLACKLIST = noop;
+  translators.MONSTER_BLACKLIST = noop;
   translators.colordef = noop;
+  translators.monster_adjustment = noop;
   translators.MIGRATION = noop;
   translators.vehicle = nameDesc;
+  translators.vehicle_spawn = noop;
 
   return translators;
 }
@@ -630,6 +635,7 @@ async function main() {
   loadSharedTranslationCache();
   logger.log('sourceModDirs', JSON.stringify(sourceModDirs));
   for (const sourceModName of sourceModDirs) {
+    logger.log(`\n${sourceModName} Translate start!\n`);
     await translateOneMod(sourceModName);
     logger.log(`\n${sourceModName} Translate done!\n`);
     logger.flush();
@@ -637,7 +643,8 @@ async function main() {
 }
 // 执行翻译脚本
 main().catch((error) => {
-  logger.error(error);
+  logger.error(error, `${error.message} ${error.stack}`);
   logger.flush();
+  console.error(`Unexpectedly quit, error is ${error.message} ${error.stack}`);
   process.exit(1);
 });
