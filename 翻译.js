@@ -133,7 +133,8 @@ function writeTranslationCache(translationCacheFilePath, translationCache) {
  * @param {Record<string, string>} translationCache 内存里的翻译缓存，会被副作用更新
  */
 async function translateWithCache(value, translationCacheFilePath, translationCache = {}) {
-  if (!value) return undefined;
+  if (value === undefined) return undefined;
+  if (value === '') return '';
   logger.log(`\nTranslating ${value}\n`);
   if (translationCache[value] !== undefined || sharedTranslationCache[value] !== undefined) {
     logger.log(`Use Cached version ${translationCache[value]}\n--\n`);
@@ -184,6 +185,7 @@ function getFileJSON(inspectData, parentPath = '') {
 function writeToCNMod(foldersWithContent) {
   for (const inspectDataWithContent of foldersWithContent) {
     const newFilePath = inspectDataWithContent.filePath.replace(`${sourceDirName}/`, `${translatedDirName}/`);
+    logger.log('newFilePath', newFilePath)
     if (inspectDataWithContent.content) {
       // JSON 文件
       fs.write(newFilePath, JSON.stringify(inspectDataWithContent.content, undefined, '  '));
@@ -574,6 +576,17 @@ function getCDDATranslator(translationCacheFilePath, translationCache = {}) {
   translators.event_transformation = noop;
   translators.MAGAZINE = namePlDesc;
   translators.monsterAttack = namePlDesc;
+  translators.WHEEL = nameDesc;
+  translators.mutation_type = noop;
+  translators.map_extra = namePlDesc;
+  translators.tool_quality = namePlDesc;
+  translators.construction = noop;
+  translators.construction_group = nameDesc;
+  translators.vehicle_group = noop;
+  translators.PET_ARMOR = namePlDesc;
+  translators.sound_effect = noop;
+  translators.vehicle_placement = noop;
+  translators.monster_attack = monsterAttack;
 
   return translators;
 }
