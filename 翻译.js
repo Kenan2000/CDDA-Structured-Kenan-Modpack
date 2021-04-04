@@ -10,14 +10,22 @@ const translatedDirName = `Kenan-Modpack-汉化版`;
 const translateCacheDirName = `中文翻译`;
 
 let logCounter = 0;
+let logs = [];
+let errors = [];
 const logger = {
   log: (...message) => {
     console.log(...message);
-    fs.appendAsync(path.join(__dirname, 'log.log'), `Log${logCounter++} ${message.join(' ')}`);
+    logs.push(`Log${logCounter++} ${message.join(' ')}\n`);
   },
   error: (...message) => {
     console.error(...message);
-    fs.appendAsync(path.join(__dirname, 'error.log'), `Log${logCounter++} ${message.join(' ')}`);
+    errors.push(`Log${logCounter++} ${message.join(' ')}\n`);
+  },
+  flush: () => {
+    fs.append(path.join(__dirname, 'log.log'), logs.join('\n'));
+    fs.append(path.join(__dirname, 'error.log'), errors.join('\n'));
+    logs = [];
+    errors = [];
   },
 };
 
@@ -88,6 +96,19 @@ function tryTranslation(value) {
 }
 
 /**
+ * 共享所有Mod翻译的成果，加速翻译，但之后每个mod自己还是存一份
+ */
+const sharedTranslationCache = {};
+function loadSharedTranslationCache() {
+  for (const sourceModName of sourceModDirs) {
+    const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
+    try {
+      translationCache = { ...translationCache, ...JSON.parse(fs.read(translationCacheFilePath, 'utf8')) };
+    } catch {}
+  }
+}
+
+/**
  * 初始化翻译缓存，没传第二个参数时，尝试从文件系统里加载有之前翻译和润色过的内容的翻译缓存，如果该翻译缓存文件不存在，就创建一个出来
  */
 function initializeTranslationCache(translationCacheFilePath, translationCache = {}) {
@@ -114,9 +135,9 @@ function writeTranslationCache(translationCacheFilePath, translationCache) {
 async function translateWithCache(value, translationCacheFilePath, translationCache = {}) {
   if (!value) return undefined;
   logger.log(`\nTranslating ${value}\n`);
-  if (translationCache[value]) {
+  if (translationCache[value] !== undefined || sharedTranslationCache[value] !== undefined) {
     logger.log(`Use Cached version ${translationCache[value]}\n--\n`);
-    return translationCache[value];
+    return translationCache[value] ?? sharedTranslationCache[value];
   }
   // 没有缓存，就更新缓存
   const translatedValue = await tryTranslation(value);
@@ -579,14 +600,18 @@ async function translateOneMod(sourceModName) {
 }
 
 async function main() {
+  logger.log('加载缓存的翻译');
+  loadSharedTranslationCache();
   logger.log('sourceModDirs', JSON.stringify(sourceModDirs));
-  for (const sourceModDir of sourceModDirs) {
-    await translateOneMod(sourceModDir);
-    logger.log(`\n${sourceModDir} Translate done!\n`)
+  for (const sourceModName of sourceModDirs) {
+    await translateOneMod(sourceModName);
+    logger.log(`\n${sourceModName} Translate done!\n`);
+    logger.flush();
   }
 }
 // 执行翻译脚本
 main().catch((error) => {
   logger.error(error);
+  logger.flush();
   process.exit(1);
 });
