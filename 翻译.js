@@ -10,13 +10,15 @@ const translatedDirName = `Kenan-Modpack-汉化版`;
 const translateCacheDirName = `中文翻译`;
 
 let logCounter = 0;
-const log = (...message) => {
-  console.log(...message);
-  fs.append(path.join(__dirname, 'log.log'), `Log${logCounter++} ${message.join(' ')}`);
-};
-const error = (...message) => {
-  console.error(...message);
-  fs.append(path.join(__dirname, 'error.log'), `Log${logCounter++} ${message.join(' ')}`);
+const logger = {
+  log: (...message) => {
+    logger.log(...message);
+    fs.append(path.join(__dirname, 'log.log'), `Log${logCounter++} ${message.join(' ')}`);
+  },
+  error: (...message) => {
+    logger.error(...message);
+    fs.append(path.join(__dirname, 'error.log'), `Log${logCounter++} ${message.join(' ')}`);
+  },
 };
 
 // 创建容纳翻译的文件夹
@@ -79,7 +81,7 @@ function tryTranslation(value) {
           retryCount = number;
           retry();
         }),
-    { retries: 100, maxTimeout: 10000, randomize: true }
+    { retries: 10, maxTimeout: 10000, randomize: true }
   ).catch((error) => {
     return `Translation Error: ${error} result: ${lastResult}, From: ${value}, Count: ${retryCount}\nRetry Again\n--\n\n `;
   });
@@ -94,7 +96,7 @@ function initializeTranslationCache(translationCacheFilePath, translationCache =
       translationCache = JSON.parse(fs.read(translationCacheFilePath, 'utf8'));
     }
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     writeTranslationCache(translationCacheFilePath, translationCache);
   }
   return translationCache;
@@ -110,14 +112,14 @@ function writeTranslationCache(translationCacheFilePath, translationCache) {
  * @param {Record<string, string>} translationCache 内存里的翻译缓存，会被副作用更新
  */
 async function translateWithCache(value, translationCacheFilePath, translationCache = {}) {
-  console.log(`\nTranslating ${value}\n`);
+  logger.log(`\nTranslating ${value}\n`);
   if (translationCache[value]) {
-    console.log(`Use Cached version ${translationCache[value]}\n--\n`);
+    logger.log(`Use Cached version ${translationCache[value]}\n--\n`);
     return translationCache[value];
   }
   // 没有缓存，就更新缓存
   const translatedValue = await tryTranslation(value);
-  console.log(`New Translation ${value}\n -> ${translatedValue}\n`);
+  logger.log(`New Translation ${value}\n -> ${translatedValue}\n`);
   translationCache[value] = translatedValue;
   await writeTranslationCache(translationCacheFilePath, translationCache);
   return translatedValue;
@@ -181,7 +183,7 @@ async function translateStringsInContent(fileItem, translationCacheFilePath, tra
     for (const item of fileItem.content) {
       const translator = translators[item.type];
       if (!translator) {
-        console.warn(`没有 ${item.type} 的翻译器`);
+        logger.error(`没有 ${item.type} 的翻译器`);
       } else {
         await translator(item);
       }
@@ -190,7 +192,7 @@ async function translateStringsInContent(fileItem, translationCacheFilePath, tra
   } else if (fileItem.rawContent) {
     return fileItem;
   } else {
-    console.warn(
+    logger.error(
       `File content is not an array! ${fileItem.filePath} ,\n this will resulted in "Cannot read property 'filePath' of undefined"`
     );
   }
@@ -203,8 +205,16 @@ function getCDDATranslator(translationCacheFilePath, translationCache = {}) {
 
   // 常用的翻译器
   const nameDesc = async (item) => {
-    item.name = await translateFunction(item.name);
+    if (typeof item === 'string') {
+      item.name = await translateFunction(item.name);
+    } else if (typeof item === 'object') {
+      item.name = await maleFemaleItemDesc(item.name);
+    }
     item.description = await translateFunction(item.description);
+  };
+  const maleFemaleItemDesc = async (item) => {
+    item.male = await translateFunction(item.male);
+    item.female = await translateFunction(item.female);
   };
 
   const useActionMsg = async (useAction) => {
@@ -562,7 +572,7 @@ async function translateOneMod(sourceModName) {
     );
     writeToCNMod(contents);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
   }
   writeTranslationCache(translationCacheFilePath, translationCache);
 }
@@ -574,6 +584,6 @@ async function main() {
 }
 // 执行翻译脚本
 main().catch((error) => {
-  console.error(error);
+  logger.error(error);
   process.exit(1);
 });
