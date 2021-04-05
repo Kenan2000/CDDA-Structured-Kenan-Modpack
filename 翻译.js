@@ -11,6 +11,10 @@ const debouncePromise = require('awesome-debounce-promise').default;
 const sourceDirName = 'Kenan-Modpack';
 const translatedDirName = `Kenan-Modpack-汉化版`;
 const translateCacheDirName = `中文翻译`;
+/**
+ * 作为高质量翻译源的 mod，会指导其他 mod 的翻译
+ */
+const highQualityMods = ['nocts_cata_mod_DDA', 'secronom', 'Arcana'];
 
 let logCounter = 0;
 let logs = [];
@@ -286,10 +290,10 @@ function loadSharedTranslationCache() {
   logger.log('加载缓存的翻译');
   let count = 1;
   const sharedPath = path.join(__dirname, translateCacheDirName, `${sharedName}.json`);
-  logger.log(`加载${sharedName}的翻译 ${sharedPath}`);
-  sharedTranslationCache = JSON.parse(fs.read(sharedPath, 'utf8'));
-  for (const sourceModName of sourceModDirs) {
-    logger.log(`加载缓存的翻译 ${count++}/${sourceModDirs.length} ${sourceModName}`);
+  // logger.log(`加载${sharedName}的翻译 ${sharedPath}`);
+  // sharedTranslationCache = JSON.parse(fs.read(sharedPath, 'utf8'));
+  for (const sourceModName of highQualityMods) {
+    logger.log(`加载缓存的翻译 ${count++}/${highQualityMods.length} ${sourceModName}`);
     try {
       const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
       const kvCacheContent = paratranzToKV(JSON.parse(fs.read(translationCacheFilePath, 'utf8')));
@@ -502,7 +506,7 @@ function getCDDATranslator(modTranslationCache) {
       item.name = await translateFunction(item.name);
     } else if (typeof item?.name === 'object') {
       await maleFemaleItemDesc(item.name);
-      await namePlDesc(item)
+      await namePlDesc(item);
     }
     item.description = await translateFunction(item.description);
     item.detailed_definition = await translateFunction(item.detailed_definition);
@@ -932,7 +936,7 @@ async function main() {
     logger.log(`\n${sourceModName} Translate done!\n`);
     logger.flush();
   }
-  storeSharedTranslationCache();
+  // storeSharedTranslationCache();
 }
 // 执行翻译脚本
 main().catch((error) => {
