@@ -96,7 +96,7 @@ const unionTranslate = (value) =>
 
 function replaceNto1111(text) {
   // 防止 %2$s 影响了翻译，先替换成不会被翻译的占位符，然后之后再替换回来
-  return text
+  const result = text
     .replace('%1$s', ' 1111 ')
     .replace('%2$s', ' 2222 ')
     .replace('%3$s', ' 3333 ')
@@ -105,6 +105,8 @@ function replaceNto1111(text) {
     .replace('<npcname>', ' 6666 ')
     .replace('\n\n', ' 7777 ')
     .replace('\n', ' 8888 ');
+  // 移除前后空格，以免影响搜狗翻译的字符串拼接，它居然要求前后不能有个空格
+  return _.trim(result);
 }
 function replace1111toN(text) {
   // 防止 %2$s 影响了翻译
@@ -157,6 +159,9 @@ function tryTranslation(value) {
  * 共享所有Mod翻译的成果，加速翻译，但之后每个mod自己还是存一份
  */
 let sharedTranslationCache = {};
+/**
+ * 在启动时调用，加载之前翻译过的内容
+ */
 function loadSharedTranslationCache() {
   for (const sourceModName of sourceModDirs) {
     const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
@@ -166,49 +171,74 @@ function loadSharedTranslationCache() {
   }
 }
 
-/**
- * 初始化翻译缓存，没传第二个参数时，尝试从文件系统里加载有之前翻译和润色过的内容的翻译缓存，如果该翻译缓存文件不存在，就创建一个出来
- */
-function initializeTranslationCache(translationCacheFilePath, translationCache = {}) {
-  try {
-    if (Object.keys(translationCache).length === 0) {
-      translationCache = JSON.parse(fs.read(translationCacheFilePath, 'utf8'));
+class ModCache {
+  translationCache = {};
+  translationCacheFilePath;
+  /**
+   * 初始化翻译缓存，没传第二个参数时，尝试从文件系统里加载有之前翻译和润色过的内容的翻译缓存，如果该翻译缓存文件不存在，就创建一个出来
+   */
+  constructor(translationCacheFilePath, translationCache = {}) {
+    this.translationCacheFilePath = translationCacheFilePath;
+    this.debouncedWriteTranslationCache = _.debounce(this.writeTranslationCache.bind(this), 1000);
+    try {
+      if (Object.keys(translationCache).length === 0) {
+        this.translationCache = JSON.parse(fs.read(translationCacheFilePath, 'utf8'));
+      }
+    } catch (error) {
+      logger.error(
+        `ModCache error, create empty translation cache to fs ${translationCache}, errorMessage is\n ${error.message}\n`
+      );
+      this.writeTranslationCache(translationCacheFilePath, {});
     }
-  } catch (error) {
-    logger.error(error);
-    writeTranslationCache(translationCacheFilePath, translationCache);
   }
-  return translationCache;
+
+  writeTranslationCache(
+    translationCacheFilePath = this.translationCacheFilePath,
+    translationCache = this.translationCache
+  ) {
+    return fs.write(translationCacheFilePath, JSON.stringify(translationCache, undefined, '  '));
+  }
+
+  insertToCache(key, value) {
+    this.translationCache[key] = value;
+    sharedTranslationCache[key] = value;
+    this.debouncedWriteTranslationCache();
+  }
+
+  /**
+   * 从本Mod翻译内容缓存或全局翻译缓存里获取内容，优先本Mod缓存
+   */
+  get(key) {
+    if (this.translationCache[key] !== undefined || sharedTranslationCache[key] !== undefined) {
+      translatedValue = this.translationCache[key] ?? sharedTranslationCache[key] /*  ?? translationCache[key] */;
+      logger.log(`Use Cached version ${translatedValue}\n--\n`);
+      // 如果需要用共享翻译资源刷新此mod翻译
+      // translationCache[value] = translatedValue;
+      // await this.debouncedWriteTranslationCache(translationCacheFilePath, translationCache);
+      return translatedValue;
+    }
+  }
 }
-function writeTranslationCache(translationCacheFilePath, translationCache) {
-  return fs.write(translationCacheFilePath, JSON.stringify(translationCache, undefined, '  '));
-}
-const debouncedWriteTranslationCache = _.debounce(writeTranslationCache, 1000);
 
 /**
  * 尝试使用缓存的内容，没有就实际翻译
  * @param {string} value 待翻译的字符串
- * @param {string} translationCacheFilePath 此mod的翻译缓存文件
- * @param {Record<string, string>} translationCache 内存里的翻译缓存，会被副作用更新
+ * @param {ModCache} modTranslationCache 此mod的翻译缓存文件
  */
-async function translateWithCache(value, translationCacheFilePath, translationCache = {}) {
+async function translateWithCache(value, modTranslationCache) {
   if (value === undefined) return undefined;
   if (value === '') return '';
   logger.log(`\nTranslating ${value}\n`);
   let translatedValue = value;
-  if (translationCache[value] !== undefined || sharedTranslationCache[value] !== undefined) {
-    translatedValue = translationCache[value] ?? sharedTranslationCache[value] /*  ?? translationCache[value] */;
+  if (modTranslationCache.get(value) !== undefined) {
+    translatedValue = modTranslationCache.get(value);
     logger.log(`Use Cached version ${translatedValue}\n--\n`);
-    // 如果需要用共享翻译资源刷新此mod翻译
-    // translationCache[value] = translatedValue;
-    // await debouncedWriteTranslationCache(translationCacheFilePath, translationCache);
   } else {
     // 没有缓存，就更新缓存
     logger.log(`No Cached Translation for ${value}\n`);
     translatedValue = await tryTranslation(value);
     logger.log(`New Translation ${value}\n -> ${translatedValue}\n`);
-    translationCache[value] = translatedValue;
-    await writeTranslationCache(translationCacheFilePath, translationCache);
+    modTranslationCache.insertToCache(value, translatedValue);
   }
   return translatedValue;
 }
@@ -248,7 +278,6 @@ function getFileJSON(inspectData, parentPath = '') {
  * @param {Object[]} foldersWithContent 一维数组，基本类似于 inspectData https://www.npmjs.com/package/fs-jetpack#inspecttreepath-options ，但是多了 content 包含 JSON parse 过的文件内容，以及 filePath 是完整的原始文件路径
  */
 function writeToCNMod(foldersWithContent) {
-  // DEBUG: console
   logger.log(`writeToCNMod`, foldersWithContent);
   for (const inspectDataWithContent of foldersWithContent) {
     const newFilePath = inspectDataWithContent.filePath.replace(`${sourceDirName}/`, `${translatedDirName}/`);
@@ -266,9 +295,10 @@ function writeToCNMod(foldersWithContent) {
 /**
  *
  * @param {Object} fileItem 基本类似于 inspectData https://www.npmjs.com/package/fs-jetpack#inspecttreepath-options ，但是多了 content 包含 JSON parse 过的文件内容
+ * @param {ModCache} modTranslationCache 此mod的翻译缓存文件
  */
-async function translateStringsInContent(fileItem, translationCacheFilePath, translationCache) {
-  const translators = getCDDATranslator(translationCacheFilePath, translationCache);
+async function translateStringsInContent(fileItem, modTranslationCache) {
+  const translators = getCDDATranslator(modTranslationCache);
   if (Array.isArray(fileItem.content)) {
     // 文件的内容一般是一维数组
     for (const item of fileItem.content) {
@@ -295,9 +325,13 @@ async function translateStringsInContent(fileItem, translationCacheFilePath, tra
   }
 }
 
-function getCDDATranslator(translationCacheFilePath, translationCache = {}) {
+/**
+ * 获取 translator 对象，内含从各种 CDDA JSON 里提取待翻译字段的翻译器
+ * @param {ModCache} modTranslationCache 此mod的翻译缓存文件
+ */
+function getCDDATranslator(modTranslationCache) {
   const translators = {};
-  const translateFunction = (value) => translateWithCache(value, translationCacheFilePath, translationCache);
+  const translateFunction = (value) => translateWithCache(value, modTranslationCache);
   const noop = () => {};
 
   // 常用的翻译器
@@ -696,7 +730,7 @@ const chunkAsync = (arr, callback, chunkSize = 1) => {
       return Promise.all(results);
     });
   }, Promise.resolve());
-  return work.finally(() => results);
+  return work.finally(() => {}).then(() => results);
 };
 
 /**
@@ -706,11 +740,11 @@ const chunkAsync = (arr, callback, chunkSize = 1) => {
 async function translateOneMod(sourceModName) {
   // TODO: 只传一个 cache class instance，让翻译侧不需要传这么多 cache 相关的参数
   const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
-  const translationCache = initializeTranslationCache(translationCacheFilePath);
+  const modTranslationCache = new ModCache(translationCacheFilePath);
   try {
     const contents = await chunkAsync(
       readSourceFiles(sourceDirName),
-      (fileItem) => translateStringsInContent(fileItem, translationCacheFilePath, translationCache),
+      (fileItem) => translateStringsInContent(fileItem, modTranslationCache),
       10
     );
     writeToCNMod(contents);
