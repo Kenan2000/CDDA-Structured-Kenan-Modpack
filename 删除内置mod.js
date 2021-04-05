@@ -11,7 +11,6 @@ const buildInMods = [
   'MMA',
   'Magiclysm',
   'More_Locations',
-  'Mutant_NPCs',
   'My_Sweet_Cataclysm',
   'package_bionic_professions',
 ];
