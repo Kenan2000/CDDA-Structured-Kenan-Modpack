@@ -66,7 +66,7 @@ const sougouTranslate = async (value) => {
   if (response.errorCode === '0') {
     return response.translation;
   }
-  throw new Error(response.errorCode + response.message);
+  throw new Error(response?.errorCode + response?.message);
 };
 const baiduTranslateRaw = new BaiduTranslate(
   process.env.BAIDU_TRANSLATION_APP_ID,
@@ -335,7 +335,6 @@ function getFileJSON(inspectData, parentPath = '') {
  * @param {Object[]} foldersWithContent 一维数组，基本类似于 inspectData https://www.npmjs.com/package/fs-jetpack#inspecttreepath-options ，但是多了 content 包含 JSON parse 过的文件内容，以及 filePath 是完整的原始文件路径
  */
 function writeToCNMod(foldersWithContent) {
-  logger.log(`writeToCNMod`, foldersWithContent);
   for (const inspectDataWithContent of foldersWithContent) {
     const newFilePath = inspectDataWithContent.filePath.replace(`${sourceDirName}/`, `${translatedDirName}/`);
     logger.log('newFilePath', newFilePath);
@@ -407,13 +406,13 @@ function getCDDATranslator(modTranslationCache) {
   };
 
   const messageOrMessages = async (item) => {
-    if (Array.isArray(item.message)) {
+    if (Array.isArray(item?.message)) {
       item.message = await Promise.all(item.message.map((msg) => translateFunction(msg)));
     }
-    if (typeof item.message === 'string') {
+    if (typeof item?.message === 'string') {
       item.message = translateFunction(item.message);
     }
-    if (Array.isArray(item.messages)) {
+    if (Array.isArray(item?.messages)) {
       item.messages = await Promise.all(item.messages.map((msg) => translateFunction(msg)));
     }
   };
@@ -803,7 +802,7 @@ async function translateOneMod(sourceModName) {
       (fileItem) => translateStringsInContent(fileItem, modTranslationCache),
       10
     );
-    // writeToCNMod(contents);
+    writeToCNMod(contents);
   } catch (error) {
     logger.error(`translateOneMod failed for ${sourceModName} ${error.message}`);
   }
