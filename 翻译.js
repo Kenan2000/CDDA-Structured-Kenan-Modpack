@@ -196,7 +196,7 @@ function paratranzToKV(paratranzTranslationsContent) {
 let sharedTranslationCache = {};
 const sharedName = '共享';
 /**
- * 在启动时调用，加载之前翻译过的内容
+ * 在启动时调用，加载之前翻译过的内容，无需使用 paratranz 格式，以加速导入
  */
 function loadSharedTranslationCache() {
   logger.log('加载缓存的翻译');
@@ -207,7 +207,7 @@ function loadSharedTranslationCache() {
     try {
       sharedTranslationCache = {
         ...sharedTranslationCache,
-        ...paratranzToKV(JSON.parse(fs.read(translationCacheFilePath, 'utf8'))),
+        ...JSON.parse(fs.read(translationCacheFilePath, 'utf8')),
       };
     } catch {}
   }
@@ -215,7 +215,7 @@ function loadSharedTranslationCache() {
 function storeSharedTranslationCache() {
   logger.log('储存共享的翻译');
   const sharedTranslationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sharedName}.json`);
-  fs.write(sharedTranslationCacheFilePath, JSON.stringify(kvToParatranz(sharedTranslationCache), undefined, ''));
+  fs.write(sharedTranslationCacheFilePath, JSON.stringify(sharedTranslationCache, undefined, ' '));
 }
 
 class ModCache {
@@ -243,7 +243,7 @@ class ModCache {
     translationCacheFilePath = this.translationCacheFilePath,
     translationCache = this.translationCache
   ) {
-    return fs.write(translationCacheFilePath, JSON.stringify(kvToParatranz(translationCache), undefined, ''));
+    return fs.write(translationCacheFilePath, JSON.stringify(kvToParatranz(translationCache), undefined, ' '));
   }
 
   insertToCache(key, value) {
@@ -802,7 +802,6 @@ async function translateOneMod(sourceModName) {
 
 async function main() {
   loadSharedTranslationCache();
-  logger.log('sourceModDirs', JSON.stringify(sourceModDirs));
   for (const sourceModName of sourceModDirs) {
     logger.log(`\n${sourceModName} Translate start!\n`);
     await translateOneMod(sourceModName);
