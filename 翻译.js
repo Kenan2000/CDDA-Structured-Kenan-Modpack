@@ -38,7 +38,7 @@ const debouncedFlushLog = _.debounce(logger.flush, 1000);
 fs.dir(path.join(__dirname, translatedDirName));
 fs.dir(path.join(__dirname, translateCacheDirName));
 // 首先读取 Kenan-Modpack 文件夹里的所有文件名
-const sourceModDirs = fs.list(path.resolve(__dirname, 'Kenan-Modpack'));
+const sourceModDirs = fs.list(path.resolve(__dirname, 'Kenan-Modpack')).filter((name) => name !== '.DS_Store');
 // 别忘了把百度翻译 API 的 .env 文件黏贴到文件夹里！
 // 搜狗的网上搜到了别人的 https://github.com/lunaragon/Translator/blob/b91481c4254ee01b3ce8eae1cea6586c33066e69/competitors/sougou.js#L6  	const PID = '059ad85853c5f20e54508cebf85287cd' const SECRET_KEY = 'c447fe597dc86f8c586cf7adef9dec21'
 dotenv.config();
@@ -163,7 +163,10 @@ let sharedTranslationCache = {};
  * 在启动时调用，加载之前翻译过的内容
  */
 function loadSharedTranslationCache() {
+  logger.log('加载缓存的翻译');
+  let count = 1;
   for (const sourceModName of sourceModDirs) {
+    logger.log(`加载缓存的翻译 ${count++}/${sourceModDirs.length} ${sourceModName}`);
     const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
     try {
       sharedTranslationCache = { ...sharedTranslationCache, ...JSON.parse(fs.read(translationCacheFilePath, 'utf8')) };
@@ -245,10 +248,11 @@ async function translateWithCache(value, modTranslationCache) {
 
 /**
  * 读取原始文件内容，打平成一维数组，并带上路径信息
+ * @param {string} 原始mod文件夹的地址
  */
-function readSourceFiles(sourceModDir) {
-  const folders = fs.inspectTree(sourceModDir);
-  const foldersWithContent = getFileJSON(folders);
+function readSourceFiles(sourceModDirPath) {
+  const folders = fs.inspectTree(sourceModDirPath);
+  const foldersWithContent = getFileJSON(folders, path.dirname(sourceModDirPath));
   return foldersWithContent;
 }
 
@@ -738,12 +742,13 @@ const chunkAsync = (arr, callback, chunkSize = 1) => {
  * @param {string} sourceModName 源文件夹里要翻译的 mod 的名字
  */
 async function translateOneMod(sourceModName) {
-  // TODO: 只传一个 cache class instance，让翻译侧不需要传这么多 cache 相关的参数
   const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
+  const sourceModDirPath = path.join(__dirname, sourceDirName, sourceModName);
+  const sourceFileContents = readSourceFiles(sourceModDirPath);
   const modTranslationCache = new ModCache(translationCacheFilePath);
   try {
     const contents = await chunkAsync(
-      readSourceFiles(sourceDirName),
+      sourceFileContents,
       (fileItem) => translateStringsInContent(fileItem, modTranslationCache),
       10
     );
@@ -751,11 +756,10 @@ async function translateOneMod(sourceModName) {
   } catch (error) {
     logger.error(`translateOneMod failed for ${sourceModName} ${error.message}`);
   }
-  writeTranslationCache(translationCacheFilePath, translationCache);
+  modTranslationCache.writeTranslationCache();
 }
 
 async function main() {
-  logger.log('加载缓存的翻译');
   loadSharedTranslationCache();
   logger.log('sourceModDirs', JSON.stringify(sourceModDirs));
   for (const sourceModName of sourceModDirs) {
@@ -763,6 +767,7 @@ async function main() {
     await translateOneMod(sourceModName);
     logger.log(`\n${sourceModName} Translate done!\n`);
     logger.flush();
+    return
   }
 }
 // 执行翻译脚本
