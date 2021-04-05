@@ -501,7 +501,8 @@ function getCDDATranslator(modTranslationCache) {
     if (typeof item?.name === 'string') {
       item.name = await translateFunction(item.name);
     } else if (typeof item?.name === 'object') {
-      item.name = await maleFemaleItemDesc(item.name);
+      await maleFemaleItemDesc(item.name);
+      await namePlDesc(item)
     }
     item.description = await translateFunction(item.description);
     item.detailed_definition = await translateFunction(item.detailed_definition);
