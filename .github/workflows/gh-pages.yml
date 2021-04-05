@@ -1,0 +1,28 @@
+name: Deploy Tiddlywiki To Github Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '15'
+
+      - name: Install Dependency
+        run: npm install
+      - name: Build
+        run: npm start
+
+      - name: Release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: false
+          files: |
+            Kenan-Modpack-汉化版/
