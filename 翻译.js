@@ -536,6 +536,12 @@ function getCDDATranslator(modTranslationCache) {
     if (useAction.hostile_msg) {
       useAction.hostile_msg = await translateFunction(useAction.hostile_msg);
     }
+    if (useAction.holster_prompt) {
+      useAction.holster_prompt = await translateFunction(useAction.holster_prompt);
+    }
+    if (useAction.holster_msg) {
+      useAction.holster_msg = await translateFunction(useAction.holster_msg);
+    }
     if (useAction.need_charges_msg) {
       useAction.need_charges_msg = await translateFunction(useAction.need_charges_msg);
     }
