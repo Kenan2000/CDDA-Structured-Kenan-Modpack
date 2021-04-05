@@ -19,15 +19,16 @@ jobs:
       - name: Build
         run: npm start
 
-      - uses: montudor/action-zip
+      - uses: montudor/action-zip@latest
         with:
           args: zip -qq -r Kenan-Modpack-Mod合集汉化版.zip Kenan-Modpack-汉化版/
+
       - name: Release
         uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           automatic_release_tag: 'latest'
-          prerelease: true
+          prerelease: false
           title: '最新CDDA-Kenan-Mod合集汉化版'
           files: |
             Kenan-Modpack-Mod合集汉化版.zip
