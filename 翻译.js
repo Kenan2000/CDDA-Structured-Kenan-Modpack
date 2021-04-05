@@ -17,7 +17,7 @@ let logs = [];
 let errors = [];
 const logger = {
   log: (...message) => {
-    // console.log(...message);
+    console.log(...message);
     logs.push(`Log${logCounter++} ${message.join(' ')}\n`);
     debouncedFlushLog();
   },
@@ -517,8 +517,6 @@ function getCDDATranslator(modTranslationCache) {
     }
     if (typeof item?.message === 'string') {
       item.message = await translateFunction(item.message);
-      // DEBUG: console
-      console.log(item.message);
     }
     if (Array.isArray(item?.messages)) {
       item.messages = await Promise.all(item.messages.map((msg) => translateFunction(msg)));
