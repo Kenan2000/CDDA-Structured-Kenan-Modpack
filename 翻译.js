@@ -11,6 +11,10 @@ const debouncePromise = require('awesome-debounce-promise').default;
 const sourceDirName = 'Kenan-Modpack';
 const translatedDirName = `Kenan-Modpack-汉化版`;
 const translateCacheDirName = `中文翻译`;
+/**
+ * 作为高质量翻译源的 mod，会指导其他 mod 的翻译
+ */
+const highQualityMods = ['nocts_cata_mod_DDA', 'secronom', 'Arcana'];
 
 let logCounter = 0;
 let logs = [];
@@ -288,7 +292,8 @@ function loadSharedTranslationCache() {
   const sharedPath = path.join(__dirname, translateCacheDirName, `${sharedName}.json`);
   logger.log(`加载${sharedName}的翻译 ${sharedPath}`);
   sharedTranslationCache = JSON.parse(fs.read(sharedPath, 'utf8'));
-  for (const sourceModName of sourceModDirs) {
+  // 加载翻译，并让 highQualityMods 最后加载，顶掉共享缓存池里别的翻译
+  for (const sourceModName of [..._.pull(sourceModDirs, ...highQualityMods), ...highQualityMods]) {
     logger.log(`加载缓存的翻译 ${count++}/${sourceModDirs.length} ${sourceModName}`);
     try {
       const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
@@ -376,7 +381,6 @@ async function translateWithCache(value, modTranslationCache) {
   if (value === '') return '';
   logger.log(`\nTranslating ${value}\n`);
   let translatedValue = modTranslationCache.get(value);
-  // DEBUG:
   // 有时候 tag 没有被正确翻译，原文里有 tag，结果里没有
   const hasNotTranslatedTag =
     typeof translatedValue === 'string' &&
@@ -904,7 +908,8 @@ async function translateOneMod(sourceModName) {
   let modTranslationCache;
   try {
     const sourceFileContents = readSourceFiles(sourceModDirPath);
-    modTranslationCache = modTranslationCaches[sourceModName] ?? new ModCache(translationCacheFilePath, {}, sourceModName);
+    modTranslationCache =
+      modTranslationCaches[sourceModName] ?? new ModCache(translationCacheFilePath, {}, sourceModName);
     const contents = await chunkAsync(
       sourceFileContents,
       (fileItem) => translateStringsInContent(fileItem, modTranslationCache),
