@@ -521,7 +521,7 @@ function getCDDATranslator(modTranslationCache) {
       item.message = await Promise.all(item.message.map((msg) => translateFunction(msg)));
     }
     if (typeof item?.message === 'string') {
-      item.message = translateFunction(item.message);
+      item.message = await translateFunction(item.message);
     }
     if (Array.isArray(item?.messages)) {
       item.messages = await Promise.all(item.messages.map((msg) => translateFunction(msg)));
