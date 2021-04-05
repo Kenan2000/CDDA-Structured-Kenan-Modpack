@@ -904,7 +904,7 @@ async function translateOneMod(sourceModName) {
   let modTranslationCache;
   try {
     const sourceFileContents = readSourceFiles(sourceModDirPath);
-    modTranslationCache = modTranslationCaches[sourceModName] ?? new ModCache(translationCacheFilePath, sourceModName);
+    modTranslationCache = modTranslationCaches[sourceModName] ?? new ModCache(translationCacheFilePath, {}, sourceModName);
     const contents = await chunkAsync(
       sourceFileContents,
       (fileItem) => translateStringsInContent(fileItem, modTranslationCache),
