@@ -156,22 +156,66 @@ function tryTranslation(value) {
 }
 
 /**
+ * paratranz 的翻译条目格式，保存到文件时保存为此格式，读取时反序列化为 original: translation 放入 cache
+ * 来自 https://paratranz.cn/projects/create
+ * 
+[
+  {
+    "key": "KEY 键值",
+    "original": "source text 原文",
+    "translation": "translation text 译文",
+    "context": "string meta info, context, etc. 上下文或其他信息"
+  },
+  {
+    "key": "KEY 键值 2",
+    "original": "source text 原文 2",
+    "translation": "translation text 译文 2"
+  }
+] 
+*/
+function kvToParatranz(kvTranslationsCache, context) {
+  return Object.entries(kvTranslationsCache).map(([original, translation]) => ({
+    key: crypto.createHash('md5').update(original).digest('hex'),
+    original,
+    translation,
+    context,
+  }));
+}
+/**
+ * 把 paratranz 的翻译条目格式转换回 { original: translation } 的格式
+ */
+function paratranzToKV(paratranzTranslationsContent) {
+  return paratranzTranslationsContent.reduce((prev, item) => {
+    return { ...prev, [item.original]: [item.translation] };
+  }, {});
+}
+
+/**
  * 共享所有Mod翻译的成果，加速翻译，但之后每个mod自己还是存一份
  */
 let sharedTranslationCache = {};
+const sharedName = '共享';
 /**
  * 在启动时调用，加载之前翻译过的内容
  */
 function loadSharedTranslationCache() {
   logger.log('加载缓存的翻译');
   let count = 1;
-  for (const sourceModName of sourceModDirs) {
+  for (const sourceModName of [...sourceModDirs, sharedName]) {
     logger.log(`加载缓存的翻译 ${count++}/${sourceModDirs.length} ${sourceModName}`);
     const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
     try {
-      sharedTranslationCache = { ...sharedTranslationCache, ...JSON.parse(fs.read(translationCacheFilePath, 'utf8')) };
+      sharedTranslationCache = {
+        ...sharedTranslationCache,
+        ...paratranzToKV(JSON.parse(fs.read(translationCacheFilePath, 'utf8'))),
+      };
     } catch {}
   }
+}
+function storeSharedTranslationCache() {
+  logger.log('储存共享的翻译');
+  const sharedTranslationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sharedName}.json`);
+  fs.write(sharedTranslationCacheFilePath, JSON.stringify(kvToParatranz(sharedTranslationCache), undefined, ''));
 }
 
 class ModCache {
@@ -185,7 +229,7 @@ class ModCache {
     this.debouncedWriteTranslationCache = _.debounce(this.writeTranslationCache.bind(this), 1000);
     try {
       if (Object.keys(translationCache).length === 0) {
-        this.translationCache = JSON.parse(fs.read(translationCacheFilePath, 'utf8'));
+        this.translationCache = paratranzToKV(JSON.parse(fs.read(translationCacheFilePath, 'utf8')));
       }
     } catch (error) {
       logger.error(
@@ -199,7 +243,7 @@ class ModCache {
     translationCacheFilePath = this.translationCacheFilePath,
     translationCache = this.translationCache
   ) {
-    return fs.write(translationCacheFilePath, JSON.stringify(translationCache, undefined, '  '));
+    return fs.write(translationCacheFilePath, JSON.stringify(kvToParatranz(translationCache), undefined, ''));
   }
 
   insertToCache(key, value) {
@@ -214,9 +258,10 @@ class ModCache {
   get(key) {
     if (this.translationCache[key] !== undefined || sharedTranslationCache[key] !== undefined) {
       const translatedValue = this.translationCache[key] ?? sharedTranslationCache[key]; /*  ?? translationCache[key] */
-      // 如果需要用共享翻译资源刷新此mod翻译
-      // translationCache[value] = translatedValue;
-      // await this.debouncedWriteTranslationCache(translationCacheFilePath, translationCache);
+      // 如果本地翻译没有此内容，就用共享翻译资源刷新此mod翻译
+      if (this.translationCache[key] === undefined) {
+        this.insertToCache(key, translatedValue);
+      }
       return translatedValue;
     }
   }
@@ -748,7 +793,7 @@ async function translateOneMod(sourceModName) {
       (fileItem) => translateStringsInContent(fileItem, modTranslationCache),
       10
     );
-    writeToCNMod(contents);
+    // writeToCNMod(contents);
   } catch (error) {
     logger.error(`translateOneMod failed for ${sourceModName} ${error.message}`);
   }
@@ -763,9 +808,8 @@ async function main() {
     await translateOneMod(sourceModName);
     logger.log(`\n${sourceModName} Translate done!\n`);
     logger.flush();
-    // DEBUG: return
-    return;
   }
+  storeSharedTranslationCache();
 }
 // 执行翻译脚本
 main().catch((error) => {
