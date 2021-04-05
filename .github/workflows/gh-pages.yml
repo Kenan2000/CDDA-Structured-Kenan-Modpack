@@ -19,12 +19,12 @@ jobs:
       - name: Build
         run: npm start
 
-      - uses: montudor/action-zip@0.1.1
+      - uses: montudor/action-zip@v0.1.1
         with:
           args: zip -qq -r Kenan-Modpack-Mod合集汉化版.zip Kenan-Modpack-汉化版/
 
       - name: Release
-        uses: marvinpinto/action-automatic-releases@latest
+        uses: marvinpinto/action-automatic-releases@v1.1.1
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           automatic_release_tag: 'latest'
