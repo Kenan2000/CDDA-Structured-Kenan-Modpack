@@ -38,7 +38,7 @@ const debouncedFlushLog = _.debounce(logger.flush, 1000);
 // 创建容纳翻译的文件夹
 fs.dir(path.join(__dirname, translatedDirName));
 fs.dir(path.join(__dirname, translateCacheDirName));
-// 首先读取 Kenan-Modpack 文件夹里的所有文件名
+//  首先读取 Kenan-Modpack 文件夹里的所有文件名
 const sourceModDirs = _.sortedUniq(
   fs.list(path.resolve(__dirname, 'Kenan-Modpack')).filter((name) => name !== '.DS_Store')
 );
@@ -131,6 +131,7 @@ const tags = {
   '<color_light_brown>': '2332',
   '<color_dark_brown>': '2432',
   '<good>': '5555',
+  '</good>': '5655',
   '<name_b>': '5556',
   '<thirsty>': '5557',
   '<swear!>': '5558',
@@ -162,6 +163,10 @@ const tags = {
   '<yrwp>': '6667',
   '<mywp>': '6668',
   '<ammo>': '6669',
+  '<info>': '6670',
+  '</info>': '6671',
+  '<chitchat_player_responses>': '6672',
+  '<shoggoth_chat>': '6673',
 };
 const mapTo111 = {
   '%1$s': '1111',
@@ -172,17 +177,17 @@ const mapTo111 = {
   '\n\n': '7777',
   '\n': '8888',
 };
-if (_.uniq(Object.keys(mapTo111).map(key => mapTo111[key])).length !== Object.keys(mapTo111).length) {
-  throw new Error('mapTo111 有重复的 key')
+if (_.uniq(Object.keys(mapTo111).map((key) => mapTo111[key])).length !== Object.keys(mapTo111).length) {
+  throw new Error('mapTo111 有重复的 key');
 }
 function replaceNto1111(text) {
   // 防止 %2$s 影响了翻译，先替换成不会被翻译的占位符，然后之后再替换回来
   // 移除前后空格，以免影响搜狗翻译的字符串拼接，它居然要求前后不能有个空格
-  return _.trim(Object.keys(mapTo111).reduce((acc, key) => acc.replace(key, ` ${mapTo111[key]}  `), text));
+  return _.trim(Object.keys(mapTo111).reduce((acc, key) => acc.replaceAll(key, ` ${mapTo111[key]}  `), text));
 }
 function replace1111toN(text) {
   // 防止 %2$s 影响了翻译
-  return Object.keys(mapTo111).reduce((acc, key) => acc.replace(mapTo111[key], key), text);
+  return Object.keys(mapTo111).reduce((acc, key) => acc.replaceAll(mapTo111[key], key), text);
 }
 
 const TRANSLATION_ERROR = 'Translation Error';
@@ -223,10 +228,10 @@ function tryTranslation(value) {
 }
 
 /**
- * paratranz 的翻译条目格式，保存到文件时保存为此格式，读取时反序列化为 original: translation 放入 cache
- * 来自 https://paratranz.cn/projects/create
- * 
-[
+ *  paratranz 的翻译条目格式，保存到文件时保存为此格式，读取时反序列化为 original: translation 放入 cache
+  * 来自 https://paratranz.cn/projects/create
+ *  
+ [
   {
     "key": "KEY 键值",
     "original": "source text 原文",
@@ -427,16 +432,25 @@ function getFileJSON(inspectData, parentPath = '') {
  * @param {Object[]} foldersWithContent 一维数组，基本类似于 inspectData https://www.npmjs.com/package/fs-jetpack#inspecttreepath-options ，但是多了 content 包含 JSON parse 过的文件内容，以及 filePath 是完整的原始文件路径
  */
 function writeToCNMod(foldersWithContent) {
-  for (const inspectDataWithContent of foldersWithContent) {
-    const newFilePath = inspectDataWithContent.filePath.replace(`${sourceDirName}/`, `${translatedDirName}/`);
+  const writeContent = (content) => {
+    const newFilePath = content.filePath.replace(`${sourceDirName}/`, `${translatedDirName}/`);
     logger.log('newFilePath', newFilePath);
-    if (inspectDataWithContent.content) {
+    if (content.content) {
       // JSON 文件
-      fs.write(newFilePath, JSON.stringify(inspectDataWithContent.content, undefined, '  '));
-    } else if (inspectDataWithContent.rawContent) {
+      // fs.write(newFilePath, JSON.stringify(content.content, undefined, '  '));
+    } else if (content.rawContent) {
       // png 贴图等
-      fs.write(newFilePath, inspectDataWithContent.rawContent);
+      // fs.write(newFilePath, content.rawContent);
     }
+  };
+  if (Array.isArray(foldersWithContent)) {
+    for (const inspectDataWithContent of foldersWithContent) {
+      writeContent(inspectDataWithContent);
+    }
+  } else if (typeof foldersWithContent === 'object' && typeof inspectDataWithContent?.type === 'string') {
+    writeContent(foldersWithContent);
+  } else {
+    throw new Error(`Error Bad Data ${JSON.stringify(inspectDataWithContent)}`);
   }
 }
 
@@ -468,8 +482,9 @@ async function translateStringsInContent(fileItem, modTranslationCache) {
     if (!translator) {
       logger.error(`没有 ${fileItem.type} 的翻译器`);
     } else {
-      await translator(fileItem);
+      await translator(fileItem.content);
     }
+    return fileItem;
   }
 }
 
