@@ -123,7 +123,7 @@ function replace1111toN(text) {
 
 /**
  * 使用百度翻译，带重试
- * @param {string} value 要翻译的字符串，可以为空，为空就返回空
+ * @param {string | undefined} value 要翻译的字符串，可以为空，为空就返回空
  */
 function tryTranslation(value) {
   if (typeof value !== 'string') return Promise.resolve(value);
@@ -213,8 +213,7 @@ class ModCache {
    */
   get(key) {
     if (this.translationCache[key] !== undefined || sharedTranslationCache[key] !== undefined) {
-      translatedValue = this.translationCache[key] ?? sharedTranslationCache[key] /*  ?? translationCache[key] */;
-      logger.log(`Use Cached version ${translatedValue}\n--\n`);
+      const translatedValue = this.translationCache[key] ?? sharedTranslationCache[key]; /*  ?? translationCache[key] */
       // 如果需要用共享翻译资源刷新此mod翻译
       // translationCache[value] = translatedValue;
       // await this.debouncedWriteTranslationCache(translationCacheFilePath, translationCache);
@@ -232,9 +231,8 @@ async function translateWithCache(value, modTranslationCache) {
   if (value === undefined) return undefined;
   if (value === '') return '';
   logger.log(`\nTranslating ${value}\n`);
-  let translatedValue = value;
-  if (modTranslationCache.get(value) !== undefined) {
-    translatedValue = modTranslationCache.get(value);
+  let translatedValue = modTranslationCache.get(value);
+  if (translatedValue !== undefined) {
     logger.log(`Use Cached version ${translatedValue}\n--\n`);
   } else {
     // 没有缓存，就更新缓存
@@ -353,13 +351,22 @@ function getCDDATranslator(modTranslationCache) {
     item.female = await translateFunction(item.female);
   };
 
+  const messageOrMessages = async (item) => {
+    if (Array.isArray(item.message)) {
+      item.message = await Promise.all(item.message.map((msg) => translateFunction(msg)));
+    }
+    if (typeof item.message === 'string') {
+      item.message = translateFunction(item.message);
+    }
+    if (Array.isArray(item.messages)) {
+      item.messages = await Promise.all(item.messages.map((msg) => translateFunction(msg)));
+    }
+  };
   const useActionMsg = async (useAction) => {
     if (useAction.activation_message) {
       useAction.activation_message = await translateFunction(useAction.activation_message);
     }
-    if (useAction.message) {
-      useAction.message = await translateFunction(useAction.message);
-    }
+    await messageOrMessages(useAction);
     if (useAction.msg) {
       useAction.msg = await translateFunction(useAction.msg);
     }
@@ -409,9 +416,7 @@ function getCDDATranslator(modTranslationCache) {
     if (item.description) {
       item.description = await translateFunction(item.description);
     }
-    if (item.message) {
-      item.message = await translateFunction(item.message);
-    }
+    await messageOrMessages(item);
 
     if (item.use_action?.activation_message) {
       if (Array.isArray(item.use_action.activation_message)) {
@@ -424,9 +429,7 @@ function getCDDATranslator(modTranslationCache) {
         await useActionMsg(item.use_action.activation_message);
       }
     }
-    if (item.use_action?.message) {
-      item.use_action.message = await translateFunction(item.use_action.message);
-    }
+    await messageOrMessages(item.use_action);
 
     if (item.special_attacks) {
       for (const specialAttacks of item.special_attacks) {
@@ -452,9 +455,7 @@ function getCDDATranslator(modTranslationCache) {
       for (const passiveEffect of item.relic_data.passive_effects) {
         if (passiveEffect.hit_you_effect) {
           for (const hitYouEffect of passiveEffect.hit_you_effect) {
-            if (hitYouEffect.message) {
-              hitYouEffect.message = await translateFunction(hitYouEffect.message);
-            }
+            await messageOrMessages(hitYouEffect);
             if (hitYouEffect.npc_message) {
               hitYouEffect.npc_message = await translateFunction(hitYouEffect.npc_message);
             }
@@ -462,9 +463,8 @@ function getCDDATranslator(modTranslationCache) {
         }
         if (passiveEffect.hit_me_effect) {
           for (const hitYouEffect of passiveEffect.hit_me_effect) {
-            if (hitYouEffect.message) {
-              hitYouEffect.message = await translateFunction(hitYouEffect.message);
-            }
+            await messageOrMessages(hitYouEffect);
+
             if (hitYouEffect.npc_message) {
               hitYouEffect.npc_message = await translateFunction(hitYouEffect.npc_message);
             }
@@ -588,9 +588,7 @@ function getCDDATranslator(modTranslationCache) {
     }
     if (Array.isArray(item.terrain)) {
       for (const terrain of item.terrain) {
-        if (terrain.message) {
-          terrain.message = await translateFunction(terrain.message);
-        }
+        await messageOrMessages(terrain);
       }
     }
   };
@@ -674,9 +672,7 @@ function getCDDATranslator(modTranslationCache) {
   };
   translators.technique = async (item) => {
     item.name = await translateFunction(item.name);
-    if (Array.isArray(item.message)) {
-      item.message = await Promise.all(item.message.map((msg) => translateFunction(msg)));
-    }
+    await messageOrMessages(item);
   };
   translators.vehicle_part = namePlDesc;
   translators.overlay_order = noop;
@@ -734,7 +730,7 @@ const chunkAsync = (arr, callback, chunkSize = 1) => {
       return Promise.all(results);
     });
   }, Promise.resolve());
-  return work.finally(() => {}).then(() => results);
+  return work.finally(() => {}).then(() => Promise.all(results));
 };
 
 /**
@@ -767,7 +763,8 @@ async function main() {
     await translateOneMod(sourceModName);
     logger.log(`\n${sourceModName} Translate done!\n`);
     logger.flush();
-    return
+    // DEBUG: return
+    return;
   }
 }
 // 执行翻译脚本
