@@ -6,6 +6,7 @@ const path = require('path');
 const _ = require('lodash');
 const fetch = require('node-fetch');
 const crypto = require('crypto');
+const debouncePromise = require('awesome-debounce-promise').default;
 
 const sourceDirName = 'Kenan-Modpack';
 const translatedDirName = `Kenan-Modpack-汉化版`;
@@ -38,7 +39,9 @@ const debouncedFlushLog = _.debounce(logger.flush, 1000);
 fs.dir(path.join(__dirname, translatedDirName));
 fs.dir(path.join(__dirname, translateCacheDirName));
 // 首先读取 Kenan-Modpack 文件夹里的所有文件名
-const sourceModDirs = fs.list(path.resolve(__dirname, 'Kenan-Modpack')).filter((name) => name !== '.DS_Store');
+const sourceModDirs = _.sortedUniq(
+  fs.list(path.resolve(__dirname, 'Kenan-Modpack')).filter((name) => name !== '.DS_Store')
+);
 // 别忘了把百度翻译 API 的 .env 文件黏贴到文件夹里！
 // 搜狗的网上搜到了别人的 https://github.com/lunaragon/Translator/blob/b91481c4254ee01b3ce8eae1cea6586c33066e69/competitors/sougou.js#L6  	const PID = '059ad85853c5f20e54508cebf85287cd' const SECRET_KEY = 'c447fe597dc86f8c586cf7adef9dec21'
 dotenv.config();
@@ -75,12 +78,13 @@ const baiduTranslateRaw = new BaiduTranslate(
   'en'
 );
 const baiduTranslate = async (value) => {
-  const { trans_result: result } = await baiduTranslateRaw(value);
+  const results = await baiduTranslateRaw(value);
+  const { trans_result: result } = results;
   if (result && result.length > 0) {
     const [{ dst }] = result;
     return dst;
   }
-  throw new Error(`百度翻译又跪了 ${value} ${JSON.stringify(result)}`);
+  throw new Error(`百度翻译又跪了 result: ${JSON.stringify(results)}`);
 };
 /**
  * 先尝试百度再尝试搜狗
@@ -94,46 +98,108 @@ const unionTranslate = (value) =>
     })
   );
 
+const tags = {
+  '</color>': '2222',
+  '<color_red>': '2223',
+  '<color_light_red>': '2323',
+  '<color_dark_red>': '2423',
+  '<color_white>': '2224',
+  '<color_light_white>': '2324',
+  '<color_dark_white>': '2424',
+  '<color_green>': '2225',
+  '<color_light_green>': '2325',
+  '<color_dark_green>': '2425',
+  '<color_yellow>': '2226',
+  '<color_light_yellow>': '2326',
+  '<color_dark_yellow>': '2426',
+  '<color_magenta>': '2227',
+  '<color_light_magenta>': '2327',
+  '<color_dark_magenta>': '2427',
+  '<color_cyan>': '2228',
+  '<color_light_cyan>': '2328',
+  '<color_dark_cyan>': '2428',
+  '<color_blue>': '2229',
+  '<color_light_blue>': '2329',
+  '<color_dark_blue>': '2429',
+  '<color_gray>': '2230',
+  '<color_light_gray>': '2330',
+  '<color_dark_gray>': '2430',
+  '<color_pink>': '2231',
+  '<color_light_pink>': '2331',
+  '<color_dark_pink>': '2431',
+  '<color_brown>': '2232',
+  '<color_light_brown>': '2332',
+  '<color_dark_brown>': '2432',
+  '<good>': '5555',
+  '<name_b>': '5556',
+  '<thirsty>': '5557',
+  '<swear!>': '5558',
+  '<sad>': '5559',
+  '<greet>': '5560',
+  '<no>': '5561',
+  '<im_leaving_you>': '5562',
+  '<ill_kill_you>': '5563',
+  '<ill_die>': '5564',
+  '<wait>': '5565',
+  '<no_faction>': '5566',
+  '<name_g>': '5567',
+  '<keep_up>': '5568',
+  '<yawn>': '5569',
+  '<very>': '5570',
+  '<okay>': '5571',
+  '<really>': '5572',
+  '<let_me_pass>': '5573',
+  '<done_mugging>': '5574',
+  '<happy>': '5575',
+  '<drop_it>': '5576',
+  '<swear>': '5577',
+  '<lets_talk>': '5578',
+  '<hands_up>': '5579',
+  '<move>': '5580',
+  '<hungry>': '5581',
+  '<fuck_you>': '5582',
+  '<npcname>': '6666',
+  '<yrwp>': '6667',
+  '<mywp>': '6668',
+  '<ammo>': '6669',
+};
+const mapTo111 = {
+  '%1$s': '1111',
+  '%2$s': '1112',
+  '%3$s': '1113',
+  '%s': '1114',
+  ...tags,
+  '\n\n': '7777',
+  '\n': '8888',
+};
+if (_.uniq(Object.keys(mapTo111).map(key => mapTo111[key])).length !== Object.keys(mapTo111).length) {
+  throw new Error('mapTo111 有重复的 key')
+}
 function replaceNto1111(text) {
   // 防止 %2$s 影响了翻译，先替换成不会被翻译的占位符，然后之后再替换回来
-  const result = text
-    .replace('%1$s', ' 1111 ')
-    .replace('%2$s', ' 2222 ')
-    .replace('%3$s', ' 3333 ')
-    .replace('%s', ' 4444 ')
-    .replace('<good>', ' 5555 ')
-    .replace('<npcname>', ' 6666 ')
-    .replace('\n\n', ' 7777 ')
-    .replace('\n', ' 8888 ');
   // 移除前后空格，以免影响搜狗翻译的字符串拼接，它居然要求前后不能有个空格
-  return _.trim(result);
+  return _.trim(Object.keys(mapTo111).reduce((acc, key) => acc.replace(key, ` ${mapTo111[key]}  `), text));
 }
 function replace1111toN(text) {
   // 防止 %2$s 影响了翻译
-  return text
-    .replace('1111', '%1$s')
-    .replace('2222', '%2$s')
-    .replace('3333', '%3$s')
-    .replace('4444', '%s')
-    .replace('5555', '<good>')
-    .replace('6666', '<npcname>')
-    .replace('7777', '\n\n')
-    .replace('8888', '\n');
+  return Object.keys(mapTo111).reduce((acc, key) => acc.replace(mapTo111[key], key), text);
 }
 
+const TRANSLATION_ERROR = 'Translation Error';
 /**
  * 使用百度翻译，带重试
  * @param {string | undefined} value 要翻译的字符串，可以为空，为空就返回空
  */
 function tryTranslation(value) {
   if (typeof value !== 'string') return Promise.resolve(value);
-  if (!value) return Promise.resolve('');
+  if (!_.trim(value)) return Promise.resolve('');
   let lastResult = 'null';
   let retryCount = 0;
 
+  const stringToTranslate = replaceNto1111(value);
   return promiseRetry(
-    (retry, number) =>
-      unionTranslate(replaceNto1111(value))
+    (retry, number) => {
+      return unionTranslate(stringToTranslate)
         .then((result) => {
           if (typeof result === 'string') {
             return replace1111toN(result);
@@ -143,15 +209,16 @@ function tryTranslation(value) {
           retry();
         })
         .catch((error) => {
-          logger.error('Translate failed', error.message, `Value: ${value}`);
+          logger.error('Translate failed', error.message, `stringToTranslate:\n${stringToTranslate}`);
           retryCount = number;
           retry();
-        }),
+        });
+    },
     { retries: 10, maxTimeout: 10000, randomize: true }
   ).catch((error) => {
-    const errorMessage = `Translation Error: ${error} result: ${lastResult}, From: ${value}, Count: ${retryCount}\nRetry Again\n--\n\n `;
+    const errorMessage = `${TRANSLATION_ERROR}1: ${error.message} ${error.stack}\nresult:\n${lastResult}\nFrom:\n${value}\nstringToTranslate:\n${stringToTranslate}\nRetryCount: ${retryCount}\nRetry Again\n--\n\n `;
     logger.error(errorMessage);
-    return errorMessage;
+    return TRANSLATION_ERROR;
   });
 }
 
@@ -174,18 +241,26 @@ function tryTranslation(value) {
 ] 
 */
 function kvToParatranz(kvTranslationsCache, context) {
-  return Object.entries(kvTranslationsCache).map(([original, translation]) => ({
-    key: crypto.createHash('md5').update(original).digest('hex'),
-    original,
-    translation,
-    context,
-  }));
+  return _.sortBy(
+    Object.entries(kvTranslationsCache).map(([original, translation]) => {
+      return {
+        key: crypto.createHash('md5').update(original).digest('hex'),
+        original,
+        translation,
+        context,
+      };
+    }),
+    'original'
+  );
 }
 /**
  * 把 paratranz 的翻译条目格式转换回 { original: translation } 的格式
  */
 function paratranzToKV(paratranzTranslationsContent) {
   return paratranzTranslationsContent.reduce((prev, item) => {
+    if (item.translation?.includes(TRANSLATION_ERROR)) {
+      return prev;
+    }
     return { ...prev, [item.original]: item.translation };
   }, {});
 }
@@ -210,16 +285,18 @@ function loadSharedTranslationCache() {
   sharedTranslationCache = JSON.parse(fs.read(sharedPath, 'utf8'));
   for (const sourceModName of sourceModDirs) {
     logger.log(`加载缓存的翻译 ${count++}/${sourceModDirs.length} ${sourceModName}`);
-    const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
-    const kvCacheContent = paratranzToKV(JSON.parse(fs.read(translationCacheFilePath, 'utf8')));
-    const cacheForThisMod = new ModCache(translationCacheFilePath, kvCacheContent);
-    modTranslationCaches[sourceModName] = cacheForThisMod;
     try {
+      const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
+      const kvCacheContent = paratranzToKV(JSON.parse(fs.read(translationCacheFilePath, 'utf8')));
+      const cacheForThisMod = new ModCache(translationCacheFilePath, kvCacheContent, sourceModName);
+      modTranslationCaches[sourceModName] = cacheForThisMod;
       sharedTranslationCache = {
         ...sharedTranslationCache,
         ...kvCacheContent,
       };
-    } catch {}
+    } catch (error) {
+      logger.error(`loadSharedTranslationCache Error: ${error.message} ${error.stack}`);
+    }
   }
 }
 function storeSharedTranslationCache() {
@@ -229,12 +306,14 @@ function storeSharedTranslationCache() {
 }
 
 class ModCache {
+  modName;
   translationCache = {};
   translationCacheFilePath;
   /**
    * 初始化翻译缓存，没传第二个参数时，尝试从文件系统里加载有之前翻译和润色过的内容的翻译缓存，如果该翻译缓存文件不存在，就创建一个出来
    */
-  constructor(translationCacheFilePath, translationCache = {}) {
+  constructor(translationCacheFilePath, translationCache = {}, modName) {
+    this.modName = modName;
     this.translationCacheFilePath = translationCacheFilePath;
     this.debouncedWriteTranslationCache = _.debounce(this.writeTranslationCache.bind(this), 1000);
     try {
@@ -253,12 +332,17 @@ class ModCache {
     translationCacheFilePath = this.translationCacheFilePath,
     translationCache = this.translationCache
   ) {
-    return fs.write(translationCacheFilePath, JSON.stringify(kvToParatranz(translationCache), undefined, ' '));
+    return fs.write(
+      translationCacheFilePath,
+      JSON.stringify(kvToParatranz(translationCache, this.modName), undefined, ' ')
+    );
   }
 
   insertToCache(key, value) {
     this.translationCache[key] = value;
-    sharedTranslationCache[key] = value;
+    if (!value.includes(TRANSLATION_ERROR)) {
+      sharedTranslationCache[key] = value;
+    }
     this.debouncedWriteTranslationCache();
   }
 
@@ -287,9 +371,17 @@ async function translateWithCache(value, modTranslationCache) {
   if (value === '') return '';
   logger.log(`\nTranslating ${value}\n`);
   let translatedValue = modTranslationCache.get(value);
-  if (translatedValue !== undefined) {
+  // DEBUG:
+  // 有时候 tag 没有被正确翻译，原文里有 tag，结果里没有
+  const hasNotTranslatedTag =
+    typeof translatedValue === 'string' &&
+    Object.keys(tags).some((key) => value.includes(key) && !translatedValue.includes(key));
+  if (translatedValue !== undefined && !hasNotTranslatedTag) {
     logger.log(`Use Cached version ${translatedValue}\n--\n`);
   } else {
+    if (hasNotTranslatedTag) {
+      logger.error(`之前的翻译有问题，没有 tag：\n${value}\n${translatedValue}\n`);
+    }
     // 没有缓存，就更新缓存
     logger.log(`No Cached Translation for ${value}\n`);
     translatedValue = await tryTranslation(value);
@@ -794,19 +886,20 @@ const chunkAsync = (arr, callback, chunkSize = 1) => {
 async function translateOneMod(sourceModName) {
   const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
   const sourceModDirPath = path.join(__dirname, sourceDirName, sourceModName);
-  const sourceFileContents = readSourceFiles(sourceModDirPath);
-  const modTranslationCache = modTranslationCaches[sourceModName] ?? new ModCache(translationCacheFilePath);
+  let modTranslationCache;
   try {
+    const sourceFileContents = readSourceFiles(sourceModDirPath);
+    modTranslationCache = modTranslationCaches[sourceModName] ?? new ModCache(translationCacheFilePath, sourceModName);
     const contents = await chunkAsync(
       sourceFileContents,
       (fileItem) => translateStringsInContent(fileItem, modTranslationCache),
       10
     );
-    writeToCNMod(contents);
+    // writeToCNMod(contents);
   } catch (error) {
-    logger.error(`translateOneMod failed for ${sourceModName} ${error.message}`);
+    logger.error(`translateOneMod failed for ${sourceModName} ${error.message} ${error.stack}`);
   }
-  modTranslationCache.writeTranslationCache();
+  modTranslationCache?.writeTranslationCache();
 }
 
 async function main() {
@@ -821,8 +914,8 @@ async function main() {
 }
 // 执行翻译脚本
 main().catch((error) => {
+  console.error(`Unexpectedly quit, error is ${error.message} ${error.stack}`);
   logger.error(error, `${error.message} ${error.stack}`);
   logger.flush();
-  console.error(`Unexpectedly quit, error is ${error.message} ${error.stack}`);
   process.exit(1);
 });
