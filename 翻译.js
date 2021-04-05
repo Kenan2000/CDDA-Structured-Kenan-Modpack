@@ -11,17 +11,13 @@ const debouncePromise = require('awesome-debounce-promise').default;
 const sourceDirName = 'Kenan-Modpack';
 const translatedDirName = `Kenan-Modpack-汉化版`;
 const translateCacheDirName = `中文翻译`;
-/**
- * 作为高质量翻译源的 mod，会指导其他 mod 的翻译
- */
-const highQualityMods = ['nocts_cata_mod_DDA', 'secronom', 'Arcana'];
 
 let logCounter = 0;
 let logs = [];
 let errors = [];
 const logger = {
   log: (...message) => {
-    console.log(...message);
+    // console.log(...message);
     logs.push(`Log${logCounter++} ${message.join(' ')}\n`);
     debouncedFlushLog();
   },
@@ -292,8 +288,7 @@ function loadSharedTranslationCache() {
   const sharedPath = path.join(__dirname, translateCacheDirName, `${sharedName}.json`);
   logger.log(`加载${sharedName}的翻译 ${sharedPath}`);
   sharedTranslationCache = JSON.parse(fs.read(sharedPath, 'utf8'));
-  // 加载翻译，并让 highQualityMods 最后加载，顶掉共享缓存池里别的翻译
-  for (const sourceModName of [..._.pull(sourceModDirs, ...highQualityMods), ...highQualityMods]) {
+  for (const sourceModName of sourceModDirs) {
     logger.log(`加载缓存的翻译 ${count++}/${sourceModDirs.length} ${sourceModName}`);
     try {
       const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
@@ -522,6 +517,8 @@ function getCDDATranslator(modTranslationCache) {
     }
     if (typeof item?.message === 'string') {
       item.message = await translateFunction(item.message);
+      // DEBUG: console
+      console.log(item.message);
     }
     if (Array.isArray(item?.messages)) {
       item.messages = await Promise.all(item.messages.map((msg) => translateFunction(msg)));
