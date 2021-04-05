@@ -186,10 +186,14 @@ function kvToParatranz(kvTranslationsCache, context) {
  */
 function paratranzToKV(paratranzTranslationsContent) {
   return paratranzTranslationsContent.reduce((prev, item) => {
-    return { ...prev, [item.original]: [item.translation] };
+    return { ...prev, [item.original]: item.translation };
   }, {});
 }
 
+/**
+ * 所有 mod 的 cache
+ */
+const modTranslationCaches = {};
 /**
  * 共享所有Mod翻译的成果，加速翻译，但之后每个mod自己还是存一份
  */
@@ -201,13 +205,19 @@ const sharedName = '共享';
 function loadSharedTranslationCache() {
   logger.log('加载缓存的翻译');
   let count = 1;
-  for (const sourceModName of [...sourceModDirs, sharedName]) {
+  const sharedPath = path.join(__dirname, translateCacheDirName, `${sharedName}.json`);
+  logger.log(`加载${sharedName}的翻译 ${sharedPath}`);
+  sharedTranslationCache = JSON.parse(fs.read(sharedPath, 'utf8'));
+  for (const sourceModName of sourceModDirs) {
     logger.log(`加载缓存的翻译 ${count++}/${sourceModDirs.length} ${sourceModName}`);
     const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
+    const kvCacheContent = paratranzToKV(JSON.parse(fs.read(translationCacheFilePath, 'utf8')));
+    const cacheForThisMod = new ModCache(translationCacheFilePath, kvCacheContent);
+    modTranslationCaches[sourceModName] = cacheForThisMod;
     try {
       sharedTranslationCache = {
         ...sharedTranslationCache,
-        ...JSON.parse(fs.read(translationCacheFilePath, 'utf8')),
+        ...kvCacheContent,
       };
     } catch {}
   }
@@ -215,7 +225,7 @@ function loadSharedTranslationCache() {
 function storeSharedTranslationCache() {
   logger.log('储存共享的翻译');
   const sharedTranslationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sharedName}.json`);
-  fs.write(sharedTranslationCacheFilePath, JSON.stringify(sharedTranslationCache, undefined, ' '));
+  fs.write(sharedTranslationCacheFilePath, JSON.stringify(sharedTranslationCache, undefined, '  '));
 }
 
 class ModCache {
@@ -786,7 +796,7 @@ async function translateOneMod(sourceModName) {
   const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
   const sourceModDirPath = path.join(__dirname, sourceDirName, sourceModName);
   const sourceFileContents = readSourceFiles(sourceModDirPath);
-  const modTranslationCache = new ModCache(translationCacheFilePath);
+  const modTranslationCache = modTranslationCaches[sourceModName] ?? new ModCache(translationCacheFilePath);
   try {
     const contents = await chunkAsync(
       sourceFileContents,
