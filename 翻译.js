@@ -437,10 +437,10 @@ function writeToCNMod(foldersWithContent) {
     logger.log('newFilePath', newFilePath);
     if (content.content) {
       // JSON 文件
-      // fs.write(newFilePath, JSON.stringify(content.content, undefined, '  '));
+      fs.write(newFilePath, JSON.stringify(content.content, undefined, '  '));
     } else if (content.rawContent) {
       // png 贴图等
-      // fs.write(newFilePath, content.rawContent);
+      fs.write(newFilePath, content.rawContent);
     }
   };
   if (Array.isArray(foldersWithContent)) {
@@ -478,9 +478,9 @@ async function translateStringsInContent(fileItem, modTranslationCache) {
     logger.error(
       `File content is not an array! ${fileItem.filePath} ,\n this means modder use an unexpected json schema, will resulted in "Cannot read property 'filePath' of undefined"`
     );
-    const translator = translators[fileItem.type];
+    const translator = translators[fileItem.content?.type];
     if (!translator) {
-      logger.error(`没有 ${fileItem.type} 的翻译器`);
+      logger.error(`没有 ${fileItem.content?.type ?? fileItem.content?.type} 的翻译器`);
     } else {
       await translator(fileItem.content);
     }
