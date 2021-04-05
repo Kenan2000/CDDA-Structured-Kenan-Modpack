@@ -12,8 +12,8 @@ const translatedDirName = `Kenan-Modpack-汉化版`;
 const translateCacheDirName = `中文翻译`;
 
 const __dirname = '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/';
-const translationsToImport = ['nocts_cata_mod_DDA', 'secronom'];
-const translationsToImportInDir = 'imports'
+const translationsToImport = ['secronom'];
+const translationsToImportInDir = 'imports';
 
 const TRANSLATION_ERROR = 'Translation Error';
 
@@ -134,6 +134,7 @@ function readSourceFiles(sourceModDirPath) {
 function getFileJSON(inspectData, parentPath = '') {
   const filePath = path.join(parentPath, inspectData.name);
   if (inspectData.type === 'file') {
+    if (inspectData.name === '.DS_Store') return;
     if (inspectData.name.endsWith('json')) {
       // JSON 文件
       return { ...inspectData, content: JSON.parse(fs.read(filePath)), filePath };
@@ -159,9 +160,17 @@ async function translateOneMod(sourceModName) {
   try {
     const sourceFileContents = _.sortBy(readSourceFiles(sourceModDirPath), 'name');
     const goodFileContents = _.sortBy(readSourceFiles(goodModDirPath), 'name');
+    if (sourceFileContents.length !== goodFileContents.length) {
+      throw new Error(`Length diff, left: ${sourceFileContents.length} !== right: ${goodFileContents.length}`);
+    }
     modTranslationCache = new ModCache(translationCacheFilePath, {}, sourceModName);
     for (let index = 0; index < goodFileContents.length; index++) {
-      const differences = compare(sourceFileContents[index], goodFileContents[index]);
+      if (sourceFileContents[index].name !== goodFileContents[index].name) {
+        throw new Error(
+          `Name diff, left: ${sourceFileContents[index].name} !== right: ${goodFileContents[index].name}`
+        );
+      }
+      const differences = compare(sourceFileContents[index].content, goodFileContents[index].content);
       differences.forEach((diff) => {
         const hasChinese = /[\u4e00-\u9fa5]/.test(diff.right_value);
         if (modTranslationCache.get(diff.left_value) && hasChinese) {
@@ -169,7 +178,7 @@ async function translateOneMod(sourceModName) {
         }
       });
     }
-    modTranslationCache?.writeTranslationCache();
+    modTranslationCache.writeTranslationCache();
   } catch (error) {
     console.error(`translateOneMod failed for ${sourceModName} ${error.message} ${error.stack}`);
   }
