@@ -259,7 +259,7 @@ function kvToParatranz(kvTranslationsCache, context) {
 function paratranzToKV(paratranzTranslationsContent) {
   return paratranzTranslationsContent.reduce((prev, item) => {
     if (item.translation?.includes(TRANSLATION_ERROR)) {
-      return prev;
+      return { ...prev, [item.original]: TRANSLATION_ERROR };
     }
     return { ...prev, [item.original]: item.translation };
   }, {});
@@ -895,7 +895,7 @@ async function translateOneMod(sourceModName) {
       (fileItem) => translateStringsInContent(fileItem, modTranslationCache),
       10
     );
-    // writeToCNMod(contents);
+    writeToCNMod(contents);
   } catch (error) {
     logger.error(`translateOneMod failed for ${sourceModName} ${error.message} ${error.stack}`);
   }
