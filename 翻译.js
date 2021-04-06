@@ -1016,7 +1016,6 @@ async function main() {
     await translateOneMod(sourceModName);
     logger.log(`\n${sourceModName} Translate done!\n`);
     logger.flush();
-    return;
   }
   // storeSharedTranslationCache();
 }
