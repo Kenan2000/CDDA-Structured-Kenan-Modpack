@@ -35,14 +35,15 @@ const TRANSLATION_ERROR = 'Translation Error';
   }
 ] 
 */
-function kvToParatranz(kvTranslationsCache, context) {
+function kvToParatranz(kvTranslationsCache, stages, contexts) {
   return _.sortBy(
     Object.entries(kvTranslationsCache).map(([original, translation]) => {
       return {
         key: crypto.createHash('md5').update(original).digest('hex'),
         original,
         translation,
-        context,
+        context: contexts[original],
+        stage: stages[original],
       };
     }),
     'original'
@@ -53,34 +54,69 @@ function kvToParatranz(kvTranslationsCache, context) {
  */
 function paratranzToKV(paratranzTranslationsContent) {
   return paratranzTranslationsContent.reduce((prev, item) => {
-    if (item.translation && item.translation.includes(TRANSLATION_ERROR)) {
+    if (item.translation?.includes(TRANSLATION_ERROR)) {
       return { ...prev, [item.original]: TRANSLATION_ERROR };
     }
     return { ...prev, [item.original]: item.translation };
   }, {});
 }
+/**
+ * 把 paratranz 的翻译条目格式转换回 { original: translation } 的格式
+ */
+function paratranzToStage(paratranzTranslationsContent) {
+  return paratranzTranslationsContent.reduce((prev, item) => {
+    if (item.translation?.includes(TRANSLATION_ERROR)) {
+      return { ...prev, [item.original]: TRANSLATION_ERROR };
+    }
+    return { ...prev, [item.original]: item.stage };
+  }, {});
+}
+/**
+ * 把 paratranz 的翻译条目格式转换回 { original: translation } 的格式
+ */
+function paratranzToContext(paratranzTranslationsContent) {
+  return paratranzTranslationsContent.reduce((prev, item) => {
+    if (item.translation?.includes(TRANSLATION_ERROR)) {
+      return { ...prev, [item.original]: TRANSLATION_ERROR };
+    }
+    return { ...prev, [item.original]: item.context };
+  }, {});
+}
 
 class ModCache {
   modName;
+  stages = {};
+  contexts = {};
   translationCache = {};
   translationCacheFilePath;
   /**
    * 初始化翻译缓存，没传第二个参数时，尝试从文件系统里加载有之前翻译和润色过的内容的翻译缓存，如果该翻译缓存文件不存在，就创建一个出来
    */
-  constructor(translationCacheFilePath, translationCache = {}, modName) {
+  constructor(translationCacheFilePath, translationCache = {}, modName, stages) {
     this.modName = modName;
     this.translationCacheFilePath = translationCacheFilePath;
     this.debouncedWriteTranslationCache = _.debounce(this.writeTranslationCache.bind(this), 1000);
     try {
+      this.stages =
+        stages ??
+        paratranzToStage(JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n')));
+      this.contexts = paratranzToContext(JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n')));
       if (Object.keys(translationCache).length === 0) {
-        this.translationCache = paratranzToKV(JSON.parse(fs.read(translationCacheFilePath, 'utf8')));
+        this.translationCache = paratranzToKV(
+          JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n'))
+        );
       }
     } catch (error) {
-      console.error(
-        `ModCache error, create empty translation cache to fs ${translationCache}, errorMessage is\n ${error.message}\n`
+      logger.error(
+        `ModCache error ${translationCacheFilePath}, create empty translation cache to fs ${translationCache}, errorMessage is\n ${error.message} ${error.stack}\n`
       );
-      this.writeTranslationCache(translationCacheFilePath, {});
+      process.exit(1);
+      // this.writeTranslationCache(translationCacheFilePath, {});
     }
+  }
+
+  setContext(key, value) {
+    this.contexts[key] = value;
   }
 
   writeTranslationCache(
@@ -89,14 +125,11 @@ class ModCache {
   ) {
     return fs.write(
       translationCacheFilePath,
-      JSON.stringify(kvToParatranz(translationCache, this.modName), undefined, ' ')
+      JSON.stringify(kvToParatranz(translationCache, this.stages, this.contexts), undefined, ' ')
     );
   }
 
   insertToCache(key, value) {
-    if (!value || typeof value === undefined) {
-      console.error(key, value);
-    }
     this.translationCache[key] = value;
     this.debouncedWriteTranslationCache();
   }
