@@ -312,7 +312,7 @@ function loadSharedTranslationCache() {
     try {
       const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
       const kvCacheContent = paratranzToKV(
-        JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\', '\\'))
+        JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n'))
       );
       const cacheForThisMod = new ModCache(translationCacheFilePath, kvCacheContent, sourceModName);
       modTranslationCaches[sourceModName] = cacheForThisMod;
@@ -321,7 +321,7 @@ function loadSharedTranslationCache() {
         ...kvCacheContent,
       };
     } catch (error) {
-      logger.error(`loadSharedTranslationCache Error: ${error.message} ${error.stack}`);
+      logger.error(`loadSharedTranslationCache ${translationCacheFilePath} Error: ${error.message} ${error.stack}`);
     }
   }
 }
@@ -346,17 +346,19 @@ class ModCache {
     this.debouncedWriteTranslationCache = _.debounce(this.writeTranslationCache.bind(this), 1000);
     try {
       this.stages =
-        stages ?? paratranzToStage(JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\', '\\')));
+        stages ??
+        paratranzToStage(JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n')));
       if (Object.keys(translationCache).length === 0) {
         this.translationCache = paratranzToKV(
-          JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\', '\\'))
+          JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n'))
         );
       }
     } catch (error) {
       logger.error(
-        `ModCache error, create empty translation cache to fs ${translationCache}, errorMessage is\n ${error.message}\n`
+        `ModCache error ${translationCacheFilePath}, create empty translation cache to fs ${translationCache}, errorMessage is\n ${error.message} ${error.stack}\n`
       );
-      this.writeTranslationCache(translationCacheFilePath, {});
+      process.exit(1);
+      // this.writeTranslationCache(translationCacheFilePath, {});
     }
   }
 
