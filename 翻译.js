@@ -960,7 +960,7 @@ async function translateOneMod(sourceModName) {
 }
 
 async function main() {
-  loadSharedTranslationCache();
+  // loadSharedTranslationCache();
   for (const sourceModName of sourceModDirs) {
     logger.log(`\n${sourceModName} Translate start!\n`);
     await translateOneMod(sourceModName);
