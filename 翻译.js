@@ -8,6 +8,7 @@ const fetch = require('node-fetch');
 const crypto = require('crypto');
 const debouncePromise = require('awesome-debounce-promise').default;
 
+const wikiSiteBase = 'https://onetwo.ren/CDDA-Kenan-Modpack-Chinese/#';
 const sourceDirName = 'Kenan-Modpack';
 const translatedDirName = `Kenan-Modpack-汉化版`;
 const translateCacheDirName = `中文翻译`;
@@ -569,7 +570,15 @@ type: text/vnd.tiddlywiki
 function getCDDATranslator(modTranslationCache, sourceModName, type, id) {
   const translators = {};
   const translateFunction = (value) =>
-    translateWithCache(value, modTranslationCache, getContext(sourceModName, type, id));
+    translateWithCache(
+      value,
+      modTranslationCache,
+      `ID: ${id}\n位于 ${sourceModName}.json\n类型为 ${type}\n\nWIKI:\n${wikiSiteBase}${getContext(
+        sourceModName,
+        type,
+        id
+      )}`
+    );
   const noop = () => {};
 
   // 常用的翻译器
