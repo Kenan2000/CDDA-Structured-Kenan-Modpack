@@ -252,14 +252,14 @@ function tryTranslation(value) {
   }
 ] 
 */
-function kvToParatranz(kvTranslationsCache, context, stages) {
+function kvToParatranz(kvTranslationsCache, stages, contexts) {
   return _.sortBy(
     Object.entries(kvTranslationsCache).map(([original, translation]) => {
       return {
         key: crypto.createHash('md5').update(original).digest('hex'),
         original,
         translation,
-        context,
+        context: contexts[original],
         stage: stages[original],
       };
     }),
@@ -331,6 +331,8 @@ function storeSharedTranslationCache() {
 
 class ModCache {
   modName;
+  stages = {};
+  contexts = {};
   translationCache = {};
   translationCacheFilePath;
   /**
@@ -353,13 +355,17 @@ class ModCache {
     }
   }
 
+  setContext(key, value) {
+    this.contexts[key] = value;
+  }
+
   writeTranslationCache(
     translationCacheFilePath = this.translationCacheFilePath,
     translationCache = this.translationCache
   ) {
     return fs.write(
       translationCacheFilePath,
-      JSON.stringify(kvToParatranz(translationCache, this.modName, this.stages), undefined, ' ')
+      JSON.stringify(kvToParatranz(translationCache, this.stages, this.contexts), undefined, ' ')
     );
   }
 
@@ -391,7 +397,7 @@ class ModCache {
  * @param {string} value 待翻译的字符串
  * @param {ModCache} modTranslationCache 此mod的翻译缓存文件
  */
-async function translateWithCache(value, modTranslationCache) {
+async function translateWithCache(value, modTranslationCache, context) {
   if (value === undefined) return undefined;
   if (value === '') return '';
   logger.log(`\nTranslating ${value}\n`);
@@ -412,6 +418,7 @@ async function translateWithCache(value, modTranslationCache) {
     logger.log(`New Translation ${value}\n -> ${translatedValue}\n`);
     modTranslationCache.insertToCache(value, translatedValue);
   }
+  modTranslationCache.setContext(value, context);
   return translatedValue;
 }
 
@@ -478,11 +485,11 @@ function writeToCNMod(foldersWithContent) {
  * @param {Object} fileItem 基本类似于 inspectData https://www.npmjs.com/package/fs-jetpack#inspecttreepath-options ，但是多了 content 包含 JSON parse 过的文件内容
  * @param {ModCache} modTranslationCache 此mod的翻译缓存文件
  */
-async function translateStringsInContent(fileItem, modTranslationCache) {
-  const translators = getCDDATranslator(modTranslationCache);
+async function translateStringsInContent(fileItem, modTranslationCache, sourceModName) {
   if (Array.isArray(fileItem.content)) {
     // 文件的内容一般是一维数组
     for (const item of fileItem.content) {
+      const translators = getCDDATranslator(modTranslationCache, sourceModName, item.type, item.id);
       const translator = translators[item.type];
       if (!translator) {
         logger.error(`没有 ${item.type} 的翻译器`);
@@ -494,9 +501,7 @@ async function translateStringsInContent(fileItem, modTranslationCache) {
   } else if (fileItem.rawContent) {
     return fileItem;
   } else {
-    logger.error(
-      `File content is not an array! ${fileItem.filePath} ,\n this means modder use an unexpected json schema, will resulted in "Cannot read property 'filePath' of undefined"`
-    );
+    const translators = getCDDATranslator(modTranslationCache, sourceModName, fileItem.content.type, fileItem.content.id);
     const translator = translators[fileItem.content?.type];
     if (!translator) {
       logger.error(`没有 ${fileItem.content?.type ?? fileItem.content?.type} 的翻译器`);
@@ -511,9 +516,9 @@ async function translateStringsInContent(fileItem, modTranslationCache) {
  * 获取 translator 对象，内含从各种 CDDA JSON 里提取待翻译字段的翻译器
  * @param {ModCache} modTranslationCache 此mod的翻译缓存文件
  */
-function getCDDATranslator(modTranslationCache) {
+function getCDDATranslator(modTranslationCache, sourceModName, type, id) {
   const translators = {};
-  const translateFunction = (value) => translateWithCache(value, modTranslationCache);
+  const translateFunction = (value) => translateWithCache(value, modTranslationCache, `${sourceModName}/${type}/${id}`);
   const noop = () => {};
 
   // 常用的翻译器
@@ -934,7 +939,7 @@ async function translateOneMod(sourceModName) {
       modTranslationCaches[sourceModName] ?? new ModCache(translationCacheFilePath, {}, sourceModName);
     const contents = await chunkAsync(
       sourceFileContents,
-      (fileItem) => translateStringsInContent(fileItem, modTranslationCache),
+      (fileItem) => translateStringsInContent(fileItem, modTranslationCache, sourceModName),
       10
     );
     writeToCNMod(contents);
