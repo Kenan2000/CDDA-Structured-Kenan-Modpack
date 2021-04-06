@@ -252,7 +252,7 @@ function tryTranslation(value) {
   }
 ] 
 */
-function kvToParatranz(kvTranslationsCache, context) {
+function kvToParatranz(kvTranslationsCache, context, stages) {
   return _.sortBy(
     Object.entries(kvTranslationsCache).map(([original, translation]) => {
       return {
@@ -260,6 +260,7 @@ function kvToParatranz(kvTranslationsCache, context) {
         original,
         translation,
         context,
+        stage: stages[original],
       };
     }),
     'original'
@@ -274,6 +275,17 @@ function paratranzToKV(paratranzTranslationsContent) {
       return { ...prev, [item.original]: TRANSLATION_ERROR };
     }
     return { ...prev, [item.original]: item.translation };
+  }, {});
+}
+/**
+ * 把 paratranz 的翻译条目格式转换回 { original: translation } 的格式
+ */
+function paratranzToStage(paratranzTranslationsContent) {
+  return paratranzTranslationsContent.reduce((prev, item) => {
+    if (item.translation?.includes(TRANSLATION_ERROR)) {
+      return { ...prev, [item.original]: TRANSLATION_ERROR };
+    }
+    return { ...prev, [item.original]: item.stage };
   }, {});
 }
 
@@ -324,11 +336,12 @@ class ModCache {
   /**
    * 初始化翻译缓存，没传第二个参数时，尝试从文件系统里加载有之前翻译和润色过的内容的翻译缓存，如果该翻译缓存文件不存在，就创建一个出来
    */
-  constructor(translationCacheFilePath, translationCache = {}, modName) {
+  constructor(translationCacheFilePath, translationCache = {}, modName, stages) {
     this.modName = modName;
     this.translationCacheFilePath = translationCacheFilePath;
     this.debouncedWriteTranslationCache = _.debounce(this.writeTranslationCache.bind(this), 1000);
     try {
+      this.stages = stages ?? paratranzToStage(JSON.parse(fs.read(translationCacheFilePath, 'utf8')));
       if (Object.keys(translationCache).length === 0) {
         this.translationCache = paratranzToKV(JSON.parse(fs.read(translationCacheFilePath, 'utf8')));
       }
@@ -346,7 +359,7 @@ class ModCache {
   ) {
     return fs.write(
       translationCacheFilePath,
-      JSON.stringify(kvToParatranz(translationCache, this.modName), undefined, ' ')
+      JSON.stringify(kvToParatranz(translationCache, this.modName, this.stages), undefined, ' ')
     );
   }
 
