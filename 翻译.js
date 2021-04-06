@@ -11,10 +11,13 @@ const debouncePromise = require('awesome-debounce-promise').default;
 const sourceDirName = 'Kenan-Modpack';
 const translatedDirName = `Kenan-Modpack-汉化版`;
 const translateCacheDirName = `中文翻译`;
+const cddaWikiFolder = path.join(__dirname, 'wiki', 'tiddlers', 'cdda');
 /**
  * 作为高质量翻译源的 mod，会指导其他 mod 的翻译
  */
 const highQualityMods = ['nocts_cata_mod_DDA', 'secronom', 'Arcana'];
+
+const getContext = (sourceModName, type, id) => `${sourceModName}→${type}→${id}`;
 
 let logCounter = 0;
 let logs = [];
@@ -42,6 +45,7 @@ const debouncedFlushLog = _.debounce(logger.flush, 1000);
 // 创建容纳翻译的文件夹
 fs.dir(path.join(__dirname, translatedDirName));
 fs.dir(path.join(__dirname, translateCacheDirName));
+fs.dir(path.join(__dirname, cddaWikiFolder));
 //  首先读取 Kenan-Modpack 文件夹里的所有文件名
 const sourceModDirs = _.sortedUniq(
   fs.list(path.resolve(__dirname, 'Kenan-Modpack')).filter((name) => name !== '.DS_Store')
@@ -501,7 +505,24 @@ async function translateStringsInContent(fileItem, modTranslationCache, sourceMo
       if (!translator) {
         logger.error(`没有 ${item.type} 的翻译器`);
       } else {
+        const jsonName = `${getContext(sourceModName, item.type, item.id)}.tid`;
+        // 把内容写到 wiki 里
+        fs.write(
+          path.join(cddaWikiFolder, jsonName),
+          `tags: ${item.type} ${sourceModName}
+  creator: 林一二
+  title: ${jsonName.replace('.tid', '')}
+  type: text/vnd.tiddlywiki
+  `
+        );
+        fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
+        fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
+        fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
         await translator(item);
+        // 把翻译后的内容写到 wiki 里
+        fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 汉化\n\n```json\n');
+        fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
+        fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
       }
     }
     return fileItem;
@@ -518,7 +539,24 @@ async function translateStringsInContent(fileItem, modTranslationCache, sourceMo
     if (!translator) {
       logger.error(`没有 ${fileItem.content?.type ?? fileItem.content?.type} 的翻译器`);
     } else {
+      const jsonName = `${getContext(sourceModName, item.type, item.id)}.tid`;
+      // 把内容写到 wiki 里
+      fs.write(
+        path.join(cddaWikiFolder, jsonName),
+        `tags: ${item.type} ${sourceModName}
+creator: 林一二
+title: ${jsonName.replace('.tid', '')}
+type: text/vnd.tiddlywiki
+`
+      );
+      fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
+      fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(fileItem, undefined, '  '));
+      fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
       await translator(fileItem.content);
+      // 把翻译后的内容写到 wiki 里
+      fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 汉化\n\n```json\n');
+      fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(fileItem, undefined, '  '));
+      fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
     }
     return fileItem;
   }
@@ -530,7 +568,8 @@ async function translateStringsInContent(fileItem, modTranslationCache, sourceMo
  */
 function getCDDATranslator(modTranslationCache, sourceModName, type, id) {
   const translators = {};
-  const translateFunction = (value) => translateWithCache(value, modTranslationCache, `${sourceModName}/${type}/${id}`);
+  const translateFunction = (value) =>
+    translateWithCache(value, modTranslationCache, getContext(sourceModName, type, id));
   const noop = () => {};
 
   // 常用的翻译器
@@ -968,6 +1007,7 @@ async function main() {
     await translateOneMod(sourceModName);
     logger.log(`\n${sourceModName} Translate done!\n`);
     logger.flush();
+    return;
   }
   // storeSharedTranslationCache();
 }
