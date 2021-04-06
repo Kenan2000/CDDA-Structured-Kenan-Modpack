@@ -690,7 +690,7 @@ function getCDDATranslator(modTranslationCache) {
   translators.start_location = noop;
   translators.furniture = nameDesc;
   translators.gate = async (item) => {
-    for (const key in Object.keys(item.messages)) {
+    for (const key of Object.keys(item.messages)) {
       item.messages[key] = await translateFunction(item.messages[key]);
     }
   };
