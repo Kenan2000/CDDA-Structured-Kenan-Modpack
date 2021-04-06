@@ -169,8 +169,11 @@ const tags = {
   '<ammo>': '6669',
   '<info>': '6670',
   '</info>': '6671',
-  '<chitchat_player_responses>': '6672',
-  '<shoggoth_chat>': '6673',
+  '<the_cataclysm>': '6672',
+  '<chitchat_player_responses>': '6673',
+  '<speech_warning>': '6674',
+  '<sweetie>': '6675',
+  '<shoggoth_chat>': '6676',
 };
 const mapTo111 = {
   '%1$s': '1111',
