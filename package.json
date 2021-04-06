@@ -8,6 +8,7 @@
     "start": "npm run clean && npm run translate && npm run remove-buildin",
     "translate": "node ./翻译.js",
     "remove-buildin": "node ./删除内置mod.js",
+    "build-wiki": "node -e \"require('./wiki')()\"",
     "clean": "rimraf ./error.log && rimraf ./log.log"
   },
   "dependencies": {
@@ -19,7 +20,10 @@
     "lodash": "^4.17.21",
     "node-fetch": "^2.6.1",
     "promise-retry": "^2.0.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "tiddlywiki": "^5.1.23"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "html-minifier-terser": "5.1.1"
+  }
 }
