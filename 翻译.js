@@ -311,7 +311,9 @@ function loadSharedTranslationCache() {
     logger.log(`加载缓存的翻译 ${count++}/${highQualityMods.length} ${sourceModName}`);
     try {
       const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
-      const kvCacheContent = paratranzToKV(JSON.parse(fs.read(translationCacheFilePath, 'utf8')));
+      const kvCacheContent = paratranzToKV(
+        JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\', '\\'))
+      );
       const cacheForThisMod = new ModCache(translationCacheFilePath, kvCacheContent, sourceModName);
       modTranslationCaches[sourceModName] = cacheForThisMod;
       sharedTranslationCache = {
@@ -343,9 +345,12 @@ class ModCache {
     this.translationCacheFilePath = translationCacheFilePath;
     this.debouncedWriteTranslationCache = _.debounce(this.writeTranslationCache.bind(this), 1000);
     try {
-      this.stages = stages ?? paratranzToStage(JSON.parse(fs.read(translationCacheFilePath, 'utf8')));
+      this.stages =
+        stages ?? paratranzToStage(JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\', '\\')));
       if (Object.keys(translationCache).length === 0) {
-        this.translationCache = paratranzToKV(JSON.parse(fs.read(translationCacheFilePath, 'utf8')));
+        this.translationCache = paratranzToKV(
+          JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\', '\\'))
+        );
       }
     } catch (error) {
       logger.error(
@@ -501,7 +506,12 @@ async function translateStringsInContent(fileItem, modTranslationCache, sourceMo
   } else if (fileItem.rawContent) {
     return fileItem;
   } else {
-    const translators = getCDDATranslator(modTranslationCache, sourceModName, fileItem.content.type, fileItem.content.id);
+    const translators = getCDDATranslator(
+      modTranslationCache,
+      sourceModName,
+      fileItem.content.type,
+      fileItem.content.id
+    );
     const translator = translators[fileItem.content?.type];
     if (!translator) {
       logger.error(`没有 ${fileItem.content?.type ?? fileItem.content?.type} 的翻译器`);
