@@ -504,22 +504,22 @@ function writeToCNMod(foldersWithContent) {
 
 async function writeTiddlerToWikiAndTranslate(sourceModName, jsonName, item, translator) {
   // 把内容写到 wiki 里
-  await fs.writeAsync(
+  fs.write(
     path.join(cddaWikiFolder, jsonName),
-    `tags: ${item.type} ${sourceModName} ${item.id}
+    `tags: ${item.type} ${sourceModName} ${getFakeId(item.id)}
 creator: 林一二
 title: ${jsonName.replace('.tid', '')}
 type: text/vnd.tiddlywiki
 `
   );
-  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
-  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
-  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
-  await translator(item);
+  fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
+  fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
+  fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
+  translator(item);
   // 把翻译后的内容写到 wiki 里
-  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), '\n\n!! 汉化\n\n```json\n');
-  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
-  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
+  fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 汉化\n\n```json\n');
+  fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
+  fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
 }
 
 /**
