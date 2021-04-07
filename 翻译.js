@@ -23,8 +23,8 @@ const getFakeId = (item, index) =>
     ? item.id
     : item?.type === 'recipe' && item.result && item.difficulty
     ? `${item.result}(difficulty${item.difficulty})`
-    : item?.type === 'speech'
-    ? `${item.speaker}→${index}`
+    : item?.type === 'speech' && item.speaker
+    ? `${Array.isArray(item.speaker) ? item.speaker[0] : item.speaker}→${index}`
     : item?.type === 'AMMO' || item?.type === 'COMESTIBLE'
     ? item.abstract
     : `[${index}]`;
@@ -550,7 +550,7 @@ async function translateStringsInContent(fileItem, modTranslationCache, sourceMo
     if (!translator) {
       logger.error(`没有 ${fileItem.content?.type ?? fileItem.content?.type} 的翻译器`);
     } else {
-      const jsonName = `${getContext(sourceModName, item, 0)}.tid`;
+      const jsonName = `${getContext(sourceModName, fileItem.content, 0)}.tid`;
       await writeTiddlerToWikiAndTranslate(sourceModName, jsonName, fileItem.content, translator);
     }
     return fileItem;
