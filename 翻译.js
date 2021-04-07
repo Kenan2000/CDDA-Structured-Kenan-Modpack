@@ -21,7 +21,7 @@ const highQualityMods = ['nocts_cata_mod_DDA', 'secronom', 'Arcana'];
 const getFakeId = (item, index) =>
   typeof item?.id === 'string'
     ? item.id
-    : item.type === 'recipe'
+    : item?.type === 'recipe' && item.result && item.difficulty
     ? `${item.result}(difficulty${item.difficulty})`
     : item.type === 'speech'
     ? `${item.speaker}→${index}`
