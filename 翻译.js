@@ -19,7 +19,7 @@ const cddaWikiFolder = path.join(__dirname, 'wiki', 'tiddlers', 'cdda');
 const highQualityMods = ['nocts_cata_mod_DDA', 'secronom', 'Arcana'];
 
 const getFakeId = (item, index) =>
-  typeof item.id === 'string'
+  typeof item?.id === 'string'
     ? item.id
     : item.type === 'recipe'
     ? `${item.result}(difficulty${item.difficulty})`
