@@ -722,10 +722,10 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
 
   const clothingMod = async (item) => {
     if (item.implement_prompt) {
-      hitYouEffect.implement_prompt = await translateFunction(hitYouEffect.implement_prompt);
+      item.implement_prompt = await translateFunction(item.implement_prompt);
     }
     if (item.destroy_prompt) {
-      hitYouEffect.destroy_prompt = await translateFunction(hitYouEffect.destroy_prompt);
+      item.destroy_prompt = await translateFunction(item.destroy_prompt);
     }
   };
 
