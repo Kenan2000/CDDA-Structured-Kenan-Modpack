@@ -18,7 +18,16 @@ const cddaWikiFolder = path.join(__dirname, 'wiki', 'tiddlers', 'cdda');
  */
 const highQualityMods = ['nocts_cata_mod_DDA', 'secronom', 'Arcana'];
 
-const getContext = (sourceModName, type, id) => `${sourceModName}→${type}→${id}`;
+const getFakeId = (item, index) =>
+  item.id ??
+  (item.type === 'recipe'
+    ? `${item.result}(difficulty${item.difficulty})`
+    : item.type === 'speech'
+    ? `${item.speaker}→${index}`
+    : item.type === 'AMMO' || item.type === 'COMESTIBLE'
+    ? item.abstract
+    : `[${index}]`);
+const getContext = (sourceModName, item, index) => `${sourceModName}→${item.type}→${getFakeId(item, index)}`;
 
 let logCounter = 0;
 let logs = [];
@@ -492,6 +501,26 @@ function writeToCNMod(foldersWithContent) {
   }
 }
 
+async function writeTiddlerToWikiAndTranslate(sourceModName, jsonName, item, translator) {
+  // 把内容写到 wiki 里
+  await fs.writeAsync(
+    path.join(cddaWikiFolder, jsonName),
+    `tags: ${item.type} ${sourceModName} ${item.id}
+creator: 林一二
+title: ${jsonName.replace('.tid', '')}
+type: text/vnd.tiddlywiki
+`
+  );
+  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
+  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
+  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
+  await translator(item);
+  // 把翻译后的内容写到 wiki 里
+  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), '\n\n!! 汉化\n\n```json\n');
+  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
+  await fs.appendAsync(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
+}
+
 /**
  *
  * @param {Object} fileItem 基本类似于 inspectData https://www.npmjs.com/package/fs-jetpack#inspecttreepath-options ，但是多了 content 包含 JSON parse 过的文件内容
@@ -500,64 +529,28 @@ function writeToCNMod(foldersWithContent) {
 async function translateStringsInContent(fileItem, modTranslationCache, sourceModName) {
   if (Array.isArray(fileItem.content)) {
     // 文件的内容一般是一维数组
-    for (const item of fileItem.content) {
-      const translators = getCDDATranslator(modTranslationCache, sourceModName, item.type, item.id);
+    for (let index = 0; index < fileItem.content.length; index++) {
+      const item = fileItem.content[index];
+      const translators = getCDDATranslator(modTranslationCache, sourceModName, item, index);
       const translator = translators[item.type];
       if (!translator) {
         logger.error(`没有 ${item.type} 的翻译器`);
       } else {
-        const jsonName = `${getContext(sourceModName, item.type, item.id)}.tid`;
-        // 把内容写到 wiki 里
-        fs.write(
-          path.join(cddaWikiFolder, jsonName),
-          `tags: ${item.type} ${sourceModName}
-  creator: 林一二
-  title: ${jsonName.replace('.tid', '')}
-  type: text/vnd.tiddlywiki
-  `
-        );
-        fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
-        fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
-        fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
-        await translator(item);
-        // 把翻译后的内容写到 wiki 里
-        fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 汉化\n\n```json\n');
-        fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
-        fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
+        const jsonName = `${getContext(sourceModName, item, index)}.tid`;
+        await writeTiddlerToWikiAndTranslate(sourceModName, jsonName, item, translator);
       }
     }
     return fileItem;
   } else if (fileItem.rawContent) {
     return fileItem;
   } else {
-    const translators = getCDDATranslator(
-      modTranslationCache,
-      sourceModName,
-      fileItem.content.type,
-      fileItem.content.id
-    );
+    const translators = getCDDATranslator(modTranslationCache, sourceModName, fileItem.content, 0);
     const translator = translators[fileItem.content?.type];
     if (!translator) {
       logger.error(`没有 ${fileItem.content?.type ?? fileItem.content?.type} 的翻译器`);
     } else {
-      const jsonName = `${getContext(sourceModName, item.type, item.id)}.tid`;
-      // 把内容写到 wiki 里
-      fs.write(
-        path.join(cddaWikiFolder, jsonName),
-        `tags: ${item.type} ${sourceModName}
-creator: 林一二
-title: ${jsonName.replace('.tid', '')}
-type: text/vnd.tiddlywiki
-`
-      );
-      fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
-      fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(fileItem, undefined, '  '));
-      fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
-      await translator(fileItem.content);
-      // 把翻译后的内容写到 wiki 里
-      fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 汉化\n\n```json\n');
-      fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(fileItem, undefined, '  '));
-      fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
+      const jsonName = `${getContext(sourceModName, item, 0)}.tid`;
+      await writeTiddlerToWikiAndTranslate(sourceModName, jsonName, fileItem.content, translator);
     }
     return fileItem;
   }
@@ -567,16 +560,16 @@ type: text/vnd.tiddlywiki
  * 获取 translator 对象，内含从各种 CDDA JSON 里提取待翻译字段的翻译器
  * @param {ModCache} modTranslationCache 此mod的翻译缓存文件
  */
-function getCDDATranslator(modTranslationCache, sourceModName, type, id) {
+function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) {
   const translators = {};
   const translateFunction = (value) =>
     translateWithCache(
       value,
       modTranslationCache,
-      `ID: ${id}\n位于 ${sourceModName}.json\n类型为 ${type}\n\nWIKI:\n${wikiSiteBase}${getContext(
+      `ID: ${fullItem.id}\n位于 ${sourceModName}.json\n类型为 ${fullItem.type}\n\nWIKI:\n${wikiSiteBase}${getContext(
         sourceModName,
-        type,
-        id
+        fullItem,
+        index
       )}`
     );
   const noop = () => {};
