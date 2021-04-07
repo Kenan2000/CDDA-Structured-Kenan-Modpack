@@ -720,6 +720,15 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
     }
   };
 
+  const clothingMod = async (item) => {
+    if (item.implement_prompt) {
+      hitYouEffect.implement_prompt = await translateFunction(hitYouEffect.implement_prompt);
+    }
+    if (item.destroy_prompt) {
+      hitYouEffect.destroy_prompt = await translateFunction(hitYouEffect.destroy_prompt);
+    }
+  };
+
   const dynamicLine = async (line) => {
     if (typeof line.yes === 'string') {
       line.yes = await translateFunction(line.yes);
@@ -752,6 +761,11 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
     item.info = await translateFunction(item.info);
   };
 
+  const npc = async (item) => {
+    item.name_unique = await translateFunction(item.name_unique);
+    item.name_suffix = await translateFunction(item.name_suffix);
+  };
+
   // 注册各种类型数据的翻译器
   translators.profession = nameDesc;
   translators.scenario = async (item) => {
@@ -759,7 +773,7 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
     item.description = await translateFunction(item.description);
     item.start_name = await translateFunction(item.start_name);
   };
-  translators.start_location = noop;
+  translators.start_location = namePlDesc;
   translators.furniture = nameDesc;
   translators.gate = async (item) => {
     for (const key of Object.keys(item.messages)) {
@@ -825,7 +839,7 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
     }
   };
   translators.npc_class = noop;
-  translators.npc = noop;
+  translators.npc = npc;
   translators.trait_group = noop;
   translators.mapgen = noop;
   translators.ter_furn_transform = async (item) => {
@@ -858,7 +872,7 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
   };
   translators.ammo_effect = noop;
   translators.bionic = namePlDesc;
-  translators.clothing_mod = noop;
+  translators.clothing_mod = clothingMod;
   translators.effect_type = async (item) => {
     if (Array.isArray(item.name)) {
       item.name = await Promise.all(item.name.map((msg) => translateFunction(msg)));
