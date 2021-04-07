@@ -19,14 +19,15 @@ const cddaWikiFolder = path.join(__dirname, 'wiki', 'tiddlers', 'cdda');
 const highQualityMods = ['nocts_cata_mod_DDA', 'secronom', 'Arcana'];
 
 const getFakeId = (item, index) =>
-  item.id ??
-  (item.type === 'recipe'
+  typeof item.id === 'string'
+    ? item.id
+    : item.type === 'recipe'
     ? `${item.result}(difficulty${item.difficulty})`
     : item.type === 'speech'
     ? `${item.speaker}→${index}`
     : item.type === 'AMMO' || item.type === 'COMESTIBLE'
     ? item.abstract
-    : `[${index}]`);
+    : `[${index}]`;
 const getContext = (sourceModName, item, index) => `${sourceModName}→${item.type}→${getFakeId(item, index)}`;
 
 let logCounter = 0;
