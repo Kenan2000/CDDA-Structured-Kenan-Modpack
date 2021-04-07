@@ -409,6 +409,9 @@ class ModCache {
       const translatedValue = /* this.translationCache[key] ??  */ sharedTranslationCache[key]?.replaceAll(/"(.+)"/g, '“$1”') ?? this.translationCache[key];
       // 如果本地翻译没有此内容，就用共享翻译资源刷新此mod翻译
       // if (this.translationCache[key] === undefined) {
+      if (sharedTranslationCache[key] !== undefined) {
+        this.stages[key] = 1
+      }
       this.insertToCache(key, translatedValue);
       // }
       return translatedValue;
