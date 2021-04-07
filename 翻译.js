@@ -27,7 +27,9 @@ const getFakeId = (item, index) =>
     ? `${Array.isArray(item.speaker) ? item.speaker[0] : item.speaker}→${index}`
     : item?.type === 'AMMO' || item?.type === 'COMESTIBLE'
     ? item.abstract
-    : `[${index}]`;
+    : typeof index === 'number'
+    ? `[${index}]`
+    : '';
 const getContext = (sourceModName, item, index) => `${sourceModName}→${item.type}→${getFakeId(item, index)}`;
 
 let logCounter = 0;
@@ -515,7 +517,7 @@ type: text/vnd.tiddlywiki
   fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
   fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
   fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
-  translator(item);
+  await translator(item);
   // 把翻译后的内容写到 wiki 里
   fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 汉化\n\n```json\n');
   fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
