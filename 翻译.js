@@ -428,12 +428,12 @@ async function translateWithCache(value, modTranslationCache, context) {
   const hasNotTranslatedTag =
     typeof translatedValue === 'string' &&
     Object.keys(tags).some((key) => value.includes(key) && !translatedValue.includes(key));
-  if (translatedValue !== undefined && !hasNotTranslatedTag) {
+  if (hasNotTranslatedTag) {
+    logger.error(`之前的翻译有问题，没有 tag：\n${value}\n${translatedValue}\n`);
+  }
+  if (translatedValue !== undefined /*  && !hasNotTranslatedTag */) {
     logger.log(`Use Cached version ${translatedValue}\n--\n`);
   } else {
-    if (hasNotTranslatedTag) {
-      logger.error(`之前的翻译有问题，没有 tag：\n${value}\n${translatedValue}\n`);
-    }
     // 没有缓存，就更新缓存
     logger.log(`No Cached Translation for ${value}\n`);
     translatedValue = await tryTranslation(value);
