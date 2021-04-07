@@ -23,9 +23,9 @@ const getFakeId = (item, index) =>
     ? item.id
     : item?.type === 'recipe' && item.result && item.difficulty
     ? `${item.result}(difficulty${item.difficulty})`
-    : item.type === 'speech'
+    : item?.type === 'speech'
     ? `${item.speaker}→${index}`
-    : item.type === 'AMMO' || item.type === 'COMESTIBLE'
+    : item?.type === 'AMMO' || item?.type === 'COMESTIBLE'
     ? item.abstract
     : `[${index}]`;
 const getContext = (sourceModName, item, index) => `${sourceModName}→${item.type}→${getFakeId(item, index)}`;
