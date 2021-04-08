@@ -414,6 +414,7 @@ class ModCache {
         this.insertToCache(key, translatedValue);
       }
       if (sharedTranslationCache[key] !== undefined) {
+        logger.log('使用官中');
         this.insertToCache(key, translatedValue);
         this.stages[key] = 5;
       }
