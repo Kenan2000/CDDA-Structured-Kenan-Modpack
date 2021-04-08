@@ -322,25 +322,25 @@ function loadSharedTranslationCache() {
   logger.log('加载缓存的翻译');
   let count = 1;
   const sharedPath = path.join(__dirname, translateCacheDirName, `${sharedName}.json`);
-  logger.log(`加载${sharedName}的翻译 ${sharedPath}`);
-  sharedTranslationCache = JSON.parse(fs.read(sharedPath, 'utf8'));
-  // for (const sourceModName of highQualityMods) {
-  //   logger.log(`加载缓存的翻译 ${count++}/${highQualityMods.length} ${sourceModName}`);
-  //   try {
-  //     const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
-  //     const kvCacheContent = paratranzToKV(
-  //       JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n'))
-  //     );
-  //     const cacheForThisMod = new ModCache(translationCacheFilePath, kvCacheContent, sourceModName);
-  //     modTranslationCaches[sourceModName] = cacheForThisMod;
-  //     sharedTranslationCache = {
-  //       ...sharedTranslationCache,
-  //       ...kvCacheContent,
-  //     };
-  //   } catch (error) {
-  //     logger.error(`loadSharedTranslationCache ${translationCacheFilePath} Error: ${error.message} ${error.stack}`);
-  //   }
-  // }
+  // logger.log(`加载${sharedName}的翻译 ${sharedPath}`);
+  // sharedTranslationCache = JSON.parse(fs.read(sharedPath, 'utf8'));
+  for (const sourceModName of highQualityMods) {
+    logger.log(`加载缓存的翻译 ${count++}/${highQualityMods.length} ${sourceModName}`);
+    try {
+      const translationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sourceModName}.json`);
+      const kvCacheContent = paratranzToKV(
+        JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n'))
+      );
+      const cacheForThisMod = new ModCache(translationCacheFilePath, kvCacheContent, sourceModName);
+      modTranslationCaches[sourceModName] = cacheForThisMod;
+      sharedTranslationCache = {
+        ...sharedTranslationCache,
+        ...kvCacheContent,
+      };
+    } catch (error) {
+      logger.error(`loadSharedTranslationCache ${translationCacheFilePath} Error: ${error.message} ${error.stack}`);
+    }
+  }
 }
 function storeSharedTranslationCache() {
   logger.log('储存共享的翻译');
@@ -395,9 +395,9 @@ class ModCache {
 
   insertToCache(key, value) {
     this.translationCache[key] = value;
-    // if (!value.includes(TRANSLATION_ERROR)) {
-    //   sharedTranslationCache[key] = value;
-    // }
+    if (!value.includes(TRANSLATION_ERROR)) {
+      sharedTranslationCache[key] = value;
+    }
     this.debouncedWriteTranslationCache();
   }
 
@@ -406,14 +406,11 @@ class ModCache {
    */
   get(key) {
     if (this.translationCache[key] !== undefined || sharedTranslationCache[key] !== undefined) {
-      const translatedValue = /* this.translationCache[key] ??  */ sharedTranslationCache[key]?.replaceAll(/"(.+)"/g, '“$1”') ?? this.translationCache[key];
+      const translatedValue = this.translationCache[key] ?? sharedTranslationCache[key]; /*  ?? translationCache[key] */
       // 如果本地翻译没有此内容，就用共享翻译资源刷新此mod翻译
-      // if (this.translationCache[key] === undefined) {
-      if (sharedTranslationCache[key] !== undefined) {
-        this.stages[key] = 1
+      if (this.translationCache[key] === undefined) {
+        this.insertToCache(key, translatedValue);
       }
-      this.insertToCache(key, translatedValue);
-      // }
       return translatedValue;
     }
   }
@@ -1023,7 +1020,7 @@ async function translateOneMod(sourceModName) {
 }
 
 async function main() {
-  loadSharedTranslationCache();
+  // loadSharedTranslationCache();
   for (const sourceModName of sourceModDirs) {
     logger.log(`\n${sourceModName} Translate start!\n`);
     await translateOneMod(sourceModName);
