@@ -1,11 +1,29 @@
 # CDDA-Kenan-Modpack CDDA Kenan Mod 合集的汉化
 
-![HowDownload.png](./HowDownload.png)
+[打开下载页](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/tag/latest)
+
+下载解压后，打开 CDDA 存档所在文件夹，如下放置即可：
+
+![docs/images/mod-folder.png](./docs/images/mod-folder.png)
 
 ## Development 开发
 
 如果你想贡献翻译（主要是润色机翻内容），直接打开 `中文翻译` 文件夹里对应 mod 的 json 文件搜索对应中英文搜到改了提交 Pull Request 即可。 （在 Github 上点击保存应该会自动为你创建 PR 提交贡献给这个代码仓库），我会重新运行翻译脚本生成润色好的最新内容。如果内容过期也请提 issue 通知我。
 
+### 汉化说明
+
+由俄国大佬 Kenan 整理的一百多个英文mod
+
+我们通过paratranz平台进行了汉化
+https://paratranz.cn/projects/2240
+
+有想帮助汉化的大佬或想反馈汉化相关问题
+可以加入QQ群1130299939
+
+如果是mod本身的bug，可以去kenan的github项目反馈
+https://github.com/Kenan2000/CDDA-Kenan-Modpack
+
+### 机翻说明
 
 自己运行脚本：
 
