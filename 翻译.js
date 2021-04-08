@@ -406,13 +406,15 @@ class ModCache {
    */
   get(key) {
     if (this.translationCache[key] !== undefined || sharedTranslationCache[key] !== undefined) {
-      const translatedValue = /* this.translationCache[key] ??  */ sharedTranslationCache[key]?.replaceAll(/"(.+)"/g, '“$1”') ?? this.translationCache[key];
+      const translatedValue =
+        /* this.translationCache[key] ??  */ sharedTranslationCache[key]?.replaceAll(/"(.+)"/g, '“$1”') ??
+        this.translationCache[key];
       // 如果本地翻译没有此内容，就用共享翻译资源刷新此mod翻译
-      if (this.translationCache[key] === undefined) {
-        this.insertToCache(key, translatedValue);
-      }
+      // if (this.translationCache[key] === undefined) {
+      this.insertToCache(key, translatedValue);
+      // }
       if (sharedTranslationCache[key] !== undefined) {
-        this.stages[key] = 5
+        this.stages[key] = 5;
       }
       return translatedValue;
     }
