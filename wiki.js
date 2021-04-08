@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs-jetpack');
 const path = require('path');
 const { execSync } = require('child_process');
 
@@ -31,6 +31,15 @@ module.exports = function build() {
   //   console.log(error);
   // }
   // npm run build:nodejs2html
+  execAndLog(`cp ${repoFolder}/README.md ${wikiFolder}/tiddlers/README.md`, {
+    cwd: repoFolder,
+  });
+  fs.write(
+    `${wikiFolder}/tiddlers/README.md.meta`,
+    `creator: 林一二
+title: README.md
+type: text/x-markdown`
+  );
   execAndLog(`tiddlywiki ${wikiFolder} --build index`, { cwd: wikiFolder });
   // execAndLog(`tiddlywiki ${repoFolder} --build externaljs`, { cwd: repoFolder });
   // npm run build:sitemap
