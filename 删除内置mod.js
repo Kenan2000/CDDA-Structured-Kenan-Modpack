@@ -15,5 +15,5 @@ const buildInMods = [
   // 'My_Sweet_Cataclysm',
 ];
 buildInMods.forEach((name) => {
-  fs.remove(path.join(__dirname, 'Kenan-Modpack-汉化版', name));
+  fs.remove(path.join(__dirname, 'Kenan-Modpack-Chinese', name));
 });

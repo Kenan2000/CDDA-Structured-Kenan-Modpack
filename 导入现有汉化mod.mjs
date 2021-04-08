@@ -8,7 +8,7 @@ import crypto from 'crypto';
 import debouncePromise from 'awesome-debounce-promise';
 
 const sourceDirName = 'Kenan-Modpack';
-const translatedDirName = `Kenan-Modpack-汉化版`;
+const translatedDirName = `Kenan-Modpack-Chinese`;
 const translateCacheDirName = `中文翻译`;
 
 const __dirname = '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/';
