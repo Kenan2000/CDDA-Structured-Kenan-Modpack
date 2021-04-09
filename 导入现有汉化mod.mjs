@@ -13,7 +13,25 @@ const translatedDirName = `Kenan-Modpack-Chinese`;
 const translateCacheDirName = `中文翻译`;
 
 const __dirname = '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/';
-const translationsToImport = ['secronom'];
+const translationsToImport = [
+  'secronom',
+  'vamp_stuff',
+  'Project_Kawaii',
+  'nocts_cata_mod_DDA',
+  'Mining_Mod',
+  'Artyom_Emporium_v.1',
+];
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/secronom' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/secronom' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/vamp_stuff' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/vamp_stuff' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/Project_Kawaii' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/Project_Kawaii' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/nocts_cata_mod_DDA' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/nocts_cata_mod_DDA' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/Mining_Mod' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/Artyom_Emporium_v.1' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+
 const translationsToImportInDir = 'imports';
 
 /**
@@ -222,7 +240,11 @@ cp -R -n '${__dirname}Kenan-Modpack/${sourceModName}' '${__dirname}imports'`
   for (let index = 0; index < goodFileContents.length; index++) {
     // 检查文件名是否一致
     if (sourceFileContents[index].name !== goodFileContents[index].name) {
-      throw new Error(`Name diff, left: ${sourceFileContents[index].name} !== right: ${goodFileContents[index].name}`);
+      throw new Error(`Name diff, left: ${sourceFileContents[index].name} !== right: ${goodFileContents[index].name}
+      Last:
+      left: ${sourceFileContents[index - 1].name} !== right: ${goodFileContents[index - 1].name}
+      ${JSON.stringify(sourceFileContents.map(item => item.name), null, '  ')} ${JSON.stringify(goodFileContents.map(item => item.name), null, '  ')}
+      `);
     }
     if (typeof sourceFileContents[index].content !== 'object' || typeof goodFileContents[index].content !== 'object') {
       continue;
