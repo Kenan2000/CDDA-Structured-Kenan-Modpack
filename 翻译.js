@@ -406,13 +406,14 @@ class ModCache {
    */
   get(key) {
     if (this.translationCache[key] !== undefined || sharedTranslationCache[key] !== undefined) {
-      const translatedValue =
-        /* this.translationCache[key] ??  */ sharedTranslationCache[key]?.replaceAll(/"(.+)"/g, '“$1”') ??
+      const translatedValue = // 优先检查官中内容里有没有，而且去掉一些可能影响匹配的内容
+        (sharedTranslationCache[key] ?? sharedTranslationCache[_.trim(key, '*')])?.replaceAll(/"(.+)"/g, '“$1”') ??
         this.translationCache[key];
       // 如果本地翻译没有此内容，就用共享翻译资源刷新此mod翻译
       if (this.translationCache[key] === undefined) {
         this.insertToCache(key, translatedValue);
       }
+      // 如果官中有此内容，直接使用官中，并把翻译进度拉到已审核
       if (sharedTranslationCache[key] !== undefined) {
         logger.log('使用官中');
         this.insertToCache(key, translatedValue);
