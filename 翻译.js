@@ -634,6 +634,9 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
     if (useAction.need_charges_msg) {
       useAction.need_charges_msg = await translateFunction(useAction.need_charges_msg);
     }
+    if (useAction.menu_text) {
+      useAction.menu_text = await translateFunction(useAction.menu_text);
+    }
   };
   const attacks = async (item) => {
     if (item.attacks) {
@@ -673,6 +676,12 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
     }
     await messageOrMessages(item);
 
+    if (Array.isArray(item.use_action)) {
+      // 有可能是一个数组
+      for (const useAction of item.use_action) {
+        await useActionMsg(useAction);
+      }
+    }
     if (item.use_action?.activation_message) {
       if (Array.isArray(item.use_action.activation_message)) {
         // 有可能是一个数组
