@@ -872,7 +872,7 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
     }
   };
   translators.overmap_special = noop;
-  translators.overmap_terrain = noop;
+  translators.overmap_terrain = nameDesc;
   translators.region_overlay = noop;
   translators.city_building = noop;
   translators.requirement = noop;
