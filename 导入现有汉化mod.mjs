@@ -6,6 +6,7 @@ import _ from 'lodash';
 import fetch from 'node-fetch';
 import crypto from 'crypto';
 import debouncePromise from 'awesome-debounce-promise';
+import { execSync } from 'child_process';
 
 const sourceDirName = 'Kenan-Modpack';
 const translatedDirName = `Kenan-Modpack-Chinese`;
@@ -15,7 +16,26 @@ const __dirname = '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/';
 const translationsToImport = ['secronom'];
 const translationsToImportInDir = 'imports';
 
-const TRANSLATION_ERROR = 'Translation Error';
+/**
+ * 共享所有Mod翻译的成果，加速翻译，但之后每个mod自己还是存一份
+ */
+let sharedTranslationCache = {};
+const sharedName = '共享';
+/**
+ * 在启动时调用，加载之前翻译过的内容，无需使用 paratranz 格式，以加速导入
+ */
+function loadSharedTranslationCache() {
+  console.log('加载缓存的翻译');
+  let count = 1;
+  const sharedPath = path.join(__dirname, translateCacheDirName, `${sharedName}.json`);
+  console.log(`加载${sharedName}的翻译 ${sharedPath}`);
+  sharedTranslationCache = JSON.parse(fs.read(sharedPath, 'utf8'));
+}
+function storeSharedTranslationCache() {
+  console.log('储存共享的翻译');
+  const sharedTranslationCacheFilePath = path.join(__dirname, translateCacheDirName, `${sharedName}.json`);
+  fs.write(sharedTranslationCacheFilePath, JSON.stringify(sharedTranslationCache, undefined, '  '));
+}
 
 /**
  *  paratranz 的翻译条目格式，保存到文件时保存为此格式，读取时反序列化为 original: translation 放入 cache
@@ -54,9 +74,6 @@ function kvToParatranz(kvTranslationsCache, stages, contexts) {
  */
 function paratranzToKV(paratranzTranslationsContent) {
   return paratranzTranslationsContent.reduce((prev, item) => {
-    if (item.translation?.includes(TRANSLATION_ERROR)) {
-      return { ...prev, [item.original]: TRANSLATION_ERROR };
-    }
     return { ...prev, [item.original]: item.translation };
   }, {});
 }
@@ -65,9 +82,6 @@ function paratranzToKV(paratranzTranslationsContent) {
  */
 function paratranzToStage(paratranzTranslationsContent) {
   return paratranzTranslationsContent.reduce((prev, item) => {
-    if (item.translation?.includes(TRANSLATION_ERROR)) {
-      return { ...prev, [item.original]: TRANSLATION_ERROR };
-    }
     return { ...prev, [item.original]: item.stage };
   }, {});
 }
@@ -76,9 +90,6 @@ function paratranzToStage(paratranzTranslationsContent) {
  */
 function paratranzToContext(paratranzTranslationsContent) {
   return paratranzTranslationsContent.reduce((prev, item) => {
-    if (item.translation?.includes(TRANSLATION_ERROR)) {
-      return { ...prev, [item.original]: TRANSLATION_ERROR };
-    }
     return { ...prev, [item.original]: item.context };
   }, {});
 }
@@ -100,14 +111,16 @@ class ModCache {
       this.stages =
         stages ??
         paratranzToStage(JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n')));
-      this.contexts = paratranzToContext(JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n')));
+      this.contexts = paratranzToContext(
+        JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n'))
+      );
       if (Object.keys(translationCache).length === 0) {
         this.translationCache = paratranzToKV(
           JSON.parse(_.trim(fs.read(translationCacheFilePath, 'utf8')).replaceAll('\\\\n', '\\n'))
         );
       }
     } catch (error) {
-      logger.error(
+      console.error(
         `ModCache error ${translationCacheFilePath}, create empty translation cache to fs ${translationCache}, errorMessage is\n ${error.message} ${error.stack}\n`
       );
       process.exit(1);
@@ -190,43 +203,68 @@ async function translateOneMod(sourceModName) {
   const sourceModDirPath = path.join(__dirname, sourceDirName, sourceModName);
   const goodModDirPath = path.join(__dirname, translationsToImportInDir, sourceModName);
   let modTranslationCache;
-  try {
-    const sourceFileContents = _.sortBy(readSourceFiles(sourceModDirPath), 'name');
-    const goodFileContents = _.sortBy(readSourceFiles(goodModDirPath), 'name');
-    if (sourceFileContents.length !== goodFileContents.length) {
-      throw new Error(`Length diff, left: ${sourceFileContents.length} !== right: ${goodFileContents.length}`);
+  const sourceFileContents = _.sortBy(readSourceFiles(sourceModDirPath), 'name');
+  const goodFileContents = _.sortBy(readSourceFiles(goodModDirPath), 'name');
+  if (sourceFileContents.length !== goodFileContents.length) {
+    throw new Error(`Length diff, left: ${sourceFileContents.length} !== right: ${goodFileContents.length}
+      You should:
+# 手动运行这些，用 execAndLog 不明原因报错
+${
+  sourceFileContents.length > goodFileContents.length
+    ? `
+cp -R -n '${__dirname}Kenan-Modpack/${sourceModName}' '${__dirname}imports'`
+    : `cp -R -n '${__dirname}imports/${sourceModName}' '${__dirname}Kenan-Modpack'
+`
+}
+`);
+  }
+  modTranslationCache = new ModCache(translationCacheFilePath, {}, sourceModName);
+  for (let index = 0; index < goodFileContents.length; index++) {
+    // 检查文件名是否一致
+    if (sourceFileContents[index].name !== goodFileContents[index].name) {
+      throw new Error(`Name diff, left: ${sourceFileContents[index].name} !== right: ${goodFileContents[index].name}`);
     }
-    modTranslationCache = new ModCache(translationCacheFilePath, {}, sourceModName);
-    for (let index = 0; index < goodFileContents.length; index++) {
-      if (sourceFileContents[index].name !== goodFileContents[index].name) {
-        throw new Error(
-          `Name diff, left: ${sourceFileContents[index].name} !== right: ${goodFileContents[index].name}`
-        );
+    if (typeof sourceFileContents[index].content !== 'object' || typeof goodFileContents[index].content !== 'object') {
+      continue;
+    }
+    // 检测内容是否一致
+    if (
+      Array.isArray(sourceFileContents[index].content) &&
+      Array.isArray(goodFileContents[index].content) &&
+      sourceFileContents[index].content.length !== goodFileContents[index].content.length
+    ) {
+      console.warn(`Content length diff ${sourceFileContents[index].name}`);
+      continue;
+    }
+    // 核心部分：比较旧的翻译的mod和新的未翻译mod的区别，来提取出译文-原文对
+    const differences = compare(sourceFileContents[index].content, goodFileContents[index].content);
+    differences.forEach((diff) => {
+      const hasChinese = /[\u4e00-\u9fa5]/.test(diff.right_value);
+      if (modTranslationCache.get(diff.left_value) && hasChinese) {
+        // 将找到的原文对存起来供以后使用
+        modTranslationCache.insertToCache(diff.left_value, diff.right_value.replaceAll(/"(.+)"/g, '“$1”'));
+        // sharedTranslationCache[diff.left_value] = diff.right_value;
       }
-      const differences = compare(sourceFileContents[index].content, goodFileContents[index].content);
-      differences.forEach((diff) => {
-        const hasChinese = /[\u4e00-\u9fa5]/.test(diff.right_value);
-        if (modTranslationCache.get(diff.left_value) && hasChinese) {
-          modTranslationCache.insertToCache(diff.left_value, diff.right_value);
-        }
-      });
-    }
-    modTranslationCache.writeTranslationCache();
-  } catch (error) {
-    console.error(`translateOneMod failed for ${sourceModName} ${error.message} ${error.stack}`);
+    });
   }
 }
 
+const execAndLog = (command, options) => console.log(String(execSync(command, options)));
 async function main() {
+  // loadSharedTranslationCache();
   for (const sourceModName of translationsToImport) {
     console.log(`\n${sourceModName} Translate start!\n`);
     await translateOneMod(sourceModName);
     console.log(`\n${sourceModName} Translate done!\n`);
   }
+  // storeSharedTranslationCache();
 }
 // 执行翻译脚本
 main().catch((error) => {
-  console.error(`Unexpectedly quit, error is ${error.message} ${error.stack}`);
-  console.error(error, `${error.message} ${error.stack}`);
+  console.error(
+    `Unexpectedly quit, error is`,
+    error,
+    `${error.message} ${error.stack} ${String(error.stdout)} ${String(error.stderr)}`
+  );
   process.exit(1);
 });
