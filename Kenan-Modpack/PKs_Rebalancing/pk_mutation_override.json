@@ -8,7 +8,7 @@
     "description": "You can move more quickly than most, resulting in a 15% speed bonus on sure footing.",
     "starting_trait": true,
     "valid": false,
-    "category": [ "RAPTOR", "BEAST", "FISH", "LUPINE", "MOUSE", "INSECT" ],
+    "extend": { "category": [ "RAPTOR", "BEAST", "FISH", "LUPINE", "MOUSE", "INSECT" ] },
     "metabolism_modifier": 0.05
   },
   {
@@ -20,7 +20,7 @@
     "description": "Your hearing is better than average, and you can hear distant sounds more easily.",
     "starting_trait": true,
     "valid": false,
-    "category": [ "BIRD", "ELFA", "FELINE", "ALPHA", "MOUSE" ]
+    "extend": { "category": [ "BIRD", "FELINE" ] }
   },
   {
     "type": "mutation",
@@ -43,7 +43,7 @@
     "description": "You can't even think about putting filthy clothes on yourself, especially from zombies' corpses.  For being such a wuss, you get a 5% penalty to all hit points.",
     "starting_trait": true,
     "valid": false,
-    "category": [ "ALPHA", "ELFA" ],
+    "extend": { "category": [ "ALPHA", "ELFA" ] },
     "hp_modifier_secondary": -0.05
   },
   {
@@ -55,7 +55,7 @@
     "description": "Whether due to exercise and good diet, or due to a natural propensity to physical endurance, you tire due to physical exertion much less readily than others.  Your maximum stamina is 25% higher than usual.",
     "starting_trait": true,
     "valid": false,
-    "category": [ "CHIMERA", "RAPTOR" ],
+    "extend": { "category": [ "CHIMERA", "RAPTOR" ] },
     "stamina_regen_modifier": 0.02
   },
   {
@@ -67,7 +67,7 @@
     "description": "You're just generally quick!  You get a 10% bonus to action points.",
     "starting_trait": true,
     "valid": false,
-    "category": [ "FISH", "BIRD", "INSECT", "TROGLOBITE", "CHIMERA", "RAPTOR", "MOUSE", "FELINE" ],
+    "extend": { "category": [ "FELINE" ] },
     "metabolism_modifier": 0.05
   },
   {
@@ -89,7 +89,7 @@
     "points": 2,
     "description": "Your wounds heal themselves quicker than usual.  You heal 50% faster whilst asleep, and 20% faster whilst awake.  Your broken limbs also heal twice as fast.",
     "starting_trait": true,
-    "category": [ "LIZARD", "MEDICAL" ],
+    "extend": { "category": [ "LIZARD" ] },
     "healing_awake": 0.2,
     "healing_resting": 0.5,
     "metabolism_modifier": 0.4,
@@ -103,7 +103,7 @@
     "points": 2,
     "description": "Your metabolism is a little slower, and you require less food than most.",
     "starting_trait": true,
-    "category": [ "FISH", "BIRD", "INSECT", "TROGLOBITE", "LIZARD" ],
+    "extend": { "category": [ "LIZARD" ] },
     "metabolism_modifier": -0.333
   },
   {
@@ -115,7 +115,7 @@
     "description": "You have always been able to fall asleep easily, even when sleeping in less than ideal circumstances.",
     "starting_trait": true,
     "valid": false,
-    "category": [ "CHIMERA", "MOUSE", "INSECT" ]
+    "extend": { "category": [ "CHIMERA" ] }
   },
   {
     "type": "mutation",
@@ -126,7 +126,7 @@
     "description": "You have a high tolerance for pain.",
     "starting_trait": true,
     "valid": false,
-    "category": [ "CHIMERA", "MEDICAL" ]
+    "extend": { "category": [ "CHIMERA" ] }
   },
   {
     "type": "mutation",
@@ -136,7 +136,7 @@
     "points": 2,
     "description": "You possess natural night vision, and can see further in the dark than most.  Activate to toggle NV-visible areas on or off.",
     "starting_trait": true,
-    "category": [ "BIRD", "CATTLE", "INSECT", "LIZARD" ],
+    "extend": { "category": [ "LIZARD" ] },
     "active": true,
     "starts_active": true
   },
@@ -149,7 +149,7 @@
     "description": "The bottoms of your feet are tough (feet: +1 bash, +1 cut) and you are accustomed to going barefoot.  You receive no movement penalty for not wearing shoes and get a 5% bonus to all hit points.",
     "starting_trait": true,
     "valid": false,
-    "category": [ "CATTLE", "SLIME", "CHIMERA", "PLANT", "TROGLOBITE" ],
+    "extend": { "category": [ "CATTLE", "SLIME", "CHIMERA", "PLANT", "TROGLOBITE" ] },
     "armor": [ { "parts": [ "foot_l", "foot_r" ], "bash": 1, "cut": 1 } ],
     "hp_modifier_secondary": 0.05
   },
@@ -227,7 +227,7 @@
     "starting_trait": true,
     "cancels": [ "NAUSEA" ],
     "threshreq": [ "THRESH_SLIME", "THRESH_CHIMERA", "THRESH_RAT" ],
-    "category": [ "SLIME", "CHIMERA", "RAT", "MOUSE", "LUPINE" ],
+    "extend": { "category": [ "SLIME", "CHIMERA", "RAT" ] },
     "active": true,
     "metabolism_modifier": 0.05,
     "thirst_modifier": 0.05
@@ -253,7 +253,7 @@
     "description": "You're an excellent navigator and your ability to spot distant landmarks is unmatched.  Your sight radius on the overmap extends beyond the normal range.",
     "starting_trait": true,
     "valid": false,
-    "category": [ "FISH", "BIRD", "MOUSE" ]
+    "extend": { "category": [ "FISH" ] }
   },
   {
     "type": "mutation",
@@ -275,7 +275,7 @@
     "points": 1,
     "description": "Your scent is quite weak.  Animals that track your scent will do so with more difficulty.",
     "starting_trait": true,
-    "category": [ "ELFA", "PLANT", "LIZARD" ]
+    "extend": { "category": [ "ELFA", "PLANT", "LIZARD" ] }
   },
   {
     "type": "mutation",
@@ -386,7 +386,7 @@
     "points": -2,
     "description": "Your hearing is poor, and you may not hear quiet or far-off noises.",
     "starting_trait": true,
-    "category": [ "MEDICAL", "PLANT" ]
+    "extend": { "category": [ "MEDICAL" ] }
   },
   {
     "type": "mutation",
@@ -397,7 +397,7 @@
     "description": "You have a hard time falling asleep, even under the best circumstances!",
     "starting_trait": true,
     "valid": false,
-    "category": [ "ALPHA", "MEDICAL" ],
+    "extend": { "category": [ "ALPHA" ] },
     "fatigue_regen_modifier": -0.01
   },
   {
@@ -462,7 +462,7 @@
     "points": -1,
     "description": "Something in those heavily processed foods doesn't agree with you.  It's possible for you to eat them, but you will suffer morale penalties and obtain less nutrition from them.",
     "starting_trait": true,
-    "category": [ "FELINE", "BEAST", "RAPTOR", "ALPHA" ]
+    "extend": { "category": [ "FELINE" ] }
   },
   {
     "type": "mutation",
@@ -482,7 +482,7 @@
     "points": -2,
     "description": "It's easier for you to become addicted to substances, and harder to rid yourself of these addictions.",
     "starting_trait": true,
-    "category": [ "ALPHA" ]
+    "extend": { "category": [ "ALPHA" ] }
   },
   {
     "type": "mutation",
@@ -505,7 +505,7 @@
     "starting_trait": true,
     "cancels": [ "SAVANT", "CHEMREBALANCE", "CHEMREBALANCE2" ],
     "threshreq": [ "THRESH_SLIME", "THRESH_MEDICAL", "THRESH_CHIMERA", "THRESH_ELFA", "THRESH_CATTLE" ],
-    "category": [ "CATTLE", "SLIME", "MEDICAL", "CHIMERA", "ELFA" ]
+    "extend": { "category": [ "CATTLE" ] }
   },
   {
     "type": "mutation",
@@ -570,7 +570,7 @@
     "points": -4,
     "description": "Your body can't take much abuse.  Its maximum HP is 25% lower than usual and you heal slightly slower.  Stacks with Glass Jaw.",
     "starting_trait": true,
-    "category": [ "CEPHALOPOD", "MEDICAL", "MOUSE" ],
+    "extend": { "category": [ "CEPHALOPOD", "MEDICAL" ] },
     "hp_modifier": -0.25,
     "cancels": [ "HUGE", "TOUGH", "TOUGH2", "TOUGH3" ]
   },
@@ -1264,8 +1264,10 @@
     "points": 1,
     "visibility": 1,
     "description": "Your limbs seem to have a little more 'give' to them.  +1 Dexterity.",
-    "threshreq": [ "THRESH_CEPHALOPOD", "THRESH_PLANT", "THRESH_SPIDER" ],
-    "category": [ "CEPHALOPOD", "PLANT", "SPIDER" ]
+    "extend": {
+      "threshreq": [ "THRESH_CEPHALOPOD", "THRESH_PLANT", "THRESH_SPIDER" ],
+      "category": [ "CEPHALOPOD", "PLANT", "SPIDER" ]
+    }
   },
   {
     "type": "mutation",
@@ -1277,8 +1279,7 @@
     "mixed_effect": true,
     "description": "Your limbs are significantly more flexible than any pathetic human arm or leg.  +3 Dexterity, -2 Strength.",
     "purifiable": false,
-    "threshreq": [ "THRESH_CEPHALOPOD" ],
-    "category": [ "CEPHALOPOD", "SLIME", "ELFA" ],
+    "extend": { "threshreq": [ "THRESH_CEPHALOPOD" ], "category": [ "CEPHALOPOD", "SLIME", "ELFA" ] },
     "hp_adjustment": 3
   },
   {
@@ -1347,7 +1348,7 @@
     "name": { "str": "Road-Runner" },
     "points": 3,
     "description": "Your legs are extremely limber and fast-moving.  You move 30% faster on flat surfaces.",
-    "category": [ "INSECT", "SPIDER", "MOUSE" ],
+    "extend": { "category": [ "INSECT", "SPIDER", "MOUSE" ] },
     "metabolism_modifier": 0.08
   },
   {
@@ -1381,16 +1382,7 @@
     "name": { "str": "Resilient" },
     "points": 2,
     "description": "You can survive injuries that would incapacitate humans: you get a 20% bonus to all hit points.  Stacks with Tough, etc.",
-    "threshreq": [
-      "THRESH_LUPINE",
-      "THRESH_URSINE",
-      "THRESH_CATTLE",
-      "THRESH_CHIMERA",
-      "THRESH_MEDICAL",
-      "THRESH_LIZARD",
-      "THRESH_BEAST"
-    ],
-    "category": [ "LUPINE", "URSINE", "CATTLE", "CHIMERA", "BEAST", "LIZARD", "MEDICAL" ],
+    "extend": { "threshreq": [ "THRESH_LUPINE" ], "category": [ "LUPINE" ] },
     "hp_modifier_secondary": 0.2
   },
   {
@@ -1401,8 +1393,7 @@
     "points": 3,
     "description": "Not much scares you.  You get a 30% bonus to all hit points.  Stacks with Tough, etc.",
     "valid": false,
-    "threshreq": [ "THRESH_BEAST", "THRESH_URSINE", "THRESH_CATTLE", "THRESH_CHIMERA", "THRESH_MEDICAL" ],
-    "category": [ "BEAST", "URSINE", "CATTLE", "CHIMERA", "MEDICAL" ],
+    "extend": { "threshreq": [ "THRESH_BEAST" ], "category": [ "BEAST" ] },
     "hp_modifier_secondary": 0.3
   },
   {
@@ -1457,7 +1448,7 @@
     "ugliness": 1,
     "mixed_effect": true,
     "description": "You have grown noticeably taller and broader (torso, arms: +2 bash).  Much of it is useful muscle mass (Strength +2), but you find it throws off your balance and you get in your own way (+10 torso and arm encumbrance).",
-    "category": [ "BEAST", "CHIMERA", "PLANT" ],
+    "extend": { "category": [ "BEAST", "CHIMERA", "PLANT" ] },
     "armor": [ { "parts": [ "torso", "arm_l", "arm_r" ], "bash": 2 } ],
     "hp_adjustment": -2,
     "metabolism_modifier": 0.2,
@@ -1471,8 +1462,7 @@
     "points": 2,
     "visibility": 1,
     "description": "You carry your rugged body with the dignity you deserve (torso, arms: +2 bash).  Strength +2.",
-    "threshreq": [ "THRESH_BEAST", "THRESH_PLANT", "THRESH_URSINE", "THRESH_CATTLE", "THRESH_LIZARD" ],
-    "category": [ "BEAST", "PLANT", "URSINE", "CATTLE", "LIZARD" ],
+    "extend": { "threshreq": [ "THRESH_BEAST", "THRESH_PLANT" ], "category": [ "BEAST", "PLANT" ] },
     "armor": [ { "parts": [ "torso", "arm_l", "arm_r" ], "bash": 2 } ],
     "hp_adjustment": -2,
     "metabolism_modifier": 0.2,
@@ -1504,7 +1494,13 @@
       [ "foot_r", 5 ]
     ],
     "passive_mods": { "str_mod": 3 },
-    "armor": [ { "parts": [ "ALL" ], "bash": 3, "cut": 1 } ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "bash": 3,
+        "cut": 1
+      }
+    ],
     "hp_adjustment": -2,
     "metabolism_modifier": 0.2,
     "fatigue_modifier": 0.1
@@ -1520,7 +1516,13 @@
     "mixed_effect": true,
     "description": "You have grown even more massive (all: +4 bash, +1 cut), to the point where you cannot usefully fit into human-sized clothing or vehicles.  Much of it is powerful muscle mass (Strength +5), but it's a real pain to haul around.",
     "passive_mods": { "str_mod": 5 },
-    "armor": [ { "parts": [ "ALL" ], "bash": 4, "cut": 1 } ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "bash": 4,
+        "cut": 1
+      }
+    ],
     "hp_adjustment": -6,
     "metabolism_modifier": 0.3,
     "fatigue_modifier": 0.2
@@ -1535,10 +1537,15 @@
     "ugliness": 3,
     "mixed_effect": true,
     "description": "Your cardiovascular system has caught up with your huge muscular physique (all: +4 bash, +1 cut), so who needs pathetic human cars?  Strength +5.",
-    "threshreq": [ "THRESH_CHIMERA", "THRESH_URSINE", "THRESH_CATTLE" ],
-    "category": [ "CHIMERA", "URSINE", "CATTLE" ],
+    "extend": { "threshreq": [ "THRESH_CHIMERA" ], "category": [ "CHIMERA" ] },
     "passive_mods": { "str_mod": 5 },
-    "armor": [ { "parts": [ "ALL" ], "bash": 4, "cut": 1 } ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "bash": 4,
+        "cut": 1
+      }
+    ],
     "hp_adjustment": -6,
     "metabolism_modifier": 0.3,
     "fatigue_modifier": 0.2,
@@ -1605,7 +1612,7 @@
     "name": { "str": "Dextrous" },
     "points": 1,
     "description": "You are a little nimbler.  Dexterity + 1",
-    "category": [ "LUPINE", "INSECT", "SLIME", "ALPHA" ]
+    "extend": { "category": [ "LUPINE" ] }
   },
   {
     "type": "mutation",
@@ -1614,7 +1621,7 @@
     "name": { "str": "Extremely Dextrous" },
     "points": 3,
     "description": "You are nimble and quick.  Dexterity + 4",
-    "category": [ "RAPTOR", "BIRD", "ELFA", "FELINE" ]
+    "extend": { "category": [ "RAPTOR" ] }
   },
   {
     "type": "mutation",
@@ -1647,7 +1654,7 @@
     "visibility": 3,
     "ugliness": 1,
     "description": "Your skin is rather pale.",
-    "category": [ "TROGLOBITE", "LUPINE" ]
+    "extend": { "category": [ "TROGLOBITE" ] }
   },
   {
     "type": "mutation",
