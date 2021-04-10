@@ -581,7 +581,7 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
         sourceModName,
         fullItem,
         index
-      )}`
+      ).replace('%', '%25')}`
     );
   const noop = () => {};
 
