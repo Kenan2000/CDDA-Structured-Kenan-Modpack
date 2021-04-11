@@ -286,6 +286,8 @@ cp -R -n '${__dirname}Kenan-Modpack/${sourceModName}' '${__dirname}imports'`
             .replaceAll('。。。', '…')
             .replaceAll(/(?<![\.a-zA-Z])\.(?![\.a-zA-Z])/gm, '。')
             .replaceAll(',', '，')
+            .replaceAll('?', '？')
+            .replaceAll('!', '！')
             .replaceAll('， ', '，')
         );
         // sharedTranslationCache[diff.left_value] = diff.right_value;
