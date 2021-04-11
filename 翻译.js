@@ -415,7 +415,7 @@ class ModCache {
           ?.replaceAll('(', '（')
           ?.replaceAll(')', '）')
           ?.replaceAll('。。。', '…')
-          ?.replaceAll(/(?<![\.a-zA-Z])\.(?![\.a-zA-Z])/gm, '。')
+          ?.replaceAll(/(?<![\.a-zA-Z0-9])\.(?![\.a-zA-Z0-9])/gm, '。')
           ?.replaceAll(',', '，')
           ?.replaceAll('?', '？')
           ?.replaceAll(':', '：')
