@@ -679,6 +679,11 @@ ${getItemBrowserLink(fullItem.id)}`
       item.name.str = await translateFunction(item.name.str);
       if (item.name.str_pl) {
         item.name.str_pl = await translateFunction(item.name.str_pl);
+      } else {
+        item.name.str_pl = item.name.str;
+      }
+      if (typeof item.name === 'string') {
+        await nameDesc(item);
       }
     }
     if (item.description) {
@@ -828,7 +833,7 @@ ${getItemBrowserLink(fullItem.id)}`
   translators.SPELL = namePlDesc;
   translators.MONSTER_FACTION = noop;
   translators.monstergroup = noop;
-  translators.MONSTER = namePlDesc;
+  translators.MONSTER = nameDesc;
   translators.SPECIES = async (item) => {
     if (item.description) {
       item.description = await translateFunction(item.description);
