@@ -32,7 +32,8 @@ const getFakeId = (item, index) =>
     ? `[${index}]`
     : '';
 const getContext = (sourceModName, item, index) => `${sourceModName}→${item.type}→${getFakeId(item, index)}`;
-const getItemBrowserLink = (item) => (item.id ? `http://cdda.aloxaf.cn/search?q=${Array.isArray(item.id) : item.id[0] : item.id}` : '');
+const getItemBrowserLink = (item) =>
+  item.id ? `http://cdda.aloxaf.cn/search?q=${Array.isArray(item.id) ? item.id[0] : item.id}` : '';
 
 let logCounter = 0;
 let logs = [];
