@@ -436,6 +436,7 @@ async function translateWithCache(value, modTranslationCache, context) {
   if (value === '') return '';
   if (hasChinese(value)) {
     logger.log(`\nHas Chinese in text ${value}\n${context}`);
+    console.trace();
     process.exit(1);
   }
   logger.log(`\nTranslating ${value}\n`);
@@ -600,16 +601,6 @@ ${getItemBrowserLink(fullItem)}`
   const noop = () => {};
 
   // 常用的翻译器
-  const nameDesc = async (item) => {
-    if (typeof item?.name === 'string') {
-      item.name = await translateFunction(item.name);
-    } else if (typeof item?.name === 'object') {
-      await maleFemaleItemDesc(item.name);
-      await namePlDesc(item);
-    }
-    item.description = await translateFunction(item.description);
-    item.detailed_definition = await translateFunction(item.detailed_definition);
-  };
   const maleFemaleItemDesc = async (item) => {
     item.male = await translateFunction(item.male);
     item.female = await translateFunction(item.female);
@@ -688,12 +679,12 @@ ${getItemBrowserLink(fullItem)}`
         item.name.str_pl = item.name.str;
       }
       if (typeof item.name === 'string') {
-        await nameDesc(item);
+        item.name = await translateFunction(item.name);
       }
+      await maleFemaleItemDesc(item.name);
     }
-    if (item.description) {
-      item.description = await translateFunction(item.description);
-    }
+    item.description = await translateFunction(item.description);
+    item.detailed_definition = await translateFunction(item.detailed_definition);
     await messageOrMessages(item);
 
     if (Array.isArray(item.use_action)) {
@@ -805,20 +796,20 @@ ${getItemBrowserLink(fullItem)}`
   };
 
   // 注册各种类型数据的翻译器
-  translators.profession = nameDesc;
+  translators.profession = namePlDesc;
   translators.scenario = async (item) => {
     item.name = await translateFunction(item.name);
     item.description = await translateFunction(item.description);
     item.start_name = await translateFunction(item.start_name);
   };
   translators.start_location = namePlDesc;
-  translators.furniture = nameDesc;
+  translators.furniture = namePlDesc;
   translators.gate = async (item) => {
     for (const key of Object.keys(item.messages)) {
       item.messages[key] = await translateFunction(item.messages[key]);
     }
   };
-  translators.terrain = nameDesc;
+  translators.terrain = namePlDesc;
   translators.trap = async (item) => {
     item.name = await translateFunction(item.name);
   };
@@ -838,7 +829,7 @@ ${getItemBrowserLink(fullItem)}`
   translators.SPELL = namePlDesc;
   translators.MONSTER_FACTION = noop;
   translators.monstergroup = noop;
-  translators.MONSTER = nameDesc;
+  translators.MONSTER = namePlDesc;
   translators.SPECIES = async (item) => {
     if (item.description) {
       item.description = await translateFunction(item.description);
@@ -861,7 +852,7 @@ ${getItemBrowserLink(fullItem)}`
   };
   translators.mutation = namePlDesc;
   translators.talk_topic = talkTopic;
-  translators.faction = nameDesc;
+  translators.faction = namePlDesc;
   translators.mission_definition = async (item) => {
     await namePlDesc(item);
     if (item.dialogue) {
@@ -891,7 +882,7 @@ ${getItemBrowserLink(fullItem)}`
     }
   };
   translators.overmap_special = noop;
-  translators.overmap_terrain = nameDesc;
+  translators.overmap_terrain = namePlDesc;
   translators.region_overlay = noop;
   translators.city_building = noop;
   translators.requirement = noop;
@@ -938,27 +929,27 @@ ${getItemBrowserLink(fullItem)}`
     }
     if (Array.isArray(item.onmove_buffs)) {
       for (const buff of item.onmove_buffs) {
-        await nameDesc(buff);
+        await namePlDesc(buff);
       }
     }
     if (Array.isArray(item.onattack_buffs)) {
       for (const buff of item.onattack_buffs) {
-        await nameDesc(buff);
+        await namePlDesc(buff);
       }
     }
     if (Array.isArray(item.onhit_buffs)) {
       for (const buff of item.onhit_buffs) {
-        await nameDesc(buff);
+        await namePlDesc(buff);
       }
     }
     if (Array.isArray(item.onkill_buffs)) {
       for (const buff of item.onkill_buffs) {
-        await nameDesc(buff);
+        await namePlDesc(buff);
       }
     }
   };
-  translators.material = nameDesc;
-  translators.MOD_INFO = nameDesc;
+  translators.material = namePlDesc;
+  translators.MOD_INFO = namePlDesc;
   translators.scent_type = noop;
   translators.skill = namePlDesc;
   translators.snippet = async (item) => {
@@ -984,12 +975,12 @@ ${getItemBrowserLink(fullItem)}`
   translators.event_transformation = noop;
   translators.MAGAZINE = namePlDesc;
   translators.monsterAttack = namePlDesc;
-  translators.WHEEL = nameDesc;
+  translators.WHEEL = namePlDesc;
   translators.mutation_type = noop;
   translators.map_extra = namePlDesc;
   translators.tool_quality = namePlDesc;
   translators.construction = noop;
-  translators.construction_group = nameDesc;
+  translators.construction_group = namePlDesc;
   translators.vehicle_group = noop;
   translators.PET_ARMOR = namePlDesc;
   translators.item_action = namePlDesc;
@@ -999,7 +990,7 @@ ${getItemBrowserLink(fullItem)}`
   translators.vehicle_placement = noop;
   translators.monster_attack = monsterAttack;
   translators.EXTERNAL_OPTION = infoItem;
-  translators.overmap_land_use_code = nameDesc;
+  translators.overmap_land_use_code = namePlDesc;
   translators.region_settings = noop;
   translators.proficiency = noop;
   translators.overmap_location = noop;
@@ -1009,7 +1000,7 @@ ${getItemBrowserLink(fullItem)}`
   translators.colordef = noop;
   translators.monster_adjustment = noop;
   translators.MIGRATION = noop;
-  translators.vehicle = nameDesc;
+  translators.vehicle = namePlDesc;
   translators.vehicle_spawn = noop;
   translators.file = noop;
 
