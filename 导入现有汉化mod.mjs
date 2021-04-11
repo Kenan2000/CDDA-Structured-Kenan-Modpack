@@ -11,6 +11,7 @@ import { execSync } from 'child_process';
 const sourceDirName = 'Kenan-Modpack';
 const translatedDirName = `Kenan-Modpack-Chinese`;
 const translateCacheDirName = `中文翻译`;
+const hasChinese = (text) => /[\u4e00-\u9fa5]/.test(text);
 
 const __dirname = '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/';
 const translationsToImport = [
@@ -243,7 +244,15 @@ cp -R -n '${__dirname}Kenan-Modpack/${sourceModName}' '${__dirname}imports'`
       throw new Error(`Name diff, left: ${sourceFileContents[index].name} !== right: ${goodFileContents[index].name}
       Last:
       left: ${sourceFileContents[index - 1].name} !== right: ${goodFileContents[index - 1].name}
-      ${JSON.stringify(sourceFileContents.map(item => item.name), null, '  ')} ${JSON.stringify(goodFileContents.map(item => item.name), null, '  ')}
+      ${JSON.stringify(
+        sourceFileContents.map((item) => item.name),
+        null,
+        '  '
+      )} ${JSON.stringify(
+        goodFileContents.map((item) => item.name),
+        null,
+        '  '
+      )}
       `);
     }
     if (typeof sourceFileContents[index].content !== 'object' || typeof goodFileContents[index].content !== 'object') {
@@ -261,8 +270,7 @@ cp -R -n '${__dirname}Kenan-Modpack/${sourceModName}' '${__dirname}imports'`
     // 核心部分：比较旧的翻译的mod和新的未翻译mod的区别，来提取出译文-原文对
     const differences = compare(sourceFileContents[index].content, goodFileContents[index].content);
     differences.forEach((diff) => {
-      const hasChinese = /[\u4e00-\u9fa5]/.test(diff.right_value);
-      if (modTranslationCache.get(diff.left_value) && hasChinese) {
+      if (modTranslationCache.get(diff.left_value) && !hasChinese(diff.left_value) && hasChinese(diff.right_value)) {
         // 将找到的原文对存起来供以后使用
         modTranslationCache.insertToCache(diff.left_value, diff.right_value.replaceAll(/"(.+)"/g, '“$1”'));
         // sharedTranslationCache[diff.left_value] = diff.right_value;

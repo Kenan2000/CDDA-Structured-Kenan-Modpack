@@ -13,6 +13,7 @@ const sourceDirName = 'Kenan-Modpack';
 const translatedDirName = `Kenan-Modpack-Chinese`;
 const translateCacheDirName = `中文翻译`;
 const cddaWikiFolder = path.join(__dirname, 'wiki', 'tiddlers', 'cdda');
+const hasChinese = (text) => /[\u4e00-\u9fa5]/.test(text);
 /**
  * 作为高质量翻译源的 mod，会指导其他 mod 的翻译
  */
@@ -433,6 +434,9 @@ class ModCache {
 async function translateWithCache(value, modTranslationCache, context) {
   if (value === undefined) return undefined;
   if (value === '') return '';
+  if (hasChinese(value)) {
+    logger.log(`\nHas Chinese in text ${value}\n${context}`);
+  }
   logger.log(`\nTranslating ${value}\n`);
   let translatedValue = modTranslationCache.get(value);
   // 有时候 tag 没有被正确翻译，原文里有 tag，结果里没有
@@ -588,7 +592,7 @@ ${wikiSiteBase}${getContext(sourceModName, fullItem, index).replace('%', '%25')}
 ${
   fullItem.id
     ? `物品浏览器：
-${getItemBrowserLink(fullItem.id)}`
+${getItemBrowserLink(fullItem)}`
     : ''
 }`
     );
