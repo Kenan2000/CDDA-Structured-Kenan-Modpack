@@ -1,0 +1,20 @@
+[
+  {
+    "id": "TALK_ISHERWOOD_JACK",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "What can you tell me about the Xenoids?",
+        "effect": { "u_add_var": "u_Talk_To_JackIsherwood_about_Xenoids", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "not": { "u_has_var": "u_Talk_To_JackIsherwood_about_Xenoids", "type": "general", "context": "meeting", "value": "yes" } },
+        "topic": "TALK_ISHERWOOD_JACK_XENOIDS"
+      }
+    ]
+  },
+  {
+    "id": "TALK_ISHERWOOD_JACK_XENOIDS",
+    "type": "talk_topic",
+    "dynamic_line": "Sounds like a psychological operation by the CIA or some other unknown unelected federal agency.",
+    "responses": [ { "text": "This isn't an inside job.", "topic": "TALK_ISHERWOOD_JACK" } ]
+  }
+]

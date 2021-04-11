@@ -1,0 +1,20 @@
+[
+  {
+    "id": "TALK_ISHERWOOD_EDDIE",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "What can you tell me about the Xenoids?",
+        "effect": { "u_add_var": "u_Talk_To_EddieIsherwood_about_Xenoids", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "not": { "u_has_var": "u_Talk_To_EddieIsherwood_about_Xenoids", "type": "general", "context": "meeting", "value": "yes" } },
+        "topic": "TALK_ISHERWOOD_EDDIE_XENOIDS"
+      }
+    ]
+  },
+  {
+    "id": "TALK_ISHERWOOD_EDDIE_XENOIDS",
+    "type": "talk_topic",
+    "dynamic_line": "Great, another kind of monster that will try to kill my cows!",
+    "responses": [ { "text": "An udder catastrophe.", "topic": "TALK_ISHERWOOD_EDDIE" } ]
+  }
+]

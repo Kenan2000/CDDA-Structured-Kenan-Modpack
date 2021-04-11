@@ -1,0 +1,20 @@
+[
+  {
+    "id": "TALK_ISHERWOOD_CLAIRE",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "What can you tell me about the Xenoids?",
+        "effect": { "u_add_var": "u_Talk_To_ClaireIsherwood_about_Xenoids", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "not": { "u_has_var": "u_Talk_To_ClaireIsherwood_about_Xenoids", "type": "general", "context": "meeting", "value": "yes" } },
+        "topic": "TALK_ISHERWOOD_CLAIRE_XENOIDS"
+      }
+    ]
+  },
+  {
+    "id": "TALK_ISHERWOOD_CLAIRE_XENOIDS",
+    "type": "talk_topic",
+    "dynamic_line": "Are those the antagonists from the War of the Worlds?",
+    "responses": [ { "text": "This time they landed.", "topic": "TALK_ISHERWOOD_CLAIRE" } ]
+  }
+]

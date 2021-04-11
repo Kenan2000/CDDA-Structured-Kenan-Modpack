@@ -132,8 +132,11 @@
     "type": "talk_topic",
     "dynamic_line": [
       "I don't have forever to chat, whatchya need?",
+	  "Yes, what do you want?",
+	  "I'm pretty busy but could probably help.",
+	  "Whats up?",
       "What is broken now?",
-      { "u_male": [ "Sir, what do you want?" ], "no": [ "Ma'am, want do you want?" ] }
+      { "u_male": [ "Buddy, what do you want?", "Dude, what?" ], "no": [ "Girl, want do you want?" ] }
     ],
     "responses": [
       {
@@ -153,6 +156,7 @@
       { "text": "So how did you end up here?", "topic": "TALK_RANDY_ERIKSON_BACKGROUND" },
       { "text": "So what are you doing here?", "topic": "TALK_RANDY_ERIKSON_GENERATOR" },
       { "text": "Is there anything I can do to help you out?", "topic": "TALK_MISSION_LIST" },
+      { "text": "About that quest…", "condition": { "has_assigned_mission": "true" }, "topic": "TALK_MISSION_LIST_ASSIGNED" },	  
       { "text": "Don't mind me…", "topic": "TALK_DONE" }
     ]
   },
@@ -321,7 +325,7 @@
       "rejected": "Whatever.",
       "advice": "I will know it when I check the files on the USB.  Probably got mislabled as miscellaneous or something.",
       "inquire": "How is the search going?",
-      "success": "Finally I have all my favorite mods for Cataclysm DDA, this game is so boring unmodded.  Here is a book you'll really like, plus a bunch of paper money the staff here keep giving me.",
+      "success": "Finally I have all my favorite mods for Cataclysm DDA, this game is so boring unmodded.  Here is a book you'll really like, plus some paper money the staff here keep giving me.",
       "success_lie": "What good does this do me?",
       "failure": "It's okay.  I didn't really expect you to succeed anyway."
     },
