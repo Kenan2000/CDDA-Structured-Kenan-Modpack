@@ -53,6 +53,11 @@
         "condition": { "u_has_mission": "MISSION_CF_REP_6" }
       },
       {
+        "text": "[MISSION] Nicholas asked me to investigate a research facility for a component he needs.  Do you have any advice?",
+        "topic": "TALK_CF_GM_ADVICE_4",
+        "condition": { "u_has_mission": "MISSION_CF_PURIFIER_1_3" }
+      },
+      {
         "text": "So, how are things working out with the new arrivals so far?",
         "topic": "TALK_CF_GM_MISSION_4_OPINION",
         "condition": {
@@ -140,8 +145,8 @@
     "id": "TALK_CF_GM_ADVICE_2",
     "dynamic_line": {
       "u_has_any_trait": [ "PROF_CHALICE", "THRESH_VEIL" ],
-      "yes": "I tracked their movements for some time intermittently, along with keeping tabs on other leads.  No sign of person contact with the remainder of the Keepers, but they were overtly been involved in anomalous activity within the past month prior to the beginning of all this.  I will trust you to retrieve any intel as you see fit given your connection to their order, but do exercise caution.",
-      "no": "I tracked their movements for some time intermittently, along with keeping tabs on other leads.  No sign of person contact with the remainder of the Keepers, but they were overtly been involved in anomalous activity within the past month prior to the beginning of all this.  Keep your guard up, and deal with them as needed if they seem unlikely to cooperate.  We can't afford to let this intel slip out of our grasp."
+      "yes": "I tracked their movements for some time intermittently, along with keeping tabs on other leads.  No sign of contact with any remainder of the Keepers, but they have been involved in anomalous activity within the past month prior to the beginning of all this.  I will trust you to retrieve any intel as you see fit given your connection to their order, but do exercise caution.",
+      "no": "I tracked their movements for some time intermittently, along with keeping tabs on other leads.  No sign of contact with any remainder of the Keepers, but they have been involved in anomalous activity within the past month prior to the beginning of all this.  Keep your guard up, and deal with them as needed if they seem unlikely to cooperate.  We can't afford to let this intel slip out of our grasp."
     },
     "responses": [ { "text": "…", "topic": "TALK_CF_GM" } ]
   },
@@ -154,6 +159,24 @@
       "no": "You can't be serious.  What, is she asking you to just walk in and make friends with them?  They're sanguinists, worse they're the ones trained to fight us.  They'll be expecting you, I'm certain.  If you insist on trying to handle this peacefully, you had better be ready for things to turn into an ambush if things go sour."
     },
     "responses": [ { "text": "…", "topic": "TALK_CF_GM" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CF_GM_ADVICE_4",
+    "dynamic_line": "Most of our order had little familiarity with these laboratories.  If we knew then what we knew now, we would've tried to force our way into every last one of them.  I do, however, recall that site was the subject of an investigation by one of our urban contacts, a Purifier like Nicholas.  Shortly before all this boiled over.",
+    "responses": [ { "text": "What did they find?", "topic": "TALK_CF_GM_ADVICE_4_2" }, { "text": "I'll look into it then.", "topic": "TALK_CF_GM" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CF_GM_ADVICE_4_2",
+    "dynamic_line": "He'd led a small hunting party with him to track a shipment, part of the intel-gathering that produced the list that allowed you to identify as a threat.  They didn't identify anything anomalous but there was mention of human trafficking, possibly experimentation.  The hunters with him were told to hold back while he attempted to sneak in.",
+    "responses": [ { "text": "What happened?", "topic": "TALK_CF_GM_ADVICE_4_3" }, { "text": "I'll see what I find, then.", "topic": "TALK_CF_GM" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CF_GM_ADVICE_4_3",
+    "dynamic_line": "They lost him, waited over a day before leaving.  They were instructed not to assault the facility due to the risk of too many of our people being exposed, even if his life was at risk.  That place is going to be dangerous, even if they've succumbed to the apocalypse by now.  However good the intentions of their main project might have been, there's no telling what evils they might have inflicted on the world in the process.",
+    "responses": [ { "text": "I see.  Thank you for the information.", "topic": "TALK_CF_GM" } ]
   },
   {
     "type": "talk_topic",

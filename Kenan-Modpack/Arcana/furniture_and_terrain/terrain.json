@@ -40,5 +40,30 @@
     "roof": "t_flat_roof",
     "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL" ],
     "connects_to": "WALL"
+  },
+  {
+    "type": "terrain",
+    "id": "t_dimensional_lens_array_platform",
+    "looks_like": "t_rad_platform",
+    "name": "dimensional lens array platform",
+    "description": "A slightly-elevated panel overlooking the exotic machinery attached to it, with a ruined control panel hanging from the ceiling.  A faint glow permeates it, as though charged with otherworldly energy left bottled up and unreleased.  There might still be away to activate it, whatever it does.  Or just take it apart and hopefully salvage the reason for coming here.",
+    "symbol": "0",
+    "color": "light_blue",
+    "move_cost": 2,
+    "light_emitted": 5,
+    "trap": "tr_arcane_lab_map_regen_2",
+    "flags": [ "TRANSPARENT", "INDOORS", "FLAT" ],
+    "deconstruct": {
+      "ter_set": "t_strconc_floor",
+      "items": [
+        { "item": "dimensional_focus_lens", "count": 1 },
+        { "item": "cable", "charges": [ 8, 16 ] },
+        { "item": "scrap", "count": [ 8, 16 ] },
+        { "item": "sheet_metal", "count": [ 5, 10 ] },
+        { "item": "alloy_sheet", "count": [ 12, 18 ] },
+        { "item": "large_lcd_screen", "count": 1 },
+        { "item": "e_scrap", "count": [ 10, 16 ] }
+      ]
+    }
   }
 ]

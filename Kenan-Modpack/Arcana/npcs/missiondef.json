@@ -438,7 +438,6 @@
   },
   {
     "id": "MISSION_CF_REP_6",
-    "//": "This missions is here so that I can expand on the mission chain later on without old saves being stuck.",
     "type": "mission_definition",
     "name": { "str": "Secure Research From The Renegade Shrikes" },
     "description": "Find a suspected splinter faction of the Sanguine Order, who may have research and intel to bring back to Sofia.  Bring back any unique research they have.",
@@ -541,7 +540,9 @@
     "has_generic_rewards": false,
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_GM_2",
-    "start": { "assign_mission_target": { "om_terrain": "strange_grove", "om_special": "Curious Structure", "reveal_radius": 3, "z": 0 } },
+    "start": {
+      "assign_mission_target": { "om_terrain": "strange_grove", "om_special": "Curious Structure", "reveal_radius": 3, "z": 0 }
+    },
     "end": {
       "effect": [ { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" }, { "u_buy_item": "CF_golden_scale", "count": 6 } ],
       "update_mapgen": [
@@ -840,7 +841,7 @@
       "rejected": "Hell, you change your mind just come see me, y'hear?",
       "advice": "Figure they have some way to make those things, if you can't get your hands on one...",
       "inquire": "Any luck?",
-      "success": "Damn this thing looks fancy, I hope this is enough for your trouble.  Actually hell, the boys and I just took in a decent haul not long ago, I I can do one better than just paying you.  I'll have a cut of the last hunt laid out on the table in the main room laid out for you.",
+      "success": "Damn this thing looks fancy, I hope this is enough for your trouble.  Actually hell, the boys and I just took in a decent haul not long ago, I can do one better than just paying you.  I'll have a cut of the last hunt laid out on the table in the main room laid out for you.",
       "success_lie": "Seeing this is probably a bug.",
       "failure": "Seeing this is probably a bug."
     }
@@ -900,7 +901,7 @@
       "rejected": "Well alright, come back anytime if you change your mind.  I doubt it'll be a massive improvement to the logistics of things here or at the commune, but it's worth looking into.",
       "advice": "Most of those things are venomous and right nasty to get tangled up in.  Just be mindful about burning them out, I don't want to risk harming what you're there for.",
       "inquire": "Any luck?",
-      "success": "Alright.  Sofia's skeptical that I can make a large-scale breakthrough with this.  I can use what I've learned, and a little help from her, to liven up the compound here and grow a few things, but it seems it'll take a lot of energy plus burn out whatever force is still present in these petals.  They have away to weave its effects into someone's very being so they don't need to hunt monsters, but that just makes it drain energy out of whoever uses it instead.  Still, thank you for the help, should have the finishing touches ready right quick.",
+      "success": "Alright.  Sofia's skeptical that I can make a large-scale breakthrough with this.  I can use what I've learned, and a little help from her, to liven up the compound here and grow a few things, but it seems it'll take a lot of energy plus burn out whatever force is still present in these petals.  They have a way to weave its effects into someone's very being so they don't need to hunt monsters, but that just makes it drain energy out of whoever uses it instead.  Still, thank you for the help, should have the finishing touches ready right quick.",
       "success_lie": "Seeing this is probably a bug.",
       "failure": "Seeing this is probably a bug."
     },
@@ -917,14 +918,20 @@
     "type": "mission_definition",
     "name": { "str": "Investigate anomalous ambush" },
     "description": "Put down the cause of a recent attack on a caravan, then report back to the shopkeep.",
-    "goal": "MGOAL_FIND_ITEM",
+    "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 1,
     "value": 15000,
     "has_generic_rewards": false,
-    "item": "triffid_queen_flower",
     "origins": [ "ORIGIN_SECONDARY" ],
     "start": {
-      "assign_mission_target": { "om_terrain": "new_anomaly_w", "om_terrain_replace": "field", "random": true, "cant_see": true, "search_range": 60, "min_distance": 10 },
+      "assign_mission_target": {
+        "om_terrain": "new_anomaly_w",
+        "om_terrain_replace": "field",
+        "random": true,
+        "cant_see": true,
+        "search_range": 60,
+        "min_distance": 10
+      },
       "update_mapgen": [
         {
           "om_terrain": "new_anomaly_w",
@@ -934,7 +941,7 @@
     },
     "dialogue": {
       "describe": "Seeing this is probably a bug.",
-      "offer": "I've been working on getting some equipment set up here, to expand the kinds of things we can make.  I have a guy bringing in supplies and we can get it set up ourselves.  Problem is, I had to get in touch with a new transport team because the last one up and vanished.  Word from the other scavengers gave me an estimate what happened, and it doesn't sound good.  I'd like you to go scope it out, and put down whoever or whatever you find.",
+      "offer": "I've been working on getting some equipment set up here, to expand the kinds of things we can make.  I have a guy bringing in supplies and we can get it set up ourselves.  Problem is, I had to get in touch with a new transport team because the last one up and vanished.  Word from the other scavengers gave me an estimate of what happened, and it doesn't sound good.  I'd like you to go scope it out, and put down whoever or whatever caused this.",
       "accepted": "Thanks.  You can keep anything from the caravan you can salvage, I'm more interested in taking care of whatever ambushed them.",
       "rejected": "Alright.  I want you to come see me if you change your mind, though.",
       "advice": "I don't know what to expect out there, intel suggests some kinda rock formation that wasn't on the local route maps, might be a hideout, staging area, lair or who knows what.  Could be some kinda anomaly.",
@@ -953,23 +960,189 @@
   },
   {
     "id": "MISSION_CF_PURIFIER_1",
-    "//": "This missions is here so that I can expand on the mission chain later on without old saves being stuck.",
     "type": "mission_definition",
-    "name": { "str": "Placeholder Mission" },
-    "goal": "MGOAL_KILL_MONSTER",
+    "name": { "str": "Retrieve Reconnaissance Case" },
+    "description": "Find a laptop briefcase at the last known location of a Cleaning Flame scout, and bring it back for Nicholas to examine for useful information.",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 4,
+    "value": 100000,
+    "has_generic_rewards": false,
+    "item": "arcane_purifier_intel",
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_CF_PURIFIER_1_2",
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "s_gas_arcana_bandit",
+        "om_special": "arcana_purifer_ambushed",
+        "om_terrain_replace": "field",
+        "reveal_radius": 3,
+        "random": true,
+        "cant_see": true,
+        "search_range": 180,
+        "min_distance": 15
+      }
+    },
+    "dialogue": {
+      "describe": "Seeing this is probably a bug.",
+      "offer": "When we were on our way here, we had been trying to regain contact with another member of our order.  She had been on a scouting mission, gathering information we suspect will lead us to a breakthrough regarding the cause of this apocalypse, or failing that a way to prevent things from getting worse.  I'd like to ask you to help track her down, or recover the device they stored their intel on if it's too late for them.",
+      "accepted": "Last we heard, she was headed to an old rest stop to search for supplies, and said she'd contact us afterward.  I'll show you the location they reported here.  If you don't find any sign of her, look for what we called a reconnaissance case.  It's a briefcase with a laptop, plus some other observation and communication items in it.  I'm going to hope and pray the data is still salvageable.",
+      "rejected": "If this lead goes anywhere, it might be our last hope of reversing at least some of the damage the fabric of reality has suffered.  I'm not that optimistic of it working out either, but it's worth trying.  Please come back and talk to me if you change your mind.",
+      "advice": "If she had a communication failure she'll have likely hidden the laptop there as a dead drop, since we'd know that to be her last destination.  Unless something happened to her, that's what worries me.  It shouldn't be too close to the cities but there's always the risk that something dangerous might be in the area, so be on your guard.",
+      "inquire": "Did you find her?  What about the intel?",
+      "success": "Gods above and below, I'm glad you're back in one piece.  I'm guessing she didn't make it.  From the look of this, the laptop almost didn't either.  But it looks like I can get intel out of it, so her death won't be in vain.  Come see me when you've rested up a bit, I'll have more work to offer you.",
+      "success_lie": "Seeing this is probably a bug.",
+      "failure": "Seeing this is probably a bug."
+    },
+    "end": {
+      "effect": [
+        { "npc_add_var": "nicholas_mission_1_end", "type": "mission", "context": "rural_church", "value": "yes" },
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "u_buy_item": "CF_golden_scale", "count": 10 }
+      ]
+    }
+  },
+  {
+    "id": "MISSION_CF_PURIFIER_1_2",
+    "type": "mission_definition",
+    "name": { "str": "Find Information About Project Kairos" },
+    "description": "Investigate for further information about Project Kairos, talking to others familiar with military or science facilities.  Bring any findings back to Nicholas afterward.",
+    "goal": "MGOAL_FIND_ITEM",
     "difficulty": 4,
     "value": 150000,
+    "has_generic_rewards": false,
+    "item": "arcane_purifier_intel_2",
     "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_CF_PURIFIER_1_3",
+    "start": { "effect": [ { "u_buy_item": "cf_purifier_project_data" } ] },
     "dialogue": {
-      "describe": "...",
-      "offer": "...",
-      "accepted": "...",
-      "rejected": "...",
-      "advice": "...",
-      "inquire": "...",
-      "success": "...",
-      "success_lie": "...",
-      "failure": "..."
+      "describe": "Seeing this is probably a bug.",
+      "offer": "I'd like for you to find anyone else you think might be familiar with the military's experiments, the research labs, that sort of thing.  People who might be able to help us get a definite location out of what little information we have to go on.",
+      "accepted": "Here's a printout of all the useful information I could get out of the laptop concerning Project Kairos.  It contains a list of known Priority Sites and records of shipments between them.  We need someone who knows more about what these specific Priority Sites were up to, and ideally which of those shipments contained anomalous materials.  We might get a namedrop of the project, or just confirmation that one location in particular was getting the bulk of the anomalous items.",
+      "rejected": "Come back if you change your mind.  You need to understand how close we are to a breakthrough.  All that information Sofia gathered, if we had this project's findings to go with that, we might be able to fix some of this.",
+      "advice": "Some of the people at the refugee center might have contacts with the Old Guard.  I don't know if they'll be that willing to help us or not, but if they understand the direness of the situation they might be our best bet.  Otherwise, if you know of any surviving research personnel from other government labs, they might be worth talking to.",
+      "inquire": "Any luck?",
+      "success": "This should give us a better understanding of which places were actually receiving anomalous materials.  Let's go over this together, then we should be ready.",
+      "success_lie": "Seeing this is probably a bug.",
+      "failure": "Seeing this is probably a bug."
+    },
+    "end": {
+      "effect": [
+        { "npc_add_var": "nicholas_mission_2_end", "type": "mission", "context": "rural_church", "value": "yes" },
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "u_buy_item": "CF_golden_scale", "count": 15 }
+      ]
+    }
+  },
+  {
+    "id": "MISSION_CF_PURIFIER_1_INTERLUDE_1",
+    "type": "mission_definition",
+    "name": { "str": "Investigate Laboratory Server Room" },
+    "description": "Investigate a science lab and retrieve the intel Nicholas is looking for from their server room.  After bringing the shipping manifest back to Nicholas, you may return to the refugee center later to check on the Old Guard's doctor.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "nicholas_info_sent", "type": "mission", "context": "rural_church", "value": "yes" },
+    "difficulty": 5,
+    "has_generic_rewards": false,
+    "value": 10000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "microlab_arcana_surface",
+        "om_special": "4x4_microlab_arcana",
+        "om_terrain_replace": "field",
+        "reveal_radius": 3,
+        "search_range": 180,
+        "z": 0
+      },
+      "effect": [ { "npc_add_var": "nicholas_mission_2_mid", "type": "mission", "context": "rural_church", "value": "yes" } ]
+    },
+    "dialogue": {
+      "describe": "Seeing this is probably a bug, as this mission is actually started via add_mission in dialogue.",
+      "offer": "Seeing this is probably a bug.",
+      "accepted": "Seeing this is probably a bug.",
+      "rejected": "Seeing this is probably a bug.",
+      "advice": "Seeing this is probably a bug.",
+      "inquire": "Did you find what you're looking for?",
+      "success": "That's good.  I've been going over the information your contact sent us, maybe some day we'll have the manpower to investigate some of these places.  I'll leave the matter of this \"Project Kairos\" to your contact to deal with, I trust they can handle whatever it is they're looking for safely.  Here's something for your trouble, the least I can do after you helped arrange this.",
+      "success_lie": "Seeing this is probably a bug.",
+      "failure": "Seeing this is probably a bug."
+    },
+    "end": { "effect": [ { "u_buy_item": "FMCNote", "count": 20 } ] }
+  },
+  {
+    "id": "MISSION_CF_PURIFIER_1_INTERLUDE_2",
+    "type": "mission_definition",
+    "name": { "str": "Investigate Lost Scavenger Team" },
+    "description": "Investigate the last known location of a group of survivors, suspected to have found documents of the information Nicholas is looking for.  After bringing the information back to Nicholas, you may return to bring back news of what happened to the scavengers.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "u_has_var": "nicholas_info_sent", "type": "mission", "context": "rural_church", "value": "yes" },
+    "difficulty": 5,
+    "has_generic_rewards": false,
+    "value": 10000,
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "arcana_cave_caravan",
+        "om_special": "Cave_arcana_caravan",
+        "om_terrain_replace": "field",
+        "reveal_radius": 3,
+        "search_range": 180,
+        "z": 0
+      },
+      "effect": [ { "npc_add_var": "nicholas_mission_2_mid", "type": "mission", "context": "rural_church", "value": "yes" } ]
+    },
+    "dialogue": {
+      "describe": "Seeing this is probably a bug, as this mission is actually started via add_mission in dialogue.",
+      "offer": "Seeing this is probably a bug.",
+      "accepted": "Seeing this is probably a bug.",
+      "rejected": "Seeing this is probably a bug.",
+      "advice": "Seeing this is probably a bug.",
+      "inquire": "Did you find them?",
+      "success": "I'm guessing it was too late for them.  I did hear from Sofia's people however, we now have a much better understanding of what places might be valuable sources of supplies, and which are best avoided.  This will save lives in the long run.  I know it's not much given the risk you went through, but here.",
+      "success_lie": "Seeing this is probably a bug.",
+      "failure": "Seeing this is probably a bug."
+    },
+    "end": { "effect": [ { "u_buy_item": "FMCNote", "count": 15 } ] }
+  },
+  {
+    "id": "MISSION_CF_PURIFIER_1_3",
+    "type": "mission_definition",
+    "name": { "str": "Retrieve dimensional focus lens from Project Kairos facility" },
+    "description": "Investigate the research facility now suspected to be the location of Project Kairos, and retrieve a vital component known as a dimensional focus lens from it.",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 8,
+    "value": 200000,
+    "has_generic_rewards": false,
+    "item": "dimensional_focus_lens",
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "lab_arcane_1_6_north",
+        "om_special": "lab_arcane",
+        "om_terrain_replace": "field",
+        "reveal_radius": 3,
+        "random": true,
+        "cant_see": true,
+        "search_range": 90,
+        "min_distance": 10
+      }
+    },
+    "dialogue": {
+      "describe": "Seeing this is probably a bug.",
+      "offer": "A large volume, the bulk of anomalous items on these shipping records, eventually found their way to a single site.  That's what we're after, and I've also figured out what we're after.  One of the earlier shipments on record mentions something called a dimensional focus lens.  Given what we know of the project and what they were trying to accomplish, that's the component we need to acquire to use their findings to further our own work.  Will you help us?",
+      "accepted": "Thank you.  I'll give you directions to your objective.  Whatever device the component was used for, it'll likely be well-secured, unless there's been a containment breach or some other disaster.  Take apart any anomalous machinery you find down there, we don't know if it will have been used for a portable device, or a machine that'll have to be scrapped to recover the component.",
+      "rejected": "Please return to me if you change your mind.  We are on the edge of a breakthrough, and this might give us the means to massively improve our changes of survival.",
+      "advice": "There's no way they haven't been overrun by now.  If you've ever explored those old facilities you'll know there's a high risk of the place crawling with undead.  Who knows what other anomalies may be there, too?  Be on your guard.",
+      "inquire": "Have you found it?",
+      "success": "It's just as I thought.  The culmination of several different research facilities, a project to bring these pieces together, and a very faint aura to it.  They did a lot of testing with the machinery they built, didn't they?  That helps us too.  I'm sorry, this a lot for me to take in and analyze, but we can discuss the importance of what you found later if you wish.",
+      "success_lie": "Seeing this is probably a bug.",
+      "failure": "Seeing this is probably a bug."
+    },
+    "end": {
+      "effect": [
+        { "npc_add_var": "nicholas_mission_3_end", "type": "mission", "context": "rural_church", "value": "yes" },
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "u_buy_item": "CF_golden_scale", "count": 20 }
+      ]
     }
   },
   {

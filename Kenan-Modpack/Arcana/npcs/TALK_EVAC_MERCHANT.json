@@ -4,6 +4,16 @@
     "type": "talk_topic",
     "responses": [
       {
+        "text": "[MISSION] I've been asked to find information on shipments between laboratories that may have been handling anomalies.  Can you help me with that?",
+        "topic": "TALK_EVAC_MERCHANT_NICHOLAS_1",
+        "condition": {
+          "and": [
+            { "not": { "u_has_var": "nicholas_mission_2_mid", "type": "mission", "context": "rural_church", "value": "yes" } },
+            { "u_has_mission": "MISSION_CF_PURIFIER_1_2" }
+          ]
+        }
+      },
+      {
         "text": "I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
         "condition": {
           "and": [
@@ -73,6 +83,67 @@
           ]
         }
       }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_MERCHANT_NICHOLAS_1",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_is_wearing": "badge_marshal",
+      "yes": "I don't know how much help I'll be with that, Marshal.  The Old Guard would likely know more, especially given how you've helped them out before.  However, I did hear something recently that might lead in the right direction, if you'd like to hear it",
+      "no": "I don't know how much help I'll be with that.  The doctor over there might be able to help, not sure.  However, I did hear something recently that might lead in the right direction, if you'd like to hear it."
+    },
+    "responses": [
+      { "text": "Worth a shot, what'd you find out?", "topic": "TALK_EVAC_MERCHANT_NICHOLAS_2" },
+      { "text": "I'll ask around.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_MERCHANT_NICHOLAS_2",
+    "type": "talk_topic",
+    "dynamic_line": "Recently we lost contact with a caravan that had been coming back from exploring one of the labs.  They mentioned something about some paperwork that they were going to use to plan their next outing.  I'm willing to bet that will help the both of us.",
+    "responses": [
+      { "text": "What happened to them?", "topic": "TALK_EVAC_MERCHANT_NICHOLAS_3" },
+      { "text": "What do you need me to do?", "topic": "TALK_EVAC_MERCHANT_NICHOLAS_4" },
+      { "text": "Maybe later.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_MERCHANT_NICHOLAS_3",
+    "type": "talk_topic",
+    "dynamic_line": "The last we heard from them, they had just fended off some raiders and broke camp at a small cave to treat their wounded and recover.  We haven't heard from them since.  I'd like you to do something for me, if you go after them.",
+    "responses": [
+      { "text": "And that would be?", "topic": "TALK_EVAC_MERCHANT_NICHOLAS_4" },
+      { "text": "I'm not sure I'm up for this.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_MERCHANT_NICHOLAS_4",
+    "type": "talk_topic",
+    "dynamic_line": "Whoever you're getting this information for, I'd like for you to send it our way too.  We've been leery of sending teams anywhere near the labs because it's high risk and unknown reward.  If we had an idea what we'll find, we could make sure to steer clear of dangerous areas and investigate the ones that might be profitable to explore.",
+    "responses": [
+      { "text": "I can make sure both you and Sofia's people get it.  Deal.", "topic": "TALK_EVAC_MERCHANT_NICHOLAS_ACCEPT" },
+      { "text": "I need to bring it to one of Sofia's people first.", "topic": "TALK_EVAC_MERCHANT_NICHOLAS_5" },
+      { "text": "I'll think about it.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_MERCHANT_NICHOLAS_5",
+    "type": "talk_topic",
+    "dynamic_line": "Didn't expect Sofia's group to have much interest in old science facilities.  Well, not my business.  So long as we get that information too, I hope that won't be a problem?",
+    "responses": [
+      { "text": "It should be fine.  Go ahead.", "topic": "TALK_EVAC_MERCHANT_NICHOLAS_ACCEPT" },
+      { "text": "I'll think about it.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_EVAC_MERCHANT_NICHOLAS_ACCEPT",
+    "type": "talk_topic",
+    "dynamic_line": "Here's directions to the last location where we heard from them.  Be ready for anything, I have no idea what happened after we lost contact.  You'll want to look for some kind of paperwork, something about shipments between locations.  That's about all I know.",
+    "speaker_effect": [ { "effect": { "add_mission": "MISSION_CF_PURIFIER_1_INTERLUDE_2" } } ],
+    "responses": [
+      { "text": "Thanks!  Before I go…", "topic": "TALK_EVAC_MERCHANT" },
+      { "text": "Thanks, I'll be back later!", "topic": "TALK_DONE" }
     ]
   },
   {

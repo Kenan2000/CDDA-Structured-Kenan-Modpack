@@ -437,5 +437,60 @@
     "modes": [ [ "DEFAULT", "semi-auto", 1 ], [ "BURST", "burst", 3 ] ],
     "ammo_effects": [ "LASER", "BLINDS_EYES", "BEANBAG", "AMMO_RIFT_FOCUS_SHADOWS" ],
     "flags": [ "NEVER_JAMS", "TRADER_AVOID", "USES_BIONIC_POWER" ]
+  },
+  {
+    "id": "arcana_mech_laser",
+    "looks_like": "ar15",
+    "type": "GUN",
+    "reload_noise_volume": 2,
+    "name": { "str": "rift focus weapon system" },
+    "description": "This is the integral weapon system for the Anomaly Recon Mech, focusing a small-scale hole in reality into a powerful beam.  Potent but inefficient, useless against robots and some anomalous monsters.  Activating this weapon will let you launch a dazzling ghostly flare, illuminating an area in exchange for draining mana.  This flare will inflict similar forms of supernatural harm on anything caught in its radius.",
+    "weight": "12500 g",
+    "volume": "5500 ml",
+    "price": "95000 USD",
+    "price_postapoc": "80 USD",
+    "to_hit": -2,
+    "bashing": 6,
+    "material": [ "steel", "plastic" ],
+    "symbol": "(",
+    "color": "blue",
+    "skill": "rifle",
+    "range": 45,
+    "ranged_damage": { "damage_type": "cold", "amount": 100 },
+    "dispersion": 15,
+    "durability": 8,
+    "loudness": 1,
+    "ups_charges": 400,
+    "reload": 0,
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "ARMOR_BASH", "add": -24 },
+            { "value": "ARMOR_CUT", "add": -32 },
+            { "value": "ARMOR_STAB", "add": -32 },
+            { "value": "ARMOR_BULLET", "add": -32 },
+            { "value": "ARMOR_HEAT", "add": -16 },
+            { "value": "ARMOR_ACID", "add": -16 }
+          ],
+          "ench_effects": [ { "effect": "arcana_mech_laser_immunities", "intensity": 1 } ]
+        }
+      ]
+    },
+    "use_action": { "type": "cast_spell", "spell_id": "arcana_item_mech_flare", "no_fail": true, "level": 0, "need_wielding": true },
+    "ammo_effects": [ "LASER", "PLASMA_BUBBLE", "BLINDS_EYES", "BEANBAG", "AMMO_RIFT_FOCUS_SHADOWS" ],
+    "flags": [
+      "NO_UNLOAD",
+      "NEVER_JAMS",
+      "NO_UNWIELD",
+      "NO_SALVAGE",
+      "NO_REPAIR",
+      "UNBREAKABLE_MELEE",
+      "NON-FOULING",
+      "NEEDS_NO_LUBE",
+      "USE_PLAYER_ENERGY"
+    ]
   }
 ]

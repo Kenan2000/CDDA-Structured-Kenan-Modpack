@@ -525,6 +525,26 @@
     ]
   },
   {
+    "type": "npc_class",
+    "id": "NC_BANDIT_PURIFIER_AMBUSHER",
+    "name": { "str": "Ambusher" },
+    "common": false,
+    "job_description": "I kill people.  Duh.",
+    "traits": [ { "group": "BG_survival_story_EVACUEE" }, { "group": "Arcanist_starting_traits" }, { "group": "Appearance_demographics" } ],
+    "bonus_str": { "rng": [ -2, 3 ] },
+    "bonus_dex": { "rng": [ -1, 1 ] },
+    "bonus_int": { "rng": [ -1, 1 ] },
+    "bonus_per": { "rng": [ 1, 4 ] },
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -3 } ] } },
+      { "skill": "gun", "bonus": { "rng": [ 2, 4 ] } },
+      { "skill": "shotgun", "bonus": { "rng": [ 2, 5 ] } }
+    ],
+    "worn_override": "NC_BANDIT_PURIFIER_AMBUSHER_worn",
+    "carry_override": "NC_BANDIT_PURIFIER_AMBUSHER_misc",
+    "weapon_override": "NC_BANDIT_PURIFIER_AMBUSHER_weapon"
+  },
+  {
     "id": "NC_HERMIT_worn",
     "type": "item_group",
     "subtype": "collection",
@@ -1088,6 +1108,40 @@
       { "item": "reloaded_45colt_jhp", "charges": [ 40, 60 ] },
       { "item": "reloaded_4570_pen", "charges": [ 30, 50 ] }
     ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_BANDIT_PURIFIER_AMBUSHER_misc",
+    "subtype": "collection",
+    "entries": [
+      { "item": "ref_lighter", "charges": 50 },
+      { "group": "cleansing_flame_gear_consumables" }
+    ]
+  },
+  {
+    "id": "NC_BANDIT_PURIFIER_AMBUSHER_worn",
+    "type": "item_group",
+    "subtype": "collection",
+    "entries": [
+      { "item": "kevlar" },
+      { "item": "jersey" },
+      { "item": "jacket_leather_mod" },
+      { "item": "bandolier_shotgun", "charges": 25, "contents-item": "reloaded_shot_00_arcana" },
+      { "item": "boxer_shorts" },
+      { "item": "jeans" },
+      { "item": "gloves_fingerless_mod" },
+      { "item": "socks" },
+      { "item": "boots_combat" },
+      { "item": "tac_helmet" },
+      { "item": "glasses_bal" },
+      { "item": "bandana" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_BANDIT_PURIFIER_AMBUSHER_weapon",
+    "subtype": "collection",
+    "entries": [ { "item": "winchester_1897", "ammo-item": "reloaded_shot_00_arcana", "charges": 6, "contents-item": "shoulder_strap" } ]
   },
   {
     "id": "NC_ARSONIST_random",
