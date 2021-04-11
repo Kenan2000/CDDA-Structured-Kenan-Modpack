@@ -31,6 +31,7 @@ const getFakeId = (item, index) =>
     ? `[${index}]`
     : '';
 const getContext = (sourceModName, item, index) => `${sourceModName}→${item.type}→${getFakeId(item, index)}`;
+const getItemBrowserLink = (item) => (item.id ? `http://cdda.aloxaf.cn/search?q=${item.id}` : '');
 
 let logCounter = 0;
 let logs = [];
@@ -522,6 +523,9 @@ title: ${jsonName.replace('.tid', '')}
 type: text/vnd.tiddlywiki
 `
   );
+  if (item.id) {
+    fs.append(path.join(cddaWikiFolder, jsonName), `\n\n[物品浏览器：${item.id}|${getItemBrowserLink(item)}\n\n`);
+  }
   fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
   fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
   fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
@@ -577,11 +581,16 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
     translateWithCache(
       value,
       modTranslationCache,
-      `ID: ${fullItem.id}\n位于 ${sourceModName}.json\n类型为 ${fullItem.type}\n\nWIKI:\n${wikiSiteBase}${getContext(
-        sourceModName,
-        fullItem,
-        index
-      ).replace('%', '%25')}`
+      `ID: ${fullItem.id}\n位于 ${sourceModName}.json\n类型为 ${fullItem.type}
+
+WIKI:
+${wikiSiteBase}${getContext(sourceModName, fullItem, index).replace('%', '%25')}
+${
+  fullItem.id
+    ? `物品浏览器：
+${getItemBrowserLink(fullItem.id)}`
+    : ''
+}`
     );
   const noop = () => {};
 
