@@ -270,9 +270,24 @@ cp -R -n '${__dirname}Kenan-Modpack/${sourceModName}' '${__dirname}imports'`
     // 核心部分：比较旧的翻译的mod和新的未翻译mod的区别，来提取出译文-原文对
     const differences = compare(sourceFileContents[index].content, goodFileContents[index].content);
     differences.forEach((diff) => {
-      if (modTranslationCache.get(diff.left_value) && !hasChinese(diff.left_value) && hasChinese(diff.right_value)) {
+      if (
+        modTranslationCache.get(diff.left_value) &&
+        !hasChinese(diff.left_value) &&
+        hasChinese(diff.right_value) &&
+        (!modTranslationCache.stages[diff.left_value] || modTranslationCache.stages[diff.left_value] === 1)
+      ) {
         // 将找到的原文对存起来供以后使用
-        modTranslationCache.insertToCache(diff.left_value, diff.right_value.replaceAll(/"(.+)"/g, '“$1”'));
+        modTranslationCache.insertToCache(
+          diff.left_value,
+          diff.right_value
+            .replaceAll(/"(.+)"/g, '“$1”')
+            .replaceAll('(', '（')
+            .replaceAll(')', '）')
+            .replaceAll('。。。', '…')
+            .replaceAll(/(?<![\.a-zA-Z])\.(?![\.a-zA-Z])/gm, '。')
+            .replaceAll(',', '，')
+            .replaceAll('， ', '，')
+        );
         // sharedTranslationCache[diff.left_value] = diff.right_value;
       }
     });
