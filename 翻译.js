@@ -436,6 +436,7 @@ async function translateWithCache(value, modTranslationCache, context) {
   if (value === '') return '';
   if (hasChinese(value)) {
     logger.log(`\nHas Chinese in text ${value}\n${context}`);
+    process.exit(1);
   }
   logger.log(`\nTranslating ${value}\n`);
   let translatedValue = modTranslationCache.get(value);
