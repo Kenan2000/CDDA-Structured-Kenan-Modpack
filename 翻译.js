@@ -32,7 +32,7 @@ const getFakeId = (item, index) =>
     ? `[${index}]`
     : '';
 const getContext = (sourceModName, item, index) => `${sourceModName}→${item.type}→${getFakeId(item, index)}`;
-const getItemBrowserLink = (item) => (item.id ? `http://cdda.aloxaf.cn/search?q=${item.id}` : '');
+const getItemBrowserLink = (item) => (item.id ? `http://cdda.aloxaf.cn/search?q=${Array.isArray(item.id) : item.id[0] : item.id}` : '');
 
 let logCounter = 0;
 let logs = [];
@@ -588,7 +588,9 @@ function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) 
     translateWithCache(
       value,
       modTranslationCache,
-      `ID: ${fullItem.id}\n位于 ${sourceModName}.json\n类型为 ${fullItem.type}
+      `ID: ${Array.isArray(fullItem.id) ? fullItem.id[0] : fullItem.id}\n位于 ${sourceModName}.json\n类型为 ${
+        fullItem.type
+      }
 
 WIKI:
 ${wikiSiteBase}${getContext(sourceModName, fullItem, index).replace('%', '%25')}
