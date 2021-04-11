@@ -287,6 +287,7 @@ cp -R -n '${__dirname}Kenan-Modpack/${sourceModName}' '${__dirname}imports'`
             .replaceAll(/(?<![\.a-zA-Z])\.(?![\.a-zA-Z])/gm, '。')
             .replaceAll(',', '，')
             .replaceAll('?', '？')
+            .replaceAll(':', '：')
             .replaceAll('!', '！')
             .replaceAll('， ', '，')
         );

@@ -410,8 +410,17 @@ class ModCache {
   get(key) {
     if (this.translationCache[key] !== undefined || sharedTranslationCache[key] !== undefined) {
       const translatedValue = // 优先检查官中内容里有没有，而且去掉一些可能影响匹配的内容
-        (sharedTranslationCache[key] ?? sharedTranslationCache[_.trim(key, '*')])?.replaceAll(/"(.+)"/g, '“$1”') ??
-        this.translationCache[key];
+        (sharedTranslationCache[key] ?? sharedTranslationCache[_.trim(key, '*')])
+          ?.replaceAll(/"(.+)"/g, '“$1”')
+          ?.replaceAll('(', '（')
+          ?.replaceAll(')', '）')
+          ?.replaceAll('。。。', '…')
+          ?.replaceAll(/(?<![\.a-zA-Z])\.(?![\.a-zA-Z])/gm, '。')
+          ?.replaceAll(',', '，')
+          ?.replaceAll('?', '？')
+          ?.replaceAll(':', '：')
+          ?.replaceAll('!', '！')
+          ?.replaceAll('， ', '，') ?? this.translationCache[key];
       // 如果本地翻译没有此内容，就用共享翻译资源刷新此mod翻译
       if (this.translationCache[key] === undefined) {
         this.insertToCache(key, translatedValue);
@@ -676,16 +685,14 @@ ${getItemBrowserLink(fullItem)}`
   };
   const namePlDesc = async (item) => {
     if (item.name) {
-      item.name.str = await translateFunction(item.name.str);
-      if (item.name.str_pl) {
-        item.name.str_pl = await translateFunction(item.name.str_pl);
-      } else {
-        item.name.str_pl = item.name.str;
-      }
       if (typeof item.name === 'string') {
         item.name = await translateFunction(item.name);
+      } else {
+        await maleFemaleItemDesc(item.name);
+        item.name.str = await translateFunction(item.name.str);
+        item.name.str_pl = await translateFunction(item.name.str_pl);
+        item.name.str_sp = await translateFunction(item.name.str_sp);
       }
-      await maleFemaleItemDesc(item.name);
     }
     item.description = await translateFunction(item.description);
     item.detailed_definition = await translateFunction(item.detailed_definition);
