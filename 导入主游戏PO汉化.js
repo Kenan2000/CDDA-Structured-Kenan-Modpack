@@ -10,6 +10,7 @@ const goodPOFilePath = path.join(
   translationsToImportInDir,
   'for_use_cataclysm-dda_0f-cataclysm-dda_zh_CN.po'
 );
+const oldPOFilePath = path.join(__dirname, translationsToImportInDir, '0.D汉化文件.po');
 
 /**
  * 共享所有Mod翻译的成果，加速翻译，但之后每个mod自己还是存一份
@@ -33,11 +34,7 @@ function storeSharedTranslationCache() {
   fs.write(sharedTranslationCacheFilePath, JSON.stringify(sharedTranslationCache, undefined, '  '));
 }
 
-const po = PO.load(goodPOFilePath, function (err, po) {
-  // Handle err if needed
-  // Do things with po
-  // DEBUG: console
-  console.log(po.items[0]);
+PO.load(oldPOFilePath, function (err, po) {
   po.items.forEach((item) => {
     sharedTranslationCache[item.msgid] = item.msgstr[0];
     if (!item.msgstr[0]) {
@@ -46,7 +43,15 @@ const po = PO.load(goodPOFilePath, function (err, po) {
       process.exit(0);
     }
   });
-  // DEBUG: console
-  console.log(`sharedTranslationCache`, sharedTranslationCache);
-  storeSharedTranslationCache()
+  PO.load(goodPOFilePath, function (err, po) {
+    po.items.forEach((item) => {
+      sharedTranslationCache[item.msgid] = item.msgstr[0];
+      if (!item.msgstr[0]) {
+        // DEBUG: console
+        console.log(item);
+        process.exit(0);
+      }
+    });
+    storeSharedTranslationCache();
+  });
 });

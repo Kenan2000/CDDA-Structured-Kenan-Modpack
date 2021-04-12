@@ -425,8 +425,11 @@ class ModCache {
       if (this.translationCache[key] === undefined) {
         this.insertToCache(key, translatedValue);
       }
-      // 如果官中有此内容，直接使用官中，并把翻译进度拉到已审核
-      if (sharedTranslationCache[key] !== undefined) {
+      // 如果官中有此内容，且翻译部分还没有审核过，则直接使用官中，并把翻译进度拉到已审核
+      if (
+        (sharedTranslationCache[key] !== undefined && this.translationCache.stages[key] === undefined) ||
+        this.translationCache.stages[key] === 1
+      ) {
         logger.log('使用官中');
         this.insertToCache(key, translatedValue);
         this.stages[key] = 5;
