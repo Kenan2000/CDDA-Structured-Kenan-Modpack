@@ -2,9 +2,25 @@
 
 [打开下载页](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/tag/latest)
 
-下载解压后，打开 CDDA 存档所在文件夹，如下放置即可：
+## Mod文件放置位置
 
-![docs/images/mod-folder.png](./docs/images/mod-folder.png)
+### 桌面版
+
+下载解压后，打开 CDDA 存档所在文件夹，电脑版如下放置即可：
+
+![docs/images/mod-folder.png](https://raw.githubusercontent.com/linonetwo/CDDA-Kenan-Modpack-Chinese/master/docs/images/mod-folder.png)
+
+文件夹位置在 `config` 和 `save` 文件夹同级的那个 `mods` 文件夹里。如果你没有这个 `mods` 文件夹，可以手动新建一个。
+
+注意切勿和原版的 mod 文件放到一起，如果你看到提示问你是替换原版文件夹还是覆盖文件夹，那你肯定放错位置了。
+
+### Android手机版
+
+`/storage/emulated/0/Android/data/com.cleverraven.cataclysmdda.experimental/files/mods`
+
+文件夹位置在 `config` 和 `save` 文件夹同级的那个 `mods` 文件夹里。如果你没有这个 `mods` 文件夹，可以手动新建一个。如下图：
+
+![docs/images/mod-folder-mobile.png](https://raw.githubusercontent.com/linonetwo/CDDA-Kenan-Modpack-Chinese/master/docs/images/mod-folder-mobile.png)
 
 ## Development 开发
 
