@@ -426,7 +426,10 @@ class ModCache {
         this.insertToCache(key, translatedValue);
       }
       // 如果官中有此内容，且翻译部分还没有审核过，则直接使用官中，并把翻译进度拉到已审核
-      if (sharedTranslationCache[key] !== undefined && (this.stages[key] === undefined || this.stages[key] === 1 || this.stages[key] === 0)) {
+      if (
+        sharedTranslationCache[key] !== undefined &&
+        (this.stages[key] === undefined || this.stages[key] === 1 || this.stages[key] === 0)
+      ) {
         logger.log('使用官中');
         this.insertToCache(key, translatedValue);
         this.stages[key] = 5;
@@ -541,7 +544,7 @@ type: text/vnd.tiddlywiki
 `
   );
   if (item.id) {
-    fs.append(path.join(cddaWikiFolder, jsonName), `\n\n[物品浏览器：${item.id}|${getItemBrowserLink(item)}\n\n`);
+    fs.append(path.join(cddaWikiFolder, jsonName), `\n\n[[物品浏览器：${item.id}|${getItemBrowserLink(item)}]]\n\n`);
   }
   fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
   fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
