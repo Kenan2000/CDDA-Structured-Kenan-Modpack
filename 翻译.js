@@ -447,6 +447,7 @@ class ModCache {
 async function translateWithCache(value, modTranslationCache, context) {
   if (value === undefined) return undefined;
   if (value === '') return '';
+  if (typeof value !== 'string') return value;
   if (hasChinese(value)) {
     logger.error(`\nHas Chinese in text ${value}\n${context}`);
     // console.trace();
@@ -923,6 +924,9 @@ ${getItemBrowserLink(fullItem)}`
     if (Array.isArray(item.desc)) {
       item.desc = await Promise.all(item.desc.map((msg) => translateFunction(msg)));
     }
+    if (item.apply_message) {
+      item.apply_message = await translateFunction(item.apply_message);
+    }
     if (item.remove_message) {
       item.remove_message = await translateFunction(item.remove_message);
     }
@@ -930,6 +934,11 @@ ${getItemBrowserLink(fullItem)}`
     if (Array.isArray(item.decay_messages) && Array.isArray(item.decay_messages[0])) {
       item.decay_messages = await Promise.all(
         item.decay_messages.map((msgGroup) => Promise.all(msgGroup.map((msg) => translateFunction(msg))))
+      );
+    }
+    if (Array.isArray(item.miss_messages) && Array.isArray(item.miss_messages[0])) {
+      item.miss_messages = await Promise.all(
+        item.miss_messages.map((msgGroup) => Promise.all(msgGroup.map((msg) => translateFunction(msg))))
       );
     }
   };
@@ -973,10 +982,7 @@ ${getItemBrowserLink(fullItem)}`
       }
     }
   };
-  translators.technique = async (item) => {
-    item.name = await translateFunction(item.name);
-    await messageOrMessages(item);
-  };
+  translators.technique = namePlDesc;
   translators.vehicle_part = namePlDesc;
   translators.overlay_order = noop;
   translators.mod_tileset = noop;
