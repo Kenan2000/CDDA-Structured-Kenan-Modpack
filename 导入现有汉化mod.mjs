@@ -287,7 +287,9 @@ cp -R -n '${__dirname}Kenan-Modpack/${sourceModName}' '${__dirname}imports'`
         modTranslationCache.get(diff.left_value) &&
         !hasChinese(diff.left_value) &&
         hasChinese(diff.right_value) &&
-        (!modTranslationCache.stages[diff.left_value] || modTranslationCache.stages[diff.left_value] === 1)
+        (!modTranslationCache.stages[diff.left_value] ||
+          modTranslationCache.stages[diff.left_value] === 1 ||
+          modTranslationCache.stages[diff.left_value] === 0)
       ) {
         // 将找到的原文对存起来供以后使用
         modTranslationCache.insertToCache(
@@ -304,6 +306,7 @@ cp -R -n '${__dirname}Kenan-Modpack/${sourceModName}' '${__dirname}imports'`
             .replaceAll('!', '！')
             .replaceAll('， ', '，')
         );
+        modTranslationCache.stages[diff.left_value] = 3;
         // sharedTranslationCache[diff.left_value] = diff.right_value;
       }
     });
