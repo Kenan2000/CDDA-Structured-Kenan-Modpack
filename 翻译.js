@@ -33,7 +33,7 @@ const getFakeId = (item, index) =>
     : '';
 const getContext = (sourceModName, item, index) => `${sourceModName}→${item.type}→${getFakeId(item, index)}`;
 const getItemBrowserLink = (item) =>
-  item.id ? `http://cdda.aloxaf.cn/search?q=${Array.isArray(item.id) ? item.id[0] : item.id}` : '';
+  item.id ? `http://cdda.aloxaf.cn/search?q=${escape(Array.isArray(item.id) ? item.id[0] : item.id)}` : '';
 
 let logCounter = 0;
 let logs = [];
@@ -545,7 +545,10 @@ type: text/vnd.tiddlywiki
 `
   );
   if (item.id) {
-    fs.append(path.join(cddaWikiFolder, jsonName), `\n\n[[物品浏览器：${item.id}|${getItemBrowserLink(item)}]]\n\n`);
+    fs.append(
+      path.join(cddaWikiFolder, jsonName),
+      `\n\n[[物品浏览器：${escape(item.id)}|${getItemBrowserLink(item)}]]\n\n`
+    );
   }
   fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
   fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
