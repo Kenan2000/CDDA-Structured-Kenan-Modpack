@@ -280,6 +280,13 @@ cp -R -n '${__dirname}Kenan-Modpack/${sourceModName}' '${__dirname}imports'`
       console.warn(`Content length diff ${sourceFileContents[index].name}`);
       continue;
     }
+    // 迁移旧版数据
+    if (Array.isArray(goodFileContents[index].content) && goodFileContents[index].content?.[0]?.name_plural !== undefined) {
+      goodFileContents[index].content = goodFileContents[index].content.map((item) => ({
+        ...item,
+        name: { str: item.name, str_pl: item.name_plural },
+      }));
+    }
     // 核心部分：比较旧的翻译的mod和新的未翻译mod的区别，来提取出译文-原文对
     const differences = compare(sourceFileContents[index].content, goodFileContents[index].content);
     differences.forEach((diff) => {
