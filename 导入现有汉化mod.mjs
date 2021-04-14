@@ -15,13 +15,22 @@ const hasChinese = (text) => /[\u4e00-\u9fa5]/.test(text);
 
 const __dirname = '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/';
 const translationsToImport = [
+  'Arcana',
+  'Artyom_Emporium_v.1',
+  'Mining_Mod',
+  'nocts_cata_mod_DDA',
+  'oa_early_game_mutations_mod',
+  'PKs_Rebalancing',
+  'Project_Kawaii',
   'secronom',
   'vamp_stuff',
-  'Project_Kawaii',
-  'nocts_cata_mod_DDA',
-  'Mining_Mod',
-  'Artyom_Emporium_v.1',
 ];
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/Arcana' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/Arcana' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/oa_early_game_mutations_mod' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/oa_early_game_mutations_mod' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/PKs_Rebalancing' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/PKs_Rebalancing' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/secronom' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/secronom' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/vamp_stuff' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
@@ -202,7 +211,11 @@ function getFileJSON(inspectData, parentPath = '') {
     if (inspectData.name === '.DS_Store') return;
     if (inspectData.name.endsWith('json')) {
       // JSON 文件
-      return { ...inspectData, content: JSON.parse(fs.read(filePath)), filePath };
+      try {
+        return { ...inspectData, content: JSON.parse(fs.read(filePath)), filePath };
+      } catch (error) {
+        throw new Error(`${filePath} ${error.message} ${error.stack}`);
+      }
     } else {
       // png 贴图等
       return { ...inspectData, rawContent: fs.read(filePath, 'buffer'), filePath };
