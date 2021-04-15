@@ -5,12 +5,15 @@ const _ = require('lodash');
 
 const translationsToImportInDir = 'imports';
 
-const goodPOFilePath = path.join(
+const OFPOFilePath = path.join(
   __dirname,
   translationsToImportInDir,
   'for_use_cataclysm-dda_0f-cataclysm-dda_zh_CN.po'
 );
-const oldPOFilePath = path.join(__dirname, translationsToImportInDir, '0.D汉化文件.po');
+const ODPOFilePath = path.join(__dirname, translationsToImportInDir, '0.D汉化文件.po');
+const OBPOFilePath = path.join(__dirname, translationsToImportInDir, 'for_use_cataclysm-dda_old-cataclysm-dda_zh_CN.po');
+const OEPOFilePath = path.join(__dirname, translationsToImportInDir, 'for_use_cataclysm-dda_master-cataclysm-dda_zh_CN.po');
+const experimentalPOFilePath = path.join(__dirname, translationsToImportInDir, 'for_use_cataclysm-dda_0e-cataclysm-dda_zh_CN.po');
 
 /**
  * 共享所有Mod翻译的成果，加速翻译，但之后每个mod自己还是存一份
@@ -34,7 +37,7 @@ function storeSharedTranslationCache() {
   fs.write(sharedTranslationCacheFilePath, JSON.stringify(sharedTranslationCache, undefined, '  '));
 }
 
-PO.load(oldPOFilePath, function (err, po) {
+PO.load(OBPOFilePath, function (err, po) {
   po.items.forEach((item) => {
     sharedTranslationCache[item.msgid] = item.msgstr[0];
     if (!item.msgstr[0]) {
@@ -43,7 +46,7 @@ PO.load(oldPOFilePath, function (err, po) {
       process.exit(0);
     }
   });
-  PO.load(goodPOFilePath, function (err, po) {
+  PO.load(ODPOFilePath, function (err, po) {
     po.items.forEach((item) => {
       sharedTranslationCache[item.msgid] = item.msgstr[0];
       if (!item.msgstr[0]) {
@@ -52,6 +55,36 @@ PO.load(oldPOFilePath, function (err, po) {
         process.exit(0);
       }
     });
-    storeSharedTranslationCache();
+    PO.load(OEPOFilePath, function (err, po) {
+      po.items.forEach((item) => {
+        sharedTranslationCache[item.msgid] = item.msgstr[0];
+        if (!item.msgstr[0]) {
+          // DEBUG: console
+          console.log(item);
+          process.exit(0);
+        }
+      });
+      PO.load(OFPOFilePath, function (err, po) {
+        po.items.forEach((item) => {
+          sharedTranslationCache[item.msgid] = item.msgstr[0];
+          if (!item.msgstr[0]) {
+            // DEBUG: console
+            console.log(item);
+            process.exit(0);
+          }
+        });
+        PO.load(experimentalPOFilePath, function (err, po) {
+          po.items.forEach((item) => {
+            sharedTranslationCache[item.msgid] = item.msgstr[0];
+            if (!item.msgstr[0]) {
+              // DEBUG: console
+              console.log(item);
+              process.exit(0);
+            }
+          });
+          storeSharedTranslationCache();
+        });
+      });
+    });
   });
 });
