@@ -832,7 +832,7 @@ ${getItemBrowserLink(fullItem)}`
     item.name = await translateFunction(item.name);
   };
   translators.item_group = noop;
-  translators.ammunition_type = noop;
+  translators.ammunition_type = namePlDesc;
   translators.AMMO = namePlDesc;
   translators.ARMOR = namePlDesc;
   translators.BIONIC_ITEM = namePlDesc;
@@ -843,7 +843,7 @@ ${getItemBrowserLink(fullItem)}`
   translators.GUNMOD = namePlDesc;
   translators.GUN = namePlDesc;
   translators.TOOL_ARMOR = namePlDesc;
-  translators.harvest = noop;
+  translators.harvest = namePlDesc;
   translators.SPELL = namePlDesc;
   translators.MONSTER_FACTION = noop;
   translators.monstergroup = noop;
@@ -899,15 +899,15 @@ ${getItemBrowserLink(fullItem)}`
       }
     }
   };
-  translators.overmap_special = noop;
+  translators.overmap_special = namePlDesc;
   translators.overmap_terrain = namePlDesc;
-  translators.region_overlay = noop;
-  translators.city_building = noop;
-  translators.requirement = noop;
-  translators.recipe = noop;
-  translators.recipe_category = noop;
-  translators.uncraft = noop;
-  translators.enchantment = noop;
+  translators.region_overlay = namePlDesc;
+  translators.city_building = namePlDesc;
+  translators.requirement = namePlDesc;
+  translators.recipe = namePlDesc;
+  translators.recipe_category = namePlDesc;
+  translators.uncraft = namePlDesc;
+  translators.enchantment = namePlDesc;
   translators.SPELL = namePlDesc;
   translators.achievement = async (item) => {
     await namePlDesc(item);
@@ -917,7 +917,7 @@ ${getItemBrowserLink(fullItem)}`
       }
     }
   };
-  translators.ammo_effect = noop;
+  translators.ammo_effect = namePlDesc;
   translators.bionic = namePlDesc;
   translators.clothing_mod = clothingMod;
   translators.effect_type = async (item) => {
@@ -945,7 +945,7 @@ ${getItemBrowserLink(fullItem)}`
       );
     }
   };
-  translators.emit = noop;
+  translators.emit = namePlDesc;
   translators.field_type = noop;
   translators.json_flag = infoItem;
   translators.martial_art = async (item) => {
@@ -976,7 +976,7 @@ ${getItemBrowserLink(fullItem)}`
   };
   translators.material = namePlDesc;
   translators.MOD_INFO = namePlDesc;
-  translators.scent_type = noop;
+  translators.scent_type = namePlDesc;
   translators.skill = namePlDesc;
   translators.snippet = async (item) => {
     if (Array.isArray(item.text)) {
@@ -995,14 +995,14 @@ ${getItemBrowserLink(fullItem)}`
       item.description.str_sp = await translateFunction(item.description.str_sp);
     }
   };
-  translators.event_transformation = noop;
+  translators.event_transformation = namePlDesc;
   translators.MAGAZINE = namePlDesc;
   translators.monsterAttack = namePlDesc;
   translators.WHEEL = namePlDesc;
-  translators.mutation_type = noop;
+  translators.mutation_type = namePlDesc;
   translators.map_extra = namePlDesc;
   translators.tool_quality = namePlDesc;
-  translators.construction = noop;
+  translators.construction = namePlDesc;
   translators.construction_group = namePlDesc;
   translators.vehicle_group = noop;
   translators.PET_ARMOR = namePlDesc;
@@ -1010,13 +1010,13 @@ ${getItemBrowserLink(fullItem)}`
   translators.ENGINE = namePlDesc;
   translators.ITEM_CATEGORY = namePlDesc;
   translators.sound_effect = noop;
-  translators.vehicle_placement = noop;
+  translators.vehicle_placement = namePlDesc;
   translators.monster_attack = monsterAttack;
   translators.EXTERNAL_OPTION = infoItem;
   translators.overmap_land_use_code = namePlDesc;
-  translators.region_settings = noop;
-  translators.proficiency = noop;
-  translators.overmap_location = noop;
+  translators.region_settings = namePlDesc;
+  translators.proficiency = namePlDesc;
+  translators.overmap_location = namePlDesc;
   translators.ITEM_BLACKLIST = noop;
   translators.MONSTER_BLACKLIST = noop;
   translators.MONSTER_WHITELIST = noop;
