@@ -743,6 +743,24 @@ ${getItemBrowserLink(fullItem)}`
     await attacks(item);
   };
 
+  const material = async (item) => {
+    if (item.name) {
+      if (typeof item.name === 'string') {
+        item.name = await translateFunction(item.name);
+      } else {
+        item.name.str = await translateFunction(item.name.str);
+        item.name.str_pl = await translateFunction(item.name.str_pl);
+        item.name.str_sp = await translateFunction(item.name.str_sp);
+      }
+    }
+    item.description = await translateFunction(item.description);
+    if (Array.isArray(item.dmg_adj)) {
+      item.dmg_adj = await Promise.all(item.dmg_adj.map((adj) => translateFunction(adj)));
+    }
+    item.bash_dmg_verb = await translateFunction(item.bash_dmg_verb);
+    item.cut_dmg_verb = await translateFunction(item.cut_dmg_verb);
+  };
+
   const relic = async (item) => {
     if (item.relic_data?.passive_effects) {
       for (const passiveEffect of item.relic_data.passive_effects) {
@@ -974,7 +992,7 @@ ${getItemBrowserLink(fullItem)}`
       }
     }
   };
-  translators.material = namePlDesc;
+  translators.material = material;
   translators.MOD_INFO = namePlDesc;
   translators.scent_type = namePlDesc;
   translators.skill = namePlDesc;
