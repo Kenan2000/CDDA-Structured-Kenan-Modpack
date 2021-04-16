@@ -400,6 +400,8 @@ class ModCache {
     this.translationCache[key] = value;
     if (!value.includes(TRANSLATION_ERROR)) {
       sharedTranslationCache[key] = value;
+    } else {
+      sharedTranslationCache[key] = `${sharedTranslationCache[key]}\n\n${value}`;
     }
     this.debouncedWriteTranslationCache();
   }
@@ -534,7 +536,7 @@ function writeToCNMod(foldersWithContent) {
   }
 }
 
-async function writeTiddlerToWikiAndTranslate(sourceModName, jsonName, item, translator) {
+async function writeTiddlerToWikiAndTranslate(sourceModName, jsonName, item, translator, filePath) {
   // 把内容写到 wiki 里
   fs.write(
     path.join(cddaWikiFolder, jsonName),
@@ -550,6 +552,7 @@ type: text/vnd.tiddlywiki
       `\n\n[[物品浏览器：${escape(item.id)}|${getItemBrowserLink(item)}]]\n\n`
     );
   }
+  fs.append(path.join(cddaWikiFolder, jsonName), `\n\n!! 所在文件\n\n${filePath}\n`);
   fs.append(path.join(cddaWikiFolder, jsonName), '\n\n!! 原文\n\n```json\n');
   fs.append(path.join(cddaWikiFolder, jsonName), JSON.stringify(item, undefined, '  '));
   fs.append(path.join(cddaWikiFolder, jsonName), '\n```\n\n');
@@ -570,26 +573,50 @@ async function translateStringsInContent(fileItem, modTranslationCache, sourceMo
     // 文件的内容一般是一维数组
     for (let index = 0; index < fileItem.content.length; index++) {
       const item = fileItem.content[index];
-      const translators = getCDDATranslator(modTranslationCache, sourceModName, item, index);
+      const translators = getCDDATranslator(
+        modTranslationCache,
+        sourceModName,
+        item,
+        index,
+        fileItem.filePath.replace(__dirname, '')
+      );
       const translator = translators[item.type];
       if (!translator) {
         logger.error(`没有 ${item.type} 的翻译器`);
       } else {
         const jsonName = `${getContext(sourceModName, item, index)}.tid`;
-        await writeTiddlerToWikiAndTranslate(sourceModName, jsonName, item, translator);
+        await writeTiddlerToWikiAndTranslate(
+          sourceModName,
+          jsonName,
+          item,
+          translator,
+          fileItem.filePath.replace(__dirname, '')
+        );
       }
     }
     return fileItem;
   } else if (fileItem.rawContent) {
     return fileItem;
   } else {
-    const translators = getCDDATranslator(modTranslationCache, sourceModName, fileItem.content, 0);
+    const translators = getCDDATranslator(
+      modTranslationCache,
+      sourceModName,
+      fileItem.content,
+      0,
+      fileItem.filePath.replace(__dirname, '')
+    );
     const translator = translators[fileItem.content?.type];
     if (!translator) {
       logger.error(`没有 ${fileItem.content?.type ?? fileItem.content?.type} 的翻译器`);
     } else {
       const jsonName = `${getContext(sourceModName, fileItem.content, 0)}.tid`;
-      await writeTiddlerToWikiAndTranslate(sourceModName, jsonName, fileItem.content, translator);
+      await writeTiddlerToWikiAndTranslate(
+        sourceModName,
+        jsonName,
+        fileItem.content,
+        translator,
+        fileItem.filePath.replace(__dirname, '')
+      );
     }
     return fileItem;
   }
@@ -599,15 +626,13 @@ async function translateStringsInContent(fileItem, modTranslationCache, sourceMo
  * 获取 translator 对象，内含从各种 CDDA JSON 里提取待翻译字段的翻译器
  * @param {ModCache} modTranslationCache 此mod的翻译缓存文件
  */
-function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index) {
+function getCDDATranslator(modTranslationCache, sourceModName, fullItem, index, filePath) {
   const translators = {};
   const translateFunction = (value) =>
     translateWithCache(
       value,
       modTranslationCache,
-      `ID: ${Array.isArray(fullItem.id) ? fullItem.id[0] : fullItem.id}\n位于 ${sourceModName}.json\n类型为 ${
-        fullItem.type
-      }
+      `ID: ${Array.isArray(fullItem.id) ? fullItem.id[0] : fullItem.id}\n位于 ${filePath}\n类型为 ${fullItem.type}
 
 WIKI:
 ${wikiSiteBase}${getContext(sourceModName, fullItem, index).replace('%', '%25')}
