@@ -15,16 +15,19 @@ const hasChinese = (text) => /[\u4e00-\u9fa5]/.test(text);
 
 const __dirname = '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/';
 const translationsToImport = [
-  'Arcana',
-  'Artyom_Emporium_v.1',
-  'Mining_Mod',
-  'nocts_cata_mod_DDA',
-  'oa_early_game_mutations_mod',
-  'PKs_Rebalancing',
-  'Project_Kawaii',
-  'secronom',
-  'vamp_stuff',
+  // 'Arcana',
+  // 'Artyom_Emporium_v.1',
+  // 'Mining_Mod',
+  // 'nocts_cata_mod_DDA',
+  // 'oa_early_game_mutations_mod',
+  // 'PKs_Rebalancing',
+  // 'Project_Kawaii',
+  // 'secronom',
+  // 'vamp_stuff',
+  'Fallout_CDDA',
 ];
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/Fallout_CDDA' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/Fallout_CDDA' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/Arcana' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/Arcana' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/oa_early_game_mutations_mod' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
@@ -281,7 +284,10 @@ cp -R -n '${__dirname}Kenan-Modpack/${sourceModName}' '${__dirname}imports'`
       continue;
     }
     // 迁移旧版数据
-    if (Array.isArray(goodFileContents[index].content) && goodFileContents[index].content?.[0]?.name_plural !== undefined) {
+    if (
+      Array.isArray(goodFileContents[index].content) &&
+      goodFileContents[index].content?.[0]?.name_plural !== undefined
+    ) {
       goodFileContents[index].content = goodFileContents[index].content.map((item) => ({
         ...item,
         name: { str: item.name, str_pl: item.name_plural },
