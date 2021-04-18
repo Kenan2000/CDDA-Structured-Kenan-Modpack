@@ -1,0 +1,74 @@
+[
+  {
+    "id": "secro_power_armor_flesh_check",
+    "type": "TOOL_ARMOR",
+    "category": "armor",
+    "name": { "str": "vessel interface port" },
+    "description": "A series of intricate outlets located on your chest and back, which are still wide open after merging with the exoskeleton. Perhaps there's a certain CBM that must be installed in them.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "material": [ "secro_flesh_reinforced" ],
+    "symbol": "%",
+    "color": "white",
+    "coverage": 0,
+    "encumbrance": 0,
+    "material_thickness": 1,
+    "flags": [
+      "PERSONAL",
+      "TRADER_KEEP",
+      "SEMITANGIBLE",
+      "OVERSIZE",
+      "ONLY_ONE",
+      "TRADER_AVOID",
+      "NO_TAKEOFF"
+    ]
+  },
+  {
+    "id": "secro_power_armor_flesh_bor",
+    "type": "TOOL_ARMOR",
+    "category": "armor",
+    "name": { "str": "bio-organic reconstructors" },
+    "description": "Located on your hands are flesh weavers allowing you to manipulate organic materials at will.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "material": [ "secro_flesh_reinforced" ],
+    "symbol": "%",
+    "color": "light_red",
+    "coverage": 0,
+    "encumbrance": 0,
+    "material_thickness": 1,
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "secro_flesh": 250 } } ],
+    "charges_per_use": 5,
+    "use_action": [
+      {
+        "type": "repair_item",
+        "item_action_type": "repair_fabric",
+        "materials": [ "secro_flesh_artificial" ],
+        "skill": "secro_flesh_craft",
+        "tool_quality": 2,
+        "cost_scaling": 0,
+        "move_cost": 425
+      },
+      {
+        "type": "sew_advanced",
+        "materials": [ "flesh", "secro_flesh_artificial" ],
+        "skill": "secro_flesh_craft",
+        "clothing_mods": [ "secro_flesh_reinforced_coat" ]
+      }
+    ],
+    "flags": [
+      "PERSONAL",
+      "TRADER_KEEP",
+      "SEMITANGIBLE",
+      "OVERSIZE",
+      "ONLY_ONE",
+      "TRADER_AVOID",
+      "NO_TAKEOFF"
+    ],
+    "qualities": [ [ "SECRO_FLESH_WEAVING", 1 ], [ "SECRO_FLESH_RECONSTRUCTION", 1 ] ]
+  }
+]

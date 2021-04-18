@@ -1,0 +1,141 @@
+[
+  {
+    "method": "json",
+    "type": "mapgen",
+    "update_mapgen_id": "mx_secro_vesselexp",
+    "object": {
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "         zzzzz          ",
+        "        zzzzzzz         ",
+        "       zzzxxxzzz        ",
+        "      zzzxxxxxzzz       ",
+        "      zzxxbbbxxzz       ",
+        "      zzxxbabxxzz       ",
+        "      zzxxbbbxxzz       ",
+        "      zzzxxxxxzzz       ",
+        "       zzzxxxzzz        ",
+        "        zzzzzzz         ",
+        "         zzzzz          ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "terrain": { "a": "t_secro_dirt_flesh", "x": "t_region_groundcover", "z": "t_region_groundcover", "b": "t_region_groundcover" },
+      "furniture": {  },
+      "place_monster": [ { "monster": "mon_szombie_vessel_inactive", "x": 11, "y": 11 } ],
+      "fields": { "b": { "field": "fd_sflesh_strands", "intensity": 2 } },
+      "place_fields": [
+        { "field": "fd_sflesh_strands", "x": 11, "y": 11, "intensity": 3 },
+        { "field": "fd_sflesh_strands", "x": [ 8, 14 ], "y": [ 8, 14 ], "repeat": [ 30, 60 ] },
+        { "field": "fd_blood", "x": [ 10, 12 ], "y": [ 10, 12 ], "intensity": 2, "repeat": [ 10, 20 ] },
+        { "field": "fd_gibs_flesh", "x": [ 10, 12 ], "y": [ 10, 12 ], "repeat": [ 4, 8 ] },
+        { "field": "fd_blood", "x": [ 8, 14 ], "y": [ 8, 14 ], "repeat": [ 10, 20 ] }
+      ],
+      "ter_furn_transforms": { "x": { "transform": "flesh_spread" }, "z": { "transform": "flesh_spread" }, "b": { "transform": "flesh_spread" } }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "nested_mapgen_id": "mx_secro_ssf_nested",
+    "object": {
+      "mapgensize": [ 24, 24 ],
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "          a a           ",
+        "           a a          ",
+        "          a a           ",
+        "           a a          ",
+        "          a e.          ",
+        "           a a          ",
+        "          a a           ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "terrain": { ".": "t_pavement" },
+      "furniture": {  },
+      "monster": {
+        "a": { "group": "GROUP_SECROLAB_FAILEDSPECIMENS", "chance": 25 },
+        "e": { "group": "GROUP_SECROLAB_FAILEDSPECIMENS", "chance": 25 }
+      },
+      "vehicles": { "e": { "vehicle": "secro_veh_sscarrier", "chance": 100, "status": 0, "rotation": 270 } }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "update_mapgen_id": "mx_secro_ssf",
+    "object": { "place_nested": [ { "chunks": [ "mx_secro_ssf_nested" ], "x": 0, "y": 0 } ] }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "nested_mapgen_id": "mx_secro_ssb_nested",
+    "object": {
+      "mapgensize": [ 24, 24 ],
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "            a           ",
+        "           a            ",
+        "            a           ",
+        "           a            ",
+        "            e.          ",
+        "           a            ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "terrain": { ".": "t_pavement" },
+      "furniture": {  },
+      "monster": {
+        "a": { "group": "GROUP_SECROLAB_BOWSPECIMENS", "chance": 25 },
+        "e": { "group": "GROUP_SECROLAB_FAILEDSPECIMENS", "chance": 25 }
+      },
+      "vehicles": { "e": { "vehicle": "secro_veh_sscarrier", "chance": 100, "status": 0, "rotation": 270 } }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "update_mapgen_id": "mx_secro_ssb",
+    "object": { "place_nested": [ { "chunks": [ "mx_secro_ssb_nested" ], "x": 0, "y": 0 } ] }
+  }
+]
