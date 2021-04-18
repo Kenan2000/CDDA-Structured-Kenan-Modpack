@@ -16,11 +16,15 @@
 
 ### Android手机版
 
+安装好实验版后（实验版下载地址 http://dev.narc.ro/cataclysm/jenkins-latest/Android/Tiles/ ），打开游戏，然后用文件管理新建这个文件夹：
+
 `/storage/emulated/0/Android/data/com.cleverraven.cataclysmdda.experimental/files/mods`
 
 文件夹位置在 `config` 和 `save` 文件夹同级的那个 `mods` 文件夹里。如果你没有这个 `mods` 文件夹，可以手动新建一个。如下图：
 
 ![docs/images/mod-folder-mobile.png](https://raw.githubusercontent.com/linonetwo/CDDA-Kenan-Modpack-Chinese/master/docs/images/mod-folder-mobile.png)
+
+手机电脑同步可参考[多端同步：白天在手机上玩，晚上回家用大屏电脑玩](https://tieba.baidu.com/p/6966289045)
 
 ## Development 开发
 
