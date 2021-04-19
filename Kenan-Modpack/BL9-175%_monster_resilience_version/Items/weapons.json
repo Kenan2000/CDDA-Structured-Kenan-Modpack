@@ -227,6 +227,7 @@
       [ "brass catcher", 1 ],
       [ "rail mount", 1 ],
       [ "sights mount", 1 ],
+      [ "sling", 1 ],
       [ "underbarrel mount", 1 ]
     ],
     "clip_size": 8,
@@ -315,6 +316,93 @@
     ]
   },
   {
+    "id": "BL9_melting_sprayer",
+    "looks_like": "chemical_thrower",
+    "copy-from": "gun_base",
+    "type": "GUN",
+    "reload_noise": "slosh.",
+    "name": { "str": "BL9-infused melting sprayer" },
+    "description": "A bulky, BL9 melting sprayer that has somehow been infused with the almost sentient BL9, it seems to have made some sort of a home out of this weapon, covering it partially and strengthening it with it's tissue",
+    "weight": "4588 g",
+    "volume": "4250 ml",
+    "longest_side": "1100 mm",
+    "price": "100 USD",
+    "price_postapoc": "10 USD",
+    "to_hit": -1,
+    "bashing": 9,
+    "material": [ "BL9", "steel" ],
+    "flags": [ "NEVER_JAMS", "NON-FOULING", "NEEDS_NO_LUBE", "WATERPROOF_GUN" ],
+    "ammo_to_fire": 20,
+    "skill": "launcher",
+    "ammo": [ "BL9meltingspray_type" ],
+    "dispersion": 235,
+    "durability": 8,
+    "valid_mod_locations": [
+      [ "accessories", 4 ],
+      [ "grip", 1 ],
+      [ "rail", 1 ],
+      [ "sights", 1 ],
+      [ "sling", 1 ],
+      [ "stock", 1 ],
+      [ "underbarrel", 1 ]
+    ],
+    "pocket_data": [
+      {
+        "magazine_well": "2 L",
+        "pocket_type": "MAGAZINE_WELL",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [ "tankm_BL9" ]
+      }
+    ]
+  },
+  {
+    "id": "BL9_railgun",
+    "looks_like": "hk_g80",
+    "type": "GUN",
+    "symbol": "(",
+    "color": "green",
+    "name": { "str": "BL9-infused railgun" },
+    "description": "An experimental railgun propelling ferromagnetic projectile via alternating current that has somehow been infused with the almost sentient BL9, it seems to have made some sort of a home out of this weapon, covering it partially and strengthening it with it's tissue",
+    "price": "5800 USD",
+    "ammo": [ "railBL9_type", "12mm" ],
+    "material": [ "BL9", "steel" ],
+    "ammo_effects": [ "NEVER_MISFIRES", "TANGLE" ],
+    "flags": [ "NEVER_JAMS", "NON-FOULING", "NEEDS_NO_LUBE", "WATERPROOF_GUN" ],
+    "skill": "rifle",
+    "weight": "4100 g",
+    "volume": "3 L",
+    "longest_side": "905 mm",
+    "bashing": 8,
+    "to_hit": -1,
+    "ranged_damage": { "damage_type": "bullet", "amount": 1, "armor_penetration": 1 },
+    "range": 35,
+    "dispersion": 75,
+    "durability": 8,
+    "modes": [ [ "DEFAULT", "semi auto", 1 ], [ "BURST", "burst", 2 ] ],
+    "valid_mod_locations": [
+      [ "accessories", 4 ],
+      [ "grip", 1 ],
+      [ "mechanism", 4 ],
+      [ "rail", 1 ],
+      [ "sights", 1 ],
+      [ "sling", 1 ],
+      [ "stock", 1 ],
+      [ "underbarrel", 1 ]
+    ],
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE_WELL",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "magazine_well": "250 ml",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [ "railBL9mag" ]
+      }
+    ]
+  },
+  {
     "id": "BL9_launcher",
     "looks_like": "mgl",
     "type": "GUN",
@@ -373,7 +461,7 @@
     "flags": [ "FIRE_TWOHAND", "STR_DRAW", "RELOAD_AND_SHOOT", "PRIMITIVE_RANGED_WEAPON" ],
     "skill": "archery",
     "min_strength": 9,
-    "ammo": [ "BL9arrow_type", "arrow" ],
+    "ammo": [ "BL9arrow_type" ],
     "weight": "907 g",
     "volume": "1500 ml",
     "longest_side": "1170 mm",
@@ -382,13 +470,13 @@
     "to_hit": 1,
     "reload_noise_volume": 3,
     "loudness": 10,
-    "ranged_damage": { "damage_type": "stab", "amount": 34 },
+    "ranged_damage": { "damage_type": "stab", "amount": 20 },
     "range": 16,
     "dispersion": 625,
     "durability": 8,
     "clip_size": 1,
     "valid_mod_locations": [ [ "underbarrel", 1 ], [ "sights", 1 ], [ "accessories", 2 ], [ "stabilizer", 1 ], [ "dampening", 1 ] ],
-    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9arrow_type": 1, "arrow": 1 } } ]
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9arrow_type": 1 } } ]
   },
   {
     "id": "BL9_crossbow",
@@ -404,14 +492,14 @@
     "flags": [ "FIRE_TWOHAND", "PRIMITIVE_RANGED_WEAPON" ],
     "skill": "rifle",
     "min_strength": 7,
-    "ammo": [ "BL9bolt_type", "bolt" ],
+    "ammo": [ "BL9bolt_type" ],
     "weight": "3000 g",
     "volume": "1750 ml",
     "longest_side": "680 mm",
     "price_postapoc": "60 USD",
     "bashing": 11,
     "to_hit": 1,
-    "ranged_damage": { "damage_type": "stab", "amount": 42 },
+    "ranged_damage": { "damage_type": "stab", "amount": 25 },
     "range": 14,
     "loudness": 12,
     "dispersion": 275,
@@ -429,7 +517,7 @@
       [ "underbarrel", 1 ],
       [ "dampening", 1 ]
     ],
-    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9bolt_type": 1, "bolt": 1 } } ]
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9bolt_type": 1 } } ]
   },
   {
     "id": "BL9_pistol_mk2",
@@ -659,6 +747,7 @@
       [ "brass catcher", 1 ],
       [ "rail mount", 1 ],
       [ "sights mount", 1 ],
+      [ "sling", 1 ],
       [ "underbarrel mount", 1 ]
     ],
     "clip_size": 10,
@@ -749,6 +838,93 @@
     ]
   },
   {
+    "id": "BL9_melting_sprayer_mk2",
+    "looks_like": "chemical_thrower",
+    "copy-from": "gun_base",
+    "type": "GUN",
+    "reload_noise": "slosh.",
+    "name": { "str": "BL9-infused melting sprayer MK ii" },
+    "description": "A bulky, BL9 melting sprayer that has somehow been infused with the entirely sentient BL9 that somehow mentally communicates with you, it is covered and entirely reinforced with it's thick tissue with multiple spiky almost unnoticeabely vibrating protrusions that give it a more intimidating, animate look",
+    "weight": "4588 g",
+    "volume": "4250 ml",
+    "longest_side": "1100 mm",
+    "price": "100 USD",
+    "price_postapoc": "10 USD",
+    "to_hit": -1,
+    "bashing": 9,
+    "material": [ "BL9", "steel" ],
+    "flags": [ "NEVER_JAMS", "NON-FOULING", "NEEDS_NO_LUBE", "WATERPROOF_GUN" ],
+    "ammo_to_fire": 20,
+    "skill": "launcher",
+    "ammo": [ "BL9meltingspraymk2_type" ],
+    "dispersion": 180,
+    "durability": 9,
+    "valid_mod_locations": [
+      [ "accessories", 4 ],
+      [ "grip", 1 ],
+      [ "rail", 1 ],
+      [ "sights", 1 ],
+      [ "sling", 1 ],
+      [ "stock", 1 ],
+      [ "underbarrel", 1 ]
+    ],
+    "pocket_data": [
+      {
+        "magazine_well": "2 L",
+        "pocket_type": "MAGAZINE_WELL",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [ "tankm_BL9_mk2" ]
+      }
+    ]
+  },
+  {
+    "id": "BL9_railgun_mk2",
+    "looks_like": "hk_g80",
+    "type": "GUN",
+    "symbol": "(",
+    "color": "green",
+    "name": { "str": "BL9-infused railgun MK ii" },
+    "description": "An experimental railgun propelling ferromagnetic projectile via alternating current that has somehow been infused with the entirely sentient BL9 that somehow mentally communicates with you, it is covered and entirely reinforced with it's thick tissue with multiple spiky almost unnoticeabely vibrating protrusions that give it a more intimidating, animate look",
+    "price": "5800 USD",
+    "ammo": [ "railBL9mk2_type", "12mm" ],
+    "material": [ "BL9", "steel" ],
+    "ammo_effects": [ "NEVER_MISFIRES", "TANGLE" ],
+    "flags": [ "NEVER_JAMS", "NON-FOULING", "NEEDS_NO_LUBE", "WATERPROOF_GUN" ],
+    "skill": "rifle",
+    "weight": "4100 g",
+    "volume": "3 L",
+    "longest_side": "905 mm",
+    "bashing": 8,
+    "to_hit": -1,
+    "ranged_damage": { "damage_type": "bullet", "amount": 1, "armor_penetration": 1 },
+    "range": 45,
+    "dispersion": 55,
+    "durability": 9,
+    "modes": [ [ "DEFAULT", "semi auto", 1 ], [ "BURST", "burst", 2 ] ],
+    "valid_mod_locations": [
+      [ "accessories", 4 ],
+      [ "grip", 1 ],
+      [ "mechanism", 4 ],
+      [ "rail", 1 ],
+      [ "sights", 1 ],
+      [ "sling", 1 ],
+      [ "stock", 1 ],
+      [ "underbarrel", 1 ]
+    ],
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE_WELL",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "magazine_well": "250 ml",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [ "railBL9mk2mag" ]
+      }
+    ]
+  },
+  {
     "id": "BL9_launcher_mk2",
     "looks_like": "rm802",
     "type": "GUN",
@@ -807,7 +983,7 @@
     "flags": [ "FIRE_TWOHAND", "STR_DRAW", "RELOAD_AND_SHOOT", "PRIMITIVE_RANGED_WEAPON" ],
     "skill": "archery",
     "min_strength": 9,
-    "ammo": [ "BL9arrowmk2_type", "arrow" ],
+    "ammo": [ "BL9arrowmk2_type" ],
     "weight": "907 g",
     "volume": "1500 ml",
     "longest_side": "1170 mm",
@@ -816,13 +992,13 @@
     "to_hit": 1,
     "reload_noise_volume": 3,
     "loudness": 10,
-    "ranged_damage": { "damage_type": "stab", "amount": 34 },
+    "ranged_damage": { "damage_type": "stab", "amount": 20 },
     "range": 24,
     "dispersion": 440,
     "durability": 9,
     "clip_size": 1,
     "valid_mod_locations": [ [ "underbarrel", 1 ], [ "sights", 1 ], [ "accessories", 2 ], [ "stabilizer", 1 ], [ "dampening", 1 ] ],
-    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9arrowmk2_type": 1, "arrow": 1 } } ]
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9arrowmk2_type": 1 } } ]
   },
   {
     "id": "BL9_crossbow_mk2",
@@ -838,14 +1014,14 @@
     "flags": [ "FIRE_TWOHAND", "PRIMITIVE_RANGED_WEAPON" ],
     "skill": "rifle",
     "min_strength": 7,
-    "ammo": [ "BL9boltmk2_type", "bolt" ],
+    "ammo": [ "BL9boltmk2_type" ],
     "weight": "3000 g",
     "volume": "1750 ml",
     "longest_side": "680 mm",
     "price_postapoc": "60 USD",
     "bashing": 11,
     "to_hit": 1,
-    "ranged_damage": { "damage_type": "stab", "amount": 42 },
+    "ranged_damage": { "damage_type": "stab", "amount": 25 },
     "range": 21,
     "loudness": 12,
     "dispersion": 175,
@@ -863,7 +1039,7 @@
       [ "underbarrel", 1 ],
       [ "dampening", 1 ]
     ],
-    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9boltmk2_type": 1, "bolt": 1 } } ]
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9boltmk2_type": 1 } } ]
   },
   {
     "id": "BL9_pistol_mk3",
@@ -1093,6 +1269,7 @@
       [ "brass catcher", 1 ],
       [ "rail mount", 1 ],
       [ "sights mount", 1 ],
+      [ "sling", 1 ],
       [ "underbarrel mount", 1 ]
     ],
     "clip_size": 12,
@@ -1159,7 +1336,7 @@
     "flags": [ "NEVER_JAMS", "NON-FOULING", "NEEDS_NO_LUBE", "WATERPROOF_GUN" ],
     "ammo_to_fire": 20,
     "skill": "launcher",
-    "ammo": [ "BL9spraymk2_type" ],
+    "ammo": [ "BL9spraymk3_type" ],
     "dispersion": 145,
     "durability": 10,
     "valid_mod_locations": [
@@ -1241,7 +1418,7 @@
     "flags": [ "FIRE_TWOHAND", "STR_DRAW", "RELOAD_AND_SHOOT", "PRIMITIVE_RANGED_WEAPON" ],
     "skill": "archery",
     "min_strength": 9,
-    "ammo": [ "BL9arrowmk2_type", "arrow" ],
+    "ammo": [ "BL9arrowmk3_type" ],
     "weight": "907 g",
     "volume": "1500 ml",
     "longest_side": "1170 mm",
@@ -1250,13 +1427,13 @@
     "to_hit": 1,
     "reload_noise_volume": 3,
     "loudness": 10,
-    "ranged_damage": { "damage_type": "stab", "amount": 34 },
+    "ranged_damage": { "damage_type": "stab", "amount": 20 },
     "range": 32,
     "dispersion": 365,
     "durability": 10,
     "clip_size": 1,
     "valid_mod_locations": [ [ "underbarrel", 1 ], [ "sights", 1 ], [ "accessories", 2 ], [ "stabilizer", 1 ], [ "dampening", 1 ] ],
-    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9arrowmk2_type": 1, "arrow": 1 } } ]
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9arrowmk3_type": 1 } } ]
   },
   {
     "id": "BL9_crossbow_mk3",
@@ -1272,14 +1449,14 @@
     "flags": [ "FIRE_TWOHAND", "PRIMITIVE_RANGED_WEAPON" ],
     "skill": "rifle",
     "min_strength": 7,
-    "ammo": [ "BL9boltmk2_type", "bolt" ],
+    "ammo": [ "BL9boltmk3_type" ],
     "weight": "3000 g",
     "volume": "1750 ml",
     "longest_side": "680 mm",
     "price_postapoc": "60 USD",
     "bashing": 11,
     "to_hit": 1,
-    "ranged_damage": { "damage_type": "stab", "amount": 42 },
+    "ranged_damage": { "damage_type": "stab", "amount": 25 },
     "range": 27,
     "loudness": 12,
     "dispersion": 145,
@@ -1297,6 +1474,6 @@
       [ "underbarrel", 1 ],
       [ "dampening", 1 ]
     ],
-    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9boltmk2_type": 1, "bolt": 1 } } ]
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "BL9boltmk3_type": 1 } } ]
   }
 ]
