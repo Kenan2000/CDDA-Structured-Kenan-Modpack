@@ -8,7 +8,7 @@
 
 #### MacOS
 
-下载解压后，打开 CDDA 存档所在文件夹，Mac版如下放置即可：
+如果你不希望覆盖内置 mod，下载解压后，打开 CDDA 存档所在文件夹，Mac版如下放置即可：
 
 `/Users/linonetwo/Library/Application Support/Cataclysm/mods`
 
@@ -16,9 +16,11 @@
 
 文件夹位置在 `config` 和 `save` 文件夹同级的那个 `mods` 文件夹里。如果你没有这个 `mods` 文件夹，可以手动新建一个。
 
-注意切勿和原版的 mod 文件放到一起，如果你看到提示问你是替换原版文件夹还是覆盖文件夹，那你肯定放错位置了。不然下次更新 Cataclysm.app 的时候会覆盖掉 mods。
+注意切勿和原版的 mod 文件放到一起，如果你看到提示问你是替换原版文件夹还是覆盖文件夹，那你肯定放错位置了。不然下次更新 Cataclysm.app 的时候会覆盖掉 mods，需要重新做一遍覆盖流程。
 
-是有部分 Mod 是改游戏内置 Mod 的，这些 Mod 得手动拖到 Cataclysm.app 里，嫌麻烦也可以不拖，只不过他们有可能不会生效。
+##### 如果你不介意覆盖内置 mod，也不介意安装新版游戏时重新操作一遍覆盖流程
+
+是有部分 Mod 是改游戏内置 Mod 的，这些 Mod 得手动拖到 Cataclysm.app 里覆盖其他内容，不拖话他们有可能不会生效。详见 https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese#installation-guide-must-read
 
 #### Windows
 
