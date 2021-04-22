@@ -411,7 +411,7 @@ class ModCache {
    */
   get(key) {
     if (this.translationCache[key] !== undefined || sharedTranslationCache[key] !== undefined) {
-      const translatedValue = // 优先检查官中内容里有没有，而且去掉一些可能影响匹配的内容
+      let translatedValue = // 优先检查官中内容里有没有，而且去掉一些可能影响匹配的内容
         (sharedTranslationCache[key] ?? sharedTranslationCache[_.trim(key, '*')])
           ?.replaceAll(/"(.+)"/g, '“$1”')
           ?.replaceAll('(', '（')
@@ -427,6 +427,28 @@ class ModCache {
       if (this.translationCache[key] === undefined) {
         this.insertToCache(key, translatedValue);
       }
+      // 如果 copies of 的原型有值，且copies of 的原型的审核进度大于当前进度
+      if (
+        this.translationCache[key.replace('copies of ', '')] !== undefined &&
+        (this.stages[key.replace('copies of ', '')] ?? 0) > (this.stages[key] ?? 0) &&
+        (this.stages[key.replace('copies of ', '')] ?? 0) > 0
+      ) {
+        logger.log('使用 copies of 的原型');
+        translatedValue = this.translationCache[key.replace('copies of ', '')];
+        this.insertToCache(key, translatedValue);
+        this.stages[key] = this.stages[key.replace('copies of ', '')];
+      }
+      // 或者当前值的 copies of 有值，且一方的审核进度较低
+      if (
+        this.translationCache['copies of ' + key] !== undefined &&
+        (this.stages['copies of ' + key] ?? 0) > (this.stages[key] ?? 0) &&
+        (this.stages['copies of ' + key] ?? 0) > 0
+      ) {
+        logger.log('使用加上 copies of');
+        translatedValue = this.translationCache['copies of ' + key];
+        this.insertToCache(key, translatedValue);
+        this.stages[key] = this.stages['copies of ' + key];
+      }
       // 如果官中有此内容，且翻译部分还没有审核过，则直接使用官中，并把翻译进度拉到已审核
       if (
         sharedTranslationCache[key] !== undefined &&
@@ -435,6 +457,7 @@ class ModCache {
         logger.log('使用官中');
         this.insertToCache(key, translatedValue);
         this.stages[key] = 5;
+        translatedValue = sharedTranslationCache[key];
       }
       return translatedValue;
     }
@@ -992,7 +1015,7 @@ ${getItemBrowserLink(fullItem)}`
   translators.field_type = noop;
   translators.json_flag = infoItem;
   translators.martial_art = async (item) => {
-    item.description = await translateFunction(item.description);
+    await namePlDesc(item);
     if (Array.isArray(item.initiate)) {
       item.initiate = await Promise.all(item.initiate.map((msg) => translateFunction(msg)));
     }
