@@ -971,7 +971,24 @@ ${getItemBrowserLink(fullItem)}`
   translators.city_building = namePlDesc;
   translators.requirement = namePlDesc;
   translators.recipe = namePlDesc;
-  translators.recipe_category = namePlDesc;
+  translators.recipe_category = async (item) => {
+    await namePlDesc(item);
+    if (Array.isArray(item.recipe_subcategories)) {
+      item.recipe_subcategories = await Promise.all(
+        item.recipe_subcategories.map(async (subItem) => {
+          if (subItem === 'CSC_ALL') return '全部';
+          // CC_SECRONOM
+          // "CSC_SECRONOM_FLESH",
+          // "CSC_SECRONOM_FLESH ARMOR",
+          // "CSC_SECRONOM_FLESH ALTERATION"
+          const prefix = item.id.replace('CC_', 'CSC_') + '_';
+          const realCategoryName = subItem.replace(prefix, '');
+          const translated = await translateFunction(realCategoryName);
+          return prefix + translated;
+        })
+      );
+    }
+  };
   translators.uncraft = namePlDesc;
   translators.enchantment = namePlDesc;
   translators.SPELL = namePlDesc;
