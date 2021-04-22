@@ -879,6 +879,18 @@ ${getItemBrowserLink(fullItem)}`
     item.name_suffix = await translateFunction(item.name_suffix);
   };
 
+  const subCategory = async (subCategoryName, categoryName) => {
+    if (subCategoryName === 'CSC_ALL') return subCategoryName;
+    // CC_SECRONOM
+    // "CSC_SECRONOM_FLESH",
+    // "CSC_SECRONOM_FLESH ARMOR",
+    // "CSC_SECRONOM_FLESH ALTERATION"
+    const prefix = categoryName.replace('CC_', 'CSC_') + '_';
+    const realCategoryName = subCategoryName.replace(prefix, '');
+    const translated = await translateFunction(realCategoryName);
+    return prefix + translated;
+  };
+
   // 注册各种类型数据的翻译器
   translators.profession = namePlDesc;
   translators.scenario = async (item) => {
@@ -970,24 +982,19 @@ ${getItemBrowserLink(fullItem)}`
   translators.region_overlay = namePlDesc;
   translators.city_building = namePlDesc;
   translators.requirement = namePlDesc;
-  translators.recipe = namePlDesc;
+  translators.recipe = async (item) => {
+    await namePlDesc(item);
+    // if (item.subcategory && item.category) {
+    //   item.subcategory = await subCategory(item.subcategory, item.category);
+    // }
+  };
   translators.recipe_category = async (item) => {
     await namePlDesc(item);
-    if (Array.isArray(item.recipe_subcategories)) {
-      item.recipe_subcategories = await Promise.all(
-        item.recipe_subcategories.map(async (subItem) => {
-          if (subItem === 'CSC_ALL') return '全部';
-          // CC_SECRONOM
-          // "CSC_SECRONOM_FLESH",
-          // "CSC_SECRONOM_FLESH ARMOR",
-          // "CSC_SECRONOM_FLESH ALTERATION"
-          const prefix = item.id.replace('CC_', 'CSC_') + '_';
-          const realCategoryName = subItem.replace(prefix, '');
-          const translated = await translateFunction(realCategoryName);
-          return prefix + translated;
-        })
-      );
-    }
+    // if (Array.isArray(item.recipe_subcategories) && item.id) {
+    //   item.recipe_subcategories = await Promise.all(
+    //     item.recipe_subcategories.map((name) => subCategory(name, item.id))
+    //   );
+    // }
   };
   translators.uncraft = namePlDesc;
   translators.enchantment = namePlDesc;
