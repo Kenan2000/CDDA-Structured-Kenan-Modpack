@@ -15,7 +15,7 @@
     "material": [ "flesh" ],
     "symbol": "&",
     "color": "green_white",
-    "aggression": -5,
+    "aggression": 25,
     "morale": 20,
     "melee_skill": 6,
     "melee_dice": 4,
@@ -55,7 +55,7 @@
     "material": [ "flesh" ],
     "symbol": "&",
     "color": "light_blue_white",
-    "aggression": -10,
+    "aggression": 10,
     "morale": 100,
     "melee_skill": 7,
     "melee_dice": 4,
@@ -122,7 +122,7 @@
       "ANIMAL",
       "PET_WONT_FOLLOW",
       "PET_MOUNTABLE",
-      "DOGFOOD"
+      "CATTLEFODDER"
     ]
   },
   {
@@ -140,6 +140,8 @@
     "speed": 110,
     "material": [ "flesh" ],
     "symbol": "L",
+    "aggression": 25,
+    "morale": 70,
     "color": "light_blue",
     "melee_skill": 4,
     "melee_dice": 2,
@@ -169,15 +171,15 @@
       "ANIMAL",
       "ATTACKMON",
       "SWIMS",
-      "PET_WONT_FOLLOW",  
-      "CATFOOD"
+      "PET_WONT_FOLLOW",
+      "DOGFOOD"
     ]
   },
   {
     "id": "dkz_mon_wisp",
     "type": "MONSTER",
     "name": { "str_sp": "wisp" },
-    "description": "A small, fist sized critter that looks like a floating slug covered in bio-luminescent markings, capable of limited flight through utilization of membranous, wing-like protrusions and the secretion of a faint white mist.  It is most commonly found around floating around flowers, fruits, and other sugary substances in small, communal groups.  It regards you with curiosity, and occasionally flashes its markings as if it is communicating among its fellows.",
+    "description": "A small, fist sized critter that looks like a floating slug covered in bio-luminescent markings, capable of limited flight through utilization of membranous, wing-like protrusions and the secretion of a faint white mist.  It is most commonly found around floating around dead leaves, rotten fruits, and other substances in small, communal groups.  It regards you with curiosity, and occasionally flashes its markings as if it is communicating among its fellows.",
     "bodytype": "blob",
     "default_faction": "alien_herbivore",
     "categories": [ "ALIEN" ],
@@ -194,8 +196,19 @@
     "morale": 0,
     "dodge": 4,
     "fear_triggers": [ "SOUND", "FIRE", "FRIEND_DIED", "FRIEND_ATTACKED", "HURT" ],
-    "death_function": [ "NORMAL" ],
-    "flags": [ "SEES", "HEARS", "SMELLS", "KEENNOSE", "ANIMAL", "PATH_AVOID_DANGER_1", "FLIES", "SWARMS" ]
+    "death_function": [ "MELT" ],
+    "flags": [
+      "SEES",
+      "HEARS",
+      "SMELLS",
+      "KEENNOSE",
+      "ANIMAL",
+      "PATH_AVOID_DANGER_1",
+      "FLIES",
+      "SWARMS",
+      "PET_WONT_FOLLOW",
+      "CATFOOD"
+    ]
   },
   {
     "id": "dkz_mon_bileworm",

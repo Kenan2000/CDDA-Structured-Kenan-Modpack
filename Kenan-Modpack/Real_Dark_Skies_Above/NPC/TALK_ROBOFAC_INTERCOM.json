@@ -1,0 +1,26 @@
+[
+  {
+    "id": "TALK_ROBOFAC_INTERCOM",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "Are you aware there are aliens out here.?",
+        "effect": { "u_add_var": "u_Talk_To_Intercom_about_Xenoids", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "not": { "u_has_var": "u_Talk_To_Intercom_about_Xenoids", "type": "general", "context": "meeting", "value": "yes" } },
+        "topic": "TALK_ROBOFAC_INTERCOM_XENOIDS"
+      }
+    ]
+  },
+  {
+    "id": "TALK_ROBOFAC_INTERCOM_XENOIDS_1",
+    "type": "talk_topic",
+    "dynamic_line": "We are aware of them and do not require any assistance in this matter.",
+    "responses": [ { "text": "What do you mean 'You are aware of them'?", "topic": "TALK_ROBOFAC_INTERCOM_XENOIDS_2" } ]
+  },
+  {
+    "id": "TALK_ROBOFAC_INTERCOM_XENOIDS_2",
+    "type": "talk_topic",
+    "dynamic_line": "It means just that.  We are aware of them and do not require any assistance in this matter.  Good bye.",
+    "responses": [ { "text": "Don't you hang up on me!", "topic": "TALK_DONE" } ]
+  }  
+]

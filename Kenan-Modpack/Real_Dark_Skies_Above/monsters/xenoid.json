@@ -20,7 +20,7 @@
     "armor_bash": 10,
     "armor_stab": 13,
     "armor_cut": 12,
-    "armor_bullet": 15,
+    "armor_bullet": 7,
     "luminance": 10,
     "vision_night": 5,
     "special_attacks": [
@@ -71,7 +71,7 @@
     "armor_bash": 10,
     "armor_stab": 13,
     "armor_cut": 12,
-    "armor_bullet": 15,
+    "armor_bullet": 7,
     "luminance": 10,
     "vision_night": 5,
     "special_attacks": [
@@ -132,7 +132,7 @@
     "armor_bash": 5,
     "armor_stab": 7,
     "armor_cut": 5,
-    "armor_bullet": 11,
+    "armor_bullet": 5,
     "harvest": "dkz_mhuman_chipped",
     "special_attacks": [
       [ "PARROT", 5 ],
@@ -207,7 +207,7 @@
     "armor_bash": 5,
     "armor_stab": 7,
     "armor_cut": 5,
-    "armor_bullet": 11,
+    "armor_bullet": 5,
     "harvest": "dkz_mhuman_chipped",
     "special_attacks": [
       [ "PARROT", 5 ],
@@ -283,7 +283,7 @@
     "armor_bash": 5,
     "armor_stab": 7,
     "armor_cut": 5,
-    "armor_bullet": 11,
+    "armor_bullet": 5,
     "harvest": "dkz_mhuman_chipped",
     "special_attacks": [
       [ "PARROT", 5 ],
@@ -359,7 +359,7 @@
     "armor_bash": 5,
     "armor_stab": 7,
     "armor_cut": 5,
-    "armor_bullet": 11,
+    "armor_bullet": 5,
     "harvest": "dkz_mhuman_chipped",
     "special_attacks": [
       [ "PARROT", 5 ],
@@ -434,14 +434,15 @@
     "armor_bash": 5,
     "armor_stab": 7,
     "armor_cut": 5,
-    "armor_bullet": 11,
+    "armor_bullet": 5,
+    "emit_fields": [ { "emit_id": "emit_relax_gas", "delay": "1 s" } ],	
     "harvest": "dkz_mhuman_chipped",
     "special_attacks": [
       [ "PARROT", 5 ],
       {
         "type": "spell",
         "spell_data": { "id": "dkz_monspell_halluc" },
-        "cooldown": 13,
+        "cooldown": 2,
         "monster_message": "<color_pink>%1$s gesticulates at %3$s and a pulse of mind-bending psionic energy ripples through the air!</color>"
       },
       {
@@ -449,12 +450,12 @@
         "cooldown": 5,
         "move_cost": 500,
         "gun_type": "dkz_mon_gasgun",
-        "ranges": [ [ 0, 15, "DEFAULT" ] ],
+        "ranges": [ [ 2, 9, "DEFAULT" ] ],
         "require_targeting_npc": true,
         "require_targeting_monster": true,
         "laser_lock": false,
         "targeting_cost": 300,
-        "description": "<color_light_green>The %1$s fires a stream of flowery, sweet-smelling gas!</color>"
+        "description": "<color_light_green>The %1$s fires a stream of blue hazy gas!</color>"
       }
     ],
     "death_drops": "dkz_xenoid_fumigator",
@@ -507,7 +508,7 @@
     "armor_bash": 13,
     "armor_stab": 19,
     "armor_cut": 13,
-    "armor_bullet": 23,
+    "armor_bullet": 11,
     "harvest": "dkz_mhuman_chipped",
     "special_attacks": [
       [ "PARROT", 5 ],
@@ -581,7 +582,7 @@
     "armor_bash": 13,
     "armor_stab": 19,
     "armor_cut": 13,
-    "armor_bullet": 23,
+    "armor_bullet": 11,
     "harvest": "dkz_mhuman_chipped",
     "special_attacks": [
       [ "PARROT", 20 ],
@@ -656,7 +657,7 @@
     "armor_bash": 13,
     "armor_stab": 19,
     "armor_cut": 13,
-    "armor_bullet": 23,
+    "armor_bullet": 11,
     "harvest": "dkz_mhuman_chipped",
     "special_attacks": [
       [ "PARROT", 20 ],
@@ -731,9 +732,10 @@
     "armor_stab": 90,
     "armor_cut": 90,
     "armor_acid": 15,
-    "armor_bullet": 13,
+    "armor_bullet": 29,
     "vision_day": 50,
     "vision_night": 12,
+    "emit_fields": [ { "emit_id": "emit_toxic_leak", "delay": "1 s" } ],
     "path_settings": { "max_dist": 30 },
     "death_drops": { "groups": [ [ "robots", 4 ], [ "eyebot", 1 ], [ "turret_searchlight", 1 ] ] },
     "anger_triggers": [ "HURT", "PLAYER_WEAK", "STALK" ],
@@ -755,7 +757,7 @@
         "targeting_cost": 500,
         "targeting_sound": "the sound of pressurized gas hissing loudly.",
         "targeting_volume": 50,
-        "description": "<color_light_green>The emissary emits a stream of flowery, sweet-smelling gas!</color>"
+        "description": "<color_light_green>The %1$s fires a stream of blue hazy gas!</color>"
       }
     ],
     "death_function": [ "BROKEN" ],
@@ -775,6 +777,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
+      "PATH_AVOID_DANGER_2",	  
       "PRIORITIZE_TARGETS"
     ]
   },
@@ -805,7 +808,7 @@
     "armor_stab": 90,
     "armor_cut": 90,
     "armor_acid": 15,
-    "armor_bullet": 13,
+    "armor_bullet": 29,
     "vision_day": 50,
     "vision_night": 12,
     "path_settings": { "max_dist": 30 },
@@ -849,6 +852,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
+      "PATH_AVOID_DANGER_2",	  
       "PRIORITIZE_TARGETS"
     ]
   },
@@ -879,7 +883,7 @@
     "armor_stab": 95,
     "armor_cut": 95,
     "armor_acid": 25,
-    "armor_bullet": 15,
+    "armor_bullet": 31,
     "vision_day": 50,
     "vision_night": 12,
     "path_settings": { "max_dist": 30 },
@@ -925,6 +929,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
+      "PATH_AVOID_DANGER_2",	  
       "PRIORITIZE_TARGETS"
     ]
   },
@@ -955,7 +960,7 @@
     "armor_stab": 90,
     "armor_cut": 90,
     "armor_acid": 15,
-    "armor_bullet": 13,
+    "armor_bullet": 29,
     "vision_day": 50,
     "vision_night": 12,
     "path_settings": { "max_dist": 30 },
@@ -997,6 +1002,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
+      "PATH_AVOID_DANGER_2",	  
       "PRIORITIZE_TARGETS"
     ]
   },

@@ -1,4 +1,4 @@
-# The Real Dark Skies Above
+# The Real Dark Skies
 A supplemental, community supported, mod for Cataclysm: DDA, taking inspiration from XCOM 2, Half Life 2, the movie Skyline (not the sequels) and other similar 'alien invasion' media, as well as Harlan Ellison's short story "I Have No Mouth, and I Must Scream" to present a brutal game of survival against an alien expeditionary force. 
 
 # Takeaway Features

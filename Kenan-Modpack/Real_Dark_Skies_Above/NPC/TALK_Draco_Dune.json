@@ -1,0 +1,20 @@
+[
+  {
+    "id": "TALK_REFUGEE_Draco_1",
+    "type": "talk_topic",
+    "responses": [
+      {
+        "text": "What can you tell me about the Xenoids?",
+        "effect": { "u_add_var": "u_Talk_To_Draco_Dune_about_Xenoids", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": { "not": { "u_has_var": "u_Talk_To_Draco_Dune_about_Xenoids", "type": "general", "context": "meeting", "value": "yes" } },
+        "topic": "TALK_REFUGEE_Draco_XENOIDS"
+      }
+    ]
+  },
+  {
+    "id": "TALK_REFUGEE_Draco_XENOIDS",
+    "type": "talk_topic",
+    "dynamic_line": "Dude, you can see them too?  I thought those dudes with the creepy masks were hallucinations and I was just trying to ignore them.",
+    "responses": [ { "text": "No they really are real.", "topic": "TALK_REFUGEE_Draco_1" } ]
+  }
+]
