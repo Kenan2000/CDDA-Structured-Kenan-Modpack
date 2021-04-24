@@ -1063,6 +1063,11 @@ ${getItemBrowserLink(fullItem)}`
         await namePlDesc(buff);
       }
     }
+    if (Array.isArray(item.static_buffs)) {
+      for (const buff of item.static_buffs) {
+        await namePlDesc(buff);
+      }
+    }
   };
   translators.material = material;
   translators.MOD_INFO = namePlDesc;
