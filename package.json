@@ -5,8 +5,9 @@
   "author": "linonetwo",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "npm run clean && npm run translate && npm run remove-buildin && npm run copy-readme",
+    "start": "npm run clean && npm run import-paratranz && npm run translate && npm run remove-buildin && npm run copy-readme",
     "translate": "node ./翻译.js",
+    "import-paratranz": "node ./下载Paratranz.js",
     "copy-readme": "cp ./README.md ./Kenan-Modpack-Chinese/安装说明.md && cp ./docs/images/mod-folder.png ./Kenan-Modpack-Chinese/安装方法图示.png",
     "remove-buildin": "node ./删除内置mod.js",
     "build-wiki": "node -e \"require('./wiki')()\"",
