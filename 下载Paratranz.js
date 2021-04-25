@@ -16,15 +16,15 @@ const streamPipeline = promisify(pipeline);
 
 dotenv.config();
 async function 下载() {
-  const response = await fetch(zipUrl, { method: 'GET', headers: { Authorization: process.env.PARATRANZ_TOKEN } });
-  await streamPipeline(response.body, unzipper.Extract({ path: unzipOutputPath }));
-  if (!response.ok) throw new Error(`unexpected response ${response.statusText}`);
+  // const response = await fetch(zipUrl, { method: 'GET', headers: { Authorization: process.env.PARATRANZ_TOKEN } });
+  // await streamPipeline(response.body, unzipper.Extract({ path: unzipOutputPath }));
+  // if (!response.ok) throw new Error(`unexpected response ${response.statusText}`);
 }
 下载()
   .then(async () => {
     for (const downloadedFileName of fs.list(downloadedTranslationsPath).filter((name) => name.endsWith('.json'))) {
       // DEBUG: console
-      console.log(`downloadedFileName`, downloadedFileName);
+      console.log(`downloadedFileName`, path.join(downloadedTranslationsPath, downloadedFileName), path.resolve(downloadedTranslationsPath, '..', '..', '中文翻译', downloadedFileName));
       fs.copy(
         path.join(downloadedTranslationsPath, downloadedFileName),
         path.resolve(downloadedTranslationsPath, '..', '中文翻译', downloadedFileName),
