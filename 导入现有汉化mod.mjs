@@ -25,9 +25,12 @@ const translationsToImport = [
   // 'secronom',
   // 'vamp_stuff',
   'Fallout_CDDA',
+  'MST_Extra',
 ];
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/Fallout_CDDA' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/Fallout_CDDA' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/MST_Extra' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/MST_Extra' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/Arcana' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/Arcana' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/oa_early_game_mutations_mod' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
