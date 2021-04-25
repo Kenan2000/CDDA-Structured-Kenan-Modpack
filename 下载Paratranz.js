@@ -25,7 +25,7 @@ async function 下载() {
     for (const downloadedFileName of fs.list(downloadedTranslationsPath).filter((name) => name.endsWith('.json'))) {
       fs.copy(
         path.join(downloadedTranslationsPath, downloadedFileName),
-        path.resolve(downloadedTranslationsPath, '..', '中文翻译', downloadedFileName),
+        path.resolve(downloadedTranslationsPath, '..', '..', '中文翻译', downloadedFileName),
         { overwrite: true }
       );
     }
