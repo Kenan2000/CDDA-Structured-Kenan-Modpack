@@ -27,9 +27,17 @@ jobs:
         uses: exions/merge-upstream@v1
         with:
           upstream: Kenan2000/CDDA-Kenan-Modpack
-
+      - name: 拉取 Paratranz 最新内容
+        run: npm run import-paratranz
+        env:
+          PARATRANZ_TOKEN: ${{ secrets.PARATRANZ_TOKEN }}
       - name: Build Mod
         run: npm start
+        env:
+          BAIDU_TRANSLATION_APP_ID: ${{ secrets.BAIDU_TRANSLATION_APP_ID }}
+          BAIDU_TRANSLATION_SECRET: ${{ secrets.BAIDU_TRANSLATION_SECRET }}
+          SOUGOU_TRANSLATION_APP_ID: ${{ secrets.SOUGOU_TRANSLATION_APP_ID }}
+          SOUGOU_TRANSLATION_SECRET: ${{ secrets.SOUGOU_TRANSLATION_SECRET }}
       - name: Build Wiki
         run: npm run build-wiki
 
