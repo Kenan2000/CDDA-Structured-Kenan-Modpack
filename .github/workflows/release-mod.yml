@@ -20,10 +20,11 @@ jobs:
       - name: Install Dependency
         run: npm install
 
-      - name: 拉取 Kenan 最新内容 by Sync to Upstream Repository
-        uses: imba-tjd/rebase-upstream-action@0.5
+      - name: 拉取 Kenan 最新内容 by Merge from Upstream Repository
+        # rebase 太慢了
+        uses: exions/merge-upstream@v1
         with:
-          push: false
+          upstream: Kenan2000/CDDA-Kenan-Modpack
 
       - name: Build Mod
         run: npm start
