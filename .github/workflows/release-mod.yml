@@ -21,6 +21,7 @@ jobs:
         run: npm install
 
       - name: 拉取 Kenan 最新内容 by Merge from Upstream Repository
+        continue-on-error: true
         # rebase 太慢了
         uses: exions/merge-upstream@v1
         with:
