@@ -2,13 +2,45 @@
 
 [打开下载页](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/tag/latest)
 
-下载解压后，打开 CDDA 存档所在文件夹，如下放置即可：
+## Mod文件放置位置
 
-![docs/images/mod-folder.png](./docs/images/mod-folder.png)
+### 桌面版
+
+#### MacOS
+
+如果你不希望覆盖内置 mod，下载解压后，打开 CDDA 存档所在文件夹，Mac版如下放置即可：
+
+`/Users/linonetwo/Library/Application Support/Cataclysm/mods`
+
+![docs/images/mod-folder.png](https://raw.githubusercontent.com/linonetwo/CDDA-Kenan-Modpack-Chinese/master/docs/images/mod-folder.png)
+
+文件夹位置在 `config` 和 `save` 文件夹同级的那个 `mods` 文件夹里。如果你没有这个 `mods` 文件夹，可以手动新建一个。
+
+注意切勿和原版的 mod 文件放到一起，如果你看到提示问你是替换原版文件夹还是覆盖文件夹，那你肯定放错位置了。不然下次更新 Cataclysm.app 的时候会覆盖掉 mods，需要重新做一遍覆盖流程。
+
+##### 如果你不介意覆盖内置 mod，也不介意安装新版游戏时重新操作一遍覆盖流程
+
+是有部分 Mod 是改游戏内置 Mod 的，这些 Mod 得手动拖到 Cataclysm.app 里覆盖其他内容，不拖话他们有可能不会生效。详见 https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese#installation-guide-must-read
+
+#### Windows
+
+我个人不用 Windows，如果你有好的办法可以来 PR 修复此部分。
+
+### Android手机版
+
+安装好实验版后（实验版下载地址 http://dev.narc.ro/cataclysm/jenkins-latest/Android/Tiles/ ），打开游戏，然后用文件管理新建这个文件夹：
+
+`/storage/emulated/0/Android/data/com.cleverraven.cataclysmdda.experimental/files/mods`
+
+文件夹位置在 `config` 和 `save` 文件夹同级的那个 `mods` 文件夹里。如果你没有这个 `mods` 文件夹，可以手动新建一个。如下图：
+
+![docs/images/mod-folder-mobile.png](https://raw.githubusercontent.com/linonetwo/CDDA-Kenan-Modpack-Chinese/master/docs/images/mod-folder-mobile.png)
+
+手机电脑同步可参考[多端同步：白天在手机上玩，晚上回家用大屏电脑玩](https://tieba.baidu.com/p/6966289045)
 
 ## Development 开发
 
-如果你想贡献翻译（主要是润色机翻内容），直接打开 `中文翻译` 文件夹里对应 mod 的 json 文件搜索对应中英文搜到改了提交 Pull Request 即可。 （在 Github 上点击保存应该会自动为你创建 PR 提交贡献给这个代码仓库），我会重新运行翻译脚本生成润色好的最新内容。如果内容过期也请提 issue 通知我。
+如果你想贡献翻译请看下面的汉化说明。如果内容与 Kenan Mod Pack 最新版有差别，我会重新运行翻译脚本生成润色好的最新内容。如果内容过期也请提 issue 通知我。
 
 ### 汉化说明
 

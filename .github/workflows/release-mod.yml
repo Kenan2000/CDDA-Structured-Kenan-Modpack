@@ -10,6 +10,7 @@ on:
 
 jobs:
   deploy:
+    environment: Translation
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,8 +20,24 @@ jobs:
 
       - name: Install Dependency
         run: npm install
+
+      - name: 拉取 Kenan 最新内容 by Merge from Upstream Repository
+        continue-on-error: true
+        # rebase 太慢了
+        uses: exions/merge-upstream@v1
+        with:
+          upstream: Kenan2000/CDDA-Kenan-Modpack
+      - name: 拉取 Paratranz 最新内容
+        run: npm run import-paratranz
+        env:
+          PARATRANZ_TOKEN: ${{ secrets.PARATRANZ_TOKEN }}
       - name: Build Mod
         run: npm start
+        env:
+          BAIDU_TRANSLATION_APP_ID: ${{ secrets.BAIDU_TRANSLATION_APP_ID }}
+          BAIDU_TRANSLATION_SECRET: ${{ secrets.BAIDU_TRANSLATION_SECRET }}
+          SOUGOU_TRANSLATION_APP_ID: ${{ secrets.SOUGOU_TRANSLATION_APP_ID }}
+          SOUGOU_TRANSLATION_SECRET: ${{ secrets.SOUGOU_TRANSLATION_SECRET }}
       - name: Build Wiki
         run: npm run build-wiki
 
@@ -42,3 +59,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public-dist
+          
+      - name: Add & Commit
+        uses: EndBug/add-and-commit@v7.2.0
+        with:
+          message: 'feat: 自动拉取Paratranz最新内容并发布'
