@@ -27,6 +27,9 @@ jobs:
         uses: exions/merge-upstream@v1
         with:
           upstream: Kenan2000/CDDA-Kenan-Modpack
+          upstream-branch: master
+          branch: master
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: 拉取 Paratranz 最新内容
         run: npm run import-paratranz
         env:
@@ -64,3 +67,4 @@ jobs:
         uses: EndBug/add-and-commit@v7.2.0
         with:
           message: 'feat: 自动拉取Paratranz最新内容并发布'
+          pull_strategy: NO-PULL
