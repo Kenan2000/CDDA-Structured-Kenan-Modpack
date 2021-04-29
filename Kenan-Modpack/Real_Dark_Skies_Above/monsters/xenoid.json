@@ -26,6 +26,18 @@
     "special_attacks": [
       [ "SEARCHLIGHT", 1 ],
       {
+        "type": "gun",
+        "cooldown": 13,
+        "move_cost": 100,
+        "gun_type": "dkz_mon_dart",
+        "fake_skills": [ [ "gun", 2 ] ],
+        "fake_dex": 5,
+        "ranges": [ [ 0, 10, "DEFAULT" ] ],
+        "require_targeting_npc": true,
+        "require_targeting_monster": true,
+        "laser_lock": false
+      },
+      {
         "type": "spell",
         "spell_data": { "id": "dkz_cameraflash" },
         "cooldown": 10,
@@ -64,10 +76,15 @@
     "speed": 100,
     "material": [ "dkz_blend_mat", "dkz_biopoly_mat" ],
     "symbol": "d",
-    "aggression": -5,
-    "morale": 100,
     "color": "light_gray",
+    "aggression": 25,
     "dodge": 4,
+    "morale": 100,
+    "melee_skill": 3,
+    "melee_dice": 1,
+    "melee_dice_sides": 6,
+    "melee_damage": [ { "damage_type": "electric", "amount": 3 } ],
+    "melee_cut": 0,
     "armor_bash": 10,
     "armor_stab": 13,
     "armor_cut": 12,
@@ -76,7 +93,19 @@
     "vision_night": 5,
     "special_attacks": [
       [ "TAZER", 12 ],
-      { "id": "tool_slash" },
+      { "id": "knife_slash" },
+      {
+        "type": "gun",
+        "cooldown": 13,
+        "move_cost": 100,
+        "gun_type": "dkz_mon_dart",
+        "fake_skills": [ [ "gun", 2 ] ],
+        "fake_dex": 5,
+        "ranges": [ [ 0, 10, "DEFAULT" ] ],
+        "require_targeting_npc": true,
+        "require_targeting_monster": true,
+        "laser_lock": false
+      },
       {
         "type": "spell",
         "spell_data": { "id": "dkz_cameraflash" },
@@ -258,7 +287,7 @@
     "id": "dkz_xenoid_enforcer",
     "type": "MONSTER",
     "name": { "str": "xenoid enforcer" },
-    "description": "A human-sized soldier dressed in light armor which they use in conjunction with a small grey shield and shock baton.  The shield has strange black hieroglyphs on it whose outline glows and pulsates in sync with the luminescence from the shock baton.  The gaze from its dispassionate mask fills you with fear.",
+    "description": "A human-sized soldier clad in light grey armor in conjunction with a small grey shield and shock baton.  The shield has strange black hieroglyphs on it whose outline glows and pulsates in sync with the luminescence from the shock baton.  The gaze from its dispassionate mask fills you with fear.",
     "default_faction": "xenoid",
     "bodytype": "human",
     "categories": [ "ALIEN" ],
@@ -334,7 +363,7 @@
     "id": "dkz_xenoid_oppressor",
     "type": "MONSTER",
     "name": { "str": "xenoid oppressor" },
-    "description": "A human-sized soldier dressed in light armor which they use in conjunction with a small grey shield and shock baton.  The shield has strange black hieroglyphs on it whose outline glows and pulsates in sync with the luminescence from the shock baton.  Its malicious gaze fills you with terror.",
+    "description": "A human-sized soldier clad in light grey armor in conjunction with a small grey shield and shock baton.  The shield has strange black hieroglyphs on it whose outline glows and pulsates in sync with the luminescence from the shock baton.  Its malicious gaze fills you with terror.",
     "default_faction": "xenoid",
     "bodytype": "human",
     "categories": [ "ALIEN" ],
@@ -368,7 +397,7 @@
       {
         "type": "spell",
         "spell_data": { "id": "dkz_monspell_panic" },
-        "cooldown": 5,
+        "cooldown": 4,
         "monster_message": "<color_pink>The %1$s gesticulates at %3$s and a pulse of fear-inducing psionic energy ripples through the air!</color>"
       },
       {
@@ -435,7 +464,7 @@
     "armor_stab": 7,
     "armor_cut": 5,
     "armor_bullet": 5,
-    "emit_fields": [ { "emit_id": "emit_relax_gas", "delay": "1 s" } ],	
+    "emit_fields": [ { "emit_id": "emit_relax_gas", "delay": "1 s" } ],
     "harvest": "dkz_mhuman_chipped",
     "special_attacks": [
       [ "PARROT", 5 ],
@@ -777,7 +806,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
-      "PATH_AVOID_DANGER_2",	  
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS"
     ]
   },
@@ -852,7 +881,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
-      "PATH_AVOID_DANGER_2",	  
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS"
     ]
   },
@@ -929,7 +958,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
-      "PATH_AVOID_DANGER_2",	  
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS"
     ]
   },
@@ -1002,7 +1031,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
-      "PATH_AVOID_DANGER_2",	  
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS"
     ]
   },
