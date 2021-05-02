@@ -759,6 +759,9 @@ ${getItemBrowserLink(fullItem)}`
         await useActionMsg(useAction);
       }
     }
+    if (typeof item.use_action === 'object') {
+      await useActionMsg(item.use_action);
+    }
     if (item.use_action?.activation_message) {
       if (Array.isArray(item.use_action.activation_message)) {
         // 有可能是一个数组
