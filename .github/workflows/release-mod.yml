@@ -25,8 +25,15 @@ jobs:
         continue-on-error: true
         # rebase 太慢了
         uses: dabreadman/sync-upstream-repo@v1.0.0.b
+        env:
+          # Required, URL to upstream (fork base)
+          UPSTREAM_URL: "https://github.com/Kenan2000/CDDA-Kenan-Modpack.git"
+          # Optional merge arguments
+          MERGE_ARGS: ""
+          # Optional push arguments
+          PUSH_ARGS: ""
         with:
-          upstream_repo: https://github.com/Kenan2000/CDDA-Kenan-Modpack
+          upstream_repo: ${{ env.UPSTREAM_URL }}
           upstream_branch: master
           downstream_branch: master
           token: ${{ secrets.GITHUB_TOKEN }}
