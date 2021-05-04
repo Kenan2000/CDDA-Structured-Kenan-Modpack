@@ -24,11 +24,11 @@ jobs:
       - name: 拉取 Kenan 最新内容 by Merge from Upstream Repository
         continue-on-error: true
         # rebase 太慢了
-        uses: exions/merge-upstream@v1
+        uses: dabreadman/sync-upstream-repo@v1.0.0.b
         with:
-          upstream: Kenan2000/CDDA-Kenan-Modpack
-          upstream-branch: master
-          branch: master
+          upstream_repo: https://github.com/Kenan2000/CDDA-Kenan-Modpack
+          upstream_branch: master
+          downstream_branch: master
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: 拉取 Paratranz 最新内容
         run: npm run import-paratranz
