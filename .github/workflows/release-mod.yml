@@ -13,13 +13,9 @@ jobs:
     environment: Translation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '15'
-
-      - name: Install Dependency
-        run: npm install
 
       - name: 拉取 Kenan 最新内容 by Merge from Upstream Repository
         continue-on-error: true
@@ -37,6 +33,12 @@ jobs:
           upstream_branch: master
           downstream_branch: master
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/checkout@v2
+
+      - name: Install Dependency
+        run: npm install
+
       - name: 拉取 Paratranz 最新内容
         run: npm run import-paratranz
         env:
@@ -74,4 +76,3 @@ jobs:
         uses: EndBug/add-and-commit@v7.2.0
         with:
           message: 'feat: 自动拉取Paratranz最新内容并发布'
-          pull_strategy: NO-PULL
