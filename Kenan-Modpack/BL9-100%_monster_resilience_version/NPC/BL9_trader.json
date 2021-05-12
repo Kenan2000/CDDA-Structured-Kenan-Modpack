@@ -513,26 +513,26 @@
       },
       {
         "text": "[46Gcomb] *BL9-infused body armor*",
-        "condition": { "not": { "u_has_item": "BL9_bodyarmor" } },
+        "condition": { "not": { "u_has_item": "BL9_survivorbodyarmor" } },
         "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 46 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_sell_item": "goldcoincomb", "count": 46 },
             { "npc_consume_item": "goldcoincomb", "count": 46 },
-            { "u_buy_item": "BL9_bodyarmor", "count": 1 }
+            { "u_buy_item": "BL9_survivorbodyarmor", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
         "text": "[83Pcomb] *BL9-infused body armor MK ii*",
-        "condition": { "and": [ { "u_has_item": "BL9_bodyarmor" }, { "not": { "u_has_item": "BL9_bodyarmor_mk2" } } ] },
+        "condition": { "and": [ { "u_has_item": "BL9_survivorbodyarmor" }, { "not": { "u_has_item": "BL9_survivorbodyarmor_mk2" } } ] },
         "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 83 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_buy_item": "BL9_bodyarmor_mk2", "count": 1 },
+            { "u_buy_item": "BL9_survivorbodyarmor_mk2", "count": 1 },
             { "u_sell_item": "platcoincomb", "count": 83 },
             { "npc_consume_item": "platcoincomb", "count": 83 }
           ]
