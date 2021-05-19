@@ -1,4 +1,4 @@
-Mod and Python script created by Saicchi
+Mod and Python script created by Saicchi (Now, note that Python installation is **MANDATORY** on your system as well)
 
 - Usage Guide for Windows: 
 	To use this mod's Python script you need to open Command Line on Windows then specify the path to game's or mod's arbitrary folder which contains JSON files with pocket_data in them, command that you specify in Command Line must adhere to format that is demonstrated now:
