@@ -377,8 +377,8 @@ class ModCache {
       logger.error(
         `ModCache error ${translationCacheFilePath}, create empty translation cache to fs ${translationCache}, errorMessage is\n ${error.message} ${error.stack}\n`
       );
-      process.exit(1);
-      // this.writeTranslationCache(translationCacheFilePath, {});
+      // process.exit(1);
+      this.writeTranslationCache(translationCacheFilePath, {});
     }
   }
 
