@@ -32,6 +32,12 @@
     "value_constraints": { "species": { "equals": [ "species_id", "ALIENROBOT" ] } }
   },
   {
+    "id": "avatar_alienanimal_kills",
+    "type": "event_transformation",
+    "event_transformation": "avatar_species_kills",
+    "value_constraints": { "species": { "equals": [ "species_id", "WILDALIEN" ] } }
+  },
+  {
     "id": "num_avatar_stray_kills",
     "type": "event_statistic",
     "stat_type": "count",
@@ -51,5 +57,12 @@
     "stat_type": "count",
     "event_transformation": "avatar_alienrobot_kills",
     "description": { "str": "emissary killed", "str_pl": "emissaries killed" }
-  }
+  },
+  {
+    "id": "num_avatar_alienanimal_kills",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_alienanimal_kills",
+    "description": { "str": "emissary killed", "str_pl": "alien animals killed" }
+  }  
 ]
