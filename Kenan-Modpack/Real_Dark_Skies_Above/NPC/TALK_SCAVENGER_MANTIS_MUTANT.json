@@ -1,85 +1,109 @@
 [
   {
     "type": "npc",
-    "id": "DKZ_SCAVENGER_GUARD",
-    "class": "NC_SCAVENGER_GUARD",
+    "id": "DKZ_SCAVENGER_MANTIS_MUTANT",
+    "class": "NC_SCAVENGER_MANTIS_MUTANT",
     "attitude": 0,
     "mission": 3,
-    "chat": "TALK_SCAVENGER_GUARD_ROOT",
+    "chat": "TALK_SCAVENGER_MANTIS_MUTANT_ROOT",
     "faction": "wasteland_scavengers"
   },
   {
     "type": "npc_class",
-    "id": "NC_SCAVENGER_GUARD",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT",
     "name": { "str": "Scavenger" },
-    "job_description": "I'm to keep the peace and provide combat support.",
+    "job_description": "I'm to become an insectiod killing machine.",
     "common": false,		
     "traits": [
       { "trait": "DKZ_COMBAT", "prob": 100 },
       { "group": "NPC_starting_traits" }, 
 	  { "group": "Appearance_demographics" },
-      { "trait": "ROBUST", "prob": 60 }
-    ],
+      { "trait": "BIOLUM0", "prob": 40 },
+      { "trait": "BIOLUM1", "prob": 30 },
+      { "trait": "BIOLUM2", "prob": 10 },
+      { "trait": "GOODCARDIO", "prob": 80 },	  
+      { "trait": "QUICK", "prob": 70 },	    
+      { "trait": "LIGHTEATER", "prob": 10 },
+      { "trait": "POISRESIST", "prob": 20 },
+      { "trait": "HEAVYSLEEPER", "prob": 10 },	  
+      { "trait": "TERRIFYING", "prob": 70 },		  
+      { "trait": "PROJUNK", "prob": 55 },	  
+      { "trait": "FORGETFUL", "prob": 65 },		  
+      { "trait": "ANIMALDISCORD", "prob": 85 },		  
+      { "trait": "NIGHTVISION2", "prob": 45 },
+      { "trait": "COMPOUND_EYES", "prob": 100 },	  
+      { "trait": "CHITIN2", "prob": 100 },		  
+      { "trait": "MANDIBLES", "prob": 100 },
+      { "trait": "CHITIN3", "prob": 50 },
+      { "trait": "THRESH_INSECT", "prob": 100 },	
+      { "trait": "ACIDBLOOD", "prob": 30 },	  
+      { "trait": "ACIDPROOF", "prob": 40 },
+      { "trait": "WINGS_INSECT", "prob": 100 },	
+      { "trait": "INSECT_ARMS_OK", "prob": 95 },		  
+      { "trait": "INSECT_ARMS", "prob": 20 },		
+      { "trait": "DEFORMED", "prob": 70 },
+      { "trait": "PHEROMONE_INSECT", "prob": 75 }		  
+	  ],
     "skills": [
       { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -4 } ] } },
-      { "skill": "survival", "bonus": { "rng": [ 2, 3 ] } },
+      { "skill": "survival", "bonus": { "rng": [ 1, 3 ] } },
       { "skill": "firstaid", "bonus": { "rng": [ 1, 2 ] } },
-      { "skill": "dodge", "bonus": { "rng": [ 2, 3 ] } },
-      { "skill": "melee", "bonus": { "rng": [ 3, 5 ] } },
-      { "skill": "unarmed", "bonus": { "rng": [ 1, 3 ] } },
-	  { "skill": "bashing", "bonus": { "rng": [ 2, 4 ] } },
-      { "skill": "stabbing", "bonus": { "rng": [ 1, 3 ] } },
-      { "skill": "cutting", "bonus": { "rng": [ 1, 3 ] } },
-      { "skill": "gun", "bonus": { "rng": [ 2, 4 ] } },
-      { "skill": "shotgun", "bonus": { "rng": [ 2, 4 ] } },	  
-      { "skill": "pistol", "bonus": { "rng": [ 2, 4 ] } },
-      { "skill": "rifle", "bonus": { "rng": [ 2, 4 ] } }
+      { "skill": "dodge", "bonus": { "rng": [ 5, 7 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 5, 7 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 5, 7 ] } },
+	  { "skill": "bashing", "bonus": { "rng": [ 3, 5 ] } },
+      { "skill": "stabbing", "bonus": { "rng": [ 3, 5 ] } },
+      { "skill": "cutting", "bonus": { "rng": [ 3, 5 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "shotgun", "bonus": { "rng": [ 1, 3 ] } },	  
+      { "skill": "pistol", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 1, 3 ] } }
     ],
-    "bonus_str": { "rng": [ 1, 5 ] },
-    "bonus_dex": { "rng": [ 1, 5 ] },
-    "bonus_int": { "rng": [ -1, 1 ] },
-    "bonus_per": { "rng": [ 1, 3 ] }
+    "bonus_str": { "rng": [ 4, 6 ] },
+    "bonus_dex": { "rng": [ 0, 2 ] },
+    "bonus_int": { "rng": [ -3, 0 ] },
+    "bonus_per": { "rng": [ -2, 1 ] }
 
   },
   
   {
     "//": "----------INVENTORY LOADOUTS-----------------------------------------------------------------------------------",  
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_underwear_bottom_male",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_underwear_bottom_male",
     "subtype": "collection",
     "items": [ [ "boxer_shorts", 70 ], [ "briefs", 30 ], [ "boxer_briefs", 50 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_underwear_bottom_female",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_underwear_bottom_female",
     "subtype": "collection",
     "items": [ [ "panties", 70 ], [ "boy_shorts", 50 ], [ "bikini_bottom", 10 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_underwear_top_male",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_underwear_top_male",
     "subtype": "collection",
     "items": [ [ "null", 50 ], [ "undershirt", 50 ], [ "long_undertop", 20 ], [ "tank_top", 25 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_underwear_top_female",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_underwear_top_female",
     "subtype": "collection",
     "items": [ [ "null", 1 ], [ "bra", 10 ], [ "sports_bra", 80 ], [ "tank_top", 50 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_underwear_feet_male",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_underwear_feet_male",
     "items": [ [ "null", 2 ], [ "socks", 80 ], [ "socks_ankle", 30 ], [ "socks_wool", 20 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_underwear_feet_female",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_underwear_feet_female",
     "items": [ [ "null", 2 ], [ "socks", 50 ], [ "socks_ankle", 20 ], [ "socks_wool", 10 ], [ "stockings", 25 ], [ "tights", 10 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_pants_male",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_pants_male",
     "subtype": "distribution",
     "entries": [
       { "item": "jeans", "prob": 20 },
@@ -91,7 +115,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_pants_female",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_pants_female",
     "subtype": "distribution",
     "entries": [
       { "item": "jeans", "prob": 20 },
@@ -104,7 +128,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_shirt_male",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_shirt_male",
     "subtype": "distribution",
     "entries": [
       { "item": "tshirt", "prob": 20 },
@@ -115,7 +139,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_shirt_female",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_shirt_female",
     "subtype": "distribution",
     "entries": [
       { "item": "tshirt", "prob": 20 },
@@ -126,7 +150,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_gloves",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_gloves",
     "subtype": "distribution",
     "entries": [
       { "item": "null", "prob": 10 },
@@ -141,7 +165,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_coat",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_coat",
     "subtype": "distribution",
     "entries": [
       { "item": "armor_riot", "prob": 20 },
@@ -158,13 +182,13 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_shoes",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_shoes",
     "subtype": "distribution",
     "entries": [ { "item": "sneakers", "prob": 20 }, { "item": "boots", "prob": 20 }, { "item": "boots_combat", "prob": 10 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_masks",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_masks",
     "subtype": "distribution",
     "entries": [
       { "item": "null", "prob": 800 },
@@ -175,13 +199,13 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_eyes",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_eyes",
     "subtype": "distribution",
     "entries": [ { "item": "null", "prob": 80 }, { "item": "glasses_safety", "prob": 10 }, { "item": "sunglasses", "prob": 20 }, { "item": "fancy_sunglasses", "prob": 40 }, { "item": "glasses_bal", "prob": 20 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_hat",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_hat",
     "subtype": "distribution",
     "entries": [
       { "item": "hat_ball", "prob": 10 },
@@ -195,7 +219,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_extra",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_extra",
     "subtype": "distribution",
     "entries": [
       { "item": "null", "prob": 5 },
@@ -206,7 +230,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_bashing",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_bashing",
     "subtype": "distribution",
     "entries": [
       { "item": "hammer", "prob": 20 },
@@ -221,7 +245,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_cutting",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_cutting",
     "subtype": "distribution",
     "entries": [
       { "item": "knife_butcher", "prob": 20 },
@@ -233,7 +257,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_stabbing",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_stabbing",
     "subtype": "distribution",
     "entries": [
       { "item": "spear_knife", "prob": 50 },
@@ -242,55 +266,55 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_throw",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_throw",
     "subtype": "distribution",
     "entries": [ { "item": "throwing_knife", "prob": 50 }, { "item": "throwing_axe", "prob": 50 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_archery",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_archery",
     "subtype": "distribution",
     "entries": [ { "item": "crossbow", "prob": 5 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_pistols",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_pistols",
     "subtype": "distribution",
     "entries": [ { "group": "guns_pistol_common", "prob": 70 }, { "group": "guns_pistol_rare", "prob": 20 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_shotgun",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_shotgun",
     "subtype": "distribution",
     "entries": [ { "group": "guns_shotgun_common", "prob": 70 }, { "group": "guns_shotgun_rare", "prob": 20 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_smg",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_smg",
     "subtype": "distribution",
     "entries": [ { "group": "guns_smg_common", "prob": 70 }, { "group": "guns_smg_rare", "prob": 20 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_rifle",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_rifle",
     "subtype": "distribution",
     "entries": [ { "group": "guns_rifle_common", "prob": 70 }, { "group": "guns_rifle_rare", "prob": 20 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_launcher",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_launcher",
     "subtype": "distribution",
     "entries": [ { "group": "guns_launcher_milspec", "prob": 70 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_weapon_random",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_weapon_random",
     "subtype": "distribution",
     "entries": [ { "item": "q_staff", "prob": 100 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUARD_misc",
+    "id": "NC_SCAVENGER_MANTIS_MUTANT_misc",
     "subtype": "distribution",
     "entries": [
       { "group": "rad_gear", "count-min": 1, "count-max": 2, "prob": 90 },
@@ -301,36 +325,36 @@
   
   {
     "//": "----------DIALOGUE OPTIONS-------------------------------------------------------------------------------------",  
-    "id": "TALK_SCAVENGER_GUARD_ROOT",
+    "id": "TALK_SCAVENGER_MANTIS_MUTANT_ROOT",
     "type": "talk_topic",
     "dynamic_line": {
       "u_is_wearing": "badge_marshal",
-      "yes": [ "Are you lost, marshal?", "Don't start any trouble marshal, you aren't the law anymore." ],
-      "no": [ "Don't cause any trouble here, I'd rather kill monsters than people.", "Safe travels, scavenger." ]
+      "yes": [ "Buzz off, fed." ],
+      "no": [ "We don't bother anyone up here and expect the same from others.", "What brings you up here, scavenger." ]
     },
     "responses": [
-      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_GUARD_ROOT" },
-      { "text": "What are you doing here?", "topic": "TALK_SCAVENGER_GUARD_DOING" },
-      { "text": "What is upstairs?", "topic": "TALK_SCAVENGER_GUARD_UPSTAIRS" },
+      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_MANTIS_MUTANT_ROOT" },
+      { "text": "What are you doing here?", "topic": "TALK_SCAVENGER_MANTIS_MUTANT_DOING" },
+      { "text": "What is upstairs?", "topic": "TALK_SCAVENGER_MANTIS_MUTANT_UPSTAIRS" },
       { "text": "See you later.", "topic": "TALK_DONE" }
     ]
   },
   {
-    "id": "TALK_SCAVENGER_GUARD_DOING",
+    "id": "TALK_SCAVENGER_MANTIS_MUTANT_DOING",
     "type": "talk_topic",
     "dynamic_line": [
       "There is an arrangement with everyone that lives here, the bottom two floors are a free trade zone and the upper floors are for the alien resistance operation.  We also help keep the outside defences in place and warn of any zombies or xenoids around the perimeter.  It takes a lot to keep this place running",
-	  "Enforcing Rule #1: No Killing, the penalty is death.",
+	  "Rule #1: No Killing, the penalty is death.",
       "I keep the peace down here between other scavengers, but everyone is very civil to each other since there are monsters outside."
     ],
     "responses": [
-      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_GUARD_ROOT" },
-      { "text": "Nice arrangement for everyone.", "topic": "TALK_SCAVENGER_GUARD_ROOT" },
+      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_MANTIS_MUTANT_ROOT" },
+      { "text": "Nice arrangement for everyone.", "topic": "TALK_SCAVENGER_MANTIS_MUTANT_ROOT" },
 	  { "text": "Ok, I'll leave you to it.", "topic": "TALK_DONE" }
     ]
   },
   {
-    "id": "TALK_SCAVENGER_GUARD_UPSTAIRS",
+    "id": "TALK_SCAVENGER_MANTIS_MUTANT_UPSTAIRS",
     "type": "talk_topic",
     "dynamic_line": [
       "Sometimes I'll go up to the roof to help with sniper overwatch.  Its fun to use the really powerful rifles even if we can't take them down here.  Plus they always need another set of eyes.",
@@ -339,7 +363,7 @@
 	  "There are some heavily mutated people upstairs.  They are good people, but if you see them don't stare, its rude."
     ],
     "responses": [
-      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_GUARD_ROOT" },
+      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_MANTIS_MUTANT_ROOT" },
       { "text": "Well, bye.", "topic": "TALK_DONE" }
     ]
   }  
