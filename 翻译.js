@@ -850,7 +850,7 @@ ${getItemBrowserLink(fullItem)}`
       line.yes = await translateFunction(line.yes);
     } else if (typeof line.yes === 'object') {
       if (Array.isArray(line.yes)) {
-        line.yes = await Promise.all(line.yes.map((yes) => translateFunction(yes));
+        line.yes = await Promise.all(line.yes.map((yes) => translateFunction(yes)));
       } else {
         await dynamicLine(line.yes);
       }
@@ -859,7 +859,7 @@ ${getItemBrowserLink(fullItem)}`
       line.no = await translateFunction(line.no);
     } else if (typeof line.no === 'object') {
       if (Array.isArray(line.no)) {
-        line.no = await Promise.all(line.no.map((no) => translateFunction(no));
+        line.no = await Promise.all(line.no.map((no) => translateFunction(no)));
       } else {
         await dynamicLine(line.no);
       }
