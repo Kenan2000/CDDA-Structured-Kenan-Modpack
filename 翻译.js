@@ -851,7 +851,7 @@ ${getItemBrowserLink(fullItem)}`
     } else if (typeof line.yes === 'object') {
       if (Array.isArray(line.yes)) {
         line.yes = await Promise.all(line.yes.map((yes) => translateFunction(yes));
-      } else{
+      } else {
         await dynamicLine(line.yes);
       }
     } 
