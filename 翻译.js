@@ -849,12 +849,20 @@ ${getItemBrowserLink(fullItem)}`
     if (typeof line.yes === 'string') {
       line.yes = await translateFunction(line.yes);
     } else if (typeof line.yes === 'object') {
-      await dynamicLine(line.yes);
-    }
+      if (Array.isArray(line.yes)) {
+        line.yes = await Promise.all(line.yes.map((yes) => translateFunction(yes));
+      } else {
+        await dynamicLine(line.yes);
+      }
+    } 
     if (typeof line.no === 'string') {
       line.no = await translateFunction(line.no);
     } else if (typeof line.no === 'object') {
-      await dynamicLine(line.no);
+      if (Array.isArray(line.no)) {
+        line.no = await Promise.all(line.no.map((no) => translateFunction(no));
+      } else {
+        await dynamicLine(line.no);
+      }
     }
   };
   const talkTopic = async (item) => {
