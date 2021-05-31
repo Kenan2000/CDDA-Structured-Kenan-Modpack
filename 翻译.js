@@ -851,20 +851,14 @@ ${getItemBrowserLink(fullItem)}`
     } else if (typeof line.yes === 'object') {
       await dynamicLine(line.yes);
     } else if (Array.isArray(line.yes)) {
-        for (const yes of line.yes) {
-          if(typeof yes === 'string')
-            yes = await translateFunction(yes);
-        }
+      line.yes = await Promise.all(line.yes.map((yes) => translateFunction(yes));
     }
     if (typeof line.no === 'string') {
       line.no = await translateFunction(line.no);
     } else if (typeof line.no === 'object') {
       await dynamicLine(line.no);
     } else if (Array.isArray(line.no)) {
-        for (const no of line.no) {
-          if(typeof no === 'string')
-            no = await translateFunction(no);
-        }
+      line.no = await Promise.all(line.no.map((no) => translateFunction(no));
     }
   };
   const talkTopic = async (item) => {
