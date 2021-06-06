@@ -342,7 +342,11 @@
     "price": 123,
     "material": [ "junk" ],
     "volume": "250 ml",
-    "use_action": [ "POISON" ],
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You drink some Healing Drink.",
+      "effects": [ { "id": "badpoison", "duration": 100 }, { "id": "drunk", "duration": 100 } ]
+    },
     "phase": "liquid",
     "flags": [ "EATEN_COLD" ],
     "freezing_point": -78,
