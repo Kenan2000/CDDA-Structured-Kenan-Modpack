@@ -77,7 +77,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BONE_SEER_POWER_POTENTIAL",
-    "dynamic_line": "There is potential within many things, but few things hold the same permanence.  I know nothing of whatever it you seek, only that it is beholden to the cycle in ways that the bones are not.",
+    "dynamic_line": "There is potential within many things, but few things hold the same permanence.  I know nothing of whatever it is you seek, only that it is beholden to the cycle in ways that the bones are not.",
     "responses": [
       {
         "text": "Perhaps I could show you something that would enlighten you, as you have enlightened me.",
@@ -110,6 +110,66 @@
         "text": "These are the finger bones of a creature touched by The Beyond.  Would that suffice?",
         "condition": { "u_has_item": "gracken_knuckles" },
         "topic": "TALK_BONE_SEER_POWER_OFFER_GRACKEN_KNUCKLES"
+      },
+      {
+        "text": "What do you make of this?  It's a root with the otherworld woven into its every fiber.",
+        "condition": { "u_has_item": "inflorescent_root" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_ORGANIC"
+      },
+      {
+        "text": "This is a bloom touched by the Beyond.  Would this be adequate?",
+        "condition": { "u_has_item": "triffid_queen_flower" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_ORGANIC"
+      },
+      {
+        "text": "This is a spike of otherworldly living metal, would this show you something new?",
+        "condition": { "u_has_item": "iron_thorn" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_ORGANIC"
+      },
+      {
+        "text": "This twisted barb was taken from something that does not belong in this world.",
+        "condition": { "u_has_item": "dermatik_sting" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_ORGANIC"
+      },
+      {
+        "text": "This crystal fragment has an otherworldly presence to it.  What do you make of it?",
+        "condition": { "u_has_item": "vortex_shard" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_INORGANIC"
+      },
+      {
+        "text": "This piece of crystal is some sort of unnatural amber.  Would this work?",
+        "condition": { "u_has_item": "blob_gem" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_INORGANIC"
+      },
+      {
+        "text": "This piece of crystal was shed from an otherworldly creature, would it be sufficient?",
+        "condition": { "u_has_item": "monster_tear" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_INORGANIC"
+      },
+      {
+        "text": "This dark gem holds the unliving presence of the creature it was taken from.  Show me what you see.",
+        "condition": { "u_has_item": "shadow_gem" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_INORGANIC"
+      },
+      {
+        "text": "This fragment of hide is tainted with otherworldly presence.  What do you make of it?",
+        "condition": { "u_has_item": "wyrmskin_piece" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_ORGANIC"
+      },
+      {
+        "text": "This piece of an otherworldly creature's hide still reflects the influence of the Beyond.",
+        "condition": { "u_has_item": "iridescent_plate" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_ORGANIC"
+      },
+      {
+        "text": "This stone is etched with a living record of the supernatural influence that shaped it.",
+        "condition": { "u_has_item": "engraved_stone" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_INORGANIC"
+      },
+      {
+        "text": "Here.  A stony heart ripped from a creature that was pulled from another world.  Many people died for this, what does it sing to you?",
+        "condition": { "u_has_item": "draconic_heart" },
+        "topic": "TALK_BONE_SEER_POWER_OFFER_INVALID_DRAGON"
       },
       { "text": "I'm not sure what would be fitting.  Another time perhaps.", "topic": "TALK_DONE" }
     ]
@@ -195,6 +255,24 @@
   },
   {
     "type": "talk_topic",
+    "id": "TALK_BONE_SEER_POWER_OFFER_INVALID_INORGANIC",
+    "dynamic_line": "Perhaps there is something akin to life in this petrified thing, something akin to a song.  But it is a distant, hushed song.  Atonal are the melodies of that which never knew life in the first place.  I'm afraid I can not do anything with this.",
+    "responses": [ { "text": "…", "topic": "TALK_BONE_SEER" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BONE_SEER_POWER_OFFER_INVALID_ORGANIC",
+    "dynamic_line": "Though it sings, and with a most peculiar melody, it is a fleeting song.  The hushed tones of flesh and skin, of bark and rotting wood.  Such songs are too transient and fleeting to be of value to me.",
+    "responses": [ { "text": "…", "topic": "TALK_BONE_SEER" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BONE_SEER_POWER_OFFER_INVALID_DRAGON",
+    "dynamic_line": "Interesting, but transient and fleeting as songs of flesh are.  Even if it is at once stout and echoing like songs of stone, yet carries the medlody living flesh possesses, I do not think it would last as the melodies of bone do.  Even if I did wish to learn its song, I feel you may find more use for it than I would.  It would not be right to ask you to part with this thing.",
+    "responses": [ { "text": "Very well then.", "topic": "TALK_BONE_SEER" } ]
+  },
+  {
+    "type": "talk_topic",
     "id": "TALK_BONE_SEER_POWER_MYRIAD",
     "dynamic_line": "Of that, I am sure even though I do not know their names.  But they are all beholden to the cycles that we are trapped in.",
     "responses": [
@@ -257,7 +335,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BONE_SEER_POWER_GENERAL",
-    "dynamic_line": "Perhaps this is true.  But underneath the pollution that undeath brings, the bones still speak their songs.  It is harder for the inexperienced to decipher them, but their nature is fundamentally changed.  I'm curious though, what lesson do you think remains unlearned?",
+    "dynamic_line": "Perhaps this is true.  But underneath the pollution that undeath brings, the bones still speak their songs.  It is harder for the inexperienced to decipher them, but their true nature is fundamentally unchanged.  I'm curious though, what lesson do you think remains unlearned?",
     "responses": [
       { "text": "I might have something that would explain things better.", "topic": "TALK_BONE_SEER_POWER_OFFER" },
       { "text": "Another time perhaps, I will need to think on this.", "topic": "TALK_BONE_SEER" }
