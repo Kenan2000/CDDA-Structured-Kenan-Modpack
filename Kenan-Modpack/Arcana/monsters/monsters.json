@@ -1181,12 +1181,13 @@
     "name": { "str": "summoned fiend" },
     "categories": [ "CLASSIC" ],
     "species": [ "ARCANA_SUMMONED" ],
+    "mountable_weight_ratio": 0.9,
     "melee_damage": [ { "damage_type": "heat", "amount": 2 } ],
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
     "death_function": [ "MELT" ],
     "death_drops": {  },
-    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS" ] },
+    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_HARNESSABLE" ] },
     "delete": { "upgrades": { "half_life": 8, "into": "mon_zombie_brute" } }
   },
   {
@@ -1213,12 +1214,13 @@
     "name": { "str": "summoned homunculus", "str_pl": "summoned homunculi" },
     "categories": [ "CLASSIC" ],
     "species": [ "ARCANA_SUMMONED" ],
+    "mountable_weight_ratio": 0.9,
     "path_settings": { "max_dist": 10 },
     "special_attacks": [ [ "SMASH", 25 ] ],
     "regenerates": 1,
     "death_function": [ "MELT" ],
     "death_drops": {  },
-    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS" ] },
+    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_HARNESSABLE" ] },
     "delete": { "flags": [ "BASHES", "GROUP_BASH" ] }
   },
   {
@@ -1260,6 +1262,7 @@
     "name": { "str": "summoned skeleton" },
     "categories": [ "CLASSIC" ],
     "species": [ "ARCANA_SUMMONED" ],
+    "mountable_weight_ratio": 0.9,
     "hp": 50,
     "speed": 80,
     "path_settings": { "max_dist": 10 },
@@ -1267,7 +1270,7 @@
     "attack_effs": [ { "id": "stunned", "duration": 5, "chance": 30 } ],
     "death_function": [ "MELT" ],
     "death_drops": {  },
-    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS" ] },
+    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_HARNESSABLE" ] },
     "delete": { "upgrades": { "half_life": 15, "into": "mon_skeleton_hulk" } }
   },
   {
@@ -1290,7 +1293,7 @@
     "armor_bullet": 8,
     "melee_damage": [ { "damage_type": "cold", "amount": 10, "armor_multiplier": 0.75 } ],
     "regenerates": 10,
-    "extend": { "flags": [ "SEES", "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS" ] },
+    "extend": { "flags": [ "SEES", "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "CANPLAY" ] },
     "delete": { "flags": [ "STUMBLES" ] }
   },
   {
@@ -1368,12 +1371,13 @@
     "name": { "str": "summoned flesh angel" },
     "categories": [ "CLASSIC" ],
     "species": [ "ARCANA_SUMMONED" ],
+    "mountable_weight_ratio": 0.9,
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
     "death_function": [ "MELT" ],
     "death_drops": {  },
     "special_attacks": [ { "type": "bite", "cooldown": 5 } ],
-    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS" ] }
+    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_HARNESSABLE" ] }
   },
   {
     "id": "mon_hunting_horror_summoned",
@@ -1382,6 +1386,7 @@
     "name": { "str": "summoned hunting horror" },
     "categories": [ "CLASSIC" ],
     "species": [ "ARCANA_SUMMONED" ],
+    "mountable_weight_ratio": 0.9,
     "melee_dice_sides": 6,
     "melee_cut": 3,
     "melee_damage": [ { "damage_type": "cold", "amount": 9, "armor_multiplier": 0.1 } ],
@@ -1392,7 +1397,7 @@
     "armor_stab": 10,
     "armor_bullet": 10,
     "death_drops": {  },
-    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "ELECTRIC" ] },
+    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "ELECTRIC", "PET_HARNESSABLE" ] },
     "delete": { "flags": [ "SUNDEATH", "HIT_AND_RUN" ] }
   },
   {
@@ -1418,13 +1423,14 @@
     "name": { "str": "summoned flying polyp" },
     "categories": [ "CLASSIC" ],
     "species": [ "ARCANA_SUMMONED" ],
+    "mountable_weight_ratio": 0.9,
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
     "vision_day": 50,
     "vision_night": 50,
     "death_drops": {  },
     "special_attacks": [ { "type": "bite", "cooldown": 20, "damage_max_instance": [ { "damage_type": "cold", "amount": 20 } ] } ],
-    "extend": { "flags": [ "SEES", "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS" ] },
+    "extend": { "flags": [ "SEES", "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_HARNESSABLE" ] },
     "delete": { "flags": [ "BASHES", "ATTACKMON" ] }
   },
   {
@@ -1449,7 +1455,6 @@
     "name": { "str": "summoned shadow" },
     "categories": [ "CLASSIC" ],
     "species": [ "ARCANA_SUMMONED" ],
-    "mountable_weight_ratio": 0.9,
     "speed": 80,
     "melee_dice_sides": 1,
     "melee_damage": [ { "damage_type": "cold", "amount": 3, "armor_multiplier": 0.1 } ],
@@ -1464,7 +1469,7 @@
     "death_drops": {  },
     "death_function": [ "MELT" ],
     "special_attacks": [ [ "PARROT", 900 ] ],
-    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS" ] },
+    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "CANPLAY" ] },
     "delete": { "flags": [ "SUNDEATH", "HEARS", "GOODHEARING", "SMELLS", "HIT_AND_RUN", "ELECTRIC" ] }
   },
   {
@@ -1513,7 +1518,7 @@
     "path_settings": { "max_dist": 10 },
     "regenerates_in_dark": true,
     "special_attacks": [ [ "PARROT", 900 ] ],
-    "extend": { "flags": [ "FLIES", "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS" ] },
+    "extend": { "flags": [ "FLIES", "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "CANPLAY" ] },
     "delete": { "flags": [ "SUNDEATH", "SMELLS" ] }
   },
   {
@@ -1547,11 +1552,12 @@
     "name": { "str": "summoned giant centipede" },
     "categories": [ "CLASSIC" ],
     "species": [ "ARCANA_SUMMONED" ],
+    "mountable_weight_ratio": 0.9,
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
     "death_drops": {  },
     "death_function": [ "MELT" ],
-    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS" ] },
+    "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_HARNESSABLE" ] },
     "delete": { "upgrades": { "half_life": 21, "into": "mon_centipede_mega" } }
   },
   {
