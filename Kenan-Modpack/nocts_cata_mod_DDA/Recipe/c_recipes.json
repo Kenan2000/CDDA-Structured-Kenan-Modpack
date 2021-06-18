@@ -2046,7 +2046,7 @@
     "skill_used": "fabrication",
     "difficulty": 5,
     "qualities": [ { "id": "CUT", "level": 1 }, { "id": "SEW", "level": 1 } ],
-    "components": [ [ [ "rag", 20 ] ], [ [ "kevlar_plate", 10 ] ], [ [ "alloy_plate", 2 ] ], [ [ "alloy_sheet", 6 ] ] ]
+    "components": [ [ [ "rag", 18 ] ], [ [ "kevlar_plate", 9 ] ], [ [ "alloy_plate", 2 ] ], [ [ "alloy_sheet", 3 ] ] ]
   },
   {
     "result": "mil_armor",
@@ -2057,22 +2057,58 @@
     "difficulty": 6,
     "qualities": [ { "id": "CUT", "level": 1 }, { "id": "SEW", "level": 1 } ],
     "components": [
-      [ [ "leather", 20 ] ],
-      [ [ "kevlar_plate", 15 ] ],
-      [ [ "alloy_plate", 4 ] ],
-      [ [ "alloy_sheet", 4 ] ],
-      [ [ "hard_steel_armor", 2 ] ]
+      [ [ "leather", 18 ] ],
+      [ [ "kevlar_plate", 12 ] ],
+      [ [ "alloy_plate", 3 ] ],
+      [ [ "alloy_sheet", 1 ] ],
+      [ [ "hard_steel_armor", 1 ] ]
     ]
   },
   {
-    "result": "mil_armor",
+    "result": "hmil_armor",
     "type": "uncraft",
     "activity_level": "LIGHT_EXERCISE",
     "time": "30 m",
     "skill_used": "fabrication",
     "difficulty": 7,
     "qualities": [ { "id": "CUT", "level": 1 }, { "id": "SEW", "level": 1 } ],
-    "components": [ [ [ "kevlar_plate", 50 ] ], [ [ "alloy_plate", 8 ] ], [ [ "hard_steel_armor", 4 ] ] ]
+    "components": [ [ [ "kevlar_plate", 45 ] ], [ [ "alloy_plate", 6 ] ], [ [ "hard_steel_armor", 3 ] ] ]
+  },
+  {
+    "result": "lmil_helm",
+    "type": "uncraft",
+    "activity_level": "LIGHT_EXERCISE",
+    "time": "10 m",
+    "skill_used": "fabrication",
+    "difficulty": 5,
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "SEW", "level": 1 } ],
+    "components": [ [ [ "rag", 2 ] ], [ [ "kevlar_plate", 1 ] ], [ [ "alloy_sheet", 3 ] ] ]
+  },
+  {
+    "result": "mil_helm",
+    "type": "uncraft",
+    "activity_level": "LIGHT_EXERCISE",
+    "time": "10 m",
+    "skill_used": "fabrication",
+    "difficulty": 6,
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "SEW", "level": 1 } ],
+    "components": [
+      [ [ "leather", 2 ] ],
+      [ [ "kevlar_plate", 3 ] ],
+      [ [ "alloy_plate", 1 ] ],
+      [ [ "alloy_sheet", 2 ] ],
+      [ [ "hard_steel_armor", 1 ] ]
+    ]
+  },
+  {
+    "result": "hmil_helm",
+    "type": "uncraft",
+    "activity_level": "LIGHT_EXERCISE",
+    "time": "10 m",
+    "skill_used": "fabrication",
+    "difficulty": 7,
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "SEW", "level": 1 } ],
+    "components": [ [ [ "kevlar_plate", 5 ] ], [ [ "alloy_plate", 2 ] ], [ [ "hard_steel_armor", 1 ] ] ]
   },
   {
     "result": "flamethrower_surv",
@@ -2309,7 +2345,13 @@
     "skills_required": [ [ "mechanics", 4 ], [ "firstaid", 4 ] ],
     "difficulty": 6,
     "time": "3 h",
-    "book_learn": [ [ "recipe_augs", 7 ], [ "recipe_mil_augs", 7 ], [ "recipe_lab_elec", 6 ] ],
+    "book_learn": [
+      [ "textbook_fabrication", 7 ],
+      [ "textbook_mechanics", 7 ],
+      [ "recipe_augs", 6 ],
+      [ "recipe_mil_augs", 6 ],
+      [ "recipe_lab_elec", 5 ]
+    ],
     "using": [ [ "welding_standard", 50 ] ],
     "qualities": [ { "id": "HAMMER", "level": 3 }, { "id": "WRENCH", "level": 2 }, { "id": "SAW_M", "level": 2 } ],
     "components": [
@@ -2321,6 +2363,21 @@
       [ [ "cu_pipe", 4 ] ],
       [ [ "thermometer", 1 ] ]
     ]
+  },
+  {
+    "type": "recipe",
+    "result": "pouch_autoclave",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_MEDICAL",
+    "skill_used": "fabrication",
+    "skills_required": [ [ "firstaid", 5 ] ],
+    "difficulty": 5,
+    "time": "30 m",
+    "batch_time_factors": [ 20, 5 ],
+    "book_learn": [ [ "textbook_fabrication", 6 ], [ "recipe_augs", 5 ], [ "recipe_mil_augs", 5 ], [ "recipe_lab_elec", 4 ] ],
+    "tools": [ [ [ "vac_sealer", 15 ], [ "makeshift_sealer", 30 ] ] ],
+    "components": [ [ [ "bag_plastic", 1 ] ], [ [ "paper", 2 ] ] ]
   },
   {
     "type": "recipe",

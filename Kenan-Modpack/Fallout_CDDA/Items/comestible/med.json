@@ -1,0 +1,52 @@
+[
+  {
+    "id": "rad_x",
+    "type": "COMESTIBLE",
+    "comestible_type": "MED",
+    "name": { "str": "Rad-X" },
+    "description": "Rad-X Pill, designed to suit all your anti-radiation needs.",
+    "weight": "1 g",
+    "volume": "212 ml",
+    "price": 50,
+    "price_postapoc": 90,
+    "charges": 76,
+    "stack_size": 200,
+    "material": [ "powder" ],
+    "flags": [ "NPC_SAFE", "IRREPLACEABLE_CONSUMABLE" ],
+    "symbol": "r",
+    "color": "red",
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You take some Rad-X.",
+      "effects": [ { "id": "pblue", "duration": 7200 } ]
+    }
+  },
+  {
+    "id": "med_x",
+    "type": "COMESTIBLE",
+    "comestible_type": "MED",
+    "name": { "str": "Med-X" },
+    "description": "Med-X, meant to make you resist poison.",
+    "weight": "1 g",
+    "volume": "212 ml",
+    "price": 67,
+    "price_postapoc": 90,
+    "charges": 76,
+    "stack_size": 100,
+    "flags": [ "NPC_SAFE", "IRREPLACEABLE_CONSUMABLE" ],
+    "symbol": "r",
+    "color": "red",
+    "phase": "liquid",
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You inject some Med-X.",
+      "tools_needed": { "syringe": -1 },
+      "effects": [ { "id": "med_x_effect", "duration": 100 } ]
+    }
+  },
+  {
+    "id": "drugs_rare",
+    "type": "item_group",
+    "items": [ [ "rad_x", 10 ], [ "med_x", 10 ] ]
+  }
+]

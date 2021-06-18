@@ -946,6 +946,26 @@
     "flags": [ "DURABLE_MELEE", "NONCONDUCTIVE", "LIGHT_8", "NO_SALVAGE", "NO_UNLOAD", "NO_RELOAD" ]
   },
   {
+    "id": "lichhook",
+    "copy-from": "khopesh",
+    "type": "TOOL",
+    "category": "weapons",
+    "name": { "str": "lichhook" },
+    "description": "A curved bronze blade, decorated with silver and honed to an unnaturally sharp edge.  Using it will channel blood essence into ensnaring a nearby enemy in venomous tendrils, poisoning them and freezing them in place momentarily.  Zombies and other creatures immune to poison will not suffer damage from it.",
+    "longest_side": "70 cm",
+    "price": "720 USD",
+    "price_postapoc": "45 USD",
+    "bashing": 9,
+    "cutting": 29,
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_blood_type": 8 } } ],
+    "max_charges": 8,
+    "charges_per_use": 2,
+    "ammo": "essence_blood_type",
+    "relative": { "weight": 230 },
+    "use_action": [ { "type": "cast_spell", "spell_id": "arcana_item_lichhook", "no_fail": true, "need_wielding": true, "level": 0 } ],
+    "extend": { "flags": [ "NO_SALVAGE", "SHEATH_SWORD" ] }
+  },
+  {
     "id": "totem_elecresist",
     "copy-from": "totem_base",
     "type": "TOOL",
@@ -1522,6 +1542,23 @@
       }
     ],
     "use_action": [ { "type": "cast_spell", "spell_id": "arcana_item_coalescent_conversion", "no_fail": true, "level": 0 } ]
+  },
+  {
+    "type": "TOOL",
+    "id": "offering_chalice_coalescent",
+    "name": { "str": "coalescent chalice" },
+    "description": "An exotic golden chalice, reinforced by an ornate lattice of steel and curious electronics.  A swirling, inky blackness resides inside it, resisting any attempt to pour it out.  Using it will focus your energy into it through a powerful ritual, converting it into crystallized essence.  Doing so will take 15 minutes and greatly exhaust you.  Overuse comes with the risk of lethal side effects.",
+    "weight": "3 kg",
+    "color": "yellow",
+    "looks_like": "offering_chalice",
+    "symbol": ":",
+    "material": [ "gold", "steel" ],
+    "flags": [ "ALLOWS_REMOTE_USE" ],
+    "volume": "2 L",
+    "bashing": 3,
+    "price": "3200 USD",
+    "price_postapoc": "35 USD",
+    "use_action": [ { "type": "cast_spell", "spell_id": "arcana_item_coalescent_offering", "no_fail": true, "level": 0 } ]
   },
   {
     "id": "thermic_essence_cutter",
