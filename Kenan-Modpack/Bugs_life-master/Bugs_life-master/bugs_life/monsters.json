@@ -1,6 +1,6 @@
 [
   {
-	  "id": "mon_aphid",
+    "id": "mon_aphid",
     "type": "MONSTER",
     "name": { "str": "giant aphid", "str_pl": "giant aphids" },
     "description": "A green aphid about a size of a rabbit.  It is constantly searching for plants to suck from.  Probably you could sate it for a moment with cattle fodder.",
@@ -15,26 +15,26 @@
     "symbol": "a",
     "color": "light_green",
     "morale": 20,
-	  "aggression": -40,
-	  "melee_skill": 1,
+    "aggression": -40,
+    "melee_skill": 1,
     "melee_dice": 1,
     "melee_dice_sides": 2,
     "melee_cut": 2,
     "dodge": 3,
     "armor_bash": 2,
-	  "armor_cut": 5,
-	  "armor_bullet": 3,
+    "armor_cut": 5,
+    "armor_bullet": 3,
     "vision_day": 10,
     "vision_night": 5,
     "harvest": "arachnid",
-	  "fear_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "FIRE" ],
+    "fear_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "FIRE" ],
     "death_function": [ "NORMAL" ],
     "special_attacks": [ [ "EAT_FOOD", 60 ], [ "EAT_CROP", 80 ] ],
-	  "reproduction": { "baby_monster": "mon_aphid", "baby_count": 1, "baby_timer": 20 },
-    "baby_flags": [ "SPRING", "SUMMER"],
+    "reproduction": { "baby_monster": "mon_aphid", "baby_count": 1, "baby_timer": 20 },
+    "baby_flags": [ "SPRING", "SUMMER" ],
     "biosignature": { "biosig_item": "honeydew", "biosig_timer": 600 },
     "flags": [ "SEES", "HEARS", "SMELLS", "CLIMBS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "CATTLEFODDER", "PET_WONT_FOLLOW" ]
-	},
+  },
   {
     "id": "mon_mantis_small",
     "type": "MONSTER",
@@ -44,11 +44,11 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "60 L",
     "weight": "80 kg",
-	  "melee_cut": 8,
+    "melee_cut": 8,
     "upgrades": { "half_life": 14, "into": "mon_mantis_giant" }
   },
   {
-	  "id": "mon_mantis_giant",
+    "id": "mon_mantis_giant",
     "type": "MONSTER",
     "name": { "str": "giant praying mantis", "str_pl": "giant praying mantises" },
     "description": "An enormous green creature grown about a size of a bear.  It dances weirdly and ready to chop your head off in any moment.",
@@ -70,17 +70,21 @@
     "melee_cut": 12,
     "dodge": 3,
     "armor_bash": 10,
-	  "armor_cut": 16,
-	  "armor_bullet": 13,
+    "armor_cut": 16,
+    "armor_bullet": 13,
     "vision_day": 15,
     "vision_night": 5,
     "harvest": "arachnid",
-	  "anger_triggers": [ "PLAYER_WEAK", "PLAYER_CLOSE"],
-	  "fear_triggers": [ "FIRE" ],
+    "anger_triggers": [ "PLAYER_WEAK", "PLAYER_CLOSE" ],
+    "fear_triggers": [ "FIRE" ],
     "death_function": [ "NORMAL" ],
-    "special_attacks": [  [ "RANGED_PULL", 30 ], [ "GRAB_DRAG", 10 ], { "type": "leap", "cooldown": 8, "max_range": 5, "allow_no_target": false }],
-    "flags": ["POISON", "SEES", "HEARS", "SMELLS", "CLIMBS", "PATH_AVOID_FIRE","PATH_AVOID_FALL", "STUMBLES" ]
-  }, 
+    "special_attacks": [
+      [ "RANGED_PULL", 30 ],
+      [ "GRAB_DRAG", 10 ],
+      { "type": "leap", "cooldown": 8, "max_range": 5, "allow_no_target": false }
+    ],
+    "flags": [ "POISON", "SEES", "HEARS", "SMELLS", "CLIMBS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "STUMBLES" ]
+  },
   {
     "id": "mon_mantis_mega",
     "type": "MONSTER",
@@ -91,9 +95,9 @@
     "volume": "625 L",
     "symbol": "M",
     "color": "red_green",
-	  "weight": "815 kg",
+    "weight": "815 kg",
     "melee_dice": 2,
-	  "melee_cut": 20,
+    "melee_cut": 20,
     "dodge": 2,
     "special_attacks": [
       {
@@ -104,9 +108,9 @@
       }
     ],
     "extend": { "flags": [ "DESTROYS", "PUSH_MON", "PUSH_VEH" ] },
-	"delete": { "type": "leap", "cooldown": 8, "max_range": 5, "allow_no_target": false }
+    "delete": { "type": "leap", "cooldown": 8, "max_range": 5, "allow_no_target": false }
   },
- {
+  {
     "id": "mon_mole_cricket",
     "type": "MONSTER",
     "name": { "str": "giant mole cricket" },
@@ -138,10 +142,10 @@
     "anger_triggers": [ "HURT", "SOUND", "STALK" ],
     "fear_triggers": [ "FIRE" ],
     "death_function": [ "NORMAL" ],
-    "flags": [ "POISON","ATTACKMON", "BORES", "CAN_DIG", "HEARS", "KEENNOSE", "PATH_AVOID_DANGER_1", "SMELLS", "WARM" ],
+    "flags": [ "POISON", "ATTACKMON", "BORES", "CAN_DIG", "HEARS", "KEENNOSE", "PATH_AVOID_DANGER_1", "SMELLS", "WARM" ],
     "//": "Reinsert GOODHEARING when z-level tunneling is possible."
   },
-    {
+  {
     "id": "mon_lady_bug_giant",
     "type": "MONSTER",
     "name": { "str": "giant lady bug" },
@@ -157,7 +161,7 @@
     "symbol": "B",
     "color": "red",
     "morale": 80,
-	  "aggression": 40,
+    "aggression": 40,
     "melee_skill": 6,
     "melee_dice": 2,
     "melee_dice_sides": 6,
@@ -169,32 +173,32 @@
     "vision_day": 20,
     "vision_night": 5,
     "harvest": "arachnid",
-	  "anger_triggers": [  "PLAYER_CLOSE" ],
+    "anger_triggers": [ "PLAYER_CLOSE" ],
     "fear_triggers": [ "HURT" ],
     "death_function": [ "NORMAL" ],
     "special_attacks": [
-{
+      {
         "type": "bite",
         "cooldown": 4,
         "accuracy": 6,
         "damage_max_instance": [ { "damage_type": "stab", "amount": 15, "armor_multiplier": 0.6 } ]
- } 
-	  ],
-    "flags": ["POISON", "SEES", "HEARS", "SMELLS", "FLIES" , "PATH_AVOID_FIRE", "PATH_AVOID_FALL" ]
+      }
+    ],
+    "flags": [ "POISON", "SEES", "HEARS", "SMELLS", "FLIES", "PATH_AVOID_FIRE", "PATH_AVOID_FALL" ]
   },
-    {
+  {
     "id": "mon_grasshopper_small",
     "type": "MONSTER",
     "name": { "str": "huge grasshopper" },
     "description": "A large grasshopper a few times bigger than a regular one.",
     "copy-from": "mon_grasshopper_giant",
-    "proportional": { "hp": 0.5, "speed": 1.1},
+    "proportional": { "hp": 0.5, "speed": 1.1 },
     "volume": "750 ml",
     "weight": "1 kg",
     "upgrades": { "half_life": 7, "into": "mon_mantis_giant" }
   },
   {
-	  "id": "mon_grasshopper_giant",
+    "id": "mon_grasshopper_giant",
     "type": "MONSTER",
     "name": { "str": "giant grasshopper", "str_pl": "giant grasshoppers" },
     "description": "A huge green grasshopper about a size of a big dog with long and strong back legs.  It hops, it hops and never stops.",
@@ -216,17 +220,17 @@
     "melee_cut": 2,
     "dodge": 4,
     "armor_bash": 5,
-	  "armor_cut": 10,
+    "armor_cut": 10,
     "vision_day": 20,
     "vision_night": 20,
     "harvest": "arachnid",
-	  "fear_triggers": [ "FIRE", "PLAYER_CLOSE"],
+    "fear_triggers": [ "FIRE", "PLAYER_CLOSE" ],
     "death_function": [ "NORMAL" ],
-     "special_attacks": [ [ "EAT_FOOD", 60 ], [ "EAT_CROP", 80 ], { "type": "leap", "cooldown": 3, "max_range": 10, "allow_no_target": true } ],
-    "flags": ["POISON", "SEES", "HEARS", "SMELLS", "CLIMBS", "PATH_AVOID_FALL", "PATH_AVOID_FIRE" ]
+    "special_attacks": [ [ "EAT_FOOD", 60 ], [ "EAT_CROP", 80 ], { "type": "leap", "cooldown": 3, "max_range": 10, "allow_no_target": true } ],
+    "flags": [ "POISON", "SEES", "HEARS", "SMELLS", "CLIMBS", "PATH_AVOID_FALL", "PATH_AVOID_FIRE" ]
   },
   {
-	  "id": "mon_antlion_larva",
+    "id": "mon_antlion_larva",
     "type": "MONSTER",
     "name": { "str": "giant antlion larva", "str_pl": "giant antlion larvae" },
     "description": "This huge grub has powerful mandibles and a hungry look.  It hides in dirt and waits for pray to come clother.",
@@ -248,24 +252,27 @@
     "melee_cut": 6,
     "dodge": 0,
     "armor_bash": 4,
-	  "armor_cut": 10,
-	  "armor_bullet": 10,
+    "armor_cut": 10,
+    "armor_bullet": 10,
     "vision_day": 8,
     "vision_night": 5,
     "harvest": "arachnid",
-	  "upgrades": { "half_life": 12, "into": "mon_antlion_giant" },
-	  "anger_triggers": [ "PLAYER_WEAK", "PLAYER_CLOSE"],
-	  "fear_triggers": [ "FIRE" ],
+    "upgrades": { "half_life": 12, "into": "mon_antlion_giant" },
+    "anger_triggers": [ "PLAYER_WEAK", "PLAYER_CLOSE" ],
+    "fear_triggers": [ "FIRE" ],
     "death_function": [ "NORMAL" ],
-    "special_attacks": [  [ "RANGED_PULL", 10 ], [ "GRAB", 3 ], [ "impale", 10 ], 
-	   {
+    "special_attacks": [
+      [ "RANGED_PULL", 10 ],
+      [ "GRAB", 3 ],
+      [ "impale", 10 ],
+      {
         "type": "bite",
         "cooldown": 4,
         "accuracy": 8,
         "damage_max_instance": [ { "damage_type": "stab", "amount": 15, "armor_multiplier": 0.6 } ]
-      } 
-	  ],
-    "flags": ["POISON", "SEES", "SMELLS", "IMMOBILE", "DIGS", "RANGED_ATTACKER" ]
+      }
+    ],
+    "flags": [ "POISON", "SEES", "SMELLS", "IMMOBILE", "DIGS", "RANGED_ATTACKER" ]
   },
   {
     "id": "mon_antlion_giant",
@@ -298,22 +305,22 @@
     "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "SMELLS", "FLIES", "HEARS", "HIT_AND_RUN", "PATH_AVOID_FIRE" ]
   },
-    {
+  {
     "id": "mon_strider_small",
     "type": "MONSTER",
     "name": { "str": "big water strider" },
     "description": "This water bug is a few times bigger, than a reguar one.  It's moves are fast and fluid.",
     "copy-from": "mon_strider_giant",
-    "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.50 },
+    "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.5 },
     "volume": "3 L",
     "weight": "4 kg",
-	  "melee_cut": 8,
+    "melee_cut": 8,
     "upgrades": { "half_life": 14, "into": "mon_mantis_giant" }
   },
   {
-	  "id": "mon_strider_giant",
+    "id": "mon_strider_giant",
     "type": "MONSTER",
-    "name": { "str": "giant water strider"  },
+    "name": { "str": "giant water strider" },
     "description": "This water glider is about as big as a domestic cat.  It's legs are more fin-like and a swollen body is mostly submerged underwater.",
     "default_faction": "strider",
     "bodytype": "insect",
@@ -333,14 +340,14 @@
     "melee_cut": 3,
     "dodge": 4,
     "armor_bash": 1,
-	  "armor_cut": 3,
-	  "armor_bullet": 2,
+    "armor_cut": 3,
+    "armor_bullet": 2,
     "vision_day": 12,
     "vision_night": 5,
     "harvest": "arachnid",
-	  "anger_triggers": [ "PLAYER_WEAK" ],
-	  "fear_triggers": [ "FIRE",  "PLAYER_CLOSE"],
+    "anger_triggers": [ "PLAYER_WEAK" ],
+    "fear_triggers": [ "FIRE", "PLAYER_CLOSE" ],
     "death_function": [ "NORMAL" ],
-    "flags": ["POISON", "SEES", "HEARS", "SMELLS", "SWIMS" ]
+    "flags": [ "POISON", "SEES", "HEARS", "SMELLS", "SWIMS" ]
   }
-	]
+]
