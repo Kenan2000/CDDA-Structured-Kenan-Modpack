@@ -83,6 +83,15 @@
     "extend": { "flags": [ "NO_SALVAGE", "HELMET_COMPAT", "FANCY", "TRADER_KEEP_EQUIPPED" ] }
   },
   {
+    "id": "arcana_ench_somen_clairvoyance",
+    "type": "enchantment",
+    "has": "WORN",
+    "condition": "ACTIVE",
+    "mutations": [ "ARCANA_MASK_INSIGHT_EFFECT" ],
+    "values": [ { "value": "BONUS_DODGE", "add": 2 } ],
+    "ench_effects": [ { "effect": "mask_blind_immunity", "intensity": 1 } ]
+  },
+  {
     "id": "somen_clairvoyance",
     "type": "TOOL_ARMOR",
     "category": "armor",
@@ -106,17 +115,7 @@
     "warmth": 10,
     "material_thickness": 3,
     "environmental_protection": 1,
-    "relic_data": {
-      "passive_effects": [
-        {
-          "has": "WORN",
-          "condition": "ACTIVE",
-          "mutations": [ "ARCANA_MASK_INSIGHT_EFFECT" ],
-          "values": [ { "value": "BONUS_DODGE", "add": 2 } ],
-          "ench_effects": [ { "effect": "mask_blind_immunity", "intensity": 1 } ]
-        }
-      ]
-    },
+    "relic_data": { "passive_effects": [ { "id": "arcana_ench_somen_clairvoyance" } ] },
     "use_action": {
       "target": "somen_clairvoyance_on",
       "msg": "The mask appears to contort into a fearsome visage, the eyeholes momentarily seeming to glow as a strange perception replaces your natural vision.",
@@ -214,6 +213,13 @@
     "ench_effects": [ { "effect": "arcana_invis_lesser", "intensity": 1 } ]
   },
   {
+    "id": "ENCH_MANTLE_SHADOWS",
+    "type": "enchantment",
+    "has": "WORN",
+    "condition": "ACTIVE",
+    "ench_effects": [ { "effect": "arcana_invis_lesser", "intensity": 1 } ]
+  },
+  {
     "id": "robe_shadow",
     "type": "TOOL_ARMOR",
     "copy-from": "robe",
@@ -230,9 +236,7 @@
     "max_encumbrance": 12,
     "ammo": "essence_type",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_type": 20 } } ],
-    "relic_data": {
-      "passive_effects": [ { "has": "WORN", "condition": "ACTIVE", "ench_effects": [ { "effect": "arcana_invis_lesser", "intensity": 1 } ] } ]
-    },
+    "relic_data": { "passive_effects": [ { "id": "ENCH_MANTLE_SHADOWS" } ] },
     "use_action": [
       {
         "target": "robe_shadow_on",

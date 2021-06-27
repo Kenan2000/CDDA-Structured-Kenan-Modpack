@@ -10,7 +10,6 @@
     "longest_side": "25 cm",
     "price": "1500 USD",
     "price_postapoc": "100 USD",
-    "to_hit": -2,
     "bashing": 8,
     "cutting": 10,
     "material": [ "gold", "silver" ],
@@ -44,7 +43,15 @@
       ]
     },
     "ammo_effects": [ "LIGHTNING", "LIGHTNING_JUDGMENT" ],
-    "flags": [ "STAB", "BELT_CLIP", "NEVER_JAMS", "PRIMITIVE_RANGED_WEAPON", "MAGIC_FOCUS", "TRADER_KEEP_EQUIPPED" ],
+    "flags": [
+      "STAB",
+      "UNARMED_WEAPON",
+      "BELT_CLIP",
+      "NEVER_JAMS",
+      "PRIMITIVE_RANGED_WEAPON",
+      "MAGIC_FOCUS",
+      "TRADER_KEEP_EQUIPPED"
+    ],
     "use_action": "MEDITATE"
   },
   {
@@ -439,6 +446,21 @@
     "flags": [ "NEVER_JAMS", "TRADER_AVOID", "USES_BIONIC_POWER" ]
   },
   {
+    "id": "arcana_ench_mech_laser",
+    "type": "enchantment",
+    "has": "WIELD",
+    "condition": "ALWAYS",
+    "values": [
+      { "value": "ARMOR_BASH", "add": -24 },
+      { "value": "ARMOR_CUT", "add": -32 },
+      { "value": "ARMOR_STAB", "add": -32 },
+      { "value": "ARMOR_BULLET", "add": -32 },
+      { "value": "ARMOR_HEAT", "add": -16 },
+      { "value": "ARMOR_ACID", "add": -16 }
+    ],
+    "ench_effects": [ { "effect": "arcana_mech_laser_immunities", "intensity": 1 } ]
+  },
+  {
     "id": "arcana_mech_laser",
     "looks_like": "ar15",
     "type": "GUN",
@@ -462,23 +484,7 @@
     "loudness": 1,
     "ups_charges": 400,
     "reload": 0,
-    "relic_data": {
-      "passive_effects": [
-        {
-          "has": "WIELD",
-          "condition": "ALWAYS",
-          "values": [
-            { "value": "ARMOR_BASH", "add": -24 },
-            { "value": "ARMOR_CUT", "add": -32 },
-            { "value": "ARMOR_STAB", "add": -32 },
-            { "value": "ARMOR_BULLET", "add": -32 },
-            { "value": "ARMOR_HEAT", "add": -16 },
-            { "value": "ARMOR_ACID", "add": -16 }
-          ],
-          "ench_effects": [ { "effect": "arcana_mech_laser_immunities", "intensity": 1 } ]
-        }
-      ]
-    },
+    "relic_data": { "passive_effects": [ { "id": "arcana_ench_mech_laser" } ] },
     "use_action": { "type": "cast_spell", "spell_id": "arcana_item_mech_flare", "no_fail": true, "level": 0, "need_wielding": true },
     "ammo_effects": [ "LASER", "PLASMA_BUBBLE", "BLINDS_EYES", "BEANBAG", "AMMO_RIFT_FOCUS_SHADOWS" ],
     "flags": [
