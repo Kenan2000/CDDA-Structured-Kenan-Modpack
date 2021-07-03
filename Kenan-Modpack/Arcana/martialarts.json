@@ -136,19 +136,34 @@
       {
         "id": "buff_cleansingflame_onattack",
         "name": "Righteous Momentum",
-        "description": "Your own fury hastens that of your weapon.\n+1 Accuracy, -5 move cost.\nLasts 1 turn.  Stacks 4 times.",
+        "description": "Your own fury hastens that of your weapon.\n+1 Accuracy, -5 move cost.\nLasts 2 turns.  Stacks 4 times.",
         "melee_allowed": true,
         "skill_requirements": [ { "name": "melee", "level": 3 } ],
         "buff_duration": 2,
         "max_stacks": 4,
         "flat_bonuses": [ { "stat": "hit", "scale": 1 }, { "stat": "movecost", "scale": -5.0 } ]
+      },
+      {
+        "id": "buff_cleansingflame_onattack2",
+        "name": "Battle Ward",
+        "description": "Against the inhuman, the only defense is vigilance.\n+1 heat/cold/electric armor.\nLasts 2 turns.  Stacks 3 times.",
+        "unarmed_allowed": true,
+        "melee_allowed": true,
+        "skill_requirements": [ { "name": "melee", "level": 2 }, { "name": "magic", "level": 5 } ],
+        "buff_duration": 2,
+        "max_stacks": 3,
+        "flat_bonuses": [
+          { "stat": "armor", "type": "heat", "scale": 1 },
+          { "stat": "armor", "type": "cold", "scale": 1 },
+          { "stat": "armor", "type": "electric", "scale": 1 }
+        ]
       }
     ],
     "onhit_buffs": [
       {
         "id": "buff_cleansingflame_onhit1",
         "name": "Prudence (Hammer)",
-        "description": "With cautious ferocity, no blade may mark you.\n+1 armor.\nLasts 2 turns.  Stacks 4 times.",
+        "description": "With cautious ferocity, no blade may mark you.\n+1 bash/cut/stab armor.\nLasts 2 turns.  Stacks 4 times.",
         "melee_allowed": true,
         "skill_requirements": [ { "name": "bashing", "level": 4 }, { "name": "magic", "level": 3 } ],
         "weapon_damage_requirements": [ { "type": "bash", "min": 20 } ],
