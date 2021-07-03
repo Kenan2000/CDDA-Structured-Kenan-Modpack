@@ -1928,13 +1928,13 @@
         "..|.........cc..gdh..|..",
         "..|.h...h.......|dd..|..",
         "..|cccccccc.....|....|..",
-        "..|--------|-GG-|-LL-|..",
-        "...........|....gd...|..",
-        "...........G....gdhYl|..",
-        "...........G....gx..l|..",
-        "...........|bbbb|----|..",
-        "...........|----|.......",
-        "........................",
+        ".||--------|-GG-|-LL-|..",
+        ".|.....L..{|b...gd...|..",
+        ".|.90..|{{{|b...gdhYl|..",
+        ".|.....|---|b...gx..l|..",
+        ".|c..|g|...|b...|----|..",
+        ".|ch.G.G...|-GG-|.......",
+        ".|-----|................",
         "........................"
       ],
       "set": [
@@ -1943,20 +1943,26 @@
       ],
       "palettes": [ "lab_palette", "lab_loot_research" ],
       "terrain": {
+        "{": "t_thconc_floor",
         "_": "t_rock_floor",
         "=": "t_reb_cage",
         "7": "t_switchgear_s",
         "8": "t_current_trans",
+        "9": "t_thconc_floor",
+        "0": "t_thconc_floor",
         "Y": "t_thconc_floor_olight",
         "o": "t_pit"
       },
       "furniture": {
+        "{": "f_locker",
         "~": "f_shower",
         "1": "f_generator_broken",
         "2": "f_capacitor",
         "3": "f_machinery_light",
         "4": "f_control_station",
         "5": "f_machinery_electronic",
+        "9": "f_autodoc",
+        "0": "f_autodoc_couch",
         "A": "f_compact_ASRG",
         "a": "f_wreckage",
         "b": "f_bench",
@@ -1973,6 +1979,9 @@
         }
       },
       "mapping": {
+        "{": {
+          "items": [ { "item": "bionics", "chance": 50, "repeat": 2 }, { "item": "lab_magitech_bionics", "chance": 25, "repeat": 2 } ]
+        },
         "^": { "item": [ { "item": "rock", "count": [ 1, 4 ] } ] },
         "a": {
           "item": [
@@ -2885,6 +2894,460 @@
           "y": [ 9, 15 ],
           "repeat": [ 1, 6 ]
         }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin" ],
+    "weight": 200,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "------------------------",
+        "-**********************-",
+        "-...#######...*********-",
+        "-...#LCCCL#........****-",
+        "-...W     W...###....**-",
+        "-...#     #...#L#.***.*-",
+        "-...###+###...#=#..****-",
+        "-......~~~....~~~~..***-",
+        "-........~~~~~~.......*-",
+        "-..######+##ww#######.*-",
+        "-..# RRR   Y  A#dd [#.*-",
+        "-..# RSR      A# c [#..-",
+        "-..# rrr      A#    #..-",
+        "-..#          A#]   #..-",
+        "-..wdc         ###X##..-",
+        "-..wd               w..-",
+        "-..#dOOO  cttc      w..-",
+        "-..#####  cttc     3#.*-",
+        "-..w   =           u#.*-",
+        "-..wBBD#        152u#%*-",
+        "-..#####ww##+###ww###.*-",
+        "-********..~~P.......**-",
+        "-********..~~..********-",
+        "-----------GG-----------"
+      ],
+      "palettes": [ "cabin_palette" ],
+      "terrain": { "[": "t_floor", "]": "t_floor", "X": "t_door_boarded" },
+      "furniture": { "[": "f_bookcase", "]": "f_counter" },
+      "items": { "[": { "item": "sanguine_cult_books", "chance": 50, "repeat": 3 } },
+      "place_loot": [
+        { "item": "book_magicfordummies", "x": 16, "y": 13 },
+        { "item": "note_sanguine_hint", "x": 16, "y": 13 },
+        { "item": "arcanemap", "x": 16, "y": 13 }
+      ],
+      "place_monsters": [ { "monster": "GROUP_ZOMBIE", "x": 7, "y": 4 } ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_1" ],
+    "weight": 200,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "........................",
+        "........................",
+        "...%....................",
+        "..######w##++#########..",
+        "..#R  d#sT#  #A DBBD #..",
+        "..#R  c#  #  #A  BB  w..",
+        "..wR   #  =  =       w..",
+        "..wR   #~~#  #########..",
+        "..#R   ####  X  [[[dc#..",
+        "..#R   L##A  #     d #..",
+        "..####=####  #]]     #..",
+        "..#ttb  uu#  #########..",
+        "..wttb   u#  #a OOO  w..",
+        "..wbb     =  =    rrrw..",
+        "..#      u#  #    rSr#..",
+        "..#1F5V234#  #a   rrr#..",
+        "..###ww####++####ww###..",
+        "..o bbbb             o..",
+        "..-                  -..",
+        "..-                  -..",
+        "..o-------oGGo-------o..",
+        "........................",
+        "........................",
+        "........................"
+      ],
+      "palettes": [ "cabin_palette" ],
+      "terrain": { "[": "t_floor", "]": "t_floor", "X": "t_door_boarded" },
+      "furniture": { "[": "f_bookcase", "]": "f_counter" },
+      "place_rubble": [
+        { "x": 20, "y": 17, "items": true },
+        { "x": 19, "y": 18, "items": true },
+        { "x": 20, "y": 18, "items": true },
+        { "x": 18, "y": 19, "items": true },
+        { "x": 19, "y": 19, "items": true },
+        { "x": 20, "y": 19, "items": true },
+        { "x": 19, "y": 3, "items": true },
+        { "x": 20, "y": 3, "items": true },
+        { "x": 21, "y": 3, "items": true },
+        { "x": 20, "y": 4, "items": true },
+        { "x": 21, "y": 4, "items": true },
+        { "x": 21, "y": 5, "items": true }
+      ],
+      "items": { "[": { "item": "cleansing_flame_books", "chance": 50, "repeat": 3 } },
+      "place_loot": [
+        { "group": "homeguns", "x": 7, "y": 9, "chance": 30, "ammo": 90, "magazine": 100 },
+        { "item": "book_magicfordummies", "x": [ 14, 15 ], "y": 10 },
+        { "item": "note_flame_hint", "x": [ 14, 15 ], "y": 10 },
+        { "item": "arcanemap", "x": [ 14, 15 ], "y": 10 }
+      ],
+      "place_monsters": [ { "monster": "GROUP_ZOMBIE", "x": 11, "y": 12 } ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "cabin_2" ],
+    "weight": 125,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        ".*********.~~.*********.",
+        ".*********.~~.*********.",
+        ".*********.~~.*********.",
+        "..........~~~~~~~~~~~~~~",
+        ".o-------o    o-------o~",
+        ".-                    -~",
+        ".-   at          cttc -~",
+        ".##w###w###++###w###w##~",
+        ".#L CCC L#Y     lttl 4#~",
+        ".#       +    o  tt  5w~",
+        ".#RRRLRRR#    A  l   Vw~",
+        ".#########    A      F#~",
+        ".#rrr a       A      u#~",
+        ".wrSr d       o   o123w~",
+        ".wrrr                 w~",
+        ".#OOO    AcccA        #~",
+        ".#####=#######X####=###~",
+        ".#D    AAdd#     [#  T#~",
+        ".#BB     cd# d   [#s  +~",
+        ".#BB      A#cd ] [# hh#.",
+        ".###ww#ww##############.",
+        ".********************%..",
+        "************************",
+        "************************"
+      ],
+      "palettes": [ "cabin_palette" ],
+      "terrain": { "[": "t_floor", "]": "t_floor", "X": "t_door_boarded" },
+      "furniture": { "[": "f_bookcase", "]": "f_counter" },
+      "items": { "[": { "item": "sanguine_cult_books", "chance": 50, "repeat": 3 } },
+      "place_loot": [
+        { "group": "harddrugs", "x": [ 19, 21 ], "y": [ 17, 19 ], "chance": 40 },
+        { "group": "guns_rifle_common", "x": 9, "y": 15, "chance": 50, "ammo": 50, "magazine": 100 },
+        { "item": "book_magicfordummies", "x": 15, "y": 19 },
+        { "item": "note_sanguine_hint", "x": 15, "y": 19 },
+        { "item": "arcanemap", "x": 15, "y": 19 }
+      ],
+      "place_monsters": [ { "monster": "GROUP_ZOMBIE", "x": [ 2, 21 ], "y": [ 2, 21 ] } ]
+    }
+  },
+  {
+    "method": "json",
+    "om_terrain": "cabin_3",
+    "type": "mapgen",
+    "weight": 150,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "........................",
+        "........................",
+        "........._____________..",
+        "........_______________.",
+        "........_______________.",
+        "........__##ww#######__.",
+        "........__#1& c#[ dc#__.",
+        "........__wF  t#[   #__.",
+        "........__wS  c#[  ]#__.",
+        "........__#2   ##X###__.",
+        "........__#3       A#__.",
+        "........__####     Aw__.",
+        "........_0#s +  B BBw__.",
+        "........_%#T #Y BDBB#__.",
+        "........__#####+#ww##__.",
+        "........___bbb_________.",
+        "........_______________.",
+        "........._____________..",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................"
+      ],
+      "palettes": [ "cabin_palette" ],
+      "terrain": {
+        "[": "t_floor",
+        "]": "t_floor",
+        ".": [
+          [ "t_grass", 6 ],
+          "t_dirt",
+          "t_tree_dead",
+          "t_tree_maple",
+          "t_tree_young",
+          "t_tree",
+          [ "t_tree_pine", 2 ],
+          [ "t_underbrush", 3 ]
+        ],
+        "0": "t_grass",
+        "_": [ "t_dirt", [ "t_grass", 6 ] ],
+        "X": "t_door_boarded",
+        "b": "t_grass"
+      },
+      "furniture": { "[": "f_bookcase", "]": "f_counter" },
+      "items": { "[": { "item": "chalice_cult_books", "chance": 50, "repeat": 3 } },
+      "place_loot": [
+        { "item": "book_magicfordummies", "x": 19, "y": 8 },
+        { "item": "note_chalice_hint", "x": 19, "y": 8 },
+        { "item": "arcanemap", "x": 19, "y": 8 }
+      ]
+    }
+  },
+  {
+    "method": "json",
+    "om_terrain": "cabin_4",
+    "type": "mapgen",
+    "weight": 150,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "........................",
+        "........................",
+        "........................",
+        ".._________________.....",
+        ".._________________.....",
+        ".._###ww#+#w######_.....",
+        ".._#F&C   Y  #]  #_.....",
+        ".._w5 Cl     X  [#_.....",
+        ".._wS Cl ctc #d [#_.....",
+        ".._#1 Cl ctc #c [#_.....",
+        ".._#2        #####_.....",
+        ".._w3    RRR +_____.....",
+        ".._#4R y ### #_____.....",
+        ".._###+#     #z___......",
+        ".._#   #BB BB#____......",
+        "..0#T&s#BBDBB#____......",
+        ".._######w#w##___.......",
+        "..__%____________.......",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................"
+      ],
+      "palettes": [ "cabin_palette" ],
+      "terrain": {
+        "[": "t_floor",
+        "]": "t_floor",
+        ".": [
+          [ "t_grass", 6 ],
+          "t_dirt",
+          "t_tree_dead",
+          "t_tree_maple",
+          "t_tree_young",
+          "t_tree",
+          [ "t_tree_pine", 2 ],
+          [ "t_underbrush", 3 ]
+        ],
+        "0": "t_grass",
+        "X": "t_door_boarded",
+        "z": "t_grass",
+        "_": [ "t_dirt", [ "t_grass", 6 ] ]
+      },
+      "furniture": { "[": "f_bookcase", "]": "f_counter" },
+      "items": { "[": { "item": "cleansing_flame_books", "chance": 50, "repeat": 3 } },
+      "place_loot": [
+        { "item": "book_magicfordummies", "x": 14, "y": 6 },
+        { "item": "note_flame_hint", "x": 14, "y": 6 },
+        { "item": "arcanemap", "x": 14, "y": 6 }
+      ]
+    }
+  },
+  {
+    "method": "json",
+    "om_terrain": "cabin_5",
+    "type": "mapgen",
+    "weight": 150,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "........................",
+        "........................",
+        ".......__________.......",
+        ".....______________.....",
+        "....________________....",
+        "...._##w###+##ww###_....",
+        "...._#BBD#Y    c  #_....",
+        "...._wBB =     ttcw_....",
+        "...._#   # O  ctt #_....",
+        "...._##X## O    c #_....",
+        "...._#] [# O  CCC1#_....",
+        "...._#  [#       2w_....",
+        "...._#cd[#A  &sSF3#_....",
+        "...._######+##ww###_....",
+        "....__%_____________....",
+        ".....______________.....",
+        "..........__............",
+        ".._____..___............",
+        ".._###_____.............",
+        ".._#T+____..............",
+        ".._###_.................",
+        ".._____.................",
+        "........................",
+        "........................"
+      ],
+      "palettes": [ "cabin_palette" ],
+      "terrain": {
+        "[": "t_floor",
+        "]": "t_floor",
+        ".": [
+          [ "t_grass", 6 ],
+          "t_dirt",
+          "t_tree_dead",
+          "t_tree_maple",
+          "t_tree_young",
+          "t_tree",
+          [ "t_tree_pine", 2 ],
+          [ "t_underbrush", 3 ]
+        ],
+        "_": [ "t_dirt", [ "t_grass", 6 ] ],
+        "X": "t_door_boarded"
+      },
+      "furniture": { "[": "f_bookcase", "]": "f_counter" },
+      "items": { "[": { "item": "sanguine_cult_books", "chance": 50, "repeat": 3 } },
+      "place_loot": [
+        { "item": "book_magicfordummies", "x": 6, "y": 10 },
+        { "item": "note_sanguine_hint", "x": 6, "y": 10 },
+        { "item": "arcanemap", "x": 6, "y": 10 }
+      ]
+    }
+  },
+  {
+    "method": "json",
+    "om_terrain": "cabin_6",
+    "type": "mapgen",
+    "weight": 150,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "........................",
+        "........................",
+        ".........._____.........",
+        "........_________.......",
+        "........_#w#+#w#_.......",
+        "........_wb   cw_.......",
+        ".....____#b  ct#____....",
+        "....._##w###=###w##_....",
+        "...___#15SFR &# BB#_....",
+        "...___w2     R# BBw_....",
+        "..____w3 CC   +  D#_....",
+        "..____#y ll   ##X##%....",
+        "..____+       #] [#_....",
+        "...___#cttc#+##  [#_....",
+        "...___#cttc# T#cd[#_....",
+        "....._##ww#########_....",
+        "....._______________....",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................",
+        "........................"
+      ],
+      "palettes": [ "cabin_palette" ],
+      "terrain": {
+        "[": "t_floor",
+        "]": "t_floor",
+        ".": [
+          [ "t_grass", 6 ],
+          "t_dirt",
+          "t_tree_dead",
+          "t_tree_maple",
+          "t_tree_young",
+          "t_tree",
+          [ "t_tree_pine", 2 ],
+          [ "t_underbrush", 3 ]
+        ],
+        "_": [ "t_dirt", [ "t_grass", 6 ] ],
+        "X": "t_door_boarded"
+      },
+      "furniture": { "[": "f_bookcase", "]": "f_counter" },
+      "items": { "[": { "item": "chalice_cult_books", "chance": 50, "repeat": 3 } },
+      "place_loot": [
+        { "item": "book_magicfordummies", "x": 15, "y": 12 },
+        { "item": "note_chalice_hint", "x": 15, "y": 12 },
+        { "item": "arcanemap", "x": 15, "y": 12 }
+      ]
+    }
+  },
+  {
+    "method": "json",
+    "om_terrain": "cabin_7",
+    "type": "mapgen",
+    "weight": 150,
+    "object": {
+      "fill_ter": "t_floor",
+      "place_vehicles": [ { "chance": 60, "fuel": 30, "rotation": 90, "status": -1, "vehicle": "forgotten_vehicles", "x": 8, "y": 7 } ],
+      "rows": [
+        "________________________",
+        "______..................",
+        "_____........###ww#####.",
+        "_____........#F1s23#sT#.",
+        "_____........wS    +  #.",
+        "_____........#C   #####.",
+        "_____........+    #DBBw.",
+        "_____........#    +   #.",
+        "_____........#cc  #DBBw.",
+        "_____........wttc #####.",
+        "____.........wttc X  c#.",
+        "___.qq>>q....#OOO #[ d#%",
+        "__.qQQ>>Qq...#    #[  #.",
+        "__.qQQ>>Qqq..#AZA #[ ]#.",
+        "__qQQQ>>QQqq.####+#####.",
+        "_.qQQQQQQQQq......______",
+        "_qQQQQQQQQQQqqq..._...._",
+        "_qQQQQQQQQQQQqq>qq..bb._",
+        "_qqQQQQQQQQQQQQ>Qqq...._",
+        "_.qQQQQQQQQQQQG>QQq...._",
+        "_.qqQQQQQQQQQQGQQQq.bb._",
+        "_.qqqQQQQQQQQQQQQQq...._",
+        "__..qqQQqqqQQQQQqq._____",
+        "______qq___qqqqq________"
+      ],
+      "palettes": [ "cabin_palette" ],
+      "terrain": {
+        "[": "t_floor",
+        "]": "t_floor",
+        ".": [ "t_dirt", [ "t_grass", 6 ] ],
+        "G": "t_slide",
+        "_": [
+          [ "t_grass", 13 ],
+          [ "t_dirt", 3 ],
+          "t_tree_willow",
+          [ "t_tree_pine", 2 ],
+          [ "t_tree", 2 ],
+          [ "t_tree_young", 3 ],
+          [ "t_underbrush", 4 ]
+        ],
+        ">": "t_dock",
+        "b": "t_grass",
+        "X": "t_door_boarded"
+      },
+      "furniture": { "[": "f_bookcase", "]": "f_counter" },
+      "items": { "[": { "item": "cleansing_flame_books", "chance": 50, "repeat": 3 } },
+      "place_loot": [
+        { "item": "book_magicfordummies", "x": 21, "y": 13 },
+        { "item": "note_flame_hint", "x": 21, "y": 13 },
+        { "item": "arcanemap", "x": 21, "y": 13 }
       ]
     }
   }
