@@ -8,8 +8,8 @@
     "weight": "7000 g",
     "price": "1200 USD",
     "material": [ "superalloy", "leather" ],
-    "encumbrance": 18,
-    "material_thickness": 5
+    "material_thickness": 5,
+    "armor": [ { "encumbrance": 18 } ]
   },
   {
     "id": "survivor_lightplate",
@@ -21,11 +21,10 @@
     "volume": "18 L",
     "price": "800 USD",
     "material": [ "steel", "kevlar" ],
-    "coverage": 100,
-    "encumbrance": 24,
     "warmth": 25,
     "environmental_protection": 2,
-    "flags": [ "VARSIZE", "OUTER", "STURDY" ]
+    "flags": [ "VARSIZE", "OUTER", "STURDY" ],
+    "armor": [ { "encumbrance": 24, "coverage": 100 } ]
   },
   {
     "id": "survivor_alloyplate",
@@ -37,11 +36,10 @@
     "volume": "18 L",
     "price": "1600 USD",
     "material": [ "superalloy", "kevlar" ],
-    "coverage": 100,
-    "encumbrance": 22,
     "warmth": 25,
     "environmental_protection": 2,
-    "flags": [ "VARSIZE", "OUTER", "STURDY" ]
+    "flags": [ "VARSIZE", "OUTER", "STURDY" ],
+    "armor": [ { "encumbrance": 22, "coverage": 100 } ]
   },
   {
     "id": "survivor_skinsuit",
@@ -55,10 +53,6 @@
     "material": [ "kevlar", "cotton" ],
     "symbol": "[",
     "color": "green",
-    "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ],
-    "coverage": 100,
-    "encumbrance": 3,
-    "max_encumbrance": 9,
     "warmth": 10,
     "material_thickness": 1,
     "environmental_protection": 2,
@@ -66,7 +60,8 @@
       { "pocket_type": "CONTAINER", "max_contains_volume": "500 ml", "max_contains_weight": "2 kg", "moves": 45 },
       { "pocket_type": "CONTAINER", "max_contains_volume": "500 ml", "max_contains_weight": "2 kg", "moves": 45 }
     ],
-    "flags": [ "VARSIZE", "RAINPROOF", "STURDY", "SKINTIGHT" ]
+    "flags": [ "VARSIZE", "RAINPROOF", "STURDY", "SKINTIGHT" ],
+    "armor": [ { "encumbrance": [ 3, 9 ], "coverage": 100, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ] } ]
   },
   {
     "id": "environmental_skinsuit",
@@ -81,13 +76,17 @@
     "material": [ "kevlar", "plastic" ],
     "symbol": "[",
     "color": "light_red",
-    "covers": [ "head", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
-    "coverage": 100,
-    "encumbrance": 10,
     "warmth": 30,
     "material_thickness": 1,
     "environmental_protection": 4,
-    "flags": [ "VARSIZE", "RAINPROOF", "STURDY", "ELECTRIC_IMMUNE", "SKINTIGHT" ]
+    "flags": [ "VARSIZE", "RAINPROOF", "STURDY", "ELECTRIC_IMMUNE", "SKINTIGHT" ],
+    "armor": [
+      {
+        "encumbrance": 10,
+        "coverage": 100,
+        "covers": [ "head", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+      }
+    ]
   },
   {
     "id": "armored_pack",
@@ -100,10 +99,6 @@
     "material": [ "kevlar", "steel", "leather" ],
     "symbol": "[",
     "color": "brown",
-    "covers": [ "torso" ],
-    "coverage": 30,
-    "encumbrance": 3,
-    "max_encumbrance": 12,
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
@@ -128,6 +123,7 @@
       }
     ],
     "material_thickness": 2,
-    "flags": [ "WATER_FRIENDLY", "STURDY", "BELTED" ]
+    "flags": [ "WATER_FRIENDLY", "STURDY", "BELTED" ],
+    "armor": [ { "encumbrance": [ 3, 12 ], "coverage": 30, "covers": [ "torso" ] } ]
   }
 ]

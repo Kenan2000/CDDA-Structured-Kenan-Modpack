@@ -630,9 +630,8 @@
     "relic_data": { "charge_info": { "recharge_type": "solar_sunny", "time": "10 m", "regenerate_ammo": true } },
     "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "battery": 250 } } ],
     "flags": [ "WATCH", "ALARMCLOCK", "RECHARGE", "NO_UNLOAD", "NO_RELOAD" ],
-    "encumbrance": 1,
-    "coverage": 1,
-    "phase": "solid"
+    "phase": "solid",
+    "armor": [ { "encumbrance": 1, "coverage": 1 } ]
   },
   {
     "id": "stim",
@@ -814,11 +813,10 @@
     "material": [ "plastic", "steel" ],
     "symbol": "[",
     "color": "dark_gray",
-    "covers": [ "hand_l", "hand_r" ],
     "sided": true,
-    "coverage": 5,
     "use_action": [ "WEATHER_TOOL", "DISASSEMBLE" ],
-    "flags": [ "WATCH", "ALARMCLOCK", "BELTED", "FRAGILE", "ALLOWS_NATURAL_ATTACKS", "THERMOMETER" ]
+    "flags": [ "WATCH", "ALARMCLOCK", "BELTED", "FRAGILE", "ALLOWS_NATURAL_ATTACKS", "THERMOMETER" ],
+    "armor": [ { "coverage": 5, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
     "id": "parabracelets",
@@ -832,11 +830,10 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "color": "dark_gray",
-    "covers": [ "hand_l", "hand_r" ],
     "sided": true,
-    "coverage": 5,
     "flags": [ "BELTED", "FRAGILE", "ALLOWS_NATURAL_ATTACKS" ],
-    "use_action": "DISASSEMBLE"
+    "use_action": "DISASSEMBLE",
+    "armor": [ { "coverage": 5, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
     "id": "flesh_weapon_kit",
@@ -876,20 +873,18 @@
     "description": "A prototype device giving off noticeable heat, housing a compact radioisotope thermoelectric generator.  It does not seem to accept batteries or even provide a UPS hookup, instead housing an inductive charging system designed specifically for CBM power storage.  Being an unfinished design, the only way to dump power into the inductor without electrocuting yourself requires opening up part of the mechanism, exposing you to radiation.",
     "price": "12000 USD",
     "material": [ "plastic", "aluminum" ],
-    "covers": [ "torso" ],
     "flags": [ "LEAK_DAM", "RADIOACTIVE", "WAIST", "OVERSIZE", "NO_RELOAD", "NO_UNLOAD" ],
     "weight": "2200 g",
     "volume": "3 L",
     "bashing": 4,
-    "coverage": 25,
-    "encumbrance": 5,
     "warmth": 20,
     "material_thickness": 2,
     "ammo": [ "battery" ],
     "charges_per_use": 1,
     "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "1 h", "regenerate_ammo": true } },
     "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "battery": 25 } } ],
-    "use_action": { "type": "cast_spell", "spell_id": "c_cbm_rtg_induction", "no_fail": true, "level": 0 }
+    "use_action": { "type": "cast_spell", "spell_id": "c_cbm_rtg_induction", "no_fail": true, "level": 0 },
+    "armor": [ { "encumbrance": 5, "coverage": 25, "covers": [ "torso" ] } ]
   },
   {
     "id": "thermal_lance_makeshift",

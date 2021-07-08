@@ -137,7 +137,7 @@
     "id": "cddaxp_argoogles",
     "type": "TOOL",
     "name": { "str": "Miltech 'AR' projector" },
-    "description": "A little laser projector of 'Augmented Reality', by Miltech.  When loaded, activate it up to three times to enhance your surroundings for a short period of time.",
+    "description": "A little laser projector of 'Augmented Reality', by Miltech.  When loaded, activate it up to three times to enhance your Perception of your surroundings for a short period of time.",
     "weight": "85 g",
     "volume": "250 ml",
     "price": "90 USD",
@@ -148,10 +148,18 @@
     "symbol": ",",
     "color": "light_gray",
     "ammo": [ "battery" ],
-    "initial_charges": 0,
-    "max_charges": 150,
     "charges_per_use": 50,
     "turns_per_charge": 0,
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE_WELL",
+        "rigid": true,
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [ "medium_battery_cell", "medium_plus_battery_cell", "medium_atomic_battery_cell", "medium_disposable_cell" ]
+      }
+    ],
     "use_action": {
       "type": "consume_drug",
       "activation_message": "You push activation button.  'AR' enhance your surroundings.",
@@ -162,7 +170,7 @@
     "id": "cddaxp_patablet",
     "type": "TOOL",
     "name": { "str": "AppleSoft portable personal assistant" },
-    "description": "An AppleSoft portable personal assistant in the form of a tablet PC.  The connection thing is useless, but 'Sirana' (the device 'AI') and his internal multipurpose database can still help you.  Runs on conventional batteries.",
+    "description": "An AppleSoft portable personal assistant in the form of a tablet PC.  The connection thing is useless, but 'Sirana' (the device 'AI') and his internal multipurpose database can still help you.  Runs on conventional batteries. Sirana's Intelligence can boost yours while holding this tablet.",
     "weight": "300 g",
     "volume": "250 ml",
     "price": "3500 USD",
@@ -172,44 +180,59 @@
     "material": [ "plastic" ],
     "symbol": ";",
     "color": "white",
-    "ammo": [ "battery" ],
-    "initial_charges": 0,
-    "max_charges": 200,
-    "charges_per_use": 4,
-    "turns_per_charge": 0,
-    "use_action": {
-      "target": "cddaxp_patablet_on",
-      "msg": "You activate your %s",
-      "active": true,
-      "need_charges": 4,
-      "need_charges_msg": "The %s's batteries are dead.",
-      "type": "transform"
-    }
+    "charges_per_use": 2,
+    "ammo": "battery",
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE_WELL",
+        "rigid": true,
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [
+          "light_plus_battery_cell",
+          "light_battery_cell",
+          "light_minus_battery_cell",
+          "light_atomic_battery_cell",
+          "light_minus_atomic_battery_cell",
+          "light_minus_disposable_cell",
+          "light_disposable_cell"
+        ]
+      }
+      ],
+    "relic_data": {
+      "passive_effects": [ { "has": "WIELD", "condition": "ACTIVE", "values": [ { "value": "INTELLIGENCE", "add": 3 } ] } ]
+      },
+    "use_action": [
+      {
+        "target": "cddaxp_patablet_on",
+        "msg": "You activate your %s",
+        "active": true,
+        "need_charges": 2,
+        "need_charges_msg": "The %s's batteries are dead.",
+        "menu_text": "Activate Applesoft Assistant",
+        "type": "transform"
+      }
+    ],
+    "extend": { "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ] }
   },
   {
     "id": "cddaxp_patablet_on",
+    "copy-from": "cddaxp_patablet",
     "type": "TOOL",
     "name": { "str": "AppleSoft portable personal assistant (on)" },
-    "description": "An AppleSoft portable personal assistant in the form of a tablet PC.  The connection thing is useless, but 'Sirana' (the device 'AI') and his internal multipurpose database can still help you.  Runs on conventional batteries.",
-    "weight": "300 g",
-    "volume": "250 ml",
-    "price": "3500 USD",
-    "to_hit": -1,
-    "bashing": 1,
-    "cutting": 0,
-    "material": [ "plastic" ],
-    "symbol": ";",
-    "color": "white",
-    "ammo": [ "battery" ],
-    "initial_charges": 0,
-    "max_charges": 200,
-    "charges_per_use": 0,
-    "turns_per_charge": 2,
+    "description": "An AppleSoft portable personal assistant in the form of a tablet PC.  The connection thing is useless, but 'Sirana' (the device 'AI') and his internal multipurpose database can still help you.  Runs on conventional batteries. Sirana's Intelligence can boost yours while holding this tablet.",
+    "turns_per_charge": 4,
     "revert_to": "cddaxp_patablet",
-    "relic_data": {
-      "passive_effects": [ { "has": "WIELD", "condition": "ALWAYS", "values": [ { "value": "INTELLIGENCE", "add": 3 } ] } ]
-    },
-    "use_action": { "target": "cddaxp_patablet", "msg": "Your %s deactivates.", "type": "transform" }
+    "revert_msg": "Your tablet shuts down",
+    "use_action": [
+      {
+        "target": "cddaxp_patablet",
+        "msg": "Your tablet shuts down",
+        "menu_text": "Turn off",
+        "type": "transform"
+      }
+    ]
   },
   {
     "id": "cddaxp_tbomb",

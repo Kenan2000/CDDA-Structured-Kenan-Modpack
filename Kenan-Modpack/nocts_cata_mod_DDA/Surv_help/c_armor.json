@@ -12,17 +12,14 @@
     "material": [ "leather", "cotton" ],
     "symbol": "[",
     "color": "brown",
-    "covers": [ "torso" ],
-    "coverage": 35,
-    "encumbrance": 4,
-    "max_encumbrance": 16,
     "pocket_data": [
       { "ammo_restriction": { "arrow": 50, "bolt": 50 }, "moves": 20 },
       { "pocket_type": "CONTAINER", "max_contains_volume": "16 L", "max_contains_weight": "32 kg", "moves": 300 }
     ],
     "warmth": 10,
     "material_thickness": 2,
-    "flags": [ "WATER_FRIENDLY", "STURDY", "BELTED" ]
+    "flags": [ "WATER_FRIENDLY", "STURDY", "BELTED" ],
+    "armor": [ { "encumbrance": [ 4, 16 ], "coverage": 35, "covers": [ "torso" ] } ]
   },
   {
     "id": "surv_suit",
@@ -39,9 +36,6 @@
     "material": [ "leather", "kevlar" ],
     "symbol": "[",
     "color": "brown",
-    "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r", "head" ],
-    "coverage": 100,
-    "encumbrance": 25,
     "pocket_data": [
       { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "6 kg", "moves": 80 },
       { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "6 kg", "moves": 80 },
@@ -81,6 +75,13 @@
       "WATCH",
       "NONCONDUCTIVE",
       "ALARMCLOCK"
+    ],
+    "armor": [
+      {
+        "encumbrance": 25,
+        "coverage": 100,
+        "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r", "head" ]
+      }
     ]
   },
   {
@@ -99,9 +100,6 @@
     "material": [ "kevlar", "steel" ],
     "symbol": "[",
     "color": "brown",
-    "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r", "head" ],
-    "coverage": 100,
-    "encumbrance": 35,
     "pocket_data": [
       { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "6 kg", "moves": 80 },
       { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "6 kg", "moves": 80 },
@@ -141,6 +139,13 @@
       "WATCH",
       "NONCONDUCTIVE",
       "ALARMCLOCK"
+    ],
+    "armor": [
+      {
+        "encumbrance": 35,
+        "coverage": 100,
+        "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r", "head" ]
+      }
     ]
   },
   {
@@ -153,12 +158,11 @@
     "weight": "12100 g",
     "price": "900 USD",
     "material": [ "steel", "kevlar", "leather" ],
-    "coverage": 100,
-    "encumbrance": 25,
     "warmth": 30,
     "environmental_protection": 3,
     "material_thickness": 5,
-    "extend": { "flags": [ "WATERPROOF" ] }
+    "extend": { "flags": [ "WATERPROOF" ] },
+    "armor": [ { "encumbrance": 25, "coverage": 100 } ]
   },
   {
     "id": "helmet_plate_surv",
@@ -169,12 +173,12 @@
     "weight": "2395 g",
     "price": "500 USD",
     "material": [ "steel", "kevlar", "leather" ],
-    "encumbrance": 35,
     "warmth": 20,
     "environmental_protection": 3,
     "material_thickness": 6,
     "qualities": [ [ "GLARE", 1 ] ],
-    "extend": { "flags": [ "WATERPROOF", "SUN_GLASSES" ] }
+    "extend": { "flags": [ "WATERPROOF", "SUN_GLASSES" ] },
+    "armor": [ { "encumbrance": 35 } ]
   },
   {
     "id": "gloves_plate_surv",
@@ -185,11 +189,11 @@
     "weight": "1080 g",
     "price": "500 USD",
     "material": [ "iron", "kevlar", "leather" ],
-    "encumbrance": 25,
     "warmth": 25,
     "material_thickness": 5,
     "environmental_protection": 3,
-    "extend": { "flags": [ "WATERPROOF" ] }
+    "extend": { "flags": [ "WATERPROOF" ] },
+    "armor": [ { "encumbrance": 25 } ]
   },
   {
     "id": "boots_plate_surv",
@@ -200,10 +204,10 @@
     "weight": "2080 g",
     "price": "600 USD",
     "material": [ "iron", "kevlar", "leather" ],
-    "encumbrance": 30,
     "warmth": 25,
     "material_thickness": 5,
-    "environmental_protection": 3
+    "environmental_protection": 3,
+    "armor": [ { "encumbrance": 30 } ]
   },
   {
     "id": "badge_bio_weapon",
@@ -253,14 +257,12 @@
     "material": [ "superalloy", "plastic" ],
     "symbol": "[",
     "color": "light_gray",
-    "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "head" ],
-    "coverage": 75,
-    "encumbrance": 15,
     "warmth": 15,
     "material_thickness": 1,
     "environmental_protection": 4,
     "relic_data": { "passive_effects": [ { "id": "c_stealth_cloak" } ] },
-    "flags": [ "OVERSIZE", "HOOD", "WATERPROOF", "OUTER", "VARSIZE" ]
+    "flags": [ "OVERSIZE", "HOOD", "WATERPROOF", "OUTER", "VARSIZE" ],
+    "armor": [ { "encumbrance": 15, "coverage": 75, "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "head" ] } ]
   },
   {
     "type": "mutation",
@@ -287,14 +289,12 @@
     "material": [ "kevlar", "leather" ],
     "symbol": "[",
     "color": "dark_gray",
-    "covers": [ "foot_l", "foot_r" ],
-    "coverage": 100,
-    "encumbrance": 18,
     "warmth": 25,
     "material_thickness": 3,
     "environmental_protection": 2,
     "relic_data": { "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "mutations": [ "C_MUTE_BOOTS" ] } ] },
-    "flags": [ "VARSIZE", "WATERPROOF", "STURDY" ]
+    "flags": [ "VARSIZE", "WATERPROOF", "STURDY" ],
+    "armor": [ { "encumbrance": 18, "coverage": 100, "covers": [ "foot_l", "foot_r" ] } ]
   },
   {
     "type": "mutation",
@@ -319,14 +319,12 @@
     "material": [ "plastic", "steel" ],
     "symbol": "[",
     "color": "dark_gray",
-    "covers": [ "eyes" ],
-    "coverage": 100,
-    "encumbrance": 30,
     "warmth": 10,
     "material_thickness": 4,
     "environmental_protection": 5,
     "relic_data": { "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "mutations": [ "C_RADIOGENIC_GOGGLES" ] } ] },
-    "flags": [ "GNV_EFFECT", "WATERPROOF", "STURDY", "RADIOACTIVE", "LIGHT_25" ]
+    "flags": [ "GNV_EFFECT", "WATERPROOF", "STURDY", "RADIOACTIVE", "LIGHT_25" ],
+    "armor": [ { "encumbrance": 30, "coverage": 100, "covers": [ "eyes" ] } ]
   },
   {
     "id": "lmil_armor",
@@ -343,13 +341,17 @@
     "material": [ "c_superalloy_composite" ],
     "symbol": "[",
     "color": "dark_gray",
-    "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r" ],
-    "coverage": 100,
-    "encumbrance": 12,
     "warmth": 30,
     "material_thickness": 2,
     "environmental_protection": 4,
-    "flags": [ "STURDY", "NO_SALVAGE" ]
+    "flags": [ "STURDY", "NO_SALVAGE" ],
+    "armor": [
+      {
+        "encumbrance": 12,
+        "coverage": 100,
+        "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r" ]
+      }
+    ]
   },
   {
     "id": "mil_armor",
@@ -366,13 +368,17 @@
     "material": [ "c_superalloy_composite" ],
     "symbol": "[",
     "color": "dark_gray",
-    "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r" ],
-    "coverage": 100,
-    "encumbrance": 24,
     "warmth": 40,
     "material_thickness": 4,
     "environmental_protection": 4,
-    "flags": [ "STURDY", "NO_SALVAGE" ]
+    "flags": [ "STURDY", "NO_SALVAGE" ],
+    "armor": [
+      {
+        "encumbrance": 24,
+        "coverage": 100,
+        "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r" ]
+      }
+    ]
   },
   {
     "id": "hmil_armor",
@@ -389,13 +395,17 @@
     "material": [ "c_superalloy_composite" ],
     "symbol": "[",
     "color": "dark_gray",
-    "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r" ],
-    "coverage": 100,
-    "encumbrance": 36,
     "warmth": 30,
     "material_thickness": 6,
     "environmental_protection": 4,
-    "flags": [ "STURDY", "NONCONDUCTIVE", "NO_SALVAGE" ]
+    "flags": [ "STURDY", "NONCONDUCTIVE", "NO_SALVAGE" ],
+    "armor": [
+      {
+        "encumbrance": 36,
+        "coverage": 100,
+        "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r" ]
+      }
+    ]
   },
   {
     "id": "lmil_helm",
@@ -413,9 +423,6 @@
     "symbol": "[",
     "color": "dark_gray",
     "looks_like": "power_armor_helmet_light",
-    "covers": [ "head", "eyes", "mouth" ],
-    "coverage": 100,
-    "encumbrance": 12,
     "warmth": 30,
     "material_thickness": 2,
     "environmental_protection": 4,
@@ -424,7 +431,8 @@
     "initial_charges": 100,
     "ammo": "gasfilter_m",
     "use_action": "GASMASK",
-    "flags": [ "STURDY", "NO_SALVAGE", "SLEEP_IGNORE" ]
+    "flags": [ "STURDY", "NO_SALVAGE", "SLEEP_IGNORE" ],
+    "armor": [ { "encumbrance": 12, "coverage": 100, "covers": [ "head", "eyes", "mouth" ] } ]
   },
   {
     "id": "mil_helm",
@@ -442,9 +450,6 @@
     "symbol": "[",
     "color": "dark_gray",
     "looks_like": "power_armor_helmet_basic",
-    "covers": [ "head", "eyes", "mouth" ],
-    "coverage": 100,
-    "encumbrance": 24,
     "warmth": 40,
     "material_thickness": 4,
     "environmental_protection": 4,
@@ -453,7 +458,8 @@
     "initial_charges": 100,
     "ammo": "gasfilter_m",
     "use_action": "GASMASK",
-    "flags": [ "STURDY", "NO_SALVAGE", "SLEEP_IGNORE" ]
+    "flags": [ "STURDY", "NO_SALVAGE", "SLEEP_IGNORE" ],
+    "armor": [ { "encumbrance": 24, "coverage": 100, "covers": [ "head", "eyes", "mouth" ] } ]
   },
   {
     "id": "hmil_helm",
@@ -471,9 +477,6 @@
     "symbol": "[",
     "color": "dark_gray",
     "looks_like": "power_armor_helmet_heavy",
-    "covers": [ "head", "eyes", "mouth" ],
-    "coverage": 100,
-    "encumbrance": 36,
     "warmth": 30,
     "material_thickness": 6,
     "environmental_protection": 4,
@@ -482,7 +485,8 @@
     "initial_charges": 100,
     "ammo": "gasfilter_m",
     "use_action": "GASMASK",
-    "flags": [ "STURDY", "NONCONDUCTIVE", "NO_SALVAGE", "SLEEP_IGNORE" ]
+    "flags": [ "STURDY", "NONCONDUCTIVE", "NO_SALVAGE", "SLEEP_IGNORE" ],
+    "armor": [ { "encumbrance": 36, "coverage": 100, "covers": [ "head", "eyes", "mouth" ] } ]
   },
   {
     "id": "fancy_bra",
@@ -495,11 +499,10 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "color": "white",
-    "covers": [ "torso" ],
-    "coverage": 15,
     "warmth": 5,
     "material_thickness": 2,
-    "flags": [ "VARSIZE", "SKINTIGHT", "SUPER_FANCY" ]
+    "flags": [ "VARSIZE", "SKINTIGHT", "SUPER_FANCY" ],
+    "armor": [ { "coverage": 15, "covers": [ "torso" ] } ]
   },
   {
     "id": "thong",
@@ -512,11 +515,10 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "color": "white",
-    "covers": [ "leg_l", "leg_r" ],
-    "coverage": 12,
     "warmth": 5,
     "material_thickness": 1,
-    "flags": [ "VARSIZE", "SKINTIGHT", "FANCY" ]
+    "flags": [ "VARSIZE", "SKINTIGHT", "FANCY" ],
+    "armor": [ { "coverage": 12, "covers": [ "leg_l", "leg_r" ] } ]
   },
   {
     "id": "dress_skirt",
@@ -529,12 +531,10 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "color": "dark_gray",
-    "covers": [ "leg_l", "leg_r" ],
-    "coverage": 50,
-    "encumbrance": 2,
     "warmth": 5,
     "material_thickness": 1,
-    "flags": [ "VARSIZE", "FANCY" ]
+    "flags": [ "VARSIZE", "FANCY" ],
+    "armor": [ { "encumbrance": 2, "coverage": 50, "covers": [ "leg_l", "leg_r" ] } ]
   },
   {
     "id": "microskirt",
@@ -547,9 +547,8 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "color": "pink",
-    "covers": [ "leg_l", "leg_r" ],
-    "coverage": 7,
     "material_thickness": 1,
-    "flags": [ "VARSIZE", "FANCY" ]
+    "flags": [ "VARSIZE", "FANCY" ],
+    "armor": [ { "coverage": 7, "covers": [ "leg_l", "leg_r" ] } ]
   }
 ]

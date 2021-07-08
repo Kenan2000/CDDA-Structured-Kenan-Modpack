@@ -109,9 +109,6 @@
     "max_charges": 24,
     "charges_per_use": 1,
     "ammo": "essence_dull_type",
-    "covers": [ "eyes", "mouth" ],
-    "coverage": 100,
-    "encumbrance": 10,
     "warmth": 10,
     "material_thickness": 3,
     "environmental_protection": 1,
@@ -125,7 +122,8 @@
       "need_charges_msg": "Fuel the mask with consecrated essence, to open your eyes.",
       "type": "transform"
     },
-    "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ]
+    "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ],
+    "armor": [ { "encumbrance": 10, "coverage": 100, "covers": [ "eyes", "mouth" ] } ]
   },
   {
     "id": "somen_clairvoyance_on",
@@ -160,7 +158,7 @@
     "symbol": "[",
     "looks_like": "armor_larmor",
     "color": "green",
-    "armor_portion_data": [
+    "armor": [
       { "covers": [ "torso" ], "coverage": 90, "encumbrance": [ 10, 10 ] },
       { "covers": [ "leg_l", "leg_r" ], "coverage": 90, "encumbrance": [ 8, 8 ] },
       { "covers": [ "arm_l", "arm_r" ], "coverage": 90, "encumbrance": [ 8, 8 ] },
@@ -196,15 +194,14 @@
     "max_charges": 6,
     "charges_per_use": 2,
     "ammo": "essence_blood_type",
-    "covers": [ "head" ],
-    "coverage": 20,
     "material_thickness": 1,
     "use_action": {
       "type": "consume_drug",
       "activation_message": "The gem shimmers with malevolent red light as you feel a strange hunger, a craving for rotting meat and stagnant water...",
       "effects": [ { "id": "revenant_hunger", "duration": 300 } ]
     },
-    "flags": [ "BELTED", "OVERSIZE", "NO_SALVAGE", "ALLOWS_NATURAL_ATTACKS", "TRADER_KEEP_EQUIPPED" ]
+    "flags": [ "BELTED", "OVERSIZE", "NO_SALVAGE", "ALLOWS_NATURAL_ATTACKS", "TRADER_KEEP_EQUIPPED" ],
+    "armor": [ { "coverage": 20, "covers": [ "head" ] } ]
   },
   {
     "type": "enchantment",
@@ -232,8 +229,6 @@
     "color": "dark_gray",
     "max_charges": 20,
     "charges_per_use": 1,
-    "encumbrance": 12,
-    "max_encumbrance": 12,
     "ammo": "essence_type",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_type": 20 } } ],
     "relic_data": { "passive_effects": [ { "id": "ENCH_MANTLE_SHADOWS" } ] },
@@ -250,7 +245,8 @@
       }
     ],
     "relative": { "weight": 616, "volume": -1, "coverage": 5, "encumbrance": -5, "max_encumbrance": -5, "material_thickness": 1 },
-    "extend": { "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ] }
+    "extend": { "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ] },
+    "armor": [ { "encumbrance": [ 12, 12 ] } ]
   },
   {
     "id": "robe_shadow_on",
@@ -306,9 +302,6 @@
     "price": "900 USD",
     "price_postapoc": "90 USD",
     "bashing": 8,
-    "covers": [ "torso" ],
-    "coverage": 40,
-    "encumbrance": 5,
     "material": [ "iron" ],
     "symbol": "[",
     "looks_like": "shield_round",
@@ -339,7 +332,8 @@
       "AURA",
       "ONLY_ONE",
       "POWERARMOR_COMPATIBLE"
-    ]
+    ],
+    "armor": [ { "encumbrance": 5, "coverage": 40, "covers": [ "torso" ] } ]
   },
   {
     "id": "cyclopean_mirror_on",
@@ -349,8 +343,6 @@
     "category": "armor",
     "description": "An ornate round mirror in an archaic style.  Natural scenery appears to be engraved into it, and light reflected from it projects a completely different, otherworldly pattern.  It has shifted into a brightly-glowing barrier that protects the user from electricity and radiation, along with partial protection from psychic influence, some resistance to extreme temperatures, and minor environmental protection.  The barrier's phyiscal protection is half that of the mirror itself, but protects your body fully.",
     "volume": "4 L",
-    "covers": [ "head", "eyes", "mouth", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
-    "coverage": 100,
     "turns_per_charge": 600,
     "use_action": {
       "target": "cyclopean_mirror",
@@ -376,7 +368,13 @@
         "DIMENSIONAL_ANCHOR"
       ]
     },
-    "delete": { "flags": [ "BLOCK_WHILE_WORN" ] }
+    "delete": { "flags": [ "BLOCK_WHILE_WORN" ] },
+    "armor": [
+      {
+        "coverage": 100,
+        "covers": [ "head", "eyes", "mouth", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+      }
+    ]
   },
   {
     "id": "hauberk_jade",
@@ -388,7 +386,6 @@
     "price_postapoc": "150 USD",
     "material": [ "iron", "copper", "leather", "cotton" ],
     "color": "light_red",
-    "coverage": 100,
     "environmental_protection": 1,
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_dull_type": 120 } } ],
     "max_charges": 120,
@@ -413,7 +410,8 @@
       }
     ],
     "relative": { "weight": "3020 g", "price": "550 USD", "material_thickness": 1, "encumbrance": 5 },
-    "extend": { "flags": [ "NO_SALVAGE", "ELECTRIC_IMMUNE", "RAINPROOF", "TRADER_KEEP_EQUIPPED" ] }
+    "extend": { "flags": [ "NO_SALVAGE", "ELECTRIC_IMMUNE", "RAINPROOF", "TRADER_KEEP_EQUIPPED" ] },
+    "armor": [ { "coverage": 100 } ]
   },
   {
     "id": "hauberk_jade_on",
@@ -452,16 +450,14 @@
     "max_charges": 30,
     "charges_per_use": 3,
     "ammo": "essence_blood_type",
-    "covers": [ "head" ],
-    "coverage": 20,
-    "encumbrance": 10,
     "material_thickness": 1,
     "use_action": {
       "type": "consume_drug",
       "activation_message": "The carvings in the stone glow red for a brief moment, and a chill passes through your spine.",
       "effects": [ { "id": "heat_ward_true", "duration": 300 } ]
     },
-    "flags": [ "BELTED", "OVERSIZE", "ALLOWS_NATURAL_ATTACKS", "TRADER_KEEP_EQUIPPED" ]
+    "flags": [ "BELTED", "OVERSIZE", "ALLOWS_NATURAL_ATTACKS", "TRADER_KEEP_EQUIPPED" ],
+    "armor": [ { "encumbrance": 10, "coverage": 20, "covers": [ "head" ] } ]
   },
   {
     "id": "meteoric_talisman",

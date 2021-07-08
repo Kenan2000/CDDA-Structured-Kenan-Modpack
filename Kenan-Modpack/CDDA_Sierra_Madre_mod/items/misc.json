@@ -31,10 +31,8 @@
       "menu_text": "Set the collar to explode",
       "type": "transform"
     },
-    "covers": [ "head" ],
-    "coverage": 10,
-    "encumbrance": 10,
-    "flags": [ "RADIO_MODABLE", "RADIO_INVOKE_PROC", "BOMB", "NO_TAKEOFF", "NPC_ACTIVATE" ]
+    "flags": [ "RADIO_MODABLE", "RADIO_INVOKE_PROC", "BOMB", "NO_TAKEOFF", "NPC_ACTIVATE" ],
+    "armor": [ { "encumbrance": 10, "coverage": 10, "covers": [ "head" ] } ]
   },
   {
     "id": "collar_armed",
@@ -61,10 +59,8 @@
       "no_deactivate_msg": "The collar is about to explode. While the blast won't be very strong since initially it's been designed to only blow the wearer's head off, it's still strongly encouraged to get away from it.",
       "explosion": { "power": 16, "shrapnel": { "casing_mass": 100, "fragment_mass": 1 } }
     },
-    "covers": [ "head" ],
-    "coverage": 10,
-    "encumbrance": 10,
-    "flags": [ "TRADER_AVOID", "NO_TAKEOFF", "NPC_THROW_NOW" ]
+    "flags": [ "TRADER_AVOID", "NO_TAKEOFF", "NPC_THROW_NOW" ],
+    "armor": [ { "encumbrance": 10, "coverage": 10, "covers": [ "head" ] } ]
   },
   {
     "type": "GENERIC",
@@ -192,9 +188,6 @@
     "to_hit": -1,
     "symbol": "[",
     "color": "blue",
-    "covers": [ "leg_r", "leg_l", "torso", "arm_l", "arm_r", "head", "hand_l", "hand_r", "foot_r", "foot_l" ],
-    "coverage": 65,
-    "encumbrance": 3,
     "relic_data": { "passive_effects": [ { "id": "STAY_THERE" } ] },
     "pocket_data": [
       {
@@ -205,7 +198,14 @@
         "moves": 80
       }
     ],
-    "flags": [ "OVERSIZE", "OUTER", "TARDIS", "STURDY", "NO_TAKEOFF", "TRADER_KEEP", "AURA" ]
+    "flags": [ "OVERSIZE", "OUTER", "TARDIS", "STURDY", "NO_TAKEOFF", "TRADER_KEEP", "AURA" ],
+    "armor": [
+      {
+        "encumbrance": 3,
+        "coverage": 65,
+        "covers": [ "leg_r", "leg_l", "torso", "arm_l", "arm_r", "head", "hand_l", "hand_r", "foot_r", "foot_l" ]
+      }
+    ]
   },
   {
     "id": "npc_glue",
@@ -216,8 +216,6 @@
     "volume": "1001 ml",
     "symbol": "~",
     "color": "light_red",
-    "covers": [ "eyes", "mouth" ],
-    "encumbrance": 18,
     "relic_data": { "passive_effects": [ { "id": "STAY_THERE" } ] },
     "pocket_data": [
       {
@@ -228,7 +226,8 @@
         "moves": 80
       }
     ],
-    "flags": [ "NO_TAKEOFF", "TRADER_AVOID", "TRADER_KEEP", "STURDY", "AURA" ]
+    "flags": [ "NO_TAKEOFF", "TRADER_AVOID", "TRADER_KEEP", "STURDY", "AURA" ],
+    "armor": [ { "encumbrance": 18, "covers": [ "eyes", "mouth" ] } ]
   },
   {
     "id": "npc_glue2",
@@ -239,8 +238,6 @@
     "volume": "1001 ml",
     "symbol": "~",
     "color": "light_red",
-    "covers": [ "eyes", "mouth" ],
-    "encumbrance": 18,
     "relic_data": { "passive_effects": [ { "id": "STAY_THERE" } ] },
     "pocket_data": [
       {
@@ -251,7 +248,8 @@
         "moves": 80
       }
     ],
-    "flags": [ "NO_TAKEOFF", "TRADER_AVOID", "TRADER_KEEP", "STURDY", "AURA" ]
+    "flags": [ "NO_TAKEOFF", "TRADER_AVOID", "TRADER_KEEP", "STURDY", "AURA" ],
+    "armor": [ { "encumbrance": 18, "covers": [ "eyes", "mouth" ] } ]
   },
   {
     "id": "sierra_deck",
