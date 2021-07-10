@@ -318,7 +318,7 @@
     "harvest": "zombie",
     "special_attacks": [ [ "ACID", 20 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL", "ACID" ],
+    "death_function": { "effect": { "id": "death_acid", "hit_self": true }, "message": "The %s's body leaks acid." },
     "flags": [
       "SEES",
       "HEARS",
@@ -659,7 +659,6 @@
       }
     ],
     "regenerates": 20,
-    "death_function": [ "SPLATTER" ],
     "flags": [
       "SEES",
       "SMELLS",
@@ -976,7 +975,6 @@
       }
     ],
     "harvest": "zombie",
-    "death_function": [ "SPLATTER" ],
     "flags": [ "SEES", "WARM", "IMMOBILE", "NOHEAD", "POISON", "STUN_IMMUNE", "NO_BREATHE" ]
   },
   {
@@ -1814,7 +1812,6 @@
         "require_targeting_monster": false
       }
     ],
-    "death_function": [ "SPLATTER" ],
     "upgrades": { "half_life": 10, "into": "mon_zombie_fleshknot_mode" },
     "flags": [ "SEES", "HEARS", "SMELLS", "IMMOBILE", "WARM", "POISON", "IMMOBILE", "NOHEAD", "NO_BREATHE" ]
   },
@@ -1870,7 +1867,6 @@
         "require_targeting_monster": false
       }
     ],
-    "death_function": [ "SPLATTER" ],
     "upgrades": { "half_life": 15, "into": "mon_zombie_fleshknot_stro" },
     "flags": [ "SEES", "HEARS", "SMELLS", "IMMOBILE", "WARM", "POISON", "IMMOBILE", "NOHEAD", "NO_BREATHE" ]
   },
@@ -1926,7 +1922,6 @@
         "require_targeting_monster": false
       }
     ],
-    "death_function": [ "SPLATTER" ],
     "upgrades": { "half_life": 20, "into": "mon_zombie_fleshknot_vstro" },
     "flags": [ "SEES", "HEARS", "SMELLS", "IMMOBILE", "WARM", "POISON", "IMMOBILE", "NOHEAD", "NO_BREATHE" ]
   },
@@ -1982,7 +1977,6 @@
         "require_targeting_monster": false
       }
     ],
-    "death_function": [ "SPLATTER" ],
     "//": "The core is exposed, so critical hits are available.",
     "flags": [ "SEES", "HEARS", "SMELLS", "IMMOBILE", "WARM", "POISON", "IMMOBILE", "NO_BREATHE" ]
   }

@@ -21,7 +21,7 @@
       [ "wound_minor", 30 ],
       [ "scratch", 20 ]
     ],
-    "death_function": [ "FUNGUS", "DISINTEGRATE" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "The %s disintegrates!" },
     "flags": [ "SEES", "NOHEAD", "POISON", "NO_BREATHE", "IMMOBILE" ]
   },
   {
@@ -39,7 +39,7 @@
     "vision_night": 30,
     "starting_ammo": { "bot_fungal_boil": 8 },
     "special_attacks": [ [ "FUNGUS_BRISTLE", 20 ], [ "FUNGUS", 30 ], [ "wound_minor", 30 ], [ "GRENADIER", 60 ] ],
-    "death_function": [ "FUNGUS", "DISINTEGRATE" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "The %s disintegrates!" },
     "regenerates": 1,
     "flags": [ "SEES", "NOHEAD", "POISON", "NO_BREATHE", "IMMOBILE" ]
   },
@@ -108,7 +108,11 @@
     "vision_day": 25,
     "vision_night": 3,
     "special_attacks": [ [ "wound_minor", 30 ], [ "FUNGUS", 100 ], [ "BOOMER", 20 ], [ "scratch", 25 ] ],
-    "death_function": [ "FUNGUS", "FUNGUS", "BLOBSPLIT" ],
+    "death_function": {
+      "effect": { "id": "death_blobsplit", "hit_self": true },
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s splits in two!"
+    },
     "flags": [
       "SEES",
       "HEARS",
@@ -155,7 +159,7 @@
     "vision_day": 5,
     "vision_night": 5,
     "special_attacks": [ [ "wound_minor", 30 ], [ "PLANT", 60 ], [ "SUICIDE", 90 ] ],
-    "death_function": [ "DISINTEGRATE", "FUNGUS", "FUNGUS", "FUNGUS" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "The %s disintegrates!" },
     "upgrades": { "half_life": 1, "into": "mon_fungaloid_pk" },
     "flags": [ "SEES", "STUMBLES", "FLIES", "POISON", "NO_BREATHE", "NOHEAD", "NOGIB" ]
   },
@@ -225,7 +229,7 @@
     "anger_triggers": [ "SOUND", "PLAYER_CLOSE", "HURT", "FRIEND_ATTACKED", "FRIEND_DIED" ],
     "fear_triggers": [ "FIRE" ],
     "placate_triggers": [ "PLAYER_WEAK" ],
-    "death_function": [ "FUNGUS", "FUNGUS", "FUNGUS", "FUNGUS", "FUNGUS", "DISINTEGRATE", "SMOKEBURST" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "The %s disintegrates!" },
     "flags": [ "SEES", "HEARS", "SMELLS", "ANIMAL", "POISON", "BASHES", "WARM" ],
     "//": "This deer is a great concept, but admittedly gamey.  Perhaps it'd be better to change its color to light_gray or to remove the suicide attack?"
   },
@@ -260,7 +264,7 @@
     "special_attacks": [ [ "wound_minor", 30 ], [ "FUNGUS", 120 ], [ "HOWL", 60 ], [ "hammer", 40 ] ],
     "anger_triggers": [ "FIRE", "HURT", "PLAYER_CLOSE", "FRIEND_ATTACKED" ],
     "placate_triggers": [ "PLAYER_WEAK", "SOUND" ],
-    "death_function": [ "NORMAL", "FUNGUS" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
     "flags": [ "SEES", "HEARS", "SMELLS", "PATH_AVOID_DANGER_1", "ANIMAL", "POISON", "BASHES", "WARM", "ATTACKMON" ],
     "//": "The mighty foose.  Not mighty enough.  Ever."
   },
@@ -347,7 +351,7 @@
         ]
       }
     ],
-    "death_function": [ "NORMAL", "FUNGUS" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
     "flags": [ "SEES", "SMELLS", "POISON", "CLIMBS" ]
   },
   {
@@ -490,7 +494,7 @@
       "subtype": "collection",
       "groups": [ [ "mon_zombie_survivor_death_drops", 30 ], [ "default_zombie_death_drops", 60 ] ]
     },
-    "death_function": [ "NORMAL", "FUNGUS" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "STUMBLES", "GROUP_BASH", "POISON", "HUMAN", "PUSH_MON" ]
   },
   {
@@ -551,7 +555,7 @@
     "anger_triggers": [ "FRIEND_DIED", "FIRE", "PLAYER_CLOSE" ],
     "placate_triggers": [ "FRIEND_ATTACKED" ],
     "death_drops": { "subtype": "collection", "groups": [ [ "furvivor_glock", 100 ] ] },
-    "death_function": [ "NORMAL", "FUNGUS" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
     "flags": [ "SEES", "HEARS", "PATH_AVOID_DANGER_2", "WARM", "BASHES", "GROUP_BASH", "POISON", "HUMAN", "PUSH_MON", "GUILT" ],
     "//": "I'm vaguely aware that the way I compiled the loot item_groups for these gun-toting Zs is pretty inefficient.  Just sayin'''"
   },
@@ -613,7 +617,7 @@
     "anger_triggers": [ "FRIEND_DIED", "FIRE", "PLAYER_CLOSE" ],
     "placate_triggers": [ "FRIEND_ATTACKED" ],
     "death_drops": { "subtype": "collection", "groups": [ [ "furvivor_shotgun", 100 ] ] },
-    "death_function": [ "NORMAL", "FUNGUS" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
     "flags": [ "SEES", "HEARS", "PATH_AVOID_DANGER_2", "WARM", "BASHES", "GROUP_BASH", "POISON", "HUMAN", "PUSH_MON", "GUILT" ]
   },
   {
@@ -674,7 +678,7 @@
     "anger_triggers": [ "FRIEND_DIED", "PLAYER_WEAK", "FIRE", "PLAYER_CLOSE" ],
     "placate_triggers": [ "FRIEND_ATTACKED" ],
     "death_drops": { "subtype": "collection", "groups": [ [ "furvivor_deagle", 100 ] ] },
-    "death_function": [ "NORMAL", "FUNGUS" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
     "flags": [ "SEES", "HEARS", "PATH_AVOID_DANGER_2", "WARM", "BASHES", "GROUP_BASH", "POISON", "HUMAN", "PUSH_MON", "GUILT" ]
   },
   {
@@ -734,7 +738,7 @@
     "anger_triggers": [ "FRIEND_DIED", "FIRE", "PLAYER_CLOSE" ],
     "placate_triggers": [ "FRIEND_ATTACKED" ],
     "death_drops": { "subtype": "collection", "groups": [ [ "furvivor_smg", 100 ] ] },
-    "death_function": [ "NORMAL", "FUNGUS" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
     "flags": [ "SEES", "HEARS", "PATH_AVOID_DANGER_2", "WARM", "BASHES", "GROUP_BASH", "POISON", "HUMAN", "PUSH_MON", "GUILT" ]
   },
   {
@@ -777,7 +781,7 @@
     "anger_triggers": [ "FRIEND_DIED", "FIRE", "PLAYER_CLOSE" ],
     "placate_triggers": [ "FRIEND_ATTACKED" ],
     "death_drops": { "subtype": "collection", "groups": [ [ "spearmelee_pk", 95 ] ] },
-    "death_function": [ "NORMAL", "FUNGUS" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
     "flags": [ "SEES", "HEARS", "PATH_AVOID_DANGER_2", "WARM", "BASHES", "GROUP_BASH", "POISON", "HUMAN", "PUSH_MON", "GUILT" ]
   },
   {
@@ -837,7 +841,7 @@
     ],
     "anger_triggers": [ "HURT", "FRIEND_ATTACKED", "FIRE", "PLAYER_CLOSE" ],
     "death_drops": { "subtype": "collection", "groups": [ [ "marloss_man_drops", 100 ] ] },
-    "death_function": [ "EXPLODE", "FUNGUS", "FUNGUS", "FUNGUS", "FUNGUS", "FUNGUS", "FUNGUS" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
     "flags": [
       "SEES",
       "HEARS",
@@ -887,7 +891,7 @@
       [ "FUNGUS_BRISTLE", 50 ],
       { "id": "scratch", "cooldown": 30, "damage_max_instance": [ { "damage_type": "cut", "amount": 16 } ] }
     ],
-    "death_function": [ "NORMAL", "FUNGUS" ],
+    "death_function": { "effect": { "id": "death_fungus", "hit_self": true } },
     "flags": [ "HEARS", "GOODHEARING", "SMELLS", "NOHEAD", "HARDTOSHOOT", "POISON", "GRABS", "PLASTIC" ]
   },
   {

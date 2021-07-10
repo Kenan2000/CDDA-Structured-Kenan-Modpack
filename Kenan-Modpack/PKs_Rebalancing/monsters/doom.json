@@ -644,7 +644,11 @@
         "description": "The arachnotron grimaces and fires its carbine!"
       }
     ],
-    "death_function": [ "SMOKEBURST", "MELT" ],
+    "death_function": {
+      "effect": { "id": "death_smokeburst", "hit_self": true },
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s's body melts away."
+    },
     "flags": [
       "SEES",
       "HEARS",
@@ -772,7 +776,7 @@
         "description": "A series of explosions is heard as the cyberdemon raises its rifled hand!"
       }
     ],
-    "death_function": [ "NORMAL", "SMOKEBURST" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "flags": [ "SEES", "HEARS", "PRIORITIZE_TARGETS", "WARM", "POISON", "BASHES", "DESTROYS", "NO_BREATHE", "PUSH_MON", "ATTACKMON" ]
   },
   {
@@ -1139,7 +1143,7 @@
         "description": "em llik tsum uoy emag eht niw ot"
       }
     ],
-    "death_function": [ "JABBERWOCKY", "SMOKEBURST" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "IMMOBILE", "QUEEN" ]
   }
 ]

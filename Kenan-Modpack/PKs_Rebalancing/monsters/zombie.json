@@ -1211,7 +1211,11 @@
     "vision_day": 50,
     "vision_night": 9,
     "special_attacks": [ [ "UPGRADE", 0 ], [ "FORMBLOB", 1200 ], [ "slash", 20 ] ],
-    "death_function": [ "BLOBSPLIT" ],
+    "death_function": {
+      "effect": { "id": "death_blobsplit", "hit_self": true },
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s splits in two!"
+    },
     "burn_into": "mon_zombie_scorched_master",
     "upgrades": { "half_life": 21, "into": "mon_zombie_master_pk" }
   },
@@ -1222,7 +1226,11 @@
     "vision_day": 50,
     "vision_night": 9,
     "special_attacks": [ [ "RESURRECT", 0 ], [ "FORMBLOB", 1200 ], [ "slash", 20 ] ],
-    "death_function": [ "BLOBSPLIT" ],
+    "death_function": {
+      "effect": { "id": "death_blobsplit", "hit_self": true },
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s splits in two!"
+    },
     "burn_into": "mon_zombie_scorched_necro",
     "upgrades": { "half_life": 24, "into": "mon_zombie_necro_pk" }
   },
@@ -1453,7 +1461,7 @@
     "burn_into": "mon_zombie_scorched_pk",
     "emit_fields": [ { "emit_id": "emit_smoke_stream", "delay": "1 s" } ],
     "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "scratch", 15 ] ],
-    "death_function": [ "SMOKEBURST" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "upgrades": { "half_life": 35, "into_group": "GROUP_ZOMBIE_SMOKER" },
     "flags": [
       "SEES",
@@ -1649,7 +1657,7 @@
     "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK" ],
     "fear_triggers": [ "HURT" ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL", "BLOBSPLIT" ],
+    "death_function": { "effect": { "id": "death_blobsplit", "hit_self": true }, "message": "The %s splits in two!" },
     "burn_into": "mon_zombie_scorched_necro",
     "flags": [
       "SEES",
@@ -1701,7 +1709,7 @@
     "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK" ],
     "fear_triggers": [ "HURT" ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL", "BLOBSPLIT" ],
+    "death_function": { "effect": { "id": "death_blobsplit", "hit_self": true }, "message": "The %s splits in two!" },
     "burn_into": "mon_zombie_scorched_necro",
     "flags": [
       "SEES",
@@ -1758,7 +1766,7 @@
     "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK" ],
     "fear_triggers": [ "HURT" ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL", "BLOBSPLIT" ],
+    "death_function": { "effect": { "id": "death_blobsplit", "hit_self": true }, "message": "The %s splits in two!" },
     "burn_into": "mon_zombie_scorched_necro",
     "flags": [
       "SEES",
@@ -2097,7 +2105,11 @@
     "luminance": 2,
     "special_attacks": [ [ "scratch", 20 ], [ "BOOMER_GLOW", 20 ], [ "BREATHE", 8 ] ],
     "death_drops": "default_zombie_items",
-    "death_function": [ "BOOMER_GLOW" ],
+    "death_function": {
+      "effect": { "id": "death_boomer_glow", "hit_self": true, "min_level": 1 },
+      "corpse_type": "NO_CORPSE",
+      "message": "A %s explode!"
+    },
     "flags": [
       "SEES",
       "GOODHEARING",
@@ -2184,7 +2196,11 @@
     "vision_night": 4,
     "emit_fields": [ "emit_gas_plume", "emit_radiation_plume" ],
     "special_attacks": [ [ "GRAB_DRAG", 12 ], [ "STRETCH_ATTACK", 15 ] ],
-    "death_function": [ "GAS", "BOOMER_GLOW" ],
+    "death_function": {
+      "effect": { "id": "death_boomer_glow", "hit_self": true, "min_level": 1 },
+      "corpse_type": "NO_CORPSE",
+      "message": "A %s explode!"
+    },
     "flags": [
       "SEES",
       "HEARS",
