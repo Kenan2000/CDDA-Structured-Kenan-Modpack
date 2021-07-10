@@ -141,7 +141,7 @@
     "dodge": 0,
     "armor_bash": 5,
     "special_attacks": [ [ "wound_minor", 10 ], [ "VINE", 3 ], [ "DISAPPEAR", 20 ] ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "NOHEAD", "HARDTOSHOOT", "PLASTIC", "IMMOBILE", "GRABS", "NOGIB" ]
   },
   {
@@ -171,7 +171,7 @@
     "armor_stab": 8,
     "special_attacks": [ [ "VINE", 7 ], [ "wound_minor", 10 ] ],
     "anger_triggers": [ "SOUND", "PLAYER_WEAK", "FRIEND_ATTACKED" ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "upgrades": { "half_life": 14, "into_group": "GROUP_CREEPER_VINE_PK" },
     "flags": [ "SMELLS", "HEARS", "DIGS", "SWIMS", "NOHEAD", "HARDTOSHOOT", "PUSH_MON", "PLASTIC", "GRABS", "BASHES", "NOGIB" ]
   },
@@ -237,7 +237,6 @@
     "special_attacks": [ [ "GROW_VINE", 30 ], [ "VINE", 5 ] ],
     "anger_triggers": [ "SOUND", "FIRE", "STALK", "HURT", "FRIEND_ATTACKED", "PLAYER_WEAK" ],
     "death_drops": { "subtype": "collection", "groups": [ [ "biollante", 75 ] ] },
-    "death_function": [ "NORMAL" ],
     "flags": [
       "DIGS",
       "HEARS",
@@ -290,7 +289,6 @@
         ]
       }
     ],
-    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "GOODHEARING", "PUSH_MON", "NOHEAD", "HARDTOSHOOT", "GRABS", "PLASTIC" ]
   },
   {
@@ -329,7 +327,6 @@
       "groups": [ [ "biollante", 35 ], [ "biollante", 35 ], [ "biollante", 35 ], [ "fungal_sting", 75 ] ],
       "//": "15% chance of an item from group biollante"
     },
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "HEARS",
@@ -374,7 +371,6 @@
     "armor_fire": 3,
     "special_attacks": [ [ "PARA_STING", 15 ], [ "para_poison", 60 ] ],
     "death_drops": { "subtype": "collection", "groups": [ [ "fungal_sting", 95 ], [ "fungal_fighter_sting", 75 ] ] },
-    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "SMELLS", "BASHES", "GROUP_BASH", "PUSH_MON", "NOHEAD", "PARALYZEVENOM" ],
     "//": "I didn't really want to add bells and whistles to these guys, but I don't think I could not have.  parasting is a pretty weak attack that only functions on funguses or (N)PCs, afaik."
   },

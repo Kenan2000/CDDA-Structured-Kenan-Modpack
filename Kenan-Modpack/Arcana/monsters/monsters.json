@@ -583,7 +583,6 @@
     "armor_bullet": 2,
     "harvest": "human",
     "death_drops": "mon_homunculus_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "HUMAN", "REVIVES", "CLIMBS", "FILTHY" ]
   },
   {
@@ -621,7 +620,6 @@
     "harvest": "zombie",
     "special_attacks": [ [ "FEAR_PARALYZE", 15 ], { "type": "bite", "cooldown": 5 } ],
     "death_drops": "mon_flesh_angel_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "HARDTOSHOOT", "FLIES", "HUMAN", "POISON", "REVIVES", "FILTHY" ]
   },
   {
@@ -987,7 +985,7 @@
       }
     ],
     "death_drops": "mon_spirit_of_fire_death_drops",
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "//": "It's coldproof due to being a demon, moreso than because it's made of fire.",
     "flags": [
       "NOHEAD",
@@ -1038,7 +1036,6 @@
     "harvest": "moruboru_harvest",
     "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "TENTACLE", 5 ] ],
     "death_drops": "mon_moruboru_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "SMELLS", "NOHEAD", "POISON", "NO_BREATHE", "PARALYZEVENOM", "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS" ],
     "//": "Boss-level essence and an item"
   },
@@ -1103,7 +1100,6 @@
     ],
     "//": "Here, have some chalice-specific loot",
     "death_drops": "mon_archon_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [
       "ELECTRIC",
       "SEES",
@@ -1172,7 +1168,6 @@
       }
     ],
     "death_drops": "mon_dracolich_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "SMELLS",
@@ -1206,7 +1201,7 @@
         "damage_max_instance": [ { "damage_type": "acid", "amount": 10, "armor_multiplier": 0.25 } ]
       }
     ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "death_drops": {  },
     "extend": { "flags": [ "SEES", "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_MOUNTABLE" ] },
     "delete": { "flags": [ "ACIDTRAIL", "SUNDEATH", "BASHES", "BORES" ] }
@@ -1222,7 +1217,7 @@
     "melee_damage": [ { "damage_type": "heat", "amount": 2 } ],
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "death_drops": {  },
     "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_HARNESSABLE" ] },
     "delete": { "upgrades": { "half_life": 8, "into": "mon_zombie_brute" } }
@@ -1239,7 +1234,7 @@
     "species": [ "ARCANA_SUMMONED" ],
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "death_drops": {  },
     "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_MOUNTABLE" ] },
     "delete": { "flags": [ "BASHES", "DESTROYS", "ATTACKMON" ] }
@@ -1255,7 +1250,7 @@
     "path_settings": { "max_dist": 10 },
     "special_attacks": [ [ "SMASH", 25 ] ],
     "regenerates": 1,
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "death_drops": {  },
     "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_HARNESSABLE" ] },
     "delete": { "flags": [ "BASHES", "GROUP_BASH" ] }
@@ -1288,7 +1283,7 @@
     "mountable_weight_ratio": 0.9,
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "death_drops": {  },
     "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "CANPLAY", "PET_HARNESSABLE" ] }
   },
@@ -1305,7 +1300,7 @@
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
     "attack_effs": [ { "id": "stunned", "duration": 5, "chance": 30 } ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "death_drops": {  },
     "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_HARNESSABLE" ] },
     "delete": { "upgrades": { "half_life": 15, "into": "mon_skeleton_hulk" } }
@@ -1353,7 +1348,7 @@
         "monster_message": "The summoned yugg fires a dart at %3$s!"
       }
     ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "death_drops": {  },
     "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_MOUNTABLE" ] },
     "delete": { "flags": [ "BASHES", "DESTROYS", "DIGS" ] }
@@ -1386,7 +1381,7 @@
     "species": [ "ARCANA_SUMMONED" ],
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "death_drops": {  },
     "special_attacks": [
       { "type": "bite", "cooldown": 10 },
@@ -1411,7 +1406,7 @@
     "mountable_weight_ratio": 0.9,
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "death_drops": {  },
     "special_attacks": [ { "type": "bite", "cooldown": 5 } ],
     "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_HARNESSABLE" ] }
@@ -1447,7 +1442,7 @@
     "mountable_weight_ratio": 0.9,
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "special_attacks": [ { "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 23, "armor_multiplier": 0.8 } ] } ],
     "death_drops": {  },
     "extend": { "flags": [ "PET_HARNESSABLE" ] },
@@ -1503,7 +1498,7 @@
     "path_settings": { "max_dist": 10 },
     "regenerates_in_dark": true,
     "death_drops": {  },
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "special_attacks": [ [ "PARROT", 900 ] ],
     "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "CANPLAY" ] },
     "delete": { "flags": [ "SUNDEATH", "HEARS", "GOODHEARING", "SMELLS", "HIT_AND_RUN", "ELECTRIC" ] }
@@ -1530,7 +1525,7 @@
     "vision_night": 50,
     "harvest": "exempt",
     "special_attacks": [ [ "DISAPPEAR", 200 ] ],
-    "death_function": [ "DISAPPEAR" ],
+    "death_function": { "message": "The %s disappears.", "corpse_type": "NO_CORPSE" },
     "flags": [ "PACIFIST", "SEES", "NOHEAD", "HARDTOSHOOT", "WEBWALK", "FLIES", "PLASTIC", "ACIDPROOF", "NO_BREATHE", "NOGIB" ]
   },
   {
@@ -1543,7 +1538,7 @@
     "species": [ "ARCANA_SUMMONED" ],
     "speed": 85,
     "death_drops": {  },
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "melee_dice_sides": 2,
     "melee_cut": 0,
     "melee_damage": [ { "damage_type": "cold", "amount": 2, "armor_multiplier": 0.1 } ],
@@ -1578,7 +1573,7 @@
     "morale": 100,
     "harvest": "exempt",
     "special_attacks": [ [ "DISAPPEAR", 200 ] ],
-    "death_function": [ "DISAPPEAR" ],
+    "death_function": { "message": "The %s disappears.", "corpse_type": "NO_CORPSE" },
     "flags": [ "PACIFIST", "FLIES", "SEES", "WARM", "SWIMS", "PLASTIC", "NOGIB" ]
   },
   {
@@ -1592,7 +1587,7 @@
     "path_settings": { "max_dist": 10 },
     "regenerates": 1,
     "death_drops": {  },
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "extend": { "flags": [ "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "PET_HARNESSABLE" ] },
     "delete": { "upgrades": { "half_life": 21, "into": "mon_centipede_mega" } }
   },
@@ -1661,7 +1656,7 @@
       }
     ],
     "death_drops": "mon_seraphic_shade_death_drops",
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [
       "PATH_AVOID_DANGER_2",
       "CAN_OPEN_DOORS",
@@ -1708,7 +1703,7 @@
     "luminance": 1,
     "harvest": "exempt",
     "special_attacks": [ [ "STARE", 250 ], [ "FEAR_PARALYZE", 100 ], [ "PARROT", 80 ] ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [
       "PACIFIST",
       "PATH_AVOID_DANGER_2",
@@ -1757,7 +1752,7 @@
     "mech_battery": "arcana_mech_power_cell",
     "mech_weapon": "arcana_mech_laser",
     "revert_to_itype": "broken_mech_arcana",
-    "death_function": [ "BROKEN" ],
+    "death_function": { "corpse_type": "BROKEN" },
     "flags": [
       "SEES",
       "MECH_RECON_VISION",
@@ -1835,7 +1830,7 @@
         "monster_message": "The Autonomous Anomaly Recon Mech launches a ghostly blue flare, illuminating %3$s with ethereal light!"
       }
     ],
-    "death_function": [ "BROKEN" ],
+    "death_function": { "corpse_type": "BROKEN" },
     "death_drops": "mon_mech_arcana_boss_death_drops",
     "flags": [
       "SEES",

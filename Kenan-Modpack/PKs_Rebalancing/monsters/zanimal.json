@@ -26,7 +26,6 @@
     "vision_night": 4,
     "harvest": "zombie",
     "special_attacks": [ { "type": "bite", "cooldown": 5 } ],
-    "death_function": [ "NORMAL" ],
     "burn_into": "mon_zanimal_scorched",
     "upgrades": { "half_life": 11, "into": "mon_zombie_dog_pk" },
     "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "WARM", "BASHES", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
@@ -62,7 +61,6 @@
     "harvest": "zombie",
     "special_attacks": [ { "type": "bite", "cooldown": 5 } ],
     "death_drops": { "subtype": "collection", "groups": [ [ "dog_cop", 40 ] ], "//": "40% chance of an item from group dog_cop" },
-    "death_function": [ "NORMAL" ],
     "burn_into": "mon_zanimal_scorched",
     "upgrades": { "half_life": 19, "into": "mon_dog_zombie_cop_pk" },
     "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "WARM", "BASHES", "POISON", "NO_BREATHE", "REVIVES", "PUSH_MON", "FILTHY" ]
@@ -201,7 +199,6 @@
     "vision_day": 10,
     "vision_night": 40,
     "special_attacks": [ [ "HOWL", 20 ], [ "LUNGE", 20 ], { "type": "bite", "cooldown": 20, "min_mul": 0.7 } ],
-    "death_function": [ "NORMAL" ],
     "burn_into": "mon_zolf_scorched",
     "flags": [
       "SEES",
@@ -271,7 +268,6 @@
     "vision_day": 35,
     "emit_fields": [ "emit_flesh_slough" ],
     "special_attacks": [ [ "hammer", 30 ] ],
-    "death_function": [ "NORMAL" ],
     "burn_into": "mon_horse_zombie_scorched",
     "flags": [
       "SEES",
@@ -319,7 +315,6 @@
     "vision_day": 40,
     "vision_night": 3,
     "special_attacks": [ { "type": "bite", "cooldown": 7, "min_mul": 0.3 } ],
-    "death_function": [ "NORMAL" ],
     "burn_into": "mon_dog_skeleton_pk",
     "flags": [ "SEES", "HEARS", "SMELLS", "KEENNOSE", "STUMBLES", "WARM", "BASHES", "POISON", "NO_BREATHE", "REVIVES" ]
   },
@@ -357,7 +352,6 @@
     "vision_night": 4,
     "emit_fields": [ "emit_smoke_stream", "emit_radiation_plume" ],
     "special_attacks": [ { "type": "bite", "cooldown": 5, "min_mul": 0.6, "accuracy": 12 }, [ "SHRIEK_ALERT", 50 ], [ "SHRIEK_STUN", 1 ] ],
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "HEARS",
@@ -444,7 +438,7 @@
     "vision_night": 10,
     "emit_fields": [ "emit_smoke_stream" ],
     "special_attacks": [ { "type": "bite", "cooldown": 7, "min_mul": 0.5, "no_infection_chance": 3 } ],
-    "death_function": [ "SMOKEBURST", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "flags": [
       "SEES",
       "HEARS",
@@ -492,7 +486,6 @@
     "vision_day": 25,
     "vision_night": 3,
     "special_attacks": [ [ "scratch", 15 ] ],
-    "death_function": [ "NORMAL" ],
     "burn_into": "mon_zombie_child_scorched_2",
     "flags": [
       "SEES",
@@ -538,7 +531,7 @@
     "vision_day": 15,
     "vision_night": 5,
     "special_attacks": [ [ "scratch", 30 ] ],
-    "death_function": [ "SMOKEBURST", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "burn_into": "mon_zombie_crawler_scorched",
     "upgrades": { "half_life": 24, "into": "mon_zombie_scorched_pk" },
     "flags": [ "SEES", "HEARS", "STUMBLES", "POISON", "GRABS", "NO_BREATHE", "REVIVES", "REVIVES_HEALTHY", "NO_NECRO", "FILTHY" ]
@@ -572,7 +565,6 @@
     "vision_day": 20,
     "vision_night": 10,
     "special_attacks": [ [ "GRAB", 15 ], [ "hammer", 15 ] ],
-    "death_function": [ "NORMAL" ],
     "burn_into": "mon_zombie_crawler_scorched",
     "flags": [ "SEES", "STUMBLES", "POISON", "NO_BREATHE", "REVIVES", "REVIVES_HEALTHY", "NO_NECRO", "FILTHY" ],
     "extend": { "upgrades": { "half_life": 24, "into": "mon_zombie_fiend_pk" } },
@@ -608,7 +600,7 @@
     "vision_day": 20,
     "vision_night": 7,
     "special_attacks": [ [ "slash", 30 ] ],
-    "death_function": [ "SMOKEBURST", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "burn_into": "mon_zombie_scorched",
     "flags": [ "SEES", "HEARS", "STUMBLES", "POISON", "GRABS", "NO_BREATHE", "REVIVES", "REVIVES_HEALTHY", "NO_NECRO", "FILTHY" ]
   },
@@ -644,7 +636,7 @@
     "vision_night": 7,
     "luminance": 2,
     "special_when_hit": [ "ZAPBACK", 25 ],
-    "death_function": [ "SMOKEBURST", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "burn_into": "mon_zombie_scorched_pk",
     "flags": [
       "SEES",
@@ -690,7 +682,6 @@
     "vision_day": 25,
     "vision_night": 12,
     "special_attacks": [ [ "GRAB", 15 ], [ "hammer", 10 ] ],
-    "death_function": [ "NORMAL" ],
     "burn_into": "mon_zombie_fiend",
     "flags": [ "SEES", "STUMBLES", "POISON", "NO_BREATHE", "REVIVES", "REVIVES_HEALTHY", "NO_NECRO", "FILTHY" ]
   },
@@ -727,7 +718,6 @@
     "luminance": 6,
     "special_attacks": [ [ "GRAB", 15 ], [ "hammer", 10 ] ],
     "special_when_hit": [ "ZAPBACK", 20 ],
-    "death_function": [ "NORMAL" ],
     "burn_into": "mon_zombie_fiend_pk",
     "flags": [ "SEES", "STUMBLES", "POISON", "NO_BREATHE", "REVIVES", "REVIVES_HEALTHY", "NO_NECRO", "ELECTRIC", "FILTHY" ]
   },
@@ -794,7 +784,7 @@
     "armor_fire": 20,
     "vision_day": 10,
     "vision_night": 3,
-    "death_function": [ "DISINTEGRATE" ],
+    "death_function": { "message": "The %s disintegrates!", "corpse_type": "NO_CORPSE" },
     "flags": [ "SEES", "STUMBLES", "POISON", "GRABS", "NO_BREATHE", "SWIMS", "FILTHY" ]
   },
   {
@@ -918,7 +908,6 @@
     "armor_fire": 18,
     "vision_day": 25,
     "vision_night": 3,
-    "death_function": [ "NORMAL" ],
     "burn_into": "mon_skeleton_scorched",
     "flags": [
       "SEES",
@@ -965,7 +954,6 @@
     "vision_night": 15,
     "special_attacks": [ [ "slash", 30 ] ],
     "anger_triggers": [ "FRIEND_ATTACKED" ],
-    "death_function": [ "NORMAL" ],
     "burn_into": "mon_zolf_scorched",
     "flags": [ "SEES", "HEARS", "WARM", "NO_BREATHE", "REVIVES", "REVIVES_HEALTHY", "NO_NECRO", "PUSH_MON", "STUMBLES", "BASHES" ]
   },
@@ -1000,7 +988,7 @@
     "vision_day": 5,
     "vision_night": 15,
     "special_attacks": [ [ "SHRIEK", 120 ], [ "FORMBLOB", 150 ], [ "LONGSWIPE", 50 ], [ "scratch", 20 ] ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "burn_into": "mon_zanimal_scorched",
     "flags": [
       "SEES",
@@ -1153,7 +1141,6 @@
         "damage_max_instance": [ { "damage_type": "bash", "amount": 30, "armor_multiplier": 0.75 } ]
       }
     ],
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "HEARS",

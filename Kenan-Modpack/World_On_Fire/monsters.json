@@ -47,7 +47,6 @@
       }
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
-    "death_function": [ "NORMAL" ],
     "harvest": "arachnid_fire",
     "flags": [ "FIREPROOF", "CLIMBS", "HEARS", "ATTACKMON", "SEES", "SMELLS", "SWIMS" ]
   },
@@ -186,7 +185,7 @@
     "starting_ammo": { "molotov": 1 },
     "special_attacks": [ [ "KAMIKAZE", 0 ], [ "scratch", 15 ] ],
     "death_drops": "default_zombie_items",
-    "death_function": [ "FIREBALL" ],
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "WARM", "POISON", "NO_BREATHE", "REVIVES", "FILTHY", "FLAMMABLE" ]
   },
   {
@@ -615,7 +614,7 @@
     "path_settings": { "max_dist": 5 },
     "starting_ammo": { "c4": 1 },
     "special_attacks": [ [ "KAMIKAZE", 0 ] ],
-    "death_function": [ "EXPLODE" ],
+  "death_function": { "effect": { "id": "death_explosion", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "The %s explodes!" },
     "flags": [ "SEES", "HEARS", "GOODHEARING", "ELECTRONIC", "NO_BREATHE", "PATH_AVOID_DANGER_1" ]
   },
   {
