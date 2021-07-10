@@ -36,7 +36,7 @@
     "anger_triggers": [ "FRIEND_DIED", "FRIEND_ATTACKED", "HURT", "STALK", "PLAYER_CLOSE" ],
     "fear_triggers": [ "FIRE" ],
     "death_drops": "wild_bio_weapom_item",
-    "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true } },
+    "death_function": [ "ACID", "NORMAL" ],
     "flags": [
       "SEES",
       "HEARS",
@@ -91,8 +91,18 @@
     "anger_triggers": [ "FRIEND_DIED", "FRIEND_ATTACKED", "HURT", "STALK", "PLAYER_CLOSE" ],
     "placate_triggers": [ "FIRE" ],
     "death_drops": "wild_bio_weapom_item",
-    "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true } },
-    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "HUMAN", "ELECTRIC", "BASHES", "PUSH_VEH", "PATH_AVOID_DANGER_1" ]
+    "death_function": [ "ACID", "NORMAL" ],
+    "flags": [
+      "SEES",
+      "HEARS",
+      "SMELLS",
+      "WARM",
+      "HUMAN",
+      "ELECTRIC",
+      "BASHES",
+      "PUSH_VEH",
+      "PATH_AVOID_DANGER_1"
+    ]
   },
   {
     "id": "hulk_weapon",
@@ -155,7 +165,7 @@
     ],
     "special_when_hit": [ "ZAPBACK", 75 ],
     "death_drops": "apophis_bio_weapom_item",
-    "death_function": { "message": "The %s's body leaks acid and explodes.", "effect": { "id": "death_acid", "hit_self": true, "id": "death_gas", "hit_self": true } },
+    "death_function": [ "ACID", "NORMAL", "EXPLODE" ],
     "flags": [
       "SEES",
       "HEARS",
@@ -218,8 +228,19 @@
     "fear_triggers": [ "FIRE" ],
     "placate_triggers": [ "PLAYER_WEAK" ],
     "death_drops": "mon_fungus_failed_weapon_death_drops",
-  "death_function": { "message": "The %s's body leaks acid and spores, and explodes.", "effect": { "id": "death_acid", "hit_self": true }, "effect": { "id": "death_gas", "hit_self": true },"effect": { "id": "death_fungus", "hit_self": true } },
-    "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "ELECTRIC", "ATTACKMON", "BASHES", "PUSH_MON", "PUSH_VEH", "FILTHY" ]
+    "death_function": [ "ACID", "FUNGUS", "NORMAL" ],
+    "flags": [
+      "SEES",
+      "HEARS",
+      "SMELLS",
+      "STUMBLES",
+      "ELECTRIC",
+      "ATTACKMON",
+      "BASHES",
+      "PUSH_MON",
+      "PUSH_VEH",
+      "FILTHY"
+    ]
   },
   {
     "id": "mon_zombie_bio_dormant_unarmed",
@@ -254,11 +275,14 @@
     "regenerates": 1,
     "regen_morale": true,
     "harvest": "CBM_SOLDAT_ZOMBIE_GENERIC",
-    "special_attacks": [ [ "GRAB", 10 ] ],
+    "special_attacks": [
+      [ "GRAB", 10 ]
+    ],
     "special_when_hit": [ "ZAPBACK", 60 ],
     "anger_triggers": [ "FRIEND_DIED", "FRIEND_ATTACKED", "HURT", "STALK", "PLAYER_CLOSE" ],
     "placate_triggers": [ "PLAYER_WEAK" ],
     "death_drops": "mon_zombie_bio_dormant_unarmed_death_drops",
+    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 28, "into": "mon_zombie_bio_knife" },
     "flags": [ "SEES", "HEARS", "SMELLS", "POISON", "NO_BREATHE", "FILTHY", "STUMBLES", "BASHES" ]
   },
@@ -295,11 +319,14 @@
     "regenerates": 1,
     "regen_morale": true,
     "harvest": "CBM_SOLDAT_ZOMBIE_GENERIC",
-    "special_attacks": [ [ "GRAB", 10 ] ],
+    "special_attacks": [
+      [ "GRAB", 10 ]
+    ],
     "special_when_hit": [ "ZAPBACK", 60 ],
     "anger_triggers": [ "FRIEND_DIED", "FRIEND_ATTACKED", "HURT", "STALK", "PLAYER_CLOSE" ],
     "placate_triggers": [ "PLAYER_WEAK" ],
     "death_drops": "mon_zombie_bio_dormant_armed_death_drops",
+    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 28, "into_group": "GROUP_ZOMBIE_SUPER_SOLDIER_UPGRADE" },
     "flags": [ "SEES", "HEARS", "SMELLS", "POISON", "NO_BREATHE", "FILTHY", "STUMBLES", "BASHES" ]
   },
@@ -322,7 +349,11 @@
     "path_settings": { "max_dist": 20 },
     "vision_night": 20,
     "regenerates": 1,
-    "special_attacks": [ [ "GRAB", 10 ], [ "BIO_OP_TAKEDOWN", 30 ], [ "LUNGE", 20 ] ],
+    "special_attacks": [
+      [ "GRAB", 10 ],
+      [ "BIO_OP_TAKEDOWN", 30 ],
+      [ "LUNGE", 20 ]
+    ],
     "death_drops": "mon_zombie_bio_knife_death_drops",
     "flags": [ "SEES", "HEARS", "SMELLS", "POISON", "NO_BREATHE", "FILTHY", "PATH_AVOID_DANGER_1" ],
     "delete": { "upgrades": { "half_life": 28, "into": "mon_zombie_bio_knife" } }
@@ -392,6 +423,7 @@
     "anger_triggers": [ "FRIEND_DIED", "FRIEND_ATTACKED", "HURT", "STALK", "PLAYER_CLOSE" ],
     "placate_triggers": [ "PLAYER_WEAK" ],
     "death_drops": "wild_bio_infantry_rifle",
+    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "POISON", "NO_BREATHE", "FILTHY", "PATH_AVOID_DANGER_1" ]
   },
   {
@@ -459,6 +491,7 @@
     "anger_triggers": [ "FRIEND_DIED", "FRIEND_ATTACKED", "HURT", "STALK", "PLAYER_CLOSE" ],
     "placate_triggers": [ "PLAYER_WEAK" ],
     "death_drops": "wild_bio_infantry_shotgun",
+    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "POISON", "NO_BREATHE", "FILTHY", "PATH_AVOID_DANGER_1" ]
   },
   {
@@ -525,6 +558,7 @@
     "special_when_hit": [ "ZAPBACK", 60 ],
     "anger_triggers": [ "FRIEND_DIED", "HURT", "PLAYER_CLOSE", "STALK" ],
     "death_drops": "wild_bio_knight_lmg",
+    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "POISON", "NO_BREATHE", "BONES", "FILTHY", "BASHES", "PUSH_MON", "PUSH_VEH" ]
   },
   {
@@ -587,11 +621,12 @@
       },
       [ "GRAB_DRAG", 10 ],
       [ "SMASH", 30 ],
-      { "id": "slam" }
+      { "id": "slam" }     
     ],
     "special_when_hit": [ "ZAPBACK", 60 ],
     "anger_triggers": [ "FRIEND_DIED", "HURT", "PLAYER_CLOSE", "STALK" ],
     "death_drops": "wild_bio_knight_launcher",
+    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "POISON", "NO_BREATHE", "BONES", "FILTHY", "BASHES", "PUSH_MON", "PUSH_VEH" ]
   },
   {
@@ -660,6 +695,7 @@
     "anger_triggers": [ "FRIEND_DIED", "HURT", "PLAYER_CLOSE", "STALK" ],
     "placate_triggers": [ "PLAYER_WEAK" ],
     "death_drops": "wild_bio_scout_sniper",
+    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "POISON", "NO_BREATHE", "FILTHY", "PATH_AVOID_DANGER_1" ]
   },
   {
@@ -726,7 +762,8 @@
     "anger_triggers": [ "FRIEND_DIED", "FRIEND_ATTACKED", "HURT", "STALK", "PLAYER_CLOSE" ],
     "placate_triggers": [ "PLAYER_WEAK" ],
     "death_drops": "wild_bio_tool_pistol",
-    "flags": [ "SEES", "HEARS", "SMELLS", "POISON", "NO_BREATHE", "FILTHY", "PATH_AVOID_DANGER_2" ]
+    "death_function": [ "NORMAL" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "POISON",  "NO_BREATHE", "FILTHY", "PATH_AVOID_DANGER_2" ]
   },
   {
     "id": "mon_zombie_bio_tool_smg",
@@ -792,6 +829,7 @@
     "anger_triggers": [ "FRIEND_DIED", "FRIEND_ATTACKED", "HURT", "STALK", "PLAYER_CLOSE" ],
     "placate_triggers": [ "PLAYER_WEAK" ],
     "death_drops": "wild_bio_tool_smg",
+    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "POISON", "NO_BREATHE", "FILTHY", "PATH_AVOID_DANGER_2" ]
   }
 ]
