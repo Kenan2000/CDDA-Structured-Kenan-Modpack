@@ -296,6 +296,8 @@
     "difficulty": 5,
     "base_casting_time": 400,
     "base_energy_cost": 35,
+    "final_energy_cost": 10,
+    "energy_increment": -1.5,
     "max_level": 15,
     "min_damage": -4,
     "max_damage": -18,
@@ -394,5 +396,28 @@
     "shape": "blast",
     "effect": "summon",
     "effect_str": "mon_wolf"
+  },
+  {
+    "id": "druid_growth",
+    "type": "SPELL",
+    "spell_class": "DRUID",
+    "name": { "str": "Seed of Growth" },
+    "description": "Offer some of your life in a ritual to get tokens of growth in return.",
+    "valid_targets": [ "self" ],
+    "effect": "spawn_item",
+    "effect_str": "druid_fertilizer",
+    "shape": "blast",
+    "base_casting_time": 360000,
+    "final_casting_time": 60000,
+    "casting_time_increment": -15000,
+    "base_energy_cost": 5,
+    "energy_source": "HP",
+    "difficulty": 4,
+    "max_level": 30,
+    "min_damage": 5,
+    "max_damage": 120,
+    "damage_increment": 4,
+    "//": "The spell can only be permanent without being at maximum level because of how items with charges work",
+    "flags": [ "SOMATIC", "NO_LEGS", "PERMANENT" ]
   }
 ]
