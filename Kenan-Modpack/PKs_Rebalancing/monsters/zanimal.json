@@ -438,7 +438,7 @@
     "vision_night": 10,
     "emit_fields": [ "emit_smoke_stream" ],
     "special_attacks": [ { "type": "bite", "cooldown": 7, "min_mul": 0.5, "no_infection_chance": 3 } ],
-    "death_function": [ "SMOKEBURST", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "flags": [
       "SEES",
       "HEARS",
@@ -531,7 +531,7 @@
     "vision_day": 15,
     "vision_night": 5,
     "special_attacks": [ [ "scratch", 30 ] ],
-    "death_function": [ "SMOKEBURST", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "burn_into": "mon_zombie_crawler_scorched",
     "upgrades": { "half_life": 24, "into": "mon_zombie_scorched_pk" },
     "flags": [ "SEES", "HEARS", "STUMBLES", "POISON", "GRABS", "NO_BREATHE", "REVIVES", "REVIVES_HEALTHY", "NO_NECRO", "FILTHY" ]
@@ -600,7 +600,7 @@
     "vision_day": 20,
     "vision_night": 7,
     "special_attacks": [ [ "slash", 30 ] ],
-    "death_function": [ "SMOKEBURST", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "burn_into": "mon_zombie_scorched",
     "flags": [ "SEES", "HEARS", "STUMBLES", "POISON", "GRABS", "NO_BREATHE", "REVIVES", "REVIVES_HEALTHY", "NO_NECRO", "FILTHY" ]
   },
@@ -636,7 +636,7 @@
     "vision_night": 7,
     "luminance": 2,
     "special_when_hit": [ "ZAPBACK", 25 ],
-    "death_function": [ "SMOKEBURST", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "burn_into": "mon_zombie_scorched_pk",
     "flags": [
       "SEES",
