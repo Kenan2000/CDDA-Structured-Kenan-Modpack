@@ -1529,7 +1529,7 @@
     "harvest": "zombie",
     "special_attacks": [ [ "GRAB", 5 ] ],
     "death_drops": { "subtype": "collection", "groups": [ [ "default_zombie_clothes", 100 ], [ "child_items", 65 ] ] },
-    "death_function": [ "BOOMER" ],
+    "death_function": { "effect": { "id": "death_boomer", "hit_self": true }, "message": "A %s explode!" },
     "burn_into": "mon_zombie_snotgobbler",
     "flags": [ "SEES", "HEARS", "STUMBLES", "WARM", "GUILT", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
   },
@@ -1880,7 +1880,7 @@
     "harvest": "exempt",
     "special_attacks": [ [ "BOOMER", 20 ], [ "scratch", 20 ] ],
     "death_drops": "default_zombie_items",
-    "death_function": [ "BOOMER" ],
+    "death_function": { "effect": { "id": "death_boomer", "hit_self": true }, "message": "A %s explode!" },
     "burn_into": "mon_boomer",
     "flags": [
       "SEES",
@@ -1930,7 +1930,7 @@
     "harvest": "zombie",
     "special_attacks": [ [ "BOOMER_GLOW", 20 ], [ "scratch", 20 ] ],
     "death_drops": "default_zombie_items",
-    "death_function": [ "BOOMER_GLOW" ],
+    "death_function": { "effect": { "id": "death_boomer_glow", "hit_self": true, "min_level": 1 }, "message": "A %s explode!" },
     "burn_into": "mon_boomer_huge",
     "flags": [
       "SEES",
@@ -1979,7 +1979,7 @@
     "harvest": "exempt",
     "special_attacks": [ [ "scratch", 20 ] ],
     "death_drops": "default_zombie_items",
-    "death_function": [ "CONFLAGRATION" ],
+    "death_function": { "effect": { "id": "death_conflagration", "hit_self": true }, "message": "A %s explodes!", "corpse_type": "NO_CORPSE" },
     "burn_into": "mon_gas_zombie",
     "flags": [
       "SEES",
@@ -2025,7 +2025,7 @@
     "harvest": "exempt",
     "special_attacks": [ [ "SUICIDE", 20 ], [ "scratch", 15 ] ],
     "death_drops": "default_zombie_items",
-    "death_function": [ "GAS" ],
+    "death_function": { "message": "A %s explodes!", "effect": { "id": "death_gas", "hit_self": true }, "corpse_type": "NO_CORPSE" },
     "burn_into": "mon_zombie_gasbag",
     "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "WARM", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
   },
@@ -2172,7 +2172,7 @@
           "ranges": [ [ 2, 20, "DEFAULT" ] ]
         }
       ],
-      "death_function": [ "ACID" ],
+        "death_function": { "message": "The %s's body dissolves into acid.", "effect": { "id": "death_acid", "hit_self": true }, "corpse_type": "NO_CORPSE" },
       "flags": [ "ACIDPROOF", "ACID_BLOOD" ]
     }
   },
@@ -2201,7 +2201,7 @@
           "ranges": [ [ 2, 8, "DEFAULT" ] ]
         }
       ],
-      "death_function": [ "ACID" ],
+      "death_function": { "message": "The %s's body dissolves into acid.", "effect": { "id": "death_acid", "hit_self": true }, "corpse_type": "NO_CORPSE" },
       "flags": [ "ACIDPROOF", "ACID_BLOOD" ]
     }
   },
