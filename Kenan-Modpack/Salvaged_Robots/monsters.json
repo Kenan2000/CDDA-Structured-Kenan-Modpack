@@ -265,7 +265,7 @@
     "revert_to_itype": "bot_eyebot_furnace",
     "fear_triggers": [ "HURT" ],
     "emit_fields": [ "emit_hot_air4_stream" ],
-    "death_function": [ "BROKEN", "EXPLODE" ],
+    "death_function": { "effect": { "id": "death_explosion", "hit_self": true }, "message": "A %s explode!", "corpse_type": "BROKEN" },
     "extend": { "flags": [ "PET_WONT_FOLLOW", "WARM" ] }
   },
   {
@@ -1413,7 +1413,7 @@
     "type": "MONSTER",
     "copy-from": "mon_chickenbot",
     "death_drops": { "groups": [ [ "broken_robots", 2 ] ] },
-    "death_function": [ "BROKEN" ]
+    "death_function": { "corpse_type": "BROKEN" }
   },
   {
     "abstract": "mon_chickenbot_base",
@@ -1509,7 +1509,7 @@
     "type": "MONSTER",
     "copy-from": "mon_tankbot",
     "death_drops": { "groups": [ [ "broken_robots", 6 ] ] },
-    "death_function": [ "BROKEN", "EXPLODE" ]
+    "death_function": { "effect": { "id": "death_explosion", "hit_self": true }, "message": "A %s explode!", "corpse_type": "BROKEN" }
   },
   {
     "abstract": "mon_tankbot_base",
@@ -1542,7 +1542,7 @@
     "vision_day": 50,
     "path_settings": { "max_dist": 20 },
     "death_drops": { "groups": [ [ "broken_robots", 6 ] ] },
-    "death_function": [ "BROKEN", "EXPLODE" ],
+    "death_function": { "effect": { "id": "death_explosion", "hit_self": true }, "message": "A %s explode!", "corpse_type": "BROKEN" },
     "flags": [ "SEES", "HEARS", "GOODHEARING", "NOHEAD", "BASHES", "DESTROYS", "NO_BREATHE", "ELECTRONIC", "PRIORITIZE_TARGETS" ]
   },
   {

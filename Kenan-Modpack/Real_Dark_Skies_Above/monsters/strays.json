@@ -288,7 +288,7 @@
     "path_settings": { "max_dist": 4 },
     "special_attacks": [ [ "BOOMER", 20 ], { "type": "bite", "cooldown": 5, "min_mul": 0.75, "no_infection_chance": 10 }, [ "SHRIEK", 10 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "BOOMER", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_boomer", "hit_self": true }, "message": "A %s explode!" },
     "upgrades": { "half_life": 21, "into": "dkz_mon_stray_tender" },
     "flags": [
       "SEES",
@@ -342,7 +342,7 @@
     "reproduction": { "baby_monster": "dkz_mon_crystal_mite", "baby_count": 5, "baby_timer": 60 },
     "anger_triggers": [ "PLAYER_CLOSE", "FRIEND_ATTACKED" ],
     "placate_triggers": [ "PLAYER_WEAK" ],
-    "death_function": [ "BOOMER_GLOW", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_boomer_glow", "hit_self": true, "min_level": 1 }, "message": "A %s explode!" },
     "upgrades": { "half_life": 60, "into": "dkz_mon_crystal_hive" },
     "flags": [
       "SEES",
@@ -1375,7 +1375,7 @@
     "reproduction": { "baby_monster": "dkz_mon_crystal_mite", "baby_count": 4, "baby_timer": 60 },
     "special_attacks": [ [ "BOOMER_GLOW", 20 ], [ "STRETCH_ATTACK", 20 ], [ "LONGSWIPE", 20 ] ],
     "special_when_hit": [ "ZAPBACK", 100 ],
-    "death_function": [ "BOOMER_GLOW", "MELT" ],
+    "death_function": { "effect": { "id": "death_boomer_glow", "hit_self": true, "min_level": 1 }, "message": "A %s explode!", "corpse_type": "NO_CORPSE" },
     "flags": [ "SEES", "IMMOBILE", "NOGIB", "ELECTRIC", "WARM", "NO_BREATHE", "NOHEAD", "ARTHROPOD_BLOOD" ]
   },
   {
