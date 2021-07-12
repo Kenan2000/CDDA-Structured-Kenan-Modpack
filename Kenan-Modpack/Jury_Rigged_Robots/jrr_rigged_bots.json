@@ -24,7 +24,7 @@
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "luminance": 10,
     "hp": 10,
-    "death_function": "BROKEN",
+    "death_function": { "corpse_type": "BROKEN" },
     "special_attacks": [ [ "PARROT", 2 ] ],
     "description": "A manhack hastily rewired into a distraction device. Its main blades have been removed, making it harmless, but also more difficult to hit. Mp3's of pre-Cataclysmic folk music have been added as a further distraction.",
     "flags": [ "SEES", "FLIES", "NOHEAD", "ELECTRONIC", "HIT_AND_RUN", "NO_BREATHE" ]
@@ -55,7 +55,7 @@
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "luminance": 3,
     "hp": 10,
-    "death_function": "BROKEN",
+    "death_function": { "corpse_type": "BROKEN" },
     "description": "A salvaged manhack tinkered into a venomous drone. The stingers of giant insects have been added in place of blades.",
     "flags": [ "SEES", "FLIES", "NOHEAD", "ELECTRONIC", "HIT_AND_RUN", "NO_BREATHE", "VENOM" ]
   },
@@ -83,7 +83,7 @@
     "vision_day": 50,
     "vision_night": 5,
     "hp": 10,
-    "death_function": "SMOKEBURST",
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explodes!" },
     "starting_ammo": { "bot_flashbang_hack": 10, "bot_gasbomb_hack": 10 },
     "special_attacks": [ [ "GRENADIER_ELITE", 3 ] ],
     "description": "A manhack tinkered into a flying smoke generator. It makes a less effective weapon, but provides a good smoke screen. It's currently inactive and ready to be deployed.",
@@ -113,7 +113,7 @@
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "luminance": 200,
     "hp": 18,
-    "death_function": "BROKEN",
+    "death_function": { "corpse_type": "BROKEN" },
     "description": "A salvaged eyebot patched up with low-grade electronics and equipped with a powerful floodlight. It wobbles unsteadily in the air.",
     "flags": [ "SEES", "FLIES", "ELECTRONIC", "NO_BREATHE", "NOHEAD" ],
     "fear_triggers": [ "HURT", "FRIEND_ATTACKED", "PLAYER_CLOSE" ]
@@ -143,7 +143,7 @@
     "vision_night": 5,
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 30,
-    "death_function": "BROKEN",
+    "death_function": { "corpse_type": "BROKEN" },
     "special_attacks": [ [ "TAZER", 12 ] ],
     "special_when_hit": [ "ZAPBACK", 100 ],
     "description": "A salvaged skitterbot with wheels kludged to the ends of its insectoid legs. It sparks dangerously as it moves across the ground and omits a faint smell of ozone.",
@@ -174,7 +174,7 @@
     "vision_night": 5,
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 80,
-    "death_function": "BROKEN",
+    "death_function": { "corpse_type": "BROKEN" },
     "special_attacks": [ [ "SHOCKSTORM", 17 ] ],
     "special_when_hit": [ "ZAPBACK", 10 ],
     "description": "A salvaged police bot mended with old circuit boards and car batteries. It's been covered with electrified barbed wire and given a makeshift shock gun. With its safety protocols wiped, the shockbot no longers respects police authority or cares much for the safety of its allies.",
@@ -206,7 +206,7 @@
     "vision_night": 5,
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 80,
-    "death_function": "BROKEN",
+    "death_function": { "corpse_type": "BROKEN" },
     "special_attacks": [
       {
         "type": "gun",
@@ -244,7 +244,7 @@
     "vision_night": 5,
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 100,
-    "death_function": "BROKEN",
+    "death_function": { "corpse_type": "BROKEN" },
     "starting_ammo": { "556": 100 },
     "special_attacks": [
       {
@@ -294,7 +294,7 @@
     "vision_night": 5,
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 90,
-    "death_function": "BROKEN",
+    "death_function": { "corpse_type": "BROKEN" },
     "starting_ammo": { "762_51": 1000, "bot_flashbang_hack": 10, "bot_gasbomb_hack": 10 },
     "special_attacks": [
       {
@@ -346,7 +346,7 @@
     "vision_night": 5,
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
     "hp": 240,
-    "death_function": "BROKEN",
+    "death_function": { "corpse_type": "BROKEN" },
     "special_attacks": [ [ "SMASH", 8 ] ],
     "description": "A gutted tank bot refurbished with vehicle parts and questionable wiring. The cannon has been replaced with a rapid-fire pneumatic hammer.",
     "flags": [ "SEES", "HEARS", "GOODHEARING", "NOHEAD", "BASHES", "DESTROYS", "NO_BREATHE", "ELECTRONIC" ]
@@ -377,7 +377,7 @@
     "hp": 100,
     "special_attacks": [ [ "ACID_BARF", 22 ] ],
     "special_when_hit": [ "ACIDSPLASH", 100 ],
-    "death_function": [ "BROKEN" ],
+    "death_function": { "corpse_type": "BROKEN" },
     "description": "A salvaged HAZMAT robot refitted with second-hand circuits and plumbing supplies. It cleans by spraying caustic fluids from an internal boiler. Although not meant for combat, it can burn enemies effectively.",
     "flags": [ "SEES", "HEARS", "BASHES", "ELECTRONIC", "NO_BREATHE", "ACIDPROOF", "ACIDTRAIL" ]
   }

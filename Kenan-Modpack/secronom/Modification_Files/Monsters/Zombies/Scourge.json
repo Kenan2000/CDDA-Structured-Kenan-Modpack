@@ -29,7 +29,6 @@
     "vision_night": 5,
     "harvest": "zombie",
     "special_attacks": [ [ "GRAB", 10 ], { "type": "bite", "no_infection_chance": 20, "cooldown": 18 } ],
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 12, "into": "mon_zombie_defile" },
     "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
   },
@@ -62,7 +61,6 @@
     "vision_night": 6,
     "harvest": "zombie",
     "special_attacks": [ [ "GRAB", 10 ], { "type": "bite", "no_infection_chance": 5, "cooldown": 15 } ],
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 16, "into_group": "GROUP_SCOURGE_UPGRADEX" },
     "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
   },
@@ -104,7 +102,7 @@
         "monster_message": "<color_yellow>%1$s generates a noxious, corrosive gas then sends it to %3$s!</color>"
       }
     ],
-    "death_function": [ "GAS" ],
+    "death_function": { "effect": { "id": "death_gas", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "A %s explodes!" },
     "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
   }
 ]

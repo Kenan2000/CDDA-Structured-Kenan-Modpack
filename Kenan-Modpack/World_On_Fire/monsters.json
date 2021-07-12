@@ -47,7 +47,6 @@
       }
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
-    "death_function": [ "NORMAL" ],
     "harvest": "arachnid_fire",
     "flags": [ "FIREPROOF", "CLIMBS", "HEARS", "ATTACKMON", "SEES", "SMELLS", "SWIMS" ]
   },
@@ -73,7 +72,7 @@
     "melee_dice_sides": 3,
     "melee_cut": 0,
     "upgrades": { "age_grow": 3, "into": "mon_ant_fire" },
-    "death_function": [ "FIREBALL", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "harvest": "arachnid_fire",
     "flags": [ "FIREPROOF", "LARVA", "DRIPS_NAPALM", "SMELLS" ]
   },
@@ -105,7 +104,7 @@
     "armor_bullet": 12,
     "special_attacks": [ [ "ANTQUEEN", 1 ] ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
-    "death_function": [ "NORMAL", "FIREBALL" ],
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "harvest": "fire_queen",
     "flags": [ "FIREPROOF", "CLIMBS", "DRIPS_NAPALM", "HEARS", "QUEEN", "SEES", "SMELLS" ]
   },
@@ -155,7 +154,7 @@
       }
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
-    "death_function": [ "FIREBALL", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "harvest": "arachnid_fire",
     "flags": [ "FIREPROOF", "DRIPS_NAPALM", "CLIMBS", "HEARS", "VENOM", "ATTACKMON", "SEES", "SMELLS", "SWIMS" ]
   },
@@ -186,7 +185,7 @@
     "starting_ammo": { "molotov": 1 },
     "special_attacks": [ [ "KAMIKAZE", 0 ], [ "scratch", 15 ] ],
     "death_drops": "default_zombie_items",
-    "death_function": [ "FIREBALL" ],
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "WARM", "POISON", "NO_BREATHE", "REVIVES", "FILTHY", "FLAMMABLE" ]
   },
   {
@@ -231,7 +230,7 @@
       }
     ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "FIREBALL", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "burn_into": "mon_zombie_scorched",
     "upgrades": { "half_life": 10, "into": "mon_zombie_fspitter" },
     "flags": [
@@ -292,7 +291,7 @@
       }
     ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "FIREBALL", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "burn_into": "mon_zombie_scorched",
     "upgrades": { "half_life": 28, "into": "mon_zombie_incendiary" },
     "flags": [
@@ -368,7 +367,7 @@
       }
     ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "FIREBALL", "NORMAL" ],
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "burn_into": "mon_zombie_scorched",
     "flags": [
       "SEES",
@@ -414,7 +413,7 @@
     "harvest": "CBM_CIV",
     "special_attacks": [ [ "FLAMETHROWER", 25 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL", "FIREBALL" ],
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "upgrades": { "half_life": 28, "into": "mon_zombie_nullfire" },
     "flags": [
       "SEES",
@@ -462,7 +461,7 @@
     "harvest": "CBM_SUBS",
     "special_attacks": [ [ "FLAMETHROWER", 15 ], [ "SMASH", 30 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL", "FIREBALL" ],
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "flags": [
       "SEES",
       "HEARS",
@@ -505,7 +504,7 @@
     "harvest": "CBM_SUBS",
     "special_attacks": [ { "id": "spark" }, [ "SHOCKSTORM", 15 ], [ "TAZER", 9 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL", "FIREBALL" ],
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "flags": [ "SEES", "HEARS", "WARM", "POISON", "FIREY", "NO_BREATHE", "REVIVES", "FILTHY" ]
   },
   {
@@ -532,7 +531,7 @@
     "revert_to_itype": "bot_flamebot",
     "special_attacks": [ [ "FLAMETHROWER", 12 ] ],
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
-    "death_function": [ "EXPLODE", "FIREBALL" ],
+    "death_function": { "effect": { "id": "death_conflagration", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "A %s explodes!" },
     "flags": [ "SEES", "HEARS", "BASHES", "ELECTRONIC", "NO_BREATHE", "PATH_AVOID_DANGER_1", "LOUDMOVES", "FIREPROOF" ]
   },
   {
@@ -575,7 +574,7 @@
       }
     ],
     "death_drops": { "groups": [ [ "robots", 4 ] ] },
-    "death_function": [ "EXPLODE", "FIREBALL" ],
+    "death_function": { "effect": { "id": "death_conflagration", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "A %s explodes!" },
     "flags": [
       "SEES",
       "HEARS",
@@ -615,7 +614,7 @@
     "path_settings": { "max_dist": 5 },
     "starting_ammo": { "c4": 1 },
     "special_attacks": [ [ "KAMIKAZE", 0 ] ],
-    "death_function": [ "EXPLODE" ],
+    "death_function": { "effect": { "id": "death_explosion", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "The %s explodes!" },
     "flags": [ "SEES", "HEARS", "GOODHEARING", "ELECTRONIC", "NO_BREATHE", "PATH_AVOID_DANGER_1" ]
   },
   {
@@ -644,7 +643,7 @@
     "path_settings": { "max_dist": 5 },
     "starting_ammo": { "grenade_inc": 1 },
     "special_attacks": [ [ "KAMIKAZE", 0 ] ],
-    "death_function": [ "FIREBALL", "EXPLODE" ],
+    "death_function": { "effect": { "id": "death_conflagration", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "A %s explodes!" },
     "flags": [ "SEES", "HEARS", "GOODHEARING", "ELECTRONIC", "NO_BREATHE", "PATH_AVOID_DANGER_1" ]
   }
 ]

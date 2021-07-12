@@ -37,7 +37,6 @@
         "monster_message": "<color_yellow>%1$s submerges and generates a seismic wave towards %3$s</color>!"
       }
     ],
-    "death_function": [ "NORMAL" ],
     "flags": [
       "HEARS",
       "SEES",
@@ -86,7 +85,7 @@
         "monster_message": "<color_yellow>%1$s latches onto %3$s!</color>"
       }
     ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [
       "HEARS",
       "SEES",
@@ -129,7 +128,6 @@
     "armor_bash": 1,
     "special_attacks": [ [ "SHRIEK_ALERT", 8 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "SMELLS",
@@ -172,7 +170,6 @@
     "emit_fields": [ "emit_jolt_ing", "emit_jolt_blanket" ],
     "special_when_hit": [ "ZAPBACK", 100 ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "HEARS", "WARM", "POISON", "ELECTRIC", "NO_BREATHE", "REVIVES", "ELECTRIC_FIELD", "FILTHY" ]
   },
   {
@@ -203,7 +200,7 @@
     "emit_fields": [ "emit_bolt_crackle_smol" ],
     "special_attacks": [ [ "DISAPPEAR", 75 ] ],
     "special_when_hit": [ "ZAPBACK", 20 ],
-    "death_function": [ "DISINTEGRATE" ],
+    "death_function": { "message": "The %s disintegrates!", "corpse_type": "NO_CORPSE" },
     "flags": [ "SEES", "PACIFIST", "ACIDPROOF", "ELECTRIC", "NO_BREATHE", "FLIES" ]
   },
   {
@@ -235,7 +232,7 @@
     "emit_fields": [ "emit_bolt_crackle_big" ],
     "special_attacks": [ [ "DISAPPEAR", 150 ] ],
     "special_when_hit": [ "ZAPBACK", 50 ],
-    "death_function": [ "DISINTEGRATE" ],
+    "death_function": { "message": "The %s disintegrates!", "corpse_type": "NO_CORPSE" },
     "flags": [ "SEES", "PACIFIST", "ACIDPROOF", "ELECTRIC", "NO_BREATHE", "FLIES" ]
   },
   {
@@ -274,7 +271,7 @@
         "monster_message": "<color_red>%1$s ruptures into an ichorus!</color>"
       }
     ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [
       "SEES",
       "HEARS",
@@ -321,7 +318,7 @@
     "harvest": "zombie",
     "special_attacks": [ [ "ACID", 20 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL", "ACID" ],
+    "death_function": { "effect": { "id": "death_acid", "hit_self": true }, "message": "The %s's body leaks acid." },
     "flags": [
       "SEES",
       "HEARS",
@@ -374,7 +371,7 @@
         "monster_message": "<color_red>%1$s ruptures into a psyrus!</color>"
       }
     ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [
       "SEES",
       "HEARS",
@@ -420,7 +417,6 @@
     "harvest": "zombie",
     "special_attacks": [ { "type": "bite", "cooldown": 4 }, [ "GRAB", 4 ], [ "scratch", 4 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "HEARS",
@@ -479,7 +475,6 @@
       }
     ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "HEARS",
@@ -529,7 +524,7 @@
         "monster_message": "<color_yellow>%1$s lunges at %3$s!</color>"
       }
     ],
-    "death_function": [ "DISINTEGRATE" ],
+    "death_function": { "message": "The %s disintegrates!", "corpse_type": "NO_CORPSE" },
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "REVIVES", "HARDTOSHOOT" ]
   },
   {
@@ -574,7 +569,6 @@
     "regenerates": 3,
     "regenerates_in_dark": true,
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "SMELLS",
@@ -624,7 +618,6 @@
     "emit_fields": [ "emit_nix_pressence" ],
     "special_attacks": [ [ "FEAR_PARALYZE", 12 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "SMELLS", "HEARS", "STUMBLES", "WARM", "BASHES", "POISON", "NO_BREATHE", "REVIVES", "HARDTOSHOOT", "FILTHY" ]
   },
   {
@@ -666,7 +659,6 @@
       }
     ],
     "regenerates": 20,
-    "death_function": [ "SPLATTER" ],
     "flags": [
       "SEES",
       "SMELLS",
@@ -723,7 +715,7 @@
         "monster_message": "<color_red>You feel the ground shaking as it originates from %1$s!</color>\n<color_yellow>%1$s sends a defeaning screech!</color>"
       }
     ],
-    "death_function": [ "DISINTEGRATE" ],
+    "death_function": { "message": "The %s disintegrates!", "corpse_type": "NO_CORPSE" },
     "flags": [ "SEES", "WARM", "IMMOBILE", "POISON", "NO_BREATHE", "PRIORITIZE_TARGETS", "STUN_IMMUNE", "FLIES" ]
   },
   {
@@ -766,7 +758,7 @@
       },
       [ "DISAPPEAR", 250 ]
     ],
-    "death_function": [ "DISINTEGRATE" ],
+    "death_function": { "message": "The %s disintegrates!", "corpse_type": "NO_CORPSE" },
     "flags": [ "SEES", "WARM", "IMMOBILE", "POISON", "NO_BREATHE", "NOHEAD", "STUN_IMMUNE", "PRIORITIZE_TARGETS" ]
   },
   {
@@ -816,7 +808,6 @@
         "type": "bite"
       }
     ],
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "SMELLS",
@@ -882,7 +873,6 @@
         "type": "bite"
       }
     ],
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "SMELLS",
@@ -938,7 +928,6 @@
       }
     ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [ "SEES", "SMELLS", "KEENNOSE", "HEARS", "STUMBLES", "WARM", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
   },
   {
@@ -986,7 +975,6 @@
       }
     ],
     "harvest": "zombie",
-    "death_function": [ "SPLATTER" ],
     "flags": [ "SEES", "WARM", "IMMOBILE", "NOHEAD", "POISON", "STUN_IMMUNE", "NO_BREATHE" ]
   },
   {
@@ -1021,7 +1009,7 @@
     "vision_day": 24,
     "vision_night": 3,
     "harvest": "exempt",
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "SEES", "CLIMBS", "WARM", "NOHEAD", "POISON", "NO_BREATHE" ]
   },
   {
@@ -1055,7 +1043,7 @@
     "vision_night": 3,
     "dodge": 2,
     "harvest": "exempt",
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "SEES", "CLIMBS", "WARM", "NOHEAD", "POISON", "NO_BREATHE" ]
   },
   {
@@ -1095,7 +1083,7 @@
     "vision_night": 3,
     "dodge": 2,
     "harvest": "exempt",
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "SEES", "CLIMBS", "WARM", "NOHEAD", "POISON", "NO_BREATHE" ]
   },
   {
@@ -1129,7 +1117,7 @@
     "vision_night": 3,
     "dodge": 1,
     "harvest": "exempt",
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "SEES", "CLIMBS", "WARM", "STUMBLES", "NOHEAD", "POISON", "NO_BREATHE" ]
   },
   {
@@ -1161,7 +1149,7 @@
     "vision_day": 15,
     "vision_night": 5,
     "harvest": "exempt",
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "death_drops": { "subtype": "collection", "groups": [ "default_zombie_death_drops", "mon_zombie_relinquish_death_drop" ] },
     "flags": [ "SEES", "SMELLS", "HEARS", "STUMBLES", "WARM", "POISON", "NO_BREATHE" ]
   },
@@ -1193,7 +1181,6 @@
     "armor_bullet": 4,
     "armor_stab": 14,
     "harvest": "zombie",
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "SMELLS",
@@ -1234,7 +1221,6 @@
     "vision_night": 3,
     "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "GRAB", 7 ], [ "scratch", 20 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 30, "into_group": "GROUP_STRAY_ELEMENT" },
     "flags": [
       "SEES",
@@ -1277,7 +1263,6 @@
     "vision_night": 3,
     "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "GRAB", 7 ], [ "scratch", 20 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 26, "into": "mon_zombie_stray_w_leaf_mode" },
     "flags": [
       "SEES",
@@ -1322,7 +1307,6 @@
     "armor_stab": 6,
     "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "GRAB", 7 ], [ "scratch", 20 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 22, "into": "mon_zombie_stray_w_leaf_stro1" },
     "flags": [
       "SEES",
@@ -1376,7 +1360,6 @@
         "monster_message": "%1$s slashes %3$s with its razor sharp leaves!"
       }
     ],
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 18, "into": "mon_zombie_stray_w_leaf_stro2" },
     "flags": [
       "SEES",
@@ -1431,7 +1414,6 @@
         "monster_message": "%1$s strikes the ground, then a wild outgrowth of vines and branches erupts under %3$s!"
       }
     ],
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 14, "into": "mon_zombie_stray_w_leaf_stro3" },
     "flags": [
       "SEES",
@@ -1487,7 +1469,6 @@
         "monster_message": "%1$s strikes the ground, then a wild outgrowth of vines and branches erupts under %3$s!\nTriffids burst out of it too!"
       }
     ],
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "HEARS",
@@ -1529,7 +1510,7 @@
     "armor_cut": 4,
     "armor_bullet": 4,
     "harvest": "exempt",
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "//": "It must MELT, to prevent ppl farming for the precious vegan food.",
     "flags": [ "SEES", "SMELLS", "BASHES", "GROUP_BASH", "NOHEAD", "PARALYZEVENOM" ]
   },
@@ -1559,7 +1540,6 @@
     "vision_night": 3,
     "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "GRAB", 7 ], [ "scratch", 20 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 26, "into": "mon_zombie_stray_w_acid_mode" },
     "flags": [
       "SEES",
@@ -1601,7 +1581,6 @@
     "melee_damage": [ { "damage_type": "acid", "amount": 2 } ],
     "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "GRAB", 7 ], [ "scratch", 20 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 22, "into": "mon_zombie_stray_w_acid_stro1" },
     "flags": [
       "SEES",
@@ -1647,7 +1626,6 @@
     "armor_stab": 2,
     "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "GRAB", 7 ], [ "scratch", 20 ], [ "ACID_BARF", 30 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 18, "into": "mon_zombie_stray_w_acid_stro2" },
     "flags": [
       "SEES",
@@ -1706,7 +1684,6 @@
       }
     ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 14, "into": "mon_zombie_stray_w_acid_stro3" },
     "flags": [
       "SEES",
@@ -1765,7 +1742,6 @@
       }
     ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "HEARS",
@@ -1836,7 +1812,6 @@
         "require_targeting_monster": false
       }
     ],
-    "death_function": [ "SPLATTER" ],
     "upgrades": { "half_life": 10, "into": "mon_zombie_fleshknot_mode" },
     "flags": [ "SEES", "HEARS", "SMELLS", "IMMOBILE", "WARM", "POISON", "IMMOBILE", "NOHEAD", "NO_BREATHE" ]
   },
@@ -1892,7 +1867,6 @@
         "require_targeting_monster": false
       }
     ],
-    "death_function": [ "SPLATTER" ],
     "upgrades": { "half_life": 15, "into": "mon_zombie_fleshknot_stro" },
     "flags": [ "SEES", "HEARS", "SMELLS", "IMMOBILE", "WARM", "POISON", "IMMOBILE", "NOHEAD", "NO_BREATHE" ]
   },
@@ -1948,7 +1922,6 @@
         "require_targeting_monster": false
       }
     ],
-    "death_function": [ "SPLATTER" ],
     "upgrades": { "half_life": 20, "into": "mon_zombie_fleshknot_vstro" },
     "flags": [ "SEES", "HEARS", "SMELLS", "IMMOBILE", "WARM", "POISON", "IMMOBILE", "NOHEAD", "NO_BREATHE" ]
   },
@@ -2004,7 +1977,6 @@
         "require_targeting_monster": false
       }
     ],
-    "death_function": [ "SPLATTER" ],
     "//": "The core is exposed, so critical hits are available.",
     "flags": [ "SEES", "HEARS", "SMELLS", "IMMOBILE", "WARM", "POISON", "IMMOBILE", "NO_BREATHE" ]
   }

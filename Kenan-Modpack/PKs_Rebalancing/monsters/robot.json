@@ -103,7 +103,7 @@
     "armor_bullet": 14,
     "special_attacks": [ [ "slash", 10 ], [ "PARROT", 25 ] ],
     "death_drops": { "groups": [ [ "robots", 70 ], [ "molebot", 30 ] ] },
-    "death_function": [ "BROKEN" ],
+    "death_function": { "corpse_type": "BROKEN" },
     "flags": [ "HEARS", "GOODHEARING", "BORES", "CAN_DIG", "NO_BREATHE", "ELECTRONIC", "PATH_AVOID_DANGER_1" ],
     "anger_triggers": [ "HURT", "FRIEND_DIED", "PLAYER_CLOSE" ]
   },
@@ -176,7 +176,6 @@
         "no_ammo_sound": "\"Power cells depleted.\""
       }
     ],
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "HEARS",
@@ -244,7 +243,6 @@
         "no_ammo_sound": "\"Ammo depleted.\""
       }
     ],
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "HEARS",
@@ -295,7 +293,7 @@
     "emit_fields": [ "emit_radiation_plume" ],
     "special_attacks": [ [ "KAMIKAZE", 0 ], [ "DISAPPEAR", 300 ] ],
     "death_drops": "rocket_drops",
-    "death_function": [ "DISINTEGRATE" ],
+    "death_function": { "message": "The %s disintegrates!", "corpse_type": "NO_CORPSE" },
     "flags": [ "SEES", "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS", "FLIES", "NOHEAD", "ELECTRONIC", "NO_BREATHE", "INTERIOR_AMMO" ]
   },
   {
@@ -326,7 +324,7 @@
     "starting_ammo": { "manhack_firebomb": 1 },
     "special_attacks": [ [ "KAMIKAZE", 0 ] ],
     "death_drops": { "subtype": "collection", "groups": [ [ "robots", 80 ] ], "//": "80% chance of an item from group robots" },
-    "death_function": [ "BROKEN_AMMO" ],
+    "death_function": { "message": "The %s's interior compartment sizzles with destructive energy.", "corpse_type": "BROKEN" },
     "flags": [ "SEES", "FLIES", "NOHEAD", "ELECTRONIC", "NO_BREATHE", "INTERIOR_AMMO" ]
   },
   {
@@ -352,7 +350,7 @@
     "starting_ammo": { "battery": 10000 },
     "special_attacks": [ { "type": "gun", "cooldown": 1, "gun_type": "shockcannon", "ranges": [ [ 0, 5, "DEFAULT" ] ] } ],
     "death_drops": { "groups": [ [ "Shockcannon_turret", 80 ] ] },
-    "death_function": [ "EXPLODE" ],
+    "death_function": { "effect": { "id": "death_explosion", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "The %s explodes!" },
     "flags": [ "SEES", "NOHEAD", "ELECTRONIC", "ELECTRIC", "IMMOBILE", "NO_BREATHE" ]
   },
   {
@@ -401,7 +399,7 @@
       }
     ],
     "death_drops": { "groups": [ [ "robots", 90 ], [ "robots", 90 ] ] },
-    "death_function": [ "BROKEN" ],
+    "death_function": { "corpse_type": "BROKEN" },
     "flags": [ "SEES", "HEARS", "FLIES", "PATH_AVOID_DANGER_1", "ELECTRONIC", "HIT_AND_RUN", "NO_BREATHE", "INTERIOR_AMMO" ]
   },
   {
@@ -422,7 +420,7 @@
     "armor_cut": 14,
     "armor_bullet": 11,
     "special_attacks": [ [ "GENERATOR", 7 ] ],
-    "death_function": [ "SMOKEBURST" ],
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "A %s explode!" },
     "flags": [ "NOHEAD", "ACIDPROOF", "IMMOBILE", "QUEEN" ]
   }
 ]

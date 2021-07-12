@@ -118,7 +118,7 @@
     "armor_bash": 8,
     "vision_day": 10,
     "vision_night": 30,
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "regenerates": 1,
     "flags": [ "NOHEAD", "SEES", "POISON", "HEARS", "SMELLS", "SLUDGEPROOF", "SWIMS", "FLAMMABLE", "NOGIB", "HARDTOSHOOT" ]
   },
@@ -244,7 +244,7 @@
     "dodge": 2,
     "vision_night": 15,
     "special_attacks": [ [ "GRAB", 15 ], [ "TENTACLE", 5 ], [ "VINE", 10 ] ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "SEES", "SMELLS", "HEARS" ]
   },
   {
@@ -276,7 +276,7 @@
     "dodge": 2,
     "vision_night": 10,
     "special_attacks": [ [ "LUNGE", 60 ], [ "VINE", 10 ], { "type": "leap", "cooldown": 7, "max_range": 2 } ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "SEES", "SMELLS", "HEARS" ]
   },
   {
@@ -305,7 +305,7 @@
     "dodge": 5,
     "special_attacks": [ [ "TENTACLE", 5 ], [ "GRENADIER", 5 ] ],
     "starting_ammo": { "bot_thing_head": 3, "bot_thing_spider": 3 },
-    "death_function": [ "THING" ],
+    "death_function": { "effect": { "id": "death_thing", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "The %s emerges!" },
     "flags": [ "SEES", "SMELLS", "HEARS", "BASHES" ],
     "anger_triggers": [ "PLAYER_CLOSE", "FRIEND_DIED", "SOUND" ],
     "fear_triggers": [ "HURT", "FRIEND_ATTACKED" ]
@@ -330,7 +330,7 @@
     "vision_night": 10,
     "special_attacks": [ [ "TENTACLE", 5 ], [ "GRENADIER", 5 ] ],
     "starting_ammo": { "bot_thing_head": 4, "bot_thing_spider": 4 },
-    "death_function": [ "DARKMAN", "MELT" ]
+    "death_function": { "effect": { "id": "death_darkman" }, "corpse_type": "NO_CORPSE", "message": "The %s melts away." }
   },
   {
     "id": "mon_human_snail",
@@ -469,7 +469,6 @@
         ]
       }
     ],
-    "death_function": [ "JABBERWOCKY" ],
     "harvest": "jabberwock",
     "flags": [
       "SEES",
@@ -529,7 +528,6 @@
     "anger_triggers": [ "PLAYER_WEAK", "FIRE", "SOUND" ],
     "fear_triggers": [ "FRIEND_DIED", "PLAYER_CLOSE", "FRIEND_ATTACKED" ],
     "placate_triggers": [ "SOUND" ],
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "SMELLS",
@@ -594,7 +592,6 @@
     "anger_triggers": [ "FRIEND_ATTACKED", "PLAYER_WEAK", "PLAYER_CLOSE" ],
     "fear_triggers": [ "FRIEND_DIED", "HURT" ],
     "placate_triggers": [ "MEAT" ],
-    "death_function": [ "NORMAL" ],
     "flags": [
       "SEES",
       "HEARS",
@@ -661,7 +658,6 @@
       { "type": "leap", "cooldown": 15, "max_range": 2 }
     ],
     "death_drops": "mon_zombie_hulk_death_drops",
-    "death_function": [ "NORMAL" ],
     "regen_morale": true,
     "flags": [
       "SEES",
@@ -870,7 +866,6 @@
       { "type": "leap", "cooldown": 20, "max_range": 3 }
     ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": [ "NORMAL" ],
     "regen_morale": true,
     "flags": [
       "SEES",
@@ -929,7 +924,6 @@
         "effects": [ { "id": "grabbed", "duration": 1000, "bp": "torso" } ]
       }
     ],
-    "death_function": [ "NORMAL" ],
     "flags": [ "SMELLS", "HEARS", "SEES", "CHITIN", "SWIMS", "GRABS", "FAT", "ARTHROPOD_BLOOD" ],
     "anger_triggers": [ "PLAYER_CLOSE", "HURT" ],
     "fear_triggers": [ "FIRE" ]
@@ -975,7 +969,11 @@
         "effects": [ { "id": "grabbed", "duration": 1000, "bp": "torso" } ]
       }
     ],
-    "death_function": [ "WORM", "NORMAL" ],
+    "death_function": {
+      "effect": { "id": "death_halfworm", "hit_self": true },
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s splits in two!"
+    },
     "flags": [ "SEES", "HEARS", "GOODHEARING", "DIGS", "BASHES", "POISON", "WARM", "LEATHER", "FAT" ],
     "anger_triggers": [ "SOUND", "FRIEND_ATTACKED", "PLAYER_WEAK" ],
     "fear_triggers": [ "HURT", "FRIEND_DIED", "FIRE" ]
@@ -1029,7 +1027,6 @@
     "attack_effs": [ { "id": "rad_tenths", "duration": 10 } ],
     "armor_bash": 2,
     "harvest": "mutant_meatslug",
-    "death_function": [ "NORMAL" ],
     "upgrades": { "half_life": 3, "into_group": "GROUP_WORM" },
     "regenerates": 1,
     "regen_morale": true,
@@ -1073,7 +1070,11 @@
     "vision_night": 12,
     "emit_fields": [ "emit_gas_stream", "emit_gas_stream", "emit_radiation_plume" ],
     "path_settings": { "max_dist": 30 },
-    "death_function": [ "MELT", "ACID" ],
+    "death_function": {
+      "effect": { "id": "death_acid", "hit_self": true },
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s's body melts away."
+    },
     "flags": [ "SEES", "HEARS", "POISON", "HUMAN", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "LEATHER", "BONES", "STUMBLES" ]
   }
 ]
