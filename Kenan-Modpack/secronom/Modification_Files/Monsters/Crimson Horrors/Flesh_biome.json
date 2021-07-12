@@ -144,8 +144,11 @@
       }
     ],
     "harvest": "exempt",
-    "death_drops": "mon_sflesh_entrance_death_drop",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s dies!",
+      "effect": { "id": "mon_sflesh_entrance_open", "hit_self": true }
+    },
     "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "NOHEAD", "STUN_IMMUNE", "IMMOBILE" ]
   },
   {
@@ -186,7 +189,11 @@
     ],
     "death_drops": "mon_sflesh_sack_death_drop",
     "harvest": "exempt",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s melts away.",
+      "effect": { "id": "mon_sflesh_sack_death", "hit_self": true }
+    },
     "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "NOHEAD", "IMMOBILE", "PACIFIST" ]
   },
   {
@@ -213,6 +220,7 @@
     "melee_cut": 2,
     "dodge": 4,
     "harvest": "zombie_meatslug",
+    "death_function": { "corpse_type": "NORMAL", "message": "The %s dies!" },
     "flags": [ "SEES", "SMELLS", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "CLIMBS", "PATH_AVOID_DANGER_2" ]
   },
   {
