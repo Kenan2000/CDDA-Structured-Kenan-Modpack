@@ -43,6 +43,11 @@
       }
     ],
     "death_drops": "default_zombie_death_drops",
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s dies!",
+      "effect": { "id": "mon_zombie_grubby_death", "hit_self": true }
+    },
     "upgrades": { "half_life": 10, "into": "mon_zombie_slimy" },
     "flags": [
       "SEES",
@@ -103,6 +108,11 @@
       }
     ],
     "upgrades": { "half_life": 12, "into_group": "GROUP_GRUBBY_UPGRADEX" },
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s dies!",
+      "effect": { "id": "mon_zombie_grubby_death", "hit_self": true }
+    },
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "POISON", "NO_BREATHE", "BONES", "FILTHY" ]
   },
   {
@@ -146,7 +156,11 @@
         "description": "The glut vomits globs of tainted goo!"
       }
     ],
-    "death_function": { "effect": { "id": "death_gas", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "A %s explodes!" },
+    "death_function": {
+      "effect": { "id": "mon_zombie_glut_death", "hit_self": true },
+      "corpse_type": "NO_CORPSE",
+      "message": "A %s explodes!"
+    },
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "POISON", "NO_BREATHE", "BONES" ]
   }
 ]

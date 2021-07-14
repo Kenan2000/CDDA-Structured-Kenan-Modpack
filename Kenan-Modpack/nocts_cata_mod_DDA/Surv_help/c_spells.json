@@ -192,5 +192,34 @@
     "min_damage": -2,
     "max_damage": -5,
     "flags": [ "RANDOM_DAMAGE", "SILENT" ]
+  },
+  {
+    "id": "c_death_explosion_hulk_weapon",
+    "type": "SPELL",
+    "name": { "str": "Death Explosion Plus Acid" },
+    "valid_targets": [ "self", "ally", "hostile", "ground" ],
+    "description": "Small explosion plus acid effect, used by Apophis.",
+    "min_aoe": 8,
+    "max_aoe": 8,
+    "min_damage": 8,
+    "max_damage": 8,
+    "effect": "explosion",
+    "shape": "blast",
+    "extra_effects": [ { "id": "death_acid", "hit_self": true } ]
+  },
+  {
+    "id": "c_death_explosion_mon_fungus_failed_weapon",
+    "type": "SPELL",
+    "name": { "str": "Pouf plus Acid Effect" },
+    "description": "Fungal pouf plus acid effect, used by fungal augmented abominations.",
+    "valid_targets": [ "ground", "self" ],
+    "effect": "fungalize",
+    "flags": [ "SILENT" ],
+    "min_damage": 2500,
+    "max_damage": 2500,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "shape": "blast",
+    "extra_effects": [ { "id": "death_pouf", "hit_self": true }, { "id": "death_acid", "hit_self": true } ]
   }
 ]
