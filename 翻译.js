@@ -1037,9 +1037,15 @@ ${getItemBrowserLink(fullItem)}`
 
     if (Array.isArray(item.decay_messages) && Array.isArray(item.decay_messages[0])) {
       item.decay_messages = await Promise.all(
-        item.decay_messages.map((msgGroup) => Promise.all(msgGroup.map((msg) => translateFunction(msg))))
+        item.decay_messages.map((msgGroup) => Promise.all(msgGroup.map((msg) =>{
+        if (msg != "good" && msg != "bad" && msg != "neutral" && msg != "mixed")
+          return translateFunction(msg);
+        else
+          return msg;
+        } )))
       );
     }
+ 
     if (Array.isArray(item.miss_messages) && Array.isArray(item.miss_messages[0])) {
       item.miss_messages = await Promise.all(
         item.miss_messages.map((msgGroup) => Promise.all(msgGroup.map((msg) => translateFunction(msg))))
