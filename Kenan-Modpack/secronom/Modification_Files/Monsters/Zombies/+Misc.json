@@ -166,7 +166,7 @@
     "melee_damage": [ { "damage_type": "electric", "amount": 5 } ],
     "vision_night": 2,
     "luminance": 20,
-    "harvest": "CBM_SUBS",
+    "harvest": "zombie",
     "emit_fields": [ "emit_jolt_ing", "emit_jolt_blanket" ],
     "special_when_hit": [ "ZAPBACK", 100 ],
     "death_drops": "default_zombie_death_drops",
@@ -236,7 +236,7 @@
     "flags": [ "SEES", "PACIFIST", "ACIDPROOF", "ELECTRIC", "NO_BREATHE", "FLIES" ]
   },
   {
-    "//": "Aggro-type zed that morphs into a lethal counterpart. It uses a spell for this so it might not work, especially when in crowded surroundings.",
+    "//": "Aggro-type zed that morphs into a lethal counterpart on-death.",
     "id": "mon_zombie_fake_ichorus",
     "type": "MONSTER",
     "name": { "str": "zombie" },
@@ -260,18 +260,12 @@
     "vision_day": 4,
     "vision_night": 4,
     "harvest": "zombie",
-    "special_attacks": [
-      { "type": "bite", "cooldown": 5 },
-      [ "GRAB", 7 ],
-      [ "scratch", 20 ],
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_zombie_fake_poly_ichorus_target" },
-        "cooldown": 0,
-        "monster_message": "<color_red>%1$s ruptures into an ichorus!</color>"
-      }
-    ],
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "GRAB", 7 ], [ "scratch", 20 ] ],
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "<color_light_red>%s mutates into an ichorus!</color>",
+      "effect": { "id": "mon_zombie_fake_ichorus_death", "hit_self": true }
+    },
     "flags": [
       "SEES",
       "HEARS",
@@ -291,7 +285,7 @@
     "id": "mon_zombie_ichorus",
     "type": "MONSTER",
     "name": { "str": "ichorus" },
-    "description": "Heaps of greenish flesh has replaced the head under its undulating bulbous torso. Slow and is heavily hampered, yet it opposes a big threat for its corrosive bodily fluids.",
+    "description": "Heaps of greenish flesh has replaced the head under its undulating bulbous torso. Slow and is heavily hampered, yet opposes a big threat for its corrosive bodily fluids.",
     "default_faction": "zombie",
     "bodytype": "human",
     "species": [ "ZOMBIE", "SECROZED_2" ],
@@ -360,18 +354,12 @@
     "vision_day": 4,
     "vision_night": 4,
     "harvest": "zombie",
-    "special_attacks": [
-      { "type": "bite", "cooldown": 5 },
-      [ "GRAB", 7 ],
-      [ "scratch", 20 ],
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_zombie_fake_poly_psyrus_target" },
-        "cooldown": 0,
-        "monster_message": "<color_red>%1$s ruptures into a psyrus!</color>"
-      }
-    ],
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "GRAB", 7 ], [ "scratch", 20 ] ],
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "<color_light_red>%s mutates into a psyrus!</color>",
+      "effect": { "id": "mon_zombie_fake_psyrus_death", "hit_self": true }
+    },
     "flags": [
       "SEES",
       "HEARS",

@@ -5,7 +5,7 @@
     "name": "tendril zombie",
     "description": "A human body with two twitching tentacles and stem-like outgrowths slit through the worn and tattered clothing.",
     "default_faction": "zombie",
-    "species": [ "ZOMBIE", "SECROZED_1", "HUMAN" ],
+    "species": [ "ZOMBIE", "SECROZED_1" ],
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 75,
@@ -60,7 +60,7 @@
     "name": "tendril zombie",
     "description": "A tendril zombie with its tentacle pairs thickened from further mutation.",
     "default_faction": "zombie",
-    "species": [ "ZOMBIE", "SECROZED_1", "HUMAN" ],
+    "species": [ "ZOMBIE", "SECROZED_1" ],
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 130,
@@ -113,7 +113,7 @@
     "name": "tendril zombie",
     "description": "A frail-looking corpse with raging long tentacles covering its rotten skin. Its tendril pairs are tipped with a sharp bone.",
     "default_faction": "zombie",
-    "species": [ "ZOMBIE", "SECROZED_1", "HUMAN" ],
+    "species": [ "ZOMBIE", "SECROZED_1" ],
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 105,
@@ -169,7 +169,7 @@
     "name": "wraith",
     "description": "Dreadful outgrowths of savage tentacles accompanies this corpse's crimson body, thrashing anything in its path as it moves aimlessly. Within a closer look, one of its arm pulsates that burdens the body, dragging the heavily mutated portion into the ground.",
     "default_faction": "zombie",
-    "species": [ "ZOMBIE", "SECROZED_3", "HUMAN" ],
+    "species": [ "ZOMBIE", "SECROZED_3" ],
     "volume": "92500 ml",
     "weight": "120000 g",
     "hp": 465,
@@ -197,18 +197,23 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_tentawraith_outburst" },
-        "cooldown": 52,
-        "monster_message": "<color_yellow>%1$s strikes the ground then ruptures a vast amount of thick tentacles under %3$s!</color>\n<color_red>Tendrils burst out of the ground!</color>"
+        "spell_data": { "id": "mon_zombie_tentawraith_target" },
+        "cooldown": 50,
+        "monster_message": "<color_yellow>%1$s's tentacles thrashes its surroundings!</color>\n<color_red>Tendrils burst out of the ground!</color>"
       },
-      { "type": "bite", "cooldown": 7, "damage_max_instance": [ { "damage_type": "cut", "armor_penetration": 12 } ] },
-      [ "STRETCH_ATTACK", 40 ],
+      [ "tendrilslam", 32 ],
+      [ "tendrilstab", 26 ],
+      [ "RANGED_PULL", 20 ],
+      [ "STRETCH_ATTACK", 17 ],
       [ "tendrilgrip", 11 ],
-      [ "tendrilslam", 22 ],
-      [ "tendrilstab", 22 ],
-      [ "tendrilswing", 3 ]
+      { "type": "bite", "cooldown": 7, "damage_max_instance": [ { "damage_type": "cut", "armor_penetration": 12 } ] }
     ],
     "death_drops": "default_zombie_death_drops",
+    "death_function": {
+      "corpse_type": "NORMAL",
+      "message": "The %s dies!",
+      "effect": { "id": "mon_zombie_tentawraith_death", "hit_self": true }
+    },
     "flags": [
       "SEES",
       "HEARS",
@@ -256,16 +261,8 @@
     "armor_bullet": 4,
     "armor_acid": 4,
     "armor_fire": 2,
-    "special_attacks": [
-      [ "STRETCH_ATTACK", 12 ],
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_zombie_tentawraith_tent_pmis" },
-        "cooldown": 23,
-        "monster_message": "<color_yellow>%1$s sweeps its tendril at %3$s!</color>"
-      }
-    ],
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "special_attacks": [ [ "STRETCH_ATTACK", 19 ] ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s disappears into the ground." },
     "flags": [ "IMMOBILE", "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE" ]
   }
 ]

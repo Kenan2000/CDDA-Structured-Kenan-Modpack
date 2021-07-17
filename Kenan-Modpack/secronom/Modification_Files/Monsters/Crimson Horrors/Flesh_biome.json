@@ -224,7 +224,7 @@
     "flags": [ "SEES", "SMELLS", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "CLIMBS", "PATH_AVOID_DANGER_2" ]
   },
   {
-    "//": "Veinstalks pop up randomly in fleshed locations, and if possible, converts nearby tiles into flesh. They sprout back (dies after a minute) so don't worry about them devouring your world.",
+    "//": "Veinstalks pop up randomly in fleshed locations, and if possible, converts nearby tiles into flesh.",
     "id": "mon_sflesh_veinstalk",
     "type": "MONSTER",
     "name": { "str": "veinstalk" },
@@ -232,11 +232,11 @@
     "default_faction": "secro_flesh2",
     "species": [ "SFLESH", "ABERRATION" ],
     "diff": 10,
-    "volume": "500 L",
-    "weight": "5250 kg",
-    "hp": 305,
+    "volume": "50 L",
+    "weight": "115 kg",
+    "hp": 55,
     "speed": 100,
-    "emit_fields": [ "emit_down_immunity", "emit_veinstalk_limiter", "emit_veinstalk_crawler" ],
+    "emit_fields": [ "emit_veinstalk_limiter" ],
     "material": [ "flesh" ],
     "symbol": "⨕",
     "color": "red",
@@ -249,42 +249,11 @@
     "armor_bash": 6,
     "vision_day": 60,
     "harvest": "zombie",
-    "special_attacks": [
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_sflesh_veinstalk_spread_target" },
-        "cooldown": 10,
-        "monster_message": "<color_red>%1$s twitches violently...</color>"
-      }
-    ],
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "<color_yellow>The %s disappears into the ground.",
+      "effect": { "id": "mon_sflesh_veinstalk_spread", "hit_self": true }
+    },
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "IMMOBILE", "PACIFIST", "FILTHY" ]
-  },
-  {
-    "//": "Short-lived, harmless monster passively spawned by veinstalks, which then gets targeted for activation of its spell (incase nothing else is seen).",
-    "id": "mon_sflesh_veinstalk_crawly",
-    "type": "MONSTER",
-    "name": { "str": "creeping tendrils", "str_pl": "creeping tendrils" },
-    "description": "A dense tentacle outgrowths creeping across the surface. They shrink and return underneath whenever they reach their limits.",
-    "default_faction": "secro_flesh",
-    "species": [ "SFLESH", "ABERRATION" ],
-    "volume": "5 L",
-    "weight": "15 kg",
-    "hp": 15,
-    "speed": 100,
-    "emit_fields": [ "emit_down_immunity", "emit_veinstalk_limiter" ],
-    "material": [ "flesh" ],
-    "symbol": "⟆",
-    "color": "red",
-    "aggression": 100,
-    "morale": 100,
-    "melee_skill": 10,
-    "melee_dice": 10,
-    "melee_dice_sides": 10,
-    "melee_cut": 0,
-    "armor_bash": 3,
-    "harvest": "zombie",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
-    "flags": [ "WARM", "POISON", "NO_BREATHE", "IMMOBILE", "PACIFIST", "ABSORBS" ]
   }
 ]
