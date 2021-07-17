@@ -1039,5 +1039,162 @@
     "max_damage": 1,
     "min_range": 10,
     "max_range": 10
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_titan_startcharge",
+    "name": { "str": "Charging" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster blocks with both hands, gaining bonus defense but can't perform basic attacks and has their speed greatly reduced.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "self" ],
+    "min_damage": 999999,
+    "max_damage": 999999,
+    "effect": "targeted_polymorph",
+    "shape": "blast",
+    "effect_str": "mon_zombie_titan_charging"
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_titan_target",
+    "name": { "str": "a spell" },
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
+    "message": "The sight of <npcname> locks onto its target...",
+    "extra_effects": [
+      { "id": "mon_zombie_charger_plate_charge_target_random" },
+      { "id": "mon_zombie_titan_startcharge", "hit_self": true }
+    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_range": 8,
+    "max_range": 8
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_titan_charging_stop",
+    "name": { "str": "Stop" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'1/2 chance for the caster to return to its normal stance.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "self" ],
+    "min_damage": 999999,
+    "max_damage": 999999,
+    "effect": "targeted_polymorph",
+    "shape": "blast",
+    "effect_str": "mon_zombie_titan"
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_titan_charging_stop_random",
+    "name": { "str": "a spell" },
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts one of the Spell(s).'",
+    "extra_effects": [ { "id": "mon_zombie_titan_charging_stop", "hit_self": true }, { "id": "secro_spell_null" } ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "WONDER" ],
+    "valid_targets": [ "none" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_damage": 1,
+    "max_damage": 1
+  },
+  {
+    "id": "mon_zombie_titan_charging_pull",
+    "type": "SPELL",
+    "name": { "str": "Charge" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster charges at the target.'",
+    "effect": "area_pull",
+    "shape": "blast",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "self" ],
+    "extra_effects": [ { "id": "mon_zombie_charger_charge_pushy", "hit_self": true } ],
+    "min_aoe": 20,
+    "max_aoe": 20
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_titan_charging_target",
+    "name": { "str": "a spell" },
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
+    "message": "The sight of <npcname> locks onto its target...",
+    "extra_effects": [ { "id": "mon_zombie_titan_charging_pull" }, { "id": "mon_zombie_titan_charging_stop_random" } ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_range": 20,
+    "max_range": 20
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_blacktitan_startcharge",
+    "name": { "str": "Charging" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster blocks with both hands, gaining great bonus defense but can't perform basic attacks and has their speed greatly reduced.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "self" ],
+    "min_damage": 999999,
+    "max_damage": 999999,
+    "effect": "targeted_polymorph",
+    "shape": "blast",
+    "effect_str": "mon_zombie_blacktitan_charging"
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_blacktitan_target",
+    "name": { "str": "a spell" },
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
+    "message": "The sight of <npcname> locks onto its target...",
+    "extra_effects": [
+      { "id": "mon_zombie_charger_plate_charge_target_random" },
+      { "id": "mon_zombie_blacktitan_startcharge", "hit_self": true }
+    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_range": 8,
+    "max_range": 8
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_blacktitan_charging_stop",
+    "name": { "str": "Stop" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'1/3 chance for the caster to return to its normal stance.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "self" ],
+    "min_damage": 999999,
+    "max_damage": 999999,
+    "effect": "targeted_polymorph",
+    "shape": "blast",
+    "effect_str": "mon_zombie_blacktitan"
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_blacktitan_charging_stop_random",
+    "name": { "str": "a spell" },
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts one of the Spell(s).'",
+    "extra_effects": [
+      { "id": "mon_zombie_blacktitan_charging_stop", "hit_self": true },
+      { "id": "secro_spell_null" },
+      { "id": "secro_spell_null" }
+    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "WONDER" ],
+    "valid_targets": [ "none" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_damage": 1,
+    "max_damage": 1
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_blacktitan_charging_target",
+    "name": { "str": "a spell" },
+    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
+    "message": "The sight of <npcname> locks onto its target...",
+    "extra_effects": [ { "id": "mon_zombie_titan_charging_pull" }, { "id": "mon_zombie_blacktitan_charging_stop_random" } ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_range": 20,
+    "max_range": 20
   }
 ]
