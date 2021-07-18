@@ -1,10 +1,10 @@
 [
   {
-    "//": "This zombie should path from brute zombie, and much like a hulk... Only difference is its armor, damage and speed gain.",
+    "//": "This zombie should path from brute zombie, and much like a hulk... Only difference is its armor, damage and the abilitiy to get personal similar to chargers.",
     "id": "mon_zombie_titan",
     "type": "MONSTER",
     "name": { "str": "titan" },
-    "description": "A swollen body covered in thick exoskeleton plates and protruding bone, lays under its bulging muscles.",
+    "description": "A swollen body covered in thick exoskeleton plates and protruding bones lay under its bulging muscles.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_3", "HUMAN" ],
     "volume": "875000 ml",
@@ -13,7 +13,7 @@
     "speed": 110,
     "diff": 10,
     "material": [ "flesh", "bone" ],
-    "symbol": "⟑",
+    "symbol": "⩠",
     "color": "light_red_magenta",
     "aggression": 100,
     "morale": 100,
@@ -22,6 +22,7 @@
     "melee_dice_sides": 8,
     "melee_cut": 1,
     "attack_cost": 300,
+    "bleed_rate": 25,
     "dodge": 1,
     "harvest": "zombie",
     "vision_day": 25,
@@ -34,14 +35,14 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_titan_charge_target" },
-        "cooldown": 60,
-        "monster_message": "<color_yellow>%1$s blocks with both arms then sprints toward %3$s!</color>"
+        "spell_data": { "id": "mon_zombie_titan_target" },
+        "cooldown": 345,
+        "monster_message": "<color_yellow>%1$s blocks with both arms as it sprints toward %3$s!</color>"
       },
-      [ "SMASH", 32 ]
+      [ "SMASH", 33 ]
     ],
     "death_drops": "mon_zombie_hulk_death_drops",
-    "upgrades": { "half_life": 20, "into": "mon_zombie_blacktitan" },
+    "upgrades": { "half_life": 33, "into": "mon_zombie_blacktitan" },
     "flags": [
       "SEES",
       "HEARS",
@@ -63,19 +64,43 @@
     ]
   },
   {
+    "//": "20+ bash res, 10+ cut/bullet res. Bonus res are doubled for black titan.",
+    "id": "mon_zombie_titan_charging",
+    "copy-from": "mon_zombie_titan",
+    "type": "MONSTER",
+    "name": { "str": "titan" },
+    "description": "A swollen body covered in thick exoskeleton plates and protruding bones lay under its bulging muscles. Its hands are crossed together.",
+    "speed": 55,
+    "armor_bash": 30,
+    "armor_cut": 26,
+    "armor_bullet": 20,
+    "symbol": "⩞",
+    "color": "red_magenta",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_titan_charging_target" },
+        "cooldown": 6,
+        "monster_message": "<color_yellow>%1$s charges at %3$s!</color>"
+      },
+      [ "SMASH", 9999 ]
+    ],
+    "extend": { "flags": [ "PACIFIST" ] }
+  },
+  {
     "id": "mon_zombie_blacktitan",
     "type": "MONSTER",
     "name": { "str": "black titan" },
-    "description": "Enormous muscle mass, has desaturated from high-end mutations while its exoskeleton unified with the rotten tissue.",
+    "description": "A hulking body with its skin desaturated from prolonged mutations. Sharp bone outgrowths protrude under its thick exoskeletal plates.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_3", "HUMAN" ],
     "volume": "875000 ml",
     "weight": "200000 g",
     "hp": 715,
-    "speed": 125,
+    "speed": 130,
     "diff": 30,
     "material": [ "flesh", "bone" ],
-    "symbol": "⟑",
+    "symbol": "⩠",
     "color": "dark_gray_red",
     "aggression": 100,
     "morale": 100,
@@ -92,14 +117,15 @@
     "armor_bullet": 15,
     "armor_acid": 4,
     "armor_fire": 8,
+    "bleed_rate": 20,
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_titan_charge_target" },
-        "cooldown": 50,
+        "spell_data": { "id": "mon_zombie_blacktitan_target" },
+        "cooldown": 321,
         "monster_message": "<color_yellow>%1$s blocks with both arms then sprints toward %3$s!</color>"
       },
-      [ "SMASH", 26 ]
+      [ "SMASH", 22 ]
     ],
     "death_drops": "mon_zombie_hulk_death_drops",
     "flags": [
@@ -121,5 +147,28 @@
       "FAT",
       "PUSH_MON"
     ]
+  },
+  {
+    "id": "mon_zombie_blacktitan_charging",
+    "copy-from": "mon_zombie_blacktitan",
+    "type": "MONSTER",
+    "name": { "str": "black titan" },
+    "description": "A hulking body with its skin desaturated from prolonged mutations. Sharp bone outgrowths protrude under its thick exoskeletal plates. Its hands are crossed together.",
+    "speed": 65,
+    "armor_bash": 57,
+    "armor_cut": 42,
+    "armor_bullet": 35,
+    "symbol": "⩞",
+    "color": "black_red",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_blacktitan_charging_target" },
+        "cooldown": 6,
+        "monster_message": "<color_yellow>%1$s charges at %3$s!</color>"
+      },
+      [ "SMASH", 9999 ]
+    ],
+    "extend": { "flags": [ "PACIFIST" ] }
   }
 ]
