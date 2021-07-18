@@ -1,0 +1,98 @@
+[
+  {
+    "type": "npc",
+    "id": "npc_valkyrur",
+    "name_suffix": "Valkyria",
+    "class": "wom_valkyrur",
+    "gender": "female",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "TALK_valkyrur_go_start",
+    "faction": "val_fac_valkyrur"
+  },
+  {
+    "type": "npc_class",
+    "id": "wom_valkyrur",
+    "name": { "str": "Valkyria" },
+    "job_description": "Protects the town from assailants",
+    "traits": [ { "trait": "hair_white_long" }, { "trait": "SKIN_LIGHT" }, { "trait": "mut_valkyrur" } ],
+    "common": false,
+    "bonus_str": { "rng": [ 3, 5 ] },
+    "bonus_dex": { "rng": [ 1, 3 ] },
+    "worn_override": "NC_VAL_worn",
+    "carry_override": "NC_VAL_carry",
+    "weapon_override": "NC_VAL_weapon",
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -2 } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 5, 8 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 3, 7 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 3, 6 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 2, 4 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VAL_weapon",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "val_valkyrurlance" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VAL_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "subsuit_xl" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VAL_carry",
+    "subtype": "collection",
+    "entries": [
+      { "item": "null" }
+    ]
+  },
+  {
+    "type": "npc",
+    "id": "npc_valkyrurtest",
+    "name_suffix": "Valkyria",
+    "class": "wom_valkyrurtest",
+    "gender": "female",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_valkyrur_go_start",
+    "faction": "val_fac_valkyrur"
+  },
+  {
+    "type": "npc_class",
+    "id": "wom_valkyrurtest",
+    "name": { "str": "Valkyria" },
+    "job_description": "Protects the town from assailants",
+    "traits": [ { "trait": "hair_white_long" }, { "trait": "SKIN_LIGHT" }, { "trait": "mut_valkyrur" } ],
+    "common": false,
+    "worn_override": "NC_VAL_worn",
+    "carry_override": "NC_VAL_carry",
+    "weapon_override": "NC_VALTEST_weapon",
+    "bonus_str": { "rng": [ 1, 3 ] },
+    "bonus_per": { "one_in": 3 },
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -3 } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 3, 6 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 2, 4 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALTEST_weapon",
+    "subtype": "collection",
+    "entries": [
+      { "item": "null" }
+    ]
+  }
+]

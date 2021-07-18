@@ -1,0 +1,73 @@
+[
+  {
+    "type": "npc",
+    "id": "imperial_lancer",
+    "name_suffix": "Imperial lancer",
+    "class": "imp_mil_lance",
+    "gender": "male",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "TALK_imperial_guard_start",
+    "faction": "val_fac_empire"
+  },
+  {
+    "type": "npc_class",
+    "id": "imp_mil_lance",
+    "name": { "str": "imperial lancer" },
+    "job_description": "Protects the town from assailants",
+    "traits": [ { "group": "Skin_Fair" }, { "group": "Hair_Any" } ],
+    "common": false,
+    "bonus_str": { "rng": [ 1, 4 ] },
+    "bonus_dex": { "rng": [ -1, 2 ] },
+    "bonus_int": { "rng": [ -2, 2 ] },
+    "bonus_per": { "rng": [ -2, 1 ] },
+    "worn_override": "NC_IMPLANCE_worn",
+    "carry_override": "NC_IMPLANCE_carry",
+    "weapon_override": "NC_IMPLANCE_weapon",
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -3 } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 3, 6 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 2, 4 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPLANCE_weapon",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "VBPLRocket", "charges": 1 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPLANCE_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "imp_helmet", "prob": 85 },
+      { "item": "imp_trooperarm" },
+      { "item": "socks_wool" },
+      { "item": "imparmyjacket" },
+      { "item": "impchestarmor" },
+      { "group": "npc_underwear_bottom_male" },
+      { "item": "imp_leatherglove", "prob": 70 },
+      { "item": "imperial_pack" },
+      { "item": "impwebbing" },
+      { "item": "imp_pants_army" },
+      { "item": "impilboots" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPLANCE_carry",
+    "subtype": "collection",
+    "entries": [
+      { "group": "preserved_food", "count": [ 1, 3 ] },
+      { "group": "drugs_heal_simple", "count": [ 1, 6 ] },
+      { "item": "vbpl_ammo", "count": [ 3, 5 ] },
+      { "item": "vbpl_ammo_thermo", "count": [ 1, 2 ] }
+    ]
+  }
+]

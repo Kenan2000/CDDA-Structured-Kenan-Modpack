@@ -1,0 +1,141 @@
+[
+  {
+    "id": "TALK_Merc_Town",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_male": [ "Hello, Sir. Do you perhaps have any interest in my wares? A firearm or tonic for your health perhaps?" ],
+      "no": [
+        "Hello, Madam. Do you perhaps have any interests in my wares? Perhaps a nice dress or some cookware to help you in your domestic pursuits."
+      ]
+    },
+    "responses": [
+      { "text": "So you're a merchant in this town? What can you tell me about it?", "topic": "TALK_Merc_infotown" },
+      { "text": "Let me browse your wares.", "effect": "start_trade", "topic": "TALK_Merc_Town" },
+      { "text": "Goodbye, thank you for your time.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_Merc_infotown",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_male": [
+        "That's a good question, sir. This town has been around for some time, I don't really remember how long, but we first placed roots down here in the 19th century. This is a place where an enterprising man such as yourself could become famous."
+      ],
+      "no": [
+        "That's a good question, miss. This town has been around for some time, I don't really remember how long, but we first placed roots down here in the 19th century. There's a lot of fine domestic pursuits here for a member of the fairer sex such as yourself."
+      ]
+    },
+    "responses": [ { "text": "Got it.", "topic": "TALK_Merc_Town" } ]
+  },
+  {
+    "id": "MISSION_GET_MERCH_ITEM",
+    "type": "mission_definition",
+    "name": "Retrieve three copies of Guide on Mechanical Knowledge for the town merchant",
+    "description": "Retrieve three copies of the guide on Mechanical Knowledge the Steamtown Merchant.",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 3,
+    "value": 150000,
+    "item": "sp_text_devices",
+    "count": 3,
+    "end": { "effect": [ { "u_buy_item": "sp_mechlockpick", "count": 2 }, { "u_buy_item": "flintlock_ammo", "count": 40 } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_GET_MERCH_KILLCOUNT",
+    "dialogue": {
+      "describe": "I need you to prove your worth to me first. Find three copies of the Guide on Mechanical Knowledge, then I might trust you some more.",
+      "offer": "The Guide on Mechanical Knowledge is the absolute foundation of our network of towns. Without it, we would still be woefully primitive. Get me three copies of it.",
+      "accepted": "Great news, now go out and find some for me, okay?",
+      "rejected": "Why ask about a task and then reject it?",
+      "advice": "Look around at a shady warehouse or a scientist compound for them. Beware of the thugs and automatons that hang out around those parts, though.",
+      "inquire": "Have you found the books yet?",
+      "success": "Superlative work, I might have more tasks for you in the future",
+      "success_lie": "That's odd, I don't really know what to say.",
+      "failure": "Oh well, at least you tried. That's more than what most people do around here."
+    }
+  },
+  {
+    "id": "MISSION_GET_MERCH_KILLCOUNT",
+    "type": "mission_definition",
+    "name": { "str": "Kill the gangsters" },
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 5,
+    "value": 250000,
+    "start": {
+      "assign_mission_target": { "om_terrain": "forest", "reveal_radius": 1, "random": true, "search_range": 6, "z": 0 },
+      "update_mapgen": {
+        "place_monster": [
+          { "monster": "mon_sp_rcrim", "x": 11, "y": 11, "target": true },
+          { "monster": "mon_sp_mcrim", "x": 14, "y": 8 },
+          { "monster": "mon_sp_mcrim", "x": 5, "y": 4 }
+        ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_buy_item": "sp_safecracker", "count": 1 },
+        { "u_buy_item": "sp_eyegear", "count": 1 },
+        { "u_buy_item": "sp_wool_jacket", "count": 1 },
+        { "u_buy_item": "long_range_pistol", "count": 1 },
+        { "u_buy_item": "sp_mechlockpick", "count": 2 },
+        { "u_buy_item": "flintlock_ammo", "count": 40 }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "followup": "MISSION_GET_MERCH_SCIENTISTKILL",
+    "dialogue": {
+      "describe": "You seem to know a lot about the area around our little town, but the thugs do as well",
+      "offer": "You seem to have no small amount of grit and determination. How about this, you go out and kill a few criminals that have been plaguing us as of late. About seven should suffice.",
+      "accepted": "Thank you for accepting, you'll be reimbursed handsomely if you kill those ruffians for us.",
+      "rejected": "It's shame that you would reject my offer, but I understand the risk. Getting stabbed to death by some criminal's shiv isn't a very tempting propect!",
+      "advice": "The criminals hide out at shady warehouses, and shady warehouses alone.",
+      "inquire": "Have the ruffians been dispatched yet?",
+      "success": "Astounding work! Our town will be a little bit safer now, as will all of New England.",
+      "success_lie": "I'm not entirely sure if you're telling the truth, but alright.",
+      "failure": "So you've decided to give up already?"
+    }
+  },
+  {
+    "id": "MISSION_GET_MERCH_SCIENTISTKILL",
+    "type": "mission_definition",
+    "name": { "str": "Kill Mad Scientist" },
+    "goal": "MGOAL_KILL_MONSTER",
+    "difficulty": 5,
+    "value": 250000,
+    "start": {
+      "assign_mission_target": { "om_terrain": "field", "reveal_radius": 1, "random": true, "search_range": 8, "z": 0 },
+      "update_mapgen": {
+        "place_monster": [
+          { "monster": "mon_sp_scientist", "x": 15, "y": 9, "target": true },
+          { "monster": "mon_sp_mechnid", "x": 14, "y": 8 },
+          { "monster": "mon_sp_mechnid", "x": 10, "y": 8 },
+          { "monster": "mon_sp_automaton", "x": 5, "y": 4 }
+        ]
+      }
+    },
+    "end": {
+      "effect": [
+        { "u_buy_item": "am_riflecannon", "count": 1 },
+        { "u_buy_item": "sp_vishelm", "count": 1 },
+        { "u_buy_item": "highbore_pistol", "count": 1 },
+        { "u_buy_item": "sp_large_ammo_bean", "count": 5 },
+        { "u_buy_item": "sp_large_ammo_net", "count": 5 },
+        { "u_buy_item": "sp_large_ammo_flame", "count": 5 },
+        { "u_buy_item": "sp_large_ammo_acid", "count": 5 },
+        { "u_buy_item": "sp_large_ammo_exp", "count": 5 },
+        { "u_buy_item": "sp_large_shot", "count": 5 },
+        { "u_buy_item": "sp_large_ammo", "count": 25 }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "You've done more than enough to gain our trust, but I have another task for you.",
+      "offer": "There are these people that have been causing massive problems recently. People of eccentric natures, poisoned with an awful intelligence. Them and their handiwork have terrorized our communities for a long while, and I think you should handle it what do you think?",
+      "accepted": "I appreciate your willingness to go after these wayward scientist, but do be careful.",
+      "rejected": "While I am disheartened by your reply, I understand entirely.",
+      "advice": "Mad scientists can be found in the scientist compounds that dot the landscape. Be careful, as they are very skilled with electricity and the creation of automatons.",
+      "inquire": "Are they dead yet?",
+      "success": "To be honest, I didn't think you would make it back alive. Here is a reward for your immense efforts.",
+      "success_lie": "Are you sure you're telling the truth about these scientists you have killed?",
+      "failure": "What a shame, but I guess you weren't as strong as we expected."
+    }
+  }
+]

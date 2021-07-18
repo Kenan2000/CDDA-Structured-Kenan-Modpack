@@ -1,0 +1,155 @@
+[
+  {
+    "type": "npc",
+    "id": "steamtown_guard",
+    "name_suffix": "Town Guard",
+    "class": "sp_town_guardnpc",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "TALK_steamtown_guard_start",
+    "faction": "sp_fac_steamtown"
+  },
+  {
+    "type": "npc_class",
+    "id": "sp_town_guardnpc",
+    "name": { "str": "town guard" },
+    "job_description": "Protects the town from assailants",
+    "traits": [ { "group": "Appearance_demographics" } ],
+    "common": false,
+    "worn_override": "NC_STGUARD_worn",
+    "carry_override": "NC_STGUARD_carry",
+    "weapon_override": "NC_STGUARD_weapon",
+    "bonus_str": { "rng": [ 1, 3 ] },
+    "bonus_per": { "one_in": 3 },
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -3 } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 3, 6 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 2, 4 ] } }
+    ]
+  },
+  {
+    "type": "npc",
+    "id": "steamtown_woman",
+    "name_suffix": "Townswoman",
+    "class": "sp_town_womnpc",
+    "gender": "female",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_SPWOMAN",
+    "faction": "sp_fac_steamtown"
+  },
+  {
+    "type": "npc_class",
+    "id": "sp_town_womnpc",
+    "name": { "str": "townswoman" },
+    "job_description": "A woman who lives in a local town",
+    "traits": [ { "group": "Appearance_demographics" } ],
+    "common": false,
+    "worn_override": "NC_STWOM_worn",
+    "carry_override": "NC_STWOM_carry",
+    "weapon_override": "NC_STWOM_weapon",
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -3 } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 2 ] } }
+    ]
+  },
+  {
+    "type": "npc",
+    "id": "steamtown_man",
+    "name_suffix": "Townsman",
+    "class": "sp_town_mannpc",
+    "gender": "male",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_SPMAN",
+    "faction": "sp_fac_steamtown"
+  },
+  {
+    "type": "npc_class",
+    "id": "sp_town_mannpc",
+    "name": { "str": "townsman" },
+    "job_description": "A man who lives in a local town",
+    "traits": [ { "group": "Appearance_demographics" } ],
+    "common": false,
+    "worn_override": "NC_STMAN_worn",
+    "carry_override": "NC_STMAN_carry",
+    "weapon_override": "NC_STMAN_weapon",
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -3 } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 2 ] } }
+    ]
+  },
+  {
+    "type": "npc",
+    "id": "sp_town_merchant",
+    "//": "Appears in the refugee center as shopkeeper with missions.  Faction critical.",
+    "name_suffix": "Steamtown Merchant",
+    "gender": "male",
+    "class": "NC_SP_SHOPKEEP",
+    "attitude": 0,
+    "mission": 3,
+    "chat": "TALK_Merc_Town",
+    "faction": "sp_fac_steamtown"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_SP_SHOPKEEP",
+    "name": { "str": "Steamtown Merchant" },
+    "job_description": "I'm a local shopkeeper.",
+    "traits": [ { "group": "Skin_Fair" }, { "group": "Hair_Any" } ],
+    "common": false,
+    "bonus_int": { "one_in": 4 },
+    "bonus_per": { "one_in": 4 },
+    "worn_override": "NC_STMERCH_worn",
+    "weapon_override": "NC_STMAN_weapon",
+    "shopkeeper_item_group": "NC_SPT_SHOPKEEP_misc",
+    "carry_override": "NC_SPT_SHOPKEEP_misc",
+    "skills": [
+      {
+        "skill": "ALL",
+        "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "constant": -2 }, { "one_in": 4 } ] } ] }
+      },
+      { "skill": "mechanics", "bonus": { "one_in": 2 } },
+      { "skill": "electronics", "bonus": { "rng": [ 0, 2 ] } },
+      { "skill": "speech", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "barter", "bonus": { "rng": [ 3, 5 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_SPT_SHOPKEEP_storage",
+    "subtype": "distribution",
+    "entries": [ { "item": "duffelbag", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_SPT_SHOPKEEP_coat",
+    "subtype": "distribution",
+    "entries": [ { "item": "trenchcoat", "prob": 80 }, { "item": "vest", "prob": 60 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_SPT_SHOPKEEP_misc",
+    "subtype": "collection",
+    "items": [
+      { "group": "big_canned_food", "count": [ 1, 3 ] },
+      { "group": "preserved_food", "count": [ 1, 3 ] },
+      { "group": "foodintincan", "count": [ 1, 3 ] },
+      { "group": "snacks", "count": [ 1, 3 ] },
+      { "group": "cannedfood", "count": [ 1, 3 ] },
+      { "group": "fresh_produce", "count": [ 1, 3 ] },
+      { "group": "sp_civdrop", "count": [ 1, 2 ] },
+      { "group": "sp_itemgundrop", "count": [ 1, 2 ] },
+      { "group": "ammo_pistol_common" },
+      { "group": "ammo_rifle_common" },
+      { "group": "guns_common" }
+    ]
+  }
+]

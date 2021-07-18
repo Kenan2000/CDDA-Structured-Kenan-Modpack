@@ -1,0 +1,284 @@
+[
+  {
+    "type": "item_group",
+    "id": "NC_VALBAKER_weapon",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "null" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALBAKER_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "panties" },
+      { "item": "bra" },
+      { "item": "val_gallian_dress" },
+      { "item": "socks" },
+      { "item": "dress_shoes" },
+      { "item": "bruhlscarf" },
+      { "item": "duffelbag" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALBAKER_carry",
+    "subtype": "collection",
+    "entries": [
+      { "item": "null" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALGUN_weapon",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "vipere", "charges": 7 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALGUN_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "boxer_briefs" },
+      { "item": "pants" },
+      { "item": "longshirt" },
+      { "item": "socks" },
+      { "item": "boots" },
+      { "item": "gloves_light" },
+      { "item": "duffelbag" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALGUN_carry",
+    "subtype": "collection",
+    "entries": [
+      { "item": "null" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALDOC_weapon",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "scalpel" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALDOC_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "boxer_briefs" },
+      { "item": "pants" },
+      { "item": "dress_shirt" },
+      { "item": "coat_lab" },
+      { "item": "socks" },
+      { "item": "boots" },
+      { "item": "gloves_light" },
+      { "item": "duffelbag" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALDOC_carry",
+    "subtype": "collection",
+    "entries": [
+      { "item": "null" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALDOC_SHOP",
+    "subtype": "collection",
+    "entries": [
+      { "group": "infantry_medical_gear", "prob": 80, "count": [ 4, 10 ] },
+      { "group": "hospital_medical_items", "prob": 80, "count": [ 6, 15 ] }
+    ]
+  },
+  {
+    "type": "npc",
+    "id": "gal_bread_merchant",
+    "//": "Appears in the refugee center as shopkeeper with missions.  Faction critical.",
+    "name_suffix": "Gallian Food Merchant",
+    "gender": "female",
+    "class": "NC_GAL_SHOPKEEP",
+    "attitude": 0,
+    "mission": 3,
+    "chat": "TALK_VALBAKER_Town",
+    "faction": "val_fac_gallia"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_GAL_SHOPKEEP",
+    "name": { "str": "Gallian Food Merchant" },
+    "job_description": "I'm a local shopkeeper.",
+    "traits": [ { "group": "Skin_Fair" }, { "group": "Hair_Any" } ],
+    "common": false,
+    "bonus_int": { "one_in": 4 },
+    "bonus_per": { "one_in": 4 },
+    "worn_override": "NC_VALBAKER_worn",
+    "weapon_override": "NC_VALBAKER_weapon",
+    "shopkeeper_item_group": "NC_GAL_SHOPKEEP_misc",
+    "carry_override": "NC_GAL_SHOPKEEP_misc",
+    "skills": [
+      {
+        "skill": "ALL",
+        "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "constant": -2 }, { "one_in": 4 } ] } ] }
+      },
+      { "skill": "mechanics", "bonus": { "one_in": 2 } },
+      { "skill": "electronics", "bonus": { "rng": [ 0, 2 ] } },
+      { "skill": "speech", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "barter", "bonus": { "rng": [ 3, 5 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_GAL_SHOPKEEP_storage",
+    "subtype": "distribution",
+    "entries": [ { "item": "duffelbag", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_GAL_SHOPKEEP_coat",
+    "subtype": "distribution",
+    "entries": [ { "item": "trenchcoat", "prob": 80 }, { "item": "vest", "prob": 60 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_GAL_SHOPKEEP_misc",
+    "subtype": "collection",
+    "items": [
+      { "group": "big_canned_food", "count": [ 1, 3 ] },
+      { "group": "preserved_food", "count": [ 1, 3 ] },
+      { "group": "foodintincan", "count": [ 1, 3 ] },
+      { "group": "snacks", "count": [ 1, 3 ] },
+      { "group": "cannedfood", "count": [ 1, 3 ] },
+      { "group": "MRE", "count": [ 1, 3 ] },
+      { "group": "fresh_produce", "count": [ 1, 3 ] }
+    ]
+  },
+  {
+    "type": "npc",
+    "id": "gal_gun_merchant",
+    "//": "Appears in the refugee center as shopkeeper with missions.  Faction critical.",
+    "name_suffix": "Gallian Gun Merchant",
+    "gender": "male",
+    "class": "NC_GUN_SHOPKEEP",
+    "attitude": 0,
+    "mission": 3,
+    "chat": "TALK_VALGUN_Town",
+    "faction": "val_fac_gallia"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_GUN_SHOPKEEP",
+    "name": { "str": "Gallian Gun Merchant" },
+    "job_description": "I'm a local shopkeeper.",
+    "traits": [ { "group": "Skin_Fair" }, { "group": "Hair_Any" } ],
+    "common": false,
+    "bonus_int": { "one_in": 4 },
+    "bonus_per": { "one_in": 4 },
+    "worn_override": "NC_VALGUN_worn",
+    "weapon_override": "NC_VALGUN_weapon",
+    "shopkeeper_item_group": "NC_GUN_SHOPKEEP_misc",
+    "carry_override": "NC_GUN_SHOPKEEP_misc",
+    "skills": [
+      {
+        "skill": "ALL",
+        "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "constant": -2 }, { "one_in": 4 } ] } ] }
+      },
+      { "skill": "mechanics", "bonus": { "one_in": 2 } },
+      { "skill": "electronics", "bonus": { "rng": [ 0, 2 ] } },
+      { "skill": "speech", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "barter", "bonus": { "rng": [ 3, 5 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_GUN_SHOPKEEP_storage",
+    "subtype": "distribution",
+    "entries": [ { "item": "duffelbag", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_GAL_SHOPKEEP_coat",
+    "subtype": "distribution",
+    "entries": [ { "item": "trenchcoat", "prob": 80 }, { "item": "vest", "prob": 60 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_GUN_SHOPKEEP_misc",
+    "subtype": "collection",
+    "items": [
+      { "group": "ammo_pistol_common" },
+      { "group": "ammo_rifle_common" },
+      { "group": "guns_common" },
+      { "group": "gallian_item_rifles" },
+      { "group": "val_item_ammopack" },
+      { "group": "val_rifleclip_item" },
+      { "group": "gallian_item_smgs" }
+    ]
+  },
+  {
+    "type": "npc",
+    "id": "gal_doc_merchant",
+    "//": "Appears in the refugee center as shopkeeper with missions.  Faction critical.",
+    "name_suffix": "Gallian Doctor",
+    "gender": "male",
+    "class": "NC_DOC_SHOPKEEP",
+    "attitude": 0,
+    "mission": 3,
+    "chat": "TALK_VALDOC_Town",
+    "faction": "val_fac_gallia",
+    "mission_offered": "MISSION_GET_VAL_MEDICAL_ITEM"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_DOC_SHOPKEEP",
+    "name": { "str": "Gallian Doctor" },
+    "job_description": "I'm a local shopkeeper.",
+    "traits": [ { "group": "Skin_Fair" }, { "group": "Hair_Any" } ],
+    "common": false,
+    "bonus_int": { "one_in": 4 },
+    "bonus_per": { "one_in": 4 },
+    "worn_override": "NC_VALDOC_worn",
+    "weapon_override": "NC_VALDOC_weapon",
+    "shopkeeper_item_group": "NC_DOC_SHOPKEEP_misc",
+    "carry_override": "NC_DOC_SHOPKEEP_misc",
+    "skills": [
+      {
+        "skill": "ALL",
+        "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "constant": -2 }, { "one_in": 4 } ] } ] }
+      },
+      { "skill": "mechanics", "bonus": { "one_in": 2 } },
+      { "skill": "electronics", "bonus": { "rng": [ 0, 2 ] } },
+      { "skill": "speech", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "barter", "bonus": { "rng": [ 3, 5 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_GUN_SHOPKEEP_storage",
+    "subtype": "distribution",
+    "entries": [ { "item": "duffelbag", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_GAL_SHOPKEEP_coat",
+    "subtype": "distribution",
+    "entries": [ { "item": "trenchcoat", "prob": 80 }, { "item": "vest", "prob": 60 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_DOC_SHOPKEEP_misc",
+    "subtype": "collection",
+    "items": [
+      { "group": "infantry_medical_gear", "count": [ 4, 9 ] },
+      { "group": "hospital_medical_items", "count": [ 6, 8 ] }
+    ]
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "type": "mutation",
+    "id": "mut_valkyrur",
+    "name": { "str": "Valkyrur" },
+    "points": 5,
+    "description": "You are a scion of the ancient nordic race, the Valkyrur. Your physical strength, perception, resistance and speed gave been boosted far beyond normal levels. People are intimidated by your very pale skin, and bright red eyes",
+    "starting_trait": true,
+    "category": [ "VALKYRURM" ],
+    "armor": [
+      {
+        "parts": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "mouth", "eyes" ],
+        "physical": 10
+      }
+    ],
+    "weight_capacity_modifier": 1.5,
+    "social_modifiers": { "intimidate": 5 },
+    "movecost_flatground_modifier": 0.85,
+    "passive_mods": { "dex_mod": 1, "str_mod": 4, "per_mod": 2 }
+  },
+  {
+    "id": "iv_mutagen_valkyrur",
+    "copy-from": "iv_mutagen_flavor",
+    "type": "COMESTIBLE",
+    "name": { "str": "valkyrur essence" },
+    "description": "A super-concentrated serum, pulsing with hyper-purified ragnite.  You need a syringe to inject it… if you really want to?",
+    "color": "cyan",
+    "use_action": { "type": "mutagen_iv", "mutation_category": "VALKYRURM" }
+  },
+  {
+    "type": "mutation_category",
+    "id": "VALKYRURM",
+    "name": { "str": "Valkyrur" },
+    "threshold_mut": "THRESH_VALKYRUR",
+    "mutagen_message": "You feel the power of the ancient race of the valkyrur flowing through you!.",
+    "iv_message": "You feel as though you've entered a whole new world, and live at heights that normal humans can no longer reach.",
+    "memorial_message": "Awakened."
+  },
+  {
+    "type": "mutation",
+    "id": "THRESH_VALKYRUR",
+    "name": { "str": "Valkyrur Status" },
+    "points": 1,
+    "description": "You are a valkyrur",
+    "valid": false,
+    "purifiable": false,
+    "threshold": true
+  },
+  {
+    "type": "overlay_order",
+    "overlay_ordering": [ { "id": [ "mut_valkyrur" ], "order": 1500 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "val_mutation_kit",
+    "subtype": "collection",
+    "entries": [ { "item": "syringe", "prob": 85 }, { "item": "iv_mutagen_valkyrur" } ]
+  }
+]

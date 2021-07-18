@@ -1,0 +1,74 @@
+[
+  {
+    "type": "npc",
+    "id": "npc_ticketcard",
+    "name_suffix": "Faction Changer",
+    "class": "person_ticketcard",
+    "gender": "female",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "TALK_TICKETFAC",
+    "faction": "no_faction"
+  },
+  {
+    "type": "npc_class",
+    "id": "person_ticketcard",
+    "name": { "str": "Faction Changer" },
+    "job_description": "A stopgap to allow the user to change their faction at the start of the game.",
+    "traits": [],
+    "common": false,
+    "worn_override": "NC_TICKETMAN_worn",
+    "carry_override": "NC_TICKETMAN_carry",
+    "weapon_override": "NC_TICKETMAN_weapon"
+  },
+  {
+    "type": "item_group",
+    "id": "NC_TICKETMAN_weapon",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "null" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_TICKETMAN_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "null" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_TICKETMAN_carry",
+    "subtype": "collection",
+    "entries": [
+      { "item": "null" }
+    ]
+  },
+  {
+    "type": "TOOL",
+    "category": "other",
+    "id": "val_idticketcard",
+    "name": { "str": "Imperial Faction change device" },
+    "description": "A device used to improve the player character's relationship with the Empire. Should only be available at spawn, otherwise a glitch has occurred.",
+    "weight": "1 g",
+    "symbol": "F",
+    "color": "dark_gray",
+    "price": "1 USD",
+    "price_postapoc": 0,
+    "material": [ "steel" ],
+    "volume": "1 ml",
+    "max_charges": 0,
+    "initial_charges": 0,
+    "charges_per_use": 0,
+    "turns_per_charge": 0,
+    "ammo": [ "NULL" ],
+    "use_action": 
+    {
+      "type": "place_npc",
+      "npc_class_id": "npc_ticketcard",
+      "summon_msg": "A faction changing NPC appears before you!",
+      "place_randomly": false
+    }
+  }
+]

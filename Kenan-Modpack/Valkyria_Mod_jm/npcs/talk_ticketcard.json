@@ -1,0 +1,63 @@
+
+[
+  {
+    "id": "TALK_TICKETFAC",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_female": true,
+      "yes": "Hello lady, I am a stopgap to allow the user to change their faction at the start of the game. Otherwise it would be impossible to play for the Empire on an Imperial Profession Start.",
+      "no": "Hello sir, I am a stopgap to allow the user to change their faction at the start of the game. Otherwise it would be impossible to play for the Empire on an Imperial Profession Start."},
+    "responses": [
+      {
+        "text": "Increase the Empire's reputation with me.",
+        "topic": "TALK_TICKETFAC_E1",
+        "effect": [ { "npc_change_faction": "val_fac_empire" } ]
+      }
+    ]
+  },
+  {
+    "id": "TALK_TICKETFAC_E1",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_female": true,
+      "yes": "I have improved your relationship with the Empire by 30 points.",
+      "no": "I have improved your relationship with the Empire by 30 points."},
+    "responses": [
+      {
+        "text": "Now change my relationship with Gallia.",
+        "effect": [ { "u_faction_rep": 30 }, { "npc_change_faction": "val_fac_gallia" } ],
+        "topic": "TALK_TICKETFAC_G1"
+      }
+    ]
+  },
+  {
+    "id": "TALK_TICKETFAC_G1",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_female": true,
+      "yes": "I have decreased your relationship with Gallia by 30 points.",
+      "no": "I have decreased your relationship with Gallia by 30 points."},
+    "responses": [
+      {
+        "text": "Proceed.",
+        "effect": [ { "u_faction_rep": -30 } ],
+        "topic": "TALK_TICKETDEATH"
+      }
+    ]
+  },
+  {
+    "id": "TALK_TICKETDEATH",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_female": true,
+      "yes": "The process is complete.",
+      "no": "The process is complete."},
+    "responses": [
+      {
+        "text": "Now go away",
+        "effect": "npc_die",
+        "topic": "TALK_DONE"
+      }
+    ]
+  }
+]

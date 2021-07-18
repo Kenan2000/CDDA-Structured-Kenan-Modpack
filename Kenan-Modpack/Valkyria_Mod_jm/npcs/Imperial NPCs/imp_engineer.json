@@ -1,0 +1,78 @@
+[
+  {
+    "type": "npc",
+    "id": "imperial_engineer",
+    "name_suffix": "Imperial engineer",
+    "class": "imp_mil_engineer",
+    "gender": "male",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "TALK_imperial_guard_start",
+    "faction": "val_fac_empire"
+  },
+  {
+    "type": "npc_class",
+    "id": "imp_mil_engineer",
+    "name": { "str": "Imperial engineer" },
+    "job_description": "Protects the town from assailants",
+    "traits": [ { "group": "Skin_Fair" }, { "group": "Hair_Any" } ],
+    "common": false,
+    "bonus_str": { "rng": [ -1, 2 ] },
+    "bonus_dex": { "rng": [ -1, 2 ] },
+    "bonus_int": { "rng": [ 0, 4 ] },
+    "bonus_per": { "rng": [ -2, 1 ] },
+    "worn_override": "NC_IMPENG_worn",
+    "carry_override": "NC_IMPENG_carry",
+    "weapon_override": "NC_IMPENG_weapon",
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -3 } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 3, 6 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 2, 4 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPENG_weapon",
+    "subtype": "distribution",
+    "entries": [
+      { "group": "imp_rifletypes" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPENG_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "imp_helmet", "prob": 85 },
+      { "item": "socks_wool" },
+      { "item": "imparmyjacket" },
+      { "group": "npc_underwear_bottom_male" },
+      { "item": "imp_leatherglove", "prob": 70 },
+      { "item": "imperial_pack" },
+      { "item": "impwebbing" },
+      { "item": "imp_pants_army" },
+      { "item": "impilboots" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPENG_carry",
+    "subtype": "collection",
+    "entries": [
+      { "group": "preserved_food", "count": [ 1, 3 ] },
+      { "group": "drugs_heal_simple", "count": [ 1, 6 ] },
+      { "item": "imp762_b", "count": [ 1, 3 ] },
+      { "item": "vbwf_grenade", "count": [ 1, 2 ] },
+      { "item": "toolbox", "prob": 70 },
+      { "item": "boltcutters", "prob": 70 },
+      { "item": "duct_tape", "prob": 70 },
+      { "group": "imp_rifleclip", "prob": 60 },
+      { "group": "imp_riflemag", "prob": 20 },
+      { "item": "imp762_clip", "ammo-item": "imp762_b", "charges": 5 },
+      { "item": "valimag1", "ammo-item": "imp762_b", "charges": 7 }
+    ]
+  }
+]
