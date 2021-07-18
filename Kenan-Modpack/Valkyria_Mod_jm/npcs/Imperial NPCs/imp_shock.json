@@ -1,0 +1,82 @@
+[
+  {
+    "type": "npc",
+    "id": "imperial_shock",
+    "name_suffix": "Imperial shocktrooper",
+    "class": "imp_mil_shock",
+    "gender": "male",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "TALK_imperial_guard_start",
+    "faction": "val_fac_empire"
+  },
+  {
+    "type": "npc_class",
+    "id": "imp_mil_shock",
+    "name": { "str": "Imperial shocktrooper" },
+    "job_description": "Protects the town from assailants",
+    "traits": [ { "group": "Skin_Fair" }, { "group": "Hair_Any" } ],
+    "common": false,
+    "bonus_str": { "rng": [ 0, 2 ] },
+    "bonus_dex": { "rng": [ -1, 2 ] },
+    "bonus_int": { "rng": [ -2, 2 ] },
+    "bonus_per": { "rng": [ -2, 1 ] },
+    "worn_override": "NC_IMPSHOCK_worn",
+    "carry_override": "NC_IMPSHOCK_carry",
+    "weapon_override": "NC_IMPSHOCK_weapon",
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -3 } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 3, 6 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 2, 4 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPSHOCK_weapon",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "zmmp1", "prob": 25, "charges": 10 },
+      { "item": "zmmp3", "prob": 15, "charges": 15 },
+      { "item": "zmmpx3", "prob": 15, "charges": 15 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPSHOCK_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "imp_helmet", "prob": 85 },
+      { "item": "imp_trooperarm" },
+      { "item": "socks_wool" },
+      { "item": "impchestarmor" },
+      { "item": "imparmyjacket" },
+      { "group": "npc_underwear_bottom_male" },
+      { "item": "imp_leatherglove", "prob": 70 },
+      { "item": "imperial_pack" },
+      { "item": "impwebbing" },
+      { "item": "imp_pants_army" },
+      { "item": "impilboots" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPSHOCK_carry",
+    "subtype": "collection",
+    "entries": [
+      { "group": "preserved_food", "count": [ 1, 3 ] },
+      { "group": "drugs_heal_simple", "count": [ 1, 6 ] },
+      { "item": "9x31mm", "count": [ 1, 3 ] },
+      { "item": "zmmag1","ammo-item": "9x31mm", "charges": 10 },
+      { "item": "zmmag1","ammo-item": "9x31mm", "charges": 10 },
+      { "item": "zmmag1","ammo-item": "9x31mm", "charges": 10 },
+      { "item": "zmmag1","ammo-item": "9x31mm", "charges": 10 },
+      { "item": "zmmag2","ammo-item": "9x31mm", "prob": 75, "charges": 15 },
+      { "item": "zmmag2","ammo-item": "9x31mm", "prob": 75, "charges": 15 },
+      { "item": "zmmag3","ammo-item": "9x31mm", "prob": 50, "charges": 25 },
+      { "item": "vbwf_grenade", "count": [ 1, 2 ] }
+    ]
+  }
+]

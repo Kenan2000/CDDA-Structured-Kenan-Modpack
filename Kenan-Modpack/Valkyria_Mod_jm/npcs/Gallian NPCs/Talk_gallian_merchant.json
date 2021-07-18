@@ -1,0 +1,145 @@
+[
+  {
+    "id": "TALK_VALBAKER_Town",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_female": true,
+      "yes": "Hello, miss. I make the finest food in our little Gallian village, would you mind having some? It's only a small fee.",
+      "no": "Hello. I make the finest food in our little Gallian village, would you mind having some? It's only a small fee.?"},
+    "responses": [
+      {
+        "text": "So you're a baker in this town? What can you tell me about it?",
+        "topic": "TALK_VALBAKER_infotown"
+      },
+      {
+        "text": "Let me browse your wares.",
+        "effect": "start_trade",
+        "topic": "TALK_VALBAKER_Town"
+      },
+      {
+        "text": "Goodbye, thank you for your time.",
+        "topic": "TALK_DONE"
+      }
+	  ]
+	},
+  {
+    "id": "TALK_VALBAKER_infotown",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_female": true,
+      "yes": "What is there to say really? I cook and bake for the town, and do some canning on the side to preserve things for the winter. The recent war with the Empire has drastically increased the demand for my goods, but the basic principle remains the same.",
+      "no": "What is there to say really? I cook and bake for the town, and do some canning on the side to preserve things for the winter. The recent war with the Empire has drastically increased the demand for my goods, but the basic principle remains the same."},
+    "responses": [
+      {
+        "text": "Got it.",
+        "topic": "TALK_VALBAKER_Town"
+      }
+    ]
+  },
+  {
+    "id": "TALK_VALGUN_Town",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_female": true,
+      "yes": "Hey there, Missy. I mainly sell guns here, although I sell ammo as well. You never know when you might need a gun during this time of war.",
+      "no": "Hello, friend. I mainly sell guns here, although I sell ammo as well. You never know when you might need a gun during this time of war."},
+    "responses": [
+      {
+        "text": "You sell guns here, what is that like?",
+        "topic": "TALK_VALGUN_infotown"
+      },
+      {
+        "text": "What can you sell me?.",
+        "effect": "start_trade",
+        "topic": "TALK_VALGUN_Town"
+      },
+      {
+        "text": "Goodbye, thank you for your time.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "id": "TALK_VALGUN_infotown",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_female": true,
+      "yes": "It's safe to say that business has been booming since the war started. Guns fly off the shelves nearly as fast as I can stock them! I get a lot more respect around here than I used to, people really see how much they need people like me now.",
+      "no": "It's safe to say that business has been booming since the war started. Guns fly off the shelves nearly as fast as I can stock them! I get a lot more respect around here than I used to, people really see how much they need people like me now."},
+    "responses": [
+      {
+        "text": "Got it.",
+        "topic": "TALK_VALGUN_Town"
+      }
+    ]
+  },
+  {
+    "id": "TALK_VALDOC_Town",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_female": true,
+      "yes": "Do you want anything from me? I'm a bit busy being at the moment.",
+      "no": "Do you want anything from me? I'm a bit busy being at the moment."},
+    "responses": [
+      {
+        "text": "What is it like being a doctor in this town?",
+        "topic": "TALK_VALDOC_infotown"
+      },
+      {
+        "text": "Do you have a task for me?",
+        "topic": "TALK_MISSION_LIST"
+      },
+      {
+        "text": "Do you have any medical items for me?",
+        "effect": "start_trade",
+        "topic": "TALK_VALDOC_Town"
+      },
+      {
+        "text": "Goodbye, thank you for your time.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "id": "TALK_VALDOC_infotown",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_female": true,
+      "yes": "I got my medical degree back in Randgriz after years of toil. Suffice it to say, the war shattered my goal for a relatively peaceful career as a doctor. We were quickly pressed into service, and are often worked to the bone mending the wounds of those fighting to defend our homeland.",
+      "no": "I got my medical degree back in Randgriz after years of toil. Suffice it to say, the war shattered my goal for a relatively peaceful career as a doctor. We were quickly pressed into service, and are often worked to the bone mending the wounds of those fighting to defend our homeland."},
+    "responses": [
+      {
+        "text": "Got it.",
+        "topic": "TALK_VALDOC_Town"
+      }
+    ]
+  },
+  {
+    "id": "MISSION_GET_VAL_MEDICAL_ITEM",
+    "type": "mission_definition",
+    "name": { "str": "Retrieve morphine for the Gallian Doctor" },
+    "description": "Retrieve three morphine units for the Gallian Doctor.",
+    "goal": "MGOAL_FIND_ITEM",
+    "difficulty": 3,
+    "value": 150000,
+    "item": "morphine",
+    "count": 3,
+    "end": {
+      "effect": [
+        { "u_buy_item": "1st_aid", "count": 2 },
+        { "u_buy_item": "gal792_b", "count": 30 } ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "dialogue": {
+      "describe": "I need morphine to make things easier for me as a doctor. There's a war on, you know.",
+      "offer": "The attacks by the Imperial forces in our region have only grown worse in recent weeks. Medical supplies are stretched thin beyond what I can tolerate. I would greatly appreciate if somebody could go out and find medical equipment for me.",
+      "accepted": "This is wonderful news, you don't know how much this means to me!",
+      "rejected": "Do you have any better ideas?",
+      "advice": "Look around at a hospital, or perhaps an Imperial military outpost if you're brave enough.",
+      "inquire": "Have you found what I requested yet?",
+      "success": "This is amazing work, you have done the Gallian military a great service today!",
+      "success_lie": "That's odd, I don't really know what to say.",
+      "failure": "That's unfortunate, I guess the wounded will have to make do with what they have for now."
+    }
+  }
+]

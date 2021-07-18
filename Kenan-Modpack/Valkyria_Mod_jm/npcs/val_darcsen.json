@@ -1,0 +1,98 @@
+[
+  {
+    "type": "npc",
+    "id": "darcsen_woman",
+    "name_suffix": "Darcsen woman",
+    "class": "val_dar_womnpc",
+    "gender": "female",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_DARCSEN",
+    "faction": "val_fac_darcsen"
+  },
+  {
+    "type": "npc_class",
+    "id": "val_dar_womnpc",
+    "name": { "str": "Darcsen woman" },
+    "job_description": "A woman of Darcsen heritage.",
+    "traits": [ { "group": "Skin_Fair" }, { "group": "Hair_Black" } ],
+    "common": false,
+    "bonus_str": { "rng": [ -2, 2 ] },
+    "bonus_dex": { "rng": [ -2, 2 ] },
+    "bonus_int": { "rng": [ -2, 2 ] },
+    "bonus_per": { "rng": [ -2, 2 ] },
+    "worn_override": "NC_VALDARCWOM_worn",
+    "carry_override": "NC_VALWOM_carry",
+    "weapon_override": "NC_VALDAR_weapon",
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -3 } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 2 ] } }
+    ]
+  },
+  {
+    "type": "npc",
+    "id": "darcsen_man",
+    "name_suffix": "Darcsen man",
+    "class": "val_dar_mannpc",
+    "gender": "male",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_DARCSEN",
+    "faction": "val_fac_darcsen"
+  },
+  {
+    "type": "npc_class",
+    "id": "val_dar_mannpc",
+    "name": { "str": "townsman" },
+    "bonus_str": { "rng": [ 0, 2 ] },
+    "bonus_dex": { "rng": [ -2, 2 ] },
+    "bonus_int": { "rng": [ -2, 2 ] },
+    "bonus_per": { "rng": [ -2, 2 ] },
+    "job_description": "A man of Darcsen heritage.",
+    "traits": [ { "group": "Skin_Fair" }, { "group": "Hair_Black" } ],
+    "common": false,
+    "worn_override": "NC_VALDARCMAN_worn",
+    "carry_override": "NC_VALMAN_carry",
+    "weapon_override": "NC_VALDAR_weapon",
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -3 } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 2 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALDARCWOM_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "gloves_leather", "prob": 10 },
+      { "item": "bra" },
+      { "item": "panties" },
+      { "group": "valgirltype" },
+      { "item": "valdarcshawl", "prob": 70 },
+      { "item": "dress_shoes" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALDARCMAN_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "gloves_leather", "prob": 10 },
+      { "item": "valdarcshawl", "prob": 50 },
+      { "item": "boxer_shorts" },
+      { "group": "val_mshirts" },
+      { "group": "val_mpants" },
+      { "item": "dress_shoes" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_VALDAR_weapon",
+    "subtype": "distribution",
+    "items": [ [ "null", 60 ], [ "shovel", 10 ], [ "pickaxe", 30 ] ]
+  }
+]

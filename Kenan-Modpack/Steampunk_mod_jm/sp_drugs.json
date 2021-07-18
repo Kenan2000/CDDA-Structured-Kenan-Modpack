@@ -1,0 +1,175 @@
+[
+  {
+    "type": "effect_type",
+    "id": "sp_physprow_ef",
+    "name": [ "physical prowess enhanced" ],
+    "desc": [ "Your strength and intelligence have been boosted by the elixir of physical prowess" ],
+    "apply_message": "You inhale the elixir.",
+    "remove_message": "The elixir's effect wears off.",
+    "rating": "good",
+    "base_mods": { "str_mod": [ 2 ], "int_mod": [ 2 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "sp_awareton_ef",
+    "name": [ "perception enhanced" ],
+    "desc": [ "Your perception have been boosted by the tonic of awareness" ],
+    "apply_message": "You inhale the elixir.",
+    "remove_message": "The elixir's effect wears off.",
+    "rating": "good",
+    "base_mods": { "per_mod": [ 3 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "sp_dexton_ef",
+    "name": [ "dexterity enhanced" ],
+    "desc": [ "Your dexterity have been boosted by the tonic of increased reflexes" ],
+    "apply_message": "You inhale the elixir.",
+    "remove_message": "The elixir's effect wears off.",
+    "rating": "good",
+    "base_mods": { "speed_mod": [ 10 ], "dex_mod": [ 3 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "sp_minton_ef",
+    "name": [ "intelligence enhanced" ],
+    "desc": [ "Your intelligence have been boosted by the mind boosting lozenge" ],
+    "apply_message": "You eat the lozenge.",
+    "remove_message": "The lozenge's effect wears off.",
+    "rating": "good",
+    "max_intensity": 4,
+    "int_add_val": 1,
+    "int_decay_tick": 500,
+    "base_mods": { "int_mod": [ 3 ] },
+    "scaling_mods": { "str_mod": [ -1 ], "dex_mod": [ -1 ], "per_mod": [ -1 ], "int_mod": [ 0.5 ], "vomit_chance": [ 250 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "sp_qpowder_ef",
+    "name": [ "speed enhanced" ],
+    "desc": [ "Your speed have been boosted by quickdash powder" ],
+    "apply_message": "You eat the powder.",
+    "remove_message": "The powder's effect wears off.",
+    "rating": "good",
+    "max_intensity": 4,
+    "int_add_val": 1,
+    "int_decay_tick": 400,
+    "base_mods": { "speed_mod": [ 15 ], "stamina_amount": [ 4 ] },
+    "scaling_mods": { "speed_mod": [ 2 ], "int_mod": [ -0.8 ], "vomit_chance": [ 200 ], "stamina_amount": [ 4 ] }
+  },
+  {
+    "id": "sp_physprow",
+    "type": "COMESTIBLE",
+    "comestible_type": "MED",
+    "name": { "str_sp": "physical prowess elixir" },
+    "description": "A strong elixir designed to boost one's strength and intelligence for a short period of time.",
+    "weight": "35 g",
+    "volume": "250 ml",
+    "price": 14000,
+    "price_postapoc": 14000,
+    "charges": 2,
+    "stack_size": 6,
+    "symbol": "p",
+    "color": "white",
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You feel your muscles tension and your synapses activate as you drink the elixir.",
+      "effects": [
+        { "id": "sp_physprow_ef", "duration": 1200 }
+      ]
+    },
+    "flags": [ "NPC_SAFE", "IRREPLACEABLE_CONSUMABLE" ]
+  },
+  {
+    "id": "sp_awareton",
+    "type": "COMESTIBLE",
+    "comestible_type": "MED",
+    "name": { "str_sp": "Addison's tonic of awareness" },
+    "description": "A strong tonic developed by the frenetic doctor Sneed Addison. A drug designed to boost one's perception for a short period of time.",
+    "weight": "35 g",
+    "volume": "250 ml",
+    "price": 14000,
+    "price_postapoc": 14000,
+    "charges": 2,
+    "stack_size": 6,
+    "symbol": "p",
+    "color": "white",
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You feel your eyes dilate, and suddenly the world around you becomes more clear.",
+      "effects": [
+        { "id": "sp_awareton_ef", "duration": 2200 }
+      ]
+    },
+    "flags": [ "NPC_SAFE", "IRREPLACEABLE_CONSUMABLE" ]
+  },
+  {
+    "id": "sp_dexton",
+    "type": "COMESTIBLE",
+    "comestible_type": "MED",
+    "name": { "str_sp": "Alfred's tonic of increased reflexes" },
+    "description": "After imbibing the tonic of Alfred Mogus, the user will soon see marked increase in their dexterity for a period of time.",
+    "weight": "35 g",
+    "volume": "250 ml",
+    "price": 14000,
+    "price_postapoc": 14000,
+    "charges": 2,
+    "stack_size": 6,
+    "symbol": "p",
+    "color": "white",
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You feel your nerves calm down considerably, as if your dexterity was now heightened beyond normal levels.",
+      "effects": [
+        { "id": "sp_dexton_ef", "duration": 2200 }
+      ]
+    },
+    "flags": [ "NPC_SAFE", "IRREPLACEABLE_CONSUMABLE" ]
+  },
+  {
+    "id": "sp_minton",
+    "type": "COMESTIBLE",
+    "comestible_type": "MED",
+    "name": { "str_sp": "Boyce's patented mind boosting lozenge" },
+    "description": "A drug purported to increase the intelligence of the user beyond normal levels, beware though, as repeated use can cause health problems!",
+    "weight": "35 g",
+    "volume": "250 ml",
+    "price": 14000,
+    "price_postapoc": 14000,
+    "charges": 2,
+    "stack_size": 6,
+    "symbol": "p",
+    "color": "white",
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You feel your thoughts appear more rapidly and with far more clarity, as if your intelligence was now heightened beyond normal levels.",
+      "effects": [
+        { "id": "sp_minton_ef", "duration": 2200 }
+      ]
+    },
+    "flags": [ "NPC_SAFE", "IRREPLACEABLE_CONSUMABLE" ]
+  },
+  {
+    "id": "sp_qpowder",
+    "type": "COMESTIBLE",
+    "comestible_type": "MED",
+    "name": { "str_sp": "Thorpe's certified quick-dash powder" },
+    "description": "A blueish-white powder that when ingested, drastically increases a user's mobility! Be warned, as continued use can be detrimental to one's health.",
+    "weight": "35 g",
+    "volume": "250 ml",
+    "price": 14000,
+    "price_postapoc": 14000,
+    "charges": 2,
+    "stack_size": 6,
+    "symbol": "p",
+    "color": "white",
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You feel your muscles fill with energy, every tendon tensions up with power!",
+      "effects": [
+        { "id": "sp_qpowder_ef", "duration": 1500 }
+      ]
+    },
+    "flags": [ "NPC_SAFE", "IRREPLACEABLE_CONSUMABLE" ]
+  }
+]

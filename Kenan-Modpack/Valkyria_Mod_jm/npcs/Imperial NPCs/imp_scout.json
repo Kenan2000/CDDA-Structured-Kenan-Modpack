@@ -1,0 +1,127 @@
+[
+  {
+    "type": "npc",
+    "id": "imperial_scout",
+    "name_suffix": "Imperial scout",
+    "class": "imp_mil_scout",
+    "gender": "male",
+    "attitude": 0,
+    "mission": 8,
+    "chat": "TALK_imperial_guard_start",
+    "faction": "val_fac_empire"
+  },
+  {
+    "type": "npc_class",
+    "id": "imp_mil_scout",
+    "name": { "str": "Imperial scout" },
+    "job_description": "Protects the town from assailants",
+    "traits": [ { "group": "Skin_Fair" }, { "group": "Hair_Any" } ],
+    "common": false,
+    "bonus_str": { "rng": [ -1, 2 ] },
+    "bonus_dex": { "rng": [ -1, 2 ] },
+    "bonus_int": { "rng": [ -2, 2 ] },
+    "bonus_per": { "rng": [ 0, 2 ] },
+    "worn_override": "NC_IMPSCOUT_worn",
+    "carry_override": "NC_IMPSCOUT_carry",
+    "weapon_override": "NC_IMPSCOUT_weapon",
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -3 } ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 3, 6 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 2, 4 ] } }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPSCOUT_weapon",
+    "subtype": "distribution",
+    "entries": [
+      { "group": "imp_rifletypes" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPSCOUT_worn",
+    "subtype": "collection",
+    "entries": [
+      { "item": "imp_helmet", "prob": 85 },
+      { "item": "imp_trooperarm" },
+      { "item": "socks_wool" },
+      { "item": "imparmyjacket" },
+      { "item": "impchestarmor" },
+      { "group": "npc_underwear_bottom_male" },
+      { "item": "imp_leatherglove", "prob": 70 },
+      { "item": "imperial_pack" },
+      { "item": "impwebbing" },
+      { "item": "imp_pants_army" },
+      { "item": "impilboots" }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_IMPSCOUT_carry",
+    "subtype": "collection",
+    "entries": [
+      { "group": "preserved_food", "count": [ 1, 3 ] },
+      { "group": "drugs_heal_simple", "count": [ 1, 6 ] },
+      { "item": "imp762_b", "count": [ 1, 3 ] },
+      { "item": "vbwf_grenade", "count": [ 1, 2 ] },
+      { "item": "binoculars", "prob": 40 },
+      { "group": "imp_rifleclip", "prob": 60 },
+      { "group": "imp_riflemag", "prob": 20 },
+      { "item": "imp762_clip", "ammo-item": "imp762_b", "charges": 5 },
+      { "item": "valimag1", "ammo-item": "imp762_b", "charges": 7 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "imp_rifletypes",
+    "subtype": "distribution",
+    "entries": [
+      { "group": "imp_rifleclipsub", "prob": 70 },
+      { "group": "imp_riflemagsub", "prob": 30 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "imp_rifleclip",
+    "subtype": "collection",
+    "entries": [
+      { "item": "imp762_clip", "ammo-item": "imp762_b", "charges": 5 },
+      { "item": "imp762_clip", "ammo-item": "imp762_b", "charges": 5 },
+      { "item": "imp762_clip", "prob": 50, "ammo-item": "imp762_b", "charges": 5 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "imp_rifleclipsub",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "val_kar1", "charges": 5 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "imp_riflemag",
+    "subtype": "collection",
+    "entries": [
+      { "item": "valimag1", "ammo-item": "imp762_b", "charges": 7 },
+      { "item": "valimag1", "ammo-item": "imp762_b", "charges": 7 },
+      { "item": "valimag2", "ammo-item": "imp762_b", "charges": 10 },
+      { "item": "valimag2", "prob": 50, "ammo-item": "imp762_b", "charges": 10 },
+      { "item": "valimag3", "prob": 50, "ammo-item": "imp762_b", "charges": 14 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "imp_riflemagsub",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "val_kar2", "prob": 25, "charges": 7 },
+      { "item": "val_kar3", "prob": 15, "charges": 10 },
+      { "item": "val_kar6", "prob": 15, "charges": 15 }
+    ]
+  }
+]
