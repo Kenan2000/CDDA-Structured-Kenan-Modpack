@@ -301,7 +301,7 @@
       [ "wound_minor", 30 ],
       [ "FUNGUS", 120 ],
       [ "FUNGUS_INJECT", 60 ],
-      { "type": "bite", "cooldown": 7, "min_mul": 0.65, "no_infection_chance": 9, "//": "strong jaws" }
+      { "type": "bite", "cooldown": 7, "min_mul": 0.65, "infection_chance": 11, "//": "strong jaws" }
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "PLAYER_WEAK", "PLAYER_CLOSE" ],
     "fear_triggers": [ "FIRE" ],
@@ -344,7 +344,7 @@
         "type": "bite",
         "cooldown": 40,
         "accuracy": 7,
-        "no_infection_chance": 9,
+        "infection_chance": 11,
         "damage_max_instance": [
           { "damage_type": "stab", "amount": 8, "armor_multiplier": 0.7 },
           { "damage_type": "bash", "amount": 18, "armor_multiplier": 0.7 }
@@ -488,7 +488,7 @@
       [ "SHRIEK", 120 ],
       [ "GRAB", 15 ],
       [ "scratch", 15 ],
-      { "type": "bite", "cooldown": 20, "min_mul": 0.85, "no_infection_chance": 5 }
+      { "type": "bite", "cooldown": 20, "min_mul": 0.85, "infection_chance": 20 }
     ],
     "death_drops": {
       "subtype": "collection",
@@ -532,7 +532,7 @@
       [ "PARROT", 40 ],
       [ "FUNGUS", 300 ],
       [ "GRAB", 12 ],
-      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "no_infection_chance": 5 },
+      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "infection_chance": 20 },
       {
         "type": "gun",
         "cooldown": 2,
@@ -594,7 +594,7 @@
       [ "PARROT", 40 ],
       [ "FUNGUS", 300 ],
       [ "GRAB", 30 ],
-      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "no_infection_chance": 5 },
+      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "infection_chance": 20 },
       {
         "type": "gun",
         "cooldown": 5,
@@ -655,7 +655,7 @@
       [ "GRAB", 60 ],
       [ "FUNGUS", 300 ],
       [ "PARROT", 40 ],
-      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "no_infection_chance": 5 },
+      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "infection_chance": 20 },
       {
         "type": "gun",
         "cooldown": 7,
@@ -715,7 +715,7 @@
       [ "FUNGUS", 300 ],
       [ "PARROT", 40 ],
       [ "GRAB", 30 ],
-      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "no_infection_chance": 5 },
+      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "infection_chance": 20 },
       {
         "type": "gun",
         "cooldown": 6,
@@ -776,7 +776,7 @@
       [ "GRAB", 30 ],
       [ "impale", 30 ],
       [ "FUNGUS", 180 ],
-      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "no_infection_chance": 5 }
+      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "infection_chance": 20 }
     ],
     "anger_triggers": [ "FRIEND_DIED", "FIRE", "PLAYER_CLOSE" ],
     "placate_triggers": [ "FRIEND_ATTACKED" ],
@@ -930,7 +930,7 @@
       [ "FUNGUS_FORTIFY", 50 ],
       [ "FUNGUS", 60 ],
       [ "hammer", 30 ],
-      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "no_infection_chance": 5 }
+      { "type": "bite", "cooldown": 30, "min_mul": 0.8, "infection_chance": 20 }
     ],
     "flags": [ "SEES", "HEARS", "STUMBLES", "POISON", "NO_BREATHE", "BASHES", "GROUP_BASH", "ATTACKMON", "NOHEAD" ],
     "//": "This girl will create a 3x3 wall of fungus, then kill 1 or 2 of them to get out.  Over time this will create a hedgerow maze of sorts.  I am tempted to add one overmap, honestly."
@@ -996,7 +996,7 @@
     "vision_day": 25,
     "vision_night": 3,
     "luminance": 5,
-    "special_attacks": [ [ "SHOCKSTORM", 45 ], { "type": "bite", "cooldown": 12, "no_infection_chance": 3 } ],
+    "special_attacks": [ [ "SHOCKSTORM", 45 ], { "type": "bite", "cooldown": 12, "infection_chance": 30 } ],
     "special_when_hit": [ "ZAPBACK", 40 ],
     "death_drops": "default_zombie_death_drops",
     "flags": [
@@ -1049,7 +1049,7 @@
       {
         "type": "bite",
         "cooldown": 20,
-        "no_infection_chance": 5,
+        "infection_chance": 20,
         "damage_max_instance": [
           { "damage_type": "cut", "amount": 12, "armor_multiplier": 0.8 },
           { "damage_type": "stab", "amount": 6, "armor_multiplier": 0.8 }
