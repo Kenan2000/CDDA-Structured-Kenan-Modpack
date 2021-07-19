@@ -19,7 +19,7 @@
     "attack_effs": [ { "id": "rad_tenths", "duration": 10 } ],
     "vision_day": 5,
     "vision_night": 5,
-    "special_attacks": [ { "type": "bite", "cooldown": 10, "no_infection_chance": 12 } ],
+    "special_attacks": [ { "type": "bite", "cooldown": 10, "infection_chance": 8 } ],
     "flags": [ "SEES", "HEARS", "SMELLS", "CAN_DIG", "LARVA" ]
   },
   {
@@ -135,7 +135,7 @@
       [ "wound_minor", 30 ],
       [ "GRAB", 30 ],
       [ "scratch", 15 ],
-      { "type": "bite", "cooldown": 20, "no_infection_chance": 3 }
+      { "type": "bite", "cooldown": 20, "infection_chance": 30 }
     ]
   },
   {
@@ -523,7 +523,7 @@
       [ "numbing_poison", 5 ],
       [ "SHRIEK_ALERT", 30 ],
       [ "SHRIEK_STUN", 1 ],
-      { "type": "bite", "cooldown": 3, "no_infection_chance": 8 }
+      { "type": "bite", "cooldown": 3, "infection_chance": 12 }
     ],
     "anger_triggers": [ "PLAYER_WEAK", "FIRE", "SOUND" ],
     "fear_triggers": [ "FRIEND_DIED", "PLAYER_CLOSE", "FRIEND_ATTACKED" ],
@@ -961,7 +961,7 @@
         "type": "bite",
         "cooldown": 30,
         "accuracy": 6,
-        "no_infection_chance": 9,
+        "infection_chance": 11,
         "damage_max_instance": [
           { "damage_type": "bash", "amount": 27, "armor_multiplier": 0.85 },
           { "damage_type": "stab", "amount": 9, "armor_multiplier": 0.85 }
