@@ -203,6 +203,30 @@
     "required_str": -1,
     "flags": [ "TRANSPARENT", "EMITTER" ],
     "emissions": [ "emit_glimmer_altered", "emit_shock_burst_altered" ],
-    "bash": { "str_min": 30, "str_max": 60, "sound": "splorch!", "sound_fail": "whump!", "furn_set": "f_alien_scar" }
+    "bash": { "str_min": 30, "str_max": 60, "sound": "splorch!", "sound_fail": "whump!", "furn_set": "f_null" }
+  },
+  {
+    "type": "furniture",
+    "id": "f_transmutation_crucible_deployed",
+    "name": "deployed transmutation crucible",
+    "description": "Shifting, flowing stones slithering around a strange stone crucible.  Serves as an anvil and crucible for metalworking, along with serving as a workbench and assisting with alchemy.  Can be reclaimed by examining it.\n\nProvides the following:\n* Level 3 anvil quality.\n* Level 2 boiling quality.\n* Level 2 chemical making quality.\n* Level 1 containing quality.\n* Level 1 food cooking quality.\n* Additionally serves as a crucible.",
+    "symbol": "n",
+    "color": "dark_gray",
+    "looks_like": "f_slab",
+    "move_cost_mod": 2,
+    "coverage": 30,
+    "required_str": 12,
+    "crafting_pseudo_item": "transmutation_crucible_deployed_fake",
+    "flags": [ "PLACE_ITEM", "BLOCKSDOOR", "TRANSPARENT", "ALLOW_FIELD_EFFECT", "MOUNTABLE", "SHORT", "MINEABLE", "FLAT_SURF" ],
+    "deployed_item": "transmutation_crucible",
+    "bash": {
+      "str_min": 20,
+      "str_max": 40,
+      "sound": "smash!",
+      "sound_fail": "thump.",
+      "items": [ { "item": "transmutation_crucible", "prob": 75 }, { "item": "rock", "count": [ 2, 7 ] } ]
+    },
+    "examine_action": "workbench",
+    "workbench": { "multiplier": 1.05, "mass": 500000, "volume": "500L" }
   }
 ]

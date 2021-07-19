@@ -498,7 +498,7 @@
     "book_learn": [ [ "book_scrollcraft", 3 ] ],
     "using": [ [ "arcana_scrollwriting_standard", 1 ], [ "arcana_essence_exclude_blood", 1 ] ],
     "tools": [ [ [ "book_scrollcraft", -1 ] ] ],
-    "components": [ [ [ "copper", 12 ], [ "monster_tear", 1 ] ] ],
+    "components": [ [ [ "gold_small", 6 ], [ "copper", 12 ], [ "monster_tear", 1 ] ] ],
     "delete_flags": [ "HIDDEN_HALLU", "HIDDEN_POISON", "BAD_TASTE", "CANNIBALISM" ],
     "flags": [ "BLIND_EASY" ]
   },
@@ -514,7 +514,7 @@
     "book_learn": [ [ "book_scrollcraft", 3 ] ],
     "using": [ [ "arcana_scrollwriting_standard", 1 ], [ "arcana_essence_exclude_blood", 1 ] ],
     "tools": [ [ [ "book_scrollcraft", -1 ] ] ],
-    "components": [ [ [ "tin", 12 ], [ "shadow_gem", 1 ] ] ],
+    "components": [ [ [ "silver_small", 6 ], [ "tin", 12 ], [ "shadow_gem", 1 ] ] ],
     "delete_flags": [ "HIDDEN_HALLU", "HIDDEN_POISON", "BAD_TASTE", "CANNIBALISM" ],
     "flags": [ "BLIND_EASY" ]
   },
@@ -530,7 +530,7 @@
     "book_learn": [ [ "book_scrollcraft", 4 ] ],
     "using": [ [ "arcana_scrollwriting_standard", 1 ], [ "arcana_essence_exclude_blood", 2 ] ],
     "tools": [ [ [ "book_scrollcraft", -1 ] ] ],
-    "components": [ [ [ "material_limestone", 16 ], [ "engraved_stone", 1 ] ] ],
+    "components": [ [ [ "material_limestone", 16 ], [ "material_quicklime", 16 ], [ "engraved_stone", 1 ] ] ],
     "delete_flags": [ "HIDDEN_HALLU", "HIDDEN_POISON", "BAD_TASTE", "CANNIBALISM" ],
     "flags": [ "BLIND_EASY" ]
   },
@@ -588,7 +588,7 @@
     "book_learn": [ [ "book_scrollcraft", 5 ] ],
     "using": [ [ "arcana_scrollwriting_standard", 1 ], [ "arcana_essence_exclude_blood", 3 ] ],
     "tools": [ [ [ "book_scrollcraft", -1 ] ] ],
-    "components": [ [ [ "feather", 40 ], [ "vortex_shard", 1 ] ] ],
+    "components": [ [ [ "feather", 40 ], [ "spiral_stone", 1 ], [ "vortex_shard", 1 ] ] ],
     "delete_flags": [ "HIDDEN_HALLU", "HIDDEN_POISON", "BAD_TASTE", "CANNIBALISM" ],
     "flags": [ "BLIND_EASY" ]
   },
@@ -604,7 +604,7 @@
     "time": "50 m",
     "activity_level": "LIGHT_EXERCISE",
     "book_learn": [ [ "book_syncretism", 6 ] ],
-    "using": [ [ "arcana_essence_any", 1 ], [ "arcana_polishing_standard", 1 ] ],
+    "using": [ [ "arcana_essence_any", 5 ], [ "arcana_polishing_standard", 1 ] ],
     "qualities": [ { "id": "CUT", "level": 1 } ],
     "tools": [ [ [ "book_syncretism", -1 ] ], [ [ "surface_heat", 10, "LIST" ] ] ],
     "components": [ [ [ "engraved_stone", 1 ] ], [ [ "monster_tear", 4 ] ] ]
@@ -621,9 +621,9 @@
     "time": "50 m",
     "activity_level": "LIGHT_EXERCISE",
     "book_learn": [ [ "book_syncretism", 7 ] ],
-    "using": [ [ "arcana_essence_any", 2 ], [ "arcana_polishing_standard", 1 ] ],
+    "using": [ [ "arcana_essence_any", 5 ], [ "arcana_polishing_standard", 1 ] ],
     "tools": [ [ [ "book_syncretism", -1 ] ] ],
-    "components": [ [ [ "vortex_shard", 3 ], [ "spiral_stone", 6 ] ] ]
+    "components": [ [ [ "vortex_shard", 1 ] ], [ [ "spiral_stone", 1 ], [ "rock", 6 ] ] ]
   },
   {
     "result": "candle_warding",
@@ -646,6 +646,32 @@
       [ [ "essence_blood", 2 ], [ "essence_dull", 20 ] ]
     ],
     "flags": [ "BLIND_EASY" ]
+  },
+  {
+    "result": "transmutation_crucible",
+    "type": "recipe",
+    "category": "CC_ARCANA",
+    "subcategory": "CSC_ARCANA_OTHER",
+    "skill_used": "magic",
+    "difficulty": 7,
+    "skills_required": [ "fabrication", 5 ],
+    "time": "80 m",
+    "activity_level": "LIGHT_EXERCISE",
+    "book_learn": [ [ "book_hexenhammer", 7 ], [ "book_bloodmagic", 7 ], [ "book_sacrifice", 7 ], [ "book_syncretism", 6 ] ],
+    "qualities": [ { "id": "HAMMER", "level": 2 }, { "id": "ANVIL", "level": 1 }, { "id": "CHEM", "level": 1 } ],
+    "using": [ [ "surface_heat", 100 ], [ "arcana_essence_any", 3 ] ],
+    "tools": [
+      [ [ "book_hexenhammer", -1 ], [ "book_bloodmagic", -1 ], [ "book_sacrifice", -1 ], [ "book_syncretism", -1 ] ],
+      [ [ "crucible", -1 ], [ "crucible_clay", -1 ] ],
+      [ [ "candle_warding_active", -1 ] ]
+    ],
+    "components": [
+      [ [ "clay_lump", 5 ], [ "rock", 5 ], [ "ceramic_shard", 5 ] ],
+      [ [ "material_quicklime", 1 ], [ "lye", 1 ], [ "lye_powder", 35 ] ],
+      [ [ "platinum_small", 25 ], [ "gold_small", 50 ], [ "silver_small", 100 ], [ "copper", 200 ] ],
+      [ [ "earth_talisman", 1 ] ]
+    ],
+    "flags": [ "BLIND_EASY", "SECRET" ]
   },
   {
     "result": "orb_veil",

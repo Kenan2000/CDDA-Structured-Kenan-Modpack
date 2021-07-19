@@ -1397,6 +1397,31 @@
     "flags": [ "NO_SALVAGE", "LIGHT_12" ]
   },
   {
+    "id": "transmutation_crucible",
+    "type": "TOOL",
+    "name": { "str": "transmutation crucible" },
+    "description": "A small container made out of a polished, glassy material resembling stone.  A shimmer of precious metal occasionally appears within the surface, as though its internal structure flowed like liquid.  Deploying it will create a temporary workspace of shifting earth, providing a hard surface usable as an anvil as well as shifting stones that can assist in metalworking and alchemy.  It can be examined afterward to reclaim it.\n\nWhen deployed it provides the following:\n* Level 3 anvil quality.\n* Level 2 boiling quality.\n* Level 2 chemical making quality.\n* Level 1 containing quality.\n* Level 1 food cooking quality.\n* Level 2 clean surface quality.\n* Additionally serves as a crucible.",
+    "weight": "1700 g",
+    "volume": "1500 ml",
+    "price": "6000 USD",
+    "price_postapoc": "25 USD",
+    "to_hit": -2,
+    "bashing": 10,
+    "material": [ "stone", "essencemat" ],
+    "symbol": ";",
+    "color": "brown",
+    "looks_like": "crucible",
+    "use_action": { "type": "deploy_furn", "furn_type": "f_transmutation_crucible_deployed" }
+  },
+  {
+    "id": "transmutation_crucible_deployed_fake",
+    "sub": "crucible_clay",
+    "type": "TOOL",
+    "copy-from": "fake_item",
+    "name": { "str": "deployed transmutation crucible" },
+    "qualities": [ [ "ANVIL", 3 ], [ "COOK", 1 ], [ "CHEM", 2 ], [ "BOIL", 2 ], [ "CONTAIN", 1 ], [ "SURFACE", 2 ] ]
+  },
+  {
     "id": "dimensional_warp_trap",
     "type": "TOOL",
     "name": { "str": "sliver of unreality", "str_pl": "slivers of unreality" },
@@ -1550,9 +1575,10 @@
   },
   {
     "id": "thermic_essence_cutter",
+    "sub": "oxy_torch",
     "type": "TOOL",
     "name": { "str": "thermic essence cutter" },
-    "description": "A small copper device that channels magical flame, focusing it into a white-hot pinprick of searing heat.  Too narrow in focus and short-ranged to be useful as a weapon, instead designed for cutting metal.  With a source of eye protection it can be used to destroy metal barriers.",
+    "description": "A small copper device that channels magical flame, focusing it into a white-hot pinprick of searing heat.  Too narrow in focus and short-ranged to be useful as a weapon, instead designed for metalworking.  With a source of eye protection it can be used to destroy metal barriers.",
     "weight": "2400 g",
     "volume": "1 L",
     "price": "600 USD",
