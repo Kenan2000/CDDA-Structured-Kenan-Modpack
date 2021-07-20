@@ -1,5 +1,29 @@
 [
   {
+    "id": "halo_draconic_might",
+    "copy-from": "spell_base",
+    "type": "ARMOR",
+    "name": { "str": "aura of dragon's blood", "str_pl": "auras of dragon's blood" },
+    "description": "A strange radiance permeating your body, increasing your strength and reducing physical damage.",
+    "color": "dark_gray",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "STRENGTH", "add": 10 },
+            { "value": "ARMOR_BASH", "add": -20 },
+            { "value": "ARMOR_CUT", "add": -20 },
+            { "value": "ARMOR_STAB", "add": -20 },
+            { "value": "ARMOR_BULLET", "add": -20 }
+          ]
+        }
+      ]
+    },
+    "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
+  },
+  {
     "id": "halo_clairvoyance",
     "copy-from": "spell_base",
     "type": "ARMOR",
