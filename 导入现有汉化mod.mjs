@@ -24,9 +24,12 @@ const translationsToImport = [
   // 'Project_Kawaii',
   // 'secronom',
   // 'vamp_stuff',
-  'Fallout_CDDA',
-  'MST_Extra',
+  // 'Fallout_CDDA',
+  // 'MST_Extra',
+  'Tankmod_Revived',
 ];
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/Tankmod_Revived' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
+// cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/Tankmod_Revived' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/Fallout_CDDA' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports/Fallout_CDDA' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack'
 // cp -R -n '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/Kenan-Modpack/MST_Extra' '/Users/linonetwo/Desktop/repo/CDDA-Kenan-Modpack-Chinese/imports'
