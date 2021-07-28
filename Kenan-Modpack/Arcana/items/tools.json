@@ -247,7 +247,7 @@
     "category": "weapons",
     "copy-from": "warhammer",
     "name": { "str": "hammer of the hunter", "str_pl": "hammers of the hunter" },
-    "description": "A warhammer inlaid with silver, engraved with religious invocations in an archaic form of Latin.  Many magical items can be purified with this item.  Using it will channel consecrated essence into a stunning flash.  Though using it is a double-edged sword, it will have further effects on creatures of darkness.",
+    "description": "A warhammer inlaid with silver, engraved with religious invocations in an archaic form of Latin.  Many magical items can be purified with this item.  It can be used to channel consecrated essence into a stunning flash, or place a rune that will release its stunning effect if something steps into it.  Though using it is a double-edged sword, it will have further effects on creatures of darkness.",
     "price": "800 USD",
     "price_postapoc": "45 USD",
     "material": [ "iron", "silver", "wood" ],
@@ -255,7 +255,23 @@
     "max_charges": 3,
     "charges_per_use": 3,
     "ammo": "essence_dull_type",
-    "use_action": { "type": "cast_spell", "spell_id": "arcana_item_hammerzeit", "no_fail": true, "need_wielding": true, "level": 0 },
+    "use_action": [
+      {
+        "type": "place_trap",
+        "allow_underwater": true,
+        "trap": "tr_arcana_item_hexenhammer",
+        "moves": 90,
+        "practice": 2,
+        "done_message": "You focus a fragment of the hammer's energy into a spell trap, waiting to be unleashed."
+      },
+      {
+        "type": "cast_spell",
+        "spell_id": "arcana_item_hammerzeit",
+        "no_fail": true,
+        "need_wielding": true,
+        "level": 0
+      }
+    ],
     "relative": { "weight": "360 g", "bashing": 2 },
     "extend": { "flags": [ "NO_SALVAGE" ] }
   },
