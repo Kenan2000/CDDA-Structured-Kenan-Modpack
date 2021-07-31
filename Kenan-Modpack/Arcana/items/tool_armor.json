@@ -12,12 +12,7 @@
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "primitive_magic_item_ammo_type": 600 } } ],
     "flags": [ "FANCY", "NO_RELOAD", "NO_UNLOAD", "TARDIS" ],
     "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "1 h", "regenerate_ammo": true } },
-    "use_action": {
-      "type": "cast_spell",
-      "spell_id": "arcana_item_triffid_garland_empowered",
-      "no_fail": true,
-      "level": 0
-    }
+    "use_action": { "type": "cast_spell", "spell_id": "arcana_item_triffid_garland_empowered", "no_fail": true, "level": 0 }
   },
   {
     "id": "amulet_exotic_empowered",
@@ -32,12 +27,7 @@
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "primitive_magic_item_ammo_type": 600 } } ],
     "flags": [ "FANCY", "NO_RELOAD", "NO_UNLOAD", "TARDIS" ],
     "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "1 h", "regenerate_ammo": true } },
-    "use_action": {
-      "type": "cast_spell",
-      "spell_id": "arcana_item_amulet_exotic_empowered",
-      "no_fail": true,
-      "level": 0
-    }
+    "use_action": { "type": "cast_spell", "spell_id": "arcana_item_amulet_exotic_empowered", "no_fail": true, "level": 0 }
   },
   {
     "id": "brooch_iridescent_empowered",
@@ -52,12 +42,7 @@
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "primitive_magic_item_ammo_type": 600 } } ],
     "flags": [ "FANCY", "NO_RELOAD", "NO_UNLOAD", "TARDIS" ],
     "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "1 h", "regenerate_ammo": true } },
-    "use_action": {
-      "type": "cast_spell",
-      "spell_id": "arcana_item_brooch_iridescent_empowered",
-      "no_fail": true,
-      "level": 0
-    }
+    "use_action": { "type": "cast_spell", "spell_id": "arcana_item_brooch_iridescent_empowered", "no_fail": true, "level": 0 }
   },
   {
     "id": "gilded_aegis",
@@ -144,7 +129,7 @@
     "id": "armor_wyrm",
     "type": "TOOL_ARMOR",
     "name": { "str": "wyrmskin armor", "str_pl": "sets of wyrmskin armor" },
-    "description": "A set of well-decorated leather armor, with serpentine patterns sewn into it and various adjustable straps added.  Using it will conjure a long-lasting spray of acid.",
+    "description": "A set of well-decorated leather armor, with serpentine patterns sewn into it and various adjustable straps added.  It can be used to conjure a long-lasting spray of acid, or it can place a rune that will explode with acid if something steps into it.",
     "weight": "2830 g",
     "volume": "11 L",
     "material": [ "wyrmskin", "leather" ],
@@ -169,7 +154,23 @@
     "ammo": "essence_blood_type",
     "environmental_protection": 10,
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_blood_type": 16 } } ],
-    "use_action": [ { "type": "cast_spell", "spell_id": "arcana_item_wyrmskin_acid", "no_fail": true, "level": 0, "need_worn": true } ],
+    "use_action": [
+      {
+        "type": "place_trap",
+        "allow_underwater": true,
+        "trap": "tr_arcana_item_armor_wyrm",
+        "moves": 90,
+        "practice": 0,
+        "done_message": "You focus a fragment of the armor's energy into a spell trap, waiting to be unleashed."
+      },
+      {
+        "type": "cast_spell",
+        "spell_id": "arcana_item_wyrmskin_acid",
+        "no_fail": true,
+        "level": 0,
+        "need_worn": true
+      }
+    ],
     "flags": [ "OVERSIZE", "NO_SALVAGE", "ALLOWS_NATURAL_ATTACKS", "FANCY", "TRADER_KEEP_EQUIPPED", "POCKETS", "STURDY" ]
   },
   {
@@ -270,7 +271,7 @@
     "copy-from": "gloves_plate",
     "type": "TOOL_ARMOR",
     "name": { "str": "pair of thunder gauntlets", "str_pl": "pairs of thunder gauntlets" },
-    "description": "A heavy set of plate gauntlets, decorated with silver around the edges of each individual plate.  Touching the bare metal sends a faint electric tingle through you.  Use them to give a nearby enemy a powerful stunning jolt, draining health from your target.",
+    "description": "A heavy set of plate gauntlets, decorated with silver around the edges of each individual plate.  Touching the bare metal sends a faint electric tingle through you.  Use them to give a nearby enemy a powerful stunning jolt, draining health from your target.  It can also be used to place a rune that will blast an area with lightning if something steps on it.",
     "price": "600 USD",
     "price_postapoc": "50 USD",
     "material": [ "iron", "leather", "silver" ],
@@ -278,13 +279,23 @@
     "max_charges": 4,
     "charges_per_use": 1,
     "ammo": "essence_type",
-    "use_action": {
-      "type": "cast_spell",
-      "spell_id": "arcana_item_thunder_gauntlets_taze",
-      "no_fail": true,
-      "level": 0,
-      "need_worn": true
-    },
+    "use_action": [
+      {
+        "type": "place_trap",
+        "allow_underwater": true,
+        "trap": "tr_arcana_item_lightning",
+        "moves": 90,
+        "practice": 0,
+        "done_message": "You focus a fragment of the gauntlets' energy into a spell trap, waiting to be unleashed."
+      },
+      {
+        "type": "cast_spell",
+        "spell_id": "arcana_item_thunder_gauntlets_taze",
+        "no_fail": true,
+        "level": 0,
+        "need_worn": true
+      }
+    ],
     "relative": { "weight": 210, "material_thickness": 1 },
     "extend": { "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ] }
   },
