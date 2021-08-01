@@ -281,7 +281,7 @@
     "copy-from": "spear_steel",
     "category": "weapons",
     "name": { "str": "spear of pestilence", "str_pl": "spears of pestilence" },
-    "description": "A stout steel spear with a wicked sting, decorated with elaborate patterns carved from chitin.  Using it will temporarily summon mutant vermin to aid you, and wielding it makes movement easier.",
+    "description": "A stout steel spear with a wicked sting, decorated with elaborate patterns carved from chitin.  Using it will temporarily summon mutant vermin to aid you, and wielding it makes movement easier.  It can also be used to place a rune that will summon said vermin when something steps on it.",
     "price": "1200 USD",
     "price_postapoc": "35 USD",
     "material": [ "steel", "wood", "chitin" ],
@@ -306,7 +306,23 @@
         }
       ]
     },
-    "use_action": { "type": "cast_spell", "spell_id": "arcana_item_pestilence", "no_fail": true, "need_wielding": true, "level": 0 },
+    "use_action": [
+      {
+        "type": "place_trap",
+        "allow_underwater": true,
+        "trap": "tr_arcana_item_spear_pestilence",
+        "moves": 90,
+        "practice": 0,
+        "done_message": "You focus a fragment of the spear's energy into a spell trap, waiting to be unleashed."
+      },
+      {
+        "type": "cast_spell",
+        "spell_id": "arcana_item_pestilence",
+        "no_fail": true,
+        "need_wielding": true,
+        "level": 0
+      }
+    ],
     "relative": { "weight": 540, "bashing": 2 },
     "extend": { "flags": [ "NO_SALVAGE", "MAGIC_FOCUS", "TRADER_KEEP_EQUIPPED" ] }
   },
@@ -955,7 +971,7 @@
     "type": "TOOL",
     "category": "weapons",
     "name": { "str": "lichhook" },
-    "description": "A curved bronze blade, decorated with silver and honed to an unnaturally sharp edge.  Using it will channel blood essence into ensnaring a nearby enemy in venomous tendrils, poisoning them and freezing them in place momentarily.  Zombies and other creatures immune to poison will not suffer damage from it.",
+    "description": "A curved bronze blade, decorated with silver and honed to an unnaturally sharp edge.  Using it will channel blood essence into ensnaring a nearby enemy in venomous tendrils, poisoning them and freezing them in place momentarily.  Zombies and other creatures immune to poison will not suffer damage from it.  It can also place a rune that will trigger the same effect over a small area when something steps into it.",
     "longest_side": "70 cm",
     "price": "720 USD",
     "price_postapoc": "45 USD",
@@ -966,7 +982,17 @@
     "charges_per_use": 2,
     "ammo": "essence_blood_type",
     "relative": { "weight": 230 },
-    "use_action": [ { "type": "cast_spell", "spell_id": "arcana_item_lichhook", "no_fail": true, "need_wielding": true, "level": 0 } ],
+    "use_action": [
+      {
+        "type": "place_trap",
+        "allow_underwater": true,
+        "trap": "tr_arcana_item_lichhook",
+        "moves": 90,
+        "practice": 0,
+        "done_message": "You focus a fragment of the lichhook's energy into a spell trap, waiting to be unleashed."
+      },
+      { "type": "cast_spell", "spell_id": "arcana_item_lichhook", "no_fail": true, "need_wielding": true, "level": 0 }
+    ],
     "extend": { "flags": [ "NO_SALVAGE", "SHEATH_SWORD" ] }
   },
   {
@@ -1575,6 +1601,7 @@
   {
     "type": "TOOL",
     "id": "offering_chalice_coalescent",
+    "sub": "offering_chalice",
     "name": { "str": "coalescent chalice" },
     "description": "An exotic golden chalice, reinforced by an ornate lattice of steel and curious electronics.  A swirling, inky blackness resides inside it, resisting any attempt to pour it out.  Using it will focus your energy into it through a powerful ritual, converting it into crystallized essence.  Doing so will take 15 minutes and greatly exhaust you.  Overuse comes with the risk of lethal side effects.",
     "weight": "3 kg",
@@ -1659,7 +1686,7 @@
     "type": "TOOL",
     "category": "weapons",
     "name": { "str": "meteoric verge" },
-    "description": "A short wooden staff, entirely covered in decorative motifs worked from a symbol of judgment.  The symbol's otherworldly presence is still evident in the twisted, flame-like prongs now entwined around a charm of dark, iridescent metal.  Using it will allow you to smite enemies with lightning, protecting you from electrical harm briefly as well.",
+    "description": "A short wooden staff, entirely covered in decorative motifs worked from a symbol of judgment.  The symbol's otherworldly presence is still evident in the twisted, flame-like prongs now entwined around a charm of dark, iridescent metal.  Using it will allow you to smite enemies with lightning, protecting you from electrical harm briefly as well.  It can also be used to place a rune that will blast an area with lightning if something steps on it.",
     "weight": "3935 g",
     "to_hit": 1,
     "volume": "2500 ml",
@@ -1692,13 +1719,23 @@
         }
       ]
     },
-    "use_action": {
-      "type": "cast_spell",
-      "spell_id": "arcana_item_meteoric_verge_bolt",
-      "no_fail": true,
-      "need_wielding": true,
-      "level": 0
-    },
+    "use_action": [
+      {
+        "type": "place_trap",
+        "allow_underwater": true,
+        "trap": "tr_arcana_item_lightning",
+        "moves": 90,
+        "practice": 0,
+        "done_message": "You focus a fragment of the verge's energy into a spell trap, waiting to be unleashed."
+      },
+      {
+        "type": "cast_spell",
+        "spell_id": "arcana_item_meteoric_verge_bolt",
+        "no_fail": true,
+        "need_wielding": true,
+        "level": 0
+      }
+    ],
     "flags": [ "STAB", "NO_SALVAGE", "MAGIC_FOCUS", "TRADER_KEEP_EQUIPPED" ]
   },
   {
