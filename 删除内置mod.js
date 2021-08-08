@@ -5,6 +5,7 @@ const buildInMods = [
   'BlazeIndustries',
   'More_Locations',
   'package_bionic_professions',
+  'no_hope',
   // 'Aftershock',
   // 'CRT_EXPANSION',
   // 'CrazyCataclysm',
