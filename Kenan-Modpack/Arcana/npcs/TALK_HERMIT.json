@@ -265,23 +265,11 @@
         "yes": "So you, Chosen, have allied with the hunters.  The oath may be immortal, but I am hardly fit to be called a servant of He From Beyond The Veil, not anymore.  What can you tell me of their intentions?",
         "no": "I was not expecting they would find me so easily.  My days as a Keeper are long gone, I have nothing left in my name but old books and what nature offers us all.  For what purpose do they hunt an old man?"
       },
-      "no": "I was not expecting they would find me so easily.  My days as a Keeper are long gone, I have nothing left in my name but old books and what nature offers us all.  For what purpose do they hunt an old man?"
-    },
-    "speaker_effect": {
-      "condition": {
-        "and": [
-          { "not": { "npc_has_item": "offering_mission_notes" } },
-          { "not": { "u_has_var": "spawned_tablet_fallback", "type": "flag", "context": "hermit", "value": "yes" } }
-        ]
-      },
-      "effect": [
-        { "u_add_var": "spawned_tablet_fallback", "type": "flag", "context": "hermit", "value": "yes" },
-        {
-          "mapgen_update": "arcana_hermit_tablet_fallback",
-          "om_terrain": "arcana_hermitage_2",
-          "om_special": "Hermit Cabin"
-        }
-      ]
+      "no": {
+        "u_has_trait": "THRESH_DRAGONBLOOD",
+        "yes": "You bear the indelible mark of the Sanguine Order's transhuman dabbling, and yet it was the Cleaning Flame that sent you on this quest?  Whether you were one of the blood mages or merely stumbled into their work, this is unusual.  What do they seek from me?",
+        "no": "I was not expecting they would find me so easily.  My days as a Keeper are long gone, I have nothing left in my name but old books and what nature offers us all.  For what purpose do they hunt an old man?"
+      }
     },
     "responses": [
       {
@@ -358,7 +346,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_HERMIT_CF_REP_MISSION_CHALICE",
-    "dynamic_line": "So we are not as alone as I once believed.  If you believe that it is wise to ally with the hunters, then I will trust your judgment, young on.  Tell me, what is it they seek?",
+    "dynamic_line": "So we are not as alone as I once believed.  If you believe that it is wise to ally with the hunters, then I will trust your judgment, young one.  Tell me, what is it they seek?",
     "responses": [
       {
         "text": "They seek to mend old wounds and ally with us, in addition to preserving any knowledge beyond our written Oaths.",
@@ -373,7 +361,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_HERMIT_CF_REP_MISSION_CLEANSINGFLAME",
-    "dynamic_line": "So you are among then?  Then tell me, for what purpose do they send you?",
+    "dynamic_line": "So you are one of them as well?  Then tell me, for what purpose do they send you?",
     "responses": [
       {
         "text": "We are here to gather allies, to defend what remains of humanity and make up for past mistakes.",
@@ -441,7 +429,7 @@
         "topic": "TALK_HERMIT_CF_REP_MISSION_ALLIES_DEAL"
       },
       {
-        "text": "That won't be needed for now, main concern is the information.",
+        "text": "That won't be needed for now, our main concern is the information.",
         "effect": { "u_add_var": "hermit_allies_deferred", "type": "flag", "context": "hermit", "value": "yes" },
         "topic": "TALK_HERMIT_CF_REP_MISSION_ALLIES_DEFERRED"
       }
@@ -451,12 +439,9 @@
     "type": "talk_topic",
     "id": "TALK_HERMIT_CF_REP_MISSION_ALLIES_DEAL",
     "dynamic_line": {
-      "u_has_var": "spawned_tablet_fallback",
-      "type": "flag",
-      "context": "hermit",
-      "value": "yes",
+      "npc_has_item": "offering_mission_notes",
       "no": "Very well then, I'll do what I can to assist for now.  As for knowledge, I have been writing down my own observations and research in clay.  More readily available out here than paper, and more permanent.  I hoped that, should my life's work find me lacking, another would find some use for it someday.  Now that day has come.  You may have it.",
-      "yes": "Very well then, I'll do what I can to assist for now.  As for knowledge, I have been writing down my own observations and research in clay.  More readily available out here than paper, and more permanent.  I hoped that, should my life's work find me lacking, another would find some use for it someday.  Now that day has come.  It's on the desk, here."
+      "yes": "Very well then, I'll do what I can to assist for now.  As for knowledge, I have been writing down my own observations and research in clay.  More readily available out here than paper, and more permanent.  I hoped that, should my life's work find me lacking, another would find some use for it someday.  Now that day has come.  It's in the safe, here."
     },
     "speaker_effect": [
       {
@@ -466,6 +451,11 @@
       {
         "effect": [
           { "u_add_var": "sofia_mission_5_ready", "type": "flag", "context": "hermit", "value": "yes" },
+          {
+            "mapgen_update": "arcana_hermit_tablet_unlock",
+            "om_terrain": "arcana_hermitage_2",
+            "om_special": "Hermit Cabin"
+          },
           { "u_add_effect": "hermit_earned_trust_1", "duration": "PERMANENT" },
           { "u_add_effect": "hermit_earned_trust_2", "duration": "PERMANENT" }
         ]
@@ -480,12 +470,9 @@
     "type": "talk_topic",
     "id": "TALK_HERMIT_CF_REP_MISSION_ALLIES_DEFERRED",
     "dynamic_line": {
-      "u_has_var": "spawned_tablet_fallback",
-      "type": "flag",
-      "context": "hermit",
-      "value": "yes",
-      "no": "If you insist.  You need only ask at any time, and I will reach out as best as I can.  As for that, I have been writing down my own observations and research in clay.  More readily available out here than paper, and more permanent.  I hoped that, should my life's work find me lacking, another would find some use for it someday.  Now that day has come.  You may have it.",
-      "yes": "If you insist.  You need only ask at any time, and I will reach out as best as I can.  As for that, I have been writing down my own observations and research in clay.  More readily available out here than paper, and more permanent.  I hoped that, should my life's work find me lacking, another would find some use for it someday.  Now that day has come.  It's on the desk, here."
+      "npc_has_item": "offering_mission_notes",
+      "yes": "If you insist.  You need only ask at any time, and I will reach out as best as I can.  As for that, I have been writing down my own observations and research in clay.  More readily available out here than paper, and more permanent.  I hoped that, should my life's work find me lacking, another would find some use for it someday.  Now that day has come.  You may have it.",
+      "no": "If you insist.  You need only ask at any time, and I will reach out as best as I can.  As for that, I have been writing down my own observations and research in clay.  More readily available out here than paper, and more permanent.  I hoped that, should my life's work find me lacking, another would find some use for it someday.  Now that day has come.  It's in the safe, here."
     },
     "speaker_effect": [
       {
@@ -495,6 +482,11 @@
       {
         "effect": [
           { "u_add_var": "sofia_mission_5_ready", "type": "flag", "context": "hermit", "value": "yes" },
+          {
+            "mapgen_update": "arcana_hermit_tablet_unlock",
+            "om_terrain": "arcana_hermitage_2",
+            "om_special": "Hermit Cabin"
+          },
           { "u_add_effect": "hermit_earned_trust_1", "duration": "PERMANENT" },
           { "u_add_effect": "hermit_earned_trust_2", "duration": "PERMANENT" }
         ]
@@ -509,19 +501,25 @@
     "type": "talk_topic",
     "id": "TALK_HERMIT_CF_REP_MISSION_INTIMIDATE",
     "dynamic_line": {
-      "u_has_var": "spawned_tablet_fallback",
-      "type": "flag",
-      "context": "hermit",
-      "value": "yes",
-      "no": "Fine, have it.  I can only hope they are more worthy of it than you.  Take it, and leave this place.",
-      "yes": "Fine.  I can only hope they are more worthy of it than you.  It's on the desk, take it and leave this place."
+      "npc_has_item": "offering_mission_notes",
+      "yes": "Fine, have it.  I can only hope they are more worthy of it than you.  Take it, and leave this place.",
+      "no": "Fine.  I can only hope they are more worthy of it than you.  It's in the safe, take it and leave this place."
     },
     "speaker_effect": [
       {
         "condition": { "npc_has_item": "offering_mission_notes" },
         "effect": [ { "npc_remove_item_with": "offering_mission_notes" }, { "u_buy_item": "offering_mission_notes" } ]
       },
-      { "effect": { "u_add_var": "sofia_mission_5_ready", "type": "flag", "context": "hermit", "value": "yes" } }
+      {
+        "effect": [
+          { "u_add_var": "sofia_mission_5_ready", "type": "flag", "context": "hermit", "value": "yes" },
+          {
+            "mapgen_update": "arcana_hermit_tablet_unlock",
+            "om_terrain": "arcana_hermitage_2",
+            "om_special": "Hermit Cabin"
+          }
+        ]
+      }
     ],
     "responses": [ { "text": "…", "effect": "player_leaving", "topic": "TALK_DONE" } ]
   },
@@ -541,12 +539,9 @@
     "type": "talk_topic",
     "id": "TALK_HERMIT_CF_REP_MISSION_BASIC",
     "dynamic_line": {
-      "u_has_var": "spawned_tablet_fallback",
-      "type": "flag",
-      "context": "hermit",
-      "value": "yes",
-      "no": "I'm afraid at my age, all I can manage is to study the Beyond and tend to my books.  They are correct to send you however, as I do have what they seek preserved in clay, to better preserve it.  I'm afraid that is all I can do for the people who sent you.  You may have it.",
-      "yes": "I'm afraid at my age, all I can manage is to study the Beyond and tend to my books.  They are correct to send you however, as I do have what they seek preserved in clay, to better preserve it.  I'm afraid that is all I can do for the people who sent you.  It's on the desk, here."
+      "npc_has_item": "offering_mission_notes",
+      "yes": "I'm afraid at my age, all I can manage is to study the Beyond and tend to my books.  They are correct to send you however, as I do have what they seek preserved in clay, to better preserve it.  I'm afraid that is all I can do for the people who sent you.  You may have it.",
+      "no": "I'm afraid at my age, all I can manage is to study the Beyond and tend to my books.  They are correct to send you however, as I do have what they seek preserved in clay, to better preserve it.  I'm afraid that is all I can do for the people who sent you.  It's in the safe, here."
     },
     "speaker_effect": [
       {
@@ -556,6 +551,11 @@
       {
         "effect": [
           { "u_add_var": "sofia_mission_5_ready", "type": "flag", "context": "hermit", "value": "yes" },
+          {
+            "mapgen_update": "arcana_hermit_tablet_unlock",
+            "om_terrain": "arcana_hermitage_2",
+            "om_special": "Hermit Cabin"
+          },
           { "u_add_effect": "hermit_earned_trust_1", "duration": "PERMANENT" },
           { "u_add_effect": "hermit_earned_trust_2", "duration": "PERMANENT" }
         ]
@@ -752,7 +752,11 @@
   {
     "type": "talk_topic",
     "id": "TALK_HERMIT_QUEST_HELP_1_SANGUINE",
-    "dynamic_line": "I'm afraid I don't have a copy of that book on hand.  I can offer you what advise I can in finding one though.  If you encounter any of their hideouts, whether hidden away in the city or far from civilization, be extremely cautious.  The text also sometimes has a habit of finding its way into the hands of wealthy collectors, and undead of unusual nature may hint at long-dead arcanist that may still cling to their tomes.",
+    "dynamic_line": {
+      "u_has_trait": "THRESH_DRAGONBLOOD",
+      "yes": "And yet you seem to have the mark of their order's work upon you.  This will hinder using the blade for its proper purpose, but I'm willing to trust you to help restore it at least.  However you ended up this way, it would've required one of their books.  If you don't have it in your possession, seek out their hideouts, far from civilization.",
+      "no": "I'm afraid I don't have a copy of that book on hand.  I can offer you what advise I can in finding one though.  If you encounter any of their hideouts, whether hidden away in the city or far from civilization, be extremely cautious.  The text also sometimes has a habit of finding its way into the hands of wealthy collectors, and undead of unusual nature may hint at long-dead arcanists still cling to their tomes."
+    },
     "responses": [ { "text": "I see.", "topic": "TALK_HERMIT" } ]
   },
   {
@@ -855,7 +859,11 @@
   {
     "type": "talk_topic",
     "id": "TALK_HERMIT_DISCUSS_1_HAPPENED",
-    "dynamic_line": "The Sanguine Order happened.  They recovered it by some means and returned it during a time of mutual need, when their order was on the brink of self-destruction.  But it was sabotaged, an attempt to undermine us for their own gain, only for the consequences to break both of our orders in the process.",
+    "dynamic_line": {
+      "u_has_trait": "THRESH_DRAGONBLOOD",
+      "yes": "You did not know of this, bearing the Sanguine Order's transformations?  They recovered it by some means and returned it during a time of mutual need, when they were on the brink of self-destruction.  But it was sabotaged, an attempt to undermine us for their own gain, only for the consequences to break both of our orders in the process.",
+      "no": "The Sanguine Order happened.  They recovered it by some means and returned it during a time of mutual need, when their order was on the brink of self-destruction.  But it was sabotaged, an attempt to undermine us for their own gain, only for the consequences to break both of our orders in the process."
+    },
     "responses": [
       {
         "text": "I'm sorry.  Is there any way to atone for this?",
@@ -870,6 +878,16 @@
         "topic": "TALK_HERMIT_DISCUSS_1_SANGUINE_2"
       },
       {
+        "text": "I may have followed the same path as them, but I was not one of them.",
+        "condition": {
+          "and": [
+            { "not": { "u_has_trait": "PROF_SANGUINE" } },
+            { "u_has_trait": "THRESH_DRAGONBLOOD" }
+          ]
+        },
+        "topic": "TALK_HERMIT_DISCUSS_1_DRAGONBLOOD"
+      },
+      {
         "text": "Treachery like that is why the Cleansing Flame was founded, united in opposition to what those vermin did to people.",
         "condition": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ] },
         "topic": "TALK_HERMIT_DISCUSS_1_FLAME"
@@ -877,7 +895,7 @@
       { "text": "What if I would prefer to destroy this relic?", "topic": "TALK_HERMIT_DISCUSS_1_DESTROY" },
       {
         "switch": true,
-        "text": "That's all I know to know for now.",
+        "text": "That's all I need to know for now.",
         "topic": "TALK_HERMIT",
         "condition": "has_no_available_mission"
       },
@@ -904,6 +922,15 @@
   },
   {
     "type": "talk_topic",
+    "id": "TALK_HERMIT_DISCUSS_1_DRAGONBLOOD",
+    "dynamic_line": "Then the path ahead of you shall be difficult, but there is still hope.  You will not be able to make full use of the blade once it is restored, but you can still help.",
+    "responses": [
+      { "switch": true, "text": "We'll see if I can.", "topic": "TALK_HERMIT", "condition": "has_no_available_mission" },
+      { "switch": true, "default": true, "text": "In what way, then?", "topic": "TALK_MISSION_LIST" }
+    ]
+  },
+  {
+    "type": "talk_topic",
     "id": "TALK_HERMIT_DISCUSS_1_FLAME",
     "dynamic_line": "This is true.  But do not let yourself be blinded by hatred.  I had known many of them, and a few sought power for less destructive reasons.  If any of them are left, they must be guided into righting the wrongs their fellows have committed.",
     "responses": [
@@ -916,6 +943,7 @@
     "id": "TALK_HERMIT_DISCUSS_1_DESTROY",
     "dynamic_line": "What?  Please, you can't!  I know that this corruption is dangerous, and it will take great effort to fix it, but it can do so much good if it is restored… I can't allow that.",
     "responses": [
+      { "text": "Fine.  Tell me what I need to do to fix it.", "topic": "TALK_MISSION_LIST", "condition": { "not": "has_no_available_mission" } },
       { "text": "We shall see.", "topic": "TALK_HERMIT" },
       {
         "text": "[ATTACK] My duty demands it, this is far too dangerous to risk.  Try and stop me, old man.",
@@ -1015,7 +1043,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_HERMIT_DISCUSS_3_FAIL_TENET",
-    "dynamic_line": "You would quote the very tenet you failed to uphold?  I can tell, plain as the look in your eyes, that you've abandoned your humanity.  There is a reason we forbid this.  To uphold His oath will put us on a path of conflict, a war for the whole of our world, with our enemies will be many.",
+    "dynamic_line": "You would quote the very tenet you failed to uphold?  I can tell, plain as the look in your eyes, that you've abandoned your humanity.  There is a reason we forbid this.  To uphold His oath will put us on a path of conflict, a war for the whole of our world, for our enemies will be many.",
     "responses": [
       { "text": "It is His will, that we remain free of mutation?", "topic": "TALK_HERMIT_DISCUSS_3_FAIL_MUTATION" },
       { "text": "Is there any way I can regain His favor?", "topic": "TALK_HERMIT_DISCUSS_3_FAIL_FAVOR" },
@@ -1476,8 +1504,7 @@
       { "text": "What remains of the Keepers of The Oath?", "topic": "TALK_HERMIT_DISCUSS_4_KEEPERS" },
       {
         "text": "Why did the blood mages betray you, anyway?",
-        "topic": "TALK_HERMIT_DISCUSS_4_BETRAYAL",
-        "condition": { "not": { "u_has_trait": "PROF_SANGUINE" } }
+        "topic": "TALK_HERMIT_DISCUSS_4_BETRAYAL"
       },
       {
         "text": "Will sealing these portals really ensure humanity's survival?",
@@ -1517,7 +1544,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_HERMIT_DISCUSS_4_SERVICE",
-    "dynamic_line": "He has spoken of driving back the influence of other intrusions upon this realm, of returning the restless dead to their proper state, of paving the way for humanity's survival in the face of adversity.  I do not know if His will is truly out of love for humanity, but even if it isn't, if we are driven to extinction then who would ensure His will is enforced?  What dire consequences may occur should the fabric of reality desteriorate further, and no one remains to prevent it?",
+    "dynamic_line": "He has spoken of driving back the influence of other intrusions upon this realm, of returning the restless dead to their proper state, of paving the way for humanity's survival in the face of adversity.  I do not know if His will is truly out of love for humanity, but even if it isn't, if we are driven to extinction then who would ensure His will is enforced?  What dire consequences may occur should the fabric of reality deteriorate further, and no one remains to prevent it?",
     "responses": [
       { "text": "I see.  I have another thing to ask about.", "topic": "TALK_HERMIT_DISCUSS_4" },
       { "text": "Right.  That is all for now.", "topic": "TALK_HERMIT" }
@@ -1629,7 +1656,7 @@
     },
     "responses": [
       {
-        "text": "What sorts of religous books?",
+        "text": "What sorts of religious books?",
         "topic": "TALK_HERMIT_BOOK_RELIGIOUS",
         "condition": { "not": { "u_has_effect": "hermit_earned_trust_1" } }
       },
@@ -1693,8 +1720,12 @@
   },
   {
     "type": "talk_topic",
-    "id": "TALK_HERMIT_BOOK_RELGIOUS_CLEANSINGFLAME",
-    "dynamic_line": "A familiar concept.  For what purpose, I wonder…",
+    "id": "TALK_HERMIT_BOOK_RELIGIOUS_CLEANSINGFLAME",
+    "dynamic_line": {
+      "u_has_trait": "THRESH_DRAGONBLOOD",
+      "yes": "Diverse indeed, marked by dragon's blood as you are.  But what purpose guides you?",
+      "no": "A familiar concept.  For what purpose, I wonder…"
+    },
     "responses": [
       {
         "text": "To mend the growing wounds in The Veil.",
@@ -1709,6 +1740,10 @@
         "text": "To destroy dangerous magic, and dangerous users of it.",
         "opinion": { "value": -1 },
         "topic": "TALK_HERMIT_BOOK_RELIGIOUS_HUNTER"
+      },
+      {
+        "text": "I'm just a survivor, these days.",
+        "topic": "TALK_HERMIT_BOOK_RELIGIOUS_SURVIVOR"
       },
       { "text": "It's nothing.  Never mind.", "topic": "TALK_HERMIT" }
     ]
@@ -1805,6 +1840,25 @@
   },
   {
     "type": "talk_topic",
+    "id": "TALK_HERMIT_BOOK_RELIGIOUS_SURVIVOR",
+    "dynamic_line": {
+      "u_has_trait": "THRESH_DRAGONBLOOD",
+      "yes": "We have both strayed from our paths, it seems.  I, though giving up my vows in the face of despair.  And you, marked by blood magic.  Perhaps there is hope for us yet.  I may have a task that will give us both purpose once more.",
+      "no": "As am I, these days.  Perhaps we can work together and find new purpose once more, Hunter.  If you wish, I may have an offer for you."
+    },
+    "responses": [
+      {
+        "text": "Very well then.  We shall see…",
+        "effect": [
+          { "u_add_effect": "hermit_earned_trust_1", "duration": "PERMANENT" },
+          { "u_add_effect": "hermit_earned_trust_2", "duration": "PERMANENT" }
+        ],
+        "topic": "TALK_HERMIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
     "id": "TALK_HERMIT_BOOK_RELIGIOUS_SANGUINE",
     "dynamic_line": "Hmm.  The nature of a blood mage, I suspect.  Sounds about right.  Even if you will not serve He From Beyond The Veil, there are insights to find your own use for.  And if you accept it, I have a task that will benefit us both.",
     "responses": [
@@ -1876,7 +1930,7 @@
       {
         "text": "I have seen what the arcane can lead to.  Great things, but also great danger.",
         "condition": {
-          "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2", "PROF_SANGUINE", "PROF_ARCANIST", "PROF_ARCANIST2" ]
+          "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2", "PROF_SANGUINE", "PROF_ARCANIST", "PROF_ARCANIST2", "THRESH_DRAGONBLOOD" ]
         },
         "topic": "TALK_HERMIT_BOOK_REVEAL",
         "effect": { "u_add_effect": "hermit_earned_trust_1", "duration": "PERMANENT" }
@@ -2229,7 +2283,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_HERMIT_TEACH_ACCEPT_SANGUINE",
-    "dynamic_line": "Always the practical type.  But I can appreciate the drive to put knowledge to go use, rather than be squandered.  As you wish.  I can tell from your demeanor that you are of the Sanguine Order.  And I, of the Keepers of The Oath.  Perhaps He From Beyond The Veil will grant us both penance.",
+    "dynamic_line": "Always the practical type.  But I can appreciate the drive to put knowledge to good use, rather than be squandered.  As you wish.  I can tell from your demeanor that you are of the Sanguine Order.  And I, of the Keepers of The Oath.  Perhaps He From Beyond The Veil will grant us both penance.",
     "responses": [
       {
         "text": "Then tell me what I must do.",

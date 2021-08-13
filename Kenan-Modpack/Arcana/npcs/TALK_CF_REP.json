@@ -134,6 +134,11 @@
         "condition": { "u_has_mission": "MISSION_CF_PURIFIER_1_3" }
       },
       {
+        "text": "[MISSION] About this \"bone charm\" you asked me to make…",
+        "topic": "TALK_CF_REP_MISSION_1",
+        "condition": { "u_has_mission": "MISSION_CF_REP_1" }
+      },
+      {
         "text": "So, how are things working out with the new arrivals so far?",
         "topic": "TALK_CF_REP_MISSION_4_OPINION",
         "condition": {
@@ -584,6 +589,97 @@
     "id": "TALK_CF_REP_NICHOLAS_ADVICE",
     "dynamic_line": "We never learned much about these labs, not until after reports coming in from scavengers.  If they were involved in the arcane, or some other anomalous activity, then the Veil might be especially weak there.  We've already heard stories of abominations both earthly and otherworldly infesting these places, a lab of this nature will likely be even worse.  Be well-armed, make sure you have a path of escape before forcing your way in deeper.  Any written intel or warning signs you find down there might be of vital importance.",
     "responses": [ { "text": "I'll be careful then.", "topic": "TALK_CF_REP" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CF_REP_MISSION_1",
+    "dynamic_line": "What do you wish to know?  As I said, I can explain why we need one if you wish.  I can also try to help advise you on what creatures might be useful to hunt for the materials needed to make one.",
+    "responses": [
+      {
+        "text": "It's a protective spell, I'm guessing?",
+        "condition": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2", "PROF_CHALICE", "THRESH_VEIL" ] },
+        "switch": true,
+        "topic": "TALK_CF_REP_MISSION_1_HOW_KNOWN"
+      },
+      {
+        "text": "What sort of ritual does this entail?",
+        "condition": { "u_has_any_trait": [ "PROF_ARCANIST", "PROF_ARCANIST2", "PROF_SANGUINE", "THRESH_DRAGONBLOOD" ] },
+        "switch": true,
+        "topic": "TALK_CF_REP_MISSION_1_HOW_ARCANIST"
+      },
+      {
+        "text": "I'm not sure how it'd help protect this place.",
+        "condition": { "or": [ { "u_has_effect": "cf_sofia_notes_given" }, { "u_has_skill": { "skill": "magic", "level": 1 } } ] },
+        "switch": true,
+        "topic": "TALK_CF_REP_MISSION_1_HOW"
+      },
+      {
+        "text": "This just seems like a very strange request.",
+        "switch": true,
+        "default": true,
+        "topic": "TALK_CF_REP_MISSION_1_WHY"
+      },
+      {
+        "text": "Where would I find the materials needed to make one of these things?",
+        "topic": "TALK_CF_REP_MISSION_1_WHERE"
+      },
+      { "text": "Never mind, I'll figure it out.", "topic": "TALK_CF_REP" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CF_REP_MISSION_1_HOW_KNOWN",
+    "dynamic_line": {
+      "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ],
+      "yes": "Indeed.  There are still concerns that the fabric of The Veil may still be unstable and vulnerable to new anomalies, and the potential for otherworldly monsters being attracted to this place.  Same method by which we safeguarded our sanctums, until most of them were overwhelmed the day everything boiled over.",
+      "no": "You are correct.  Our methods may differ from that of the Keepers, but the objective is similar.  With the right rituals we can reduce the rest of any additional anomalies opening up too close to us, and make the place less visible to any interlopers already in this world.  That will allow us to use the arcane items at our disposal to the fullest, otherwise we'd basically be lighting up a beacon for every otherwordly monster within a couple miles."
+    },
+    "responses": [
+      { "text": "So how do I go about making one?", "topic": "TALK_CF_REP_MISSION_1_WHERE" },
+      { "text": "That's all for now, thank you.", "topic": "TALK_CF_REP" }
+    ]
+  },
+  {
+    "id": "TALK_CF_REP_MISSION_1_HOW_ARCANIST",
+    "type": "talk_topic",
+    "dynamic_line": "A protective spell that will shroud this location from interlopers in the area, and reduce the risk of any anomalies.  Without that, we can't use every tool at our disposal to safeguard this place to the fullest.",
+    "responses": [
+      { "text": "So how do I go about making one?", "topic": "TALK_CF_REP_MISSION_1_WHERE" },
+      { "text": "That's all for now, thank you.", "topic": "TALK_CF_REP" }
+    ]
+  },
+  {
+    "id": "TALK_CF_REP_MISSION_1_HOW",
+    "type": "talk_topic",
+    "dynamic_line": "It's a ritual to protect this location.  I would hope that you've gained some familiarity with the strange beasts and otherworldly phenomenon.  I suspect it would also be useful to you, to go hunting for creatures of this sort to see for yourself how abnormal things have become, and adding a personal touch to this component would also be a useful learning experience of its own.",
+    "responses": [
+      { "text": "So how do I go about making one?", "topic": "TALK_CF_REP_MISSION_1_WHERE" },
+      { "text": "That's all for now, thank you.", "topic": "TALK_CF_REP" }
+    ]
+  },
+  {
+    "id": "TALK_CF_REP_MISSION_1_WHY",
+    "type": "talk_topic",
+    "dynamic_line": "Understandable, the purpose of it concerns ritual protection of this place.  It may seem of little importance to you, but remember that hunting down the materials needed to make one means at least one less abomination endangering other people.  That, and what you might learn of these hazards now afflicting our reality during your hunt, will offer valuable experience.  I hope that is acceptable, if nothing else?",
+    "responses": [
+      { "text": "Fine, any advice on what to hunt for?", "topic": "TALK_CF_REP_MISSION_1_WHERE" },
+      { "text": "We'll see, maybe.", "topic": "TALK_CF_REP" }
+    ]
+  },
+  {
+    "id": "TALK_CF_REP_MISSION_1_WHERE",
+    "type": "talk_topic",
+    "dynamic_line": "Materials used to make these items are commonly wrested from beasts such as what other survivors call \"grackens\" as well as \"krecks\" which have been seen lingering near tears in reality, or lurking near the remains of slain soldiers and other groups.  Abominations some have termed hunting horrors and flying polyps may also be a source, though more dangerous. Some of the undead, most prominantly the ones contorting into predatory forms and those gaining a boney appearance, have been known to yield such materials as well.  Even some living beings afflicted by mutation, even some poor souls twisted by inhuman influence, could display anomalous properties that would linger in their bodies well after death",
+    "responses": [
+      { "text": "Anything else?", "topic": "TALK_CF_REP_MISSION_1_WHERE" },
+      { "text": "Guess we'll see what I can do.", "topic": "TALK_CF_REP" }
+    ]
+  },
+  {
+    "id": "TALK_CF_REP_MISSION_1_WHERE",
+    "type": "talk_topic",
+    "dynamic_line": "Some of the undead, most prominently the ones contorting into predatory forms, and those afflicted by bony growths taking over their bodies, have been known to yield such materials as well.  Even some living beings native to this world, afflicted by mutation and contorted into forms no natural process could mimic, can display anomalous properties.",
+    "responses": [ { "text": "That's all for now, I guess.", "topic": "TALK_CF_REP" } ]
   },
   {
     "type": "talk_topic",

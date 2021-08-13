@@ -5,6 +5,11 @@
     "dynamic_line": "What the hell?  What are you doing here?",
     "responses": [
       {
+        "text": "\"The moonlit sky anoints the worthy, who seek The Path home.\"",
+        "condition": { "u_has_var": "horace_password_known", "type": "flag", "context": "shrike", "value": "yes" },
+        "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD"
+      },
+      {
         "text": "Who are you?",
         "condition": { "not": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2", "PROF_SANGUINE" ] } },
         "topic": "TALK_BLOOD_MAGE_APPRENTICE_GET_OUT"
@@ -31,6 +36,130 @@
         "text": "Er, I'll just be going.",
         "condition": { "not": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ] } },
         "topic": "TALK_BLOOD_MAGE_APPRENTICE_NICE_TRY"
+      }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "THRESH_DRAGONBLOOD",
+      "yes": "Oh!  Sorry, didn't recognize you at fi- wait a minute…",
+      "no": "Eh?  How did you…"
+    },
+    "responses": [
+      {
+         "text": "A former enemy taught me this secret.  We need not be enemies either.",
+         "condition": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ] },
+         "switch": true,
+         "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_FLAME"
+      },
+      {
+         "text": "There are many followers of The Path who still live.",
+         "condition": { "u_has_trait": "PROF_SANGUINE" },
+         "switch": true,
+         "topic": "TALK_BLOOD_MAGE_APPRENTICE_SANGUINE"
+      },
+      {
+         "text": "We are not enemies.  Some of your own have joined us.",
+         "switch": true,
+         "default": true,
+         "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_NORMAL"
+      },
+      { "text": "[ATTACK] …", "topic": "TALK_DONE", "effect": "player_leaving" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_FLAME",
+    "type": "talk_topic",
+    "dynamic_line": "What, you expect us to just give up and join you, hunter?  When The Path has prepared us to survive in this ruined world, why would one of the shrikes defect to your cause?",
+    "responses": [
+      {
+         "text": "And why would a hunter complete the Dragonblood Sacrament?  We must all do what is necessary for humanity to survive.",
+         "condition": { "u_has_trait": "THRESH_DRAGONBLOOD" },
+         "topic": "TALK_BLOOD_MAGE_APPRENTICE_DRAGONBLOOD"
+      },
+      {
+        "text": "They have seen that the error is not in The Path, but in using it for self-destructive reasons.",
+        "trial": { "type": "PERSUADE", "difficulty": 50 },
+        "success": { "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_FLAME_SUCCESS" },
+        "failure": { "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_FLAME_FAIL" }
+      },
+      { "text": "[ATTACK] I expect nothing but a quick death from you, sanguinist.", "topic": "TALK_DONE", "effect": "insult_combat" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_FLAME_SUCCESS",
+    "type": "talk_topic",
+    "dynamic_line": "As the shrikes have always done, seeking to defend our order.  But to join you?  I don't know what to think.  None of this has felt right, ever since the world ended.",
+    "responses": [
+      {
+        "text": "They entrusted us with knowledge collected by the other shrikes.  Come with me, and use what you've learned to make things right.",
+        "topic": "TALK_AGREE_FOLLOW",
+        "effect": "follow",
+        "opinion": { "trust": 2, "fear": -1, "value": 2, "anger": -1 }
+      },
+      {
+        "text": "These people are beyond saving.  Find your own path, but leave this place.  Flee, and do not return.",
+        "topic": "TALK_DONE",
+        "effect": "flee",
+        "opinion": { "trust": 1, "fear": 5, "value": 1, "anger": -2 }
+      }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_FLAME_FAIL",
+    "type": "talk_topic",
+    "dynamic_line": "Bullshit.  You interrogated one of them to get that old code phrase, didn't you?  Probably killed them afterwards too.  Die, hunter!",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_NORMAL",
+    "type": "talk_topic",
+    "dynamic_line": "So one of the shrikes sent you?  Have they strayed from The Path?  What is the meaning of this?",
+    "responses": [
+      {
+         "text": "Why not ask yourself why I'm standing here, having completed what your master is still trying to recreate?",
+         "condition": { "u_has_trait": "THRESH_DRAGONBLOOD" },
+         "topic": "TALK_BLOOD_MAGE_APPRENTICE_DRAGONBLOOD"
+      },
+      {
+        "text": "They've saved valuable knowledge from destruction, and have made amends with the Cleaning Flame.  We don't have to fight either.",
+        "trial": { "type": "PERSUADE", "difficulty": 60 },
+        "success": { "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_NORMAL_SUCCESS" },
+        "failure": { "topic": "TALK_BLOOD_MAGE_APPRENTICE_GET_OUT" }
+      },
+      { "text": "[ATTACK] …", "topic": "TALK_DONE", "effect": "player_leaving" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_NORMAL_SUCCESS",
+    "type": "talk_topic",
+    "dynamic_line": "You're speaking of madness.  The Sanguine Order, and the Cleansing Flame, working together?  What common ground could we have, when their very existence is our anathema?",
+    "responses": [
+      {
+        "text": "They're found a way to work together.  You could do, make something better out of all this.",
+        "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_NORMAL_SUCCESS_2"
+      },
+      { "text": "[ATTACK] Enough.  Time to die.", "topic": "TALK_DONE", "effect": "insult_combat" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_NORMAL_SUCCESS_2",
+    "type": "talk_topic",
+    "dynamic_line": "Alright.  I believe you, it feels like we've been aimless ever since the apocalypse started.  But what could I even do?",
+    "responses": [
+      {
+        "text": "They sent me, come with me.  We can help you put what you've learned to good use.",
+        "topic": "TALK_AGREE_FOLLOW",
+        "effect": "follow",
+        "opinion": { "trust": 2, "fear": -1, "value": 2, "anger": -1 }
+      },
+      {
+        "text": "Leave this place, find your own path, and don't look back.  Run.",
+        "topic": "TALK_DONE",
+        "effect": "flee",
+        "opinion": { "trust": 1, "fear": 5, "value": 1, "anger": -2 }
       }
     ]
   },
