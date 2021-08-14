@@ -13,6 +13,11 @@
     },
     "responses": [
       {
+        "text": "\"The moonlit sky anoints the worthy, who seek The Path home.\"",
+        "condition": { "u_has_var": "horace_password_known", "type": "flag", "context": "shrike", "value": "yes" },
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_PASSWORD"
+      },
+      {
         "text": "[MISSION] I'm here to put a stop to this.",
         "condition": {
           "and": [
@@ -58,6 +63,133 @@
         "failure": { "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_NICE_TRY", "opinion": { "value": -4 } }
       }
     ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_PASSWORD",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "PROF_SANGUINE",
+      "yes": "Haven't heard that since the old days, before the portals and shamblers.  You don't look familiar though, one of Elena's bunch maybe?",
+      "no": {
+        "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ],
+        "yes": "Well that's the last thing I expected one of you hunters to say.  So, who bled out to give you that pass phrase?",
+        "no": "Alright, you've got my attention.  You had to hear that from somebody, who sent you?"
+      }
+    },
+    "responses": [
+      {
+        "text": "The other shrikes have entrusted us with important information.  We need not be enemies, lanius.",
+        "condition": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ] },
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_LANIUS"
+      },
+      {
+        "text": "One of Elena's shrikes said to tell you that.",
+        "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_PASSWORD_ELENA"
+      },
+      { "text": "[ATTACK] …", "topic": "TALK_DONE", "effect": "insult_combat" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_LANIUS",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "THRESH_DRAGONBLOOD",
+      "yes": "Well, seems you've put that information to good use yourself.  Or however you ended up completing the Dragonblood Sacrament.  What are you trying to accomplish here, hunter?",
+      "no": "Well there's a surprise.  Wonder which of you has gone astray, their bunch or yours?  Why would you come here to talk of making allies, when you're clearly here on a hunt?"
+    },
+    "responses": [
+      {
+        "text": "Is it not according to your nature, to use what you have learned to protect others?  The people here are on a path of self-destruction, we could be working together to protect all of humanity.",
+        "condition": { "u_has_trait": "THRESH_DRAGONBLOOD" },
+        "switch": true,
+        "trial": { "type": "PERSUADE", "difficulty": 40 },
+        "success": { "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_CONVINCE_FLAME", "opinion": { "trust": 1 } },
+        "failure": { "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_FAILURE_FLAME", "opinion": { "anger": 1, "trust": -1 } }
+      },
+      {
+        "text": "The one you follow is on a path only to failure.  If there are those who could be set right, then it is worth it to try.",
+        "switch": true,
+        "default": true,
+        "trial": { "type": "PERSUADE", "difficulty": 20 },
+        "success": { "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_CONVINCE_FLAME" },
+        "failure": { "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_FAILURE_FLAME", "opinion": { "anger": 1, "trust": -3, "value": -2 } }
+      },
+      { "text": "[ATTACK] Forget it.  Just shut up and die.", "topic": "TALK_DONE", "effect": "insult_combat" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_CONVINCE_FLAME",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "THRESH_DRAGONBLOOD",
+      "yes": "True.  Our purpose is to protect these idiots, but maybe it's time for a shift in priorities.  I'm willing to see where this goes.",
+      "no": "Perhaps you're right.  There are better ways to use what we've learned.  I suppose I'll trust you, hunter.  Might be interesting to see where this goes."
+    },
+    "responses": [
+      { "text": "Then come with me.", "topic": "TALK_AGREE_FOLLOW", "effect": "follow" },
+      { "text": "[ATTACK] I have a better idea.  Die.", "topic": "TALK_DONE", "effect": "insult_combat" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_FAILURE_FLAME",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "THRESH_DRAGONBLOOD",
+      "yes": "You have strayed, hunter.  Let me correct your course, to the grave.  Fight and die well, hunter.",
+      "no": "Enough.  You came here to fight and die, so fight and die well, hunter."
+    },
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_ELENA",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ],
+      "yes": "Really now?  I'm not sure which is more impressive, that her group is still out there, or that you managed to talk her into allying with you.  Expecting me to follow you?",
+      "no": "So she's still alive, huh?  This reeks of mage hunter business, but I'm aware her people have gone rogue too.  Interesting, but I still have my duties.  You expect me to abandon them?"
+    },
+    "responses": [
+      {
+        "text": "We all deserve a second chance.  We have an opportunity to set things right, to do what's best for humanity as a whole, not just ourselves.",
+        "condition": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ] },
+        "switch": true,
+        "trial": { "type": "PERSUADE", "difficulty": 45 },
+        "success": { "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_CONVINCE_FLAME", "opinion": { "trust": 1 } },
+        "failure": { "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_FAILURE_FLAME", "opinion": { "anger": 1, "trust": -1 } }
+      },
+      {
+        "text": "It's not right.  If we're tearing each other to pieces while the world is like this, we're all fucked.  We could be working together.",
+        "switch": true,
+        "default": true,
+        "trial": { "type": "PERSUADE", "difficulty": 50 },
+        "success": { "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_CONVINCE_BASIC" },
+        "failure": { "topic": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_FAILURE_BASIC", "opinion": { "anger": 1, "trust": -3, "value": -2 } }
+      },
+      { "text": "[ATTACK] I expect you to die.", "topic": "TALK_DONE", "effect": "insult_combat" }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_CONVINCE_BASIC",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_trait": "THRESH_DRAGONBLOOD",
+      "yes": "So you've dabbled in our art, Dragonblood, and seen potential in it?  And yet you're clearly here for blood too.  Maybe I like directing a little violence in the right direction though, so I might be willing to see where this goes.",
+      "no": "I like the way you think.  Small problem, killing's not over yet is it?  You came here with talk of setting things right, and yet you're here for blood.  I suppose the magus saying their way's the right way to fix things is just as foolish.  Fine, let's see where this goes."
+    },
+    "responses": [
+      { "text": "Come with me, then.", "topic": "TALK_AGREE_FOLLOW", "effect": "follow" },
+      {
+        "text": "[ATTACK] On second thought, I'd rather rearrange your face.",
+        "topic": "TALK_DONE",
+        "effect": "insult_combat"
+      }
+    ]
+  },
+  {
+    "id": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_FAILURE_BASIC",
+    "type": "talk_topic",
+    "dynamic_line": "Oh, how little you know of the things you've stumbled into.  All this talk of doing the right thing, when I can smell the blood on you.  At least we aren't deceiving ourselves about the nature of survival.  Enough talk.",
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
   },
   {
     "id": "TALK_BLOOD_MAGE_SHRIKE_ROGUE_ITS_TIME_TO_STOP",
@@ -227,7 +359,7 @@
   {
     "id": "BGSS_BLOOD_MAGE_2_IDEAS1",
     "type": "talk_topic",
-    "dynamic_line": "It wasn't anything supernatural, that much we're certain.  The Order had its suspicions that trouble was brewing, and we've been preparing for decades.  All the better to adapt and survive.  Still caught us a bit off-guard all the same, you don't just wake up one day and say \"today is the day it finally happens\" or anything like that.",
+    "dynamic_line": "It wasn't anything supernatural, of that much we're certain.  The Order had its suspicions that trouble was brewing, and we've been preparing for decades.  All the better to adapt and survive.  Still caught us a bit off-guard all the same, you don't just wake up one day and say \"today is the day it finally happens\" or anything like that.",
     "responses": [
       { "text": "Your order predicted this?", "topic": "BGSS_BLOOD_MAGE_2_IDEAS2" },
       { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
