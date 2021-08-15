@@ -1679,7 +1679,7 @@
       [ [ "battery_ups", 1 ] ],
       [ [ "e_scrap", 5 ] ],
       [ [ "flesh_weapon_kit", 1 ] ],
-      [ [ "flesh_pistol", 1 ] ]
+      [ [ "flesh_pistol", 1 ], [ "c_mi_go_beam_salvaged", 1 ] ]
     ]
   },
   {
@@ -1707,7 +1707,7 @@
       [ [ "battery_ups", 1 ] ],
       [ [ "e_scrap", 5 ] ],
       [ [ "flesh_weapon_kit", 1 ] ],
-      [ [ "flesh_pistol", 1 ] ]
+      [ [ "flesh_pistol", 1 ], [ "c_mi_go_beam_salvaged", 1 ] ]
     ]
   },
   {
@@ -1735,7 +1735,7 @@
       [ [ "battery_ups", 1 ] ],
       [ [ "e_scrap", 5 ] ],
       [ [ "flesh_weapon_kit", 1 ] ],
-      [ [ "flesh_pistol", 1 ] ]
+      [ [ "flesh_pistol", 1 ], [ "c_mi_go_beam_salvaged", 1 ] ]
     ]
   },
   {
@@ -1763,7 +1763,7 @@
       [ [ "battery_ups", 1 ] ],
       [ [ "e_scrap", 5 ] ],
       [ [ "flesh_weapon_kit", 1 ] ],
-      [ [ "flesh_pistol", 1 ] ]
+      [ [ "flesh_pistol", 1 ], [ "c_mi_go_beam_salvaged", 1 ] ]
     ]
   },
   {
@@ -1785,7 +1785,7 @@
       [ [ "bleach", 1 ], [ "oxy_powder", 100 ] ],
       [ [ "meat_tainted", 25 ], [ "slime_scrap", 5 ] ],
       [ [ "flesh_weapon_kit", 1 ] ],
-      [ [ "flesh_knife", 1 ] ]
+      [ [ "flesh_knife", 1 ], [ "c_mi_go_claw_salvaged", 1 ] ]
     ]
   },
   {
@@ -2496,5 +2496,105 @@
     ],
     "components": [ [ [ "iv_mutagen_alpha", 1 ] ], [ [ "iv_mutagen_medical", 1 ] ], [ [ "nanomaterial", 1 ], [ "bio_nanobots", 1 ] ] ],
     "flags": [ "SECRET" ]
+  },
+  {
+    "result": "c_mi_go_claw_salvaged",
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_CUTTING",
+    "skill_used": "fabrication",
+    "difficulty": 6,
+    "skills_required": [ [ "firstaid", 4 ], [ "cooking", 5 ], [ "melee", 2 ] ],
+    "time": "15 m",
+    "book_learn": [ [ "evil_invitation", 5 ], [ "recipe_lab_elec", 6 ], [ "recipe_creepy", 6 ], [ "recipe_labchem", 7 ] ],
+    "using": [ [ "c_resin_molding_standard", 1 ], [ "welding_standard", 10 ], [ "steel_standard", 1 ] ],
+    "qualities": [ { "id": "CUT_FINE", "level": 2 } ],
+    "components": [ [ [ "c_mi_go_claw_broken", 1 ] ] ]
+  },
+  {
+    "result": "c_alien_resin_bullet",
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_RANGED",
+    "skill_used": "fabrication",
+    "difficulty": 6,
+    "skills_required": [ [ "cooking", 5 ], [ "gun", 2 ] ],
+    "time": "5 m",
+    "batch_time_factors": [ 80, 4 ],
+    "book_learn": [ [ "evil_invitation", 5 ], [ "recipe_lab_elec", 6 ], [ "recipe_creepy", 6 ], [ "recipe_labchem", 7 ] ],
+    "using": [ [ "c_resin_molding_standard", 1 ] ],
+    "tools": [ [ [ "press", -1 ] ] ]
+  },
+  {
+    "result": "c_alien_resin_bullet",
+    "id_suffix": "pod",
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_RANGED",
+    "skill_used": "fabrication",
+    "difficulty": 5,
+    "skills_required": [ [ "gun", 2 ] ],
+    "time": "180 m",
+    "book_learn": [ [ "evil_invitation", 4 ], [ "recipe_lab_elec", 5 ], [ "recipe_creepy", 5 ], [ "recipe_labchem", 6 ] ],
+    "charges": 800,
+    "tools": [ [ [ "press", -1 ] ] ],
+    "components": [ [ [ "alien_pod_resin", 1 ] ] ]
+  },
+  {
+    "result": "c_mi_go_beam_salvaged",
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_RANGED",
+    "skill_used": "fabrication",
+    "difficulty": 7,
+    "skills_required": [ [ "firstaid", 4 ], [ "electronics", 3 ], [ "cooking", 5 ] ],
+    "time": "30 m",
+    "book_learn": [ [ "evil_invitation", 6 ], [ "recipe_lab_elec", 7 ], [ "recipe_creepy", 7 ], [ "recipe_labchem", 8 ] ],
+    "using": [ [ "c_resin_molding_standard", 2 ], [ "soldering_standard", 20 ], [ "steel_tiny", 1 ] ],
+    "qualities": [ { "id": "CUT_FINE", "level": 2 } ],
+    "components": [ [ [ "c_mi_go_beam_broken", 1 ] ], [ [ "power_supply", 1 ] ], [ [ "amplifier", 1 ] ], [ [ "cable", 20 ] ] ]
+  },
+  {
+    "result": "c_mi_go_rifle_salvaged",
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_RANGED",
+    "skill_used": "fabrication",
+    "difficulty": 7,
+    "skills_required": [ [ "firstaid", 4 ], [ "mechanics", 3 ], [ "cooking", 5 ] ],
+    "time": "60 m",
+    "book_learn": [ [ "evil_invitation", 6 ], [ "recipe_lab_elec", 7 ], [ "recipe_creepy", 7 ], [ "recipe_labchem", 8 ] ],
+    "using": [ [ "c_resin_molding_standard", 4 ], [ "welding_standard", 40 ], [ "steel_tiny", 4 ] ],
+    "qualities": [ { "id": "CUT_FINE", "level": 2 } ],
+    "components": [ [ [ "c_mi_go_rifle_broken", 1 ] ], [ [ "metal_tank_little", 1 ] ], [ [ "cu_pipe", 2 ] ], [ [ "pump_complex", 1 ] ] ]
+  },
+  {
+    "result": "c_mi_go_carapace_salvaged",
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_ARMOR",
+    "subcategory": "CSC_ARMOR_SUIT",
+    "skill_used": "fabrication",
+    "difficulty": 8,
+    "skills_required": [ [ "firstaid", 4 ], [ "electronics", 3 ], [ "mechanics", 3 ], [ "cooking", 5 ] ],
+    "time": "120 m",
+    "book_learn": [ [ "evil_invitation", 7 ], [ "recipe_lab_elec", 8 ], [ "recipe_creepy", 8 ], [ "recipe_labchem", 9 ] ],
+    "using": [ [ "c_resin_molding_standard", 8 ], [ "welding_standard", 40 ], [ "steel_standard", 5 ] ],
+    "qualities": [ { "id": "CUT_FINE", "level": 2 } ],
+    "components": [
+      [ [ "c_mi_go_carapace_broken", 1 ] ],
+      [ [ "power_supply", 1 ] ],
+      [ [ "medium_battery_cell", 1 ] ],
+      [ [ "ai_module_basic", 1 ] ],
+      [ [ "pump_complex", 1 ] ],
+      [ [ "cable", 80 ] ],
+      [ [ "wire", 5 ] ],
+      [ [ "meat_tainted", 25 ], [ "slime_scrap", 5 ] ]
+    ]
   }
 ]

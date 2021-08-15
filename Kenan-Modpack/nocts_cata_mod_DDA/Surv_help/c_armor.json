@@ -547,5 +547,79 @@
     "material_thickness": 1,
     "flags": [ "VARSIZE", "FANCY" ],
     "armor": [ { "encumbrance": 0, "coverage": 7, "covers": [ "leg_l", "leg_r" ] } ]
+  },
+  {
+    "id": "c_mi_go_carapace_salvaged",
+    "looks_like": "rm13_armor",
+    "type": "TOOL_ARMOR",
+    "category": "armor",
+    "symbol": "[",
+    "color": "green",
+    "name": { "str": "salvaged carapace armor" },
+    "description": "A vaguely human-shaped shell of alien sinew and steel support, covered in armor plates made of resin.  Effectively mutilated to fit a human (or mutant) wearer, somehow it's still functional, almost alive in fact.  Activating it will reduce the suit's encumbrance, enhance strength and dexterity, protect the wearer from toxic gas, serve as a rebreather, enhance stamina and carry capacity, and provide some protection from outside temperature.  It seems to recharge from sunlight, and being active will also gradually fatigue the user and affect healthiness, plus render them more vulnerable to electric shocks.",
+    "flags": [ "OVERSIZE", "STURDY", "OUTER", "HELMET_COMPAT", "SWIM_GOGGLES", "SUN_GLASSES" ],
+    "price_postapoc": "80 USD",
+    "material": [ "alien_resin", "flesh", "steel" ],
+    "weight": "20 kg",
+    "volume": "25 L",
+    "to_hit": -3,
+    "ammo": [ "battery" ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true,, "ammo_restriction": { "battery": 100 } } ],
+    "use_action": {
+      "type": "transform",
+      "msg": "The carapace comes to life, spiracles dilating as environmental seals close.",
+      "target": "c_mi_go_carapace_salvaged_on",
+      "active": true,
+      "need_charges": 1,
+      "need_charges_msg": "The carapace suit doesn't respond, evidently out of energy."
+    },
+    "relic_data": {
+      "charge_info": { "recharge_type": "solar_sunny", "time": "10 m", "regenerate_ammo": true },
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ACTIVE",
+          "values": [
+            { "value": "STRENGTH", "add": 2 },
+            { "value": "DEXTERITY", "add": 1 },
+            { "value": "ARMOR_ELEC", "multiply": 0.5 },
+            { "value": "CARRY_WEIGHT", "multiply": 1.0 }
+          ],
+          "ench_effects": [ { "effect": "c_mi_go_carapace_stamina", "intensity": 1 } ]
+        }
+      ]
+    },
+    "warmth": 10,
+    "environmental_protection": 5,
+    "material_thickness": 4,
+    "armor": [
+      {
+        "encumbrance": 30,
+        "coverage": 100,
+        "covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+      }
+    ]
+  },
+  {
+    "id": "c_mi_go_carapace_salvaged_on",
+    "copy-from": "c_mi_go_carapace_salvaged",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "salvaged carapace armor (on)" },
+    "description": "A vaguely human-shaped shell of alien sinew and steel support, covered in armor plates made of resin.  Salvaged using pre-cataclysm research into other living weaponry, it's been practically mutilated to fit a human (or mutant) wearer.  Activating it will reduce the suit's encumbrance, enhance strength and dexterity, protect the wearer from toxic gas, serve as a rebreather, enhance stamina and carry capacity, and provide some protection from outside temperature.  It seems to recharge from sunlight, and being active will also gradually fatigue the user and affect healthiness, plus render them more vulnerable to electric shocks.",
+    "turns_per_charge": 150,
+    "use_action": {
+      "target": "c_mi_go_carapace_salvaged",
+      "msg": "The suit's sinews go slack, releasing you from its grasp.",
+      "type": "transform"
+    },
+    "environmental_protection": 15,
+    "extend": { "flags": [ "WATERPROOF", "RAINPROOF", "CLIMATE_CONTROL", "GAS_PROOF", "REBREATHER" ] },
+    "armor": [
+      {
+        "encumbrance": 10,
+        "coverage": 100,
+        "covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+      }
+    ]
   }
 ]
