@@ -6,6 +6,7 @@ const buildInMods = [
   'More_Locations',
   'package_bionic_professions',
   'no_hope',
+  'oa_additional_buildings_mod',
   // 'Aftershock',
   // 'CRT_EXPANSION',
   // 'CrazyCataclysm',
