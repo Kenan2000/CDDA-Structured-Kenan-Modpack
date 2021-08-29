@@ -272,6 +272,42 @@
     "extend": { "flags": [ "NO_SALVAGE" ] }
   },
   {
+    "id": "lucern_hexenhammer",
+    "sub": "hexenhammer",
+    "type": "TOOL",
+    "category": "weapons",
+    "copy-from": "lucern_hammer",
+    "name": { "str": "luminous hammer" },
+    "description": "A mighty lucerne hammer, decorated with archaic Latin engravings and silver counterbalancing to make it more usable at close range.  Many magical items can be purified with this item.  Activating it can be used to create a powerful flash, capable of searing anyone in range.  Though the user will not take damage from it, they will still be blinded if lacking protection.  It could also be used to deploy a rune with a weaker stunning effect on whatever steps on it.",
+    "price": "1200 USD",
+    "price_postapoc": "120 USD",
+    "material": [ "wood", "steel", "silver" ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_dull_type": 10 } } ],
+    "charges_per_use": 10,
+    "ammo": "essence_dull_type",
+    "use_action": [
+      {
+        "type": "place_trap",
+        "allow_underwater": true,
+        "trap": "tr_arcana_item_hexenhammer",
+        "moves": 90,
+        "practice": 0,
+        "done_message": "You focus a fragment of the hammer's energy into a spell trap, waiting to be unleashed."
+      },
+      {
+        "type": "cast_spell",
+        "spell_id": "arcana_item_hammerzeit_greater",
+        "no_fail": true,
+        "need_wielding": true,
+        "level": 0
+      }
+    ],
+    "//": "Designed to be compatible with Via Gladium et Malleo, so the silver decoration is on the other end to shift the center of balance.  No damage bonus from the extra weight, but also no 0.7x melee damage from POLEARM flag.",
+    "relative": { "weight": "360 g", "to_hit": 1 },
+    "extend": { "flags": [ "NO_SALVAGE" ] },
+    "delete": { "flags": [ "ALWAYS_TWOHAND", "POLEARM" ] }
+  },
+  {
     "id": "spear_pestilence",
     "type": "TOOL",
     "copy-from": "spear_steel",
