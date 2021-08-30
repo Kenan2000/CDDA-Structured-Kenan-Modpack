@@ -84,4 +84,4 @@ Bright Nights modpack
 
 ## Link to my CDDA modding server 
 
-**https://discord.com/invite/xj9E3Sp**
+**https://discord.gg/sg5cM89Veb**
