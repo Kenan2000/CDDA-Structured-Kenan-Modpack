@@ -28,7 +28,7 @@
 
 ### Android手机版
 
-安装好实验版后（实验版下载地址 http://dev.narc.ro/cataclysm/jenkins-latest/Android/Tiles/ ），打开游戏，然后用文件管理新建这个文件夹：
+安装好实验版后（实验版下载地址 https://github.com/CleverRaven/Cataclysm-DDA/releases ），打开游戏，然后用文件管理新建这个文件夹：
 
 `/storage/emulated/0/Android/data/com.cleverraven.cataclysmdda.experimental/files/mods`
 
