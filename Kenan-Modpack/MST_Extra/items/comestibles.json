@@ -161,5 +161,25 @@
     "//": "Not millable as it requires a bit more drying to make into flour, and there may be technical issues if allowed to process less calorie-dense material into flour.",
     "flags": [ "EDIBLE_FROZEN", "NUTRIENT_OVERRIDE" ],
     "vitamins": [ [ "vitC", 1 ], [ "vitA", 3 ] ]
+  },
+  {
+    "type": "COMESTIBLE",
+    "id": "potted_meat",
+    "copy-from": "pemmican",
+    "name": { "str_sp": "potted meat" },
+    "conditional_names": [
+      { "type": "FLAG", "condition": "CANNIBALISM", "name": { "str_sp": "potted person" } },
+      { "type": "COMPONENT_ID", "condition": "mutant", "name": { "str_sp": "potted freak" } }
+    ],
+    "weight": "310 g",
+    "container": "can_medium",
+    "calories": 503,
+    "description": "Meat cooked and preserved in butter or melted fat, a form of food preservation from the days before canning.  Also known as confit.  Rich and fattening, it will last for a long time.",
+    "price": "12 USD",
+    "price_postapoc": "4 USD",
+    "material": [ "flesh" ],
+    "vitamins": [ [ "vitA", 7 ], [ "vitC", 16 ], [ "calcium", 2 ], [ "iron", 69 ], [ "vitB", 781 ] ],
+    "fun": 1,
+    "extend": { "flags": [ "EATEN_HOT" ] }
   }
 ]
