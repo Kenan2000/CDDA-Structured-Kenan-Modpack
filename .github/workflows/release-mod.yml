@@ -60,6 +60,16 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: false
+          automatic_release_tag: "latest"
+          title: 'CDDA-Kenan-Mod合集汉化版 ${{ steps.time.outputs.time }}'
+          files: |
+            Kenan-Modpack-Mod汉化版.zip
+      - name: Release Mod
+        uses: marvinpinto/action-automatic-releases@v1.2.1
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: true
+          automatic_release_tag: "archive-${{ steps.time.outputs.time }}"
           title: 'CDDA-Kenan-Mod合集汉化版 ${{ steps.time.outputs.time }}'
           files: |
             Kenan-Modpack-Mod汉化版.zip
