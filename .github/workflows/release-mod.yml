@@ -53,7 +53,7 @@ jobs:
         id: get-timestamp
         uses: nanzm/get-time-action@v1.1
         with:
-          timeZone: 0
+          timeZone: 8
           format: 'YYYY-MM-DD-HHmm'
       - name: Release Mod
         uses: marvinpinto/action-automatic-releases@v1.2.1
@@ -64,6 +64,10 @@ jobs:
           title: 'CDDA-Kenan-Mod合集汉化版 ${{ steps.time.outputs.time }}'
           files: |
             Kenan-Modpack-Mod汉化版.zip
+      - name: Generate environmental variables
+        id: generate_env_vars
+        run: |
+          echo "archive-${{ steps.time.outputs.time }}"
       - name: Release Mod
         uses: marvinpinto/action-automatic-releases@v1.2.1
         with:
