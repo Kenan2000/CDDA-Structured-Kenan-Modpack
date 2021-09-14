@@ -1,6 +1,10 @@
 # CDDA-Kenan-Modpack CDDA Kenan Mod 合集的汉化
 
-[打开下载页](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/tag/latest)
+[打开最新实验版Mod下载页](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/tag/latest)
+
+[0.F-2](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/tag/0.f-2)
+
+[0.E-3](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/tag/0.e-3)
 
 ## Mod文件放置位置
 
