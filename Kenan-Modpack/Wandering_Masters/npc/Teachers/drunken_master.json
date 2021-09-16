@@ -386,13 +386,13 @@
     "has_generic_rewards": false,
     "name": { "str": "Ingredients for liquor" },
     "description": "Gather <color_light_blue>20 ammonium nitrate</color>, <color_light_blue>0.3L gasoline</color>, <color_light_blue>15 hops</color>, <color_light_blue>5 <zombie> pheromone</color>.",
+    "//": "pheromone has been removed, this mission needs reworking.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "and": [
         { "u_has_items": { "item": "chem_ammonium_nitrate", "count": 20 } },
         { "u_has_items": { "item": "gasoline", "count": 300 } },
-        { "u_has_items": { "item": "hops", "count": 15 } },
-        { "u_has_items": { "item": "pheromone", "count": 5 } }
+        { "u_has_items": { "item": "hops", "count": 15 } }
       ]
     },
     "difficulty": 0,
@@ -402,7 +402,6 @@
         { "u_consume_item": "chem_ammonium_nitrate", "count": 20 },
         { "u_consume_item": "gasoline", "count": 300 },
         { "u_consume_item": "hops", "count": 15 },
-        { "u_consume_item": "pheromone", "count": 5 },
         { "npc_add_var": "master_mission", "type": "count", "context": "mission", "value": "2" },
         { "npc_add_var": "wait_time", "type": "general", "context": "brew", "time": true },
         { "npc_add_var": "wait", "type": "general", "context": "brew", "value": "yes" }
