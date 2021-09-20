@@ -62,7 +62,7 @@
     "material": [ "flesh" ],
     "color": "light_gray",
     "//": "As noted with wearable trinkets made from monsterparts, these are post-cata only.",
-    "price_postapoc": 250,
+    "price_postapoc": "250 cent",
     "use_action": {
       "type": "musical_instrument",
       "volume": 12,
@@ -85,7 +85,7 @@
     "description": "A small talisman made out of some form of otherworldly bone or ivory, carved with equally unearthly iconography.",
     "weight": "38 g",
     "volume": "50 ml",
-    "price_postapoc": 200,
+    "price_postapoc": "2 USD",
     "material": [ "bone" ],
     "symbol": ",",
     "looks_like": "small_relic",
@@ -303,7 +303,7 @@
       }
     ],
     "//": "Designed to be compatible with Via Gladium et Malleo, so the silver decoration is on the other end to shift the center of balance.  No damage bonus from the extra weight, but also no 0.7x melee damage from POLEARM flag.",
-    "relative": { "weight": "360 g", "to_hit": 1 },
+    "relative": { "weight": "450 g", "to_hit": 1 },
     "extend": { "flags": [ "NO_SALVAGE" ] },
     "delete": { "flags": [ "ALWAYS_TWOHAND", "POLEARM" ] }
   },
@@ -1815,7 +1815,7 @@
     "type": "TOOL",
     "category": "weapons",
     "name": { "str": "moonstone fang" },
-    "description": "A short, curved spike made of a white opalescent gemstone, richly engraved with swirling serpentine imagery.  Wielding it grant a minor life-draining touch and potentially blind attackers with magic, but it will sicken body and mind.  Invoking it will harden the body against cold.",
+    "description": "A short, curved spike made of a white opalescent gemstone, richly engraved with swirling serpentine imagery.  Wielding it grant a minor life-draining touch and potentially blind attackers with magic, but it will sicken body and mind.  Activating it will additionally harden the body against cold, draining essence over time.",
     "weight": "160 g",
     "volume": "1500 ml",
     "longest_side": "30 cm",
@@ -1830,7 +1830,6 @@
     "repairs_like": "blood_athame",
     "color": "dark_gray",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_type": 8 } } ],
-    "charges_per_use": 1,
     "ammo": "essence_type",
     "techniques": [ "RAPID", "DEF_DISARM" ],
     "qualities": [ [ "BUTCHER", 6 ] ],
@@ -1847,17 +1846,38 @@
               "message": "Wisps of shadow lash out at %2$s",
               "npc_message": "Wisps of shadow jump from %1$s to %2$s."
             }
-          ],
-          "//intermittent_activation": { "effects": [ { "frequency": "5 minutes", "spell_effects": [ { "id": "arcana_react_moonstone_touch" } ] } ] }
-        }
+          ]
+        },
+        { "has": "WIELD", "condition": "ACTIVE", "ench_effects": [ { "effect": "cold_ward_true", "intensity": 1 } ] }
       ]
     },
     "use_action": {
-      "type": "consume_drug",
-      "activation_message": "The carvings in the stone glow blue for a brief moment, and an uncomfortable warmth spreads through your body.",
-      "effects": [ { "id": "cold_ward_true", "duration": 1800 } ]
+      "target": "moonstone_fang_on",
+      "msg": "The carvings in the stone glow blue for a brief moment, and an uncomfortable warmth spreads through your body.",
+      "active": true,
+      "need_worn": true,
+      "need_charges": 1,
+      "need_charges_msg": "Essence shall draw out the fang's protective magic.",
+      "menu_text": "Activate ward against cold",
+      "type": "transform"
     },
     "flags": [ "STAB", "SHEATH_KNIFE", "TRADER_KEEP_EQUIPPED" ]
+  },
+  {
+    "id": "moonstone_fang_on",
+    "type": "TOOL",
+    "copy-from": "moonstone_fang",
+    "repairs_like": "moonstone_fang",
+    "name": { "str": "moonstone fang (on)", "str_pl": "moonstone fangs (on)" },
+    "description": "A short, curved spike made of a white opalescent gemstone, richly engraved with swirling serpentine imagery.  In addition to its life-draining strikes and blinding attackers, it is currently protecting you against the cold.  It can't be released until deactivated, however.",
+    "turns_per_charge": 300,
+    "revert_to": "moonstone_fang",
+    "use_action": {
+      "target": "moonstone_fang",
+      "msg": "The fang's unnatural glow fades, its protective magic with it.",
+      "type": "transform"
+    },
+    "extend": { "flags": [ "TRADER_AVOID", "NO_UNWIELD" ] }
   },
   {
     "id": "veilblade",

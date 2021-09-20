@@ -584,8 +584,8 @@
     "type": "TOOL_ARMOR",
     "category": "clothing",
     "name": { "str": "jade wreath" },
-    "description": "A crown of dark green stone with strange geometric patterns carved into it.  Invoking it will harden the body against flame and heat.",
-    "//": "The shrine lesser artifacts are all pre-cataclysm items.",
+    "description": "A crown of dark green stone with strange geometric patterns carved into it.  Activating it will harden the body against flame and heat, consuming blood essence while it's in effect.",
+    "//": "The shrine lesser artifacts are all post-cataclysm items.",
     "price_postapoc": "100 USD",
     "weight": "600 g",
     "volume": "3 L",
@@ -597,23 +597,49 @@
     "repairs_like": "revenant_crown",
     "color": "green",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_blood_type": 30 } } ],
-    "charges_per_use": 3,
     "ammo": "essence_blood_type",
     "material_thickness": 1,
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ACTIVE",
+          "values": [ { "value": "ARMOR_HEAT", "multiply": -1.0 } ],
+          "ench_effects": [ { "effect": "heat_ward_true", "intensity": 1 } ]
+        }
+      ]
+    },
     "use_action": {
-      "type": "consume_drug",
-      "activation_message": "The carvings in the stone glow red for a brief moment, and a chill passes through your spine.",
-      "effects": [ { "id": "heat_ward_true", "duration": 1800 } ]
+      "target": "jade_wreath_on",
+      "msg": "The carvings in the stone glow red for a brief moment, and a chill passes through your spine.",
+      "active": true,
+      "need_worn": true,
+      "need_charges": 1,
+      "need_charges_msg": "Fuel the wreath with essence of blood.",
+      "menu_text": "Activate ward against flame",
+      "type": "transform"
     },
     "flags": [ "BELTED", "OVERSIZE", "ALLOWS_NATURAL_ATTACKS", "TRADER_KEEP_EQUIPPED" ],
     "armor": [ { "encumbrance": 10, "coverage": 20, "covers": [ "head" ] } ]
+  },
+  {
+    "id": "jade_wreath_on",
+    "type": "TOOL_ARMOR",
+    "copy-from": "jade_wreath",
+    "repairs_like": "jade_wreath",
+    "name": { "str": "jade wreath (on)", "str_pl": "jade wreaths (on)" },
+    "description": "A crown of dark green stone with strange geometric patterns carved into it.  It is currently active, completely protecting you against heat and flame.",
+    "turns_per_charge": 100,
+    "revert_to": "jade_wreath",
+    "use_action": { "target": "jade_wreath", "msg": "The glowing carvings on the jade wreath fade.", "type": "transform" },
+    "extend": { "flags": [ "CLIMATE_CONTROL", "TRADER_AVOID", "NO_TAKEOFF" ] }
   },
   {
     "id": "meteoric_talisman",
     "type": "TOOL_ARMOR",
     "name": { "str": "meteoric talisman" },
     "category": "armor",
-    "description": "An ornate necklace with a small charm resembling a round shield, made from a hard iridescent metal.  Wearing and activating it will ward against electricity, but also slow the body.",
+    "description": "An ornate necklace with a small charm resembling a round shield, made from a hard iridescent metal.  Activating it will ward against electricity, consuming dull essence while active.",
     "weight": "60 g",
     "volume": "250 ml",
     "price_postapoc": "100 USD",
@@ -623,14 +649,37 @@
     "repairs_like": "mana_gem",
     "color": "light_gray",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_dull_type": 60 } } ],
-    "charges_per_use": 30,
     "ammo": "essence_dull_type",
     "use_action": {
-      "type": "consume_drug",
-      "activation_message": "As you activate the talisman, you feel insulated in a strange manner.",
-      "effects": [ { "id": "lightning_ward_true", "duration": 1800 } ]
+      "target": "meteoric_talisman_on",
+      "msg": "As you activate the talisman, you feel insulated in a strange manner.",
+      "active": true,
+      "need_worn": true,
+      "need_charges": 1,
+      "need_charges_msg": "The talisman requires dull essence.",
+      "menu_text": "Activate lightning ward",
+      "type": "transform"
+    },
+    "relic_data": {
+      "passive_effects": [ { "has": "WORN", "condition": "ACTIVE", "ench_effects": [ { "effect": "lightning_ward_true", "intensity": 1 } ] } ]
     },
     "flags": [ "FANCY", "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ]
+  },
+  {
+    "id": "meteoric_talisman_on",
+    "type": "TOOL_ARMOR",
+    "copy-from": "meteoric_talisman",
+    "repairs_like": "meteoric_talisman",
+    "name": { "str": "meteoric talisman (on)", "str_pl": "meteoric talismans (on)" },
+    "description": "An ornate necklace with a small charm resembling a round shield, made from a hard iridescent metal.  It is currently activate, insulating you against electrical attacks.",
+    "turns_per_charge": 10,
+    "revert_to": "meteoric_talisman",
+    "use_action": {
+      "target": "meteoric_talisman",
+      "msg": "The insulated feeling fades as the talisman deactivates.",
+      "type": "transform"
+    },
+    "extend": { "flags": [ "TRADER_AVOID", "NO_TAKEOFF" ] }
   },
   {
     "id": "cleric_ring",
@@ -638,20 +687,39 @@
     "copy-from": "ruby_silver_ring",
     "repairs_like": "orb_veil",
     "name": { "str": "ring of the fallen angel", "str_pl": "rings of the fallen angel" },
-    "description": "A simple silver ring, adorned with a small red gem and a wing motif.  Using it channels an extremely powerful protective spell, guarding against many forms of physical and supernatural harm.",
+    "description": "A simple silver ring, adorned with a small red gem and a wing motif.  Using it channels an extremely powerful protective spell, guarding against blade, bullet, and many forms of supernatural harm.",
     "//": "While unassuming, those who knew what rituals it was useful for would value it highly.  Those people are probably now dead.",
     "price": "3600 USD",
     "price_postapoc": "150 USD",
     "material": [ "silver", "essencemat" ],
     "color": "white",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_type": 8 } } ],
-    "charges_per_use": 3,
     "ammo": "essence_type",
     "use_action": {
-      "type": "consume_drug",
-      "activation_message": "A strange energy radiates from the ring's gem, spreading a calming sensation over you.",
-      "effects": [ { "id": "cleric_warding_true", "duration": 1800 } ]
+      "target": "cleric_ring_on",
+      "msg": "A strange energy radiates from the ring's gem, spreading a calming sensation over you.",
+      "active": true,
+      "need_worn": true,
+      "need_charges": 1,
+      "need_charges_msg": "Provide essence, and the fallen angel shall spread its wings.",
+      "menu_text": "Activate holy ward",
+      "type": "transform"
+    },
+    "relic_data": {
+      "passive_effects": [ { "has": "WORN", "condition": "ACTIVE", "ench_effects": [ { "effect": "cleric_warding_true", "intensity": 1 } ] } ]
     },
     "extend": { "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED", "PSYSHIELD_PARTIAL" ] }
+  },
+  {
+    "id": "cleric_ring_on",
+    "type": "TOOL_ARMOR",
+    "copy-from": "cleric_ring",
+    "repairs_like": "cleric_ring",
+    "name": { "str": "ring of the fallen angel (on)", "str_pl": "rings of the fallen angel (on)" },
+    "description": "A simple silver ring, adorned with a small red gem and a wing motif.  The wings encircle the gem and shimmer with an eerie pale glow, its protective magic protecting against blade, bullet, and various anomalous influences.",
+    "turns_per_charge": 300,
+    "revert_to": "cleric_ring",
+    "use_action": { "target": "cleric_ring", "msg": "The ring's energy fades, returning to normal.", "type": "transform" },
+    "extend": { "flags": [ "TRADER_AVOID", "NO_TAKEOFF" ] }
   }
 ]

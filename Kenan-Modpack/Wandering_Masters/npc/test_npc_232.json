@@ -81,7 +81,7 @@
       { "text": "About that jobs!", "topic": "TALK_MISSION_LIST_ASSIGNED" },
       { "text": "About that one job!", "topic": "TALK_MISSION_INQUIRE" },
       { "text": "Test missions", "topic": "TALK_MISSION_LIST" },
-      { "text": "Test npc_buy", "topic": "test_232_give", "effect": [ { "u_buy_item": "manual_niten" } ] },
+      { "text": "Test npc_buy", "topic": "test_232_give", "effect": [ { "u_spawn_item": "manual_niten" } ] },
       {
         "text": "Test Johnny's debt.",
         "topic": "TALK_DONE",
@@ -170,7 +170,7 @@
     "count": 20,
     "difficulty": 0,
     "value": 0,
-    "end": { "effect": { "u_buy_item": "feces_dog", "count": 1 } },
+    "end": { "effect": { "u_spawn_item": "feces_dog", "count": 1 } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_test_232_1",
     "dialogue": {
@@ -184,7 +184,7 @@
       "success_lie": "0",
       "failure": "0"
     },
-    "fail": { "effect": { "u_buy_item": "feces_dog" } }
+    "fail": { "effect": { "u_spawn_item": "feces_dog" } }
   },
   {
     "id": "MISSION_test_232_1",
@@ -206,7 +206,7 @@
         "place_npcs": [ { "class": "NPC_moneylender_goon", "x": [ 10, 16 ], "y": 9, "target": true } ]
       }
     },
-    "end": { "effect": { "u_buy_item": "feces_dog" } },
+    "end": { "effect": { "u_spawn_item": "feces_dog" } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_test_232_2",
     "dialogue": {
@@ -220,7 +220,7 @@
       "success_lie": "1",
       "failure": "1"
     },
-    "fail": { "effect": { "u_buy_item": "feces_dog", "count": 2 } }
+    "fail": { "effect": { "u_spawn_item": "feces_dog", "count": 2 } }
   },
   {
     "id": "MISSION_test_232_2",
@@ -232,7 +232,7 @@
     "goal_condition": { "u_has_var": "test_232_test", "type": "general", "context": "meeting", "value": "yes" },
     "difficulty": 0,
     "value": 0,
-    "end": { "effect": { "u_buy_item": "feces_dog", "count": 3 } },
+    "end": { "effect": { "u_spawn_item": "feces_dog", "count": 3 } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_test_232_3",
     "dialogue": {
@@ -246,7 +246,7 @@
       "success_lie": "-",
       "failure": "-"
     },
-    "fail": { "effect": { "u_buy_item": "feces_dog" } }
+    "fail": { "effect": { "u_spawn_item": "feces_dog" } }
   },
   {
     "id": "MISSION_test_232_3",
@@ -260,7 +260,7 @@
     "value": 0,
     "deadline_low": 3,
     "deadline_high": 3,
-    "end": { "effect": { "u_buy_item": "feces_dog", "count": 4 } },
+    "end": { "effect": { "u_spawn_item": "feces_dog", "count": 4 } },
     "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "-",
@@ -292,7 +292,7 @@
     "difficulty": 0,
     "value": 0,
     "start": { "effect": { "npc_add_var": "test_232_test_time", "type": "general", "context": "meeting", "time": true } },
-    "end": { "effect": { "u_buy_item": "feces_dog", "count": 7 } },
+    "end": { "effect": { "u_spawn_item": "feces_dog", "count": 7 } },
     "deadline_low": 1,
     "deadline_high": 1,
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -308,6 +308,6 @@
       "success_lie": "-",
       "failure": "-"
     },
-    "fail": { "effect": { "u_buy_item": "feces_dog" } }
+    "fail": { "effect": { "u_spawn_item": "feces_dog" } }
   }
 ]
