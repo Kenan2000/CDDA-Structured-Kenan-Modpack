@@ -498,7 +498,7 @@
     "item": "arcana_radio_relay_beacon",
     "origins": [ "ORIGIN_SECONDARY" ],
     "start": {
-      "assign_mission_target": { "om_terrain": "station_radio_1", "reveal_radius": 3, "cant_see": true },
+      "assign_mission_target": { "om_terrain": "station_radio_1", "reveal_radius": 3 },
       "update_mapgen": [
         { "mapgen_update_id": "arcana_radio_station" },
         { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_9_a" },
@@ -555,7 +555,7 @@
     "dialogue": {
       "describe": "Grant us strength...",
       "offer": "During our journey we've seen scattered evidence of some hazards still afflicting certain areas, former hotspots of anomalous activity now made even more dangerous, ever since holes in reality began opening up.  With the rest of us focused on rebuilding and securing the area, I would like to ask your assistance with investigating one such location, and retrieving an artifact of historical importance believed to be lost there.",
-      "accepted": "Thank you.  I will direct you to the location, if you've not seen it for yourself.  Decades ago the place was inhabited, but now the place seems to be overgrown and infested with monsters.  Do what you must to cleanse the place.  Dii vult.",
+      "accepted": "Thank you.  I will direct you to the location, if you've not seen it for yourself.  Decades ago the place was inhabited, but now the place seems to be overgrown and infested with monsters.  Do what you must to cleanse the place, and retrieve what the texts called a bane staff.  Dii vult.",
       "rejected": "When you believe you are ready, talk to me again.  The longer these old places linger without being dealt with, the more of a threat they may become.",
       "advice": "The extent to which the place has overgrown is unnatural.  I would expect monsters comfortable among greenery to be the most common threat, and we have reason to believe something large has taken root there.  Beyond that, I can tell you little of the history behind that place, Sofia might know more.",
       "inquire": "How goes the hunt?",
@@ -588,7 +588,7 @@
     },
     "dialogue": {
       "describe": "Grant us strength...",
-      "offer": "I believe I can now trust you with a more dangerous, yet also more vital, task.  In the past we had few dedicated safehouses, most of us were hosted in the rural homes and churches of our brethren and those they could trust.  Only one place was truly built by our hand, and it suffered the same strange occurrences so many other places suffered during zero hour.  The handful of survivors to flee brought with them tales of living fire and otherworldly horror, warping the very stones underneath the sanctum.  If you believe yourself ready, I would like you to lead a hunt to cleanse it.",
+      "offer": "I believe I can now trust you with a more dangerous, yet also more vital, task.  In the past we had few dedicated safehouses, most of us were hosted in the rural homes and churches of our brethren and those they could trust.  Only one place was truly built by our hand, and it suffered the same strange occurrences so many other places suffered during zero hour.  The handful of survivors to flee brought with them tales of living fire and otherworldly horror, warping the very stones underneath the sanctum.  If you believe yourself ready, I would like you to lead a hunt to cleanse it, and take the demon's claws as proof of the hunt.",
       "accepted": "By Thor and The God In Three Persons both, may you be victorious.  The evil lurking there was described as wielding a clawed weapon that warped The Veil itself with hellfire, until it was struck from its fiery grasp by a lucky strike.  They were able to seal it behind a barrier with one of our swords as the keystone, and you will need to undo the seal to confront it.  If you can retrieve that infernal weapon in your hunt, we will be able to destroy it safely.  I would commit a full hunting party if only we could spare anyone.  Dii vult!",
       "rejected": "Understood.  This task is dangerous, and the seal they set up shouldn't be undone unless you're prepared to see it through to the end.  Speak with me when you see fit.",
       "advice": "Bring any assistance you can, and expect all manner of abominations to have followed that thing through the wounds in The Veil.  Be prepared for infernal fire, any magic or equipment that would safeguard against flame would help.  Do as best as you can to assemble a proper hunting party, but sadly we are stretched thin as it is.",
@@ -665,7 +665,7 @@
     "has_generic_rewards": false,
     "start": {
       "effect": [ { "u_add_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" } ],
-      "assign_mission_target": { "om_terrain": "forest", "reveal_radius": 3, "random": true, "cant_see": true, "search_range": 50, "min_distance": 20 },
+      "assign_mission_target": { "om_terrain": "forest", "reveal_radius": 3, "random": true, "search_range": 50, "min_distance": 20 },
       "update_mapgen": {
         "set": [
           { "square": "terrain", "id": "t_region_groundcover_forest", "x": 4, "x2": 19, "y": 4, "y2": 19 },
@@ -748,7 +748,6 @@
         "om_terrain_replace": "field",
         "reveal_radius": 5,
         "random": true,
-        "cant_see": true,
         "search_range": 90,
         "min_distance": 20
       },
@@ -889,7 +888,6 @@
         "om_terrain_replace": "field",
         "reveal_radius": 3,
         "random": true,
-        "cant_see": true,
         "search_range": 90,
         "min_distance": 10
       }
@@ -924,14 +922,7 @@
     "has_generic_rewards": false,
     "origins": [ "ORIGIN_SECONDARY" ],
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "new_anomaly_w",
-        "om_terrain_replace": "field",
-        "random": true,
-        "cant_see": true,
-        "search_range": 60,
-        "min_distance": 10
-      },
+      "assign_mission_target": { "om_terrain": "new_anomaly_w", "om_terrain_replace": "field", "random": true, "search_range": 60, "min_distance": 10 },
       "update_mapgen": [
         {
           "om_terrain": "new_anomaly_w",
