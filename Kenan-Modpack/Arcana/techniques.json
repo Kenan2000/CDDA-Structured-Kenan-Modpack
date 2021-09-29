@@ -4,13 +4,32 @@
     "id": "tec_cleansingflame_interial_sweep",
     "name": "Inertial Sweep",
     "messages": [ "You drive your weapon's momentum into a sweeping strike at %s", "<npcname> delivers a sweeping strike to %s" ],
-    "skill_requirements": [ { "name": "melee", "level": 4 } ],
+    "skill_requirements": [ { "name": "bashing", "level": 4 } ],
+    "weapon_damage_requirements": [ { "type": "bash", "min": 20 } ],
     "melee_allowed": true,
     "req_buffs": [ "buff_cleansingflame_onattack" ],
     "aoe": "wide",
     "crit_tec": true,
     "weighting": 3,
     "down_dur": 2,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.8 } ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_cleansingflame_blade_flare",
+    "name": "Blade Flare",
+    "messages": [
+      "You drive your momentum into %s and send a pulse of energy through them",
+      "<npcname> drives their weapon hard into %s"
+    ],
+    "skill_requirements": [ { "name": "cutting", "level": 4 }, { "name": "magic", "level": 5 } ],
+    "weapon_damage_requirements": [ { "type": "cut", "min": 20 } ],
+    "melee_allowed": true,
+    "req_buffs": [ "buff_cleansingflame_onattack" ],
+    "aoe": "impale",
+    "crit_tec": true,
+    "weighting": 3,
+    "stun_dur": 2,
     "mult_bonuses": [ { "stat": "movecost", "scale": 0.8 } ]
   },
   {
@@ -49,7 +68,8 @@
     "dodge_counter": true,
     "crit_ok": true,
     "stun_dur": 2,
-    "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 }, { "stat": "arpen", "type": "bash", "scale": 5 } ]
+    "flat_bonuses": [ { "stat": "arpen", "type": "bash", "scale": 5 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 } ]
   },
   {
     "type": "technique",
@@ -62,7 +82,8 @@
     "block_counter": true,
     "crit_ok": true,
     "stun_dur": 2,
-    "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 }, { "stat": "arpen", "type": "cut", "scale": 5 } ]
+    "flat_bonuses": [ { "stat": "arpen", "type": "cut", "scale": 5 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 } ]
   },
   {
     "type": "technique",
@@ -75,7 +96,55 @@
     "crit_ok": true,
     "stun_dur": 2,
     "down_dur": 2,
+    "flat_bonuses": [ { "stat": "arpen", "type": "bash", "scale": 5 } ],
     "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 } ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_shrike_crit",
+    "name": "Harrying Blow",
+    "messages": [ "You stagger %s with your strike", "<npcname> staggers %s with their strike" ],
+    "skill_requirements": [ { "name": "melee", "level": 3 } ],
+    "melee_allowed": true,
+    "unarmed_allowed": true,
+    "unarmed_weapons_allowed": false,
+    "req_buffs": [ "buff_shrike_onattack1" ],
+    "crit_tec": true,
+    "stun_dur": 2
+  },
+  {
+    "type": "technique",
+    "id": "tec_shrike_counter",
+    "name": "Deflection",
+    "messages": [ "You deflect the strike and send %s to the ground with their momentum", "<npcname> blocks and floors %s" ],
+    "skill_requirements": [ { "name": "melee", "level": 5 } ],
+    "melee_allowed": true,
+    "block_counter": true,
+    "unarmed_allowed": true,
+    "unarmed_weapons_allowed": false,
+    "crit_ok": true,
+    "down_dur": 2,
+    "stun_dur": 2,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.0 } ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_shrike_finisher",
+    "name": "Sundering Talons",
+    "messages": [ "You lash out at %s with a vicious strike", "<npcname> lashes out at %s with a vicious strike" ],
+    "skill_requirements": [ { "name": "melee", "level": 5 }, { "name": "magic", "level": 4 } ],
+    "melee_allowed": true,
+    "unarmed_allowed": true,
+    "unarmed_weapons_allowed": false,
+    "req_buffs": [ "buff_shrike_oncrit" ],
+    "stunned_target": true,
+    "crit_ok": true,
+    "weighting": 3,
+    "flat_bonuses": [
+      { "stat": "arpen", "type": "cut", "scaling-stat": "dex", "scale": 1.0 },
+      { "stat": "arpen", "type": "stab", "scaling-stat": "dex", "scale": 1.0 }
+    ],
+    "mult_bonuses": [ { "stat": "damage", "type": "cut", "scale": 1.5 }, { "stat": "damage", "type": "stab", "scale": 1.5 } ]
   },
   {
     "type": "technique",
