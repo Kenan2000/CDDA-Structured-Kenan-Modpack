@@ -5,7 +5,7 @@
     "name": { "str": "Spearfighting" },
     "description": "The art of pointy sticks. Based on Piercing Weapons skill, most effective against groups of enemies.",
     "initiate": [ "You prepare to skewer your enemies.", "%s gets ready to make shish kebabs." ],
-    "autolearn": [ [ "stabbing", "1" ] ],
+    "autolearn": [ [ "stabbing", 1 ] ],
     "primary_skill": "stabbing",
     "allow_melee": true,
     "static_buffs": [
@@ -220,7 +220,7 @@
     "id": "abspear_cow",
     "name": "You Fight Like A Cow",
     "melee_allowed": true,
-    "req_buffs": [ "buff_dairyfarmer_onmiss" ],
+    "required_buffs_all": [ "buff_dairyfarmer_onmiss" ],
     "mult_bonuses": [ { "stat": "hit", "scale": 1.2 } ],
     "messages": [ "How appropriate, you fight like a cow!", "%s fights like a cow." ],
     "description": "Miss recovery"
@@ -229,7 +229,7 @@
     "type": "technique",
     "id": "abspear_annihilated",
     "name": "Every Enemy Ive Met Ive Annihilated",
-    "req_buffs": [ "buff_dairyfarmer_onmiss" ],
+    "required_buffs_all": [ "buff_dairyfarmer_onmiss" ],
     "skill_requirements": [ { "name": "stabbing", "level": 10 } ],
     "mult_bonuses": [ { "stat": "damage", "type": "stab", "scale": 99 }, { "stat": "hit", "scale": 99 } ],
     "messages": [ "With your breath, they probably suffocated!", "%s has bad breath" ],
@@ -240,7 +240,7 @@
     "id": "abspear_charge",
     "name": "Charge Attack",
     "melee_allowed": true,
-    "req_buffs": [ "buff_charge_onmove" ],
+    "required_buffs_all": [ "buff_charge_onmove" ],
     "mult_bonuses": [ { "stat": "arpen", "type": "stab", "scale": 5 }, { "stat": "damage", "type": "stab", "scale": 2 } ],
     "messages": [ "You charge at %s and skewer them", "<npcname> charges %s." ],
     "description": "Charge attack"
@@ -250,7 +250,7 @@
     "id": "abspear_kebab",
     "name": "Shish Kebab",
     "melee_allowed": true,
-    "req_buffs": [ "buff_charge_onmove" ],
+    "required_buffs_all": [ "buff_charge_onmove" ],
     "mult_bonuses": [ { "stat": "arpen", "type": "stab", "scale": 5 }, { "stat": "damage", "type": "stab", "scale": 2 } ],
     "aoe": "impale",
     "messages": [
@@ -264,7 +264,7 @@
     "id": "abspear_clothesline",
     "name": "Clothesline",
     "melee_allowed": true,
-    "req_buffs": [ "buff_charge_onmove" ],
+    "required_buffs_all": [ "buff_charge_onmove" ],
     "mult_bonuses": [ { "stat": "arpen", "type": "bash", "scale": 5 }, { "stat": "damage", "type": "bash", "scale": 2 } ],
     "aoe": "spin",
     "down_dur": 2,
