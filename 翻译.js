@@ -521,7 +521,12 @@ function getFileJSON(inspectData, parentPath = '') {
   if (inspectData.type === 'file') {
     if (inspectData.name.endsWith('json')) {
       // JSON 文件
-      return { ...inspectData, content: JSON.parse(fs.read(filePath)), filePath };
+      try {
+        return { ...inspectData, content: JSON.parse(fs.read(filePath)), filePath };
+      } catch (error) {
+        console.error(filePath, error.message);
+        process.exit(-1);
+      }
     } else {
       // png 贴图等
       return { ...inspectData, rawContent: fs.read(filePath, 'buffer'), filePath };
@@ -854,7 +859,7 @@ ${getItemBrowserLink(fullItem)}`
       } else {
         await dynamicLine(line.yes);
       }
-    } 
+    }
     if (typeof line.no === 'string') {
       line.no = await translateFunction(line.no);
     } else if (typeof line.no === 'object') {
@@ -1037,15 +1042,18 @@ ${getItemBrowserLink(fullItem)}`
 
     if (Array.isArray(item.decay_messages) && Array.isArray(item.decay_messages[0])) {
       item.decay_messages = await Promise.all(
-        item.decay_messages.map((msgGroup) => Promise.all(msgGroup.map((msg) =>{
-        if (msg !== "good" && msg !== "bad" && msg !== "neutral" && msg !== "mixed")
-          return translateFunction(msg);
-        else
-          return msg;
-        } )))
+        item.decay_messages.map((msgGroup) =>
+          Promise.all(
+            msgGroup.map((msg) => {
+              if (msg !== 'good' && msg !== 'bad' && msg !== 'neutral' && msg !== 'mixed')
+                return translateFunction(msg);
+              else return msg;
+            })
+          )
+        )
       );
     }
- 
+
     if (Array.isArray(item.miss_messages) && Array.isArray(item.miss_messages[0])) {
       item.miss_messages = await Promise.all(
         item.miss_messages.map((msgGroup) => Promise.all(msgGroup.map((msg) => translateFunction(msg))))
