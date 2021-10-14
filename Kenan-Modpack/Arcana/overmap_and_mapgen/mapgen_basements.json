@@ -97,8 +97,8 @@
         { "item": "note_flame_tenet", "x": 11, "y": 2, "chance": 90 },
         { "group": "cleansing_flame_spells", "x": 11, "y": 2, "chance": 10 },
         { "group": "cleansing_flame_casualties_basement", "x": [ 2, 20 ], "y": [ 1, 10 ], "chance": 50, "repeat": 4 },
-        { "group": "cleansing_flame_books", "x": 2, "y": [ 1, 5 ], "chance": 50, "repeat": 5 },
-        { "group": "cleansing_flame_books", "x": 20, "y": [ 1, 5 ], "chance": 50, "repeat": 5 },
+        { "group": "cleansing_flame_books_postapoc", "x": 2, "y": [ 1, 5 ], "chance": 50, "repeat": 5 },
+        { "group": "cleansing_flame_books_postapoc", "x": 20, "y": [ 1, 5 ], "chance": 50, "repeat": 5 },
         { "item": "book_syncretism", "x": 20, "y": [ 1, 5 ], "chance": 5 },
         { "group": "cleansing_flame_gear_consumables", "x": [ 2, 6 ], "y": 11, "chance": 30, "repeat": 3 },
         { "group": "cleansing_flame_crafting", "x": [ 16, 20 ], "y": 11, "chance": 50, "repeat": 5 },
@@ -210,7 +210,7 @@
         { "group": "reading_lights", "x": 20, "y": 7, "chance": 90 },
         { "group": "cannedfood", "x": [ 13, 17 ], "y": 1, "chance": 75, "repeat": 5 },
         { "group": "homebooks", "x": 20, "y": [ 1, 5 ], "chance": 75, "repeat": 6 },
-        { "group": "unaligned_arcanist_books", "x": 20, "y": [ 1, 5 ], "chance": 50, "repeat": 6 },
+        { "group": "unaligned_arcanist_books_postapoc", "x": 20, "y": [ 1, 5 ], "chance": 50, "repeat": 6 },
         { "group": "magic_crafting", "x": 3, "y": [ 6, 10 ], "chance": 35, "repeat": 8 },
         { "group": "magic_consumables", "x": 20, "y": 10, "chance": 50, "repeat": 3 },
         { "item": "book_syncretism", "x": 20, "y": 10, "chance": 75 },
@@ -369,7 +369,7 @@
           "items": [
             { "item": "rural_church_hunter_haul", "chance": 50 },
             { "item": "arcana_hunt_random", "chance": 10 },
-            { "item": "magic_books", "chance": 10 },
+            { "item": "magic_books_postapoc", "chance": 10 },
             { "item": "rural_church_farmhand_research", "chance": 10 }
           ]
         }
@@ -449,7 +449,7 @@
           "items": [
             { "item": "rural_church_hunter_haul", "chance": 50 },
             { "item": "arcana_hunt_random", "chance": 10 },
-            { "item": "magic_books", "chance": 10 },
+            { "item": "magic_books_postapoc", "chance": 10 },
             { "item": "rural_church_farmhand_research", "chance": 10 }
           ]
         }
@@ -651,7 +651,7 @@
             { "item": "butcher_tools", "chance": 50 },
             { "item": "magic_crafting", "chance": 50 },
             { "item": "arcana_hunt_random", "chance": 25 },
-            { "item": "magic_books", "chance": 10 }
+            { "item": "magic_books_postapoc", "chance": 10 }
           ]
         },
         "U": {
@@ -754,7 +754,13 @@
       "furniture": { "?": "f_sofa" },
       "mapping": {
         ".": { "item": { "item": "rock", "chance": 5 } },
-        "]": { "furniture": "f_bookcase", "items": { "item": "mansion_bookcase", "chance": 100 } },
+        "]": {
+          "furniture": "f_bookcase",
+          "items": [
+            { "item": "cleansing_flame_books_postapoc", "chance": 80 },
+            { "item": "cleansing_flame_books_postapoc", "chance": 60 }
+          ]
+        },
         "d": { "item": [ { "item": "CF_golden_scale" }, { "item": "book_magicfordummies" }, { "item": "note_soa_mission" } ] },
         "C": { "items": [ { "item": "tools_survival", "chance": 50 }, { "item": "tools_robotics", "chance": 50 } ] }
       },
@@ -822,7 +828,7 @@
         "f": { "item": "fridge", "chance": 70 }
       },
       "place_loot": [
-        { "group": "cleansing_flame_books", "x": [ 13, 15 ], "y": [ 19, 20 ], "chance": 60, "repeat": 5 },
+        { "group": "cleansing_flame_books_postapoc", "x": [ 13, 15 ], "y": [ 19, 20 ], "chance": 60, "repeat": 5 },
         { "item": "note_flame_tenet", "x": [ 13, 15 ], "y": [ 19, 20 ] },
         { "item": "arcanemap", "x": [ 13, 15 ], "y": [ 19, 20 ], "chance": 25 },
         { "group": "cleansing_flame_gear_consumables", "x": 10, "y": [ 18, 20 ], "chance": 30, "repeat": 4 },
