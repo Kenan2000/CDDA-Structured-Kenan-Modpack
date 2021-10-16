@@ -1711,7 +1711,7 @@
     "category": "weapons",
     "name": { "str": "meteoric verge" },
     "description": "A short wooden staff, entirely covered in decorative motifs worked from a symbol of judgment.  The symbol's otherworldly presence is still evident in the twisted, flame-like prongs now entwined around a charm of dark, iridescent metal.  Using it will allow you to smite enemies with lightning, protecting you from electrical harm briefly as well.  It can also be used to place a rune that will blast an area with lightning if something steps on it.",
-    "weight": "3935 g",
+    "weight": "1585 g",
     "to_hit": 1,
     "volume": "2500 ml",
     "longest_side": "60 cm",
@@ -1815,7 +1815,7 @@
     "type": "TOOL",
     "category": "weapons",
     "name": { "str": "moonstone fang" },
-    "description": "A short, curved spike made of a white opalescent gemstone, richly engraved with swirling serpentine imagery.  Wielding it grant a minor life-draining touch and potentially blind attackers with magic, but it will sicken body and mind.  Activating it will additionally harden the body against cold, draining essence over time.",
+    "description": "A short, curved spike made of a white opalescent gemstone, richly engraved with swirling serpentine imagery.  Wielding it grant a minor life-draining touch and potentially blind attackers with magic, but it can sicken body and mind.  Activating it will additionally harden the body against cold, draining essence over time.",
     "weight": "160 g",
     "volume": "1500 ml",
     "longest_side": "30 cm",
@@ -1838,7 +1838,7 @@
         {
           "has": "WIELD",
           "condition": "ALWAYS",
-          "hit_you_effect": [ { "id": "arcana_react_drain_life", "once_in": 5 } ],
+          "hit_you_effect": [ { "id": "arcana_react_drain_life", "once_in": 5 }, { "id": "arcana_react_moonstone_touch", "once_in": 10 } ],
           "hit_me_effect": [
             {
               "id": "arcana_react_shadowy_shield",
@@ -1959,7 +1959,7 @@
           "mutations": [ "ARCANA_BERSERK_EFFECT" ],
           "values": [ { "value": "STRENGTH", "add": 4 }, { "value": "DEXTERITY", "add": 2 } ],
           "hit_you_effect": [ { "id": "arcana_react_drain_life_improved" } ],
-          "//intermittent_activation": { "effects": [ { "frequency": "10 minutes", "spell_effects": [ { "id": "arcana_react_evil_mimic" } ] } ] }
+          "intermittent_activation": { "effects": [ { "frequency": "10 minutes", "spell_effects": [ { "id": "arcana_react_evil_mimic" } ] } ] }
         }
       ]
     },
@@ -2012,7 +2012,7 @@
           "mutations": [ "ARCANA_BERSERK_EFFECT" ],
           "values": [ { "value": "STRENGTH", "add": 4 }, { "value": "DEXTERITY", "add": 2 } ],
           "hit_you_effect": [ { "id": "arcana_react_drain_life_improved" } ],
-          "//intermittent_activation": { "effects": [ { "frequency": "10 minutes", "spell_effects": [ { "id": "arcana_react_evil_mimic" } ] } ] }
+          "intermittent_activation": { "effects": [ { "frequency": "10 minutes", "spell_effects": [ { "id": "arcana_react_evil_mimic" } ] } ] }
         }
       ]
     },

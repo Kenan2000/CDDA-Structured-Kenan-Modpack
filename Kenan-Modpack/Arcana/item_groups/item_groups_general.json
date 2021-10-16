@@ -11,6 +11,7 @@
     "subtype": "collection",
     "entries": [
       { "group": "clothing_outdoor_set", "damage": [ 1, 4 ] },
+      { "group": "unaligned_arcanist_books", "prob": 50 },
       { "group": "magic_consumables", "prob": 25 },
       { "group": "magic_crafting", "prob": 25 },
       { "item": "bone_human", "prob": 100, "count": [ 3, 9 ] }
@@ -22,6 +23,7 @@
     "subtype": "collection",
     "entries": [
       { "group": "clothing_outdoor_set", "damage": [ 1, 4 ] },
+      { "group": "unaligned_arcanist_books_postapoc", "prob": 50 },
       { "group": "magic_consumables", "prob": 25 },
       { "group": "magic_crafting", "prob": 25 },
       { "item": "corpse_painful", "damage": 4 }
@@ -197,10 +199,43 @@
   {
     "id": "magic_books_rare",
     "type": "item_group",
+    "items": [ [ "manual_cleansingflame", 60 ], [ "manual_shrike", 40 ] ]
+  },
+  {
+    "id": "magic_books_postapoc",
+    "type": "item_group",
+    "items": [
+      [ "book_magicfordummies", 15 ],
+      [ "book_potioncraft", 15 ],
+      [ "book_scrollcraft", 10 ],
+      [ "book_summoning", 5 ],
+      [ "book_hexenhammer", 15 ],
+      [ "book_bloodmagic", 15 ],
+      [ "book_sacrifice", 15 ],
+      { "group": "magic_books_rare_postapoc", "prob": 10 }
+    ]
+  },
+  {
+    "id": "magic_books_rare_postapoc",
+    "type": "item_group",
     "items": [ [ "book_syncretism", 50 ], [ "manual_cleansingflame", 20 ], [ "manual_shrike", 20 ], [ "recipe_lab_arcana", 10 ] ]
   },
   {
     "id": "unaligned_arcanist_books",
+    "type": "item_group",
+    "items": [
+      [ "novel_drama", 5 ],
+      [ "novel_experimental", 5 ],
+      [ "philosophy_book", 15 ],
+      [ "poetry_book", 10 ],
+      [ "book_potioncraft", 25 ],
+      [ "book_scrollcraft", 20 ],
+      [ "book_summoning", 10 ],
+      [ "book_magicfordummies", 10 ]
+    ]
+  },
+  {
+    "id": "unaligned_arcanist_books_postapoc",
     "type": "item_group",
     "items": [
       [ "novel_drama", 5 ],
@@ -357,7 +392,7 @@
       { "group": "lab_misc_anomalous_items", "prob": 2 },
       { "group": "lab_magitech_bionics", "prob": 3 },
       { "group": "lab_magitech_other", "prob": 5 },
-      { "group": "magic_books", "prob": 5 },
+      { "group": "magic_books_postapoc", "prob": 5 },
       { "group": "supplies_mechanics", "prob": 10 },
       { "group": "arcana_hunt_random", "prob": 10 },
       { "group": "magic_tools", "prob": 5 }
