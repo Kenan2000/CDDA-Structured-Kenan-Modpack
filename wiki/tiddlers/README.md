@@ -1,5 +1,9 @@
 # CDDA-Kenan-Modpack CDDA Kenan Mod 合集的汉化
 
+|                                                                         [最新版下载按钮 Download](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/latest)                                                                         |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![GitHub Releases](https://img.shields.io/github/downloads/linonetwo/CDDA-Kenan-Modpack-Chinese/latest/total?label=Download%20Latest%20Release&style=for-the-badge)](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/latest) |
+
 [打开最新实验版Mod下载页](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/tag/latest)
 
 [0.F-2](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/tag/0.f-2)
