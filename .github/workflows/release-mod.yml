@@ -55,15 +55,6 @@ jobs:
         with:
           timeZone: 8
           format: 'YYYY-MM-DD-HHmm'
-      - name: Release Mod
-        uses: marvinpinto/action-automatic-releases@v1.2.1
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          prerelease: false
-          automatic_release_tag: "latest"
-          title: 'CDDA-Kenan-Mod合集汉化版 ${{ steps.time.outputs.time }}'
-          files: |
-            Kenan-Modpack-Mod汉化版.zip
       - name: Echo environmental variables
         id: generate_env_vars
         run: |
