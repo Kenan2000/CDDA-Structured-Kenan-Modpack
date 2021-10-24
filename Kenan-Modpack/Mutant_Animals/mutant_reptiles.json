@@ -2,22 +2,16 @@
   {
     "abstract": "mon_snake_mutant",
     "type": "MONSTER",
-    "name": {
-      "str": "mutant snake"
-    },
+    "name": { "str": "mutant snake" },
     "description": "A mutating snake.",
     "default_faction": "small_animal",
-    "species": [
-      "MUTANT"
-    ],
+    "species": [ "MUTANT" ],
     "diff": 1,
     "volume": "750 ml",
     "weight": "1000 g",
     "hp": 12,
     "speed": 90,
-    "material": [
-      "flesh"
-    ],
+    "material": [ "flesh" ],
     "symbol": "s",
     "color": "brown",
     "aggression": -50,
@@ -30,49 +24,26 @@
     "vision_day": 30,
     "vision_night": 5,
     "harvest": "animal_noskin",
-    "anger_triggers": [
-      "HURT"
-    ],
-    "fear_triggers": [
-      "PLAYER_CLOSE"
-    ],
-    "placate_triggers": [
-      "PLAYER_WEAK"
-    ],
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "SWIMS"
-    ]
+    "anger_triggers": [ "HURT" ],
+    "fear_triggers": [ "PLAYER_CLOSE" ],
+    "placate_triggers": [ "PLAYER_WEAK" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "SWIMS" ]
   },
   {
     "id": "mon_snake_sick_molting",
     "copy-from": "mon_snake_mutant",
     "type": "MONSTER",
-    "name": {
-      "str": "molting snake"
-    },
+    "name": { "str": "molting snake" },
     "description": "A mutating snake shedding its dried epidermis.  Although vulnerable and weak, this snake still has a venomous bite.",
     "color": "light_green",
-    "upgrades": {
-      "half_life": 30,
-      "into_group": "GROUP_SNAKE_MUTANT"
-    },
-    "extend": {
-      "flags": [
-        "VENOM"
-      ]
-    }
+    "upgrades": { "half_life": 30, "into_group": "GROUP_SNAKE_MUTANT" },
+    "extend": { "flags": [ "VENOM" ] }
   },
   {
     "id": "mon_snake_mutant_jaculus",
     "copy-from": "mon_snake_mutant",
     "type": "MONSTER",
-    "name": {
-      "str": "jaculus",
-      "str_pl": "jaculi"
-    },
+    "name": { "str": "jaculus", "str_pl": "jaculi" },
     "description": "A mutated snake grown to the size of a python.  It can launch itself at its prey by uncoiling its body like a giant spring.",
     "volume": "62500 ml",
     "weight": "81500 g",
@@ -87,40 +58,18 @@
     "aggression": 50,
     "morale": 50,
     "vision_night": 5,
-    "anger_triggers": [
-      "PLAYER_WEAK"
-    ],
-    "fear_triggers": [
-      "FIRE"
-    ],
-    "placate_triggers": [
-      "MEAT"
-    ],
-    "attack_effs": [
-      {
-        "id": "grabbed",
-        "duration": 1000,
-        "bp": "torso"
-      }
-    ],
+    "anger_triggers": [ "PLAYER_WEAK" ],
+    "fear_triggers": [ "FIRE" ],
+    "placate_triggers": [ "MEAT" ],
+    "attack_effs": [ { "id": "grabbed", "duration": 1000, "bp": "torso" } ],
     "special_attacks": [
-      {
-        "type": "leap",
-        "cooldown": 20,
-        "max_range": 15
-      },
+      { "type": "leap", "cooldown": 20, "max_range": 15 },
       {
         "type": "monster_attack",
         "attack_type": "melee",
         "cooldown": 15,
         "move_cost": 100,
-        "damage_max_instance": [
-          {
-            "damage_type": "bash",
-            "amount": 25,
-            "armor_multiplier": 0.5
-          }
-        ],
+        "damage_max_instance": [ { "damage_type": "bash", "amount": 25, "armor_multiplier": 0.5 } ],
         "hit_dmg_u": "The %1$s strangles you with it's body!",
         "hit_dmg_npc": "The %1$s strangles <npcname> with it's body!",
         "miss_msg_u": "The %s tries to strangle you, but you dodge!",
@@ -132,9 +81,7 @@
     "id": "mon_snake_mutant_bone",
     "copy-from": "mon_snake_mutant",
     "type": "MONSTER",
-    "name": {
-      "str": "bone snake"
-    },
+    "name": { "str": "bone snake" },
     "description": "A mutated snake grown to the size of python.  Bone plates cover its body and it bites with a hard beak as well as venomous fangs.",
     "harvest": "animal_boneplate",
     "volume": "62500 ml",
@@ -152,32 +99,16 @@
     "color": "white",
     "aggression": 30,
     "morale": 50,
-    "anger_triggers": [
-      "PLAYER_CLOSE"
-    ],
-    "fear_triggers": [
-      "FIRE",
-      "SOUND",
-      "HURT"
-    ],
-    "placate_triggers": [
-      "MEAT"
-    ],
-    "attack_effs": [
-      {
-        "id": "poison",
-        "chance": 25,
-        "duration": 100
-      }
-    ]
+    "anger_triggers": [ "PLAYER_CLOSE" ],
+    "fear_triggers": [ "FIRE", "SOUND", "HURT" ],
+    "placate_triggers": [ "MEAT" ],
+    "attack_effs": [ { "id": "poison", "chance": 25, "duration": 100 } ]
   },
   {
     "id": "mon_snake_mutant_frostbite",
     "copy-from": "mon_snake_mutant",
     "type": "MONSTER",
-    "name": {
-      "str": "frostbite snake"
-    },
+    "name": { "str": "frostbite snake" },
     "description": "A mutated snake armed with a powerful poison.  Its bite causes flesh to wither and die, similar to a case of frostbite.",
     "hp": 20,
     "melee_skill": 6,
@@ -189,25 +120,15 @@
     "color": "cyan",
     "aggression": 50,
     "morale": 10,
-    "attack_effs": [
-      {
-        "id": "frostbite",
-        "chance": 50,
-        "duration": 100
-      }
-    ]
+    "attack_effs": [ { "id": "frostbite", "chance": 50, "duration": 100 } ]
   },
   {
     "id": "mon_frog_devil",
     "copy-from": "mon_frog_giant",
     "type": "MONSTER",
-    "name": {
-      "str": "devil frog"
-    },
+    "name": { "str": "devil frog" },
     "description": "A mutated bullfrog with jagged teeth and horms.  Its bright red skin is said to produce hallucinagenic toxins.",
-    "species": [
-      "ABERRATION"
-    ],
+    "species": [ "ABERRATION" ],
     "hp": 200,
     "speed": 100,
     "symbol": "D",
@@ -224,49 +145,22 @@
     "armor_bullet": 6,
     "vision_day": 50,
     "vision_night": 10,
-    "upgrades": {
-      "half_life": 364,
-      "into": "mon_gamma_toad"
-    },
+    "upgrades": { "half_life": 364, "into": "mon_gamma_toad" },
     "special_attacks": [
-      [
-        "SMASH",
-        100
-      ],
-      [
-        "RANGED_PULL",
-        10
-      ],
-      [
-        "GRAB_DRAG",
-        10
-      ],
-      {
-        "type": "leap",
-        "cooldown": 10,
-        "max_range": 10,
-        "allow_no_target": false
-      }
+      [ "SMASH", 100 ],
+      [ "RANGED_PULL", 10 ],
+      [ "GRAB_DRAG", 10 ],
+      { "type": "leap", "cooldown": 10, "max_range": 10, "allow_no_target": false }
     ],
-    "flags": [
-      "BASHES",
-      "SEES",
-      "SMELLS",
-      "HEARS",
-      "SWIMS"
-    ]
+    "flags": [ "BASHES", "SEES", "SMELLS", "HEARS", "SWIMS" ]
   },
   {
     "id": "mon_gamma_toad",
     "type": "MONSTER",
     "copy-from": "mon_frog_giant",
-    "name": {
-      "str": "gamma-toad"
-    },
+    "name": { "str": "gamma-toad" },
     "description": "A common toad that has mutated into a huge radioactive monstrosity.  It pulses with heat, energy, and malice.",
-    "species": [
-      "ABERRATION"
-    ],
+    "species": [ "ABERRATION" ],
     "diff": 8,
     "volume": "875000 ml",
     "weight": "200000 g",
@@ -288,32 +182,13 @@
     "armor_bullet": 6,
     "vision_day": 50,
     "vision_night": 10,
-    "emit_fields": [
-      "emit_nuclear_trail"
-    ],
+    "emit_fields": [ "emit_nuclear_trail" ],
     "special_attacks": [
-      [
-        "SHOCKSTORM",
-        300
-      ],
-      [
-        "SMASH",
-        30
-      ],
-      [
-        "RANGED_PULL",
-        10
-      ],
-      [
-        "GRAB_DRAG",
-        10
-      ],
-      {
-        "type": "leap",
-        "cooldown": 10,
-        "max_range": 10,
-        "allow_no_target": false
-      }
+      [ "SHOCKSTORM", 300 ],
+      [ "SMASH", 30 ],
+      [ "RANGED_PULL", 10 ],
+      [ "GRAB_DRAG", 10 ],
+      { "type": "leap", "cooldown": 10, "max_range": 10, "allow_no_target": false }
     ],
     "death_drops": "gamma_toad_death_drops",
     "flags": [

@@ -2,25 +2,17 @@
   {
     "id": "dkz_mon_lurker_sewer",
     "type": "MONSTER",
-    "name": {
-      "str": "sewer lurker"
-    },
+    "name": { "str": "sewer lurker" },
     "description": "A dripping creature, a serpentine body with a mass of tentacles attached to a gnashing maw, this thing seems to have found its home among trash and sewage.  It is an ambush predator, preferring to lurk just beneath the cloudy water before something comes close enough to snag with its long tentacles.",
     "default_faction": "lurker",
     "bodytype": "spider",
-    "categories": [
-      "ALIEN"
-    ],
-    "species": [
-      "WILDALIEN"
-    ],
+    "categories": [ "ALIEN" ],
+    "species": [ "WILDALIEN" ],
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 150,
     "speed": 120,
-    "material": [
-      "flesh"
-    ],
+    "material": [ "flesh" ],
     "symbol": "&",
     "color": "green_white",
     "aggression": 25,
@@ -33,66 +25,33 @@
     "armor_cut": 2,
     "harvest": "zombie_leather",
     "special_attacks": [
-      [
-        "RANGED_PULL",
-        20
-      ],
-      [
-        "GRAB_DRAG",
-        3
-      ],
+      [ "RANGED_PULL", 20 ],
+      [ "GRAB_DRAG", 3 ],
       {
         "type": "bite",
         "infection_chance": 50,
-        "damage_max_instance": [
-          {
-            "damage_type": "stab",
-            "amount": 10,
-            "armor_multiplier": 0.8
-          }
-        ],
+        "damage_max_instance": [ { "damage_type": "stab", "amount": 10, "armor_multiplier": 0.8 } ],
         "cooldown": 10
       }
     ],
-    "anger_triggers": [
-      "PLAYER_CLOSE",
-      "PLAYER_WEAK"
-    ],
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "WARM",
-      "KEENNOSE",
-      "SWIMS",
-      "AQUATIC",
-      "POISON",
-      "HARDTOSHOOT"
-    ]
+    "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "KEENNOSE", "SWIMS", "AQUATIC", "POISON", "HARDTOSHOOT" ]
   },
   {
     "id": "dkz_mon_lurker",
     "type": "MONSTER",
-    "name": {
-      "str": "swamp lurker"
-    },
+    "name": { "str": "swamp lurker" },
     "description": "A long, serpentine body, dark and murky just like the waters it inhabits.  Tendrils trail behind it, framing innumerable teeth in a gnashing central mouth.  It prefers to lurk just below the surface, drifting and still like an unassuming piece of flotsam until something gets too close.",
     "looks_like": "dkz_mon_lurker_sewer",
     "default_faction": "lurker",
     "bodytype": "spider",
-    "categories": [
-      "ALIEN"
-    ],
-    "species": [
-      "WILDALIEN"
-    ],
+    "categories": [ "ALIEN" ],
+    "species": [ "WILDALIEN" ],
     "volume": "92500 ml",
     "weight": "120 kg",
     "hp": 250,
     "speed": 90,
-    "material": [
-      "flesh"
-    ],
+    "material": [ "flesh" ],
     "symbol": "&",
     "color": "light_blue_white",
     "aggression": 10,
@@ -104,48 +63,19 @@
     "armor_cut": 18,
     "harvest": "zombie_leather",
     "special_attacks": [
-      [
-        "GRAB_DRAG",
-        3
-      ],
+      [ "GRAB_DRAG", 3 ],
       {
         "type": "bite",
         "damage_max_instance": [
-          {
-            "damage_type": "stab",
-            "amount": 12,
-            "armor_multiplier": 0.7
-          },
-          {
-            "damage_type": "bash",
-            "amount": 9,
-            "armor_multiplier": 0.7
-          }
+          { "damage_type": "stab", "amount": 12, "armor_multiplier": 0.7 },
+          { "damage_type": "bash", "amount": 9, "armor_multiplier": 0.7 }
         ],
-        "effects": [
-          {
-            "id": "grabbed",
-            "duration": 1000,
-            "bp": "torso"
-          }
-        ],
+        "effects": [ { "id": "grabbed", "duration": 1000, "bp": "torso" } ],
         "cooldown": 10
       }
     ],
-    "anger_triggers": [
-      "PLAYER_CLOSE",
-      "PLAYER_WEAK"
-    ],
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "WARM",
-      "KEENNOSE",
-      "SWIMS",
-      "AQUATIC",
-      "POISON"
-    ]
+    "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "KEENNOSE", "SWIMS", "AQUATIC", "POISON" ]
   },
   {
     "id": "dkz_mon_mossliz",
@@ -154,19 +84,13 @@
     "description": "A cow-sized reptoid, covered in what appears to be a thick layer of mossy vegetation and rocks.  It trudges about the landscape on sturdy legs, foraging whatever flora it can reach with sharp little teeth.  It doesn't seem to mind you too much.",
     "default_faction": "packliz",
     "bodytype": "gator",
-    "categories": [
-      "ALIEN"
-    ],
-    "species": [
-      "WILDALIEN"
-    ],
+    "categories": [ "ALIEN" ],
+    "species": [ "WILDALIEN" ],
     "volume": "92500 ml",
     "weight": "120 kg",
     "hp": 150,
     "speed": 80,
-    "material": [
-      "flesh"
-    ],
+    "material": [ "flesh" ],
     "symbol": "L",
     "color": "green",
     "aggression": -15,
@@ -180,47 +104,17 @@
     "armor_cut": 4,
     "vision_night": 35,
     "harvest": "mutant_animal_large_noskin",
-    "path_settings": {
-      "max_dist": 5
-    },
-    "special_attacks": [
-      {
-        "type": "bite",
-        "cooldown": 6
-      },
-      [
-        "EAT_FOOD",
-        40
-      ]
-    ],
-    "anger_triggers": [
-      "HURT"
-    ],
-    "fear_triggers": [
-      "FIRE"
-    ],
-    "placate_triggers": [
-      "MEAT",
-      "PLAYER_WEAK"
-    ],
+    "path_settings": { "max_dist": 5 },
+    "special_attacks": [ { "type": "bite", "cooldown": 6 }, [ "EAT_FOOD", 40 ] ],
+    "anger_triggers": [ "HURT" ],
+    "fear_triggers": [ "FIRE" ],
+    "placate_triggers": [ "MEAT", "PLAYER_WEAK" ],
     "petfood": {
-      "food": [
-        "CATTLEFOOD"
-      ],
+      "food": [ "CATTLEFOOD" ],
       "feed": "The %s seems to like you! It lets you pat its head and seems friendly.",
       "pet": "The %s happily wags its tail while you pat their head."
     },
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "WARM",
-      "KEENNOSE",
-      "PATH_AVOID_DANGER_1",
-      "ANIMAL",
-      "PET_WONT_FOLLOW",
-      "PET_MOUNTABLE"
-    ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "KEENNOSE", "PATH_AVOID_DANGER_1", "ANIMAL", "PET_WONT_FOLLOW", "PET_MOUNTABLE" ]
   },
   {
     "id": "dkz_mon_packliz",
@@ -229,19 +123,13 @@
     "description": "A slim reptoid about the size of a big dog, with a thick mane of what looks like rather pretty orange-blue 'feathers' around its head.  Frond-like protrusions grow from the top of its head down to the base of its tail, glowing faintly when in the presence of other members of its pack.",
     "default_faction": "packliz",
     "bodytype": "gator",
-    "categories": [
-      "ALIEN"
-    ],
-    "species": [
-      "WILDALIEN"
-    ],
+    "categories": [ "ALIEN" ],
+    "species": [ "WILDALIEN" ],
     "volume": "52500 ml",
     "weight": "63525 g",
     "hp": 100,
     "speed": 110,
-    "material": [
-      "flesh"
-    ],
+    "material": [ "flesh" ],
     "symbol": "L",
     "aggression": 25,
     "morale": 70,
@@ -256,38 +144,13 @@
     "vision_day": 40,
     "vision_night": 30,
     "harvest": "mutant_animal_large_noskin",
-    "path_settings": {
-      "max_dist": 10
-    },
-    "special_attacks": [
-      [
-        "scratch",
-        10
-      ],
-      {
-        "type": "bite",
-        "cooldown": 5
-      },
-      [
-        "EAT_FOOD",
-        20
-      ]
-    ],
-    "anger_triggers": [
-      "PLAYER_CLOSE",
-      "FRIEND_ATTACKED",
-      "HURT"
-    ],
-    "fear_triggers": [
-      "FIRE"
-    ],
-    "placate_triggers": [
-      "MEAT"
-    ],
+    "path_settings": { "max_dist": 10 },
+    "special_attacks": [ [ "scratch", 10 ], { "type": "bite", "cooldown": 5 }, [ "EAT_FOOD", 20 ] ],
+    "anger_triggers": [ "PLAYER_CLOSE", "FRIEND_ATTACKED", "HURT" ],
+    "fear_triggers": [ "FIRE" ],
+    "placate_triggers": [ "MEAT" ],
     "petfood": {
-      "food": [
-        "DOGFOOD"
-      ],
+      "food": [ "DOGFOOD" ],
       "feed": "The %s seems to like you! It lets you pat its head and seems friendly.",
       "pet": "The %s happily wags its tail while you pat their head."
     },
@@ -309,84 +172,47 @@
   {
     "id": "dkz_mon_wisp",
     "type": "MONSTER",
-    "name": {
-      "str_sp": "wisp"
-    },
+    "name": { "str_sp": "wisp" },
     "description": "A small, fist sized critter that looks like a floating slug covered in bio-luminescent markings, capable of limited flight through utilization of membranous, wing-like protrusions and the secretion of a faint white mist.  It is most commonly found around floating around dead leaves, rotten fruits, and other substances in small, communal groups.  It regards you with curiosity, and occasionally flashes its markings as if it is communicating among its fellows.",
     "bodytype": "blob",
     "default_faction": "alien_herbivore",
-    "categories": [
-      "ALIEN"
-    ],
-    "species": [
-      "WILDALIEN"
-    ],
+    "categories": [ "ALIEN" ],
+    "species": [ "WILDALIEN" ],
     "volume": "650 ml",
     "weight": "715 g",
     "hp": 4,
     "speed": 25,
-    "material": [
-      "flesh"
-    ],
+    "material": [ "flesh" ],
     "symbol": "o",
     "color": "cyan",
     "luminance": 5,
     "aggression": -99,
     "morale": 0,
     "dodge": 4,
-    "fear_triggers": [
-      "SOUND",
-      "FIRE",
-      "FRIEND_DIED",
-      "FRIEND_ATTACKED",
-      "HURT"
-    ],
-    "death_function": {
-      "corpse_type": "NO_CORPSE",
-      "message": "The %s melts away."
-    },
+    "fear_triggers": [ "SOUND", "FIRE", "FRIEND_DIED", "FRIEND_ATTACKED", "HURT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "petfood": {
-      "food": [
-        "CATFOOD"
-      ],
+      "food": [ "CATFOOD" ],
       "feed": "The %s seems to like you! It lets you pat its head and seems friendly.",
       "pet": "The %s happily wiggles around while you pat their head."
     },
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "KEENNOSE",
-      "ANIMAL",
-      "PATH_AVOID_DANGER_1",
-      "FLIES",
-      "SWARMS",
-      "PET_WONT_FOLLOW"
-    ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "KEENNOSE", "ANIMAL", "PATH_AVOID_DANGER_1", "FLIES", "SWARMS", "PET_WONT_FOLLOW" ]
   },
   {
     "id": "dkz_mon_bileworm",
     "type": "MONSTER",
-    "name": {
-      "str": "bileworm"
-    },
+    "name": { "str": "bileworm" },
     "description": "A large worm-like creature that smells like death, befitting its seemingly preferred diet of carrion and other rotting organic material, though it would probably attack wounded prey if pressed.  It is capable of both burrowing and limited land travel, with the help of a multitude of short tentacles that surround its mouth and line its under-body.",
     "looks_like": "mon_worm",
     "default_faction": "bileworm",
     "bodytype": "snake",
-    "categories": [
-      "ALIEN"
-    ],
-    "species": [
-      "WILDALIEN"
-    ],
+    "categories": [ "ALIEN" ],
+    "species": [ "WILDALIEN" ],
     "volume": "92500 ml",
     "weight": "120 kg",
     "hp": 200,
     "speed": 150,
-    "material": [
-      "flesh"
-    ],
+    "material": [ "flesh" ],
     "symbol": "W",
     "color": "light_green",
     "aggression": -20,
@@ -394,34 +220,12 @@
     "melee_skill": 4,
     "melee_dice": 4,
     "melee_dice_sides": 6,
-    "melee_damage": [
-      {
-        "damage_type": "acid",
-        "amount": 4
-      }
-    ],
+    "melee_damage": [ { "damage_type": "acid", "amount": 4 } ],
     "armor_bash": 2,
     "harvest": "mutant_meatslug",
-    "special_attacks": [
-      [
-        "ACID_BARF",
-        10
-      ]
-    ],
-    "anger_triggers": [
-      "PLAYER_WEAK"
-    ],
-    "placate_triggers": [
-      "MEAT"
-    ],
-    "flags": [
-      "KEENNOSE",
-      "HEARS",
-      "SMELLS",
-      "BASHES",
-      "DESTROYS",
-      "ACIDPROOF",
-      "CAN_DIG"
-    ]
+    "special_attacks": [ [ "ACID_BARF", 10 ] ],
+    "anger_triggers": [ "PLAYER_WEAK" ],
+    "placate_triggers": [ "MEAT" ],
+    "flags": [ "KEENNOSE", "HEARS", "SMELLS", "BASHES", "DESTROYS", "ACIDPROOF", "CAN_DIG" ]
   }
 ]

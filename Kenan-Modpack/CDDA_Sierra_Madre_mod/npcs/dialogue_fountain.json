@@ -3,34 +3,17 @@
     "id": "TALK_FOUNTAIN",
     "type": "talk_topic",
     "dynamic_line": "Has your life taken a turn? Do troubles beset you? Has fortune left you behind? If so, the Sierra Madre Casino, in all its glory, is inviting you to Begin Again. Come to a place where wealth, excitement, and intrigue await around every corner. Stroll along the winding streets of our beautiful resort, make new friends... or rekindle old flames. Let your eyes take in the luxurious expanse of the open desert, under clear starlit skies. Gaze straight on into the sunset from our Villa rooftops. Countless diversions await. Gamble in our casino, take in the theater, or stay in one of our exclusive executive suites that will shelter you - and cater to your every whim. So if life's worries have weighed you down... if you need an escape from your troubles... or if you just need an opportunity to begin again, join us. Let go and leave the world behind at the Sierra Madre grand opening, this October. We'll be waiting.",
-    "responses": [
-      {
-        "text": "...",
-        "topic": "INTRO"
-      }
-    ]
+    "responses": [ { "text": "...", "topic": "INTRO" } ]
   },
   {
     "id": "INTRO",
     "type": "talk_topic",
     "dynamic_line": "Hey, you! Over there! Can you hear me? Good, I KNOW you can hear me... Now listen closely, listen well... The Sierra Madre, this place... I know why you're here. Your own greed led you here. And now you're going to help me.",
     "responses": [
-      {
-        "text": "Who's this?",
-        "topic": "WHO"
-      },
-      {
-        "text": "What was that female voice and that speech?",
-        "topic": "BROADCAST"
-      },
-      {
-        "text": "Why should I help you?",
-        "topic": "COLLAR"
-      },
-      {
-        "text": "Okay, I'll help.",
-        "topic": "MISSION_1"
-      }
+      { "text": "Who's this?", "topic": "WHO" },
+      { "text": "What was that female voice and that speech?", "topic": "BROADCAST" },
+      { "text": "Why should I help you?", "topic": "COLLAR" },
+      { "text": "Okay, I'll help.", "topic": "MISSION_1" }
     ]
   },
   {
@@ -38,34 +21,17 @@
     "type": "talk_topic",
     "dynamic_line": "So, shall we finally discuss more important matter?",
     "responses": [
-      {
-        "text": "Who's this?",
-        "topic": "WHO"
-      },
-      {
-        "text": "What was that female voice and that speech?",
-        "topic": "BROADCAST"
-      },
-      {
-        "text": "Why should I help you?",
-        "topic": "COLLAR"
-      },
-      {
-        "text": "Okay, I'll help.",
-        "topic": "MISSION_1"
-      }
+      { "text": "Who's this?", "topic": "WHO" },
+      { "text": "What was that female voice and that speech?", "topic": "BROADCAST" },
+      { "text": "Why should I help you?", "topic": "COLLAR" },
+      { "text": "Okay, I'll help.", "topic": "MISSION_1" }
     ]
   },
   {
     "id": "BROADCAST",
     "type": "talk_topic",
     "dynamic_line": "That was the Sierra Madre broadcasting system... The apocalypse came the same night the Grand Opening should've taken place, so no one turned the ad broadcast off... Since then, it broadcasts the ad across the wasteland over and over, running on backup power... It is what lured you here, am I right? Now, let's discuss more pending topics, shall we?",
-    "responses": [
-      {
-        "text": "...",
-        "topic": "INTRO2"
-      }
-    ]
+    "responses": [ { "text": "...", "topic": "INTRO2" } ]
   },
   {
     "id": "COLLAR",
@@ -78,28 +44,16 @@
     "responses": [
       {
         "text": "I'm not buying into your bullshit.",
-        "condition": {
-          "not": {
-            "u_has_trait": "SIERRA_HUNTER"
-          }
-        },
+        "condition": { "not": { "u_has_trait": "SIERRA_HUNTER" } },
         "topic": "THINK"
       },
       {
         "text": "I'm not buying into your bullshit.",
-        "condition": {
-          "u_has_trait": "SIERRA_HUNTER"
-        },
+        "condition": { "u_has_trait": "SIERRA_HUNTER" },
         "topic": "TALK_DONE",
-        "effect": {
-          "u_add_effect": "collar_boom",
-          "duration": 5
-        }
+        "effect": { "u_add_effect": "collar_boom", "duration": 5 }
       },
-      {
-        "text": "Okay, okay, I'll help.",
-        "topic": "MISSION_1"
-      }
+      { "text": "Okay, okay, I'll help.", "topic": "MISSION_1" }
     ]
   },
   {
@@ -110,14 +64,9 @@
       {
         "text": "I don't need anyone telling me what to do.",
         "topic": "TALK_DONE",
-        "effect": {
-          "npc_first_topic": "TALK_REFUSE"
-        }
+        "effect": { "npc_first_topic": "TALK_REFUSE" }
       },
-      {
-        "text": "Well... Fine, you win, I'll help.",
-        "topic": "MISSION_1"
-      }
+      { "text": "Well... Fine, you win, I'll help.", "topic": "MISSION_1" }
     ]
   },
   {
@@ -125,66 +74,36 @@
     "type": "talk_topic",
     "dynamic_line": "Have you changed your mind? Did attmepting to get into the Sierra Madre prove to be too difficult for you?",
     "responses": [
-      {
-        "text": "I'm telling you again, I ain't helping you.",
-        "topic": "TALK_DONE"
-      },
-      {
-        "text": "Well... Fine, you win, I'll help.",
-        "topic": "MISSION_1"
-      }
+      { "text": "I'm telling you again, I ain't helping you.", "topic": "TALK_DONE" },
+      { "text": "Well... Fine, you win, I'll help.", "topic": "MISSION_1" }
     ]
   },
   {
     "id": "WHO",
     "type": "talk_topic",
     "dynamic_line": "It is in your best interest to get down to helping me instead of asking pointless questions. Who am I? I'm just a man who hacked the broadcast system to be able to talk to you. Maybe I'll tell you more, if you prove yourself to be worthy, that is.",
-    "responses": [
-      {
-        "text": "...",
-        "topic": "INTRO2"
-      }
-    ]
+    "responses": [ { "text": "...", "topic": "INTRO2" } ]
   },
   {
     "id": "MISSION_1",
     "type": "talk_topic",
     "dynamic_line": "Oh, so you can make smart decisions? Good, very good... Now listen: the only way to open the Sierra Madre Casino is to trigger the Gala Event... However, some critical electronics and power distribution systems eventually broke down from lack of maintenance. Fortunately for us, I've learned a lot about those systems and have a general understanding of how they work. I'm aware of three locations around the Villa that should have spare electronic boards and processing units we can use to work around the issues of the failing systems.",
-    "responses": [
-      {
-        "text": "...",
-        "topic": "MISSION_11"
-      }
-    ]
+    "responses": [ { "text": "...", "topic": "MISSION_11" } ]
   },
   {
     "id": "MISSION_11",
     "type": "talk_topic",
     "dynamic_line": "The placements of those electronic components were directly linked with key locations for starting the Gala Event and since I know how to start Gala, that means I also know where to find them. I request you to retrieve them. The first Sierra Madre electronic board is located in the power switching station in the Salida del Sol. Remaining two are in the Puesta del Sol, one in the switching station on the corner of the district and the second one on the balcony of one of the buildings next to a wall between Puesta del Sol and medical district. Look at your tracking device, I've marked all three locations for you with green \"S\". Once you get them, go back to the fountain and I'll tell you what's next.",
     "responses": [
-      {
-        "text": "Fine, I'm going...",
-        "topic": "HURRY",
-        "effect": {
-          "npc_first_topic": "MIDMISSION"
-        }
-      },
-      {
-        "text": "Anything specific I should watch out for?",
-        "topic": "TIPS"
-      }
+      { "text": "Fine, I'm going...", "topic": "HURRY", "effect": { "npc_first_topic": "MIDMISSION" } },
+      { "text": "Anything specific I should watch out for?", "topic": "TIPS" }
     ]
   },
   {
     "id": "TIPS",
     "type": "talk_topic",
     "dynamic_line": "Beware of Ghost People, the mutated former humans that lurk and hunt around the villa. They're dangeorus and even if you \"kill\" them, they'll rise back up after some time. The only way to make them stay dead is to dismember their limbs. Watch out for their traps, too. Also, the entire Sierra Madre is contaminated with toxic gas. There are more concentrated pockets that you should avoid at all costs, but even if you steer clear from them, the gas is still everywhere and will slowly poison your body, so you'd better be quick. Waste too much time, hesitate with your job and it'll kill you.",
-    "responses": [
-      {
-        "text": "...",
-        "topic": "TIPS2"
-      }
-    ]
+    "responses": [ { "text": "...", "topic": "TIPS2" } ]
   },
   {
     "id": "TIPS2",
@@ -193,17 +112,13 @@
     "responses": [
       {
         "text": "That collar on my neck really concerns me...",
-        "condition": {
-          "u_has_trait": "SIERRA_HUNTER"
-        },
+        "condition": { "u_has_trait": "SIERRA_HUNTER" },
         "topic": "COLLAR_TIP"
       },
       {
         "text": "Alright, I'll pay attention to what you've said... I'm on my way.",
         "topic": "HURRY",
-        "effect": {
-          "npc_first_topic": "MIDMISSION"
-        }
+        "effect": { "npc_first_topic": "MIDMISSION" }
       }
     ]
   },
@@ -212,16 +127,11 @@
     "type": "talk_topic",
     "dynamic_line": "Oh, no need to worry about it, as long as you obey my orders, that is. The Sierra Madre speakers and radios broadcasted on frequencies that'd set it off by an accident, but the Courier blasted all of them away, so no need to worry about it. Again, as long as you don't tinker with it on your own and obey my orders, this thing ain't gonna blow up. The choice is yours...",
     "responses": [
-      {
-        "text": "The Courier?",
-        "topic": "COURIER"
-      },
+      { "text": "The Courier?", "topic": "COURIER" },
       {
         "text": "Well, it's not like I feel any better about it, but seems like I DON'T have a choice... I'll be on my way.",
         "topic": "HURRY",
-        "effect": {
-          "npc_first_topic": "MIDMISSION"
-        }
+        "effect": { "npc_first_topic": "MIDMISSION" }
       }
     ]
   },
@@ -233,9 +143,7 @@
       {
         "text": "Alright, I'll pay attention to what you've said... I'm on my way.",
         "topic": "HURRY",
-        "effect": {
-          "npc_first_topic": "MIDMISSION"
-        }
+        "effect": { "npc_first_topic": "MIDMISSION" }
       }
     ]
   },
@@ -246,24 +154,12 @@
     "responses": [
       {
         "text": "Yeah, found all three of them, got all three of them.",
-        "condition": {
-          "u_has_items": {
-            "item": "card_chip",
-            "count": 3
-          }
-        },
+        "condition": { "u_has_items": { "item": "card_chip", "count": 3 } },
         "topic": "MISSION_2"
       },
       {
         "text": "No, still struggling with it.",
-        "condition": {
-          "not": {
-            "u_has_items": {
-              "item": "card_chip",
-              "count": 3
-            }
-          }
-        },
+        "condition": { "not": { "u_has_items": { "item": "card_chip", "count": 3 } } },
         "topic": "HURRY"
       }
     ]
@@ -279,22 +175,14 @@
     "responses": [
       {
         "text": "Okay, okay, I'm trying my best...",
-        "condition": {
-          "not": {
-            "u_has_trait": "gala_trait"
-          }
-        },
+        "condition": { "not": { "u_has_trait": "gala_trait" } },
         "topic": "HURRY"
       },
       {
         "text": "Okay, okay, I'm running...",
-        "condition": {
-          "u_has_trait": "gala_trait"
-        },
+        "condition": { "u_has_trait": "gala_trait" },
         "topic": "TALK_DONE",
-        "effect": {
-          "npc_first_topic": "HURRY2"
-        }
+        "effect": { "npc_first_topic": "HURRY2" }
       }
     ]
   },
@@ -302,12 +190,7 @@
     "id": "HURRY",
     "type": "talk_topic",
     "dynamic_line": "Then don't waste my time, move and do as I said!",
-    "responses": [
-      {
-        "text": "Okay, okay, I'm going...",
-        "topic": "TALK_DONE"
-      }
-    ]
+    "responses": [ { "text": "Okay, okay, I'm going...", "topic": "TALK_DONE" } ]
   },
   {
     "id": "MISSION_2",
@@ -318,20 +201,10 @@
         "text": "Alright, I'm on my way...",
         "topic": "TALK_DONE",
         "effect": [
-          {
-            "npc_first_topic": "MIDMISSION2"
-          },
-          {
-            "u_sell_item": "card_chip",
-            "count": 3
-          },
-          {
-            "npc_consume_item": "card_chip",
-            "count": 3
-          },
-          {
-            "u_spawn_item": "casino_enter_card"
-          }
+          { "npc_first_topic": "MIDMISSION2" },
+          { "u_sell_item": "card_chip", "count": 3 },
+          { "npc_consume_item": "card_chip", "count": 3 },
+          { "u_spawn_item": "casino_enter_card" }
         ]
       }
     ]
@@ -349,22 +222,8 @@
       }
     },
     "responses": [
-      {
-        "text": "Okay, okay, I'm going...",
-        "condition": {
-          "not": {
-            "u_has_trait": "win"
-          }
-        },
-        "topic": "TALK_DONE"
-      },
-      {
-        "text": "...",
-        "condition": {
-          "u_has_trait": "win"
-        },
-        "topic": "TALK_DONE"
-      }
+      { "text": "Okay, okay, I'm going...", "condition": { "not": { "u_has_trait": "win" } }, "topic": "TALK_DONE" },
+      { "text": "...", "condition": { "u_has_trait": "win" }, "topic": "TALK_DONE" }
     ]
   }
 ]

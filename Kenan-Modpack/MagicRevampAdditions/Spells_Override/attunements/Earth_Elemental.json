@@ -2,31 +2,15 @@
   {
     "type": "ter_furn_transform",
     "id": "quake_transform",
-    "furniture": [
-      {
-        "result": "f_rubble",
-        "valid_furniture": [
-          "f_null"
-        ],
-        "message": "The earth is upheaved!"
-      }
-    ]
+    "furniture": [ { "result": "f_rubble", "valid_furniture": [ "f_null" ], "message": "The earth is upheaved!" } ]
   },
   {
     "id": "quake",
     "type": "SPELL",
-    "name": {
-      "str": "Quake"
-    },
+    "name": { "str": "Quake" },
     "description": "Cause a localized earthquake, knocking down enemies and overturning the earth.",
-    "valid_targets": [
-      "hostile",
-      "ground"
-    ],
-    "flags": [
-      "LOUD",
-      "NO_PROJECTILE"
-    ],
+    "valid_targets": [ "hostile", "ground" ],
+    "flags": [ "LOUD", "NO_PROJECTILE" ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "downed",
@@ -46,26 +30,15 @@
     "sound_id": "earth_spell",
     "sound_variant": "strong",
     "energy_source": "MANA",
-    "extra_effects": [
-      {
-        "id": "quake_transform"
-      }
-    ]
+    "extra_effects": [ { "id": "quake_transform" } ]
   },
   {
     "id": "quake_transform",
     "type": "SPELL",
-    "name": {
-      "str": "Quake Transform"
-    },
+    "name": { "str": "Quake Transform" },
     "description": "causes rubble to be spawned occasionally",
-    "valid_targets": [
-      "hostile",
-      "ground"
-    ],
-    "flags": [
-      "SILENT"
-    ],
+    "valid_targets": [ "hostile", "ground" ],
+    "flags": [ "SILENT" ],
     "effect": "ter_transform",
     "effect_str": "quake_transform",
     "shape": "blast",
@@ -79,17 +52,10 @@
   {
     "id": "rock_blast",
     "type": "SPELL",
-    "name": {
-      "str": "Rock Blast"
-    },
+    "name": { "str": "Rock Blast" },
     "description": "Fire three large rocks at an enemy, causing blunt damage and knocking it back.",
-    "valid_targets": [
-      "hostile"
-    ],
-    "flags": [
-      "SOMATIC",
-      "NO_LEGS"
-    ],
+    "valid_targets": [ "hostile" ],
+    "flags": [ "SOMATIC", "NO_LEGS" ],
     "effect": "attack",
     "shape": "blast",
     "max_level": 43,
@@ -106,28 +72,14 @@
     "damage_type": "bash",
     "base_energy_cost": 5000,
     "base_casting_time": 200,
-    "extra_effects": [
-      {
-        "id": "single_rock_blast"
-      },
-      {
-        "id": "single_rock_blast"
-      },
-      {
-        "id": "rock_blast_push"
-      }
-    ]
+    "extra_effects": [ { "id": "single_rock_blast" }, { "id": "single_rock_blast" }, { "id": "rock_blast_push" } ]
   },
   {
     "id": "single_rock_blast",
-    "name": {
-      "str": "Single Rock Blast"
-    },
+    "name": { "str": "Single Rock Blast" },
     "type": "SPELL",
     "description": "A single portion of the rock blast spell",
-    "valid_targets": [
-      "hostile"
-    ],
+    "valid_targets": [ "hostile" ],
     "effect": "attack",
     "shape": "blast",
     "max_level": 43,
@@ -140,14 +92,10 @@
   },
   {
     "id": "rock_blast_push",
-    "name": {
-      "str": "Rock Blast Push"
-    },
+    "name": { "str": "Rock Blast Push" },
     "type": "SPELL",
     "description": "The push portion of the rock blast spell",
-    "valid_targets": [
-      "hostile"
-    ],
+    "valid_targets": [ "hostile" ],
     "effect": "directed_push",
     "shape": "blast",
     "max_level": 43,

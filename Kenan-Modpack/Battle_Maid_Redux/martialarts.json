@@ -2,14 +2,9 @@
   {
     "type": "martial_art",
     "id": "style_maid",
-    "name": {
-      "str": "L'art du Nettoyage"
-    },
+    "name": { "str": "L'art du Nettoyage" },
     "description": "It is the servant's duty to take out the trash. Pause to consider your offensive options.",
-    "initiate": [
-      "You steady yourself, ready to strike with poise and grace.",
-      "%s appears more steady and composed."
-    ],
+    "initiate": [ "You steady yourself, ready to strike with poise and grace.", "%s appears more steady and composed." ],
     "arm_block": 99,
     "static_buffs": [
       {
@@ -19,37 +14,17 @@
         "unarmed_allowed": true,
         "melee_allowed": true,
         "bonus_blocks": 1,
-        "flat_bonuses": [
-          {
-            "stat": "block",
-            "scaling-stat": "dex",
-            "scale": 1.0
-          },
-          {
-            "stat": "dodge",
-            "scale": -1.0
-          }
-        ]
+        "flat_bonuses": [ { "stat": "block", "scaling-stat": "dex", "scale": 1.0 }, { "stat": "dodge", "scale": -1.0 } ]
       },
       {
         "id": "maid_defense_2",
         "name": "Silent Presence",
         "description": "A servant must carry out their duties with the appropriate poise and grace.\n\n+2 Dodge skill, +1 Dodge attempts.",
-        "skill_requirements": [
-          {
-            "name": "melee",
-            "level": 3
-          }
-        ],
+        "skill_requirements": [ { "name": "melee", "level": 3 } ],
         "bonus_dodges": 1,
         "unarmed_allowed": true,
         "melee_allowed": true,
-        "flat_bonuses": [
-          {
-            "stat": "dodge",
-            "scale": 2.0
-          }
-        ]
+        "flat_bonuses": [ { "stat": "dodge", "scale": 2.0 } ]
       }
     ],
     "onmove_buffs": [
@@ -59,40 +34,14 @@
         "description": "Somebody needs you. Steady yourself and hurry to their side.\n\n-1 to Hit, +2 Dodge skill, -30% damage\nLasts 1 turn",
         "unarmed_allowed": true,
         "melee_allowed": true,
-        "skill_requirements": [
-          {
-            "name": "unarmed",
-            "level": 0
-          }
-        ],
+        "skill_requirements": [ { "name": "unarmed", "level": 0 } ],
         "buff_duration": 1,
         "max_stacks": 1,
-        "flat_bonuses": [
-          {
-            "stat": "hit",
-            "scale": -1
-          },
-          {
-            "stat": "dodge",
-            "scale": 2.0
-          }
-        ],
+        "flat_bonuses": [ { "stat": "hit", "scale": -1 }, { "stat": "dodge", "scale": 2.0 } ],
         "mult_bonuses": [
-          {
-            "stat": "damage",
-            "type": "bash",
-            "scale": 0.7
-          },
-          {
-            "stat": "damage",
-            "type": "cut",
-            "scale": 0.7
-          },
-          {
-            "stat": "damage",
-            "type": "stab",
-            "scale": 0.7
-          }
+          { "stat": "damage", "type": "bash", "scale": 0.7 },
+          { "stat": "damage", "type": "cut", "scale": 0.7 },
+          { "stat": "damage", "type": "stab", "scale": 0.7 }
         ]
       }
     ],
@@ -103,12 +52,7 @@
         "description": "A moment to compose yourself is all you need.\n\nEnables certain techniques. -2 Blocks, -1 Dodge. Lasts one turn",
         "unarmed_allowed": true,
         "melee_allowed": true,
-        "skill_requirements": [
-          {
-            "name": "unarmed",
-            "level": 0
-          }
-        ],
+        "skill_requirements": [ { "name": "unarmed", "level": 0 } ],
         "buff_duration": 1,
         "max_stacks": 1,
         "bonus_blocks": -2,
@@ -124,12 +68,7 @@
         "melee_allowed": true,
         "buff_duration": 1,
         "bonus_dodges": -1,
-        "flat_bonuses": [
-          {
-            "stat": "dodge",
-            "scale": -2.0
-          }
-        ]
+        "flat_bonuses": [ { "stat": "dodge", "scale": -2.0 } ]
       }
     ],
     "techniques": [

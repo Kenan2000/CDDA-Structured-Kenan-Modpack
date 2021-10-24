@@ -17,10 +17,7 @@
             "yes": {
               "u_has_effect": "secro_scientist_udisgustcoldblood",
               "no": "Now that we're here, we won't be bothered by those shambling maneaters... for now.",
-              "yes": [
-                "What do you need, survivor?",
-                "You need something?"
-              ]
+              "yes": [ "What do you need, survivor?", "You need something?" ]
             }
           }
         }
@@ -30,42 +27,22 @@
       {
         "text": "Who are you?",
         "topic": "TALK_SECRO_SCIENTIST_whoisme",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_all"
-          }
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_all" } }
       },
       {
         "text": "What is this place?",
         "topic": "TALK_SECRO_SCIENTIST_whereisme",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_lab_secret"
-          }
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_lab_secret" } }
       },
       {
         "text": "So what are your future plans?",
         "topic": "TALK_SECRO_SCIENTIST_plans",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_scientist_asked_all"
-            },
-            {
-              "u_has_effect": "secro_scientist_asked_lab_secret"
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_mission1_progress"
-              }
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_hold_mission1"
-              }
-            }
+            { "u_has_effect": "secro_scientist_asked_all" },
+            { "u_has_effect": "secro_scientist_asked_lab_secret" },
+            { "not": { "u_has_effect": "secro_scientist_mission1_progress" } },
+            { "not": { "u_has_effect": "secro_scientist_hold_mission1" } }
           ]
         }
       },
@@ -74,14 +51,8 @@
         "topic": "TALK_SECRO_SCIENTIST_plans_yes",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_scientist_hold_mission1"
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_mission1_progress"
-              }
-            }
+            { "u_has_effect": "secro_scientist_hold_mission1" },
+            { "not": { "u_has_effect": "secro_scientist_mission1_progress" } }
           ]
         }
       },
@@ -90,14 +61,8 @@
         "topic": "TALK_SECRO_SCIENTIST_secronom_what",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_scientist_partake_mission1"
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_udisgustcoldblood"
-              }
-            }
+            { "u_has_effect": "secro_scientist_partake_mission1" },
+            { "not": { "u_has_effect": "secro_scientist_udisgustcoldblood" } }
           ]
         }
       },
@@ -106,14 +71,8 @@
         "topic": "TALK_SECRO_SCIENTIST_uhelp",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_scientist_partake_mission1"
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_mission2_progress"
-              }
-            }
+            { "u_has_effect": "secro_scientist_partake_mission1" },
+            { "not": { "u_has_effect": "secro_scientist_mission2_progress" } }
           ]
         }
       },
@@ -122,31 +81,17 @@
         "topic": "TALK_SECRO_SCIENTIST_uhelp_turret",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_scientist_hold_mission2"
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_mission1_progress"
-              }
-            }
+            { "u_has_effect": "secro_scientist_hold_mission2" },
+            { "not": { "u_has_effect": "secro_scientist_mission1_progress" } }
           ]
         }
       },
       {
         "text": "About the repairs...",
         "topic": "TALK_SECRO_SCIENTIST_repair",
-        "condition": {
-          "u_has_effect": "secro_scientist_partake_mission2"
-        }
+        "condition": { "u_has_effect": "secro_scientist_partake_mission2" }
       },
-      {
-        "text": "Bye.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "u_has_effect": "secro_scientist_partake_mission1"
-        }
-      }
+      { "text": "Bye.", "topic": "TALK_DONE", "condition": { "u_has_effect": "secro_scientist_partake_mission1" } }
     ]
   },
   {
@@ -154,14 +99,8 @@
     "id": "TALK_SECRO_SCIENTIST_whoisme",
     "dynamic_line": "I'm a researcher.",
     "responses": [
-      {
-        "text": "Of what exactly?",
-        "topic": "TALK_SECRO_SCIENTIST_whoisme_srsly"
-      },
-      {
-        "text": "...",
-        "topic": "TALK_SECRO_SCIENTIST_main"
-      }
+      { "text": "Of what exactly?", "topic": "TALK_SECRO_SCIENTIST_whoisme_srsly" },
+      { "text": "...", "topic": "TALK_SECRO_SCIENTIST_main" }
     ]
   },
   {
@@ -169,14 +108,8 @@
     "id": "TALK_SECRO_SCIENTIST_whoisme_srsly",
     "dynamic_line": "Its not important, but if you wish to know, I don't mind ... since everything's messed up already.",
     "responses": [
-      {
-        "text": "Then tell me your secrets.",
-        "topic": "TALK_SECRO_SCIENTIST_whoisme_secret"
-      },
-      {
-        "text": "Lets talk about that later.",
-        "topic": "TALK_SECRO_SCIENTIST_main"
-      }
+      { "text": "Then tell me your secrets.", "topic": "TALK_SECRO_SCIENTIST_whoisme_secret" },
+      { "text": "Lets talk about that later.", "topic": "TALK_SECRO_SCIENTIST_main" }
     ]
   },
   {
@@ -187,67 +120,34 @@
       {
         "text": "And what's the purpose of the secronom project?",
         "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_secro",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_secro"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_secro"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secro" }
       },
       {
         "text": "Human augmentation?",
         "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_augment",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_augment"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_augment"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_augment" }
       },
       {
         "text": "What about genetics?",
         "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_gene",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_gene"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_gene"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_gene" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_gene" }
       },
       {
         "text": "I guess I've asked everything...",
         "topic": "TALK_SECRO_SCIENTIST_main",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_scientist_asked_secro"
-            },
-            {
-              "u_has_effect": "secro_scientist_asked_augment"
-            },
-            {
-              "u_has_effect": "secro_scientist_asked_gene"
-            }
+            { "u_has_effect": "secro_scientist_asked_secro" },
+            { "u_has_effect": "secro_scientist_asked_augment" },
+            { "u_has_effect": "secro_scientist_asked_gene" }
           ]
         },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_all"
-        }
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_all" }
       },
-      {
-        "text": "...",
-        "topic": "TALK_SECRO_SCIENTIST_main"
-      }
+      { "text": "...", "topic": "TALK_SECRO_SCIENTIST_main" }
     ]
   },
   {
@@ -258,70 +158,35 @@
       {
         "text": "Human augmentation?",
         "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_augment",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_augment"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_augment"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_augment" }
       },
       {
         "text": "What about genetics?",
         "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_gene",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_gene"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_gene"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_gene" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_gene" }
       },
       {
         "text": "I guess I've asked everything...",
         "topic": "TALK_SECRO_SCIENTIST_main",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_scientist_asked_secro"
-            },
-            {
-              "u_has_effect": "secro_scientist_asked_augment"
-            },
-            {
-              "u_has_effect": "secro_scientist_asked_gene"
-            }
+            { "u_has_effect": "secro_scientist_asked_secro" },
+            { "u_has_effect": "secro_scientist_asked_augment" },
+            { "u_has_effect": "secro_scientist_asked_gene" }
           ]
         },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_all"
-        }
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_all" }
       },
       {
         "text": "...",
         "topic": "TALK_SECRO_SCIENTIST_main",
         "condition": {
           "and": [
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_asked_secro"
-              }
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_asked_augment"
-              }
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_asked_gene"
-              }
-            }
+            { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_gene" } }
           ]
         }
       }
@@ -335,70 +200,35 @@
       {
         "text": "And what's the purpose of secronom?",
         "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_secro",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_secro"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_secro"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secro" }
       },
       {
         "text": "What about genetics?",
         "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_gene",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_gene"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_gene"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_gene" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_gene" }
       },
       {
         "text": "I guess I've asked everything...",
         "topic": "TALK_SECRO_SCIENTIST_main",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_scientist_asked_secro"
-            },
-            {
-              "u_has_effect": "secro_scientist_asked_augment"
-            },
-            {
-              "u_has_effect": "secro_scientist_asked_gene"
-            }
+            { "u_has_effect": "secro_scientist_asked_secro" },
+            { "u_has_effect": "secro_scientist_asked_augment" },
+            { "u_has_effect": "secro_scientist_asked_gene" }
           ]
         },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_all"
-        }
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_all" }
       },
       {
         "text": "... but they didn't deserve this.",
         "topic": "TALK_SECRO_SCIENTIST_main",
         "condition": {
           "and": [
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_asked_secro"
-              }
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_asked_augment"
-              }
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_asked_gene"
-              }
-            }
+            { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_gene" } }
           ]
         }
       }
@@ -412,70 +242,35 @@
       {
         "text": "And what's the purpose of secronom?",
         "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_secro",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_secro"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_secro"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secro" }
       },
       {
         "text": "Human augmentation?",
         "topic": "TALK_SECRO_SCIENTIST_whoisme_secret_augment",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_augment"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_augment"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_augment" }
       },
       {
         "text": "I guess I've asked everything...",
         "topic": "TALK_SECRO_SCIENTIST_main",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_scientist_asked_secro"
-            },
-            {
-              "u_has_effect": "secro_scientist_asked_augment"
-            },
-            {
-              "u_has_effect": "secro_scientist_asked_gene"
-            }
+            { "u_has_effect": "secro_scientist_asked_secro" },
+            { "u_has_effect": "secro_scientist_asked_augment" },
+            { "u_has_effect": "secro_scientist_asked_gene" }
           ]
         },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_all"
-        }
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_all" }
       },
       {
         "text": "...",
         "topic": "TALK_SECRO_SCIENTIST_main",
         "condition": {
           "and": [
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_asked_secro"
-              }
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_asked_augment"
-              }
-            },
-            {
-              "not": {
-                "u_has_effect": "secro_scientist_asked_gene"
-              }
-            }
+            { "not": { "u_has_effect": "secro_scientist_asked_secro" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_augment" } },
+            { "not": { "u_has_effect": "secro_scientist_asked_gene" } }
           ]
         }
       }
@@ -489,40 +284,21 @@
       {
         "text": "So why won't you escape this place?",
         "topic": "TALK_SECRO_SCIENTIST_whereisme_escape",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_escape"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_escape"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_escape" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_escape" }
       },
       {
         "text": "Why is it connected to the lab?",
         "topic": "TALK_SECRO_SCIENTIST_whereisme_lab",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_lab"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_lab"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_lab" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_lab" }
       },
       {
         "text": "Well? What have you earned for doing those?",
         "topic": "TALK_SECRO_SCIENTIST_whereisme_lab",
-        "condition": {
-          "u_has_effect": "secro_scientist_asked_lab"
-        }
+        "condition": { "u_has_effect": "secro_scientist_asked_lab" }
       },
-      {
-        "text": "Okay.",
-        "topic": "TALK_SECRO_SCIENTIST_main"
-      }
+      { "text": "Okay.", "topic": "TALK_SECRO_SCIENTIST_main" }
     ]
   },
   {
@@ -533,27 +309,15 @@
       {
         "text": "So why is it connected to the lab?",
         "topic": "TALK_SECRO_SCIENTIST_whereisme_lab",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_lab"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_lab"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_lab" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_lab" }
       },
       {
         "text": "Well? What have you earned for doing those?",
         "topic": "TALK_SECRO_SCIENTIST_whereisme_lab",
-        "condition": {
-          "u_has_effect": "TALK_SECRO_SCIENTIST_whereisme_lab_result"
-        }
+        "condition": { "u_has_effect": "TALK_SECRO_SCIENTIST_whereisme_lab_result" }
       },
-      {
-        "text": "(pussies)",
-        "topic": "TALK_SECRO_SCIENTIST_main"
-      }
+      { "text": "(pussies)", "topic": "TALK_SECRO_SCIENTIST_main" }
     ]
   },
   {
@@ -564,27 +328,15 @@
       {
         "text": "Why won't you escape this place?",
         "topic": "TALK_SECRO_SCIENTIST_whereisme_escape",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_escape"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_escape"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_escape" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_escape" }
       },
       {
         "text": "Well? What have you earned for doing those?",
         "topic": "TALK_SECRO_SCIENTIST_whereisme_lab_result",
-        "condition": {
-          "u_has_effect": "secro_scientist_asked_lab"
-        }
+        "condition": { "u_has_effect": "secro_scientist_asked_lab" }
       },
-      {
-        "text": "Okay.",
-        "topic": "TALK_SECRO_SCIENTIST_main"
-      }
+      { "text": "Okay.", "topic": "TALK_SECRO_SCIENTIST_main" }
     ]
   },
   {
@@ -596,10 +348,7 @@
         "text": "... So, is there anything else I need to know about the lab?",
         "topic": "TALK_SECRO_SCIENTIST_whereisme_lab_secret"
       },
-      {
-        "text": "That's unfortunate, but there's nothing I can do.",
-        "topic": "TALK_SECRO_SCIENTIST_main"
-      }
+      { "text": "That's unfortunate, but there's nothing I can do.", "topic": "TALK_SECRO_SCIENTIST_main" }
     ]
   },
   {
@@ -610,10 +359,7 @@
       {
         "text": "Thanks for the info, I guess...",
         "topic": "TALK_SECRO_SCIENTIST_main",
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_lab_secret"
-        }
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_lab_secret" }
       }
     ]
   },
@@ -622,14 +368,8 @@
     "id": "TALK_SECRO_SCIENTIST_plans",
     "dynamic_line": "My plan is a bit risky, and I'll need you to guide us all.",
     "responses": [
-      {
-        "text": "I'm in for that!",
-        "topic": "TALK_SECRO_SCIENTIST_plans_yes"
-      },
-      {
-        "text": "Maybe later.",
-        "topic": "TALK_SECRO_SCIENTIST_main"
-      }
+      { "text": "I'm in for that!", "topic": "TALK_SECRO_SCIENTIST_plans_yes" },
+      { "text": "Maybe later.", "topic": "TALK_SECRO_SCIENTIST_main" }
     ]
   },
   {
@@ -644,31 +384,18 @@
       {
         "text": "Lets go!",
         "topic": "TALK_MISSION_OFFER",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_mission1_progress"
-          }
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_mission1_progress" } }
       },
       {
         "text": "... later, I need to gear up.",
         "topic": "TALK_SECRO_SCIENTIST_main",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_mission1_progress"
-          }
-        },
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_hold_mission1"
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_mission1_progress" } },
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_hold_mission1" }
       },
       {
         "text": "I'll lead the way!",
         "topic": "TALK_DONE",
-        "condition": {
-          "u_has_effect": "secro_scientist_mission1_progress"
-        }
+        "condition": { "u_has_effect": "secro_scientist_mission1_progress" }
       }
     ]
   },
@@ -688,45 +415,18 @@
       {
         "text": "Are those mutants in the city were the result of secronom project?",
         "topic": "TALK_SECRO_SCIENTIST_secronom_what_cityzeds",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_secronom_spread"
-          }
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_secronom_spread" } }
       },
       {
         "text": "Are there some other threats this project has created that I need to be aware of?",
         "topic": "TALK_SECRO_SCIENTIST_secronom_what_wanderers",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_asked_secronom_wanderers"
-          }
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_asked_secronom_wanderers" } }
       },
       {
-        "truefalsetext": {
-          "condition": {
-            "u_has_effect": "secro_scientist_asked_secronom_wanderers"
-          },
-          "true": "....",
-          "false": "Maybe later."
-        },
-        "trial": {
-          "type": "CONDITION",
-          "condition": {
-            "u_has_trait": "secro_scientist_asked_secronom_wanderers"
-          }
-        },
-        "success": {
-          "topic": "TALK_DONE",
-          "effect": {
-            "duration": "PERMANENT",
-            "u_add_effect": "secro_scientist_udisgustcoldblood"
-          }
-        },
-        "failure": {
-          "topic": "TALK_SECRO_SCIENTIST_main"
-        }
+        "truefalsetext": { "condition": { "u_has_effect": "secro_scientist_asked_secronom_wanderers" }, "true": "....", "false": "Maybe later." },
+        "trial": { "type": "CONDITION", "condition": { "u_has_trait": "secro_scientist_asked_secronom_wanderers" } },
+        "success": { "topic": "TALK_DONE", "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_udisgustcoldblood" } },
+        "failure": { "topic": "TALK_SECRO_SCIENTIST_main" }
       }
     ]
   },
@@ -734,12 +434,7 @@
     "type": "talk_topic",
     "id": "TALK_SECRO_SCIENTIST_secronom_what_cityzeds",
     "dynamic_line": "What? That can't be good...\nYou know, secronom has an extreme potency of alteration once it comes in contact with a viable victim. If mixed with the catalyst, this will turn one's body into an adaptive living weapon, but that doesn't always end to the same result.",
-    "responses": [
-      {
-        "text": "So how did it spread?",
-        "topic": "TALK_SECRO_SCIENTIST_secronom_what_cityzeds_how"
-      }
-    ]
+    "responses": [ { "text": "So how did it spread?", "topic": "TALK_SECRO_SCIENTIST_secronom_what_cityzeds_how" } ]
   },
   {
     "type": "talk_topic",
@@ -749,10 +444,7 @@
       {
         "text": "...",
         "topic": "TALK_SECRO_SCIENTIST_secronom_what",
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_asked_secronom_spread"
-        }
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secronom_spread" }
       }
     ]
   },
@@ -776,14 +468,8 @@
         "text": "Well, now I know your team did an inhumane act...",
         "topic": "TALK_SECRO_SCIENTIST_secronom_what",
         "effect": [
-          {
-            "duration": "PERMANENT",
-            "u_add_effect": "secro_scientist_asked_secronom_wanderers"
-          },
-          {
-            "duration": "PERMANENT",
-            "u_add_effect": "secro_scientist_asked_secronom_spread"
-          }
+          { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secronom_wanderers" },
+          { "duration": "PERMANENT", "u_add_effect": "secro_scientist_asked_secronom_spread" }
         ]
       }
     ]
@@ -792,12 +478,7 @@
     "type": "talk_topic",
     "id": "TALK_SECRO_SCIENTIST_uhelp",
     "dynamic_line": "There is something I want to work on for our defenses, but they require time and vast amounts of materials for the process.",
-    "responses": [
-      {
-        "text": "Defenses? You mean turrets?",
-        "topic": "TALK_SECRO_SCIENTIST_uhelp_turret"
-      }
-    ]
+    "responses": [ { "text": "Defenses? You mean turrets?", "topic": "TALK_SECRO_SCIENTIST_uhelp_turret" } ]
   },
   {
     "type": "talk_topic",
@@ -811,31 +492,18 @@
       {
         "text": "Yes.",
         "topic": "TALK_MISSION_OFFER",
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_mission2_progress"
-          }
-        }
+        "condition": { "not": { "u_has_effect": "secro_scientist_mission2_progress" } }
       },
       {
         "text": "I'll do it later.",
         "topic": "TALK_SECRO_SCIENTIST_main",
-        "effect": {
-          "duration": "PERMANENT",
-          "u_add_effect": "secro_scientist_hold_mission2"
-        },
-        "condition": {
-          "not": {
-            "u_has_effect": "secro_scientist_mission2_progress"
-          }
-        }
+        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_scientist_hold_mission2" },
+        "condition": { "not": { "u_has_effect": "secro_scientist_mission2_progress" } }
       },
       {
         "text": "I will.",
         "topic": "TALK_DONE",
-        "condition": {
-          "u_has_effect": "secro_scientist_mission2_progress"
-        }
+        "condition": { "u_has_effect": "secro_scientist_mission2_progress" }
       }
     ]
   }

@@ -2,28 +2,17 @@
   {
     "id": "MISSION_FIND_HERMIT_1",
     "type": "mission_definition",
-    "name": {
-      "str": "Reach Standing Stones"
-    },
+    "name": { "str": "Reach Standing Stones" },
     "description": "Lead your companion to an area in the forest, suspected of being host to supernatural activity.",
     "goal": "MGOAL_GO_TO_TYPE",
     "difficulty": 2,
     "value": 20000,
-    "origins": [
-      "ORIGIN_OPENER_NPC",
-      "ORIGIN_ANY_NPC"
-    ],
+    "origins": [ "ORIGIN_OPENER_NPC", "ORIGIN_ANY_NPC" ],
     "followup": "MISSION_FIND_HERMIT_2",
     "destination": "standing_stones",
     "start": {
       "effect": "follow",
-      "assign_mission_target": {
-        "om_terrain": "standing_stones",
-        "om_special": "Standing stones",
-        "reveal_radius": 3,
-        "search_range": 180,
-        "z": 0
-      }
+      "assign_mission_target": { "om_terrain": "standing_stones", "om_special": "Standing stones", "reveal_radius": 3, "search_range": 180, "z": 0 }
     },
     "dialogue": {
       "describe": "If you see this, it's a bug!",
@@ -40,26 +29,16 @@
   {
     "id": "MISSION_FIND_HERMIT_2",
     "type": "mission_definition",
-    "name": {
-      "str": "Reach Ruined Shrine"
-    },
+    "name": { "str": "Reach Ruined Shrine" },
     "description": "Lead your companion to the suspected location of a ruined shrine, that allegedly didn't exist before the cataclysm...",
     "goal": "MGOAL_GO_TO_TYPE",
     "difficulty": 4,
     "value": 40000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_FIND_HERMIT_3",
     "destination": "shrine_anomaly",
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "shrine_anomaly",
-        "om_special": "Ruined Shrine",
-        "reveal_radius": 3,
-        "search_range": 180,
-        "z": 0
-      }
+      "assign_mission_target": { "om_terrain": "shrine_anomaly", "om_special": "Ruined Shrine", "reveal_radius": 3, "search_range": 180, "z": 0 }
     },
     "dialogue": {
       "describe": "If you see this, it's a bug!",
@@ -76,29 +55,16 @@
   {
     "id": "MISSION_FIND_HERMIT_3",
     "type": "mission_definition",
-    "name": {
-      "str": "Reach Odd House"
-    },
+    "name": { "str": "Reach Odd House" },
     "description": "Lead your companion to a rural house suspected to be inhabited by someone.  There might be something to those weird dreams after all...",
     "goal": "MGOAL_GO_TO_TYPE",
     "difficulty": 3,
     "value": 30000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "destination": "arcana_hermitage_1",
     "start": {
-      "effect": {
-        "u_add_effect": "sent_to_hermit",
-        "duration": "PERMANENT"
-      },
-      "assign_mission_target": {
-        "om_terrain": "arcana_hermitage_1",
-        "om_special": "Hermit Cabin",
-        "reveal_radius": 3,
-        "search_range": 180,
-        "z": 0
-      }
+      "effect": { "u_add_effect": "sent_to_hermit", "duration": "PERMANENT" },
+      "assign_mission_target": { "om_terrain": "arcana_hermitage_1", "om_special": "Hermit Cabin", "reveal_radius": 3, "search_range": 180, "z": 0 }
     },
     "dialogue": {
       "describe": "If you see this, it's a bug!",
@@ -115,43 +81,17 @@
   {
     "id": "MISSION_HERMIT_RETRIEVE_SWORD",
     "type": "mission_definition",
-    "name": {
-      "str": "Retrieve The Cursed Blade"
-    },
+    "name": { "str": "Retrieve The Cursed Blade" },
     "description": "Obtain the cursed sword from the floating temple, and show it to the hermit.  The fallen relic may still be of use.",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "or": [
-        {
-          "u_has_item": "stormbringer"
-        },
-        {
-          "u_has_item": "veilblade"
-        }
-      ]
-    },
+    "goal_condition": { "or": [ { "u_has_item": "stormbringer" }, { "u_has_item": "veilblade" } ] },
     "difficulty": 5,
     "value": 250000,
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "impact_site",
-        "om_special": "Floating Temple",
-        "reveal_radius": 3,
-        "search_range": 180,
-        "z": 0
-      }
+      "assign_mission_target": { "om_terrain": "impact_site", "om_special": "Floating Temple", "reveal_radius": 3, "search_range": 180, "z": 0 }
     },
-    "end": {
-      "effect": [
-        {
-          "npc_add_effect": "hermit_stage_1",
-          "duration": "PERMANENT"
-        }
-      ]
-    },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "end": { "effect": [ { "npc_add_effect": "hermit_stage_1", "duration": "PERMANENT" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_HERMIT_RESTORE_SWORD",
     "dialogue": {
       "describe": "Perhaps we shall at last atone...",
@@ -168,31 +108,19 @@
   {
     "id": "MISSION_HERMIT_RESTORE_SWORD",
     "type": "mission_definition",
-    "name": {
-      "str": "Restore The Ritual Blade"
-    },
+    "name": { "str": "Restore The Ritual Blade" },
     "description": "Learn the purification ritual from Oaths to The Chalice, restore the ritual sword to a usable condition, then show it to the hermit.",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "u_has_item": "veilblade"
-    },
+    "goal_condition": { "u_has_item": "veilblade" },
     "difficulty": 5,
     "value": 250000,
     "end": {
       "effect": [
-        {
-          "npc_add_effect": "hermit_stage_2",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_add_effect": "hermit_stage_2",
-          "duration": "PERMANENT"
-        }
+        { "npc_add_effect": "hermit_stage_2", "duration": "PERMANENT" },
+        { "u_add_effect": "hermit_stage_2", "duration": "PERMANENT" }
       ]
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_HERMIT_AWAKEN_POWER",
     "dialogue": {
       "describe": "Perhaps we shall at last atone...",
@@ -209,14 +137,10 @@
   {
     "id": "MISSION_HERMIT_AWAKEN_POWER",
     "type": "mission_definition",
-    "name": {
-      "str": "Earn The Favor From Beyond"
-    },
+    "name": { "str": "Earn The Favor From Beyond" },
     "description": "Fuel the restored ritual blade by charging it from a portal, offer the power to Hy From Beyond The Veil, then return to the hermit after being awarded with any of His blessings.",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "u_has_trait_flag": "explorer_of_the_veil"
-    },
+    "goal_condition": { "u_has_trait_flag": "explorer_of_the_veil" },
     "difficulty": 5,
     "value": 250000,
     "start": {
@@ -229,17 +153,8 @@
         "z": 0
       }
     },
-    "end": {
-      "effect": [
-        {
-          "npc_add_effect": "hermit_stage_3",
-          "duration": "PERMANENT"
-        }
-      ]
-    },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "end": { "effect": [ { "npc_add_effect": "hermit_stage_3", "duration": "PERMANENT" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_HERMIT_BECOME_PARAGON",
     "dialogue": {
       "describe": "Perhaps we shall at last atone...",
@@ -256,14 +171,10 @@
   {
     "id": "MISSION_HERMIT_BECOME_PARAGON",
     "type": "mission_definition",
-    "name": {
-      "str": "Become A Paragon Of The Veil"
-    },
+    "name": { "str": "Become A Paragon Of The Veil" },
     "description": "Continue to seek out portals or otherwise channeling power through the restored ritual blade, until receiving a clear sign of He From Beyond The Veil's favor.  Excessive mutation, becoming too strongly tied to things from Beyond, might endanger this goal.",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "u_has_trait": "THRESH_VEIL"
-    },
+    "goal_condition": { "u_has_trait": "THRESH_VEIL" },
     "difficulty": 5,
     "value": 250000,
     "start": {
@@ -276,17 +187,8 @@
         "z": 0
       }
     },
-    "end": {
-      "effect": [
-        {
-          "npc_add_effect": "hermit_stage_4",
-          "duration": "PERMANENT"
-        }
-      ]
-    },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "end": { "effect": [ { "npc_add_effect": "hermit_stage_4", "duration": "PERMANENT" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "Perhaps we shall at last atone...",
       "offer": "This is a task that will be a long-term matter, I suspect.  You have demonstrated the potential the He From Beyond The Veil seeks.  I have told you the nature of our mission, our enduring oath.  And you have filled this feeble old heart with renewed hope.  Others may foster the survival of humanity, but what good will it do if the wounds in The Veil continue to bleed, and we are cast into the abyss?  That is our purpose, the one common ground we held with the Cleansing Flame.  But every rift sealed, every intrusion halted, pulls us away from the brink.  I ask you to continue along the path you have chosen.  Continue your work, and use your rewards with care and precision.  Will you accept this request?",
@@ -302,24 +204,15 @@
   {
     "id": "MISSION_CF_DEACON_1",
     "type": "mission_definition",
-    "name": {
-      "str": "Check On Rural Church"
-    },
+    "name": { "str": "Check On Rural Church" },
     "description": "Visit the rural church and speak with Sofia McKinnon.  Return to Dorian with the news.",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "u_has_effect": "sofia_deacon_message"
-    },
+    "goal_condition": { "u_has_effect": "sofia_deacon_message" },
     "difficulty": 2,
     "value": 10000,
     "has_generic_rewards": false,
     "start": {
-      "effect": [
-        {
-          "u_add_effect": "already_asked_deacon",
-          "duration": "PERMANENT"
-        }
-      ],
+      "effect": [ { "u_add_effect": "already_asked_deacon", "duration": "PERMANENT" } ],
       "assign_mission_target": {
         "om_terrain": "cf_church_4",
         "om_special": "cf_rural_church",
@@ -331,9 +224,7 @@
         "min_distance": 10
       }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "Here's hoping it goes well...",
       "offer": "As much as I'd like to return to check on the people sheltering at the church, I've been caught up in helping out here.  If you could pay them a visit, ask to speak with Sofia McKinnon.  Could you send her my regards, and my apologies for having been delayed in returning?",
@@ -346,33 +237,20 @@
       "failure": "How in God's name did you fail at this?"
     },
     "end": {
-      "effect": [
-        {
-          "npc_add_effect": "rural_church_aware",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "FMCNote",
-          "count": 5
-        }
-      ]
+      "effect": [ { "npc_add_effect": "rural_church_aware", "duration": "PERMANENT" }, { "u_spawn_item": "FMCNote", "count": 5 } ]
     }
   },
   {
     "id": "MISSION_CF_REP_1",
     "type": "mission_definition",
-    "name": {
-      "str": "Find or Make Bone Charm"
-    },
+    "name": { "str": "Find or Make Bone Charm" },
     "description": "Obtain or craft a bone charm, a makeshift holy symbol carved from the body parts of certain otherworldly monsters, then bring it to Sofia.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 1,
     "value": 10000,
     "has_generic_rewards": false,
     "item": "charm_bone",
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_REP_2",
     "dialogue": {
       "describe": "Odin, guide my hand...",
@@ -386,66 +264,22 @@
       "failure": "But how..."
     },
     "end": {
-      "effect": [
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 2
-        }
-      ],
+      "effect": [ { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" }, { "u_spawn_item": "CF_golden_scale", "count": 2 } ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_1_a"
-              ],
-              "x": 3,
-              "y": 3
-            }
-          ]
-        },
+        { "om_terrain": "cf_church_1", "place_nested": [ { "chunks": [ "cf_church_upgrade_1_a" ], "x": 3, "y": 3 } ] },
         {
           "om_terrain": "cf_church_2",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_1_b"
-              ],
-              "x": 14,
-              "y": 22
-            }
-          ]
+          "place_nested": [ { "chunks": [ "cf_church_upgrade_1_b" ], "x": 14, "y": 22 } ]
         },
-        {
-          "om_terrain": "cf_church_3",
-          "mapgen_update_id": "cf_church_upgrade_1_c"
-        },
-        {
-          "om_terrain": "cf_church_4",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_1_d"
-              ],
-              "x": 1,
-              "y": 1
-            }
-          ]
-        }
+        { "om_terrain": "cf_church_3", "mapgen_update_id": "cf_church_upgrade_1_c" },
+        { "om_terrain": "cf_church_4", "place_nested": [ { "chunks": [ "cf_church_upgrade_1_d" ], "x": 1, "y": 1 } ] }
       ]
     }
   },
   {
     "id": "MISSION_CF_REP_2",
     "type": "mission_definition",
-    "name": {
-      "str": "Deliver Trade Arrangements"
-    },
+    "name": { "str": "Deliver Trade Arrangements" },
     "description": "Deliver the trade arrangements to the merchant at the refugee center, along with the Golden Scales provided for the deal.  Return to Sofia with the receipt that will be provided.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 1,
@@ -453,23 +287,10 @@
     "has_generic_rewards": false,
     "item": "cf_rep_trade_receipt",
     "start": {
-      "effect": [
-        {
-          "u_spawn_item": "cf_rep_trade_arrangement"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 20
-        }
-      ],
-      "assign_mission_target": {
-        "om_terrain": "evac_center_18",
-        "reveal_radius": 1
-      }
+      "effect": [ { "u_spawn_item": "cf_rep_trade_arrangement" }, { "u_spawn_item": "CF_golden_scale", "count": 20 } ],
+      "assign_mission_target": { "om_terrain": "evac_center_18", "reveal_radius": 1 }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_REP_3",
     "dialogue": {
       "describe": "Odin, guide my hand...",
@@ -483,81 +304,31 @@
       "failure": "But how..."
     },
     "end": {
-      "effect": [
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 4
-        }
-      ],
+      "effect": [ { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" }, { "u_spawn_item": "CF_golden_scale", "count": 4 } ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_2_a"
-              ],
-              "x": 3,
-              "y": 3
-            }
-          ]
-        },
+        { "om_terrain": "cf_church_1", "place_nested": [ { "chunks": [ "cf_church_upgrade_2_a" ], "x": 3, "y": 3 } ] },
         {
           "om_terrain": "cf_church_1_roof",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_2_b"
-              ],
-              "x": 3,
-              "y": 3
-            }
-          ]
+          "place_nested": [ { "chunks": [ "cf_church_upgrade_2_b" ], "x": 3, "y": 3 } ]
         },
-        {
-          "om_terrain": "cf_church_3",
-          "mapgen_update_id": "cf_church_upgrade_2_c"
-        }
+        { "om_terrain": "cf_church_3", "mapgen_update_id": "cf_church_upgrade_2_c" }
       ]
     }
   },
   {
     "id": "MISSION_CF_REP_3",
     "type": "mission_definition",
-    "name": {
-      "str": "Kill Unknown Monster"
-    },
+    "name": { "str": "Kill Unknown Monster" },
     "description": "Hunt down a monster of unknown nature nearby.  Optionally recruit one of the church's guards to assist.",
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 4,
     "value": 15000,
     "has_generic_rewards": false,
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "forest_thick",
-        "reveal_radius": 1,
-        "random": true,
-        "search_range": 20,
-        "min_distance": 5
-      },
-      "update_mapgen": {
-        "place_monster": [
-          {
-            "monster": "mon_flesh_angel",
-            "x": 11,
-            "y": 11,
-            "target": true
-          }
-        ]
-      }
+      "assign_mission_target": { "om_terrain": "forest_thick", "reveal_radius": 1, "random": true, "search_range": 20, "min_distance": 5 },
+      "update_mapgen": { "place_monster": [ { "monster": "mon_flesh_angel", "x": 11, "y": 11, "target": true } ] }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_REP_4",
     "dialogue": {
       "describe": "Odin, guide my hand...",
@@ -572,107 +343,37 @@
     },
     "end": {
       "effect": [
-        {
-          "u_add_effect": "cf_mission_sofia_3",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "npc_add_effect": "cf_mission_3",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 6
-        }
+        { "u_add_effect": "cf_mission_sofia_3", "duration": "PERMANENT" },
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "npc_add_effect": "cf_mission_3", "duration": "PERMANENT" },
+        { "u_spawn_item": "CF_golden_scale", "count": 6 }
       ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_3_a"
-              ],
-              "x": 1,
-              "y": 1
-            }
-          ]
-        },
-        {
-          "om_terrain": "cf_church_2",
-          "mapgen_update_id": "cf_church_upgrade_3_b"
-        },
-        {
-          "om_terrain": "cf_church_3",
-          "mapgen_update_id": "cf_church_upgrade_3_c"
-        },
-        {
-          "om_terrain": "cf_church_4",
-          "mapgen_update_id": "cf_church_upgrade_3_d"
-        }
+        { "om_terrain": "cf_church_1", "place_nested": [ { "chunks": [ "cf_church_upgrade_3_a" ], "x": 1, "y": 1 } ] },
+        { "om_terrain": "cf_church_2", "mapgen_update_id": "cf_church_upgrade_3_b" },
+        { "om_terrain": "cf_church_3", "mapgen_update_id": "cf_church_upgrade_3_c" },
+        { "om_terrain": "cf_church_4", "mapgen_update_id": "cf_church_upgrade_3_d" }
       ]
     }
   },
   {
     "id": "MISSION_CF_REP_4",
     "type": "mission_definition",
-    "name": {
-      "str": "Secure Allies For Sofia"
-    },
+    "name": { "str": "Secure Allies For Sofia" },
     "description": "Arrange for additional allies to join Sofia's group at the rural church.  Most merchants at the refugee center, and possibly other places, might be worth talking to for assistance.",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "u_has_var": "sofia_allies_secured",
-      "type": "mission",
-      "context": "rural_church",
-      "value": "yes"
-    },
+    "goal_condition": { "u_has_var": "sofia_allies_secured", "type": "mission", "context": "rural_church", "value": "yes" },
     "difficulty": 3,
     "value": 20000,
     "has_generic_rewards": false,
     "start": {
-      "effect": [
-        {
-          "u_add_var": "sofia_mission_4",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        }
-      ],
+      "effect": [ { "u_add_var": "sofia_mission_4", "type": "mission", "context": "rural_church", "value": "yes" } ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_4_a"
-              ],
-              "x": 3,
-              "y": 16
-            }
-          ]
-        },
-        {
-          "om_terrain": "cf_church_3",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_4_b"
-              ],
-              "x": 3,
-              "y": 0
-            }
-          ]
-        }
+        { "om_terrain": "cf_church_1", "place_nested": [ { "chunks": [ "cf_church_upgrade_4_a" ], "x": 3, "y": 16 } ] },
+        { "om_terrain": "cf_church_3", "place_nested": [ { "chunks": [ "cf_church_upgrade_4_b" ], "x": 3, "y": 0 } ] }
       ]
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_REP_5",
     "dialogue": {
       "describe": "Odin, guide my hand...",
@@ -687,101 +388,40 @@
     },
     "end": {
       "effect": [
-        {
-          "u_add_var": "sofia_mission_4_end",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        },
-        {
-          "npc_add_var": "sofia_mission_4_end",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        },
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 8
-        }
+        { "u_add_var": "sofia_mission_4_end", "type": "mission", "context": "rural_church", "value": "yes" },
+        { "npc_add_var": "sofia_mission_4_end", "type": "mission", "context": "rural_church", "value": "yes" },
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "u_spawn_item": "CF_golden_scale", "count": 8 }
       ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_4_h"
-              ],
-              "x": 4,
-              "y": 17
-            }
-          ]
-        },
-        {
-          "om_terrain": "cf_church_3",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_4_i"
-              ],
-              "x": 4,
-              "y": 0
-            }
-          ]
-        },
-        {
-          "om_terrain": "cf_church_3_roof",
-          "mapgen_update_id": "cf_church_upgrade_4_j"
-        }
+        { "om_terrain": "cf_church_1", "place_nested": [ { "chunks": [ "cf_church_upgrade_4_h" ], "x": 4, "y": 17 } ] },
+        { "om_terrain": "cf_church_3", "place_nested": [ { "chunks": [ "cf_church_upgrade_4_i" ], "x": 4, "y": 0 } ] },
+        { "om_terrain": "cf_church_3_roof", "mapgen_update_id": "cf_church_upgrade_4_j" }
       ]
     }
   },
   {
     "id": "MISSION_CF_REP_5",
     "type": "mission_definition",
-    "name": {
-      "str": "Bring back research from the Keepers of The Oath"
-    },
+    "name": { "str": "Bring back research from the Keepers of The Oath" },
     "description": "Find a suspected remnant of the Keepers, who may have research and intel to bring back to Sofia.  Sofia advised that the information being sought might be preserved on something more durable than a book.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 4,
     "value": 25000,
     "has_generic_rewards": false,
     "item": "offering_mission_notes",
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_REP_6",
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "arcana_hermitage_1",
-        "reveal_radius": 1
-      },
-      "update_mapgen": [
-        {
-          "om_terrain": "cf_church_2",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_5"
-              ],
-              "x": 2,
-              "y": 3
-            }
-          ]
-        }
-      ]
+      "assign_mission_target": { "om_terrain": "arcana_hermitage_1", "reveal_radius": 1 },
+      "update_mapgen": [ { "om_terrain": "cf_church_2", "place_nested": [ { "chunks": [ "cf_church_upgrade_5" ], "x": 2, "y": 3 } ] } ]
     },
     "dialogue": {
       "describe": "Odin, guide my hand...",
       "offer": "Now that we have a few more helping hands around here, we can dedicate more time to following up on some leads Johnathan's notes have provided us.  They point to evidence of a survivor among the Keepers of The Oath, who had close contact with members of their high priesthood.  I would like you to find out anything you can from them, any research or assistance they may be able to provide.",
       "accepted": "Thank you, I'll show you where he is suspected to be.  My main interest is in any research notes that may have survived, anything beyond the regular content of their holy text.  Knowing the Keepers, any new research will likely first be preserved in a format more permanent than paper.  If they still have any other contacts, any other assistance they can offer, see what can be done.  Now is the time to make amends and fight together, I hope.",
       "rejected": "I see.  Well, if you'd like, just ask me when you're ready.  I worry that we may lose this lead before long.",
-      "advice": "I don't know for certain how this person will react to being asked to provide information to the Cleansing Flame.  Johnathan might be able to provide more information, but I suspect he would rather see the Keepers extinguished.  As for what to look for, they used to preserve sacred tenets and writing in stone carvings, clay tablets, or such for posterity before they started hand-copying and printing their works.  Even more traditionalist than us in some ways, otherworldly god or not\u2026",
+      "advice": "I don't know for certain how this person will react to being asked to provide information to the Cleansing Flame.  Johnathan might be able to provide more information, but I suspect he would rather see the Keepers extinguished.  As for what to look for, they used to preserve sacred tenets and writing in stone carvings, clay tablets, or such for posterity before they started hand-copying and printing their works.  Even more traditionalist than us in some ways, otherworldly god or not…",
       "inquire": "Have you found what we seek?",
       "success": "Thank you.  I hope that things went well in your pursuit of this knowledge, without undue violence.  This is a peculiar thing indeed, but it will enable some valuable research.  It seems to primarily concern some of the more dangerous interlopers threatening what's left of humanity, I'm hopeful this will bear fruit.",
       "success_lie": "What do you think you're trying to pull?",
@@ -789,52 +429,24 @@
     },
     "end": {
       "effect": [
-        {
-          "npc_add_var": "sofia_mission_5_end",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        },
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 10
-        }
+        { "npc_add_var": "sofia_mission_5_end", "type": "mission", "context": "rural_church", "value": "yes" },
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "u_spawn_item": "CF_golden_scale", "count": 10 }
       ],
-      "update_mapgen": [
-        {
-          "om_terrain": "cf_church_2",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_6"
-              ],
-              "x": 2,
-              "y": 3
-            }
-          ]
-        }
-      ]
+      "update_mapgen": [ { "om_terrain": "cf_church_2", "place_nested": [ { "chunks": [ "cf_church_upgrade_6" ], "x": 2, "y": 3 } ] } ]
     }
   },
   {
     "id": "MISSION_CF_REP_6",
     "type": "mission_definition",
-    "name": {
-      "str": "Secure Research From The Renegade Shrikes"
-    },
+    "name": { "str": "Secure Research From The Renegade Shrikes" },
     "description": "Find a suspected splinter faction of the Sanguine Order, who may have research and intel to bring back to Sofia.  Bring back any unique research they have.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 4,
     "value": 30000,
     "has_generic_rewards": false,
     "item": "sanguine_mission_notes",
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_REP_7",
     "start": {
       "assign_mission_target": {
@@ -848,29 +460,10 @@
         "min_distance": 20
       },
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_2",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_7_a"
-              ],
-              "x": 2,
-              "y": 4
-            }
-          ]
-        },
+        { "om_terrain": "cf_church_2", "place_nested": [ { "chunks": [ "cf_church_upgrade_7_a" ], "x": 2, "y": 4 } ] },
         {
           "om_terrain": "cf_church_2_roof",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_7_b"
-              ],
-              "x": 2,
-              "y": 3
-            }
-          ]
+          "place_nested": [ { "chunks": [ "cf_church_upgrade_7_b" ], "x": 2, "y": 3 } ]
         }
       ]
     },
@@ -886,68 +479,30 @@
       "failure": "But how..."
     },
     "end": {
-      "effect": [
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 12
-        }
-      ],
+      "effect": [ { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" }, { "u_spawn_item": "CF_golden_scale", "count": 12 } ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_2",
-          "place_nested": [
-            {
-              "chunks": [
-                "cf_church_upgrade_8_a"
-              ],
-              "x": 8,
-              "y": 4
-            }
-          ]
-        },
-        {
-          "om_terrain": "cf_church_2_roof",
-          "mapgen_update_id": "cf_church_upgrade_8_b"
-        }
+        { "om_terrain": "cf_church_2", "place_nested": [ { "chunks": [ "cf_church_upgrade_8_a" ], "x": 8, "y": 4 } ] },
+        { "om_terrain": "cf_church_2_roof", "mapgen_update_id": "cf_church_upgrade_8_b" }
       ]
     }
   },
   {
     "id": "MISSION_CF_REP_7",
     "type": "mission_definition",
-    "name": {
-      "str": "Bring Back Relay Beacon"
-    },
+    "name": { "str": "Bring Back Relay Beacon" },
     "description": "Retrieve a radio relay beacon from a radio station recently secured by a contact allied with the Cleansing Flame.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 5,
     "value": 35000,
     "has_generic_rewards": false,
     "item": "arcana_radio_relay_beacon",
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "station_radio_1",
-        "reveal_radius": 3
-      },
+      "assign_mission_target": { "om_terrain": "station_radio_1", "reveal_radius": 3 },
       "update_mapgen": [
-        {
-          "mapgen_update_id": "arcana_radio_station"
-        },
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_9_a"
-        },
-        {
-          "om_terrain": "cf_church_2",
-          "mapgen_update_id": "cf_church_upgrade_9_b"
-        }
+        { "mapgen_update_id": "arcana_radio_station" },
+        { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_9_a" },
+        { "om_terrain": "cf_church_2", "mapgen_update_id": "cf_church_upgrade_9_b" }
       ]
     },
     "dialogue": {
@@ -963,83 +518,38 @@
     },
     "end": {
       "effect": [
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_add_effect": "cf_mission_sofia_7",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 14
-        }
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "u_add_effect": "cf_mission_sofia_7", "duration": "PERMANENT" },
+        { "u_spawn_item": "CF_golden_scale", "count": 14 }
       ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_10_a"
-        },
-        {
-          "om_terrain": "cf_church_2",
-          "mapgen_update_id": "cf_church_upgrade_10_b"
-        }
+        { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_10_a" },
+        { "om_terrain": "cf_church_2", "mapgen_update_id": "cf_church_upgrade_10_b" }
       ]
     }
   },
   {
     "id": "MISSION_CF_GM_1",
     "type": "mission_definition",
-    "name": {
-      "str": "Retrieve Bane Staff"
-    },
+    "name": { "str": "Retrieve Bane Staff" },
     "description": "Retrieve the bane staff from the strange grove, and bring it to Johnathan.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 5,
     "item": "scourge_staff",
     "value": 15000,
     "has_generic_rewards": false,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_GM_2",
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "strange_grove",
-        "om_special": "Curious Structure",
-        "reveal_radius": 3,
-        "z": 0
-      }
+      "assign_mission_target": { "om_terrain": "strange_grove", "om_special": "Curious Structure", "reveal_radius": 3, "z": 0 }
     },
     "end": {
-      "effect": [
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 6
-        }
-      ],
+      "effect": [ { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" }, { "u_spawn_item": "CF_golden_scale", "count": 6 } ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_GM_1_a"
-        },
-        {
-          "om_terrain": "cf_church_2",
-          "mapgen_update_id": "cf_church_upgrade_GM_1_b"
-        },
-        {
-          "om_terrain": "cf_church_3",
-          "mapgen_update_id": "cf_church_upgrade_GM_1_c"
-        },
-        {
-          "om_terrain": "cf_church_4",
-          "mapgen_update_id": "cf_church_upgrade_GM_1_d"
-        }
+        { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_GM_1_a" },
+        { "om_terrain": "cf_church_2", "mapgen_update_id": "cf_church_upgrade_GM_1_b" },
+        { "om_terrain": "cf_church_3", "mapgen_update_id": "cf_church_upgrade_GM_1_c" },
+        { "om_terrain": "cf_church_4", "mapgen_update_id": "cf_church_upgrade_GM_1_d" }
       ]
     },
     "dialogue": {
@@ -1057,54 +567,23 @@
   {
     "id": "MISSION_CF_GM_2",
     "type": "mission_definition",
-    "name": {
-      "str": "Retrieve Demon Claw"
-    },
+    "name": { "str": "Retrieve Demon Claw" },
     "description": "Retrieve the demon claw from the curious structure, and bring it to Johnathan.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 5,
     "item": "hand_of_armok",
     "value": 20000,
     "has_generic_rewards": false,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_GM_3",
-    "start": {
-      "assign_mission_target": {
-        "om_terrain": "curious_structure",
-        "reveal_radius": 3,
-        "z": 0
-      }
-    },
+    "start": { "assign_mission_target": { "om_terrain": "curious_structure", "reveal_radius": 3, "z": 0 } },
     "end": {
-      "effect": [
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 8
-        }
-      ],
+      "effect": [ { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" }, { "u_spawn_item": "CF_golden_scale", "count": 8 } ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_GM_2_a"
-        },
-        {
-          "om_terrain": "cf_church_2",
-          "mapgen_update_id": "cf_church_upgrade_GM_2_b"
-        },
-        {
-          "om_terrain": "cf_church_3",
-          "mapgen_update_id": "cf_church_upgrade_GM_2_c"
-        },
-        {
-          "om_terrain": "cf_church_4",
-          "mapgen_update_id": "cf_church_upgrade_GM_2_d"
-        }
+        { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_GM_2_a" },
+        { "om_terrain": "cf_church_2", "mapgen_update_id": "cf_church_upgrade_GM_2_b" },
+        { "om_terrain": "cf_church_3", "mapgen_update_id": "cf_church_upgrade_GM_2_c" },
+        { "om_terrain": "cf_church_4", "mapgen_update_id": "cf_church_upgrade_GM_2_d" }
       ]
     },
     "dialogue": {
@@ -1122,9 +601,7 @@
   {
     "id": "MISSION_CF_GM_3",
     "type": "mission_definition",
-    "name": {
-      "str": "Cleanse Sanguinist Sect"
-    },
+    "name": { "str": "Cleanse Sanguinist Sect" },
     "description": "Kill the blood mage in charge of a local Sanguine Order sect.  Optionally recruit one of the church's guards to assist.",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 10,
@@ -1144,59 +621,25 @@
       "update_mapgen": [
         {
           "om_terrain": "sanguine_holdout_b1",
-          "place_npcs": [
-            {
-              "class": "sanguine_order_magus",
-              "x": 14,
-              "y": 12,
-              "target": true,
-              "add_trait": "MUTE"
-            }
-          ]
+          "place_npcs": [ { "class": "sanguine_order_magus", "x": 14, "y": 12, "target": true, "add_trait": "MUTE" } ]
         }
       ]
     },
     "end": {
       "effect": [
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_add_effect": "cf_mission_johnathan_3",
-          "duration": "PERMANENT"
-        },
-        {
-          "npc_add_effect": "cf_mission_3",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 10
-        }
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "u_add_effect": "cf_mission_johnathan_3", "duration": "PERMANENT" },
+        { "npc_add_effect": "cf_mission_3", "duration": "PERMANENT" },
+        { "u_spawn_item": "CF_golden_scale", "count": 10 }
       ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_GM_3_a"
-        },
-        {
-          "om_terrain": "cf_church_2",
-          "mapgen_update_id": "cf_church_upgrade_GM_3_b"
-        },
-        {
-          "om_terrain": "cf_church_3",
-          "mapgen_update_id": "cf_church_upgrade_GM_3_c"
-        },
-        {
-          "om_terrain": "cf_church_4",
-          "mapgen_update_id": "cf_church_upgrade_GM_3_d"
-        }
+        { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_GM_3_a" },
+        { "om_terrain": "cf_church_2", "mapgen_update_id": "cf_church_upgrade_GM_3_b" },
+        { "om_terrain": "cf_church_3", "mapgen_update_id": "cf_church_upgrade_GM_3_c" },
+        { "om_terrain": "cf_church_4", "mapgen_update_id": "cf_church_upgrade_GM_3_d" }
       ]
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_GM_4",
     "dialogue": {
       "describe": "Grant us strength...",
@@ -1213,328 +656,63 @@
   {
     "id": "MISSION_CF_GM_4_PRELUDE",
     "type": "mission_definition",
-    "name": {
-      "str": "Investigate survivor camp"
-    },
+    "name": { "str": "Investigate survivor camp" },
     "description": "Search the last known encampment of a group of survivors, who have recently encountered anomalous activity.  Bring back any unusual items found there, that may prove useful to identifying and locating the origin of this threat.",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "or": [
-        {
-          "u_has_item": "arcana_dream_journal"
-        },
-        {
-          "u_has_item": "arcana_strange_crystal"
-        }
-      ]
-    },
+    "goal_condition": { "or": [ { "u_has_item": "arcana_dream_journal" }, { "u_has_item": "arcana_strange_crystal" } ] },
     "difficulty": 3,
     "value": 10000,
     "has_generic_rewards": false,
     "start": {
-      "effect": [
-        {
-          "u_add_var": "johnathan_prelude_mid",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        }
-      ],
-      "assign_mission_target": {
-        "om_terrain": "forest",
-        "reveal_radius": 3,
-        "random": true,
-        "search_range": 50,
-        "min_distance": 20
-      },
+      "effect": [ { "u_add_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" } ],
+      "assign_mission_target": { "om_terrain": "forest", "reveal_radius": 3, "random": true, "search_range": 50, "min_distance": 20 },
       "update_mapgen": {
         "set": [
-          {
-            "square": "terrain",
-            "id": "t_region_groundcover_forest",
-            "x": 4,
-            "x2": 19,
-            "y": 4,
-            "y2": 19
-          },
-          {
-            "square": "terrain",
-            "id": "t_region_groundcover_barren",
-            "x": 8,
-            "x2": 15,
-            "y": 8,
-            "y2": 15
-          },
-          {
-            "square": "furniture",
-            "id": "f_null",
-            "x": 8,
-            "x2": 15,
-            "y": 8,
-            "y2": 15
-          },
-          {
-            "line": "terrain",
-            "id": "t_grave_new",
-            "x": 11,
-            "x2": 12,
-            "y": 7,
-            "y2": 7
-          },
-          {
-            "point": "furniture",
-            "id": "f_brazier",
-            "x": 12,
-            "y": 11
-          },
-          {
-            "point": "furniture",
-            "id": "f_plastic_groundsheet",
-            "x": 14,
-            "y": 12
-          },
-          {
-            "point": "furniture",
-            "id": "f_tourist_table",
-            "x": 14,
-            "y": 10
-          },
-          {
-            "point": "trap",
-            "id": "tr_rollmat",
-            "x": 12,
-            "y": 9
-          },
-          {
-            "point": "trap",
-            "id": "tr_rollmat",
-            "x": 10,
-            "y": 10
-          },
-          {
-            "point": "trap",
-            "id": "tr_rollmat",
-            "x": 10,
-            "y": 12
-          },
-          {
-            "point": "trap",
-            "id": "tr_rollmat",
-            "x": 12,
-            "y": 13
-          }
+          { "square": "terrain", "id": "t_region_groundcover_forest", "x": 4, "x2": 19, "y": 4, "y2": 19 },
+          { "square": "terrain", "id": "t_region_groundcover_barren", "x": 8, "x2": 15, "y": 8, "y2": 15 },
+          { "square": "furniture", "id": "f_null", "x": 8, "x2": 15, "y": 8, "y2": 15 },
+          { "line": "terrain", "id": "t_grave_new", "x": 11, "x2": 12, "y": 7, "y2": 7 },
+          { "point": "furniture", "id": "f_brazier", "x": 12, "y": 11 },
+          { "point": "furniture", "id": "f_plastic_groundsheet", "x": 14, "y": 12 },
+          { "point": "furniture", "id": "f_tourist_table", "x": 14, "y": 10 },
+          { "point": "trap", "id": "tr_rollmat", "x": 12, "y": 9 },
+          { "point": "trap", "id": "tr_rollmat", "x": 10, "y": 10 },
+          { "point": "trap", "id": "tr_rollmat", "x": 10, "y": 12 },
+          { "point": "trap", "id": "tr_rollmat", "x": 12, "y": 13 }
         ],
         "place_loot": [
-          {
-            "group": "trash_forest",
-            "x": [
-              1,
-              22
-            ],
-            "y": [
-              1,
-              2
-            ],
-            "repeat": 2,
-            "chance": 75
-          },
-          {
-            "group": "cannedfood",
-            "x": 14,
-            "y": 10,
-            "repeat": 5,
-            "chance": 50
-          },
-          {
-            "group": "drugs_heal_simple",
-            "x": 14,
-            "y": 10,
-            "repeat": 5,
-            "chance": 50
-          },
-          {
-            "group": "weapons",
-            "x": 14,
-            "y": 12,
-            "repeat": 2,
-            "chance": 25
-          },
-          {
-            "group": "guns_survival",
-            "x": 14,
-            "y": 12,
-            "repeat": 2,
-            "chance": 25
-          },
-          {
-            "group": "ammo_reloaded",
-            "x": 14,
-            "y": 12,
-            "repeat": 5,
-            "chance": 50
-          },
-          {
-            "item": "shovel",
-            "x": 14,
-            "y": 12,
-            "chance": 80
-          },
-          {
-            "group": "remains_soldier",
-            "x": 10,
-            "y": 16,
-            "chance": 100
-          },
-          {
-            "item": "223_casing",
-            "x": [
-              10,
-              15
-            ],
-            "y": [
-              13,
-              15
-            ],
-            "repeat": 10,
-            "chance": 50
-          },
-          {
-            "group": "map_extra_drugdeal",
-            "x": 11,
-            "y": 7,
-            "chance": 100
-          },
-          {
-            "group": "map_extra_college_camping",
-            "x": 12,
-            "y": 7,
-            "chance": 100
-          },
-          {
-            "item": "arcana_strange_crystal",
-            "x": 11,
-            "y": 7,
-            "chance": 100
-          },
-          {
-            "group": "bed",
-            "x": 10,
-            "y": 10,
-            "chance": 75
-          },
-          {
-            "item": "arcana_dream_journal",
-            "x": 10,
-            "y": 10,
-            "chance": 100
-          },
-          {
-            "group": "bed",
-            "x": 10,
-            "y": 12,
-            "chance": 75
-          },
-          {
-            "group": "bed",
-            "x": 12,
-            "y": 9,
-            "chance": 75
-          },
-          {
-            "group": "bed",
-            "x": 12,
-            "y": 13,
-            "chance": 75
-          }
+          { "group": "trash_forest", "x": [ 1, 22 ], "y": [ 1, 2 ], "repeat": 2, "chance": 75 },
+          { "group": "cannedfood", "x": 14, "y": 10, "repeat": 5, "chance": 50 },
+          { "group": "drugs_heal_simple", "x": 14, "y": 10, "repeat": 5, "chance": 50 },
+          { "group": "weapons", "x": 14, "y": 12, "repeat": 2, "chance": 25 },
+          { "group": "guns_survival", "x": 14, "y": 12, "repeat": 2, "chance": 25 },
+          { "group": "ammo_reloaded", "x": 14, "y": 12, "repeat": 5, "chance": 50 },
+          { "item": "shovel", "x": 14, "y": 12, "chance": 80 },
+          { "group": "remains_soldier", "x": 10, "y": 16, "chance": 100 },
+          { "item": "223_casing", "x": [ 10, 15 ], "y": [ 13, 15 ], "repeat": 10, "chance": 50 },
+          { "group": "map_extra_drugdeal", "x": 11, "y": 7, "chance": 100 },
+          { "group": "map_extra_college_camping", "x": 12, "y": 7, "chance": 100 },
+          { "item": "arcana_strange_crystal", "x": 11, "y": 7, "chance": 100 },
+          { "group": "bed", "x": 10, "y": 10, "chance": 75 },
+          { "item": "arcana_dream_journal", "x": 10, "y": 10, "chance": 100 },
+          { "group": "bed", "x": 10, "y": 12, "chance": 75 },
+          { "group": "bed", "x": 12, "y": 9, "chance": 75 },
+          { "group": "bed", "x": 12, "y": 13, "chance": 75 }
         ],
         "place_monster": [
-          {
-            "monster": "mon_shadow_summoned",
-            "x": [
-              1,
-              22
-            ],
-            "y": [
-              1,
-              22
-            ],
-            "repeat": [
-              2,
-              4
-            ]
-          },
-          {
-            "monster": "mon_hunting_horror_summoned",
-            "x": 12,
-            "y": 12
-          }
+          { "monster": "mon_shadow_summoned", "x": [ 1, 22 ], "y": [ 1, 22 ], "repeat": [ 2, 4 ] },
+          { "monster": "mon_hunting_horror_summoned", "x": 12, "y": 12 }
         ],
-        "place_vehicles": [
-          {
-            "vehicle": "motorcycle",
-            "x": 11,
-            "y": 16,
-            "rotation": 90,
-            "fuel": 500,
-            "status": 1,
-            "chance": 100
-          }
-        ],
+        "place_vehicles": [ { "vehicle": "motorcycle", "x": 11, "y": 16, "rotation": 90, "fuel": 500, "status": 1, "chance": 100 } ],
         "place_fields": [
-          {
-            "x": [
-              10,
-              11
-            ],
-            "y": [
-              15,
-              16
-            ],
-            "field": "fd_blood",
-            "intensity": 1
-          },
-          {
-            "x": [
-              10,
-              11
-            ],
-            "y": [
-              15,
-              16
-            ],
-            "field": "fd_blood",
-            "intensity": 1
-          },
-          {
-            "x": [
-              10,
-              11
-            ],
-            "y": [
-              15,
-              16
-            ],
-            "field": "fd_blood",
-            "intensity": 1
-          },
-          {
-            "x": [
-              9,
-              10
-            ],
-            "y": [
-              16,
-              17
-            ],
-            "field": "fd_blood",
-            "intensity": 1
-          }
+          { "x": [ 10, 11 ], "y": [ 15, 16 ], "field": "fd_blood", "intensity": 1 },
+          { "x": [ 10, 11 ], "y": [ 15, 16 ], "field": "fd_blood", "intensity": 1 },
+          { "x": [ 10, 11 ], "y": [ 15, 16 ], "field": "fd_blood", "intensity": 1 },
+          { "x": [ 9, 10 ], "y": [ 16, 17 ], "field": "fd_blood", "intensity": 1 }
         ]
       }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "Seeing this is probably a bug, as this mission is actually started via add_mission in dialogue.",
       "offer": "Seeing this is probably a bug.",
@@ -1548,33 +726,21 @@
     },
     "end": {
       "effect": [
-        {
-          "u_add_var": "johnathan_prelude_penultimate",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        },
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        }
+        { "u_add_var": "johnathan_prelude_penultimate", "type": "mission", "context": "rural_church", "value": "yes" },
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" }
       ]
     }
   },
   {
     "id": "MISSION_CF_GM_4",
     "type": "mission_definition",
-    "name": {
-      "str": "Cleanse The Anomaly"
-    },
+    "name": { "str": "Cleanse The Anomaly" },
     "description": "Seek out an anomalous structure that has recently forced its way into our world.  Kill whatever abomination lies at its heart.",
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 8,
     "value": 50000,
     "has_generic_rewards": false,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "start": {
       "assign_mission_target": {
         "om_terrain": "arcana_structure_anomalous_entrance",
@@ -1588,31 +754,12 @@
       "update_mapgen": [
         {
           "om_terrain": "arcana_structure_anomalous_finale",
-          "place_monster": [
-            {
-              "monster": "mon_seraphic_shade",
-              "x": 20,
-              "y": 5,
-              "target": true
-            }
-          ]
+          "place_monster": [ { "monster": "mon_seraphic_shade", "x": 20, "y": 5, "target": true } ]
         },
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_GM_4_a"
-        },
-        {
-          "om_terrain": "cf_church_2",
-          "mapgen_update_id": "cf_church_upgrade_GM_4_b"
-        },
-        {
-          "om_terrain": "cf_church_3",
-          "mapgen_update_id": "cf_church_upgrade_GM_4_c"
-        },
-        {
-          "om_terrain": "cf_church_4",
-          "mapgen_update_id": "cf_church_upgrade_GM_4_d"
-        }
+        { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_GM_4_a" },
+        { "om_terrain": "cf_church_2", "mapgen_update_id": "cf_church_upgrade_GM_4_b" },
+        { "om_terrain": "cf_church_3", "mapgen_update_id": "cf_church_upgrade_GM_4_c" },
+        { "om_terrain": "cf_church_4", "mapgen_update_id": "cf_church_upgrade_GM_4_d" }
       ]
     },
     "dialogue": {
@@ -1628,70 +775,33 @@
     },
     "end": {
       "effect": [
-        {
-          "npc_add_var": "johnathan_mission_finale",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        },
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 20
-        }
+        { "npc_add_var": "johnathan_mission_finale", "type": "mission", "context": "rural_church", "value": "yes" },
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "u_spawn_item": "CF_golden_scale", "count": 20 }
       ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_GM_5_a"
-        },
-        {
-          "om_terrain": "cf_church_2",
-          "mapgen_update_id": "cf_church_upgrade_GM_5_b"
-        },
-        {
-          "om_terrain": "cf_church_3",
-          "mapgen_update_id": "cf_church_upgrade_GM_5_c"
-        },
-        {
-          "om_terrain": "cf_church_4",
-          "mapgen_update_id": "cf_church_upgrade_GM_5_d"
-        }
+        { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_GM_5_a" },
+        { "om_terrain": "cf_church_2", "mapgen_update_id": "cf_church_upgrade_GM_5_b" },
+        { "om_terrain": "cf_church_3", "mapgen_update_id": "cf_church_upgrade_GM_5_c" },
+        { "om_terrain": "cf_church_4", "mapgen_update_id": "cf_church_upgrade_GM_5_d" }
       ]
     }
   },
   {
     "id": "MISSION_CF_AUX_A",
     "type": "mission_definition",
-    "name": {
-      "str": "Bring 5 Blank Scrolls"
-    },
+    "name": { "str": "Bring 5 Blank Scrolls" },
     "description": "Find or make 5 blank scrolls for the scavengers operating out of the rural church.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 2,
     "item": "scroll_blank",
     "count": 5,
     "value": 12500,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "end": {
-      "effect": [
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 5
-        }
-      ],
-      "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_aux_a"
-        }
-      ]
+      "effect": [ { "u_spawn_item": "CF_golden_scale", "count": 5 } ],
+      "update_mapgen": [ { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_aux_a" } ]
     },
     "dialogue": {
       "describe": "Seeing this is probably a bug.",
@@ -1708,34 +818,19 @@
   {
     "id": "MISSION_CF_AUX_B",
     "type": "mission_definition",
-    "name": {
-      "str": "Bring Wraithslayer Crossbow"
-    },
+    "name": { "str": "Bring Wraithslayer Crossbow" },
     "description": "Find or make a wraithslayer crossbow for the scavengers operating out of the rural church.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 3,
     "item": "ethereal_crossbow",
     "value": 50000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "end": {
-      "effect": [
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 20
-        }
-      ],
+      "effect": [ { "u_spawn_item": "CF_golden_scale", "count": 20 } ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_aux_b_1"
-        },
-        {
-          "om_terrain": "cf_church_3",
-          "mapgen_update_id": "cf_church_upgrade_aux_b_2"
-        }
+        { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_aux_b_1" },
+        { "om_terrain": "cf_church_3", "mapgen_update_id": "cf_church_upgrade_aux_b_2" }
       ]
     },
     "dialogue": {
@@ -1753,33 +848,16 @@
   {
     "id": "MISSION_CF_AUX_C",
     "type": "mission_definition",
-    "name": {
-      "str": "Bring a copy of History of Alchemy"
-    },
+    "name": { "str": "Bring a copy of History of Alchemy" },
     "description": "Find a copy of History of Alchemy for the Old Guard doctor stationed at the rural church.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 3,
     "item": "book_potioncraft",
     "value": 25000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "end": {
-      "effect": [
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 10
-        },
-        {
-          "u_spawn_item": "rx12_injector"
-        }
-      ],
-      "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_aux_c"
-        }
-      ]
+      "effect": [ { "u_spawn_item": "CF_golden_scale", "count": 10 }, { "u_spawn_item": "rx12_injector" } ],
+      "update_mapgen": [ { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_aux_c" } ]
     },
     "dialogue": {
       "describe": "Seeing this is probably a bug.",
@@ -1796,18 +874,14 @@
   {
     "id": "MISSION_CF_AUX_D",
     "type": "mission_definition",
-    "name": {
-      "str": "Find a triffid queen flower"
-    },
+    "name": { "str": "Find a triffid queen flower" },
     "description": "Obtain a red flower associated with otherworldly plant monsters, and return it to the farmhand.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 1,
     "value": 15000,
     "has_generic_rewards": false,
     "item": "triffid_queen_flower",
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "start": {
       "assign_mission_target": {
         "om_terrain": "new_anomaly_t",
@@ -1830,57 +904,29 @@
       "failure": "Seeing this is probably a bug."
     },
     "end": {
-      "effect": [
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 8
-        }
-      ],
+      "effect": [ { "u_spawn_item": "CF_golden_scale", "count": 8 } ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_aux_d_1"
-        },
-        {
-          "om_terrain": "cf_church_3",
-          "mapgen_update_id": "cf_church_upgrade_aux_d_2"
-        }
+        { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_aux_d_1" },
+        { "om_terrain": "cf_church_3", "mapgen_update_id": "cf_church_upgrade_aux_d_2" }
       ]
     }
   },
   {
     "id": "MISSION_CF_AUX_E",
     "type": "mission_definition",
-    "name": {
-      "str": "Investigate anomalous ambush"
-    },
+    "name": { "str": "Investigate anomalous ambush" },
     "description": "Put down the cause of a recent attack on a caravan, then report back to the shopkeep.",
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 1,
     "value": 15000,
     "has_generic_rewards": false,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "new_anomaly_w",
-        "om_terrain_replace": "field",
-        "random": true,
-        "search_range": 60,
-        "min_distance": 10
-      },
+      "assign_mission_target": { "om_terrain": "new_anomaly_w", "om_terrain_replace": "field", "random": true, "search_range": 60, "min_distance": 10 },
       "update_mapgen": [
         {
           "om_terrain": "new_anomaly_w",
-          "place_monster": [
-            {
-              "monster": "mon_alpha_razorclaw",
-              "x": 12,
-              "y": 20,
-              "target": true
-            }
-          ]
+          "place_monster": [ { "monster": "mon_alpha_razorclaw", "x": 12, "y": 20, "target": true } ]
         }
       ]
     },
@@ -1896,39 +942,24 @@
       "failure": "Seeing this is probably a bug."
     },
     "end": {
-      "effect": [
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 8
-        }
-      ],
+      "effect": [ { "u_spawn_item": "CF_golden_scale", "count": 8 } ],
       "update_mapgen": [
-        {
-          "om_terrain": "cf_church_1",
-          "mapgen_update_id": "cf_church_upgrade_aux_e_1"
-        },
-        {
-          "om_terrain": "cf_church_3",
-          "mapgen_update_id": "cf_church_upgrade_aux_e_2"
-        }
+        { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_aux_e_1" },
+        { "om_terrain": "cf_church_3", "mapgen_update_id": "cf_church_upgrade_aux_e_2" }
       ]
     }
   },
   {
     "id": "MISSION_CF_PURIFIER_1",
     "type": "mission_definition",
-    "name": {
-      "str": "Retrieve Reconnaissance Case"
-    },
+    "name": { "str": "Retrieve Reconnaissance Case" },
     "description": "Find a laptop briefcase at the last known location of a Cleaning Flame scout, and bring it back for Nicholas to examine for useful information.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 4,
     "value": 100000,
     "has_generic_rewards": false,
     "item": "arcane_purifier_intel",
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_PURIFIER_1_2",
     "start": {
       "assign_mission_target": {
@@ -1955,46 +986,25 @@
     },
     "end": {
       "effect": [
-        {
-          "npc_add_var": "nicholas_mission_1_end",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        },
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 10
-        }
+        { "npc_add_var": "nicholas_mission_1_end", "type": "mission", "context": "rural_church", "value": "yes" },
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "u_spawn_item": "CF_golden_scale", "count": 10 }
       ]
     }
   },
   {
     "id": "MISSION_CF_PURIFIER_1_2",
     "type": "mission_definition",
-    "name": {
-      "str": "Find Information About Project Kairos"
-    },
+    "name": { "str": "Find Information About Project Kairos" },
     "description": "Investigate for further information about Project Kairos, talking to others familiar with military or science facilities.  Bring any findings back to Nicholas afterward.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 4,
     "value": 150000,
     "has_generic_rewards": false,
     "item": "arcane_purifier_intel_2",
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_PURIFIER_1_3",
-    "start": {
-      "effect": [
-        {
-          "u_spawn_item": "cf_purifier_project_data"
-        }
-      ]
-    },
+    "start": { "effect": [ { "u_spawn_item": "cf_purifier_project_data" } ] },
     "dialogue": {
       "describe": "Seeing this is probably a bug.",
       "offer": "I'd like for you to find anyone else you think might be familiar with the military's experiments, the research labs, that sort of thing.  People who might be able to help us get a definite location out of what little information we have to go on.",
@@ -2008,43 +1018,23 @@
     },
     "end": {
       "effect": [
-        {
-          "npc_add_var": "nicholas_mission_2_end",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        },
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 15
-        }
+        { "npc_add_var": "nicholas_mission_2_end", "type": "mission", "context": "rural_church", "value": "yes" },
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "u_spawn_item": "CF_golden_scale", "count": 15 }
       ]
     }
   },
   {
     "id": "MISSION_CF_PURIFIER_1_INTERLUDE_1",
     "type": "mission_definition",
-    "name": {
-      "str": "Investigate Laboratory Server Room"
-    },
+    "name": { "str": "Investigate Laboratory Server Room" },
     "description": "Investigate a science lab and retrieve the intel Nicholas is looking for from their server room.  After bringing the shipping manifest back to Nicholas, you may return to the refugee center later to check on the Old Guard's doctor.",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "u_has_var": "nicholas_info_sent",
-      "type": "mission",
-      "context": "rural_church",
-      "value": "yes"
-    },
+    "goal_condition": { "u_has_var": "nicholas_info_sent", "type": "mission", "context": "rural_church", "value": "yes" },
     "difficulty": 5,
     "has_generic_rewards": false,
     "value": 10000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "start": {
       "assign_mission_target": {
         "om_terrain": "microlab_arcana_surface",
@@ -2054,14 +1044,7 @@
         "search_range": 180,
         "z": 0
       },
-      "effect": [
-        {
-          "npc_add_var": "nicholas_mission_2_mid",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        }
-      ]
+      "effect": [ { "npc_add_var": "nicholas_mission_2_mid", "type": "mission", "context": "rural_church", "value": "yes" } ]
     },
     "dialogue": {
       "describe": "Seeing this is probably a bug, as this mission is actually started via add_mission in dialogue.",
@@ -2074,35 +1057,19 @@
       "success_lie": "Seeing this is probably a bug.",
       "failure": "Seeing this is probably a bug."
     },
-    "end": {
-      "effect": [
-        {
-          "u_spawn_item": "FMCNote",
-          "count": 20
-        }
-      ]
-    }
+    "end": { "effect": [ { "u_spawn_item": "FMCNote", "count": 20 } ] }
   },
   {
     "id": "MISSION_CF_PURIFIER_1_INTERLUDE_2",
     "type": "mission_definition",
-    "name": {
-      "str": "Investigate Lost Scavenger Team"
-    },
+    "name": { "str": "Investigate Lost Scavenger Team" },
     "description": "Investigate the last known location of a group of survivors, suspected to have found documents of the information Nicholas is looking for.  After bringing the information back to Nicholas, you may return to bring back news of what happened to the scavengers.",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "u_has_var": "nicholas_info_sent",
-      "type": "mission",
-      "context": "rural_church",
-      "value": "yes"
-    },
+    "goal_condition": { "u_has_var": "nicholas_info_sent", "type": "mission", "context": "rural_church", "value": "yes" },
     "difficulty": 5,
     "has_generic_rewards": false,
     "value": 10000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "start": {
       "assign_mission_target": {
         "om_terrain": "arcana_cave_caravan",
@@ -2112,14 +1079,7 @@
         "search_range": 180,
         "z": 0
       },
-      "effect": [
-        {
-          "npc_add_var": "nicholas_mission_2_mid",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        }
-      ]
+      "effect": [ { "npc_add_var": "nicholas_mission_2_mid", "type": "mission", "context": "rural_church", "value": "yes" } ]
     },
     "dialogue": {
       "describe": "Seeing this is probably a bug, as this mission is actually started via add_mission in dialogue.",
@@ -2132,30 +1092,19 @@
       "success_lie": "Seeing this is probably a bug.",
       "failure": "Seeing this is probably a bug."
     },
-    "end": {
-      "effect": [
-        {
-          "u_spawn_item": "FMCNote",
-          "count": 15
-        }
-      ]
-    }
+    "end": { "effect": [ { "u_spawn_item": "FMCNote", "count": 15 } ] }
   },
   {
     "id": "MISSION_CF_PURIFIER_1_3",
     "type": "mission_definition",
-    "name": {
-      "str": "Retrieve dimensional focus lens from Project Kairos facility"
-    },
+    "name": { "str": "Retrieve dimensional focus lens from Project Kairos facility" },
     "description": "Investigate the research facility now suspected to be the location of Project Kairos, and retrieve a vital component known as a dimensional focus lens from it.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 8,
     "value": 200000,
     "has_generic_rewards": false,
     "item": "dimensional_focus_lens",
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "start": {
       "assign_mission_target": {
         "om_terrain": "lab_arcane_1_6_north",
@@ -2181,20 +1130,9 @@
     },
     "end": {
       "effect": [
-        {
-          "npc_add_var": "nicholas_mission_3_end",
-          "type": "mission",
-          "context": "rural_church",
-          "value": "yes"
-        },
-        {
-          "u_add_effect": "cf_mission_1",
-          "duration": "PERMANENT"
-        },
-        {
-          "u_spawn_item": "CF_golden_scale",
-          "count": 20
-        }
+        { "npc_add_var": "nicholas_mission_3_end", "type": "mission", "context": "rural_church", "value": "yes" },
+        { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" },
+        { "u_spawn_item": "CF_golden_scale", "count": 20 }
       ]
     }
   },
@@ -2202,15 +1140,11 @@
     "id": "MISSION_CF_PURIFIER_2",
     "//": "This missions is here so that I can expand on the mission chain later on without old saves being stuck.",
     "type": "mission_definition",
-    "name": {
-      "str": "Placeholder Mission"
-    },
+    "name": { "str": "Placeholder Mission" },
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 4,
     "value": 150000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "...",
       "offer": "...",
@@ -2227,15 +1161,11 @@
     "id": "MISSION_CF_SCIENTIST_1",
     "//": "This missions is here so that I can expand on the mission chain later on without old saves being stuck.",
     "type": "mission_definition",
-    "name": {
-      "str": "Placeholder Mission"
-    },
+    "name": { "str": "Placeholder Mission" },
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 4,
     "value": 150000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "...",
       "offer": "...",

@@ -10,9 +10,7 @@
     "faction": "grim_sisters"
   },
   {
-    "id": [
-      "TALK_bandit_gs_e"
-    ],
+    "id": [ "TALK_bandit_gs_e" ],
     "type": "talk_topic",
     "dynamic_line": {
       "u_male": true,
@@ -23,16 +21,12 @@
       {
         "text": "[RECEIPT] I'm here for business.",
         "topic": "TALK_bandit_gs_e_1",
-        "condition": {
-          "u_has_item": "bandit_item_4"
-        }
+        "condition": { "u_has_item": "bandit_item_4" }
       }
     ]
   },
   {
-    "id": [
-      "TALK_bandit_gs_e_1"
-    ],
+    "id": [ "TALK_bandit_gs_e_1" ],
     "type": "talk_topic",
     "dynamic_line": {
       "and": [
@@ -49,23 +43,10 @@
         "text": "Got it.",
         "topic": "TALK_DONE",
         "effect": [
-          {
-            "u_add_var": "open_gs_base",
-            "type": "flag",
-            "context": "give_access",
-            "value": "yes"
-          },
-          {
-            "npc_first_topic": "TALK_GRIM_SISTERS"
-          },
-          {
-            "mapgen_update": "bandit_gs_e_door1",
-            "om_terrain": "prison_1_gs_2"
-          },
-          {
-            "mapgen_update": "bandit_gs_e_door2",
-            "om_terrain": "prison_1_gs_1"
-          }
+          { "u_add_var": "open_gs_base", "type": "flag", "context": "give_access", "value": "yes" },
+          { "npc_first_topic": "TALK_GRIM_SISTERS" },
+          { "mapgen_update": "bandit_gs_e_door1", "om_terrain": "prison_1_gs_2" },
+          { "mapgen_update": "bandit_gs_e_door2", "om_terrain": "prison_1_gs_1" }
         ]
       }
     ]
@@ -74,28 +55,12 @@
     "type": "mapgen",
     "update_mapgen_id": "bandit_gs_e_door1",
     "method": "json",
-    "object": {
-      "place_terrain": [
-        {
-          "ter": "t_door_metal_o",
-          "x": 23,
-          "y": 17
-        }
-      ]
-    }
+    "object": { "place_terrain": [ { "ter": "t_door_metal_o", "x": 23, "y": 17 } ] }
   },
   {
     "type": "mapgen",
     "update_mapgen_id": "bandit_gs_e_door2",
     "method": "json",
-    "object": {
-      "place_terrain": [
-        {
-          "ter": "t_door_metal_o",
-          "x": 0,
-          "y": 17
-        }
-      ]
-    }
+    "object": { "place_terrain": [ { "ter": "t_door_metal_o", "x": 0, "y": 17 } ] }
   }
 ]

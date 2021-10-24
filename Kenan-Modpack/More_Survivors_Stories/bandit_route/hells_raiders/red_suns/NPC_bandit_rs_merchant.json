@@ -26,26 +26,14 @@
     "dynamic_line": "<greet>",
     "responses": [
       {
-        "text": "About that job\u2026",
-        "condition": {
-          "and": [
-            {
-              "u_has_mission": "MISSION_bandit_rs_merchant_2"
-            },
-            "mission_complete"
-          ]
-        },
+        "text": "About that job…",
+        "condition": { "and": [ { "u_has_mission": "MISSION_bandit_rs_merchant_2" }, "mission_complete" ] },
         "topic": "TALK_bandit_rs_merchant_mission2",
         "switch": true
       },
       {
-        "text": "About that job\u2026",
-        "condition": {
-          "and": [
-            "has_assigned_mission",
-            "mission_complete"
-          ]
-        },
+        "text": "About that job…",
+        "condition": { "and": [ "has_assigned_mission", "mission_complete" ] },
         "topic": "TALK_MISSION_INQUIRE",
         "switch": true
       },
@@ -55,109 +43,39 @@
           "type": "CONDITION",
           "condition": {
             "or": [
-              {
-                "u_has_var": "hell_hound",
-                "type": "switch",
-                "context": "alive_dead",
-                "value": "dead"
-              },
-              {
-                "not": {
-                  "npc_has_var": "busy",
-                  "type": "flag",
-                  "context": "lock_missions",
-                  "value": "yes"
-                }
-              }
+              { "u_has_var": "hell_hound", "type": "switch", "context": "alive_dead", "value": "dead" },
+              { "not": { "npc_has_var": "busy", "type": "flag", "context": "lock_missions", "value": "yes" } }
             ]
           }
         },
-        "success": {
-          "topic": "TALK_MISSION_LIST"
-        },
-        "failure": {
-          "topic": "TALK_bandit_rs_merchant_busy"
-        }
+        "success": { "topic": "TALK_MISSION_LIST" },
+        "failure": { "topic": "TALK_bandit_rs_merchant_busy" }
       },
-      {
-        "text": "I would like to ask you about something\u2026",
-        "topic": "TALK_bandit_rs_merchant_questions"
-      },
-      {
-        "text": "Let's trade.",
-        "effect": "start_trade",
-        "topic": "TALK_bandit_rs_merchant1"
-      },
+      { "text": "I would like to ask you about something…", "topic": "TALK_bandit_rs_merchant_questions" },
+      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_bandit_rs_merchant1" },
       {
         "text": "What about rare goods?",
-        "condition": {
-          "npc_has_var": "open_rare_trade",
-          "type": "flag",
-          "context": "open_orders",
-          "value": "yes"
-        },
+        "condition": { "npc_has_var": "open_rare_trade", "type": "flag", "context": "open_orders", "value": "yes" },
         "trial": {
           "type": "CONDITION",
           "condition": {
             "not": {
               "or": [
-                {
-                  "npc_has_var": "ordered_rm51",
-                  "type": "flag",
-                  "context": "ordered_weapon",
-                  "value": "yes"
-                },
-                {
-                  "npc_has_var": "ordered_rm11b",
-                  "type": "flag",
-                  "context": "ordered_weapon",
-                  "value": "yes"
-                },
-                {
-                  "npc_has_var": "ordered_rm103a",
-                  "type": "flag",
-                  "context": "ordered_weapon",
-                  "value": "yes"
-                },
-                {
-                  "npc_has_var": "ordered_rm120c",
-                  "type": "flag",
-                  "context": "ordered_weapon",
-                  "value": "yes"
-                },
-                {
-                  "npc_has_var": "ordered_rm2000",
-                  "type": "flag",
-                  "context": "ordered_weapon",
-                  "value": "yes"
-                },
-                {
-                  "npc_has_var": "ordered_20x66",
-                  "type": "flag",
-                  "context": "ordered_weapon",
-                  "value": "yes"
-                },
-                {
-                  "npc_has_var": "ordered_8x40",
-                  "type": "flag",
-                  "context": "ordered_weapon",
-                  "value": "yes"
-                }
+                { "npc_has_var": "ordered_rm51", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+                { "npc_has_var": "ordered_rm11b", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+                { "npc_has_var": "ordered_rm103a", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+                { "npc_has_var": "ordered_rm120c", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+                { "npc_has_var": "ordered_rm2000", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+                { "npc_has_var": "ordered_20x66", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+                { "npc_has_var": "ordered_8x40", "type": "flag", "context": "ordered_weapon", "value": "yes" }
               ]
             }
           }
         },
-        "success": {
-          "topic": "TALK_bandit_rs_merchant_rare_goods"
-        },
-        "failure": {
-          "topic": "TALK_bandit_rs_merchant_rare_goods_get"
-        }
+        "success": { "topic": "TALK_bandit_rs_merchant_rare_goods" },
+        "failure": { "topic": "TALK_bandit_rs_merchant_rare_goods_get" }
       },
-      {
-        "text": "Goodbye.",
-        "topic": "TALK_DONE"
-      }
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -184,37 +102,17 @@
       {
         "text": "Who's in charge now?",
         "topic": "TALK_bandit_rs_merchant_questions_leader",
-        "condition": {
-          "u_has_var": "hell_hound",
-          "type": "switch",
-          "context": "alive_dead",
-          "value": "dead"
-        }
+        "condition": { "u_has_var": "hell_hound", "type": "switch", "context": "alive_dead", "value": "dead" }
       },
       {
         "text": "I'm from Comandante.  Did you agree on something?",
-        "condition": {
-          "u_has_var": "fs_leader_mission_khh",
-          "type": "count",
-          "context": "unmarked_mission_progress",
-          "value": "3"
-        },
-        "effect": {
-          "u_add_var": "fs_leader_mission_khh",
-          "type": "count",
-          "context": "unmarked_mission_progress",
-          "value": "4"
-        },
+        "condition": { "u_has_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "3" },
+        "effect": { "u_add_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "4" },
         "topic": "TALK_bandit_rs_merchant_questions_hh_deal"
       },
       {
         "text": "Your guys slipped words that they don't really like their new leader.  Is that true?",
-        "condition": {
-          "u_has_var": "fs_leader_mission_khh",
-          "type": "count",
-          "context": "unmarked_mission_progress",
-          "value": "2"
-        },
+        "condition": { "u_has_var": "fs_leader_mission_khh", "type": "count", "context": "unmarked_mission_progress", "value": "2" },
         "topic": "TALK_bandit_rs_merchant_questions_hh"
       },
       {
@@ -228,35 +126,16 @@
               "op": ">=",
               "value": 3
             },
-            {
-              "u_has_var": "poison_agreed",
-              "type": "flag",
-              "context": "agreed",
-              "value": "yes"
-            },
-            {
-              "u_has_mission": "MISSION_bandit_rs_scientist_0"
-            }
+            { "u_has_var": "poison_agreed", "type": "flag", "context": "agreed", "value": "yes" },
+            { "u_has_mission": "MISSION_bandit_rs_scientist_0" }
           ]
         },
         "topic": "TALK_bandit_rs_merchant_questions_rs_scientist"
       },
-      {
-        "text": "What's your story?",
-        "topic": "TALK_bandit_rs_merchant_Background"
-      },
-      {
-        "text": "Who are you all?",
-        "topic": "TALK_bandit_rs_merchant_questions_faction"
-      },
-      {
-        "text": "Why do you use Free Merchant merch?",
-        "topic": "TALK_bandit_rs_merchant_questions_merch"
-      },
-      {
-        "text": "<done_conversation_section>",
-        "topic": "TALK_bandit_rs_merchant1"
-      }
+      { "text": "What's your story?", "topic": "TALK_bandit_rs_merchant_Background" },
+      { "text": "Who are you all?", "topic": "TALK_bandit_rs_merchant_questions_faction" },
+      { "text": "Why do you use Free Merchant merch?", "topic": "TALK_bandit_rs_merchant_questions_merch" },
+      { "text": "<done_conversation_section>", "topic": "TALK_bandit_rs_merchant1" }
     ]
   },
   {
@@ -291,12 +170,7 @@
         "op": ">=",
         "value": 3
       },
-      "effect": {
-        "npc_add_var": "open_rare_trade",
-        "type": "flag",
-        "context": "open_orders",
-        "value": "yes"
-      }
+      "effect": { "npc_add_var": "open_rare_trade", "type": "flag", "context": "open_orders", "value": "yes" }
     }
   },
   {
@@ -317,7 +191,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_bandit_rs_merchant_questions_hh",
-    "dynamic_line": "Who told you such nonsen\u2026\"  He looked around him with his eyes.  Sighing with relief, he said in a whisper:  \"Yes, it's true.  This monster does not give us any life.  Wasting our men, our resources, constantly dragging us into all sorts of stupid undertakings.  It would have been better without him."
+    "dynamic_line": "Who told you such nonsen…\"  He looked around him with his eyes.  Sighing with relief, he said in a whisper:  \"Yes, it's true.  This monster does not give us any life.  Wasting our men, our resources, constantly dragging us into all sorts of stupid undertakings.  It would have been better without him."
   },
   {
     "type": "talk_topic",
@@ -331,56 +205,23 @@
     "speaker_effect": {
       "sentinel": "know_sc",
       "effect": [
-        {
-          "u_lose_var": "poison_agreed",
-          "type": "flag",
-          "context": "agreed"
-        },
-        {
-          "u_add_var": "rs_scientist_poison",
-          "type": "flag",
-          "context": "open_option",
-          "value": "yes"
-        }
+        { "u_lose_var": "poison_agreed", "type": "flag", "context": "agreed" },
+        { "u_add_var": "rs_scientist_poison", "type": "flag", "context": "open_option", "value": "yes" }
       ]
     }
   },
   {
     "type": "talk_topic",
-    "id": [
-      "TALK_bandit_rs_merchant_rare_goods",
-      "TALK_bandit_rs_merchant_rare_goods_return"
-    ],
+    "id": [ "TALK_bandit_rs_merchant_rare_goods", "TALK_bandit_rs_merchant_rare_goods_return" ],
     "dynamic_line": "*dug a little in his desk, took out a sheet of paper and shows it to you.   \"Here's what I can get for you now.  Choose.\"",
     "responses": [
-      {
-        "text": "RM120c.",
-        "topic": "TALK_bandit_rs_merchant_rare_goods_rm120c"
-      },
-      {
-        "text": "RM103A.",
-        "topic": "TALK_bandit_rs_merchant_rare_goods_rm103a"
-      },
-      {
-        "text": "RM11B.",
-        "topic": "TALK_bandit_rs_merchant_rare_goods_rm11b"
-      },
-      {
-        "text": "RM2000.",
-        "topic": "TALK_bandit_rs_merchant_rare_goods_rm2000"
-      },
-      {
-        "text": "RM51.",
-        "topic": "TALK_bandit_rs_merchant_rare_goods_rm51"
-      },
-      {
-        "text": "Ammo.",
-        "topic": "TALK_bandit_rs_merchant_rare_goods_ammo"
-      },
-      {
-        "text": "<done_conversation_section>",
-        "topic": "TALK_bandit_rs_merchant1"
-      }
+      { "text": "RM120c.", "topic": "TALK_bandit_rs_merchant_rare_goods_rm120c" },
+      { "text": "RM103A.", "topic": "TALK_bandit_rs_merchant_rare_goods_rm103a" },
+      { "text": "RM11B.", "topic": "TALK_bandit_rs_merchant_rare_goods_rm11b" },
+      { "text": "RM2000.", "topic": "TALK_bandit_rs_merchant_rare_goods_rm2000" },
+      { "text": "RM51.", "topic": "TALK_bandit_rs_merchant_rare_goods_rm51" },
+      { "text": "Ammo.", "topic": "TALK_bandit_rs_merchant_rare_goods_ammo" },
+      { "text": "<done_conversation_section>", "topic": "TALK_bandit_rs_merchant1" }
     ]
   },
   {
@@ -395,29 +236,11 @@
     "responses": [
       {
         "text": "Here's your money.",
-        "condition": {
-          "u_has_items": {
-            "item": "FMCNote",
-            "count": 1360
-          }
-        },
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 1360 } },
         "effect": [
-          {
-            "npc_add_var": "ordered",
-            "type": "time",
-            "context": "wait_order",
-            "time": true
-          },
-          {
-            "npc_add_var": "ordered_rm120c",
-            "type": "flag",
-            "context": "ordered_weapon",
-            "value": "yes"
-          },
-          {
-            "u_sell_item": "FMCNote",
-            "count": 1360
-          }
+          { "npc_add_var": "ordered", "type": "time", "context": "wait_order", "time": true },
+          { "npc_add_var": "ordered_rm120c", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+          { "u_sell_item": "FMCNote", "count": 1360 }
         ],
         "topic": "TALK_bandit_rs_merchant_rare_goods_bought"
       }
@@ -430,29 +253,11 @@
     "responses": [
       {
         "text": "Here's your money.",
-        "condition": {
-          "u_has_items": {
-            "item": "FMCNote",
-            "count": 940
-          }
-        },
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 940 } },
         "effect": [
-          {
-            "npc_add_var": "ordered",
-            "type": "time",
-            "context": "wait_order",
-            "time": true
-          },
-          {
-            "npc_add_var": "ordered_rm103a",
-            "type": "flag",
-            "context": "ordered_weapon",
-            "value": "yes"
-          },
-          {
-            "u_sell_item": "FMCNote",
-            "count": 940
-          }
+          { "npc_add_var": "ordered", "type": "time", "context": "wait_order", "time": true },
+          { "npc_add_var": "ordered_rm103a", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+          { "u_sell_item": "FMCNote", "count": 940 }
         ],
         "topic": "TALK_bandit_rs_merchant_rare_goods_bought"
       }
@@ -465,29 +270,11 @@
     "responses": [
       {
         "text": "Here's your money.",
-        "condition": {
-          "u_has_items": {
-            "item": "FMCNote",
-            "count": 11640
-          }
-        },
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 11640 } },
         "effect": [
-          {
-            "npc_add_var": "ordered",
-            "type": "time",
-            "context": "wait_order",
-            "time": true
-          },
-          {
-            "npc_add_var": "ordered_rm11b",
-            "type": "flag",
-            "context": "ordered_weapon",
-            "value": "yes"
-          },
-          {
-            "u_sell_item": "FMCNote",
-            "count": 11640
-          }
+          { "npc_add_var": "ordered", "type": "time", "context": "wait_order", "time": true },
+          { "npc_add_var": "ordered_rm11b", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+          { "u_sell_item": "FMCNote", "count": 11640 }
         ],
         "topic": "TALK_bandit_rs_merchant_rare_goods_bought"
       }
@@ -500,29 +287,11 @@
     "responses": [
       {
         "text": "Here's your money.",
-        "condition": {
-          "u_has_items": {
-            "item": "FMCNote",
-            "count": 7700
-          }
-        },
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 7700 } },
         "effect": [
-          {
-            "npc_add_var": "ordered",
-            "type": "time",
-            "context": "wait_order",
-            "time": true
-          },
-          {
-            "npc_add_var": "ordered_rm2000",
-            "type": "flag",
-            "context": "ordered_weapon",
-            "value": "yes"
-          },
-          {
-            "u_sell_item": "FMCNote",
-            "count": 7700
-          }
+          { "npc_add_var": "ordered", "type": "time", "context": "wait_order", "time": true },
+          { "npc_add_var": "ordered_rm2000", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+          { "u_sell_item": "FMCNote", "count": 7700 }
         ],
         "topic": "TALK_bandit_rs_merchant_rare_goods_bought"
       }
@@ -531,33 +300,15 @@
   {
     "type": "talk_topic",
     "id": "TALK_bandit_rs_merchant_rare_goods_rm51",
-    "dynamic_line": "The Rivtech RM51 assault rifle \u043e\u0442 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438 Rivtech, light and deadly.  I can get you this one, with some ammo, for 7300 merch.  Keep in mind that you need to wait for delivery at least 18 days.",
+    "dynamic_line": "The Rivtech RM51 assault rifle от компании Rivtech, light and deadly.  I can get you this one, with some ammo, for 7300 merch.  Keep in mind that you need to wait for delivery at least 18 days.",
     "responses": [
       {
         "text": "Here's your money.",
-        "condition": {
-          "u_has_items": {
-            "item": "FMCNote",
-            "count": 7300
-          }
-        },
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 7300 } },
         "effect": [
-          {
-            "npc_add_var": "ordered",
-            "type": "time",
-            "context": "wait_order",
-            "time": true
-          },
-          {
-            "npc_add_var": "ordered_rm51",
-            "type": "flag",
-            "context": "ordered_weapon",
-            "value": "yes"
-          },
-          {
-            "u_sell_item": "FMCNote",
-            "count": 7300
-          }
+          { "npc_add_var": "ordered", "type": "time", "context": "wait_order", "time": true },
+          { "npc_add_var": "ordered_rm51", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+          { "u_sell_item": "FMCNote", "count": 7300 }
         ],
         "topic": "TALK_bandit_rs_merchant_rare_goods_bought"
       }
@@ -570,57 +321,21 @@
     "responses": [
       {
         "text": "Here's your money for 8x40mm.",
-        "condition": {
-          "u_has_items": {
-            "item": "FMCNote",
-            "count": 90
-          }
-        },
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 90 } },
         "effect": [
-          {
-            "npc_add_var": "ordered",
-            "type": "time",
-            "context": "wait_order",
-            "time": true
-          },
-          {
-            "npc_add_var": "ordered_8x40",
-            "type": "flag",
-            "context": "ordered_weapon",
-            "value": "yes"
-          },
-          {
-            "u_sell_item": "FMCNote",
-            "count": 90
-          }
+          { "npc_add_var": "ordered", "type": "time", "context": "wait_order", "time": true },
+          { "npc_add_var": "ordered_8x40", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+          { "u_sell_item": "FMCNote", "count": 90 }
         ],
         "topic": "TALK_bandit_rs_merchant_rare_goods_bought"
       },
       {
         "text": "Here's your money for 20x66mm.",
-        "condition": {
-          "u_has_items": {
-            "item": "FMCNote",
-            "count": 150
-          }
-        },
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 150 } },
         "effect": [
-          {
-            "npc_add_var": "ordered",
-            "type": "time",
-            "context": "wait_order",
-            "time": true
-          },
-          {
-            "npc_add_var": "ordered_20x66",
-            "type": "flag",
-            "context": "ordered_weapon",
-            "value": "yes"
-          },
-          {
-            "u_sell_item": "FMCNote",
-            "count": 150
-          }
+          { "npc_add_var": "ordered", "type": "time", "context": "wait_order", "time": true },
+          { "npc_add_var": "ordered_20x66", "type": "flag", "context": "ordered_weapon", "value": "yes" },
+          { "u_sell_item": "FMCNote", "count": 150 }
         ],
         "topic": "TALK_bandit_rs_merchant_rare_goods_bought"
       }
@@ -637,14 +352,8 @@
       "TALK_bandit_rs_merchant_rare_goods_ammo"
     ],
     "responses": [
-      {
-        "text": "What else do you have?",
-        "topic": "TALK_bandit_rs_merchant_rare_goods_return"
-      },
-      {
-        "text": "Let's talk later.",
-        "topic": "TALK_DONE"
-      }
+      { "text": "What else do you have?", "topic": "TALK_bandit_rs_merchant_rare_goods_return" },
+      { "text": "Let's talk later.", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -764,12 +473,7 @@
       {
         "condition": {
           "and": [
-            {
-              "npc_has_var": "ordered_rm2000",
-              "type": "flag",
-              "context": "ordered_weapon",
-              "value": "yes"
-            },
+            { "npc_has_var": "ordered_rm2000", "type": "flag", "context": "ordered_weapon", "value": "yes" },
             {
               "npc_compare_time_since_var": "ordered",
               "type": "time",
@@ -780,34 +484,16 @@
           ]
         },
         "effect": [
-          {
-            "u_spawn_item": "rm2000_smg"
-          },
-          {
-            "u_spawn_item": "8mm_fmj",
-            "count": 50
-          },
-          {
-            "npc_lose_var": "ordered_rm2000",
-            "type": "flag",
-            "context": "ordered_weapon"
-          },
-          {
-            "npc_lose_var": "ordered",
-            "type": "time",
-            "context": "wait_order"
-          }
+          { "u_spawn_item": "rm2000_smg" },
+          { "u_spawn_item": "8mm_fmj", "count": 50 },
+          { "npc_lose_var": "ordered_rm2000", "type": "flag", "context": "ordered_weapon" },
+          { "npc_lose_var": "ordered", "type": "time", "context": "wait_order" }
         ]
       },
       {
         "condition": {
           "and": [
-            {
-              "npc_has_var": "ordered_rm51",
-              "type": "flag",
-              "context": "ordered_weapon",
-              "value": "yes"
-            },
+            { "npc_has_var": "ordered_rm51", "type": "flag", "context": "ordered_weapon", "value": "yes" },
             {
               "npc_compare_time_since_var": "ordered",
               "type": "time",
@@ -818,34 +504,16 @@
           ]
         },
         "effect": [
-          {
-            "u_spawn_item": "rm51_assault_rifle"
-          },
-          {
-            "u_spawn_item": "8mm_fmj",
-            "count": 100
-          },
-          {
-            "npc_lose_var": "ordered_rm51",
-            "type": "flag",
-            "context": "ordered_weapon"
-          },
-          {
-            "npc_lose_var": "ordered",
-            "type": "time",
-            "context": "wait_order"
-          }
+          { "u_spawn_item": "rm51_assault_rifle" },
+          { "u_spawn_item": "8mm_fmj", "count": 100 },
+          { "npc_lose_var": "ordered_rm51", "type": "flag", "context": "ordered_weapon" },
+          { "npc_lose_var": "ordered", "type": "time", "context": "wait_order" }
         ]
       },
       {
         "condition": {
           "and": [
-            {
-              "npc_has_var": "ordered_rm11b",
-              "type": "flag",
-              "context": "ordered_weapon",
-              "value": "yes"
-            },
+            { "npc_has_var": "ordered_rm11b", "type": "flag", "context": "ordered_weapon", "value": "yes" },
             {
               "npc_compare_time_since_var": "ordered",
               "type": "time",
@@ -856,34 +524,16 @@
           ]
         },
         "effect": [
-          {
-            "u_spawn_item": "rm11b_sniper_rifle"
-          },
-          {
-            "u_spawn_item": "8mm_fmj",
-            "count": 20
-          },
-          {
-            "npc_lose_var": "ordered_rm11b",
-            "type": "flag",
-            "context": "ordered_weapon"
-          },
-          {
-            "npc_lose_var": "ordered",
-            "type": "time",
-            "context": "wait_order"
-          }
+          { "u_spawn_item": "rm11b_sniper_rifle" },
+          { "u_spawn_item": "8mm_fmj", "count": 20 },
+          { "npc_lose_var": "ordered_rm11b", "type": "flag", "context": "ordered_weapon" },
+          { "npc_lose_var": "ordered", "type": "time", "context": "wait_order" }
         ]
       },
       {
         "condition": {
           "and": [
-            {
-              "npc_has_var": "ordered_rm103a",
-              "type": "flag",
-              "context": "ordered_weapon",
-              "value": "yes"
-            },
+            { "npc_has_var": "ordered_rm103a", "type": "flag", "context": "ordered_weapon", "value": "yes" },
             {
               "npc_compare_time_since_var": "ordered",
               "type": "time",
@@ -894,34 +544,16 @@
           ]
         },
         "effect": [
-          {
-            "u_spawn_item": "rm103a_pistol"
-          },
-          {
-            "u_spawn_item": "8mm_fmj",
-            "count": 20
-          },
-          {
-            "npc_lose_var": "ordered_rm103a",
-            "type": "flag",
-            "context": "ordered_weapon"
-          },
-          {
-            "npc_lose_var": "ordered",
-            "type": "time",
-            "context": "wait_order"
-          }
+          { "u_spawn_item": "rm103a_pistol" },
+          { "u_spawn_item": "8mm_fmj", "count": 20 },
+          { "npc_lose_var": "ordered_rm103a", "type": "flag", "context": "ordered_weapon" },
+          { "npc_lose_var": "ordered", "type": "time", "context": "wait_order" }
         ]
       },
       {
         "condition": {
           "and": [
-            {
-              "npc_has_var": "ordered_rm120c",
-              "type": "flag",
-              "context": "ordered_weapon",
-              "value": "yes"
-            },
+            { "npc_has_var": "ordered_rm120c", "type": "flag", "context": "ordered_weapon", "value": "yes" },
             {
               "npc_compare_time_since_var": "ordered",
               "type": "time",
@@ -932,34 +564,16 @@
           ]
         },
         "effect": [
-          {
-            "u_spawn_item": "rm120c"
-          },
-          {
-            "u_spawn_item": "20x66_shot",
-            "count": 10
-          },
-          {
-            "npc_lose_var": "ordered_rm120c",
-            "type": "flag",
-            "context": "ordered_weapon"
-          },
-          {
-            "npc_lose_var": "ordered",
-            "type": "time",
-            "context": "wait_order"
-          }
+          { "u_spawn_item": "rm120c" },
+          { "u_spawn_item": "20x66_shot", "count": 10 },
+          { "npc_lose_var": "ordered_rm120c", "type": "flag", "context": "ordered_weapon" },
+          { "npc_lose_var": "ordered", "type": "time", "context": "wait_order" }
         ]
       },
       {
         "condition": {
           "and": [
-            {
-              "npc_has_var": "ordered_20x66",
-              "type": "flag",
-              "context": "ordered_weapon",
-              "value": "yes"
-            },
+            { "npc_has_var": "ordered_20x66", "type": "flag", "context": "ordered_weapon", "value": "yes" },
             {
               "npc_compare_time_since_var": "ordered",
               "type": "time",
@@ -970,31 +584,15 @@
           ]
         },
         "effect": [
-          {
-            "u_spawn_item": "20x66_shot",
-            "count": 25
-          },
-          {
-            "npc_lose_var": "ordered_20x66",
-            "type": "flag",
-            "context": "ordered_weapon"
-          },
-          {
-            "npc_lose_var": "ordered",
-            "type": "time",
-            "context": "wait_order"
-          }
+          { "u_spawn_item": "20x66_shot", "count": 25 },
+          { "npc_lose_var": "ordered_20x66", "type": "flag", "context": "ordered_weapon" },
+          { "npc_lose_var": "ordered", "type": "time", "context": "wait_order" }
         ]
       },
       {
         "condition": {
           "and": [
-            {
-              "npc_has_var": "ordered_8x40",
-              "type": "flag",
-              "context": "ordered_weapon",
-              "value": "yes"
-            },
+            { "npc_has_var": "ordered_8x40", "type": "flag", "context": "ordered_weapon", "value": "yes" },
             {
               "npc_compare_time_since_var": "ordered",
               "type": "time",
@@ -1005,20 +603,9 @@
           ]
         },
         "effect": [
-          {
-            "u_spawn_item": "8mm_fmj",
-            "count": 100
-          },
-          {
-            "npc_lose_var": "ordered_8x40",
-            "type": "flag",
-            "context": "ordered_weapon"
-          },
-          {
-            "npc_lose_var": "ordered",
-            "type": "time",
-            "context": "wait_order"
-          }
+          { "u_spawn_item": "8mm_fmj", "count": 100 },
+          { "npc_lose_var": "ordered_8x40", "type": "flag", "context": "ordered_weapon" },
+          { "npc_lose_var": "ordered", "type": "time", "context": "wait_order" }
         ]
       }
     ]
@@ -1032,31 +619,14 @@
         "text": "Here it is.",
         "condition": {
           "and": [
-            {
-              "u_has_var": "bandit_sb_leader_pay",
-              "type": "flag",
-              "context": "payment",
-              "value": "4"
-            },
-            {
-              "u_has_items": {
-                "item": "ruby",
-                "count": 60
-              }
-            }
+            { "u_has_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "value": "4" },
+            { "u_has_items": { "item": "ruby", "count": 60 } }
           ]
         },
         "effect": [
           "mission_success",
-          {
-            "u_sell_item": "ruby",
-            "count": 60
-          },
-          {
-            "u_lose_var": "bandit_sb_leader_pay",
-            "type": "flag",
-            "context": "payment"
-          }
+          { "u_sell_item": "ruby", "count": 60 },
+          { "u_lose_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment" }
         ],
         "topic": "TALK_MISSION_SUCCESS",
         "switch": true
@@ -1065,21 +635,12 @@
         "truefalsetext": {
           "true": "He don't want to pay not even want to budge.",
           "false": "What payment?  I thought you discussed that with him.",
-          "condition": {
-            "u_compare_var": "bandit_sb_leader_pay",
-            "type": "flag",
-            "context": "payment",
-            "op": ">=",
-            "value": 2
-          }
+          "condition": { "u_compare_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "op": ">=", "value": 2 }
         },
         "topic": "TALK_bandit_rs_merchant_mission2_ask",
         "switch": true
       },
-      {
-        "text": "<done_conversation_section>",
-        "topic": "TALK_bandit_rs_merchant1"
-      }
+      { "text": "<done_conversation_section>", "topic": "TALK_bandit_rs_merchant1" }
     ]
   },
   {
@@ -1097,51 +658,26 @@
     "speaker_effect": [
       {
         "sentinel": "mission2_ask1",
-        "condition": {
-          "u_compare_var": "bandit_sb_leader_pay",
-          "type": "flag",
-          "context": "payment",
-          "op": "<",
-          "value": 1
-        },
-        "effect": {
-          "u_add_var": "bandit_sb_leader_pay",
-          "type": "flag",
-          "context": "payment",
-          "value": "1"
-        }
+        "condition": { "u_compare_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "op": "<", "value": 1 },
+        "effect": { "u_add_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "value": "1" }
       },
       {
         "sentinel": "mission2_ask2",
-        "condition": {
-          "u_has_var": "bandit_sb_leader_pay",
-          "type": "flag",
-          "context": "payment",
-          "value": "2"
-        },
-        "effect": {
-          "u_add_var": "bandit_sb_leader_pay",
-          "type": "flag",
-          "context": "payment",
-          "value": "3"
-        }
+        "condition": { "u_has_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "value": "2" },
+        "effect": { "u_add_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "value": "3" }
       }
     ]
   },
   {
     "id": "MISSION_bandit_rs_merchant_1",
     "type": "mission_definition",
-    "name": {
-      "str": "Defend Refugee center"
-    },
+    "name": { "str": "Defend Refugee center" },
     "description": "Repel attack of Free Merchants on Refugee Center.",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 0,
     "value": 35000,
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "evac_center_23"
-      },
+      "assign_mission_target": { "om_terrain": "evac_center_23" },
       "update_mapgen": {
         "rows": [
           "                        ",
@@ -1169,92 +705,30 @@
           "                        ",
           "                        "
         ],
-        "terrain": {
-          " ": "t_null"
-        },
+        "terrain": { " ": "t_null" },
         "place_vehicles": [
-          {
-            "vehicle": "pickup",
-            "x": 17,
-            "y": 5,
-            "rotation": 270,
-            "fuel": 350,
-            "status": 0,
-            "chance": 100
-          },
-          {
-            "vehicle": "pickup",
-            "x": 13,
-            "y": 14,
-            "rotation": 270,
-            "fuel": 350,
-            "status": 0,
-            "chance": 100
-          }
+          { "vehicle": "pickup", "x": 17, "y": 5, "rotation": 270, "fuel": 350, "status": 0, "chance": 100 },
+          { "vehicle": "pickup", "x": 13, "y": 14, "rotation": 270, "fuel": 350, "status": 0, "chance": 100 }
         ],
-        "place_npcs": [
-          {
-            "class": "hostile_guard",
-            "x": 15,
-            "y": 5
-          },
-          {
-            "class": "hostile_guard",
-            "x": 13,
-            "y": 14,
-            "target": true
-          }
-        ],
-        "nested": {
-          "4": {
-            "chunks": [
-              [
-                "null",
-                35
-              ],
-              [
-                "evac_hostile_guards",
-                65
-              ]
-            ]
-          }
-        }
+        "place_npcs": [ { "class": "hostile_guard", "x": 15, "y": 5 }, { "class": "hostile_guard", "x": 13, "y": 14, "target": true } ],
+        "nested": { "4": { "chunks": [ [ "null", 35 ], [ "evac_hostile_guards", 65 ] ] } }
       }
     },
     "end": {
-      "effect": {
-        "npc_add_var": "busy",
-        "type": "flag",
-        "context": "lock_missions",
-        "value": "yes"
-      },
-      "opinion": {
-        "trust": 4,
-        "value": 4
-      },
-      "update_mapgen": {
-        "om_terrain": "evac_center_13",
-        "place_npcs": [
-          {
-            "class": "NPC_bandit_rs_bomber",
-            "x": 2,
-            "y": 15
-          }
-        ]
-      }
+      "effect": { "npc_add_var": "busy", "type": "flag", "context": "lock_missions", "value": "yes" },
+      "opinion": { "trust": 4, "value": 4 },
+      "update_mapgen": { "om_terrain": "evac_center_13", "place_npcs": [ { "class": "NPC_bandit_rs_bomber", "x": 2, "y": 15 } ] }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_bandit_rs_merchant_2",
     "dialogue": {
       "describe": "-",
       "offer": "Listen.  I need a courier to deliver one very important package.  One condition: do not damage the package.  If you can do it, I'll make worth your time.  Agree?",
-      "accepted": "Good.  Here's a package for you, take it to the\u2026\"  suddenly, the front door of the center opened loudly and some guy flew into.  After catching his breath, he said:  \n\nThug: \"Hey, there's some <name_b>'s moving here on pickup trucks, armed to the teeth.  Get the guys together while there is time, otherwise they will shoot us one by one!\"\n\nMister T, shady dealer: \"Delivery is canceled.  Urgently grab what you have and run out to shoot these dogs.",
+      "accepted": "Good.  Here's a package for you, take it to the…\"  suddenly, the front door of the center opened loudly and some guy flew into.  After catching his breath, he said:  \n\nThug: \"Hey, there's some <name_b>'s moving here on pickup trucks, armed to the teeth.  Get the guys together while there is time, otherwise they will shoot us one by one!\"\n\nMister T, shady dealer: \"Delivery is canceled.  Urgently grab what you have and run out to shoot these dogs.",
       "rejected": "Okay, I'll look for someone else.",
       "advice": "No time for advice!",
       "inquire": "They're dead?",
-      "success": "Well done, <name_g>.  Now let these dog kids try to poke their heads around here once more!  By the way, that guy that flew in, it was our local demolition man.  Talk to him, maybe he need help with smoking out those <name_b>'s who are underground.  Now I need to think about what to do with all this mess\u2026",
+      "success": "Well done, <name_g>.  Now let these dog kids try to poke their heads around here once more!  By the way, that guy that flew in, it was our local demolition man.  Talk to him, maybe he need help with smoking out those <name_b>'s who are underground.  Now I need to think about what to do with all this mess…",
       "success_lie": "-",
       "failure": "-"
     }
@@ -1262,46 +736,20 @@
   {
     "id": "MISSION_bandit_rs_merchant_2",
     "type": "mission_definition",
-    "name": {
-      "str": "Package delivery"
-    },
+    "name": { "str": "Package delivery" },
     "goal": "MGOAL_TALK_TO_NPC",
     "difficulty": 0,
     "value": 10000,
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "ws_biker_dump_2_2"
-      },
-      "update_mapgen": {
-        "place_npcs": [
-          {
-            "class": "NPC_bandit_sb_leader",
-            "x": 10,
-            "y": 5,
-            "target": true
-          }
-        ]
-      },
-      "effect": [
-        {
-          "u_spawn_item": "bandit_item_2"
-        }
-      ]
+      "assign_mission_target": { "om_terrain": "ws_biker_dump_2_2" },
+      "update_mapgen": { "place_npcs": [ { "class": "NPC_bandit_sb_leader", "x": 10, "y": 5, "target": true } ] },
+      "effect": [ { "u_spawn_item": "bandit_item_2" } ]
     },
     "end": {
-      "opinion": {
-        "trust": 2,
-        "value": 2
-      },
-      "effect": {
-        "u_lose_var": "bandit_sb_leader_pay",
-        "type": "flag",
-        "context": "payment"
-      }
+      "opinion": { "trust": 2, "value": 2 },
+      "effect": { "u_lose_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment" }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "-",
       "offer": "So, I still need to deliver that package.  Conditions are the same.",
@@ -1318,18 +766,6 @@
     "type": "mapgen",
     "method": "json",
     "nested_mapgen_id": "evac_hostile_guards",
-    "object": {
-      "mapgensize": [
-        1,
-        1
-      ],
-      "place_npcs": [
-        {
-          "class": "hostile_guard",
-          "x": 0,
-          "y": 0
-        }
-      ]
-    }
+    "object": { "mapgensize": [ 1, 1 ], "place_npcs": [ { "class": "hostile_guard", "x": 0, "y": 0 } ] }
   }
 ]

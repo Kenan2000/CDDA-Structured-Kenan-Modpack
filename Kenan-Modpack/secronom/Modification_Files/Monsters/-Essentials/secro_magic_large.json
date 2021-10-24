@@ -2,22 +2,10 @@
   {
     "type": "SPELL",
     "id": "mon_summon_tentawraith_summon",
-    "name": {
-      "str": "Summon Tentacles"
-    },
+    "name": { "str": "Summon Tentacles" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster bursts 2-4 tentacles at the target.'",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "HOSTILE_SUMMON",
-      "NO_PROJECTILE",
-      "RANDOM_DAMAGE",
-      "RANDOM_DURATION"
-    ],
-    "valid_targets": [
-      "ground"
-    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "HOSTILE_SUMMON", "NO_PROJECTILE", "RANDOM_DAMAGE", "RANDOM_DURATION" ],
+    "valid_targets": [ "ground" ],
     "min_damage": 2,
     "max_damage": 4,
     "min_aoe": 5,
@@ -31,21 +19,12 @@
   {
     "id": "mon_zombie_tentawraith_stunmore",
     "type": "SPELL",
-    "name": {
-      "str": "Tentacle Grasp"
-    },
+    "name": { "str": "Tentacle Grasp" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Hostile targets below 2 tiles take moderate bashing damage and their stun effect is extended by 3 turns.'",
     "effect": "attack",
     "shape": "blast",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "hostile"
-    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "hostile" ],
     "effect_str": "stunned",
     "min_damage": 8,
     "max_damage": 12,
@@ -57,27 +36,13 @@
   {
     "id": "mon_zombie_tentawraith_stunmore_note",
     "type": "SPELL",
-    "name": {
-      "str": "a note"
-    },
+    "name": { "str": "a note" },
     "description": "Note spell casted by a monster. If you're seeing this, then read this one instead:\n'Provides a notice about the casted spell's result.'",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "hostile"
-    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "hostile" ],
     "effect": "attack",
     "shape": "blast",
-    "extra_effects": [
-      {
-        "id": "mon_zombie_tentawraith_stunmore",
-        "hit_self": true
-      }
-    ],
+    "extra_effects": [ { "id": "mon_zombie_tentawraith_stunmore", "hit_self": true } ],
     "effect_str": "mon_zombie_tentawraith_stunmore_YES",
     "min_aoe": 2,
     "max_aoe": 2
@@ -85,27 +50,13 @@
   {
     "id": "mon_zombie_tentawraith_stun",
     "type": "SPELL",
-    "name": {
-      "str": "Tentacle Pull"
-    },
+    "name": { "str": "Tentacle Pull" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Pulled hostile targets are stunned for 1 turn.'",
     "effect": "attack",
     "shape": "blast",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "hostile"
-    ],
-    "extra_effects": [
-      {
-        "id": "mon_zombie_tentawraith_stunmore_note",
-        "hit_self": true
-      }
-    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "hostile" ],
+    "extra_effects": [ { "id": "mon_zombie_tentawraith_stunmore_note", "hit_self": true } ],
     "effect_str": "stunned",
     "min_aoe": 6,
     "max_aoe": 6,
@@ -115,57 +66,28 @@
   {
     "id": "mon_zombie_tentawraith_pull",
     "type": "SPELL",
-    "name": {
-      "str": "Tentacle Pull"
-    },
+    "name": { "str": "Tentacle Pull" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster pulls everything towards themself.'",
     "effect": "area_pull",
     "shape": "blast",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "hostile"
-    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "hostile" ],
     "min_aoe": 6,
     "max_aoe": 6
   },
   {
     "type": "SPELL",
     "id": "mon_zombie_tentawraith_target",
-    "name": {
-      "str": "a spell"
-    },
+    "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
     "extra_effects": [
-      {
-        "id": "mon_zombie_tentawraith_pull",
-        "hit_self": true
-      },
-      {
-        "id": "mon_zombie_tentawraith_pull",
-        "hit_self": true
-      },
-      {
-        "id": "mon_zombie_tentawraith_stun",
-        "hit_self": true
-      },
-      {
-        "id": "mon_summon_tentawraith_summon"
-      }
+      { "id": "mon_zombie_tentawraith_pull", "hit_self": true },
+      { "id": "mon_zombie_tentawraith_pull", "hit_self": true },
+      { "id": "mon_zombie_tentawraith_stun", "hit_self": true },
+      { "id": "mon_summon_tentawraith_summon" }
     ],
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "none"
-    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
     "effect": "attack",
     "shape": "blast",
     "min_range": 6,
@@ -174,19 +96,11 @@
   {
     "id": "mon_shifter_teleport",
     "type": "SPELL",
-    "name": {
-      "str": "Teleport"
-    },
+    "name": { "str": "Teleport" },
     "description": "Spell casted by an monster. If you're seeing this, then read this one instead:\n'Caster teleports away.'",
     "message": "",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS"
-    ],
-    "valid_targets": [
-      "ground"
-    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [ "ground" ],
     "effect": "short_range_teleport",
     "shape": "blast",
     "min_aoe": 3,
@@ -195,46 +109,23 @@
   {
     "id": "mon_shifter_spawn_illu_push",
     "type": "SPELL",
-    "name": {
-      "str": "Spread"
-    },
+    "name": { "str": "Spread" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster sends it out farther.'",
     "effect": "area_push",
     "shape": "blast",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "ally",
-      "ground"
-    ],
-    "targeted_monster_ids": [
-      "mon_shifter_illu"
-    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "ally", "ground" ],
+    "targeted_monster_ids": [ "mon_shifter_illu" ],
     "min_aoe": 2,
     "max_aoe": 2
   },
   {
     "type": "SPELL",
     "id": "mon_shifter_spawn_illu",
-    "name": {
-      "str": ""
-    },
+    "name": { "str": "" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster splits out black fogs.'",
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "HOSTILE_SUMMON",
-      "RANDOM_DURATION",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "ground"
-    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "HOSTILE_SUMMON", "RANDOM_DURATION", "NO_PROJECTILE" ],
+    "valid_targets": [ "ground" ],
     "min_damage": 1,
     "max_damage": 1,
     "min_aoe": 2,
@@ -248,60 +139,26 @@
   {
     "type": "SPELL",
     "id": "mon_shifter_spawn_illu_random_target",
-    "name": {
-      "str": "a spell"
-    },
+    "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then randomly casts one of the Spell(s).'",
     "extra_effects": [
-      {
-        "id": "mon_shifter_teleport",
-        "hit_self": true
-      },
-      {
-        "id": "mon_shifter_spawn_illu",
-        "hit_self": true
-      },
-      {
-        "id": "mon_shifter_spawn_illu_push",
-        "hit_self": true
-      }
+      { "id": "mon_shifter_teleport", "hit_self": true },
+      { "id": "mon_shifter_spawn_illu", "hit_self": true },
+      { "id": "mon_shifter_spawn_illu_push", "hit_self": true }
     ],
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "none"
-    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
     "effect": "attack",
     "shape": "blast"
   },
   {
     "type": "SPELL",
     "id": "mon_shifter_spawn_illu_random",
-    "name": {
-      "str": "a spell"
-    },
+    "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then randomly casts one of the Spell(s).'",
-    "extra_effects": [
-      {
-        "id": "mon_shifter_spawn_illu_random_target",
-        "hit_self": true
-      }
-    ],
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "WONDER",
-      "RANDOM_DAMAGE",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "none"
-    ],
+    "extra_effects": [ { "id": "mon_shifter_spawn_illu_random_target", "hit_self": true } ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "WONDER", "RANDOM_DAMAGE", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
     "effect": "attack",
     "shape": "blast",
     "min_damage": 3,
@@ -310,24 +167,11 @@
   {
     "type": "SPELL",
     "id": "mon_shifter_target",
-    "name": {
-      "str": "a spell"
-    },
+    "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
-    "extra_effects": [
-      {
-        "id": "mon_shifter_spawn_illu_random"
-      }
-    ],
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "none"
-    ],
+    "extra_effects": [ { "id": "mon_shifter_spawn_illu_random" } ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
     "effect": "attack",
     "shape": "blast",
     "min_range": 12,
@@ -336,34 +180,16 @@
   {
     "type": "SPELL",
     "id": "mon_shifter_illu_target_atk_random",
-    "name": {
-      "str": "a spell"
-    },
+    "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then randomly casts one of the Spell(s).'",
     "extra_effects": [
-      {
-        "id": "mon_shifter_teleport"
-      },
-      {
-        "id": "secro_spell_null"
-      },
-      {
-        "id": "secro_spell_null"
-      },
-      {
-        "id": "secro_spell_null"
-      }
+      { "id": "mon_shifter_teleport" },
+      { "id": "secro_spell_null" },
+      { "id": "secro_spell_null" },
+      { "id": "secro_spell_null" }
     ],
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "WONDER",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "none"
-    ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "WONDER", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
     "effect": "attack",
     "shape": "blast",
     "min_damage": 1,
@@ -374,24 +200,11 @@
   {
     "type": "SPELL",
     "id": "mon_shifter_illu_target",
-    "name": {
-      "str": "a spell"
-    },
+    "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
-    "extra_effects": [
-      {
-        "id": "mon_shifter_illu_target_atk_random"
-      }
-    ],
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS",
-      "NO_PROJECTILE"
-    ],
-    "valid_targets": [
-      "none"
-    ],
+    "extra_effects": [ { "id": "mon_shifter_illu_target_atk_random" } ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [ "none" ],
     "effect": "attack",
     "shape": "blast",
     "min_range": 10,

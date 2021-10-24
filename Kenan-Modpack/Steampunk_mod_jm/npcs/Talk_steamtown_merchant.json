@@ -3,27 +3,15 @@
     "id": "TALK_Merc_Town",
     "type": "talk_topic",
     "dynamic_line": {
-      "u_male": [
-        "Hello, Sir. Do you perhaps have any interest in my wares? A firearm or tonic for your health perhaps?"
-      ],
+      "u_male": [ "Hello, Sir. Do you perhaps have any interest in my wares? A firearm or tonic for your health perhaps?" ],
       "no": [
         "Hello, Madam. Do you perhaps have any interests in my wares? Perhaps a nice dress or some cookware to help you in your domestic pursuits."
       ]
     },
     "responses": [
-      {
-        "text": "So you're a merchant in this town? What can you tell me about it?",
-        "topic": "TALK_Merc_infotown"
-      },
-      {
-        "text": "Let me browse your wares.",
-        "effect": "start_trade",
-        "topic": "TALK_Merc_Town"
-      },
-      {
-        "text": "Goodbye, thank you for your time.",
-        "topic": "TALK_DONE"
-      }
+      { "text": "So you're a merchant in this town? What can you tell me about it?", "topic": "TALK_Merc_infotown" },
+      { "text": "Let me browse your wares.", "effect": "start_trade", "topic": "TALK_Merc_Town" },
+      { "text": "Goodbye, thank you for your time.", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -37,12 +25,7 @@
         "That's a good question, miss. This town has been around for some time, I don't really remember how long, but we first placed roots down here in the 19th century. There's a lot of fine domestic pursuits here for a member of the fairer sex such as yourself."
       ]
     },
-    "responses": [
-      {
-        "text": "Got it.",
-        "topic": "TALK_Merc_Town"
-      }
-    ]
+    "responses": [ { "text": "Got it.", "topic": "TALK_Merc_Town" } ]
   },
   {
     "id": "MISSION_GET_MERCH_ITEM",
@@ -54,21 +37,8 @@
     "value": 150000,
     "item": "sp_text_devices",
     "count": 3,
-    "end": {
-      "effect": [
-        {
-          "u_spawn_item": "sp_mechlockpick",
-          "count": 2
-        },
-        {
-          "u_spawn_item": "flintlock_ammo",
-          "count": 40
-        }
-      ]
-    },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "end": { "effect": [ { "u_spawn_item": "sp_mechlockpick", "count": 2 }, { "u_spawn_item": "flintlock_ammo", "count": 40 } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_GET_MERCH_KILLCOUNT",
     "dialogue": {
       "describe": "I need you to prove your worth to me first. Find three copies of the Guide on Mechanical Knowledge, then I might trust you some more.",
@@ -85,72 +55,31 @@
   {
     "id": "MISSION_GET_MERCH_KILLCOUNT",
     "type": "mission_definition",
-    "name": {
-      "str": "Kill the gangsters"
-    },
+    "name": { "str": "Kill the gangsters" },
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 5,
     "value": 250000,
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "forest",
-        "reveal_radius": 1,
-        "random": true,
-        "search_range": 6,
-        "z": 0
-      },
+      "assign_mission_target": { "om_terrain": "forest", "reveal_radius": 1, "random": true, "search_range": 6, "z": 0 },
       "update_mapgen": {
         "place_monster": [
-          {
-            "monster": "mon_sp_rcrim",
-            "x": 11,
-            "y": 11,
-            "target": true
-          },
-          {
-            "monster": "mon_sp_mcrim",
-            "x": 14,
-            "y": 8
-          },
-          {
-            "monster": "mon_sp_mcrim",
-            "x": 5,
-            "y": 4
-          }
+          { "monster": "mon_sp_rcrim", "x": 11, "y": 11, "target": true },
+          { "monster": "mon_sp_mcrim", "x": 14, "y": 8 },
+          { "monster": "mon_sp_mcrim", "x": 5, "y": 4 }
         ]
       }
     },
     "end": {
       "effect": [
-        {
-          "u_spawn_item": "sp_safecracker",
-          "count": 1
-        },
-        {
-          "u_spawn_item": "sp_eyegear",
-          "count": 1
-        },
-        {
-          "u_spawn_item": "sp_wool_jacket",
-          "count": 1
-        },
-        {
-          "u_spawn_item": "long_range_pistol",
-          "count": 1
-        },
-        {
-          "u_spawn_item": "sp_mechlockpick",
-          "count": 2
-        },
-        {
-          "u_spawn_item": "flintlock_ammo",
-          "count": 40
-        }
+        { "u_spawn_item": "sp_safecracker", "count": 1 },
+        { "u_spawn_item": "sp_eyegear", "count": 1 },
+        { "u_spawn_item": "sp_wool_jacket", "count": 1 },
+        { "u_spawn_item": "long_range_pistol", "count": 1 },
+        { "u_spawn_item": "sp_mechlockpick", "count": 2 },
+        { "u_spawn_item": "flintlock_ammo", "count": 40 }
       ]
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_GET_MERCH_SCIENTISTKILL",
     "dialogue": {
       "describe": "You seem to know a lot about the area around our little town, but the thugs do as well",
@@ -167,93 +96,36 @@
   {
     "id": "MISSION_GET_MERCH_SCIENTISTKILL",
     "type": "mission_definition",
-    "name": {
-      "str": "Kill Mad Scientist"
-    },
+    "name": { "str": "Kill Mad Scientist" },
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 5,
     "value": 250000,
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "field",
-        "reveal_radius": 1,
-        "random": true,
-        "search_range": 8,
-        "z": 0
-      },
+      "assign_mission_target": { "om_terrain": "field", "reveal_radius": 1, "random": true, "search_range": 8, "z": 0 },
       "update_mapgen": {
         "place_monster": [
-          {
-            "monster": "mon_sp_scientist",
-            "x": 15,
-            "y": 9,
-            "target": true
-          },
-          {
-            "monster": "mon_sp_mechnid",
-            "x": 14,
-            "y": 8
-          },
-          {
-            "monster": "mon_sp_mechnid",
-            "x": 10,
-            "y": 8
-          },
-          {
-            "monster": "mon_sp_automaton",
-            "x": 5,
-            "y": 4
-          }
+          { "monster": "mon_sp_scientist", "x": 15, "y": 9, "target": true },
+          { "monster": "mon_sp_mechnid", "x": 14, "y": 8 },
+          { "monster": "mon_sp_mechnid", "x": 10, "y": 8 },
+          { "monster": "mon_sp_automaton", "x": 5, "y": 4 }
         ]
       }
     },
     "end": {
       "effect": [
-        {
-          "u_spawn_item": "am_riflecannon",
-          "count": 1
-        },
-        {
-          "u_spawn_item": "sp_vishelm",
-          "count": 1
-        },
-        {
-          "u_spawn_item": "highbore_pistol",
-          "count": 1
-        },
-        {
-          "u_spawn_item": "sp_large_ammo_bean",
-          "count": 5
-        },
-        {
-          "u_spawn_item": "sp_large_ammo_net",
-          "count": 5
-        },
-        {
-          "u_spawn_item": "sp_large_ammo_flame",
-          "count": 5
-        },
-        {
-          "u_spawn_item": "sp_large_ammo_acid",
-          "count": 5
-        },
-        {
-          "u_spawn_item": "sp_large_ammo_exp",
-          "count": 5
-        },
-        {
-          "u_spawn_item": "sp_large_shot",
-          "count": 5
-        },
-        {
-          "u_spawn_item": "sp_large_ammo",
-          "count": 25
-        }
+        { "u_spawn_item": "am_riflecannon", "count": 1 },
+        { "u_spawn_item": "sp_vishelm", "count": 1 },
+        { "u_spawn_item": "highbore_pistol", "count": 1 },
+        { "u_spawn_item": "sp_large_ammo_bean", "count": 5 },
+        { "u_spawn_item": "sp_large_ammo_net", "count": 5 },
+        { "u_spawn_item": "sp_large_ammo_flame", "count": 5 },
+        { "u_spawn_item": "sp_large_ammo_acid", "count": 5 },
+        { "u_spawn_item": "sp_large_ammo_exp", "count": 5 },
+        { "u_spawn_item": "sp_large_shot", "count": 5 },
+        { "u_spawn_item": "sp_large_ammo", "count": 25 }
       ]
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "You've done more than enough to gain our trust, but I have another task for you.",
       "offer": "There are these people that have been causing massive problems recently. People of eccentric natures, poisoned with an awful intelligence. Them and their handiwork have terrorized our communities for a long while, and I think you should handle it what do you think?",

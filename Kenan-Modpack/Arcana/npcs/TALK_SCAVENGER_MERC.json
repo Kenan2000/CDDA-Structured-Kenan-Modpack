@@ -7,27 +7,12 @@
         "text": "I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
         "condition": {
           "and": [
+            { "u_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" },
             {
-              "u_has_var": "johnathan_prelude_mid",
-              "type": "mission",
-              "context": "rural_church",
-              "value": "yes"
+              "not": { "npc_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" }
             },
             {
-              "not": {
-                "npc_has_var": "johnathan_prelude_mid",
-                "type": "mission",
-                "context": "rural_church",
-                "value": "yes"
-              }
-            },
-            {
-              "not": {
-                "u_has_var": "johnathan_prelude_data_5",
-                "type": "mission",
-                "context": "rural_church",
-                "value": "yes"
-              }
+              "not": { "u_has_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
             }
           ]
         },
@@ -38,17 +23,8 @@
         "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4",
         "condition": {
           "and": [
-            {
-              "not": {
-                "u_has_var": "sofia_allies_secured",
-                "type": "mission",
-                "context": "rural_church",
-                "value": "yes"
-              }
-            },
-            {
-              "u_has_mission": "MISSION_CF_REP_4"
-            }
+            { "not": { "u_has_var": "sofia_allies_secured", "type": "mission", "context": "rural_church", "value": "yes" } },
+            { "u_has_mission": "MISSION_CF_REP_4" }
           ]
         }
       }
@@ -64,14 +40,8 @@
     "type": "talk_topic",
     "dynamic_line": "Sounds like something that needs a proper crew.  Much as I wouldn't mind a steady paycheck, not my kind of job.  Probably other people that'd be better suited for work like that.",
     "responses": [
-      {
-        "text": "Any other people that come to mind?",
-        "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_HELP"
-      },
-      {
-        "text": "Oh, okay.  Nevermind then\u2026",
-        "topic": "TALK_SCAVENGER_MERC"
-      }
+      { "text": "Any other people that come to mind?", "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_HELP" },
+      { "text": "Oh, okay.  Nevermind then…", "topic": "TALK_SCAVENGER_MERC" }
     ]
   },
   {
@@ -79,18 +49,9 @@
     "type": "talk_topic",
     "dynamic_line": "Around here, I wouldn't trust most scavs to run a job like that.  I know a few groups who handle jobs like this, though.  We're not exactly best friends, but I could work something out with them.",
     "responses": [
-      {
-        "text": "Tell me more, then.",
-        "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_OFFER"
-      },
-      {
-        "text": "What kind of group is it?",
-        "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_EXPLAIN"
-      },
-      {
-        "text": "I'll ask around.  Thanks though.",
-        "topic": "TALK_SCAVENGER_MERC"
-      }
+      { "text": "Tell me more, then.", "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_OFFER" },
+      { "text": "What kind of group is it?", "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_EXPLAIN" },
+      { "text": "I'll ask around.  Thanks though.", "topic": "TALK_SCAVENGER_MERC" }
     ]
   },
   {
@@ -98,14 +59,8 @@
     "type": "talk_topic",
     "dynamic_line": "Hired hands like me, more organized.  Involved in local security work for the few groups that can pay out.  Interested?",
     "responses": [
-      {
-        "text": "What's your offer?",
-        "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_OFFER"
-      },
-      {
-        "text": "Nevermind for now, thanks though.",
-        "topic": "TALK_SCAVENGER_MERC"
-      }
+      { "text": "What's your offer?", "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_OFFER" },
+      { "text": "Nevermind for now, thanks though.", "topic": "TALK_SCAVENGER_MERC" }
     ]
   },
   {
@@ -116,25 +71,11 @@
       {
         "text": "[FMC375] You have a deal.",
         "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_DEAL",
-        "condition": {
-          "u_has_items": {
-            "item": "FMCNote",
-            "count": 375
-          }
-        },
-        "effect": {
-          "u_consume_item": "FMCNote",
-          "count": 375
-        }
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 375 } },
+        "effect": { "u_consume_item": "FMCNote", "count": 375 }
       },
-      {
-        "text": "What the heck is a Merch?",
-        "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_MERCH"
-      },
-      {
-        "text": "I might be back.",
-        "topic": "TALK_SCAVENGER_MERC"
-      }
+      { "text": "What the heck is a Merch?", "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_MERCH" },
+      { "text": "I might be back.", "topic": "TALK_SCAVENGER_MERC" }
     ]
   },
   {
@@ -145,12 +86,7 @@
       {
         "text": "Small community built out of a fortified church on the roadside, not too far from here.",
         "effect": [
-          {
-            "u_add_var": "sofia_allies_secured",
-            "type": "mission",
-            "context": "rural_church",
-            "value": "yes"
-          },
+          { "u_add_var": "sofia_allies_secured", "type": "mission", "context": "rural_church", "value": "yes" },
           {
             "mapgen_update": "arcana_cf_4_wasteland_scavengers_1b",
             "om_terrain": "cf_church_1",
@@ -161,16 +97,8 @@
             "om_terrain": "cf_church_3",
             "om_special": "cf_rural_church"
           },
-          {
-            "mapgen_update": "arcana_cf_4_roof_1",
-            "om_terrain": "cf_church_1_roof",
-            "om_special": "cf_rural_church"
-          },
-          {
-            "mapgen_update": "arcana_cf_4_roof_2",
-            "om_terrain": "cf_church_3_roof",
-            "om_special": "cf_rural_church"
-          }
+          { "mapgen_update": "arcana_cf_4_roof_1", "om_terrain": "cf_church_1_roof", "om_special": "cf_rural_church" },
+          { "mapgen_update": "arcana_cf_4_roof_2", "om_terrain": "cf_church_3_roof", "om_special": "cf_rural_church" }
         ],
         "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_END"
       }
@@ -180,30 +108,16 @@
     "id": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_END",
     "type": "talk_topic",
     "dynamic_line": "Think I got it from here then.  That it?",
-    "responses": [
-      {
-        "text": "I should go check on things over there, actually.",
-        "topic": "TALK_DONE"
-      }
-    ]
+    "responses": [ { "text": "I should go check on things over there, actually.", "topic": "TALK_DONE" } ]
   },
   {
     "id": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_MERCH",
     "type": "talk_topic",
     "dynamic_line": "Local currency these guys use, Free Merchant Credit Notes.  If you want to buy stuff around here and you don't want to barter away your guns, you need Merch.",
     "responses": [
-      {
-        "text": "I see.  Let's try this again from the start.",
-        "topic": "TALK_SCAVENGER_MERC"
-      },
-      {
-        "text": "Okay, how much Merch do I need?",
-        "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_OFFER"
-      },
-      {
-        "text": "Well, thanks for the info.  Bye!",
-        "topic": "TALK_DONE"
-      }
+      { "text": "I see.  Let's try this again from the start.", "topic": "TALK_SCAVENGER_MERC" },
+      { "text": "Okay, how much Merch do I need?", "topic": "TALK_SCAVENGER_MERC_CF_REP_MISSION_4_OFFER" },
+      { "text": "Well, thanks for the info.  Bye!", "topic": "TALK_DONE" }
     ]
   }
 ]

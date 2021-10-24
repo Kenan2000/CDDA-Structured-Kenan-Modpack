@@ -7,23 +7,11 @@
         "text": "I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
         "condition": {
           "and": [
+            { "u_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" },
             {
-              "u_has_var": "johnathan_prelude_mid",
-              "type": "mission",
-              "context": "rural_church",
-              "value": "yes"
+              "not": { "u_has_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
             },
-            {
-              "not": {
-                "u_has_var": "johnathan_prelude_data_5",
-                "type": "mission",
-                "context": "rural_church",
-                "value": "yes"
-              }
-            },
-            {
-              "u_has_trait": "PROF_FED"
-            }
+            { "u_has_trait": "PROF_FED" }
           ]
         },
         "topic": "TALK_OLD_GUARD_REP_GM_PRELUDE_SPECIAL"
@@ -32,33 +20,14 @@
         "text": "I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
         "condition": {
           "and": [
+            { "u_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" },
             {
-              "u_has_var": "johnathan_prelude_mid",
-              "type": "mission",
-              "context": "rural_church",
-              "value": "yes"
+              "not": { "npc_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" }
             },
             {
-              "not": {
-                "npc_has_var": "johnathan_prelude_mid",
-                "type": "mission",
-                "context": "rural_church",
-                "value": "yes"
-              }
+              "not": { "u_has_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
             },
-            {
-              "not": {
-                "u_has_var": "johnathan_prelude_data_5",
-                "type": "mission",
-                "context": "rural_church",
-                "value": "yes"
-              }
-            },
-            {
-              "not": {
-                "u_has_trait": "PROF_FED"
-              }
-            }
+            { "not": { "u_has_trait": "PROF_FED" } }
           ]
         },
         "topic": "TALK_OLD_GUARD_REP_GM_PRELUDE"
@@ -67,17 +36,8 @@
         "text": "[MISSION] Would the Old Guard be willing to establish a presence in another community?",
         "condition": {
           "and": [
-            {
-              "not": {
-                "u_has_var": "sofia_allies_secured",
-                "type": "mission",
-                "context": "rural_church",
-                "value": "yes"
-              }
-            },
-            {
-              "u_has_mission": "MISSION_CF_REP_4"
-            }
+            { "not": { "u_has_var": "sofia_allies_secured", "type": "mission", "context": "rural_church", "value": "yes" } },
+            { "u_has_mission": "MISSION_CF_REP_4" }
           ]
         },
         "topic": "TALK_OLD_GUARD_REP_CF_MISSION_4"
@@ -104,18 +64,8 @@
       {
         "text": "Okay.  I guess I'll report back to them, then.",
         "effect": [
-          {
-            "u_add_var": "johnathan_prelude_data_5",
-            "type": "mission",
-            "context": "rural_church",
-            "value": "yes"
-          },
-          {
-            "npc_add_var": "johnathan_prelude_mid",
-            "type": "mission",
-            "context": "rural_church",
-            "value": "yes"
-          }
+          { "u_add_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" },
+          { "npc_add_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" }
         ],
         "topic": "TALK_DONE"
       }
@@ -132,25 +82,16 @@
     "responses": [
       {
         "text": "It's a group converting a rural church into a small outpost, and has been trading with the Free Merchants.",
-        "condition": {
-          "u_has_trait": "PROF_FED"
-        },
+        "condition": { "u_has_trait": "PROF_FED" },
         "topic": "TALK_OLD_GUARD_REP_CF_MISSION_4_CHURCH"
       },
       {
         "text": "I'll look into other options, just in case.  Thank you though.",
         "switch": true,
-        "condition": {
-          "u_has_trait": "PROF_FED"
-        },
+        "condition": { "u_has_trait": "PROF_FED" },
         "topic": "TALK_OLD_GUARD_REP"
       },
-      {
-        "text": "Oh, okay.",
-        "switch": true,
-        "default": true,
-        "topic": "TALK_DONE"
-      }
+      { "text": "Oh, okay.", "switch": true, "default": true, "topic": "TALK_DONE" }
     ]
   },
   {
@@ -160,32 +101,18 @@
     "responses": [
       {
         "text": "I've been a part of their group since before things boiled over.  We were focused on hunting down and dealing with some of the anomalies that began to show up in the months leading up to this.",
-        "condition": {
-          "u_has_any_trait": [
-            "PROF_CLEANSINGFLAME",
-            "PROF_CLEANSINGFLAME2"
-          ]
-        },
+        "condition": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ] },
         "topic": "TALK_OLD_GUARD_REP_CF_MISSION_4_CF1"
       },
       {
         "text": "I'm one of then, actually.  We have a common interest, doing our best to ensure humanity's survival.  We have our ways, rooted in the otherworldly though they are.",
-        "condition": {
-          "u_has_trait": "PROF_CLEANSINGFLAME2"
-        },
+        "condition": { "u_has_trait": "PROF_CLEANSINGFLAME2" },
         "topic": "TALK_OLD_GUARD_REP_CF_MISSION_4_CF2"
       },
       {
         "text": "They're hunters.  Monster hunters these days, in the past they fought with local occult groups and other small-scale threats, before it all boiled over.",
         "switch": true,
-        "condition": {
-          "u_has_any_trait": [
-            "PROF_ARCANIST",
-            "PROF_ARCANIST2",
-            "PROF_SANGUINE",
-            "PROF_CHALICE"
-          ]
-        },
+        "condition": { "u_has_any_trait": [ "PROF_ARCANIST", "PROF_ARCANIST2", "PROF_SANGUINE", "PROF_CHALICE" ] },
         "topic": "TALK_OLD_GUARD_REP_CF_MISSION_4_ARCANIST"
       },
       {
@@ -214,93 +141,31 @@
   {
     "id": "TALK_OLD_GUARD_REP_CF_MISSION_4_DEAL",
     "type": "talk_topic",
-    "dynamic_line": "So be it, Marshal.  I'll be in contact with the local merchant too since I know they have prior arrangements.  If all goes well, they should be set up by the time you return.  Just hope this pans out\u2026",
+    "dynamic_line": "So be it, Marshal.  I'll be in contact with the local merchant too since I know they have prior arrangements.  If all goes well, they should be set up by the time you return.  Just hope this pans out…",
     "responses": [
       {
         "text": "Thank you.  There's something else I wanted to talk about, before I leave.",
         "effect": [
-          {
-            "u_add_var": "sofia_allies_secured",
-            "type": "mission",
-            "context": "rural_church",
-            "value": "yes"
-          },
-          {
-            "u_add_var": "old_guard_presence",
-            "type": "knowledge",
-            "context": "rural_church",
-            "value": "yes"
-          },
-          {
-            "npc_add_var": "old_guard_presence",
-            "type": "knowledge",
-            "context": "rural_church",
-            "value": "yes"
-          },
-          {
-            "mapgen_update": "arcana_cf_4_old_guard_1",
-            "om_terrain": "cf_church_1",
-            "om_special": "cf_rural_church"
-          },
-          {
-            "mapgen_update": "arcana_cf_4_old_guard_2",
-            "om_terrain": "cf_church_3",
-            "om_special": "cf_rural_church"
-          },
-          {
-            "mapgen_update": "arcana_cf_4_roof_1",
-            "om_terrain": "cf_church_1_roof",
-            "om_special": "cf_rural_church"
-          },
-          {
-            "mapgen_update": "arcana_cf_4_roof_2",
-            "om_terrain": "cf_church_3_roof",
-            "om_special": "cf_rural_church"
-          }
+          { "u_add_var": "sofia_allies_secured", "type": "mission", "context": "rural_church", "value": "yes" },
+          { "u_add_var": "old_guard_presence", "type": "knowledge", "context": "rural_church", "value": "yes" },
+          { "npc_add_var": "old_guard_presence", "type": "knowledge", "context": "rural_church", "value": "yes" },
+          { "mapgen_update": "arcana_cf_4_old_guard_1", "om_terrain": "cf_church_1", "om_special": "cf_rural_church" },
+          { "mapgen_update": "arcana_cf_4_old_guard_2", "om_terrain": "cf_church_3", "om_special": "cf_rural_church" },
+          { "mapgen_update": "arcana_cf_4_roof_1", "om_terrain": "cf_church_1_roof", "om_special": "cf_rural_church" },
+          { "mapgen_update": "arcana_cf_4_roof_2", "om_terrain": "cf_church_3_roof", "om_special": "cf_rural_church" }
         ],
         "topic": "TALK_OLD_GUARD_REP"
       },
       {
         "text": "Thank you.  I should go check on them, goodbye for now.",
         "effect": [
-          {
-            "u_add_var": "sofia_allies_secured",
-            "type": "mission",
-            "context": "rural_church",
-            "value": "yes"
-          },
-          {
-            "u_add_var": "old_guard_presence",
-            "type": "knowledge",
-            "context": "rural_church",
-            "value": "yes"
-          },
-          {
-            "npc_add_var": "old_guard_presence",
-            "type": "knowledge",
-            "context": "rural_church",
-            "value": "yes"
-          },
-          {
-            "mapgen_update": "arcana_cf_4_old_guard_1",
-            "om_terrain": "cf_church_1",
-            "om_special": "cf_rural_church"
-          },
-          {
-            "mapgen_update": "arcana_cf_4_old_guard_2",
-            "om_terrain": "cf_church_3",
-            "om_special": "cf_rural_church"
-          },
-          {
-            "mapgen_update": "arcana_cf_4_roof_1",
-            "om_terrain": "cf_church_1_roof",
-            "om_special": "cf_rural_church"
-          },
-          {
-            "mapgen_update": "arcana_cf_4_roof_2",
-            "om_terrain": "cf_church_3_roof",
-            "om_special": "cf_rural_church"
-          }
+          { "u_add_var": "sofia_allies_secured", "type": "mission", "context": "rural_church", "value": "yes" },
+          { "u_add_var": "old_guard_presence", "type": "knowledge", "context": "rural_church", "value": "yes" },
+          { "npc_add_var": "old_guard_presence", "type": "knowledge", "context": "rural_church", "value": "yes" },
+          { "mapgen_update": "arcana_cf_4_old_guard_1", "om_terrain": "cf_church_1", "om_special": "cf_rural_church" },
+          { "mapgen_update": "arcana_cf_4_old_guard_2", "om_terrain": "cf_church_3", "om_special": "cf_rural_church" },
+          { "mapgen_update": "arcana_cf_4_roof_1", "om_terrain": "cf_church_1_roof", "om_special": "cf_rural_church" },
+          { "mapgen_update": "arcana_cf_4_roof_2", "om_terrain": "cf_church_3_roof", "om_special": "cf_rural_church" }
         ],
         "topic": "TALK_DONE"
       }
@@ -315,10 +180,7 @@
         "text": "We must ally with outsiders to survive, and our experience will be to their benefit.  Go for it.",
         "topic": "TALK_OLD_GUARD_REP_CF_MISSION_4_DEAL"
       },
-      {
-        "text": "I'll look into alternatives then.  Thank you though.",
-        "topic": "TALK_OLD_GUARD_REP"
-      }
+      { "text": "I'll look into alternatives then.  Thank you though.", "topic": "TALK_OLD_GUARD_REP" }
     ]
   },
   {
@@ -326,14 +188,8 @@
     "type": "talk_topic",
     "dynamic_line": "Great.  Occult stuff and vigilantism.  If you know that much about them, and still think they'll get along with the Old Guard, then I'll trust your judgment.  Just say the word, and I'll do what I can to smooth things over.",
     "responses": [
-      {
-        "text": "Go ahead, then.",
-        "topic": "TALK_OLD_GUARD_REP_CF_MISSION_4_DEAL"
-      },
-      {
-        "text": "On second thought, I'll seek out another option.",
-        "topic": "TALK_OLD_GUARD_REP"
-      }
+      { "text": "Go ahead, then.", "topic": "TALK_OLD_GUARD_REP_CF_MISSION_4_DEAL" },
+      { "text": "On second thought, I'll seek out another option.", "topic": "TALK_OLD_GUARD_REP" }
     ]
   },
   {
@@ -341,14 +197,8 @@
     "type": "talk_topic",
     "dynamic_line": "I've heard stranger rumors than that, so I suppose if that's what they are at heart, then it's in our best interest to work together.  I still have my reservations about this, but if you're sure, I can get in touch with my superiors and try to win them over.",
     "responses": [
-      {
-        "text": "Go ahead, then.",
-        "topic": "TALK_OLD_GUARD_REP_CF_MISSION_4_DEAL"
-      },
-      {
-        "text": "On second thought, I'll seek out another option.",
-        "topic": "TALK_OLD_GUARD_REP"
-      }
+      { "text": "Go ahead, then.", "topic": "TALK_OLD_GUARD_REP_CF_MISSION_4_DEAL" },
+      { "text": "On second thought, I'll seek out another option.", "topic": "TALK_OLD_GUARD_REP" }
     ]
   }
 ]

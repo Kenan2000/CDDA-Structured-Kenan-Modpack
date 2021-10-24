@@ -14,107 +14,29 @@
   {
     "type": "npc_class",
     "id": "NC_police_teacher",
-    "name": {
-      "str": "Police Teacher"
-    },
+    "name": { "str": "Police Teacher" },
     "job_description": "Police Teacher.",
     "common": false,
-    "bonus_str": {
-      "rng": [
-        1,
-        3
-      ]
-    },
-    "bonus_dex": {
-      "rng": [
-        1,
-        5
-      ]
-    },
-    "bonus_int": {
-      "rng": [
-        1,
-        2
-      ]
-    },
-    "bonus_per": {
-      "rng": [
-        1,
-        2
-      ]
-    },
+    "bonus_str": { "rng": [ 1, 3 ] },
+    "bonus_dex": { "rng": [ 1, 5 ] },
+    "bonus_int": { "rng": [ 1, 2 ] },
+    "bonus_per": { "rng": [ 1, 2 ] },
     "worn_override": "NC_police_teacher_worn",
     "carry_override": "NC_police_teacher_carried",
     "weapon_override": "EMPTY_GROUP",
     "traits": [
-      {
-        "group": "NPC_starting_traits"
-      },
-      {
-        "group": "Appearance_demographics"
-      },
-      {
-        "trait": "PROF_SWAT"
-      },
-      {
-        "trait": "PAINRESIST"
-      }
+      { "group": "NPC_starting_traits" },
+      { "group": "Appearance_demographics" },
+      { "trait": "PROF_SWAT" },
+      { "trait": "PAINRESIST" }
     ],
     "skills": [
-      {
-        "skill": "gun",
-        "bonus": {
-          "rng": [
-            1,
-            5
-          ]
-        }
-      },
-      {
-        "skill": "shotgun",
-        "bonus": {
-          "rng": [
-            1,
-            5
-          ]
-        }
-      },
-      {
-        "skill": "pistol",
-        "bonus": {
-          "rng": [
-            1,
-            3
-          ]
-        }
-      },
-      {
-        "skill": "melee",
-        "bonus": {
-          "rng": [
-            1,
-            3
-          ]
-        }
-      },
-      {
-        "skill": "bashing",
-        "bonus": {
-          "rng": [
-            1,
-            3
-          ]
-        }
-      },
-      {
-        "skill": "unarmed",
-        "bonus": {
-          "rng": [
-            1,
-            3
-          ]
-        }
-      }
+      { "skill": "gun", "bonus": { "rng": [ 1, 5 ] } },
+      { "skill": "shotgun", "bonus": { "rng": [ 1, 5 ] } },
+      { "skill": "pistol", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "bashing", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 3 ] } }
     ]
   },
   {
@@ -122,130 +44,50 @@
     "id": "NC_police_teacher_worn",
     "subtype": "collection",
     "entries": [
-      {
-        "item": "socks"
-      },
-      {
-        "item": "swat_armor"
-      },
-      {
-        "item": "tac_fullhelmet"
-      },
-      {
-        "item": "boots_combat"
-      },
-      {
-        "item": "gloves_tactical"
-      },
-      {
-        "item": "badge_swat"
-      },
-      {
-        "item": "wristwatch"
-      },
-      {
-        "item": "bandolier_shotgun",
-        "contents-group": "bandolier_swat_cqc1"
-      },
-      {
-        "item": "bandolier_shotgun",
-        "contents-group": "bandolier_swat_cqc2"
-      },
-      {
-        "item": "legpouch_large",
-        "contents-group": "army_mags_usp9"
-      },
-      {
-        "item": "usp_9mm",
-        "ammo-item": "9mmfmj",
-        "charges": 15,
-        "container-item": "holster"
-      },
-      {
-        "item": "baton-extended",
-        "container-item": "police_belt"
-      },
-      {
-        "item": "ksg",
-        "ammo-item": "shot_00",
-        "charges": 7,
-        "contents-item": "shoulder_strap"
-      }
+      { "item": "socks" },
+      { "item": "swat_armor" },
+      { "item": "tac_fullhelmet" },
+      { "item": "boots_combat" },
+      { "item": "gloves_tactical" },
+      { "item": "badge_swat" },
+      { "item": "wristwatch" },
+      { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc1" },
+      { "item": "bandolier_shotgun", "contents-group": "bandolier_swat_cqc2" },
+      { "item": "legpouch_large", "contents-group": "army_mags_usp9" },
+      { "item": "usp_9mm", "ammo-item": "9mmfmj", "charges": 15, "container-item": "holster" },
+      { "item": "baton-extended", "container-item": "police_belt" },
+      { "item": "ksg", "ammo-item": "shot_00", "charges": 7, "contents-item": "shoulder_strap" }
     ]
   },
   {
     "type": "item_group",
     "id": "NC_police_teacher_carried",
     "subtype": "collection",
-    "entries": [
-      {
-        "group": "charged_two_way_radio"
-      },
-      {
-        "item": "ear_plugs",
-        "custom-flags": [
-          "no_auto_equip"
-        ]
-      }
-    ]
+    "entries": [ { "group": "charged_two_way_radio" }, { "item": "ear_plugs", "custom-flags": [ "no_auto_equip" ] } ]
   },
   {
     "type": "talk_topic",
-    "id": [
-      "TALK_police_teacher_1"
-    ],
+    "id": [ "TALK_police_teacher_1" ],
     "dynamic_line": {
       "u_is_wearing": "badge_marshal",
-      "yes": "Marshal\u2026",
+      "yes": "Marshal…",
       "no": {
-        "u_has_any_trait": [
-          "PROF_POLICE",
-          "PROF_SWAT",
-          "PROF_CYBERCOP"
-        ],
-        "yes": "Officer\u2026",
-        "no": {
-          "u_has_any_trait": [
-            "PROF_PD_DET"
-          ],
-          "yes": "Detective\u2026",
-          "no": "Citizen\u2026"
-        }
+        "u_has_any_trait": [ "PROF_POLICE", "PROF_SWAT", "PROF_CYBERCOP" ],
+        "yes": "Officer…",
+        "no": { "u_has_any_trait": [ "PROF_PD_DET" ], "yes": "Detective…", "no": "Citizen…" }
       }
     },
-    "speaker_effect": {
-      "sentinel": "met",
-      "effect": {
-        "add_mission": "MISSION_police_teacher_0"
-      }
-    },
+    "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_police_teacher_0" } },
     "responses": [
       {
-        "text": "About that job\u2026",
-        "condition": {
-          "and": [
-            "mission_complete",
-            "has_many_assigned_missions"
-          ]
-        },
+        "text": "About that job…",
+        "condition": { "and": [ "mission_complete", "has_many_assigned_missions" ] },
         "topic": "TALK_MISSION_INQUIRE"
       },
-      {
-        "text": "<BGSS_intro_question>",
-        "topic": "TALK_police_teacher_Background"
-      },
-      {
-        "text": "Do you need any help?",
-        "topic": "TALK_MISSION_LIST"
-      },
-      {
-        "text": "Can you teach me something?",
-        "topic": "TALK_police_teacher_teach_check"
-      },
-      {
-        "text": "Goodbye.",
-        "topic": "TALK_DONE"
-      }
+      { "text": "<BGSS_intro_question>", "topic": "TALK_police_teacher_Background" },
+      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Can you teach me something?", "topic": "TALK_police_teacher_teach_check" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -254,30 +96,13 @@
     "id": "TALK_police_teacher_Background",
     "dynamic_line": "Well, I was in this cell, minding my own business, but when the lights went out, the emergency system locked the entire PD and I kind of got stuck here.",
     "responses": [
-      {
-        "text": "<done_conversation_section>",
-        "topic": "TALK_NONE"
-      },
+      { "text": "<done_conversation_section>", "topic": "TALK_NONE" },
       {
         "text": "Are you sure you telling me the truth?",
-        "condition": {
-          "not": {
-            "npc_has_var": "police_teacher_background",
-            "type": "general",
-            "context": "meeting",
-            "value": "yes"
-          }
-        },
-        "trial": {
-          "type": "PERSUADE",
-          "difficulty": 8
-        },
-        "success": {
-          "topic": "TALK_police_teacher_truth"
-        },
-        "failure": {
-          "topic": "TALK_police_teacher_lie"
-        }
+        "condition": { "not": { "npc_has_var": "police_teacher_background", "type": "general", "context": "meeting", "value": "yes" } },
+        "trial": { "type": "PERSUADE", "difficulty": 8 },
+        "success": { "topic": "TALK_police_teacher_truth" },
+        "failure": { "topic": "TALK_police_teacher_lie" }
       }
     ]
   },
@@ -288,81 +113,45 @@
     "responses": [
       {
         "text": "So, what about now?",
-        "condition": {
-          "npc_has_var": "u_helped_police_teacher",
-          "type": "general",
-          "context": "meeting",
-          "value": "yes"
-        },
+        "condition": { "npc_has_var": "u_helped_police_teacher", "type": "general", "context": "meeting", "value": "yes" },
         "trial": {
           "type": "CONDITION",
-          "condition": {
-            "npc_has_var": "police_teacher_teach",
-            "type": "general",
-            "context": "meeting",
-            "value": "yes"
-          }
+          "condition": { "npc_has_var": "police_teacher_teach", "type": "general", "context": "meeting", "value": "yes" }
         },
         "success": {
           "effect": [
-            {
-              "u_spawn_item": "manual_swordsmanship"
-            },
-            {
-              "npc_lose_var": "police_teacher_teach",
-              "type": "general",
-              "context": "meeting"
-            }
+            { "u_spawn_item": "manual_swordsmanship" },
+            { "npc_lose_var": "police_teacher_teach", "type": "general", "context": "meeting" }
           ],
           "topic": "TALK_police_teacher_teach"
         },
-        "failure": {
-          "topic": "TALK_police_teacher_teach_done"
-        }
+        "failure": { "topic": "TALK_police_teacher_teach_done" }
       },
-      {
-        "text": "Maybe later.",
-        "topic": "TALK_NONE"
-      }
+      { "text": "Maybe later.", "topic": "TALK_NONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_police_teacher_teach",
     "dynamic_line": "I learned all from this book. You can take it. Good luck.",
-    "responses": [
-      {
-        "text": "Thank you, officer.",
-        "topic": "TALK_DONE"
-      }
-    ]
+    "responses": [ { "text": "Thank you, officer.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_police_teacher_teach_done",
     "dynamic_line": "I already taught you all I knew.",
-    "responses": [
-      {
-        "text": "Thanks again, officer.",
-        "topic": "TALK_DONE"
-      }
-    ]
+    "responses": [ { "text": "Thanks again, officer.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_police_teacher_truth",
-    "dynamic_line": "OK, OK, I'll tell you.  The truth is, I was afraid when first <zombies> tried to enter our department, and didn't even notice how I got myself locked up here, in this cell.  Maybe I panicked, and instead of running away, or helping my fellow co-workers, I thought, maybe, this metal bars would protect me.  I'm so ashamed of myself, really.  Officers should be calm in emergencies like this, to help civilians with anything they need, to protect them, but\u2026 What done is done.",
+    "dynamic_line": "OK, OK, I'll tell you.  The truth is, I was afraid when first <zombies> tried to enter our department, and didn't even notice how I got myself locked up here, in this cell.  Maybe I panicked, and instead of running away, or helping my fellow co-workers, I thought, maybe, this metal bars would protect me.  I'm so ashamed of myself, really.  Officers should be calm in emergencies like this, to help civilians with anything they need, to protect them, but… What done is done.",
     "responses": [
       {
         "text": "Oh, uh, well, OK then?",
         "topic": "TALK_police_teacher_1",
         "effect": [
-          {
-            "npc_add_var": "police_teacher_background",
-            "type": "general",
-            "context": "meeting",
-            "value": "yes"
-          },
+          { "npc_add_var": "police_teacher_background", "type": "general", "context": "meeting", "value": "yes" },
           {
             "npc_add_var": "police_teacher_background_truth",
             "type": "general",
@@ -409,11 +198,7 @@
           "op": ">",
           "time": "2 days"
         },
-        "effect": [
-          {
-            "npc_first_topic": "TALK_police_teacher_1"
-          }
-        ]
+        "effect": [ { "npc_first_topic": "TALK_police_teacher_1" } ]
       }
     ]
   },
@@ -424,37 +209,22 @@
     "dynamic_line": "No, ha-ha, it's an accident, really.",
     "responses": [
       {
-        "text": "\u2026",
+        "text": "…",
         "topic": "TALK_DONE",
-        "effect": [
-          {
-            "npc_add_var": "police_teacher_background",
-            "type": "general",
-            "context": "meeting",
-            "value": "yes"
-          }
-        ]
+        "effect": [ { "npc_add_var": "police_teacher_background", "type": "general", "context": "meeting", "value": "yes" } ]
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_police_teacher_wait",
-    "dynamic_line": "\u2026",
+    "dynamic_line": "…",
     "responses": [
-      {
-        "text": "I'm back.",
-        "topic": "TALK_police_teacher_1"
-      },
+      { "text": "I'm back.", "topic": "TALK_police_teacher_1" },
       {
         "text": "So, looking for a secret room, aren't you?",
         "topic": "TALK_police_teacher_basement",
-        "condition": {
-          "u_has_var": "bill_the_assassin_basement",
-          "type": "general",
-          "context": "meeting",
-          "value": "yes"
-        }
+        "condition": { "u_has_var": "bill_the_assassin_basement", "type": "general", "context": "meeting", "value": "yes" }
       }
     ]
   },
@@ -475,24 +245,15 @@
     "id": "TALK_police_teacher_basement",
     "dynamic_line": "<name_g> did you actually believed that <name_b>?  I don't hide anything from you!  Kill him please and please don't kill me!",
     "responses": [
-      {
-        "text": "I'll think about that.",
-        "topic": "TALK_police_teacher_basement1"
-      },
-      {
-        "text": "Nah.",
-        "topic": "TALK_DONE",
-        "effect": "insult_combat"
-      }
+      { "text": "I'll think about that.", "topic": "TALK_police_teacher_basement1" },
+      { "text": "Nah.", "topic": "TALK_DONE", "effect": "insult_combat" }
     ]
   },
   {
     "id": "MISSION_police_teacher_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": {
-      "str": "Find police report"
-    },
+    "name": { "str": "Find police report" },
     "description": "Officer asked you to find him a folder with police reports in PD, located in town nearby.",
     "goal": "MGOAL_FIND_ITEM",
     "item": "police_record",
@@ -508,29 +269,18 @@
         "search_range": 150,
         "min_distance": 35
       },
-      "update_mapgen": {
-        "om_terrain": "police_2ndfloor_1",
-        "place_item": [
-          {
-            "item": "police_record",
-            "x": 4,
-            "y": 6
-          }
-        ]
-      }
+      "update_mapgen": { "om_terrain": "police_2ndfloor_1", "place_item": [ { "item": "police_record", "x": 4, "y": 6 } ] }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_police_teacher_2",
     "dialogue": {
       "describe": "-",
-      "offer": "Before <the_cataclysm>,  I was in a secret police search party that was formed to track an assassin, who worked for a famous kingpin.  They called him 'Bill The Assassin'.  Somehow, we managed to track him, and even put him behind bars for a <very> long time.  But you see, the situation changed drastically outside, and I know the guy like him wouldn't hesitate to use it as a chance to break free.  And, um, I think the guy like him would definitely try to take his revenge, so\u2026 I just want to know for sure if the guy is alive or turned into <zombie>.  Find police records, so I can learn where did they locked him, and maybe learn what happened to him there.",
+      "offer": "Before <the_cataclysm>,  I was in a secret police search party that was formed to track an assassin, who worked for a famous kingpin.  They called him 'Bill The Assassin'.  Somehow, we managed to track him, and even put him behind bars for a <very> long time.  But you see, the situation changed drastically outside, and I know the guy like him wouldn't hesitate to use it as a chance to break free.  And, um, I think the guy like him would definitely try to take his revenge, so… I just want to know for sure if the guy is alive or turned into <zombie>.  Find police records, so I can learn where did they locked him, and maybe learn what happened to him there.",
       "accepted": "Whew, thank you.  I'll wait.",
       "rejected": "Why?",
       "advice": "Well, I'm not sure where it may be, to be honest.  Try to search all the building.",
       "inquire": "So?",
-      "success": "Good, thank you.  I just need some time to\u2026 Oh, it's right on the top, ha-ha.  Let's see\u2026 So, now I know where to find him.",
+      "success": "Good, thank you.  I just need some time to… Oh, it's right on the top, ha-ha.  Let's see… So, now I know where to find him.",
       "success_lie": "-",
       "failure": "-"
     }
@@ -539,9 +289,7 @@
     "id": "MISSION_police_teacher_2",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": {
-      "str": "Kill Bill"
-    },
+    "name": { "str": "Kill Bill" },
     "description": "Officer asked you to kill prisoner Bill, and bring back his head as proof.",
     "goal": "MGOAL_FIND_ITEM",
     "item": "prisoner_bill_head",
@@ -557,34 +305,18 @@
         "search_range": 200,
         "min_distance": 45
       },
-      "update_mapgen": {
-        "place_monster": [
-          {
-            "monster": "mon_bill",
-            "x": [
-              7,
-              65
-            ],
-            "y": [
-              30,
-              65
-            ]
-          }
-        ]
-      }
+      "update_mapgen": { "place_monster": [ { "monster": "mon_bill", "x": [ 7, 65 ], "y": [ 30, 65 ] } ] }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_police_teacher_3",
     "dialogue": {
       "describe": "-",
-      "offer": "So, now I know where he's been serving sentence, and I want to just check what happened to him\u2026 What?  Why don't I just go there and look for myself?  Well, ha-ha, I'm kind of busy with\u2026 Defending my PD, ha!  So, if you want to help me, please find Bill.  If he's there, kill him and bring his head as poof.  He have a tattoo on his face that looks like a dragon, so you can\u2019t mistake him for anyone.",
+      "offer": "So, now I know where he's been serving sentence, and I want to just check what happened to him… What?  Why don't I just go there and look for myself?  Well, ha-ha, I'm kind of busy with… Defending my PD, ha!  So, if you want to help me, please find Bill.  If he's there, kill him and bring his head as poof.  He have a tattoo on his face that looks like a dragon, so you can’t mistake him for anyone.",
       "accepted": "Thank you.  I'll wait.",
       "rejected": "Why?",
       "advice": "Be <very> careful with your approach.  Prisons are guarder by police bots and turrets, and they are a <very> dangerous.",
       "inquire": "So?",
-      "success": "Good.  Show it to me.  So, here you are, you dirty bastard.  Who's laughing now, huh?  Ha-ha! Hah\u2026 Wait a minute.  Green eyes, potato nose, scar under left eye, dental print looks like his, but\u2026 It's a wyrm, not a dragon!  ARGH, what a trickster!  So, now we know that we put behind bars someone else, and there's the chance he's still alive.  That's bad news, indeed.  I need to think about it.",
+      "success": "Good.  Show it to me.  So, here you are, you dirty bastard.  Who's laughing now, huh?  Ha-ha! Hah… Wait a minute.  Green eyes, potato nose, scar under left eye, dental print looks like his, but… It's a wyrm, not a dragon!  ARGH, what a trickster!  So, now we know that we put behind bars someone else, and there's the chance he's still alive.  That's bad news, indeed.  I need to think about it.",
       "success_lie": "-",
       "failure": "What a shame."
     }
@@ -593,9 +325,7 @@
     "id": "MISSION_police_teacher_3",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": {
-      "str": "Bill's house"
-    },
+    "name": { "str": "Bill's house" },
     "description": "Officer asked you to lead him to Bill's house.",
     "goal": "MGOAL_GO_TO",
     "destination": "house_10",
@@ -616,20 +346,11 @@
     "end": {
       "effect": [
         "stop_following",
-        {
-          "npc_add_var": "police_teacher_work",
-          "type": "general",
-          "context": "flag",
-          "time": true
-        },
-        {
-          "npc_first_topic": "TALK_police_teacher_working"
-        }
+        { "npc_add_var": "police_teacher_work", "type": "general", "context": "flag", "time": true },
+        { "npc_first_topic": "TALK_police_teacher_working" }
       ]
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_police_teacher_4",
     "dialogue": {
       "describe": "-",
@@ -638,7 +359,7 @@
       "rejected": "Why?",
       "advice": "You'll cover my back, I'll cover yours.  That way, we have more chances to survive.",
       "inquire": "I'm waiting.",
-      "success": "Good.  Wait for a while, I need some time to look around and find something that may lead us to him\u2026",
+      "success": "Good.  Wait for a while, I need some time to look around and find something that may lead us to him…",
       "success_lie": "-",
       "failure": "What a shame."
     }
@@ -647,17 +368,13 @@
     "id": "MISSION_police_teacher_4",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": {
-      "str": "Kill the real Bill"
-    },
+    "name": { "str": "Kill the real Bill" },
     "description": "Officer asked you to kill the real Bill.",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 0,
     "value": 100,
     "start": {
-      "effect": {
-        "npc_first_topic": "TALK_police_teacher_wait"
-      },
+      "effect": { "npc_first_topic": "TALK_police_teacher_wait" },
       "assign_mission_target": {
         "om_terrain": "forest",
         "om_terrain_replace": "field",
@@ -667,36 +384,15 @@
         "min_distance": 30,
         "random": true
       },
-      "update_mapgen": {
-        "place_npcs": [
-          {
-            "class": "NPC_bill_the_assassin",
-            "x": 10,
-            "y": 10,
-            "target": true
-          }
-        ]
-      }
+      "update_mapgen": { "place_npcs": [ { "class": "NPC_bill_the_assassin", "x": 10, "y": 10, "target": true } ] }
     },
     "end": {
       "effect": [
-        {
-          "npc_add_var": "police_teacher_teach",
-          "type": "general",
-          "context": "meeting",
-          "value": "yes"
-        },
-        {
-          "npc_add_var": "u_helped_police_teacher",
-          "type": "general",
-          "context": "meeting",
-          "value": "yes"
-        }
+        { "npc_add_var": "police_teacher_teach", "type": "general", "context": "meeting", "value": "yes" },
+        { "npc_add_var": "u_helped_police_teacher", "type": "general", "context": "meeting", "value": "yes" }
       ]
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "-",
       "offer": "OK, I might know where to find him.  I'll give you approximate location of the real Bill.  Find that bastard and kill him.",
@@ -713,21 +409,12 @@
     "id": "MISSION_police_teacher_0",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": {
-      "str": "You met Police teacher"
-    },
+    "name": { "str": "You met Police teacher" },
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "u_has_var": "-",
-      "type": "general",
-      "context": "meeting",
-      "value": "yes"
-    },
+    "goal_condition": { "u_has_var": "-", "type": "general", "context": "meeting", "value": "yes" },
     "difficulty": 0,
     "value": 0,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "-",
       "offer": "-",
@@ -741,15 +428,8 @@
     },
     "fail": {
       "effect": [
-        {
-          "u_spawn_item": "pt_head"
-        },
-        {
-          "u_add_var": "police_teacher_dead",
-          "type": "general",
-          "context": "meeting",
-          "value": "yes"
-        }
+        { "u_spawn_item": "pt_head" },
+        { "u_add_var": "police_teacher_dead", "type": "general", "context": "meeting", "value": "yes" }
       ]
     }
   }

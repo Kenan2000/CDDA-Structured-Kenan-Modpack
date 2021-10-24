@@ -19,58 +19,25 @@
       {
         "text": "We need your help in operating a radio tower.",
         "topic": "TALK_HUMAN_RS_talked",
-        "condition": {
-          "not": {
-            "u_has_trait": "wrsgo"
-          }
-        }
+        "condition": { "not": { "u_has_trait": "wrsgo" } }
       },
       {
         "text": "Yes. I will.",
         "topic": "TALK_MISSION_LIST",
         "condition": {
-          "and": [
-            {
-              "u_has_trait": "wrsgo"
-            },
-            {
-              "not": {
-                "u_has_trait": "wrsgoing"
-              }
-            },
-            {
-              "not": {
-                "u_has_trait": "wrsdone"
-              }
-            }
-          ]
+          "and": [ { "u_has_trait": "wrsgo" }, { "not": { "u_has_trait": "wrsgoing" } }, { "not": { "u_has_trait": "wrsdone" } } ]
         }
       },
       {
         "text": "Okay! I'll do it!",
         "topic": "TALK_DONE",
-        "condition": {
-          "and": [
-            {
-              "u_has_trait": "wrsgoing"
-            },
-            {
-              "not": {
-                "u_has_trait": "wrsdone"
-              }
-            }
-          ]
-        }
+        "condition": { "and": [ { "u_has_trait": "wrsgoing" }, { "not": { "u_has_trait": "wrsdone" } } ] }
       },
       {
         "text": "Bye.",
         "topic": "TALK_DONE",
-        "effect": {
-          "npc_change_class": "HUMAN_RADIOSPEC_WORKING"
-        },
-        "condition": {
-          "u_has_trait": "wrsdone"
-        }
+        "effect": { "npc_change_class": "HUMAN_RADIOSPEC_WORKING" },
+        "condition": { "u_has_trait": "wrsdone" }
       }
     ]
   },
@@ -79,18 +46,9 @@
     "type": "talk_topic",
     "dynamic_line": "Radios are too simple to use, why'd would you want me to do it myself?",
     "responses": [
-      {
-        "text": "To ease the job?",
-        "topic": "TALK_HUMAN_RS_nvm"
-      },
-      {
-        "text": "Increase the efficiency of our radio?",
-        "topic": "TALK_HUMAN_RS_nvm"
-      },
-      {
-        "text": "Its a complicated thing for us...",
-        "topic": "TALK_HUMAN_RS_nvm"
-      }
+      { "text": "To ease the job?", "topic": "TALK_HUMAN_RS_nvm" },
+      { "text": "Increase the efficiency of our radio?", "topic": "TALK_HUMAN_RS_nvm" },
+      { "text": "Its a complicated thing for us...", "topic": "TALK_HUMAN_RS_nvm" }
     ]
   },
   {
@@ -102,24 +60,12 @@
       "no": "Forget it, I will come for as long as I gain benefits from doing this crap! Besides, I am grateful that you've came to pick me up."
     },
     "responses": [
-      {
-        "text": "Lets go!",
-        "topic": "TALK_DONE",
-        "condition": {
-          "u_has_trait": "wrsgo"
-        }
-      },
+      { "text": "Lets go!", "topic": "TALK_DONE", "condition": { "u_has_trait": "wrsgo" } },
       {
         "text": "Okay.",
         "topic": "TALK_MISSION_OFFER",
-        "effect": {
-          "u_add_trait": "wrsgo"
-        },
-        "condition": {
-          "not": {
-            "u_has_trait": "wrsgo"
-          }
-        }
+        "effect": { "u_add_trait": "wrsgo" },
+        "condition": { "not": { "u_has_trait": "wrsgo" } }
       }
     ]
   }

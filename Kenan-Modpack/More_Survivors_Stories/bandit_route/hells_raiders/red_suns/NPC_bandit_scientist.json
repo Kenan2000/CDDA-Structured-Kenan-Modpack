@@ -16,23 +16,13 @@
     "id": "TALK_bandit_rs_scientist_start",
     "type": "talk_topic",
     "dynamic_line": "What, some marauder decided to steal my stuff?!  Stay away, I'm armed!\"  she waved something like a pair of scissors in front of her.  \"I'm serious!",
-    "responses": [
-      {
-        "text": "Hey, relax, <name_g>.  Put the gun down, please.",
-        "topic": "TALK_bandit_rs_scientist_start1"
-      }
-    ]
+    "responses": [ { "text": "Hey, relax, <name_g>.  Put the gun down, please.", "topic": "TALK_bandit_rs_scientist_start1" } ]
   },
   {
     "id": "TALK_bandit_rs_scientist_start1",
     "type": "talk_topic",
     "dynamic_line": "What do you want?  I don't have anything, I'm struggling to survive myself.  Please, go away.",
-    "responses": [
-      {
-        "text": "Not an option, <name_g>.  You need to go with me.",
-        "topic": "TALK_bandit_rs_scientist_start2"
-      }
-    ]
+    "responses": [ { "text": "Not an option, <name_g>.  You need to go with me.", "topic": "TALK_bandit_rs_scientist_start2" } ]
   },
   {
     "type": "talk_topic",
@@ -46,131 +36,50 @@
     ]
   },
   {
-    "id": [
-      "TALK_bandit_rs_scientist_start_check",
-      "TALK_bandit_rs_scientist_start_fail"
-    ],
+    "id": [ "TALK_bandit_rs_scientist_start_check", "TALK_bandit_rs_scientist_start_fail" ],
     "type": "talk_topic",
     "dynamic_line": "I'm not going anywhere!",
     "responses": [
       {
         "text": "Look, certain guys need your knowledge.  Be nice, do as they ask, and you can continue to do your research, or whatever you usually did there before <the_cataclysm>.",
-        "condition": {
-          "not": {
-            "npc_has_var": "persuaded",
-            "type": "flag",
-            "context": "temp_var",
-            "value": "yes"
-          }
-        },
-        "trial": {
-          "type": "LIE",
-          "difficulty": 15,
-          "mod": [
-            [
-              "TRUST",
-              3
-            ]
-          ]
-        },
-        "success": {
-          "topic": "TALK_bandit_rs_scientist_start_comply"
-        },
+        "condition": { "not": { "npc_has_var": "persuaded", "type": "flag", "context": "temp_var", "value": "yes" } },
+        "trial": { "type": "LIE", "difficulty": 15, "mod": [ [ "TRUST", 3 ] ] },
+        "success": { "topic": "TALK_bandit_rs_scientist_start_comply" },
         "failure": {
           "topic": "TALK_bandit_rs_scientist_start_fail",
-          "opinion": {
-            "BRAVERY": 2
-          },
+          "opinion": { "BRAVERY": 2 },
           "effect": [
-            {
-              "npc_add_var": "persuaded",
-              "type": "flag",
-              "context": "temp_var",
-              "value": "yes"
-            },
-            {
-              "npc_adjust_var": "push",
-              "type": "count",
-              "context": "dialogue",
-              "adjustment": 1
-            }
+            { "npc_add_var": "persuaded", "type": "flag", "context": "temp_var", "value": "yes" },
+            { "npc_adjust_var": "push", "type": "count", "context": "dialogue", "adjustment": 1 }
           ]
         }
       },
       {
         "text": "You don't have that many options here, <name_g>.   We can do this easy way or a hard way.",
-        "condition": {
-          "not": {
-            "npc_has_var": "intimidated",
-            "type": "flag",
-            "context": "temp_var",
-            "value": "yes"
-          }
-        },
-        "trial": {
-          "type": "INTIMIDATE",
-          "difficulty": 25,
-          "mod": [
-            [
-              "BRAVERY",
-              -2
-            ],
-            [
-              "FEAR",
-              2
-            ]
-          ]
-        },
-        "success": {
-          "topic": "TALK_bandit_rs_scientist_start_comply"
-        },
+        "condition": { "not": { "npc_has_var": "intimidated", "type": "flag", "context": "temp_var", "value": "yes" } },
+        "trial": { "type": "INTIMIDATE", "difficulty": 25, "mod": [ [ "BRAVERY", -2 ], [ "FEAR", 2 ] ] },
+        "success": { "topic": "TALK_bandit_rs_scientist_start_comply" },
         "failure": {
           "topic": "TALK_bandit_rs_scientist_start_fail",
-          "opinion": {
-            "trust": -2
-          },
+          "opinion": { "trust": -2 },
           "effect": [
-            {
-              "npc_add_var": "intimidated",
-              "type": "flag",
-              "context": "temp_var",
-              "value": "yes"
-            },
-            {
-              "npc_adjust_var": "push",
-              "type": "count",
-              "context": "dialogue",
-              "adjustment": 1
-            }
+            { "npc_add_var": "intimidated", "type": "flag", "context": "temp_var", "value": "yes" },
+            { "npc_adjust_var": "push", "type": "count", "context": "dialogue", "adjustment": 1 }
           ]
         }
       },
       {
-        "text": "\u2026",
+        "text": "…",
         "topic": "TALK_DONE",
-        "condition": {
-          "npc_has_var": "push",
-          "type": "count",
-          "context": "dialogue",
-          "value": "2"
-        },
+        "condition": { "npc_has_var": "push", "type": "count", "context": "dialogue", "value": "2" },
         "effect": "flee",
         "switch": true
       },
       {
         "text": "I don't have time for this.  *use force*",
-        "trial": {
-          "type": "CONDITION",
-          "condition": {
-            "u_has_strength": 8
-          }
-        },
-        "success": {
-          "topic": "TALK_bandit_rs_scientist_start_comply"
-        },
-        "failure": {
-          "topic": "TALK_bandit_rs_scientist_start_flee"
-        },
+        "trial": { "type": "CONDITION", "condition": { "u_has_strength": 8 } },
+        "success": { "topic": "TALK_bandit_rs_scientist_start_comply" },
+        "failure": { "topic": "TALK_bandit_rs_scientist_start_flee" },
         "switch": true
       }
     ]
@@ -184,13 +93,7 @@
     "type": "talk_topic",
     "id": "TALK_bandit_rs_scientist_start_flee",
     "dynamic_line": "*managed to break free and run from you.",
-    "responses": [
-      {
-        "text": "\u2026",
-        "topic": "TALK_DONE",
-        "effect": "flee"
-      }
-    ]
+    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "flee" } ]
   },
   {
     "type": "talk_topic",
@@ -201,29 +104,12 @@
         "text": "Good choice.",
         "topic": "TALK_DONE",
         "effect": [
-          {
-            "npc_lose_var": "push",
-            "type": "count",
-            "context": "dialogue"
-          },
-          {
-            "npc_lose_var": "intimidated",
-            "type": "flag",
-            "context": "temp_var"
-          },
-          {
-            "npc_lose_var": "persuaded",
-            "type": "flag",
-            "context": "temp_var"
-          },
+          { "npc_lose_var": "push", "type": "count", "context": "dialogue" },
+          { "npc_lose_var": "intimidated", "type": "flag", "context": "temp_var" },
+          { "npc_lose_var": "persuaded", "type": "flag", "context": "temp_var" },
           "follow_only",
-          {
-            "npc_first_topic": "TALK_bandit_rs_scientist_follow"
-          },
-          {
-            "mapgen_update": "bandit_rs_scientist_workplace",
-            "om_terrain": "evac_center_9"
-          }
+          { "npc_first_topic": "TALK_bandit_rs_scientist_follow" },
+          { "mapgen_update": "bandit_rs_scientist_workplace", "om_terrain": "evac_center_9" }
         ]
       }
     ]
@@ -231,13 +117,11 @@
   {
     "id": "TALK_bandit_rs_scientist_follow",
     "type": "talk_topic",
-    "dynamic_line": "I hope you're not leading me to certain death\u2026",
+    "dynamic_line": "I hope you're not leading me to certain death…",
     "responses": [
       {
         "text": "Welcome to your new workplace.",
-        "condition": {
-          "npc_at_om_location": "evac_center_9"
-        },
+        "condition": { "npc_at_om_location": "evac_center_9" },
         "topic": "TALK_bandit_rs_scientist_follow1"
       }
     ]
@@ -245,23 +129,17 @@
   {
     "id": "TALK_bandit_rs_scientist_follow1",
     "type": "talk_topic",
-    "dynamic_line": "Did they bring everything here that at least somehow resembled scientific equipment?  I wouldn't need most of this junk.  Well, it's still better than waiting patiently for my death in that seedy pit\u2026",
+    "dynamic_line": "Did they bring everything here that at least somehow resembled scientific equipment?  I wouldn't need most of this junk.  Well, it's still better than waiting patiently for my death in that seedy pit…",
     "responses": [
       {
         "text": "I like your attitude.",
         "topic": "TALK_DONE",
         "effect": [
           "stop_following",
-          {
-            "npc_change_faction": "red_suns"
-          },
+          { "npc_change_faction": "red_suns" },
           "assign_guard",
-          {
-            "npc_first_topic": "TALK_bandit_rs_scientist_1"
-          },
-          {
-            "add_mission": "MISSION_bandit_rs_scientist_0"
-          }
+          { "npc_first_topic": "TALK_bandit_rs_scientist_1" },
+          { "add_mission": "MISSION_bandit_rs_scientist_0" }
         ]
       }
     ]
@@ -277,52 +155,21 @@
     ],
     "dynamic_line": "<greet>",
     "responses": [
-      {
-        "text": "About that job\u2026",
-        "topic": "TALK_MISSION_INQUIRE",
-        "condition": "has_assigned_mission"
-      },
-      {
-        "text": "<BGSS_intro_question>",
-        "topic": "TALK_bandit_rs_scientist_Background"
-      },
+      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "<BGSS_intro_question>", "topic": "TALK_bandit_rs_scientist_Background" },
       {
         "text": "You don't need to worry about your safety.",
         "topic": "TALK_bandit_rs_scientist_made_poison",
-        "condition": {
-          "u_has_var": "rs_scientist_poison",
-          "type": "flag",
-          "context": "open_option",
-          "value": "yes"
-        }
+        "condition": { "u_has_var": "rs_scientist_poison", "type": "flag", "context": "open_option", "value": "yes" }
       },
       {
         "text": "Can you make poison for that hairy dude?",
         "topic": "TALK_bandit_rs_scientist_posion",
         "condition": {
           "and": [
-            {
-              "npc_has_var": "working",
-              "type": "flag",
-              "context": "started_working",
-              "value": "yes"
-            },
-            {
-              "not": {
-                "u_has_var": "hell_hound",
-                "type": "switch",
-                "context": "alive_dead",
-                "value": "dead"
-              }
-            },
-            {
-              "not": {
-                "npc_has_var": "poison_agreed",
-                "type": "flag",
-                "context": "agreed",
-                "value": "yes"
-              }
-            },
+            { "npc_has_var": "working", "type": "flag", "context": "started_working", "value": "yes" },
+            { "not": { "u_has_var": "hell_hound", "type": "switch", "context": "alive_dead", "value": "dead" } },
+            { "not": { "npc_has_var": "poison_agreed", "type": "flag", "context": "agreed", "value": "yes" } },
             {
               "u_compare_var": "fs_leader_mission_khh",
               "type": "count",
@@ -335,31 +182,15 @@
       },
       {
         "text": "Do you need any help?",
-        "condition": {
-          "not": {
-            "u_has_mission": "MISSION_hell_hound_1"
-          }
-        },
+        "condition": { "not": { "u_has_mission": "MISSION_hell_hound_1" } },
         "trial": {
           "type": "CONDITION",
-          "condition": {
-            "u_has_var": "hell_hound",
-            "type": "switch",
-            "context": "alive_dead",
-            "value": "dead"
-          }
+          "condition": { "u_has_var": "hell_hound", "type": "switch", "context": "alive_dead", "value": "dead" }
         },
-        "success": {
-          "topic": "TALK_MISSION_LIST"
-        },
-        "failure": {
-          "topic": "TALK_MISSION_LIST"
-        }
+        "success": { "topic": "TALK_MISSION_LIST" },
+        "failure": { "topic": "TALK_MISSION_LIST" }
       },
-      {
-        "text": "Goodbye.",
-        "topic": "TALK_DONE"
-      }
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -370,105 +201,36 @@
     "responses": [
       {
         "text": "Why shouldn't you?  You can be free to do whatever you want, ant not to be feared to be killed or worse.",
-        "condition": {
-          "not": {
-            "npc_has_var": "persuaded",
-            "type": "flag",
-            "context": "temp_var",
-            "value": "yes"
-          }
-        },
-        "trial": {
-          "type": "PERSUADE",
-          "difficulty": 20,
-          "mod": [
-            [
-              "TRUST",
-              3
-            ]
-          ]
-        },
-        "success": {
-          "topic": "TALK_bandit_rs_scientist_poison_sure"
-        },
+        "condition": { "not": { "npc_has_var": "persuaded", "type": "flag", "context": "temp_var", "value": "yes" } },
+        "trial": { "type": "PERSUADE", "difficulty": 20, "mod": [ [ "TRUST", 3 ] ] },
+        "success": { "topic": "TALK_bandit_rs_scientist_poison_sure" },
         "failure": {
           "topic": "TALK_bandit_rs_scientist_poison_nope",
-          "effect": [
-            {
-              "npc_add_var": "persuaded",
-              "type": "flag",
-              "context": "temp_var",
-              "value": "yes"
-            }
-          ]
+          "effect": [ { "npc_add_var": "persuaded", "type": "flag", "context": "temp_var", "value": "yes" } ]
         }
       },
       {
         "text": "[SARCASM]",
-        "condition": {
-          "not": {
-            "npc_has_var": "intimidated",
-            "type": "flag",
-            "context": "temp_var",
-            "value": "yes"
-          }
-        },
-        "trial": {
-          "type": "INTIMIDATE",
-          "difficulty": 20,
-          "mod": [
-            [
-              "BRAVERY",
-              -2
-            ],
-            [
-              "FEAR",
-              2
-            ]
-          ]
-        },
-        "success": {
-          "topic": "TALK_bandit_rs_scientist_poison_sure"
-        },
+        "condition": { "not": { "npc_has_var": "intimidated", "type": "flag", "context": "temp_var", "value": "yes" } },
+        "trial": { "type": "INTIMIDATE", "difficulty": 20, "mod": [ [ "BRAVERY", -2 ], [ "FEAR", 2 ] ] },
+        "success": { "topic": "TALK_bandit_rs_scientist_poison_sure" },
         "failure": {
           "topic": "TALK_bandit_rs_scientist_poison_nope",
-          "opinion": {
-            "trust": -2
-          },
-          "effect": [
-            {
-              "npc_add_var": "intimidated",
-              "type": "flag",
-              "context": "temp_var",
-              "value": "yes"
-            }
-          ]
+          "opinion": { "trust": -2 },
+          "effect": [ { "npc_add_var": "intimidated", "type": "flag", "context": "temp_var", "value": "yes" } ]
         }
       },
-      {
-        "text": "Because, umm, please?",
-        "topic": "TALK_bandit_rs_scientist_poison_nope"
-      }
+      { "text": "Because, umm, please?", "topic": "TALK_bandit_rs_scientist_poison_nope" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_bandit_rs_scientist_poison_sure",
-    "dynamic_line": "Well, if you put it that way\u2026 still, are you sure that new leader would be that willing to let me live after something like this?  I need to be sure, you know.",
+    "dynamic_line": "Well, if you put it that way… still, are you sure that new leader would be that willing to let me live after something like this?  I need to be sure, you know.",
     "speaker_effect": {
       "effect": [
-        {
-          "u_add_var": "poison_agreed",
-          "type": "flag",
-          "context": "agreed",
-          "value": "yes"
-        },
-        {
-          "npc_add_var": "poison_agreed",
-          "type": "flag",
-          "context": "agreed",
-          "value": "yes"
-        }
+        { "u_add_var": "poison_agreed", "type": "flag", "context": "agreed", "value": "yes" },
+        { "npc_add_var": "poison_agreed", "type": "flag", "context": "agreed", "value": "yes" }
       ]
     }
   },
@@ -488,25 +250,14 @@
     "id": "TALK_bandit_rs_scientist_made_poison",
     "dynamic_line": "Fine, I'll try make something.\"  she left and returned after five minutes.  \"Here, take it.",
     "speaker_effect": {
-      "effect": [
-        {
-          "u_lose_var": "rs_scientist_poison",
-          "type": "flag",
-          "context": "open_option"
-        },
-        {
-          "u_spawn_item": "bandit_item_3"
-        }
-      ]
+      "effect": [ { "u_lose_var": "rs_scientist_poison", "type": "flag", "context": "open_option" }, { "u_spawn_item": "bandit_item_3" } ]
     }
   },
   {
     "id": "MISSION_bandit_rs_scientist_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": {
-      "str": "Lab notes"
-    },
+    "name": { "str": "Lab notes" },
     "description": "Scientist asked you to find her old lab notes, needed for her work.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 0,
@@ -520,19 +271,10 @@
       },
       "update_mapgen": {
         "om_terrain": "lab_surface_brick_block3A0",
-        "place_item": [
-          {
-            "item": "rs_scientist_notes",
-            "x": 106,
-            "y": 46,
-            "target": true
-          }
-        ]
+        "place_item": [ { "item": "rs_scientist_notes", "x": 106, "y": 46, "target": true } ]
       }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_bandit_rs_scientist_2",
     "dialogue": {
       "describe": "-",
@@ -549,26 +291,15 @@
   {
     "id": "MISSION_bandit_rs_scientist_2",
     "type": "mission_definition",
-    "name": {
-      "str": "Research Materials "
-    },
+    "name": { "str": "Research Materials " },
     "description": "Deliver 250 slime globs.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 0,
     "value": 10000,
     "item": "slime_scrap",
     "count": 250,
-    "end": {
-      "effect": {
-        "npc_add_var": "working",
-        "type": "flag",
-        "context": "started_working",
-        "value": "yes"
-      }
-    },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "end": { "effect": { "npc_add_var": "working", "type": "flag", "context": "started_working", "value": "yes" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "-",
       "offer": "I need more research materials for my work.  Bring me 250 slime glob.",
@@ -585,38 +316,15 @@
     "id": "MISSION_bandit_rs_scientist_0",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": {
-      "str": "You met Red Suns Scientist"
-    },
+    "name": { "str": "You met Red Suns Scientist" },
     "description": "This person is alive and well.  If this mission fails, it means that this person is dead.",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "npc_has_var": "-",
-      "type": "-",
-      "context": "-",
-      "value": "-"
-    },
+    "goal_condition": { "npc_has_var": "-", "type": "-", "context": "-", "value": "-" },
     "difficulty": 0,
     "value": 0,
-    "start": {
-      "effect": {
-        "u_add_var": "bandit_rs_scientist",
-        "type": "switch",
-        "context": "alive_dead",
-        "value": "alive"
-      }
-    },
-    "fail": {
-      "effect": {
-        "u_add_var": "bandit_rs_scientist",
-        "type": "switch",
-        "context": "alive_dead",
-        "value": "dead"
-      }
-    },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "start": { "effect": { "u_add_var": "bandit_rs_scientist", "type": "switch", "context": "alive_dead", "value": "alive" } },
+    "fail": { "effect": { "u_add_var": "bandit_rs_scientist", "type": "switch", "context": "alive_dead", "value": "dead" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "-",
       "offer": "-",
@@ -633,27 +341,14 @@
     "type": "mapgen",
     "update_mapgen_id": "bandit_rs_scientist_workplace",
     "method": "json",
-    "object": {
-      "place_nested": [
-        {
-          "chunks": [
-            "nested_bandit_rs_scientist_workplace"
-          ],
-          "x": 0,
-          "y": 4
-        }
-      ]
-    }
+    "object": { "place_nested": [ { "chunks": [ "nested_bandit_rs_scientist_workplace" ], "x": 0, "y": 4 } ] }
   },
   {
     "type": "mapgen",
     "method": "json",
     "nested_mapgen_id": "nested_bandit_rs_scientist_workplace",
     "object": {
-      "mapgensize": [
-        13,
-        13
-      ],
+      "mapgensize": [ 13, 13 ],
       "rows": [
         "*MHboNb8fX***",
         "*..s.....X***",
@@ -669,9 +364,7 @@
         "*************",
         "*************"
       ],
-      "palettes": [
-        "lab_workspace_palette"
-      ],
+      "palettes": [ "lab_workspace_palette" ],
       "terrain": {
         "*": "t_null",
         "M": "t_floor",
@@ -687,55 +380,15 @@
         "S": "t_floor",
         "a": "t_floor"
       },
-      "furniture": {
-        "9": "f_beaded_door",
-        "X": "f_cardboard_wall",
-        ".": "f_null",
-        "*": "f_null"
-      },
+      "furniture": { "9": "f_beaded_door", "X": "f_cardboard_wall", ".": "f_null", "*": "f_null" },
       "items": {
-        "b": {
-          "item": "tools_science",
-          "chance": 30,
-          "repeat": [
-            1,
-            2
-          ]
-        },
-        "f": {
-          "item": "supplies_reagents_lab",
-          "chance": 60,
-          "repeat": [
-            1,
-            5
-          ]
-        },
+        "b": { "item": "tools_science", "chance": 30, "repeat": [ 1, 2 ] },
+        "f": { "item": "supplies_reagents_lab", "chance": 60, "repeat": [ 1, 5 ] },
         "8": [
-          {
-            "item": "supplies_reagents_lab",
-            "chance": 50,
-            "repeat": [
-              2,
-              5
-            ]
-          },
-          {
-            "item": "supplies_samples_lab",
-            "chance": 30,
-            "repeat": [
-              1,
-              3
-            ]
-          }
+          { "item": "supplies_reagents_lab", "chance": 50, "repeat": [ 2, 5 ] },
+          { "item": "supplies_samples_lab", "chance": 30, "repeat": [ 1, 3 ] }
         ],
-        "S": {
-          "item": "cleaning",
-          "chance": 30,
-          "repeat": [
-            1,
-            2
-          ]
-        }
+        "S": { "item": "cleaning", "chance": 30, "repeat": [ 1, 2 ] }
       }
     }
   }

@@ -3,86 +3,24 @@
     "type": "ter_furn_transform",
     "id": "immolate_transform",
     "furniture": [
-      {
-        "result": [
-          [
-            "f_ash",
-            2
-          ],
-          [
-            "f_null",
-            5
-          ]
-        ],
-        "valid_furniture": [
-          "f_null"
-        ]
-      },
-      {
-        "result": "f_ash",
-        "valid_flags": [
-          "FLAMMABLE_ASH"
-        ]
-      }
+      { "result": [ [ "f_ash", 2 ], [ "f_null", 5 ] ], "valid_furniture": [ "f_null" ] },
+      { "result": "f_ash", "valid_flags": [ "FLAMMABLE_ASH" ] }
     ],
     "terrain": [
       {
-        "result": [
-          [
-            "t_dirt",
-            3
-          ],
-          "t_grass_dead"
-        ],
-        "valid_terrain": [
-          "t_grass",
-          "t_grass_long",
-          "t_grass_tall",
-          "t_grass_white",
-          "t_grass_dead",
-          "t_moss",
-          "t_grass_golf"
-        ],
+        "result": [ [ "t_dirt", 3 ], "t_grass_dead" ],
+        "valid_terrain": [ "t_grass", "t_grass_long", "t_grass_tall", "t_grass_white", "t_grass_dead", "t_moss", "t_grass_golf" ],
         "message": "The earth is scorched clean!"
       },
-      {
-        "result": [
-          "t_dirtmound",
-          "t_dirt"
-        ],
-        "valid_flags": [
-          "SHRUB"
-        ]
-      },
-      {
-        "result": [
-          [
-            "t_stump",
-            3
-          ],
-          [
-            "t_tree_dead",
-            2
-          ],
-          "t_dirtmound"
-        ],
-        "valid_flags": [
-          "TREE"
-        ]
-      }
+      { "result": [ "t_dirtmound", "t_dirt" ], "valid_flags": [ "SHRUB" ] },
+      { "result": [ [ "t_stump", 3 ], [ "t_tree_dead", 2 ], "t_dirtmound" ], "valid_flags": [ "TREE" ] }
     ]
   },
   {
     "id": "immolate_transform",
-    "name": {
-      "str": "Immolate Transform"
-    },
+    "name": { "str": "Immolate Transform" },
     "description": "The part of the Immolate spell that causes the transform.",
-    "valid_targets": [
-      "ally",
-      "hostile",
-      "ground"
-    ],
+    "valid_targets": [ "ally", "hostile", "ground" ],
     "type": "SPELL",
     "effect": "ter_transform",
     "effect_str": "immolate_transform",
@@ -94,34 +32,13 @@
   {
     "id": "immolate",
     "type": "SPELL",
-    "name": {
-      "str": "Immolate"
-    },
+    "name": { "str": "Immolate" },
     "description": "A purifying blast of raw elemental heat wipes the slate clean, searing the Earth back to her most original state: a barren ball of burning rock.",
-    "valid_targets": [
-      "ally",
-      "hostile",
-      "ground"
-    ],
-    "flags": [
-      "SOMATIC",
-      "VERBAL",
-      "NO_LEGS",
-      "LOUD",
-      "CONCENTRATE",
-      "IGNITE_FLAMMABLE",
-      "MUST_HAVE_CLASS_TO_LEARN"
-    ],
+    "valid_targets": [ "ally", "hostile", "ground" ],
+    "flags": [ "SOMATIC", "VERBAL", "NO_LEGS", "LOUD", "CONCENTRATE", "IGNITE_FLAMMABLE", "MUST_HAVE_CLASS_TO_LEARN" ],
     "effect": "attack",
     "shape": "blast",
-    "extra_effects": [
-      {
-        "id": "immolate_transform"
-      },
-      {
-        "id": "immolate_push"
-      }
-    ],
+    "extra_effects": [ { "id": "immolate_transform" }, { "id": "immolate_push" } ],
     "damage_type": "heat",
     "min_damage": 90,
     "damage_increment": 4.9,
@@ -143,17 +60,11 @@
   {
     "id": "immolate_push",
     "type": "SPELL",
-    "name": {
-      "str": "Immolate push effect"
-    },
+    "name": { "str": "Immolate push effect" },
     "description": "The immolate spell is powerful enough to push targets from its epicenter.",
     "effect": "directed_push",
     "shape": "blast",
-    "valid_targets": [
-      "ally",
-      "hostile",
-      "ground"
-    ],
+    "valid_targets": [ "ally", "hostile", "ground" ],
     "max_level": 43,
     "min_damage": 0,
     "max_damage": 2,
@@ -169,14 +80,10 @@
     "id": "cleansingflame_hermes_heal",
     "type": "SPELL",
     "spell_class": "CLEANSING_FLAME",
-    "name": {
-      "str": "Hermes Reborn"
-    },
+    "name": { "str": "Hermes Reborn" },
     "description": "In the sea without lees\nStandeth the bird of Hermes\nEating his wings variable\nAnd maketh himself yet full stable",
     "//": "Well thats too edgy now, need to replase it.",
-    "valid_targets": [
-      "self"
-    ],
+    "valid_targets": [ "self" ],
     "effect": "attack",
     "shape": "blast",
     "base_casting_time": 350,
@@ -187,31 +94,15 @@
     "max_damage": -144,
     "damage_increment": -2.9,
     "max_level": 43,
-    "extra_effects": [
-      {
-        "id": "cleansingflame_hermes_burn"
-      },
-      {
-        "id": "pain_split"
-      }
-    ],
-    "flags": [
-      "SOMATIC",
-      "VERBAL",
-      "CONCENTRATE",
-      "LOUD"
-    ]
+    "extra_effects": [ { "id": "cleansingflame_hermes_burn" }, { "id": "pain_split" } ],
+    "flags": [ "SOMATIC", "VERBAL", "CONCENTRATE", "LOUD" ]
   },
   {
     "id": "cleansingflame_hermes_burn",
     "type": "SPELL",
-    "name": {
-      "str": "Hermes Reborn fire"
-    },
+    "name": { "str": "Hermes Reborn fire" },
     "description": "Give some frost damage for Hermes Reborn spell.  Subspell; you aren't allowed to see it except in debug mode.",
-    "valid_targets": [
-      "self"
-    ],
+    "valid_targets": [ "self" ],
     "max_level": 43,
     "effect": "attack",
     "shape": "blast",

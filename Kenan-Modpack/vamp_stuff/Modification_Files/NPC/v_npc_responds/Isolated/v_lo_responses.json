@@ -6,169 +6,65 @@
       {
         "text": "Here's your blood.",
         "topic": "TALK_MISSION_SUCCESS",
-        "effect": [
-          "mission_success",
-          {
-            "u_consume_item": "blood",
-            "count": 15
-          }
-        ],
-        "condition": {
-          "and": [
-            {
-              "u_has_items": {
-                "item": "blood",
-                "count": 15
-              }
-            },
-            {
-              "u_has_mission": "VAMP_LONELY_quest1"
-            }
-          ]
-        }
+        "effect": [ "mission_success", { "u_consume_item": "blood", "count": 15 } ],
+        "condition": { "and": [ { "u_has_items": { "item": "blood", "count": 15 } }, { "u_has_mission": "VAMP_LONELY_quest1" } ] }
       },
       {
         "text": "Here's your bloodrune stone.",
         "topic": "TALK_MISSION_SUCCESS",
-        "effect": [
-          "mission_success",
-          {
-            "u_consume_item": "bloodrune"
-          }
-        ],
-        "condition": {
-          "and": [
-            {
-              "u_has_item": "bloodrune"
-            },
-            {
-              "u_has_mission": "VAMP_LONELY_quest3"
-            }
-          ]
-        }
+        "effect": [ "mission_success", { "u_consume_item": "bloodrune" } ],
+        "condition": { "and": [ { "u_has_item": "bloodrune" }, { "u_has_mission": "VAMP_LONELY_quest3" } ] }
       }
     ]
   },
   {
     "id": "TALK_VAMP_LONELY",
     "type": "talk_topic",
-    "dynamic_line": {
-      "u_is_wearing": "blood_necklace",
-      "yes": "Greetings, human.",
-      "no": [
-        "What is it, mortal?",
-        "Speak up, mortal."
-      ]
-    },
+    "dynamic_line": { "u_is_wearing": "blood_necklace", "yes": "Greetings, human.", "no": [ "What is it, mortal?", "Speak up, mortal." ] },
     "responses": [
       {
         "text": "Tell me about yourself.",
         "topic": "TALK_VAMP_LONELY_introduce",
-        "effect": {
-          "u_add_trait": "isolatedintro"
-        },
-        "condition": {
-          "not": {
-            "u_has_trait": "isolatedintro"
-          }
-        }
+        "effect": { "u_add_trait": "isolatedintro" },
+        "condition": { "not": { "u_has_trait": "isolatedintro" } }
       },
       {
         "text": "Why are you here?",
         "topic": "TALK_VAMP_LONELY_here",
-        "effect": {
-          "u_add_trait": "isolatedhere"
-        },
-        "condition": {
-          "not": {
-            "u_has_trait": "isolatedhere"
-          }
-        }
+        "effect": { "u_add_trait": "isolatedhere" },
+        "condition": { "not": { "u_has_trait": "isolatedhere" } }
       },
       {
         "text": "Greetings, my brethren.",
         "topic": "TALK_VAMP_LONELY_fakevamp",
         "//": "A hidden joke response.",
-        "effect": {
-          "u_add_trait": "isolatedurfake"
-        },
-        "condition": {
-          "and": [
-            {
-              "u_has_trait": "THRESH_VAMP"
-            },
-            {
-              "not": {
-                "u_has_trait": "isolatedurfake"
-              }
-            }
-          ]
-        }
+        "effect": { "u_add_trait": "isolatedurfake" },
+        "condition": { "and": [ { "u_has_trait": "THRESH_VAMP" }, { "not": { "u_has_trait": "isolatedurfake" } } ] }
       },
-      {
-        "text": "About that quest...",
-        "topic": "TALK_MISSION_INQUIRE",
-        "condition": "has_assigned_mission"
-      },
-      {
-        "text": "Ummm... You want to stick with me?",
-        "topic": "TALK_VAMP_LONELY_wego"
-      },
+      { "text": "About that quest...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "Ummm... You want to stick with me?", "topic": "TALK_VAMP_LONELY_wego" },
       {
         "text": "I'm vacant for your needs.",
         "topic": "TALK_VAMP_LONELY_testsdone",
-        "condition": {
-          "and": [
-            {
-              "npc_has_trait": "isolatedtestsdone"
-            },
-            {
-              "not": {
-                "u_has_trait": "isolatedvampmark"
-              }
-            }
-          ]
-        }
+        "condition": { "and": [ { "npc_has_trait": "isolatedtestsdone" }, { "not": { "u_has_trait": "isolatedvampmark" } } ] }
       },
-      {
-        "text": "I'm vacant for your needs.",
-        "topic": "TALK_MISSION_LIST",
-        "condition": "has_available_mission"
-      },
-      {
-        "text": "Sorry to bother.",
-        "topic": "TALK_DONE"
-      }
+      { "text": "I'm vacant for your needs.", "topic": "TALK_MISSION_LIST", "condition": "has_available_mission" },
+      { "text": "Sorry to bother.", "topic": "TALK_DONE" }
     ]
   },
   {
     "id": "TALK_VAMP_LONELY_introduce",
     "type": "talk_topic",
     "dynamic_line": "I am a vampire, preserved for centuries. But you see, I enshroud myself in the shadows of the past.",
-    "responses": [
-      {
-        "text": "Preserved?",
-        "topic": "TALK_VAMP_LONELY_preserved"
-      },
-      {
-        "text": "Okay.",
-        "topic": "TALK_VAMP_LONELY"
-      }
-    ]
+    "responses": [ { "text": "Preserved?", "topic": "TALK_VAMP_LONELY_preserved" }, { "text": "Okay.", "topic": "TALK_VAMP_LONELY" } ]
   },
   {
     "id": "TALK_VAMP_LONELY_here",
     "type": "talk_topic",
     "dynamic_line": "I live here as my peaceful sanctuary for a very long time. Though the world is in chaos, I am not bothered nor assaulted by those things.",
     "responses": [
-      {
-        "text": "Is there a some sort of place like this?",
-        "topic": "TALK_VAMP_LONELY_there"
-      },
-      {
-        "text": "Okay then...",
-        "topic": "TALK_VAMP_LONELY"
-      }
+      { "text": "Is there a some sort of place like this?", "topic": "TALK_VAMP_LONELY_there" },
+      { "text": "Okay then...", "topic": "TALK_VAMP_LONELY" }
     ]
   },
   {
@@ -183,48 +79,19 @@
       {
         "text": "I just want you as an odd friend... I'm sorry.",
         "topic": "TALK_VAMP_LONELY",
-        "condition": {
-          "not": {
-            "u_has_trait": "isolatedvampmark"
-          }
-        }
+        "condition": { "not": { "u_has_trait": "isolatedvampmark" } }
       },
       {
         "text": "I want you to go on a journey with me.",
         "topic": "TALK_VAMP_LONELY_joinparty",
-        "condition": {
-          "u_has_trait": "isolatedvampmark"
-        }
+        "condition": { "u_has_trait": "isolatedvampmark" }
       },
       {
         "text": "No, I want you to go on a journey with me.",
-        "trial": {
-          "type": "PERSUADE",
-          "difficulty": 3
-        },
-        "condition": {
-          "not": {
-            "u_has_trait": "isolatedvampmark"
-          }
-        },
-        "success": {
-          "opinion": {
-            "trust": 3,
-            "fear": -1,
-            "value": 1,
-            "anger": -1
-          },
-          "topic": "TALK_VAMP_LONELY_wegonow"
-        },
-        "failure": {
-          "opinion": {
-            "trust": -10,
-            "fear": -10,
-            "value": -10,
-            "anger": 10
-          },
-          "topic": "TALK_VAMP_LONELY_wegokill"
-        }
+        "trial": { "type": "PERSUADE", "difficulty": 3 },
+        "condition": { "not": { "u_has_trait": "isolatedvampmark" } },
+        "success": { "opinion": { "trust": 3, "fear": -1, "value": 1, "anger": -1 }, "topic": "TALK_VAMP_LONELY_wegonow" },
+        "failure": { "opinion": { "trust": -10, "fear": -10, "value": -10, "anger": 10 }, "topic": "TALK_VAMP_LONELY_wegokill" }
       }
     ]
   },
@@ -232,26 +99,15 @@
     "id": "TALK_VAMP_LONELY_preserved",
     "type": "talk_topic",
     "dynamic_line": "It is the prowess that all immortals have, and we tend to refine this by concealing ourselves from humanity.",
-    "responses": [
-      {
-        "text": "Too bad.",
-        "topic": "TALK_VAMP_LONELY"
-      }
-    ]
+    "responses": [ { "text": "Too bad.", "topic": "TALK_VAMP_LONELY" } ]
   },
   {
     "id": "TALK_VAMP_LONELY_there",
     "type": "talk_topic",
     "dynamic_line": "Yes it is. Its a small community of night creatures tending to theirselves to live in peace.",
     "responses": [
-      {
-        "text": "So, where do I find this place?",
-        "topic": "TALK_VAMP_LONELY_farthere"
-      },
-      {
-        "text": "Okay.",
-        "topic": "TALK_VAMP_LONELY"
-      }
+      { "text": "So, where do I find this place?", "topic": "TALK_VAMP_LONELY_farthere" },
+      { "text": "Okay.", "topic": "TALK_VAMP_LONELY" }
     ]
   },
   {
@@ -261,19 +117,8 @@
     "responses": [
       {
         "text": "I promise...",
-        "trial": {
-          "type": "NONE"
-        },
-        "success": {
-          "effect": "follow",
-          "opinion": {
-            "trust": 3,
-            "fear": -10,
-            "value": 2,
-            "anger": -5
-          },
-          "topic": "TALK_DONE"
-        }
+        "trial": { "type": "NONE" },
+        "success": { "effect": "follow", "opinion": { "trust": 3, "fear": -10, "value": 2, "anger": -5 }, "topic": "TALK_DONE" }
       }
     ]
   },
@@ -298,12 +143,7 @@
       "yes": "These places could be anywhere far from human civilizations.",
       "no": "Nope. Even if I know, I won't tell you."
     },
-    "responses": [
-      {
-        "text": "Thanks, I guess...",
-        "topic": "TALK_VAMP_LONELY"
-      }
-    ]
+    "responses": [ { "text": "Thanks, I guess...", "topic": "TALK_VAMP_LONELY" } ]
   },
   {
     "id": "TALK_VAMP_LONELY_joinparty",
@@ -315,17 +155,9 @@
         "text": "Yes, I do.",
         "effect": "follow",
         "topic": "TALK_DONE",
-        "opinion": {
-          "trust": 5,
-          "fear": -2,
-          "value": 3,
-          "anger": -2
-        }
+        "opinion": { "trust": 5, "fear": -2, "value": 3, "anger": -2 }
       },
-      {
-        "text": "I take back what I've said...",
-        "topic": "TALK_VAMP_LONELY"
-      }
+      { "text": "I take back what I've said...", "topic": "TALK_VAMP_LONELY" }
     ]
   },
   {
@@ -336,12 +168,7 @@
       {
         "text": "Thank you for this mark... Let's go!",
         "topic": "TALK_DONE",
-        "effect": [
-          "follow",
-          {
-            "u_add_trait": "isolatedvampmark"
-          }
-        ]
+        "effect": [ "follow", { "u_add_trait": "isolatedvampmark" } ]
       }
     ]
   },
@@ -350,11 +177,6 @@
     "id": "TALK_VAMP_LONELY_fakevamp",
     "type": "talk_topic",
     "dynamic_line": "You think I'm foolish to believe you as my kind? Trust me, mortal, us vampires are not born by drinking artificial drugs.",
-    "responses": [
-      {
-        "text": "Well, atleast I'm alot stronger than you.",
-        "topic": "TALK_VAMP_LONELY"
-      }
-    ]
+    "responses": [ { "text": "Well, atleast I'm alot stronger than you.", "topic": "TALK_VAMP_LONELY" } ]
   }
 ]

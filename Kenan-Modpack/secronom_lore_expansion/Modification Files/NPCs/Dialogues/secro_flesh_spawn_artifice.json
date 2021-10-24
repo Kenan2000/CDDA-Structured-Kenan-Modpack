@@ -4,34 +4,17 @@
     "type": "talk_topic",
     "dynamic_line": "*readies its weavers as it waits for your command.",
     "responses": [
-      {
-        "text": "I want you to craft something\u2026",
-        "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft"
-      },
-      {
-        "text": "About your augmentations\u2026",
-        "topic": "SECRO_FLESH_SPAWN_ARTIFICE_upgrade"
-      },
-      {
-        "text": "Elaborate your service.",
-        "topic": "SECRO_FLESH_SPAWN_ARTIFICE_job"
-      },
-      {
-        "text": "Leave it.",
-        "topic": "TALK_DONE"
-      }
+      { "text": "I want you to craft something…", "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft" },
+      { "text": "About your augmentations…", "topic": "SECRO_FLESH_SPAWN_ARTIFICE_upgrade" },
+      { "text": "Elaborate your service.", "topic": "SECRO_FLESH_SPAWN_ARTIFICE_job" },
+      { "text": "Leave it.", "topic": "TALK_DONE" }
     ]
   },
   {
     "id": "SECRO_FLESH_SPAWN_ARTIFICE_job",
     "type": "talk_topic",
     "dynamic_line": "*taps you with its weaving tendril:\nThe artifice creates an object using organic compounds such as meat and creature cores, and flesh being the main ingredient. You will have to give all ingredients to the artifice and it will produce the selected item in an instant. It is not capable of creating certain items from the start, but several augmentations will eventually allow it to perform complex crafts.",
-    "responses": [
-      {
-        "text": "Okay.",
-        "topic": "SECRO_FLESH_SPAWN_ARTIFICE_main"
-      }
-    ]
+    "responses": [ { "text": "Okay.", "topic": "SECRO_FLESH_SPAWN_ARTIFICE_main" } ]
   },
   {
     "id": "SECRO_FLESH_SPAWN_ARTIFICE_upgrade",
@@ -62,31 +45,14 @@
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_upgrade",
         "condition": {
           "and": [
-            {
-              "not": {
-                "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1"
-              }
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh",
-                "count": 75
-              }
-            }
+            { "not": { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1" } },
+            { "u_has_items": { "item": "secro_flesh", "count": 75 } }
           ]
         },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 75
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 75
-          },
-          {
-            "npc_add_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1"
-          }
+          { "u_sell_item": "secro_flesh", "count": 75 },
+          { "npc_consume_item": "secro_flesh", "count": 75 },
+          { "npc_add_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1" }
         ]
       },
       {
@@ -94,34 +60,15 @@
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_upgrade",
         "condition": {
           "and": [
-            {
-              "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1"
-            },
-            {
-              "not": {
-                "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2"
-              }
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh",
-                "count": 175
-              }
-            }
+            { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1" },
+            { "not": { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2" } },
+            { "u_has_items": { "item": "secro_flesh", "count": 175 } }
           ]
         },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 175
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 175
-          },
-          {
-            "npc_add_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2"
-          }
+          { "u_sell_item": "secro_flesh", "count": 175 },
+          { "npc_consume_item": "secro_flesh", "count": 175 },
+          { "npc_add_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2" }
         ]
       },
       {
@@ -129,44 +76,19 @@
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_upgrade",
         "condition": {
           "and": [
-            {
-              "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2"
-            },
-            {
-              "not": {
-                "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver3"
-              }
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh",
-                "count": 400
-              }
-            }
+            { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2" },
+            { "not": { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver3" } },
+            { "u_has_items": { "item": "secro_flesh", "count": 400 } }
           ]
         },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 400
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 400
-          },
-          {
-            "npc_add_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver3"
-          },
-          {
-            "npc_add_effect": "secro_flesh_artifice_upgrade_weaver_max",
-            "duration": "PERMANENT"
-          }
+          { "u_sell_item": "secro_flesh", "count": 400 },
+          { "npc_consume_item": "secro_flesh", "count": 400 },
+          { "npc_add_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver3" },
+          { "npc_add_effect": "secro_flesh_artifice_upgrade_weaver_max", "duration": "PERMANENT" }
         ]
       },
-      {
-        "text": "Later.",
-        "topic": "SECRO_FLESH_SPAWN_ARTIFICE_main"
-      }
+      { "text": "Later.", "topic": "SECRO_FLESH_SPAWN_ARTIFICE_main" }
     ]
   },
   {
@@ -174,18 +96,9 @@
     "type": "talk_topic",
     "dynamic_line": "*needs the type of item you want to craft.",
     "responses": [
-      {
-        "text": "Weapons\u2026",
-        "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_weapon"
-      },
-      {
-        "text": "Vehicle Parts\u2026",
-        "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_vp"
-      },
-      {
-        "text": "Nevermind.",
-        "topic": "TALK_DONE"
-      }
+      { "text": "Weapons…", "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_weapon" },
+      { "text": "Vehicle Parts…", "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_vp" },
+      { "text": "Nevermind.", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -206,49 +119,20 @@
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_weapon",
         "condition": {
           "and": [
-            {
-              "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1"
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh",
-                "count": 80
-              }
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh_splicer_zombie_blade_ccore",
-                "count": 2
-              }
-            }
+            { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1" },
+            { "u_has_items": { "item": "secro_flesh", "count": 80 } },
+            { "u_has_items": { "item": "secro_flesh_splicer_zombie_blade_ccore", "count": 2 } }
           ]
         },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 80
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 80
-          },
-          {
-            "u_sell_item": "secro_flesh_splicer_zombie_blade_ccore",
-            "count": 2
-          },
-          {
-            "npc_consume_item": "secro_flesh_splicer_zombie_blade_ccore",
-            "count": 2
-          },
-          {
-            "u_spawn_item": "secro_flesh_bow_sword"
-          }
+          { "u_sell_item": "secro_flesh", "count": 80 },
+          { "npc_consume_item": "secro_flesh", "count": 80 },
+          { "u_sell_item": "secro_flesh_splicer_zombie_blade_ccore", "count": 2 },
+          { "npc_consume_item": "secro_flesh_splicer_zombie_blade_ccore", "count": 2 },
+          { "u_spawn_item": "secro_flesh_bow_sword" }
         ]
       },
-      {
-        "text": "Later.",
-        "topic": "SECRO_FLESH_SPAWN_ARTIFICE_main"
-      }
+      { "text": "Later.", "topic": "SECRO_FLESH_SPAWN_ARTIFICE_main" }
     ]
   },
   {
@@ -258,58 +142,24 @@
       "and": [
         "*taps you with its weaving tendril, which has given you information about its available crafts.\n",
         "\n*8 flesh\n> small flesh heap\n",
-        {
-          "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1",
-          "yes": "\n*24 flesh\n> flesh heap\n"
-        },
-        {
-          "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1",
-          "yes": "\n*72 flesh]\n> large flesh heap\n"
-        },
-        {
-          "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2",
-          "yes": "\n*216 flesh\n> ossified flesh heap\n"
-        },
-        {
-          "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1",
-          "yes": "\n*300 flesh\n> flesh frame\n"
-        },
-        {
-          "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2",
-          "yes": "\n*500 flesh\n> hivemind residue\n"
-        },
-        {
-          "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2",
-          "yes": "\n*75 flesh\n> hivemind controls\n"
-        },
-        {
-          "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver3",
-          "yes": "\n*800 flesh\n> hivemind core\n"
-        }
+        { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1", "yes": "\n*24 flesh\n> flesh heap\n" },
+        { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1", "yes": "\n*72 flesh]\n> large flesh heap\n" },
+        { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2", "yes": "\n*216 flesh\n> ossified flesh heap\n" },
+        { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1", "yes": "\n*300 flesh\n> flesh frame\n" },
+        { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2", "yes": "\n*500 flesh\n> hivemind residue\n" },
+        { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2", "yes": "\n*75 flesh\n> hivemind controls\n" },
+        { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver3", "yes": "\n*800 flesh\n> hivemind core\n" }
       ]
     },
     "responses": [
       {
         "text": "[CRAFT] small flesh heap",
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_vp",
-        "condition": {
-          "u_has_items": {
-            "item": "secro_flesh",
-            "count": 8
-          }
-        },
+        "condition": { "u_has_items": { "item": "secro_flesh", "count": 8 } },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 8
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 8
-          },
-          {
-            "u_spawn_item": "secro_flesh_plate_small"
-          }
+          { "u_sell_item": "secro_flesh", "count": 8 },
+          { "npc_consume_item": "secro_flesh", "count": 8 },
+          { "u_spawn_item": "secro_flesh_plate_small" }
         ]
       },
       {
@@ -317,29 +167,14 @@
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_vp",
         "condition": {
           "and": [
-            {
-              "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1"
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh",
-                "count": 24
-              }
-            }
+            { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1" },
+            { "u_has_items": { "item": "secro_flesh", "count": 24 } }
           ]
         },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 24
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 24
-          },
-          {
-            "u_spawn_item": "secro_flesh_plate"
-          }
+          { "u_sell_item": "secro_flesh", "count": 24 },
+          { "npc_consume_item": "secro_flesh", "count": 24 },
+          { "u_spawn_item": "secro_flesh_plate" }
         ]
       },
       {
@@ -347,29 +182,14 @@
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_vp",
         "condition": {
           "and": [
-            {
-              "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1"
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh",
-                "count": 72
-              }
-            }
+            { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1" },
+            { "u_has_items": { "item": "secro_flesh", "count": 72 } }
           ]
         },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 72
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 72
-          },
-          {
-            "u_spawn_item": "secro_flesh_plate_large"
-          }
+          { "u_sell_item": "secro_flesh", "count": 72 },
+          { "npc_consume_item": "secro_flesh", "count": 72 },
+          { "u_spawn_item": "secro_flesh_plate_large" }
         ]
       },
       {
@@ -377,29 +197,14 @@
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_vp",
         "condition": {
           "and": [
-            {
-              "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2"
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh",
-                "count": 216
-              }
-            }
+            { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2" },
+            { "u_has_items": { "item": "secro_flesh", "count": 216 } }
           ]
         },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 216
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 216
-          },
-          {
-            "u_spawn_item": "secro_flesh_wheel"
-          }
+          { "u_sell_item": "secro_flesh", "count": 216 },
+          { "npc_consume_item": "secro_flesh", "count": 216 },
+          { "u_spawn_item": "secro_flesh_wheel" }
         ]
       },
       {
@@ -407,29 +212,14 @@
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_vp",
         "condition": {
           "and": [
-            {
-              "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1"
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh",
-                "count": 300
-              }
-            }
+            { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver1" },
+            { "u_has_items": { "item": "secro_flesh", "count": 300 } }
           ]
         },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 300
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 300
-          },
-          {
-            "u_spawn_item": "secro_flesh_frame"
-          }
+          { "u_sell_item": "secro_flesh", "count": 300 },
+          { "npc_consume_item": "secro_flesh", "count": 300 },
+          { "u_spawn_item": "secro_flesh_frame" }
         ]
       },
       {
@@ -437,29 +227,14 @@
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_vp",
         "condition": {
           "and": [
-            {
-              "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2"
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh",
-                "count": 500
-              }
-            }
+            { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2" },
+            { "u_has_items": { "item": "secro_flesh", "count": 500 } }
           ]
         },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 500
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 500
-          },
-          {
-            "u_spawn_item": "secro_flesh_fuel_bunker"
-          }
+          { "u_sell_item": "secro_flesh", "count": 500 },
+          { "npc_consume_item": "secro_flesh", "count": 500 },
+          { "u_spawn_item": "secro_flesh_fuel_bunker" }
         ]
       },
       {
@@ -467,29 +242,14 @@
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_vp",
         "condition": {
           "and": [
-            {
-              "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2"
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh",
-                "count": 75
-              }
-            }
+            { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver2" },
+            { "u_has_items": { "item": "secro_flesh", "count": 75 } }
           ]
         },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 75
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 75
-          },
-          {
-            "u_spawn_item": "secro_vehicle_controls"
-          }
+          { "u_sell_item": "secro_flesh", "count": 75 },
+          { "npc_consume_item": "secro_flesh", "count": 75 },
+          { "u_spawn_item": "secro_vehicle_controls" }
         ]
       },
       {
@@ -497,35 +257,17 @@
         "topic": "SECRO_FLESH_SPAWN_ARTIFICE_craft_vp",
         "condition": {
           "and": [
-            {
-              "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver3"
-            },
-            {
-              "u_has_items": {
-                "item": "secro_flesh",
-                "count": 800
-              }
-            }
+            { "npc_has_trait": "SECRONOM_FLESH_SPAWN_ARTIFICE_weaver3" },
+            { "u_has_items": { "item": "secro_flesh", "count": 800 } }
           ]
         },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 800
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 800
-          },
-          {
-            "u_spawn_item": "secro_vehicle_engine"
-          }
+          { "u_sell_item": "secro_flesh", "count": 800 },
+          { "npc_consume_item": "secro_flesh", "count": 800 },
+          { "u_spawn_item": "secro_vehicle_engine" }
         ]
       },
-      {
-        "text": "Later.",
-        "topic": "SECRO_FLESH_SPAWN_ARTIFICE_main"
-      }
+      { "text": "Later.", "topic": "SECRO_FLESH_SPAWN_ARTIFICE_main" }
     ]
   }
 ]

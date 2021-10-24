@@ -2,26 +2,15 @@
   {
     "type": "SPELL",
     "id": "acid_claw",
-    "name": {
-      "str": "Acid Claw"
-    },
+    "name": { "str": "Acid Claw" },
     "description": "Your claws glow with yellow acid energy, and as you swipe your claw a wave of acid sweeps forth from it.",
-    "valid_targets": [
-      "hostile",
-      "ground"
-    ],
-    "flags": [
-      "SOMATIC",
-      "VERBAL",
-      "LOUD"
-    ],
+    "valid_targets": [ "hostile", "ground" ],
+    "flags": [ "SOMATIC", "VERBAL", "LOUD" ],
     "spell_class": "NONE",
     "effect": "attack",
     "effect_str": "dragon_acidburn",
     "shape": "cone",
-    "affected_body_parts": [
-      "torso"
-    ],
+    "affected_body_parts": [ "torso" ],
     "damage_type": "acid",
     "max_level": 7,
     "min_damage": 5,
@@ -47,25 +36,15 @@
   {
     "type": "SPELL",
     "id": "acid_bite",
-    "name": {
-      "str": "Acid Bite"
-    },
+    "name": { "str": "Acid Bite" },
     "description": "Your maw drips with acid as you make a bite attack.",
-    "valid_targets": [
-      "hostile"
-    ],
-    "flags": [
-      "VERBAL",
-      "NO_HANDS",
-      "LOUD"
-    ],
+    "valid_targets": [ "hostile" ],
+    "flags": [ "VERBAL", "NO_HANDS", "LOUD" ],
     "spell_class": "NONE",
     "effect": "attack",
     "effect_str": "dragon_acidburn",
     "shape": "blast",
-    "affected_body_parts": [
-      "torso"
-    ],
+    "affected_body_parts": [ "torso" ],
     "damage_type": "acid",
     "max_level": 7,
     "min_damage": 15,
@@ -79,22 +58,14 @@
     "casting_time_increment": -9,
     "energy_source": "MANA",
     "base_energy_cost": 350,
-    "extra_effects": [
-      {
-        "id": "dragon_bite"
-      }
-    ]
+    "extra_effects": [ { "id": "dragon_bite" } ]
   },
   {
     "type": "SPELL",
     "id": "dragon_bite",
-    "name": {
-      "str": "Dragon's Bite"
-    },
+    "name": { "str": "Dragon's Bite" },
     "description": "The bite damage in Acid Bite.",
-    "valid_targets": [
-      "hostile"
-    ],
+    "valid_targets": [ "hostile" ],
     "effect": "attack",
     "shape": "blast",
     "damage_type": "stab",
@@ -104,13 +75,9 @@
   {
     "id": "dragon_shell_black",
     "type": "SPELL",
-    "name": {
-      "str": "Black Dragon Shell"
-    },
+    "name": { "str": "Black Dragon Shell" },
     "description": "You channel your inner draconic magic to protect yourself from damage and reflect some back as acid damage.",
-    "valid_targets": [
-      "none"
-    ],
+    "valid_targets": [ "none" ],
     "min_range": 0,
     "max_range": 0,
     "min_damage": 1,
@@ -120,9 +87,7 @@
     "shape": "blast",
     "energy_source": "MANA",
     "spell_class": "NONE",
-    "flags": [
-      "CONCENTRATE"
-    ],
+    "flags": [ "CONCENTRATE" ],
     "difficulty": 1,
     "max_level": 22,
     "base_casting_time": 200,
@@ -134,26 +99,17 @@
   {
     "id": "dragon_shell_retaliation_black",
     "type": "SPELL",
-    "name": {
-      "str": "Black Dragon Shell Retaliation"
-    },
+    "name": { "str": "Black Dragon Shell Retaliation" },
     "description": "Acid burst that punishes attackers.",
     "effect": "attack",
     "effect_str": "dragon_acidburn",
     "shape": "blast",
-    "affected_body_parts": [
-      "torso"
-    ],
-    "valid_targets": [
-      "hostile"
-    ],
+    "affected_body_parts": [ "torso" ],
+    "valid_targets": [ "hostile" ],
     "min_damage": 0,
     "max_damage": 10,
     "damage_increment": 1.0,
-    "flags": [
-      "RANDOM_DAMAGE",
-      "RANDOM_AOE"
-    ],
+    "flags": [ "RANDOM_DAMAGE", "RANDOM_AOE" ],
     "min_aoe": 0,
     "max_aoe": 3,
     "aoe_increment": 1.0,
@@ -165,20 +121,13 @@
   {
     "id": "dragon_terror",
     "type": "SPELL",
-    "name": {
-      "str": "Dragon Terror"
-    },
+    "name": { "str": "Dragon Terror" },
     "description": "With an ear piercing roar, you channel the inner power of dragons and strike fear into those who stand before you, slowing their escape from your terror.",
-    "valid_targets": [
-      "hostile",
-      "ground"
-    ],
+    "valid_targets": [ "hostile", "ground" ],
     "effect": "attack",
     "effect_str": "dragon_terror_debuff",
     "shape": "blast",
-    "affected_body_parts": [
-      "torso"
-    ],
+    "affected_body_parts": [ "torso" ],
     "max_level": 7,
     "min_damage": 0,
     "max_damage": 0,
@@ -194,35 +143,18 @@
     "base_energy_cost": 400,
     "energy_source": "MANA",
     "difficulty": 0,
-    "flags": [
-      "LOUD",
-      "NO_HANDS",
-      "NO_LEGS"
-    ]
+    "flags": [ "LOUD", "NO_HANDS", "NO_LEGS" ]
   },
   {
     "id": "dragon_boost",
     "type": "SPELL",
-    "name": {
-      "str": "Dragon Boost"
-    },
+    "name": { "str": "Dragon Boost" },
     "description": "You let out a mighty roar as you infuse yourself with the power of Dragons.",
-    "valid_targets": [
-      "self"
-    ],
+    "valid_targets": [ "self" ],
     "effect": "attack",
     "effect_str": "dragon_boost",
     "shape": "blast",
-    "extra_effects": [
-      {
-        "id": "health_recovery",
-        "hit_self": true
-      },
-      {
-        "id": "stamina_recovery",
-        "hit_self": true
-      }
-    ],
+    "extra_effects": [ { "id": "health_recovery", "hit_self": true }, { "id": "stamina_recovery", "hit_self": true } ],
     "max_level": 7,
     "min_range": 1,
     "max_range": 1,
@@ -233,74 +165,45 @@
     "base_energy_cost": 150,
     "energy_source": "MANA",
     "difficulty": 0,
-    "flags": [
-      "LOUD",
-      "NO_HANDS",
-      "NO_LEGS"
-    ]
+    "flags": [ "LOUD", "NO_HANDS", "NO_LEGS" ]
   },
   {
     "type": "SPELL",
     "id": "health_recovery",
-    "name": {
-      "str": "Health recovery"
-    },
+    "name": { "str": "Health recovery" },
     "description": "minor health recovery spell associated with Dragon Boost.",
-    "valid_targets": [
-      "self"
-    ],
+    "valid_targets": [ "self" ],
     "effect": "attack",
     "shape": "blast",
     "min_damage": 0,
     "max_damage": -10,
-    "flags": [
-      "SILENT",
-      "RANDOM_DAMAGE"
-    ]
+    "flags": [ "SILENT", "RANDOM_DAMAGE" ]
   },
   {
     "type": "SPELL",
     "id": "stamina_recovery",
-    "name": {
-      "str": "Stamina recovery"
-    },
+    "name": { "str": "Stamina recovery" },
     "description": "minor stamina recovery spell associated with Dragon Boost.",
-    "valid_targets": [
-      "self"
-    ],
+    "valid_targets": [ "self" ],
     "effect": "recover_energy",
     "effect_str": "STAMINA",
     "shape": "blast",
     "min_damage": 0,
     "max_damage": 500,
-    "flags": [
-      "SILENT",
-      "RANDOM_DAMAGE"
-    ]
+    "flags": [ "SILENT", "RANDOM_DAMAGE" ]
   },
   {
     "id": "dragon_spit_acid",
     "type": "SPELL",
-    "name": {
-      "str": "Dragon Acid Spit"
-    },
+    "name": { "str": "Dragon Acid Spit" },
     "description": "You conjur up acidic spittle that you can shoot long distances as you close on your terrified prey.",
-    "valid_targets": [
-      "hostile"
-    ],
-    "flags": [
-      "LOUD",
-      "VERBAL",
-      "NO_HANDS",
-      "NO_LEGS"
-    ],
+    "valid_targets": [ "hostile" ],
+    "flags": [ "LOUD", "VERBAL", "NO_HANDS", "NO_LEGS" ],
     "effect": "attack",
     "shape": "blast",
     "damage_type": "acid",
     "effect_str": "lesser_dragon_acidburn",
-    "affected_body_parts": [
-      "torso"
-    ],
+    "affected_body_parts": [ "torso" ],
     "min_damage": 10,
     "max_damage": 70,
     "damage_increment": 10.0,
@@ -318,15 +221,9 @@
   {
     "type": "SPELL",
     "id": "dragon_breath_acid",
-    "name": {
-      "str": "Black Dragon Breath"
-    },
+    "name": { "str": "Black Dragon Breath" },
     "description": "Spews a line of acid from your mouth.",
-    "valid_targets": [
-      "hostile",
-      "ally",
-      "ground"
-    ],
+    "valid_targets": [ "hostile", "ally", "ground" ],
     "damage_type": "acid",
     "max_level": 7,
     "min_damage": 5,
@@ -345,11 +242,6 @@
     "base_casting_time": 200,
     "energy_source": "MANA",
     "base_energy_cost": 200,
-    "flags": [
-      "VERBAL",
-      "NO_HANDS",
-      "NO_LEGS",
-      "LOUD"
-    ]
+    "flags": [ "VERBAL", "NO_HANDS", "NO_LEGS", "LOUD" ]
   }
 ]

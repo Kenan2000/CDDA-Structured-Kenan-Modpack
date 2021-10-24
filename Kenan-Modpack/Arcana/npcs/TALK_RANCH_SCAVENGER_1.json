@@ -7,27 +7,12 @@
         "text": "I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
         "condition": {
           "and": [
+            { "u_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" },
             {
-              "u_has_var": "johnathan_prelude_mid",
-              "type": "mission",
-              "context": "rural_church",
-              "value": "yes"
+              "not": { "npc_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" }
             },
             {
-              "not": {
-                "npc_has_var": "johnathan_prelude_mid",
-                "type": "mission",
-                "context": "rural_church",
-                "value": "yes"
-              }
-            },
-            {
-              "not": {
-                "u_has_var": "johnathan_prelude_data_5",
-                "type": "mission",
-                "context": "rural_church",
-                "value": "yes"
-              }
+              "not": { "u_has_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
             }
           ]
         },
@@ -38,17 +23,8 @@
         "topic": "TALK_RANCH_SCAVENGER_1_CF_REP_MISSION_4",
         "condition": {
           "and": [
-            {
-              "not": {
-                "u_has_var": "sofia_allies_secured",
-                "type": "mission",
-                "context": "rural_church",
-                "value": "yes"
-              }
-            },
-            {
-              "u_has_mission": "MISSION_CF_REP_4"
-            }
+            { "not": { "u_has_var": "sofia_allies_secured", "type": "mission", "context": "rural_church", "value": "yes" } },
+            { "u_has_mission": "MISSION_CF_REP_4" }
           ]
         }
       }
@@ -68,10 +44,7 @@
         "text": "They're interested in trade contacts as well, so that might prove useful.",
         "topic": "TALK_RANCH_SCAVENGER_1_CF_REP_MISSION_4_TRADE"
       },
-      {
-        "text": "I'll keep asking around.",
-        "topic": "TALK_RANCH_SCAVENGER_1"
-      }
+      { "text": "I'll keep asking around.", "topic": "TALK_RANCH_SCAVENGER_1" }
     ]
   },
   {
@@ -83,10 +56,7 @@
         "text": "A local settlement in a fortified roadside church.  It's not too far from the refugee center.",
         "topic": "TALK_RANCH_SCAVENGER_1_CF_REP_MISSION_4_DEAL"
       },
-      {
-        "text": "On second thought, I might be back later.",
-        "topic": "TALK_RANCH_SCAVENGER_1"
-      }
+      { "text": "On second thought, I might be back later.", "topic": "TALK_RANCH_SCAVENGER_1" }
     ]
   },
   {
@@ -96,12 +66,7 @@
     "speaker_effect": [
       {
         "effect": [
-          {
-            "u_add_var": "sofia_allies_secured",
-            "type": "mission",
-            "context": "rural_church",
-            "value": "yes"
-          },
+          { "u_add_var": "sofia_allies_secured", "type": "mission", "context": "rural_church", "value": "yes" },
           {
             "mapgen_update": "arcana_cf_4_tacoma_commune_1b",
             "om_terrain": "cf_church_1",
@@ -112,24 +77,11 @@
             "om_terrain": "cf_church_3",
             "om_special": "cf_rural_church"
           },
-          {
-            "mapgen_update": "arcana_cf_4_roof_1",
-            "om_terrain": "cf_church_1_roof",
-            "om_special": "cf_rural_church"
-          },
-          {
-            "mapgen_update": "arcana_cf_4_roof_2",
-            "om_terrain": "cf_church_3_roof",
-            "om_special": "cf_rural_church"
-          }
+          { "mapgen_update": "arcana_cf_4_roof_1", "om_terrain": "cf_church_1_roof", "om_special": "cf_rural_church" },
+          { "mapgen_update": "arcana_cf_4_roof_2", "om_terrain": "cf_church_3_roof", "om_special": "cf_rural_church" }
         ]
       }
     ],
-    "responses": [
-      {
-        "text": "Thank you.  I should go check on them.",
-        "topic": "TALK_DONE"
-      }
-    ]
+    "responses": [ { "text": "Thank you.  I should go check on them.", "topic": "TALK_DONE" } ]
   }
 ]

@@ -2,45 +2,24 @@
   {
     "id": "c_cbm_rtg_induction",
     "type": "SPELL",
-    "name": {
-      "str": "CBM Induction"
-    },
+    "name": { "str": "CBM Induction" },
     "description": "Charges the user's bionic reserves via induction.",
-    "valid_targets": [
-      "self"
-    ],
-    "flags": [
-      "SILENT",
-      "NO_HANDS",
-      "NO_LEGS"
-    ],
+    "valid_targets": [ "self" ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
     "min_damage": 50,
     "max_damage": 50,
     "base_casting_time": 200,
     "effect": "recover_energy",
     "shape": "blast",
     "effect_str": "BIONIC",
-    "extra_effects": [
-      {
-        "id": "c_cbm_rtg_induction_2",
-        "hit_self": true
-      },
-      {
-        "id": "c_cbm_rtg_induction_3",
-        "hit_self": true
-      }
-    ]
+    "extra_effects": [ { "id": "c_cbm_rtg_induction_2", "hit_self": true }, { "id": "c_cbm_rtg_induction_3", "hit_self": true } ]
   },
   {
     "id": "c_cbm_rtg_induction_2",
     "type": "SPELL",
-    "name": {
-      "str": "CBM Induction Heat"
-    },
+    "name": { "str": "CBM Induction Heat" },
     "description": "Vented waste heat.",
-    "valid_targets": [
-      "self"
-    ],
+    "valid_targets": [ "self" ],
     "effect": "attack",
     "shape": "blast",
     "field_id": "fd_hot_air3",
@@ -51,16 +30,10 @@
   {
     "id": "c_cbm_rtg_induction_3",
     "type": "SPELL",
-    "name": {
-      "str": "CBM Induction Rads"
-    },
+    "name": { "str": "CBM Induction Rads" },
     "description": "Radiation!",
-    "valid_targets": [
-      "self"
-    ],
-    "flags": [
-      "RANDOM_DURATION"
-    ],
+    "valid_targets": [ "self" ],
+    "flags": [ "RANDOM_DURATION" ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "rtg_induction_radiation",
@@ -70,18 +43,11 @@
   {
     "id": "c_flesh_hit_effect",
     "type": "SPELL",
-    "name": {
-      "str": "Biological Weapon Adrenaline"
-    },
+    "name": { "str": "Biological Weapon Adrenaline" },
     "message": "",
     "description": "Otherworldly adrenaline.  Keep the pressure up and you should be fine.",
-    "valid_targets": [
-      "self"
-    ],
-    "flags": [
-      "SILENT",
-      "RANDOM_DURATION"
-    ],
+    "valid_targets": [ "self" ],
+    "flags": [ "SILENT", "RANDOM_DURATION" ],
     "min_duration": 18500,
     "max_duration": 19500,
     "effect": "attack",
@@ -91,16 +57,10 @@
   {
     "type": "SPELL",
     "id": "c_dummy_effect",
-    "name": {
-      "str": "Sorry, Nothing"
-    },
+    "name": { "str": "Sorry, Nothing" },
     "description": "Dirty hack to add RNG to spell effects.",
-    "valid_targets": [
-      "self"
-    ],
-    "flags": [
-      "SILENT"
-    ],
+    "valid_targets": [ "self" ],
+    "flags": [ "SILENT" ],
     "message": "",
     "effect": "attack",
     "shape": "blast"
@@ -110,13 +70,9 @@
     "id": "c_topographical_scan",
     "effect": "map",
     "shape": "blast",
-    "name": {
-      "str": "Topographical Scan"
-    },
+    "name": { "str": "Topographical Scan" },
     "description": "Reveals an area around you on the overmap.",
-    "valid_targets": [
-      "self"
-    ],
+    "valid_targets": [ "self" ],
     "min_aoe": 12,
     "max_aoe": 12,
     "message": "You hold the scout's tool up, and what appears to be a bolt of plasma fires upwards like a flare, the device's display soon displaying information on the surrounding area.",
@@ -125,48 +81,26 @@
   {
     "id": "c_biostim",
     "type": "SPELL",
-    "name": {
-      "str": "Biostim"
-    },
+    "name": { "str": "Biostim" },
     "description": "Surge of adrenaline with side effects.  The effects granted will give adequate information, so no cast message.",
     "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "flags": [
-      "RANDOM_DURATION",
-      "SILENT"
-    ],
+    "valid_targets": [ "self" ],
+    "flags": [ "RANDOM_DURATION", "SILENT" ],
     "min_duration": 90000,
     "max_duration": 180000,
     "effect": "attack",
     "shape": "blast",
     "effect_str": "adrenaline",
-    "extra_effects": [
-      {
-        "id": "c_biostim_side_effects",
-        "hit_self": true
-      },
-      {
-        "id": "c_biostim_pain",
-        "hit_self": true
-      }
-    ]
+    "extra_effects": [ { "id": "c_biostim_side_effects", "hit_self": true }, { "id": "c_biostim_pain", "hit_self": true } ]
   },
   {
     "id": "c_biostim_side_effects",
     "type": "SPELL",
-    "name": {
-      "str": "Biostim Side Effects"
-    },
+    "name": { "str": "Biostim Side Effects" },
     "description": "Primary side effect to Biostim.  Lasts an hour, and will escalate to a more dangerous effect if you escalate its intensity.",
     "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "flags": [
-      "SILENT"
-    ],
+    "valid_targets": [ "self" ],
+    "flags": [ "SILENT" ],
     "min_duration": 720000,
     "max_duration": 720000,
     "effect": "attack",
@@ -176,20 +110,13 @@
   {
     "type": "SPELL",
     "id": "c_biostim_pain",
-    "name": {
-      "str": "Biostim Pain"
-    },
+    "name": { "str": "Biostim Pain" },
     "description": "Similar to AEA_PAIN except message is suppressed.",
-    "valid_targets": [
-      "self"
-    ],
+    "valid_targets": [ "self" ],
     "effect": "recover_energy",
     "shape": "blast",
     "effect_str": "PAIN",
-    "flags": [
-      "RANDOM_DAMAGE",
-      "SILENT"
-    ],
+    "flags": [ "RANDOM_DAMAGE", "SILENT" ],
     "min_damage": -5,
     "max_damage": -15,
     "message": ""
@@ -197,51 +124,27 @@
   {
     "id": "c_infusion",
     "type": "SPELL",
-    "name": {
-      "str": "Hemocatalyzed Infusion"
-    },
+    "name": { "str": "Hemocatalyzed Infusion" },
     "description": "Creates a bio-ampoule filled with mutagen, adds additional side effects.",
-    "valid_targets": [
-      "self"
-    ],
+    "valid_targets": [ "self" ],
     "message": "",
-    "flags": [
-      "SILENT",
-      "PERMANENT",
-      "NO_HANDS",
-      "NO_LEGS"
-    ],
+    "flags": [ "SILENT", "PERMANENT", "NO_HANDS", "NO_LEGS" ],
     "effect": "spawn_item",
     "shape": "blast",
     "effect_str": "mutagenic_ampoule",
     "//": "Reuses the pain effect Biostim calls for.",
-    "extra_effects": [
-      {
-        "id": "c_biostim_pain",
-        "hit_self": true
-      },
-      {
-        "id": "c_hemo_damage",
-        "hit_self": true
-      }
-    ],
+    "extra_effects": [ { "id": "c_biostim_pain", "hit_self": true }, { "id": "c_hemo_damage", "hit_self": true } ],
     "min_duration": 1,
     "max_duration": 1
   },
   {
     "id": "c_hemo_damage",
     "type": "SPELL",
-    "name": {
-      "str": "Hemocatalyst Damage"
-    },
+    "name": { "str": "Hemocatalyst Damage" },
     "description": "Adds the damaging side effect to the infuser and defuser.",
     "message": "",
-    "valid_targets": [
-      "self"
-    ],
-    "flags": [
-      "SILENT"
-    ],
+    "valid_targets": [ "self" ],
+    "flags": [ "SILENT" ],
     "effect": "attack",
     "shape": "blast",
     "min_damage": 10,
@@ -251,93 +154,50 @@
   {
     "id": "c_defusion",
     "type": "SPELL",
-    "name": {
-      "str": "Hemocatalyzed Defusion"
-    },
+    "name": { "str": "Hemocatalyzed Defusion" },
     "description": "Creates a bio-ampoule filled with purifer, adds additional side effects.",
-    "valid_targets": [
-      "self"
-    ],
+    "valid_targets": [ "self" ],
     "message": "",
-    "flags": [
-      "SILENT",
-      "PERMANENT",
-      "NO_HANDS",
-      "NO_LEGS"
-    ],
+    "flags": [ "SILENT", "PERMANENT", "NO_HANDS", "NO_LEGS" ],
     "effect": "spawn_item",
     "shape": "blast",
     "effect_str": "purified_ampoule",
-    "extra_effects": [
-      {
-        "id": "c_biostim_pain",
-        "hit_self": true
-      },
-      {
-        "id": "c_hemo_damage",
-        "hit_self": true
-      }
-    ],
+    "extra_effects": [ { "id": "c_biostim_pain", "hit_self": true }, { "id": "c_hemo_damage", "hit_self": true } ],
     "min_duration": 1,
     "max_duration": 1
   },
   {
     "type": "SPELL",
     "id": "c_lifedrain_1",
-    "name": {
-      "str": "Life Drain Shell"
-    },
+    "name": { "str": "Life Drain Shell" },
     "description": "This exists only to trigger on-self effects from an on-hit action.",
-    "valid_targets": [
-      "hostile"
-    ],
+    "valid_targets": [ "hostile" ],
     "message": "",
     "min_range": 1,
     "max_range": 1,
     "effect": "attack",
     "shape": "blast",
-    "flags": [
-      "SILENT"
-    ],
-    "extra_effects": [
-      {
-        "id": "c_lifedrain_2",
-        "hit_self": true
-      }
-    ]
+    "flags": [ "SILENT" ],
+    "extra_effects": [ { "id": "c_lifedrain_2", "hit_self": true } ]
   },
   {
     "id": "c_lifedrain_2",
     "type": "SPELL",
-    "name": {
-      "str": "Life Drain Effect"
-    },
+    "name": { "str": "Life Drain Effect" },
     "description": "This creates the effect that heals the caster.",
     "message": "",
-    "valid_targets": [
-      "self"
-    ],
+    "valid_targets": [ "self" ],
     "effect": "attack",
     "shape": "blast",
     "min_damage": -2,
     "max_damage": -5,
-    "flags": [
-      "RANDOM_DAMAGE",
-      "SILENT"
-    ]
+    "flags": [ "RANDOM_DAMAGE", "SILENT" ]
   },
   {
     "id": "c_death_explosion_hulk_weapon",
     "type": "SPELL",
-    "name": {
-      "str": "Death Explosion Plus Acid"
-    },
-    "valid_targets": [
-      "self",
-      "ally",
-      "hostile",
-      "ground"
-    ],
+    "name": { "str": "Death Explosion Plus Acid" },
+    "valid_targets": [ "self", "ally", "hostile", "ground" ],
     "description": "Small explosion plus acid effect, used by Apophis.",
     "min_aoe": 8,
     "max_aoe": 8,
@@ -345,42 +205,21 @@
     "max_damage": 8,
     "effect": "explosion",
     "shape": "blast",
-    "extra_effects": [
-      {
-        "id": "death_acid",
-        "hit_self": true
-      }
-    ]
+    "extra_effects": [ { "id": "death_acid", "hit_self": true } ]
   },
   {
     "id": "c_death_explosion_mon_fungus_failed_weapon",
     "type": "SPELL",
-    "name": {
-      "str": "Pouf plus Acid Effect"
-    },
+    "name": { "str": "Pouf plus Acid Effect" },
     "description": "Fungal pouf plus acid effect, used by fungal augmented abominations.",
-    "valid_targets": [
-      "ground",
-      "self"
-    ],
+    "valid_targets": [ "ground", "self" ],
     "effect": "fungalize",
-    "flags": [
-      "SILENT"
-    ],
+    "flags": [ "SILENT" ],
     "min_damage": 2500,
     "max_damage": 2500,
     "min_aoe": 1,
     "max_aoe": 1,
     "shape": "blast",
-    "extra_effects": [
-      {
-        "id": "death_pouf",
-        "hit_self": true
-      },
-      {
-        "id": "death_acid",
-        "hit_self": true
-      }
-    ]
+    "extra_effects": [ { "id": "death_pouf", "hit_self": true }, { "id": "death_acid", "hit_self": true } ]
   }
 ]

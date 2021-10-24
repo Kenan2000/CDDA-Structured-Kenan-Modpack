@@ -6,12 +6,7 @@
       {
         "text": "I've got your traitor.",
         "topic": "TALK_OLD_GUARD_REP_TRAITOR",
-        "condition": {
-          "u_has_var": "rc_search_for_bandit",
-          "type": "count",
-          "context": "unmarked_mission_progress",
-          "value": "2"
-        },
+        "condition": { "u_has_var": "rc_search_for_bandit", "type": "count", "context": "unmarked_mission_progress", "value": "2" },
         "switch": true
       }
     ]
@@ -24,32 +19,16 @@
       "effect": [
         "mission_success",
         "clear_mission",
-        {
-          "npc_first_topic": "TALK_OLD_GUARD_REP_BUSY"
-        },
-        {
-          "u_lose_var": "rc_search_for_bandit",
-          "type": "count",
-          "context": "unmarked_mission_progress"
-        }
+        { "npc_first_topic": "TALK_OLD_GUARD_REP_BUSY" },
+        { "u_lose_var": "rc_search_for_bandit", "type": "count", "context": "unmarked_mission_progress" }
       ]
     },
-    "responses": [
-      {
-        "text": "No problem.",
-        "topic": "TALK_DONE"
-      }
-    ]
+    "responses": [ { "text": "No problem.", "topic": "TALK_DONE" } ]
   },
   {
     "id": "TALK_OLD_GUARD_REP_BUSY",
     "type": "talk_topic",
     "dynamic_line": "I'm busy.  Let's talk some other time.",
-    "responses": [
-      {
-        "text": "\u2026",
-        "topic": "TALK_DONE"
-      }
-    ]
+    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
   }
 ]

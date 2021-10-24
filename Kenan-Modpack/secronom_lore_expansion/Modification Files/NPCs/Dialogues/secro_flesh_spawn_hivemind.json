@@ -4,11 +4,7 @@
     "type": "talk_topic",
     "dynamic_line": {
       "u_has_effect": "secro_flesh_isadjacent",
-      "yes": [
-        "glob glob",
-        "glob glob, glob",
-        "*twitches"
-      ],
+      "yes": [ "glob glob", "glob glob, glob", "*twitches" ],
       "no": "*responds only when it is adjacent to you."
     },
     "responses": [
@@ -17,24 +13,10 @@
         "topic": "SECRO_FLESH_HIVEMIND_START_base_no",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_flesh_isadjacent"
-            },
-            {
-              "not": {
-                "npc_at_om_location": "FACTION_CAMP_ANY"
-              }
-            },
-            {
-              "not": {
-                "npc_at_om_location": "FACTION_CAMP_START"
-              }
-            },
-            {
-              "not": {
-                "npc_has_effect": "secro_flesh_building_starter"
-              }
-            }
+            { "u_has_effect": "secro_flesh_isadjacent" },
+            { "not": { "npc_at_om_location": "FACTION_CAMP_ANY" } },
+            { "not": { "npc_at_om_location": "FACTION_CAMP_START" } },
+            { "not": { "npc_has_effect": "secro_flesh_building_starter" } }
           ]
         }
       },
@@ -43,22 +25,10 @@
         "topic": "SECRO_FLESH_HIVEMIND_START_base_yes",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_flesh_isadjacent"
-            },
-            {
-              "not": {
-                "npc_at_om_location": "FACTION_CAMP_ANY"
-              }
-            },
-            {
-              "npc_at_om_location": "FACTION_CAMP_START"
-            },
-            {
-              "not": {
-                "npc_has_effect": "secro_flesh_building_starter"
-              }
-            }
+            { "u_has_effect": "secro_flesh_isadjacent" },
+            { "not": { "npc_at_om_location": "FACTION_CAMP_ANY" } },
+            { "npc_at_om_location": "FACTION_CAMP_START" },
+            { "not": { "npc_has_effect": "secro_flesh_building_starter" } }
           ]
         }
       },
@@ -67,25 +37,11 @@
         "topic": "SECRO_FLESH_HIVEMIND_START_base",
         "condition": {
           "and": [
-            {
-              "u_has_effect": "secro_flesh_isadjacent"
-            },
-            {
-              "not": {
-                "npc_at_om_location": "FACTION_CAMP_ANY"
-              }
-            },
-            {
-              "npc_at_om_location": "FACTION_CAMP_START"
-            },
-            {
-              "not": {
-                "npc_has_effect": "secro_flesh_building"
-              }
-            },
-            {
-              "npc_has_effect": "secro_flesh_building_starter"
-            }
+            { "u_has_effect": "secro_flesh_isadjacent" },
+            { "not": { "npc_at_om_location": "FACTION_CAMP_ANY" } },
+            { "npc_at_om_location": "FACTION_CAMP_START" },
+            { "not": { "npc_has_effect": "secro_flesh_building" } },
+            { "npc_has_effect": "secro_flesh_building_starter" }
           ]
         },
         "effect": "start_camp"
@@ -93,38 +49,22 @@
       {
         "text": "[DEBUG] establish the camp",
         "topic": "TALK_DONE",
-        "condition": {
-          "u_has_trait": "SECRONOM_FLESH_DEBUG"
-        },
+        "condition": { "u_has_trait": "SECRONOM_FLESH_DEBUG" },
         "effect": [
           "npc_die",
           "start_camp",
-          {
-            "mapgen_update": "secro_fleshcamp_start",
-            "origin_npc": true
-          },
-          {
-            "u_add_effect": "secro_flesh_campestablished",
-            "duration": "PERMANENT"
-          }
+          { "mapgen_update": "secro_fleshcamp_start", "origin_npc": true },
+          { "u_add_effect": "secro_flesh_campestablished", "duration": "PERMANENT" }
         ]
       },
-      {
-        "text": "Leave it.",
-        "topic": "TALK_DONE"
-      }
+      { "text": "Leave it.", "topic": "TALK_DONE" }
     ]
   },
   {
     "id": "SECRO_FLESH_HIVEMIND_START_base_no",
     "type": "talk_topic",
     "dynamic_line": "*refuses as the surrounding area is not compatible for bio-organic reconstruction. You might want to create a new hivemind in an open location such as the fields.",
-    "responses": [
-      {
-        "text": "\u2026",
-        "topic": "SECRO_FLESH_HIVEMIND_START_main"
-      }
-    ]
+    "responses": [ { "text": "…", "topic": "SECRO_FLESH_HIVEMIND_START_main" } ]
   },
   {
     "id": "SECRO_FLESH_HIVEMIND_START_base_yes",
@@ -134,38 +74,16 @@
       {
         "text": "[START] *feed the hivemind with flesh*",
         "topic": "SECRO_FLESH_HIVEMIND_START_main",
-        "condition": {
-          "u_has_items": {
-            "item": "secro_flesh",
-            "count": 1000
-          }
-        },
+        "condition": { "u_has_items": { "item": "secro_flesh", "count": 1000 } },
         "effect": [
-          {
-            "u_sell_item": "secro_flesh",
-            "count": 1000
-          },
-          {
-            "npc_consume_item": "secro_flesh",
-            "count": 1000
-          },
-          {
-            "npc_add_effect": "secro_flesh_building",
-            "duration": 3600
-          },
-          {
-            "npc_add_effect": "secro_flesh_building_starter",
-            "duration": "PERMANENT"
-          },
-          {
-            "npc_lose_trait": "SECRONOM_FLESH_STARTER"
-          }
+          { "u_sell_item": "secro_flesh", "count": 1000 },
+          { "npc_consume_item": "secro_flesh", "count": 1000 },
+          { "npc_add_effect": "secro_flesh_building", "duration": 3600 },
+          { "npc_add_effect": "secro_flesh_building_starter", "duration": "PERMANENT" },
+          { "npc_lose_trait": "SECRONOM_FLESH_STARTER" }
         ]
       },
-      {
-        "text": "Later\u2026",
-        "topic": "SECRO_FLESH_HIVEMIND_START_main"
-      }
+      { "text": "Later…", "topic": "SECRO_FLESH_HIVEMIND_START_main" }
     ]
   },
   {
@@ -178,32 +96,16 @@
     },
     "responses": [
       {
-        "text": "\u2026",
+        "text": "…",
         "topic": "TALK_DONE",
-        "condition": {
-          "npc_at_om_location": "FACTION_CAMP_ANY"
-        },
+        "condition": { "npc_at_om_location": "FACTION_CAMP_ANY" },
         "effect": [
           "npc_die",
-          {
-            "mapgen_update": "secro_fleshcamp_start",
-            "origin_npc": true
-          },
-          {
-            "u_add_effect": "secro_flesh_campestablished",
-            "duration": "PERMANENT"
-          }
+          { "mapgen_update": "secro_fleshcamp_start", "origin_npc": true },
+          { "u_add_effect": "secro_flesh_campestablished", "duration": "PERMANENT" }
         ]
       },
-      {
-        "text": "\u2026",
-        "topic": "TALK_DONE",
-        "condition": {
-          "not": {
-            "npc_at_om_location": "FACTION_CAMP_ANY"
-          }
-        }
-      }
+      { "text": "…", "topic": "TALK_DONE", "condition": { "not": { "npc_at_om_location": "FACTION_CAMP_ANY" } } }
     ]
   }
 ]
