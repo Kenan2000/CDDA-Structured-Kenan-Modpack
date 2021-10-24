@@ -6,17 +6,18 @@
       "u_female": true,
       "yes": "Hello, Miss, What do you want from me?",
       "no": "Hello, what do you want from me?"
-        },
+    },
     "responses": [
       {
-        "text": "How do you serve as a soldier for Gallia?", "topic": "TALK_gallian_guard_go"
+        "text": "How do you serve as a soldier for Gallia?",
+        "topic": "TALK_gallian_guard_go"
       },
       {
         "text": "Goodbye.",
         "topic": "TALK_DONE"
       }
-	  ]
-	},
+    ]
+  },
   {
     "id": "TALK_gallian_guard_go",
     "type": "talk_topic",
@@ -35,10 +36,11 @@
       "u_female": true,
       "yes": "Hello, Miss, What do you want from me? I'm busy.",
       "no": "Hello, what do you want from me? I'm busy."
-        },
+    },
     "responses": [
       {
-        "text": "What are you currently doing as an officer?", "topic": "TALK_gallian_officer_go"
+        "text": "What are you currently doing as an officer?",
+        "topic": "TALK_gallian_officer_go"
       },
       {
         "text": "Do you have a task for me?",
@@ -64,22 +66,46 @@
   {
     "id": "MISSION_VAL_OFFICERKILL",
     "type": "mission_definition",
-    "name": { "str": "Kill Imperial Trooper" },
+    "name": {
+      "str": "Kill Imperial Trooper"
+    },
     "description": "A group of Imperial soldiers have begun scouting a local area, find them and kill them for us.",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 5,
     "value": 50000,
     "end": {
       "effect": [
-        { "u_spawn_item": "1st_aid", "count": 2 },
-        { "u_spawn_item": "gal792_clip", "count": 3 },
-        { "u_spawn_item": "valrifmag1", "count": 2 },
-        { "u_spawn_item": "val_gall1" },
-        { "u_spawn_item": "val_gall3R" },
-        { "u_spawn_item": "gal792_b", "count": 60 } ]
+        {
+          "u_spawn_item": "1st_aid",
+          "count": 2
+        },
+        {
+          "u_spawn_item": "gal792_clip",
+          "count": 3
+        },
+        {
+          "u_spawn_item": "valrifmag1",
+          "count": 2
+        },
+        {
+          "u_spawn_item": "val_gall1"
+        },
+        {
+          "u_spawn_item": "val_gall3R"
+        },
+        {
+          "u_spawn_item": "gal792_b",
+          "count": 60
+        }
+      ]
     },
     "start": {
-      "assign_mission_target": { "om_terrain": "field", "reveal_radius": 2, "random": true, "search_range": 6 },
+      "assign_mission_target": {
+        "om_terrain": "field",
+        "reveal_radius": 2,
+        "random": true,
+        "search_range": 6
+      },
       "update_mapgen": {
         "rows": [
           "                        ",
@@ -107,14 +133,64 @@
           "                        ",
           "                        "
         ],
-        "terrain": { "@": "t_grass", "b": "t_dirt", "M": "t_dirt" },
-        "place_nested": [ { "chunks": [ [ "ishock_spawn", 30 ], [ "null", 70 ] ], "x": 5, "y": 16 },
-            { "chunks": [ [ "isniper_spawn", 30 ], [ "null", 70 ] ], "x": 14, "y": 16 }
+        "terrain": {
+          "@": "t_grass",
+          "b": "t_dirt",
+          "M": "t_dirt"
+        },
+        "place_nested": [
+          {
+            "chunks": [
+              [
+                "ishock_spawn",
+                30
+              ],
+              [
+                "null",
+                70
+              ]
+            ],
+            "x": 5,
+            "y": 16
+          },
+          {
+            "chunks": [
+              [
+                "isniper_spawn",
+                30
+              ],
+              [
+                "null",
+                70
+              ]
+            ],
+            "x": 14,
+            "y": 16
+          }
         ],
-        "place_npcs": [ { "class": "imperial_scout", "x": 12, "y": 12, "target": true }, { "class": "imperial_scout", "x": 9, "y": 9 }, { "class": "imperial_shock", "x": 3, "y": 9 } ]
+        "place_npcs": [
+          {
+            "class": "imperial_scout",
+            "x": 12,
+            "y": 12,
+            "target": true
+          },
+          {
+            "class": "imperial_scout",
+            "x": 9,
+            "y": 9
+          },
+          {
+            "class": "imperial_shock",
+            "x": 3,
+            "y": 9
+          }
+        ]
       }
     },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "dialogue": {
       "describe": "We need help in dispatching some Imperial troops that have encroached upon our sector.",
       "offer": "In this sector of the Gallian front we've been rather stretched thin. Most of our available squads are either on the defense or probing the enemy's front lines. We need extra help dispatching a squad of Imperial troops that have set up within our sector. Would you be willing to help us?",
@@ -127,6 +203,4 @@
       "failure": "Yet another encroachment of the Empire into our lands..."
     }
   }
-  
-  
 ]

@@ -3,11 +3,21 @@
     "id": "arcana_seal_agility",
     "//": "Magic Seals are comparable to their related Magic Signs cast at level 5, with no stamina cost or spellcasting exertion.  They always use the maximum casting time, and any damage or duration is randomly between its level-5 value and the spell's max.",
     "type": "SPELL",
-    "name": { "str": "Seal: Agility" },
+    "name": {
+      "str": "Seal: Agility"
+    },
     "description": "Magic Seal\nUsing this spell will grant a temporary speed and agility-enhancing effect.  It can be used on yourself or an ally.",
     "message": "\"Ethereal winds, guide my passage...\"  You cast %s!",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DURATION"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "spell_agility",
@@ -24,11 +34,20 @@
   {
     "id": "arcana_seal_clairvoyance",
     "type": "SPELL",
-    "name": { "str": "Seal: Clairvoyance" },
+    "name": {
+      "str": "Seal: Clairvoyance"
+    },
     "description": "Magic Seal\nUsing this spell will gift you with clairvoyance, granting sight beyond sight.",
     "message": "\"Show me what eyes could never glimpse...\"  You cast %s!",
-    "valid_targets": [ "self" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DURATION"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "arcana_clairvoyance_plus",
@@ -42,11 +61,21 @@
   {
     "id": "arcana_seal_clarity_blood",
     "type": "SPELL",
-    "name": { "str": "Seal: Clarity of Blood" },
+    "name": {
+      "str": "Seal: Clarity of Blood"
+    },
     "description": "Magic Seal\nUsing this spell will grant protection against parasites and the Mycus.  It can be used on yourself or an ally.",
     "message": "\"You are many, but I am more than all of you...\"  You cast %s!",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DURATION"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "blood_clarity",
@@ -63,13 +92,24 @@
   {
     "id": "arcana_seal_confuse_monster",
     "type": "SPELL",
-    "name": { "str": "Seal: Confuse Monster" },
+    "name": {
+      "str": "Seal: Confuse Monster"
+    },
     "description": "Magic Seal\nUsing this spell will stun all hostiles in the area around you.",
     "message": "\"No blade may mark me, if the hand cannot strike true...\"  You cast %s!",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "SILENT", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "SILENT",
+      "RANDOM_DURATION"
+    ],
     "effect_str": "stunned",
     "sound_description": "a faint rush of air",
     "min_aoe": 5,
@@ -85,18 +125,42 @@
   {
     "id": "arcana_seal_conjure_acid",
     "type": "SPELL",
-    "name": { "str": "Seal: Conjure Acid" },
+    "name": {
+      "str": "Seal: Conjure Acid"
+    },
     "description": "Magic Seal\nUsing this spell will conjure a splash of acid at the point targeted, and strike the very center for double damage.  Potentially dangerous to allies as well.",
     "message": "\"Let it be as time itself, eroding all in its path...\"  You cast %s!",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
-      { "id": "arcana_aftermath_brief_acid_ward", "hit_self": true },
-      { "id": "arcana_aftermath_conjure_acid_spike", "hit_self": false, "max_level": 10 },
-      { "id": "arcana_aftermath_conjure_acid_noise", "hit_self": false, "max_level": 10 }
+      {
+        "id": "arcana_aftermath_brief_acid_ward",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_aftermath_conjure_acid_spike",
+        "hit_self": false,
+        "max_level": 10
+      },
+      {
+        "id": "arcana_aftermath_conjure_acid_noise",
+        "hit_self": false,
+        "max_level": 10
+      }
     ],
-    "valid_targets": [ "ally", "hostile", "ground" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "SILENT", "RANDOM_DAMAGE", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION"
+    ],
     "effect_str": "corroding",
     "min_damage": 33,
     "max_damage": 57,
@@ -123,12 +187,28 @@
   {
     "id": "arcana_seal_free_action",
     "type": "SPELL",
-    "name": { "str": "Seal: Free Action" },
+    "name": {
+      "str": "Seal: Free Action"
+    },
     "description": "Magic Seal\nUsing this spell will grant protection against paralytic effects, grabs, and other hindrances, along with freezing time briefly to allow an escape.  It can be used on yourself or an ally.",
     "message": "\"Let there be no fetter that can bind me...\"  You cast %s!",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DURATION" ],
-    "extra_effects": [ { "id": "arcana_aftermath_free_action_timestop", "hit_self": false, "max_level": 10 } ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DURATION"
+    ],
+    "extra_effects": [
+      {
+        "id": "arcana_aftermath_free_action_timestop",
+        "hit_self": false,
+        "max_level": 10
+      }
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "free_action",
@@ -145,11 +225,21 @@
   {
     "id": "arcana_seal_healing",
     "type": "SPELL",
-    "name": { "str": "Seal: Healing" },
+    "name": {
+      "str": "Seal: Healing"
+    },
     "description": "Magic Seal\nUsing this spell will staunch bleeding and mend wounds.  It can be used on yourself or an ally.",
     "message": "\"We shall not yet fall into extinction...\"  You cast %s!",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DAMAGE" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DAMAGE"
+    ],
     "effect_str": "arcane_healing_staunch",
     "min_damage": -19,
     "max_damage": -32,
@@ -168,11 +258,21 @@
   {
     "id": "arcana_seal_heat_ward",
     "type": "SPELL",
-    "name": { "str": "Seal: Heat Ward" },
+    "name": {
+      "str": "Seal: Heat Ward"
+    },
     "description": "Magic Seal\nUsing this spell will grant temporary resistance to heat and smoke.  Direct contact with flame will still cause harm, however.  It can be used on yourself or an ally.",
     "message": "\"The steel does not fear the flame that tempers it...\"  You cast %s!",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DURATION"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "heat_ward",
@@ -189,11 +289,21 @@
   {
     "id": "arcana_seal_insight",
     "type": "SPELL",
-    "name": { "str": "Seal: Insight" },
+    "name": {
+      "str": "Seal: Insight"
+    },
     "description": "Magic Seal\nUsing this spell will grant a temporary boost to perception.  It can be used on yourself or an ally.",
     "message": "\"All is known to one who watches and listens with patience...\"  You cast %s!",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DURATION"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "spell_insight",
@@ -210,11 +320,20 @@
   {
     "id": "arcana_seal_lightning_ward",
     "type": "SPELL",
-    "name": { "str": "Seal: Lightning Ward" },
+    "name": {
+      "str": "Seal: Lightning Ward"
+    },
     "description": "Magic Seal\nUsing this spell will grant a blessing that completely protects against lightning, at the expense of slowing you down a bit.  It can be cast on yourself or an ally.",
     "message": "\"One foot after the other, always grounded...\"  You cast %s!",
-    "valid_targets": [ "self" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DURATION"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "lightning_ward",
@@ -231,11 +350,21 @@
   {
     "id": "arcana_seal_might",
     "type": "SPELL",
-    "name": { "str": "Seal: Might" },
+    "name": {
+      "str": "Seal: Might"
+    },
     "description": "Magic Seal\nUsing this spell will grant a temporary boost to strength.  It can be used on yourself or an ally.",
     "message": "\"Let it be a glorious battle...\"  You cast %s!",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DURATION"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "spell_might",
@@ -252,11 +381,20 @@
   {
     "id": "arcana_seal_overgrowth",
     "type": "SPELL",
-    "name": { "str": "Seal: Overgrowth" },
+    "name": {
+      "str": "Seal: Overgrowth"
+    },
     "description": "Magic Seal\nUsing this spell will conjure an eruption of the living forest, at the location you target.  It will destroy most furniture in the affected area and disrupt terrain.",
     "message": "\"We shall prosper, no matter how barren the ground...\"  You cast %s!",
-    "valid_targets": [ "ground" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DAMAGE" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DAMAGE"
+    ],
     "effect": "ter_transform",
     "shape": "blast",
     "effect_str": "arcana_plants",
@@ -277,11 +415,20 @@
     "id": "arcana_seal_serpentine_shield",
     "//": "ID retained to avoid breaking saves.",
     "type": "SPELL",
-    "name": { "str": "Seal: Shadowy Shield" },
+    "name": {
+      "str": "Seal: Shadowy Shield"
+    },
     "description": "Magic Seal\nUsing this spell will anoint you with an obsidian halo, granting a temporary defensive effect that will strike attackers blind with otherworldly darkness.",
     "message": "\"Fear not the darkness, but those who lure you into it...\"  You cast %s!",
-    "valid_targets": [ "self" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DURATION"
+    ],
     "effect": "spawn_item",
     "shape": "blast",
     "effect_str": "halo_shadowsnakes",
@@ -295,21 +442,57 @@
   {
     "id": "arcana_seal_shockstorm",
     "type": "SPELL",
-    "name": { "str": "Seal: Shockstorm" },
+    "name": {
+      "str": "Seal: Shockstorm"
+    },
     "description": "Magic Seal\nUsing this spell will call forth lightning all around you, harming anyone close enough.  Beware using it around allies.",
     "message": "\"Let it be a thunder to split the heavens and earth...\"  You cast %s!",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
-      { "id": "arcana_aftermath_brief_lightning_ward", "hit_self": true },
-      { "id": "arcana_aftermath_shockstorm_line", "hit_self": false, "max_level": 10 },
-      { "id": "arcana_aftermath_shockstorm_line", "hit_self": false, "max_level": 10 },
-      { "id": "arcana_aftermath_shockstorm_line", "hit_self": false, "max_level": 10 },
-      { "id": "arcana_aftermath_shockstorm_line", "hit_self": false, "max_level": 10 },
-      { "id": "arcana_aftermath_shockstorm_noise", "hit_self": false, "max_level": 10 }
+      {
+        "id": "arcana_aftermath_brief_lightning_ward",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_aftermath_shockstorm_line",
+        "hit_self": false,
+        "max_level": 10
+      },
+      {
+        "id": "arcana_aftermath_shockstorm_line",
+        "hit_self": false,
+        "max_level": 10
+      },
+      {
+        "id": "arcana_aftermath_shockstorm_line",
+        "hit_self": false,
+        "max_level": 10
+      },
+      {
+        "id": "arcana_aftermath_shockstorm_line",
+        "hit_self": false,
+        "max_level": 10
+      },
+      {
+        "id": "arcana_aftermath_shockstorm_noise",
+        "hit_self": false,
+        "max_level": 10
+      }
     ],
-    "valid_targets": [ "ally", "hostile", "ground" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "SILENT", "RANDOM_DAMAGE", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION"
+    ],
     "effect_str": "zapped",
     "min_damage": 44,
     "max_damage": 76,
@@ -333,11 +516,21 @@
   {
     "id": "arcana_seal_ward_against_evil",
     "type": "SPELL",
-    "name": { "str": "Seal: Ward Against Evil" },
+    "name": {
+      "str": "Seal: Ward Against Evil"
+    },
     "description": "Magic Seal\nUsing this spell will grant a blessing that protects against certain anomalous threats.  It can be used on yourself or an ally.",
     "message": "\"The wicked falter before the vigilant...\"  You cast %s!",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "VERBAL",
+      "RANDOM_DURATION"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "cleric_warding",

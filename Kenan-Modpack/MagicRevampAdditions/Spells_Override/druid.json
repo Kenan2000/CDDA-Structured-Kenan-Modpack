@@ -2,10 +2,21 @@
   {
     "id": "druid_veggrasp",
     "type": "SPELL",
-    "name": { "str": "Vegetative Grasp" },
+    "name": {
+      "str": "Vegetative Grasp"
+    },
     "description": "This spell causes roots and vines to burst forth from the ground and grab your foes, slowing them and doing a small amount of damage as they dig in.",
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "LOUD", "SOMATIC", "VERBAL", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "LOUD",
+      "SOMATIC",
+      "VERBAL",
+      "NO_LEGS",
+      "NO_PROJECTILE"
+    ],
     "effect": "attack",
     "effect_str": "entangled",
     "shape": "blast",
@@ -38,10 +49,20 @@
   {
     "id": "druid_rootstrike",
     "type": "SPELL",
-    "name": { "str": "Root Strike" },
+    "name": {
+      "str": "Root Strike"
+    },
     "description": "This spell causes roots to spear out the ground and stab into your foes in an arc, impaling them.",
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "LOUD", "SOMATIC", "VERBAL", "NO_LEGS" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "LOUD",
+      "SOMATIC",
+      "VERBAL",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "effect_str": "root_impale",
     "shape": "cone",
@@ -74,10 +95,19 @@
   {
     "id": "druid_woodshaft",
     "type": "SPELL",
-    "name": { "str": "Wooden Shaft" },
+    "name": {
+      "str": "Wooden Shaft"
+    },
     "description": "This spell creates a projectile of hardwood that shoots forth from the caster's hand at high speed to stab into an enemy.",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "LOUD", "SOMATIC", "VERBAL", "NO_LEGS" ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "LOUD",
+      "SOMATIC",
+      "VERBAL",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "spell_class": "DRUID",
@@ -100,10 +130,19 @@
   {
     "id": "druid_naturebow1",
     "type": "SPELL",
-    "name": { "str": "Nature's Bow" },
+    "name": {
+      "str": "Nature's Bow"
+    },
     "description": "This spell conjures a magical wooden recurve bow that fires endless arrows for as long as it lasts.",
-    "valid_targets": [ "none" ],
-    "flags": [ "CONCENTRATE", "SOMATIC", "VERBAL", "NO_LEGS" ],
+    "valid_targets": [
+      "none"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SOMATIC",
+      "VERBAL",
+      "NO_LEGS"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -122,10 +161,18 @@
   {
     "id": "recover_fatigue",
     "type": "SPELL",
-    "name": { "str": "Nature's Trance" },
+    "name": {
+      "str": "Nature's Trance"
+    },
     "description": "Your connection to living things allows you to go into a magical trance.  This allows you to recover fatige quickly in exchange for mana.",
-    "valid_targets": [ "self" ],
-    "flags": [ "CONCENTRATE", "SILENT", "NO_HANDS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "NO_HANDS"
+    ],
     "spell_class": "DRUID",
     "energy_source": "MANA",
     "effect": "recover_energy",
@@ -144,10 +191,18 @@
   {
     "id": "summon_cats",
     "type": "SPELL",
-    "name": { "str": "Bag of Cats" },
+    "name": {
+      "str": "Bag of Cats"
+    },
     "description": "Are you the crazy cat lady?",
-    "valid_targets": [ "ground" ],
-    "flags": [ "LOUD", "SOMATIC", "SPAWN_GROUP" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "LOUD",
+      "SOMATIC",
+      "SPAWN_GROUP"
+    ],
     "min_damage": 1,
     "max_damage": 18,
     "damage_increment": 1.0,
@@ -172,9 +227,13 @@
   {
     "id": "summon_bear",
     "type": "SPELL",
-    "name": { "str": "Cause Bear" },
+    "name": {
+      "str": "Cause Bear"
+    },
     "description": "This spell appears to be very smudged.  You're fairly sure the name should be Cause Fear, but you're also fairly sure it won't have the desired effect because the instructions are hardly legible.  No time like the Cataclysm to find out, though!",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "min_range": 3,
@@ -189,7 +248,13 @@
     "base_energy_cost": 675,
     "final_energy_cost": 425,
     "energy_increment": -5.0,
-    "flags": [ "HOSTILE_50", "CONCENTRATE", "SOMATIC", "VERBAL", "NO_LEGS" ],
+    "flags": [
+      "HOSTILE_50",
+      "CONCENTRATE",
+      "SOMATIC",
+      "VERBAL",
+      "NO_LEGS"
+    ],
     "shape": "blast",
     "effect": "summon",
     "effect_str": "mon_bear"
@@ -197,9 +262,14 @@
   {
     "id": "fungicide",
     "type": "SPELL",
-    "name": { "str": "Kill Fungus" },
+    "name": {
+      "str": "Kill Fungus"
+    },
     "description": "Kills fungus affected areas",
-    "valid_targets": [ "ground", "hostile" ],
+    "valid_targets": [
+      "ground",
+      "hostile"
+    ],
     "effect": "ter_transform",
     "effect_str": "fungicide",
     "shape": "blast",
@@ -211,14 +281,25 @@
     "energy_source": "MANA",
     "base_energy_cost": 175,
     "base_casting_time": 550,
-    "flags": [ "CONCENTRATE", "VERBAL", "SOMATIC", "NO_LEGS", "NO_HANDS", "NO_PROJECTILE" ]
+    "flags": [
+      "CONCENTRATE",
+      "VERBAL",
+      "SOMATIC",
+      "NO_LEGS",
+      "NO_HANDS",
+      "NO_PROJECTILE"
+    ]
   },
   {
     "id": "create_rune_druid",
     "type": "SPELL",
-    "name": { "str": "Druid Rune" },
+    "name": {
+      "str": "Druid Rune"
+    },
     "description": "This ritual creates a small pebble attuned to Druids.  You can use the rune as a catalyst for recipes.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -233,14 +314,22 @@
     "max_level": 0,
     "spell_class": "DRUID",
     "energy_source": "MANA",
-    "flags": [ "PERMANENT", "NO_LEGS", "CONCENTRATE" ]
+    "flags": [
+      "PERMANENT",
+      "NO_LEGS",
+      "CONCENTRATE"
+    ]
   },
   {
     "id": "purify_seed",
     "type": "SPELL",
-    "name": { "str": "Purification Seed" },
+    "name": {
+      "str": "Purification Seed"
+    },
     "description": "You summon a gift of the earth which will purify water.  Rapidly degrades if not utilized.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -257,18 +346,32 @@
     "max_level": 20,
     "spell_class": "DRUID",
     "energy_source": "MANA",
-    "flags": [ "NO_LEGS", "CONCENTRATE" ]
+    "flags": [
+      "NO_LEGS",
+      "CONCENTRATE"
+    ]
   },
   {
     "id": "druidic_regrowth",
     "type": "SPELL",
-    "name": { "str": "Sacrificial Regrowth" },
+    "name": {
+      "str": "Sacrificial Regrowth"
+    },
     "description": "Through giving of one's own life force, you restore withered and barren plant life nearby.  What remains will need time to regrow its full strength.",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "ter_transform",
     "effect_str": "druidic_renewal",
     "shape": "blast",
-    "flags": [ "CONCENTRATE", "VERBAL", "SOMATIC", "NO_LEGS", "NO_HANDS", "NO_PROJECTILE" ],
+    "flags": [
+      "CONCENTRATE",
+      "VERBAL",
+      "SOMATIC",
+      "NO_LEGS",
+      "NO_HANDS",
+      "NO_PROJECTILE"
+    ],
     "spell_class": "DRUID",
     "energy_source": "HP",
     "difficulty": 6,
@@ -285,12 +388,23 @@
   {
     "id": "druidic_healing",
     "type": "SPELL",
-    "name": { "str": "Sacrificial Healing" },
+    "name": {
+      "str": "Sacrificial Healing"
+    },
     "description": "Channels some of the user's own life force into healing energy, for the sake of ones allies.",
-    "valid_targets": [ "ally" ],
+    "valid_targets": [
+      "ally"
+    ],
     "effect": "attack",
     "shape": "blast",
-    "flags": [ "CONCENTRATE", "VERBAL", "SOMATIC", "NO_LEGS", "NO_HANDS", "NO_PROJECTILE" ],
+    "flags": [
+      "CONCENTRATE",
+      "VERBAL",
+      "SOMATIC",
+      "NO_LEGS",
+      "NO_HANDS",
+      "NO_PROJECTILE"
+    ],
     "spell_class": "DRUID",
     "energy_source": "HP",
     "difficulty": 5,
@@ -312,14 +426,35 @@
   {
     "id": "druid_tornskin",
     "type": "SPELL",
-    "name": { "str": "Tornskin" },
+    "name": {
+      "str": "Tornskin"
+    },
     "description": "This spell, which resembles Thornskin through the sap & needles covering the page, seemed to involve thorns and bleeding wounds.  The marred words may have altered the function.",
-    "valid_targets": [ "hostile", "ground", "ally", "self" ],
-    "flags": [ "SOMATIC" ],
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally",
+      "self"
+    ],
+    "flags": [
+      "SOMATIC"
+    ],
     "effect": "attack",
     "effect_str": "tornskin_pain",
     "shape": "blast",
-    "affected_body_parts": [ "head", "torso", "mouth", "eyes", "arm_l", "arm_r", "hand_r", "hand_l", "leg_l", "foot_l", "foot_r" ],
+    "affected_body_parts": [
+      "head",
+      "torso",
+      "mouth",
+      "eyes",
+      "arm_l",
+      "arm_r",
+      "hand_r",
+      "hand_l",
+      "leg_l",
+      "foot_l",
+      "foot_r"
+    ],
     "min_dot": 1,
     "max_dot": 6,
     "dot_increment": 0.3,
@@ -349,13 +484,20 @@
   {
     "id": "druid_feralform",
     "type": "SPELL",
-    "name": { "str": "Feral Form" },
+    "name": {
+      "str": "Feral Form"
+    },
     "description": "This spell unleashs your inner beast, growing claws & fangs to rend your foes limb from limb.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "effect": "spawn_item",
     "effect_str": "aura_feral",
     "shape": "blast",
-    "flags": [ "SOMATIC", "VERBAL" ],
+    "flags": [
+      "SOMATIC",
+      "VERBAL"
+    ],
     "components": "spell_components_feralform",
     "spell_class": "DRUID",
     "energy_source": "MANA",
@@ -372,9 +514,13 @@
   {
     "id": "summon_wolf_druid",
     "type": "SPELL",
-    "name": { "str": "Summon Wolf" },
+    "name": {
+      "str": "Summon Wolf"
+    },
     "description": "Call to the wilds for aid from some wolves.",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "min_damage": 1,
     "max_damage": 3,
     "damage_increment": 0.08,
@@ -392,7 +538,11 @@
     "max_duration": 37000,
     "duration_increment": 600,
     "base_energy_cost": 400,
-    "flags": [ "SOMATIC", "VERBAL", "NO_LEGS" ],
+    "flags": [
+      "SOMATIC",
+      "VERBAL",
+      "NO_LEGS"
+    ],
     "shape": "blast",
     "effect": "summon",
     "effect_str": "mon_wolf"
@@ -401,9 +551,13 @@
     "id": "druid_growth",
     "type": "SPELL",
     "spell_class": "DRUID",
-    "name": { "str": "Seed of Growth" },
+    "name": {
+      "str": "Seed of Growth"
+    },
     "description": "Offer some of your life in a ritual to get tokens of growth in return.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "effect": "spawn_item",
     "effect_str": "druid_fertilizer",
     "shape": "blast",
@@ -418,6 +572,10 @@
     "max_damage": 120,
     "damage_increment": 4,
     "//": "The spell can only be permanent without being at maximum level because of how items with charges work",
-    "flags": [ "SOMATIC", "NO_LEGS", "PERMANENT" ]
+    "flags": [
+      "SOMATIC",
+      "NO_LEGS",
+      "PERMANENT"
+    ]
   }
 ]

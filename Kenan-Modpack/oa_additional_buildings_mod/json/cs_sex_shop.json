@@ -2,72 +2,181 @@
   {
     "type": "monstergroup",
     "name": "GROUP_ZOMBIE_SEXSHOP_A",
-    "default": "mon_zombie",
     "monsters": [
-      { "monster": "mon_zombie_cop", "freq": 250, "cost_multiplier": 2 },
-      { "monster": "mon_zombie", "freq": 150, "cost_multiplier": 1 },
-      { "monster": "mon_zombie_swimmer", "freq": 100, "cost_multiplier": 2 }
+      {
+        "monster": "mon_zombie_cop",
+        "weight": 250,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_zombie",
+        "weight": 150,
+        "cost_multiplier": 1
+      },
+      {
+        "monster": "mon_zombie_swimmer",
+        "weight": 100,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_zombie",
+        "weight": 500
+      }
     ]
   },
   {
     "type": "monstergroup",
     "name": "GROUP_ZOMBIE_SEXSHOP_B",
-    "default": "mon_zombie",
-    "monsters": [ { "monster": "mon_zombie_swimmer", "freq": 500, "cost_multiplier": 2 } ]
+    "monsters": [
+      {
+        "monster": "mon_zombie_swimmer",
+        "weight": 500,
+        "cost_multiplier": 2
+      },
+      {
+        "monster": "mon_zombie",
+        "weight": 500
+      }
+    ]
   },
   {
     "type": "item_group",
     "id": "ss_merch_1",
     "items": [
-      [ "corset", 20 ],
-      [ "vibrator", 20 ],
-      [ "leather_cat_tail", 20 ],
-      [ "leather_cat_ears", 20 ],
-      [ "leather_collar", 20 ],
-      [ "bondage_mask", 20 ],
-      [ "bullwhip", 20 ],
-      [ "candle", 20 ]
+      [
+        "corset",
+        20
+      ],
+      [
+        "vibrator",
+        20
+      ],
+      [
+        "leather_cat_tail",
+        20
+      ],
+      [
+        "leather_cat_ears",
+        20
+      ],
+      [
+        "leather_collar",
+        20
+      ],
+      [
+        "bondage_mask",
+        20
+      ],
+      [
+        "bullwhip",
+        20
+      ],
+      [
+        "candle",
+        20
+      ]
     ]
   },
   {
     "type": "item_group",
     "id": "ss_merch_2",
-    "items": [ [ "mag_porn", 50 ] ]
+    "items": [
+      [
+        "mag_porn",
+        50
+      ]
+    ]
   },
   {
     "type": "item_group",
     "id": "ss_merch_3",
     "items": [
-      [ "wolfsuit", 15 ],
-      [ "dinosuit", 15 ],
-      [ "bondage_suit", 10 ],
-      [ "chaps_leather", 10 ],
-      [ "hot_pants", 20 ],
-      [ "hot_pants_leather", 20 ],
-      [ "hot_pants_fur", 20 ]
+      [
+        "wolfsuit",
+        15
+      ],
+      [
+        "dinosuit",
+        15
+      ],
+      [
+        "bondage_suit",
+        10
+      ],
+      [
+        "chaps_leather",
+        10
+      ],
+      [
+        "hot_pants",
+        20
+      ],
+      [
+        "hot_pants_leather",
+        20
+      ],
+      [
+        "hot_pants_fur",
+        20
+      ]
     ]
   },
   {
     "type": "item_group",
     "id": "backroom",
     "items": [
-      [ "weed", 10 ],
-      [ "coke", 10 ],
-      [ "meth", 10 ],
-      [ "aspirin", 10 ],
-      [ "mag_porn", 10 ],
-      [ "purse", 10 ],
-      [ "hairpin", 5 ],
-      [ "syringe", 10 ],
-      [ "blanket", 20 ],
-      [ "candle", 20 ],
-      [ "pillow", 20 ]
+      [
+        "weed",
+        10
+      ],
+      [
+        "coke",
+        10
+      ],
+      [
+        "meth",
+        10
+      ],
+      [
+        "aspirin",
+        10
+      ],
+      [
+        "mag_porn",
+        10
+      ],
+      [
+        "purse",
+        10
+      ],
+      [
+        "hairpin",
+        5
+      ],
+      [
+        "syringe",
+        10
+      ],
+      [
+        "blanket",
+        20
+      ],
+      [
+        "candle",
+        20
+      ],
+      [
+        "pillow",
+        20
+      ]
     ]
   },
   {
     "type": "mapgen",
     "method": "json",
-    "om_terrain": [ "cs_sex_shop" ],
+    "om_terrain": [
+      "cs_sex_shop"
+    ],
     "weight": 1000,
     "object": {
       "rows": [
@@ -126,38 +235,177 @@
         "s": "f_sofa",
         "h": "f_armchair"
       },
-      "toilets": { "T": { "x": 20, "y": 19 } },
+      "toilets": {
+        "T": {
+          "x": 20,
+          "y": 19
+        }
+      },
       "items": {
-        "B": { "item": "backroom", "chance": 20 },
-        "s": { "item": "backroom", "chance": 20 },
-        "c": { "item": "ss_merch_1", "chance": 20 },
-        "b": { "item": "ss_merch_2", "chance": 30 },
-        "t": { "item": "ss_merch_3", "chance": 10 }
+        "B": {
+          "item": "backroom",
+          "chance": 20
+        },
+        "s": {
+          "item": "backroom",
+          "chance": 20
+        },
+        "c": {
+          "item": "ss_merch_1",
+          "chance": 20
+        },
+        "b": {
+          "item": "ss_merch_2",
+          "chance": 30
+        },
+        "t": {
+          "item": "ss_merch_3",
+          "chance": 10
+        }
       },
       "place_items": [
-        { "item": "bed", "chance": 70, "x": [ 3, 5 ], "y": [ 19, 21 ] },
-        { "item": "bed", "chance": 70, "x": [ 4, 5 ], "y": 20 },
-        { "item": "bed", "chance": 70, "x": [ 6, 8 ], "y": 20 },
-        { "item": "bed", "chance": 70, "x": [ 18, 20 ], "y": [ 21, 22 ] }
+        {
+          "item": "bed",
+          "chance": 70,
+          "x": [
+            3,
+            5
+          ],
+          "y": [
+            19,
+            21
+          ]
+        },
+        {
+          "item": "bed",
+          "chance": 70,
+          "x": [
+            4,
+            5
+          ],
+          "y": 20
+        },
+        {
+          "item": "bed",
+          "chance": 70,
+          "x": [
+            6,
+            8
+          ],
+          "y": 20
+        },
+        {
+          "item": "bed",
+          "chance": 70,
+          "x": [
+            18,
+            20
+          ],
+          "y": [
+            21,
+            22
+          ]
+        }
       ],
       "add": [
-        { "item": "roadmap", "x": 3, "y": 6, "chance": 5 },
-        { "item": "roadmap", "x": 5, "y": 6, "chance": 5 },
-        { "item": "touristmap", "x": 4, "y": 6, "chance": 5 },
-        { "item": "touristmap", "x": 6, "y": 6, "chance": 5 },
-        { "item": "syringe", "x": 20, "y": 19, "chance": 2 },
-        { "item": "mop", "x": [ 4, 5 ], "y": [ 7, 8 ], "chance": 2 },
-        { "item": "extinguisher", "x": 3, "y": 7, "chance": 3 },
-        { "item": "television", "x": 6, "y": 13, "chance": 5 },
-        { "item": "television", "x": 7, "y": 13, "chance": 5 }
+        {
+          "item": "roadmap",
+          "x": 3,
+          "y": 6,
+          "chance": 5
+        },
+        {
+          "item": "roadmap",
+          "x": 5,
+          "y": 6,
+          "chance": 5
+        },
+        {
+          "item": "touristmap",
+          "x": 4,
+          "y": 6,
+          "chance": 5
+        },
+        {
+          "item": "touristmap",
+          "x": 6,
+          "y": 6,
+          "chance": 5
+        },
+        {
+          "item": "syringe",
+          "x": 20,
+          "y": 19,
+          "chance": 2
+        },
+        {
+          "item": "mop",
+          "x": [
+            4,
+            5
+          ],
+          "y": [
+            7,
+            8
+          ],
+          "chance": 2
+        },
+        {
+          "item": "extinguisher",
+          "x": 3,
+          "y": 7,
+          "chance": 3
+        },
+        {
+          "item": "television",
+          "x": 6,
+          "y": 13,
+          "chance": 5
+        },
+        {
+          "item": "television",
+          "x": 7,
+          "y": 13,
+          "chance": 5
+        }
       ],
       "place_vehicles": [
-        { "vehicle": "motorcycle", "x": 4, "y": 2, "rotation": 270, "chance": 25 },
-        { "vehicle": "motorcycle", "x": 5, "y": 2, "rotation": 90, "chance": 25 },
-        { "vehicle": "policecar", "x": 12, "y": 2, "rotation": 180, "chance": 20 },
-        { "vehicle": "car", "x": 19, "y": 2, "rotation": 0, "chance": 10 }
+        {
+          "vehicle": "motorcycle",
+          "x": 4,
+          "y": 2,
+          "rotation": 270,
+          "chance": 25
+        },
+        {
+          "vehicle": "motorcycle",
+          "x": 5,
+          "y": 2,
+          "rotation": 90,
+          "chance": 25
+        },
+        {
+          "vehicle": "policecar",
+          "x": 12,
+          "y": 2,
+          "rotation": 180,
+          "chance": 20
+        },
+        {
+          "vehicle": "car",
+          "x": 19,
+          "y": 2,
+          "rotation": 0,
+          "chance": 10
+        }
       ],
-      "place_monsters": [ { "monster": "GROUP_ZOMBIE_SEXSHOP_A", "x": 12, "y": 14 } ]
+      "place_monsters": [
+        {
+          "monster": "GROUP_ZOMBIE_SEXSHOP_A",
+          "x": 12,
+          "y": 14
+        }
+      ]
     }
   }
 ]

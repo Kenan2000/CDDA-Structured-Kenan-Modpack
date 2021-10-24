@@ -6,20 +6,41 @@
       "u_female": true,
       "yes": "GET AWAY FROM ME, GET AWAY!",
       "no": "GET AWAY FROM ME, GET AWAY!"
-        },
+    },
     "responses": [
       {
         "text": "I'm a valkyrur, please calm down",
         "topic": "TALK_valkyrur_go",
-        "condition": { "u_has_any_trait": [ "mut_valkyrur" ] }
+        "condition": {
+          "u_has_any_trait": [
+            "mut_valkyrur"
+          ]
+        }
       },
       {
         "switch": true,
         "default": true,
         "text": "Please calm down, I'm not trying to hurt you!",
-        "trial": { "type": "PERSUADE", "difficulty": 10 },
-        "success": { "topic": "TALK_valkyrur_safe", "effect": "follow", "opinion": { "trust": 1, "value": 1 } },
-        "failure": { "topic": "TALK_valkyrur_kill", "effect": "deny_follow", "opinion": { "value": -1, "anger": 1 } }
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 10
+        },
+        "success": {
+          "topic": "TALK_valkyrur_safe",
+          "effect": "follow",
+          "opinion": {
+            "trust": 1,
+            "value": 1
+          }
+        },
+        "failure": {
+          "topic": "TALK_valkyrur_kill",
+          "effect": "deny_follow",
+          "opinion": {
+            "value": -1,
+            "anger": 1
+          }
+        }
       }
     ]
   },
@@ -57,6 +78,4 @@
       }
     ]
   }
-  
-  
 ]

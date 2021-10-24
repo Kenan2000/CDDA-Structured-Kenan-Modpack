@@ -3,17 +3,25 @@
     "//": "This is notable for being infectious.",
     "id": "mon_zombie_scourge",
     "type": "MONSTER",
-    "name": { "str": "scourge zombie" },
+    "name": {
+      "str": "scourge zombie"
+    },
     "description": "A vessel of oozing pus staggering as it walks, dripping filthy liquid on its path.",
     "default_faction": "zombie",
-    "species": [ "ZOMBIE", "SECROZED_1", "HUMAN" ],
+    "species": [
+      "ZOMBIE",
+      "SECROZED_1",
+      "HUMAN"
+    ],
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 50,
     "speed": 70,
     "diff": 1,
-    "material": [ "flesh" ],
-    "symbol": "⚴",
+    "material": [
+      "flesh"
+    ],
+    "symbol": "\u26b4",
     "color": "yellow",
     "aggression": 100,
     "morale": 100,
@@ -28,24 +36,54 @@
     "vision_day": 22,
     "vision_night": 5,
     "harvest": "zombie",
-    "special_attacks": [ [ "GRAB", 10 ], { "type": "bite", "infection_chance": 5, "cooldown": 18 } ],
-    "upgrades": { "half_life": 12, "into": "mon_zombie_defile" },
-    "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
+    "special_attacks": [
+      [
+        "GRAB",
+        10
+      ],
+      {
+        "type": "bite",
+        "infection_chance": 5,
+        "cooldown": 18
+      }
+    ],
+    "upgrades": {
+      "half_life": 12,
+      "into": "mon_zombie_defile"
+    },
+    "flags": [
+      "SEES",
+      "HEARS",
+      "SMELLS",
+      "STUMBLES",
+      "POISON",
+      "NO_BREATHE",
+      "REVIVES",
+      "FILTHY"
+    ]
   },
   {
     "id": "mon_zombie_defile",
     "type": "MONSTER",
-    "name": { "str": "zombie defiler" },
+    "name": {
+      "str": "zombie defiler"
+    },
     "description": "A heavily deformed corpse, constantly vomiting dark ooze from its swollen cheeks and an endless explosion of pus germinates the surroundings.",
     "default_faction": "zombie",
-    "species": [ "ZOMBIE", "SECROZED_1", "HUMAN" ],
+    "species": [
+      "ZOMBIE",
+      "SECROZED_1",
+      "HUMAN"
+    ],
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 70,
     "speed": 65,
     "diff": 5,
-    "material": [ "flesh" ],
-    "symbol": "⚴",
+    "material": [
+      "flesh"
+    ],
+    "symbol": "\u26b4",
     "color": "i_yellow",
     "aggression": 100,
     "morale": 100,
@@ -60,24 +98,54 @@
     "vision_day": 25,
     "vision_night": 6,
     "harvest": "zombie",
-    "special_attacks": [ [ "GRAB", 10 ], { "type": "bite", "infection_chance": 20, "cooldown": 15 } ],
-    "upgrades": { "half_life": 16, "into_group": "GROUP_SCOURGE_UPGRADEX" },
-    "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
+    "special_attacks": [
+      [
+        "GRAB",
+        10
+      ],
+      {
+        "type": "bite",
+        "infection_chance": 20,
+        "cooldown": 15
+      }
+    ],
+    "upgrades": {
+      "half_life": 16,
+      "into_group": "GROUP_SCOURGE_UPGRADEX"
+    },
+    "flags": [
+      "SEES",
+      "HEARS",
+      "SMELLS",
+      "STUMBLES",
+      "POISON",
+      "NO_BREATHE",
+      "REVIVES",
+      "FILTHY"
+    ]
   },
   {
     "id": "mon_zombie_leptiosa",
     "type": "MONSTER",
-    "name": { "str": "lepotitsa" },
+    "name": {
+      "str": "lepotitsa"
+    },
     "description": "A corpse of swollen ichor, as its whole body is embraced in necrotic tissue. Aside from its huge hump lying on its back, its skin is full of fleshy holes, each emits a subtle gas.",
     "default_faction": "zombie",
-    "species": [ "ZOMBIE", "SECROZED_3", "HUMAN" ],
+    "species": [
+      "ZOMBIE",
+      "SECROZED_3",
+      "HUMAN"
+    ],
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 330,
     "speed": 65,
     "diff": 15,
-    "material": [ "flesh" ],
-    "symbol": "⚵",
+    "material": [
+      "flesh"
+    ],
+    "symbol": "\u26b5",
     "color": "red_yellow",
     "aggression": 100,
     "morale": 100,
@@ -93,16 +161,41 @@
     "vision_night": 6,
     "harvest": "zombie",
     "special_attacks": [
-      [ "GRAB", 10 ],
-      { "type": "bite", "infection_chance": 100, "cooldown": 15 },
+      [
+        "GRAB",
+        10
+      ],
+      {
+        "type": "bite",
+        "infection_chance": 100,
+        "cooldown": 15
+      },
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_leptiosa_ngas" },
+        "spell_data": {
+          "id": "mon_zombie_leptiosa_ngas"
+        },
         "cooldown": 33,
         "monster_message": "<color_yellow>%1$s generates a noxious, corrosive gas then sends it to %3$s!</color>"
       }
     ],
-    "death_function": { "effect": { "id": "death_gas", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "A %s explodes!" },
-    "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
+    "death_function": {
+      "effect": {
+        "id": "death_gas",
+        "hit_self": true
+      },
+      "corpse_type": "NO_CORPSE",
+      "message": "A %s explodes!"
+    },
+    "flags": [
+      "SEES",
+      "HEARS",
+      "SMELLS",
+      "STUMBLES",
+      "POISON",
+      "NO_BREATHE",
+      "REVIVES",
+      "FILTHY"
+    ]
   }
 ]

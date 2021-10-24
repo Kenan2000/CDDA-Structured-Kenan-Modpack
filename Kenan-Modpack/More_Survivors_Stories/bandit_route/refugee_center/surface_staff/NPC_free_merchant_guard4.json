@@ -17,24 +17,61 @@
     "responses": [
       {
         "text": "Just chatting, <name_g>.  Good old friendly chit-chat.",
-        "trial": { "type": "PERSUADE", "difficulty": 20, "mod": [ [ "TRUST", 3 ] ] },
-        "success": { "topic": "TALK_EVAC_GUARD4_OK" },
-        "failure": { "topic": "TALK_EVAC_GUARD4_SUSPICIOUS" }
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 20,
+          "mod": [
+            [
+              "TRUST",
+              3
+            ]
+          ]
+        },
+        "success": {
+          "topic": "TALK_EVAC_GUARD4_OK"
+        },
+        "failure": {
+          "topic": "TALK_EVAC_GUARD4_SUSPICIOUS"
+        }
       },
       {
         "text": "Didn't your mom teach you to get involved in other people's conversations?",
-        "trial": { "type": "INTIMIDATE", "difficulty": 20, "mod": [ [ "FEAR", 3 ] ] },
-        "success": { "topic": "TALK_EVAC_GUARD4_OK" },
-        "failure": { "topic": "TALK_EVAC_GUARD4_SUSPICIOUS" }
+        "trial": {
+          "type": "INTIMIDATE",
+          "difficulty": 20,
+          "mod": [
+            [
+              "FEAR",
+              3
+            ]
+          ]
+        },
+        "success": {
+          "topic": "TALK_EVAC_GUARD4_OK"
+        },
+        "failure": {
+          "topic": "TALK_EVAC_GUARD4_SUSPICIOUS"
+        }
       },
-      { "text": "None of your business, <name_b>.", "topic": "TALK_EVAC_GUARD4_INSULT" }
+      {
+        "text": "None of your business, <name_b>.",
+        "topic": "TALK_EVAC_GUARD4_INSULT"
+      }
     ]
   },
   {
     "id": "TALK_EVAC_GUARD4_OK",
     "type": "talk_topic",
     "dynamic_line": "Hmm, OK then.",
-    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_GUARD" } } ]
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_DONE",
+        "effect": {
+          "npc_first_topic": "TALK_GUARD"
+        }
+      }
+    ]
   },
   {
     "id": "TALK_EVAC_GUARD4_SUSPICIOUS",
@@ -44,21 +81,50 @@
       {
         "text": "[35MERCH] Maybe this will help.",
         "topic": "TALK_EVAC_GUARD4_OK",
-        "condition": { "u_has_items": { "item": "FMCNote", "count": 35 } },
-        "effect": { "u_sell_item": "FMCNote", "count": 35 }
+        "condition": {
+          "u_has_items": {
+            "item": "FMCNote",
+            "count": 35
+          }
+        },
+        "effect": {
+          "u_sell_item": "FMCNote",
+          "count": 35
+        }
       },
       {
-        "text": "[PRETTY] Maybe if I do something for you, you would let it go…",
-        "condition": { "u_has_any_trait": [ "PRETTY", "BEAUTIFUL", "BEAUTIFUL2", "BEAUTIFUL3" ] },
+        "text": "[PRETTY] Maybe if I do something for you, you would let it go\u2026",
+        "condition": {
+          "u_has_any_trait": [
+            "PRETTY",
+            "BEAUTIFUL",
+            "BEAUTIFUL2",
+            "BEAUTIFUL3"
+          ]
+        },
         "topic": "TALK_EVAC_GUARD4_OK"
       },
-      { "text": "I told you, none of your <swear> business, <name_b>!", "topic": "TALK_EVAC_GUARD4_INSULT" }
+      {
+        "text": "I told you, none of your <swear> business, <name_b>!",
+        "topic": "TALK_EVAC_GUARD4_INSULT"
+      }
     ]
   },
   {
     "id": "TALK_EVAC_GUARD4_INSULT",
     "type": "talk_topic",
     "dynamic_line": "ALARM!",
-    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": [ "insult_combat", { "u_faction_rep": -50 } ] } ]
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_DONE",
+        "effect": [
+          "insult_combat",
+          {
+            "u_faction_rep": -50
+          }
+        ]
+      }
+    ]
   }
 ]

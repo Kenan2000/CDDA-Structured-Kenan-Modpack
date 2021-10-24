@@ -2,12 +2,19 @@
   {
     "id": "sonic_extra",
     "type": "SPELL",
-    "name": { "str": "Sonic Extra" },
+    "name": {
+      "str": "Sonic Extra"
+    },
     "description": "Dirty hack to work around bugs in magic code.",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "ter_transform",
     "shape": "blast",
-    "flags": [ "SILENT", "NO_PROJECTILE" ],
+    "flags": [
+      "SILENT",
+      "NO_PROJECTILE"
+    ],
     "message": "",
     "effect_str": "sonic_pulse",
     "max_level": 20,
@@ -21,10 +28,20 @@
   {
     "id": "sonic_demolition_pulse",
     "type": "SPELL",
-    "name": { "str": "Sonic Demolition Pulse" },
+    "name": {
+      "str": "Sonic Demolition Pulse"
+    },
     "description": "This adds the actual effect of yeeting terrain in range.",
-    "valid_targets": [ "ground" ],
-    "extra_effects": [ { "id": "sonic_extra", "hit_self": false, "max_level": 10 } ],
+    "valid_targets": [
+      "ground"
+    ],
+    "extra_effects": [
+      {
+        "id": "sonic_extra",
+        "hit_self": false,
+        "max_level": 10
+      }
+    ],
     "message": "",
     "effect": "bash",
     "shape": "blast",
@@ -39,10 +56,20 @@
   {
     "id": "sonic_blast_pulse",
     "type": "SPELL",
-    "name": { "str": "Sonic Blast Pulse" },
+    "name": {
+      "str": "Sonic Blast Pulse"
+    },
     "description": "This adds the actual effect of yeeting terrain in range.",
-    "valid_targets": [ "ground" ],
-    "extra_effects": [ { "id": "sonic_extra", "hit_self": false, "max_level": 10 } ],
+    "valid_targets": [
+      "ground"
+    ],
+    "extra_effects": [
+      {
+        "id": "sonic_extra",
+        "hit_self": false,
+        "max_level": 10
+      }
+    ],
     "message": "",
     "effect": "bash",
     "shape": "blast",
@@ -57,13 +84,21 @@
   {
     "id": "sonic_spike",
     "type": "SPELL",
-    "name": { "str": "Sonic Spike" },
+    "name": {
+      "str": "Sonic Spike"
+    },
     "description": "This splits of the AoE into beefy and stupid beefy depending on distance.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ground" ],
-    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "SILENT",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE"
+    ],
     "effect_str": "blind",
     "min_damage": 25,
     "max_damage": 200,
@@ -79,18 +114,36 @@
   {
     "id": "sonic_demolition",
     "type": "SPELL",
-    "name": { "str": "Sonic Demolition" },
+    "name": {
+      "str": "Sonic Demolition"
+    },
     "description": "Sonic Demolition\nUsing this spell will unleash a devastating, destructive blast of sonic force, causing a massive earthquake and shattering everything in it's distance.  Anything close enough will take double damage.",
     "message": "You tremble in terror as you cast this spell but manage to fully control it and unleash the full force of sonic energy",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
-      { "id": "sonic_spike", "hit_self": false, "max_level": 20 },
-      { "id": "sonic_demolition_pulse", "hit_self": false, "max_level": 20 }
+      {
+        "id": "sonic_spike",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "sonic_demolition_pulse",
+        "hit_self": false,
+        "max_level": 20
+      }
     ],
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "spell_class": "NONE",
-    "flags": [ "CONCENTRATE", "NO_LEGS", "IGNORE_WALLS", "SILENT", "NO_PROJECTILE" ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "SILENT",
+      "NO_PROJECTILE"
+    ],
     "effect_str": "stunned",
     "min_damage": 95,
     "max_damage": 275,
@@ -115,18 +168,36 @@
   {
     "id": "sonic_blast",
     "type": "SPELL",
-    "name": { "str": "Sonic Blast" },
+    "name": {
+      "str": "Sonic Blast"
+    },
     "description": "Sonic Blast\nUsing this spell will unleash a quite strong, destructive blast of sonic force, shattering everything in it's distance.  Anything close enough will take double damage.",
     "message": "You manage to fully control the power of the blast and unleash the force of sonic energy",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
-      { "id": "sonic_spike", "hit_self": false, "max_level": 20 },
-      { "id": "sonic_blast_pulse", "hit_self": false, "max_level": 20 }
+      {
+        "id": "sonic_spike",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "sonic_blast_pulse",
+        "hit_self": false,
+        "max_level": 20
+      }
     ],
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "spell_class": "NONE",
-    "flags": [ "CONCENTRATE", "NO_LEGS", "IGNORE_WALLS", "SILENT", "NO_PROJECTILE" ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "SILENT",
+      "NO_PROJECTILE"
+    ],
     "effect_str": "stunned",
     "min_damage": 65,
     "max_damage": 160,
@@ -151,12 +222,17 @@
   {
     "id": "sonic_push",
     "type": "SPELL",
-    "name": { "str": "Sonic Push" },
+    "name": {
+      "str": "Sonic Push"
+    },
     "description": "Pushes monsters with great force.",
     "message": "The air around you pushes nearby monsters away!",
     "effect": "area_push",
     "shape": "blast",
-    "valid_targets": [ "hostile", "ground" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
     "min_range": 5,
     "max_range": 15,
     "range_increment": 2.5,

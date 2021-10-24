@@ -2,23 +2,34 @@
   {
     "type": "SPELL",
     "id": "assassin_teleport",
-    "name": { "str": "Assassin Teleport" },
+    "name": {
+      "str": "Assassin Teleport"
+    },
     "description": "This is a sub-spell for Assassin Strike.  It teleports you.",
     "effect": "short_range_teleport",
     "shape": "blast",
-    "valid_targets": [ "none" ],
-    "flags": [ "SILENT" ],
+    "valid_targets": [
+      "none"
+    ],
+    "flags": [
+      "SILENT"
+    ],
     "min_range": 8,
     "max_range": 8
   },
   {
     "type": "SPELL",
     "id": "assassin_toxic_smoke",
-    "name": { "str": "Assassin Toxic Smoke" },
+    "name": {
+      "str": "Assassin Toxic Smoke"
+    },
     "description": "This is a sub-spell for Assassin Strike.  It generates toxic smoke in an area.",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ground", "hostile" ],
+    "valid_targets": [
+      "ground",
+      "hostile"
+    ],
     "field_id": "fd_toxic_gas",
     "min_field_intensity": 2,
     "max_field_intensity": 3,
@@ -28,11 +39,15 @@
   {
     "type": "SPELL",
     "id": "assassin_strike",
-    "name": { "str": "Assassin Strike" },
+    "name": {
+      "str": "Assassin Strike"
+    },
     "description": "You strike a poisonous blow and disappear in a puff of toxic smoke.",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "hostile" ],
+    "valid_targets": [
+      "hostile"
+    ],
     "min_damage": 35,
     "max_damage": 594,
     "damage_increment": 13.0,
@@ -50,6 +65,14 @@
     "energy_source": "MANA",
     "base_energy_cost": 1200,
     "difficulty": 8,
-    "extra_effects": [ { "id": "assassin_toxic_smoke", "hit_self": true }, { "id": "assassin_teleport" } ]
+    "extra_effects": [
+      {
+        "id": "assassin_toxic_smoke",
+        "hit_self": true
+      },
+      {
+        "id": "assassin_teleport"
+      }
+    ]
   }
 ]

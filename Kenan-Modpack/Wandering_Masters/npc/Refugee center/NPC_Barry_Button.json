@@ -30,21 +30,39 @@
       {
         "text": "Your brother sent me. Let's get out of here, and fast.",
         "topic": "TALK_Barry_Button_GetOut",
-        "condition": { "not": { "u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes" } }
+        "condition": {
+          "not": {
+            "u_has_var": "BarryB_met",
+            "type": "general",
+            "context": "meeting",
+            "value": "yes"
+          }
+        }
       },
       {
         "text": "We're here.",
         "topic": "TALK_Barry_Button_Safe",
-        "condition": { "npc_at_om_location": "evac_center_7" },
-        "effect": [ "stop_following" ]
+        "condition": {
+          "npc_at_om_location": "evac_center_7"
+        },
+        "effect": [
+          "stop_following"
+        ]
       },
       {
         "text": "We're here.",
         "topic": "TALK_Barry_Button_Safe",
-        "condition": { "npc_at_om_location": "bank" },
-        "effect": [ "stop_following" ]
+        "condition": {
+          "npc_at_om_location": "bank"
+        },
+        "effect": [
+          "stop_following"
+        ]
       },
-      { "text": "Almost.", "topic": "TALK_DONE" }
+      {
+        "text": "Almost.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
@@ -53,9 +71,17 @@
     "dynamic_line": "Let's go!",
     "responses": [
       {
-        "text": "…",
+        "text": "\u2026",
         "topic": "TALK_DONE",
-        "effect": [ "follow_only", { "u_add_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes" } ]
+        "effect": [
+          "follow_only",
+          {
+            "u_add_var": "BarryB_met",
+            "type": "general",
+            "context": "meeting",
+            "value": "yes"
+          }
+        ]
       }
     ]
   },
@@ -68,26 +94,53 @@
         "text": "I'm glad it's all over.",
         "topic": "TALK_Barry_Button_2",
         "effect": [
-          { "npc_first_topic": "TALK_Barry_Button_2" },
-          { "npc_add_var": "barryb_wait", "type": "flag", "context": "meeting", "time": true }
+          {
+            "npc_first_topic": "TALK_Barry_Button_2"
+          },
+          {
+            "npc_add_var": "barryb_wait",
+            "type": "flag",
+            "context": "meeting",
+            "time": true
+          }
         ]
       }
     ]
   },
   {
-    "id": [ "TALK_Barry_Button_2" ],
+    "id": [
+      "TALK_Barry_Button_2"
+    ],
     "type": "talk_topic",
     "dynamic_line": "<greet>",
     "responses": [
-      { "text": "About that job…", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
-      { "text": "<BGSS_intro_question>", "topic": "TALK_Barry_Button_Background" },
-      { "text": "So, what about that job?", "topic": "TALK_Barry_Button_job" },
+      {
+        "text": "About that job\u2026",
+        "condition": "has_assigned_mission",
+        "topic": "TALK_MISSION_INQUIRE"
+      },
+      {
+        "text": "<BGSS_intro_question>",
+        "topic": "TALK_Barry_Button_Background"
+      },
+      {
+        "text": "So, what about that job?",
+        "topic": "TALK_Barry_Button_job"
+      },
       {
         "text": "Can you teach me something?",
         "topic": "TALK_Barry_Button_teach_check",
-        "condition": { "npc_has_var": "u_know_barryb_backstory", "type": "flag", "context": "meeting", "value": "yes" }
+        "condition": {
+          "npc_has_var": "u_know_barryb_backstory",
+          "type": "flag",
+          "context": "meeting",
+          "value": "yes"
+        }
       },
-      { "text": "Goodbye.", "topic": "TALK_DONE" }
+      {
+        "text": "Goodbye.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
@@ -106,10 +159,24 @@
       {
         "text": "Sure thing, <name_g>.",
         "topic": "TALK_DONE",
-        "condition": { "npc_compare_time_since_var": "barryb_wait", "type": "flag", "context": "meeting", "op": ">=", "time": "24 h" },
-        "effect": [ "follow_only", { "npc_first_topic": "TALK_Barry_Button_1" } ]
+        "condition": {
+          "npc_compare_time_since_var": "barryb_wait",
+          "type": "flag",
+          "context": "meeting",
+          "op": ">=",
+          "time": "24 h"
+        },
+        "effect": [
+          "follow_only",
+          {
+            "npc_first_topic": "TALK_Barry_Button_1"
+          }
+        ]
       },
-      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
+      {
+        "text": "<done_conversation_section>",
+        "topic": "TALK_NONE"
+      }
     ]
   },
   {
@@ -120,7 +187,14 @@
       {
         "text": "<done_conversation_section>",
         "topic": "TALK_NONE",
-        "effect": [ { "npc_add_var": "u_know_barryb_backstory", "type": "flag", "context": "meeting", "value": "yes" } ]
+        "effect": [
+          {
+            "npc_add_var": "u_know_barryb_backstory",
+            "type": "flag",
+            "context": "meeting",
+            "value": "yes"
+          }
+        ]
       }
     ]
   },
@@ -138,15 +212,32 @@
     "responses": [
       {
         "text": "Yes, let's do this.",
-        "condition": { "npc_has_var": "u_helped_barry_button", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": {
+          "npc_has_var": "u_helped_barry_button",
+          "type": "general",
+          "context": "meeting",
+          "value": "yes"
+        },
         "trial": {
           "type": "CONDITION",
-          "condition": { "npc_has_var": "barry_button_teach", "type": "general", "context": "meeting", "value": "yes" }
+          "condition": {
+            "npc_has_var": "barry_button_teach",
+            "type": "general",
+            "context": "meeting",
+            "value": "yes"
+          }
         },
-        "success": { "topic": "TALK_Barry_Button_teach_check1" },
-        "failure": { "topic": "TALK_Barry_Button_teach_done" }
+        "success": {
+          "topic": "TALK_Barry_Button_teach_check1"
+        },
+        "failure": {
+          "topic": "TALK_Barry_Button_teach_done"
+        }
       },
-      { "text": "Sorry I don't want to.", "topic": "TALK_NONE" }
+      {
+        "text": "Sorry I don't want to.",
+        "topic": "TALK_NONE"
+      }
     ]
   },
   {
@@ -177,25 +268,42 @@
       {
         "text": "Yes, let's do this.",
         "topic": "TALK_Barry_Button_teach",
-        "condition": { "u_has_trait": "ILLITERATE" },
-        "effect": { "u_lose_trait": "ILLITERATE" },
+        "condition": {
+          "u_has_trait": "ILLITERATE"
+        },
+        "effect": {
+          "u_lose_trait": "ILLITERATE"
+        },
         "switch": true
       },
       {
         "text": "Yes, let's do this.",
         "topic": "TALK_Barry_Button_teach",
-        "condition": { "u_has_trait": "SLOWREADER" },
-        "effect": { "u_lose_trait": "SLOWREADER" },
+        "condition": {
+          "u_has_trait": "SLOWREADER"
+        },
+        "effect": {
+          "u_lose_trait": "SLOWREADER"
+        },
         "switch": true
       },
       {
         "text": "Yes, let's do this.",
         "topic": "TALK_Barry_Button_teach",
-        "condition": { "not": { "u_has_trait": "FASTREADER" } },
-        "effect": { "u_add_trait": "FASTREADER" },
+        "condition": {
+          "not": {
+            "u_has_trait": "FASTREADER"
+          }
+        },
+        "effect": {
+          "u_add_trait": "FASTREADER"
+        },
         "switch": true
       },
-      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
+      {
+        "text": "<done_conversation_section>",
+        "topic": "TALK_NONE"
+      }
     ]
   },
   {
@@ -206,7 +314,11 @@
       {
         "text": "Thanks, Barry!",
         "topic": "TALK_DONE",
-        "effect": { "npc_lose_var": "barry_button_teach", "type": "general", "context": "meeting" }
+        "effect": {
+          "npc_lose_var": "barry_button_teach",
+          "type": "general",
+          "context": "meeting"
+        }
       }
     ]
   },
@@ -214,31 +326,63 @@
     "type": "talk_topic",
     "id": "TALK_Barry_Button_teach_done",
     "dynamic_line": "I already taught you all I knew.",
-    "responses": [ { "text": "Thanks again, Barry.", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "Thanks again, Barry.",
+        "topic": "TALK_DONE"
+      }
+    ]
   },
   {
     "id": "MISSION_Barry_Button_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Heist" },
+    "name": {
+      "str": "Heist"
+    },
     "description": "Protect me!!!",
     "goal": "MGOAL_CONDITION",
     "//": "place_monsters at start",
-    "goal_condition": { "u_compare_time_since_var": "barryb_heist", "type": "flag", "context": "meeting", "op": ">=", "time": "45 m" },
+    "goal_condition": {
+      "u_compare_time_since_var": "barryb_heist",
+      "type": "flag",
+      "context": "meeting",
+      "op": ">=",
+      "time": "45 m"
+    },
     "difficulty": 0,
     "value": 1000,
     "start": {
-      "effect": [ "stop_following", { "npc_add_var": "barryb_heist", "type": "flag", "context": "meeting", "time": true } ]
+      "effect": [
+        "stop_following",
+        {
+          "npc_add_var": "barryb_heist",
+          "type": "flag",
+          "context": "meeting",
+          "time": true
+        }
+      ]
     },
     "end": {
       "effect": [
         "follow_only",
-        { "npc_lose_var": "barryb_heist", "type": "flag", "context": "meeting" },
-        { "mapgen_update": "heist_success", "origin_npc": true },
-        { "npc_first_topic": "TALK_Barry_Button_1" }
+        {
+          "npc_lose_var": "barryb_heist",
+          "type": "flag",
+          "context": "meeting"
+        },
+        {
+          "mapgen_update": "heist_success",
+          "origin_npc": true
+        },
+        {
+          "npc_first_topic": "TALK_Barry_Button_1"
+        }
       ]
     },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "dialogue": {
       "describe": "WIP!!!",
       "offer": "WIP",

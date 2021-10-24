@@ -2,10 +2,19 @@
   {
     "id": "force_blade",
     "type": "SPELL",
-    "name": { "str": "Force Blade" },
+    "name": {
+      "str": "Force Blade"
+    },
     "description": "You shoot a blade of concentrated force in a straight line, cutting everything in its path.",
-    "valid_targets": [ "hostile", "ground", "ally" ],
-    "flags": [ "SOMATIC", "NO_LEGS" ],
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally"
+    ],
+    "flags": [
+      "SOMATIC",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "line",
     "spell_class": "FORCE_MAGE",
@@ -27,7 +36,9 @@
   {
     "id": "force_magical_armor",
     "type": "ARMOR",
-    "name": { "str_sp": "Force Shield" },
+    "name": {
+      "str_sp": "Force Shield"
+    },
     "description": "A shield of pure force that protects you from most types of physical damage.",
     "weight": "1 g",
     "volume": "1 ml",
@@ -41,30 +52,69 @@
           "has": "WORN",
           "condition": "ALWAYS",
           "values": [
-            { "value": "ARMOR_BASH", "multiply": -0.3 },
-            { "value": "ARMOR_CUT", "multiply": -0.3 },
-            { "value": "ARMOR_STAB", "multiply": -0.3 },
-            { "value": "ARMOR_BULLET", "multiply": -0.3 }
+            {
+              "value": "ARMOR_BASH",
+              "multiply": -0.3
+            },
+            {
+              "value": "ARMOR_CUT",
+              "multiply": -0.3
+            },
+            {
+              "value": "ARMOR_STAB",
+              "multiply": -0.3
+            },
+            {
+              "value": "ARMOR_BULLET",
+              "multiply": -0.3
+            }
           ]
         }
       ]
     },
-    "flags": [ "WATERPROOF", "TRADER_AVOID", "SEMITANGIBLE", "ONLY_ONE", "OVERSIZE", "AURA" ],
+    "flags": [
+      "WATERPROOF",
+      "TRADER_AVOID",
+      "SEMITANGIBLE",
+      "ONLY_ONE",
+      "OVERSIZE",
+      "AURA"
+    ],
     "armor": [
       {
         "encumbrance": 0,
         "coverage": 100,
-        "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "head", "foot_l", "foot_r", "mouth", "eyes" ]
+        "covers": [
+          "leg_l",
+          "leg_r",
+          "torso",
+          "arm_l",
+          "arm_r",
+          "hand_l",
+          "hand_r",
+          "head",
+          "foot_l",
+          "foot_r",
+          "mouth",
+          "eyes"
+        ]
       }
     ]
   },
   {
     "id": "force_magical_armor",
     "type": "SPELL",
-    "name": { "str": "Force Shield" },
+    "name": {
+      "str": "Force Shield"
+    },
     "description": "Adds a shield of pure force that protects your body and your clothing from attacks.",
-    "valid_targets": [ "none" ],
-    "flags": [ "VERBAL", "CONCENTRATE" ],
+    "valid_targets": [
+      "none"
+    ],
+    "flags": [
+      "VERBAL",
+      "CONCENTRATE"
+    ],
     "effect": "spawn_item",
     "effect_str": "force_magical_armor",
     "shape": "blast",

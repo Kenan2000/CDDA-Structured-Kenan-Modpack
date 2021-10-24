@@ -3,17 +3,26 @@
     "//": "A monster that appears as a humanoid creature (and is friendly to that specie... before dying). It has several disorienting abilities with a chance to immobilize nearby creatures, while draining the stamina of the target.",
     "id": "mon_shifter",
     "type": "MONSTER",
-    "name": { "str": "shapeshifter" },
+    "name": {
+      "str": "shapeshifter"
+    },
     "description": "An inhumane creature, shrouded in disorienting atmosphere. Its appearance is a complete mystery, neither its true nature.",
     "default_faction": "shifter",
-    "species": [ "ABERRATION", "SECROSPEC" ],
+    "species": [
+      "ABERRATION",
+      "SECROSPEC"
+    ],
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 360,
     "speed": 85,
-    "material": [ "secro_null" ],
+    "material": [
+      "secro_null"
+    ],
     "symbol": "@",
-    "emit_fields": [ "emit_shifter_fog" ],
+    "emit_fields": [
+      "emit_shifter_fog"
+    ],
     "color": "dark_gray",
     "aggression": 100,
     "morale": 100,
@@ -33,7 +42,9 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_shifter_target" },
+        "spell_data": {
+          "id": "mon_shifter_target"
+        },
         "cooldown": 25,
         "monster_message": "<color_red>The air surrounding %1$s intensifies!</color>"
       },
@@ -42,36 +53,81 @@
         "cooldown": 10,
         "move_cost": 150,
         "gun_type": "shifter_shadows",
-        "fake_skills": [ [ "gun", 5 ], [ "rifle", 5 ] ],
+        "fake_skills": [
+          [
+            "gun",
+            5
+          ],
+          [
+            "rifle",
+            5
+          ]
+        ],
         "require_targeting_player": true,
         "require_targeting_npc": true,
         "require_targeting_monster": true,
         "targeting_cost": 300,
         "targeting_sound": "the eerie shadows building up.",
         "description": "The shapeshifter sends out errant shadows!",
-        "ranges": [ [ 2, 3, "N" ], [ 4, 7, "M" ], [ 7, 20, "L" ] ]
+        "ranges": [
+          [
+            2,
+            3,
+            "N"
+          ],
+          [
+            4,
+            7,
+            "M"
+          ],
+          [
+            7,
+            20,
+            "L"
+          ]
+        ]
       }
     ],
-    "death_function": { "message": "The %s disappears.", "corpse_type": "NO_CORPSE" },
-    "flags": [ "SEES", "HEARS", "SMELLS", "BASHES", "POISON", "NO_BREATHE", "STUN_IMMUNE", "PUSH_MON" ]
+    "death_function": {
+      "message": "The %s disappears.",
+      "corpse_type": "NO_CORPSE"
+    },
+    "flags": [
+      "SEES",
+      "HEARS",
+      "SMELLS",
+      "BASHES",
+      "POISON",
+      "NO_BREATHE",
+      "STUN_IMMUNE",
+      "PUSH_MON"
+    ]
   },
   {
     "//": "Illusionary copies have 1/4 stats, except for speed.",
     "looks_like": "mon_shifter",
     "id": "mon_shifter_illu",
     "type": "MONSTER",
-    "name": { "str": "shapeshifter" },
+    "name": {
+      "str": "shapeshifter"
+    },
     "description": "An inhumane creature, shrouded in disorienting atmosphere. Its appearance is a complete mystery, neither its true nature.",
     "default_faction": "shifter",
-    "species": [ "ABERRATION" ],
+    "species": [
+      "ABERRATION"
+    ],
     "diff": 100,
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 90,
     "speed": 90,
-    "material": [ "secro_null" ],
+    "material": [
+      "secro_null"
+    ],
     "symbol": "@",
-    "emit_fields": [ "emit_shifter_fog_smol" ],
+    "emit_fields": [
+      "emit_shifter_fog_smol"
+    ],
     "color": "dark_gray",
     "aggression": 100,
     "morale": 100,
@@ -89,7 +145,9 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_shifter_illu_target" },
+        "spell_data": {
+          "id": "mon_shifter_illu_target"
+        },
         "cooldown": 20,
         "monster_message": "<color_yellow>%1$s shifts erratically!</color>"
       },
@@ -98,44 +156,84 @@
         "cooldown": 5,
         "move_cost": 300,
         "gun_type": "shifter_illu_shadows",
-        "fake_skills": [ [ "gun", 2 ], [ "rifle", 2 ] ],
+        "fake_skills": [
+          [
+            "gun",
+            2
+          ],
+          [
+            "rifle",
+            2
+          ]
+        ],
         "require_targeting_player": true,
         "require_targeting_npc": true,
         "require_targeting_monster": true,
         "targeting_cost": 600,
         "targeting_sound": "the eerie shadows building up.",
         "description": "The shapeshifter sends out errant shadows!",
-        "ranges": [ [ 2, 4, "N" ], [ 5, 15, "M" ] ]
+        "ranges": [
+          [
+            2,
+            4,
+            "N"
+          ],
+          [
+            5,
+            15,
+            "M"
+          ]
+        ]
       }
     ],
-    "death_function": { "message": "The %s disappears.", "corpse_type": "NO_CORPSE" },
-    "flags": [ "SEES", "HEARS", "SMELLS", "BASHES", "POISON", "NO_BREATHE" ]
+    "death_function": {
+      "message": "The %s disappears.",
+      "corpse_type": "NO_CORPSE"
+    },
+    "flags": [
+      "SEES",
+      "HEARS",
+      "SMELLS",
+      "BASHES",
+      "POISON",
+      "NO_BREATHE"
+    ]
   },
   {
     "//": "We copy some of the vanilla zeds.",
     "id": "mon_shifter_zombie",
     "type": "MONSTER",
-    "name": { "str": "zombie" },
+    "name": {
+      "str": "zombie"
+    },
     "description": "A human body, swaying as it moves, an unstoppable rage visible in its oily black eyes. Within a closer look, its visage blurs occasionally.",
     "copy-from": "mon_zombie",
     "looks_like": "mon_zombie",
     "death_function": {
       "corpse_type": "NO_CORPSE",
       "message": "The %s's body distorts!",
-      "effect": { "id": "mon_shifter_zombie_death", "hit_self": true }
+      "effect": {
+        "id": "mon_shifter_zombie_death",
+        "hit_self": true
+      }
     }
   },
   {
     "id": "mon_shifter_zombie_rot",
     "type": "MONSTER",
-    "name": { "str": "decayed zombie" },
+    "name": {
+      "str": "decayed zombie"
+    },
     "description": "A once-dead human corpse. Its discolored swollen flesh is riddled with festering wounds and open sores. Within a closer look, its visage blurs occasionally.",
     "copy-from": "mon_zombie_rot",
     "looks_like": "mon_zombie_rot",
     "death_function": {
       "corpse_type": "NO_CORPSE",
       "message": "The %s's body distorts!",
-      "effect": { "id": "mon_shifter_zombie_death", "hit_self": true }
+      "effect": {
+        "id": "mon_shifter_zombie_death",
+        "hit_self": true
+      }
     }
   }
 ]

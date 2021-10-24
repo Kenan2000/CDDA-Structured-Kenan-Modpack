@@ -2,11 +2,21 @@
   {
     "id": "arcana_blessing_agility",
     "type": "SPELL",
-    "name": { "str": "Blessing: Agility" },
+    "name": {
+      "str": "Blessing: Agility"
+    },
     "description": "Arcane Blessing\nUsing this spell will grant a temporary speed and agility-enhancing effect.  It can be used on yourself or an ally.",
     "message": "Time seems to slow for a moment, as you channel a rush of energy.",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "spell_agility",
@@ -30,11 +40,20 @@
   {
     "id": "arcana_blessing_clairvoyance",
     "type": "SPELL",
-    "name": { "str": "Blessing: Clairvoyance" },
+    "name": {
+      "str": "Blessing: Clairvoyance"
+    },
     "description": "Arcane Blessing\nUsing this spell will anoint you with an ivory halo, granting you sight beyond sight.",
     "message": "A shimmering aura permeates you, opening your eyes to hidden truths.",
-    "valid_targets": [ "self" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "spawn_item",
     "shape": "blast",
     "effect_str": "halo_clairvoyance",
@@ -56,13 +75,26 @@
     "id": "arcana_blessing_confuse_monster",
     "//": "ID retained for save compatibility reasons.",
     "type": "SPELL",
-    "name": { "str": "Blessing: Confusion Wave" },
+    "name": {
+      "str": "Blessing: Confusion Wave"
+    },
     "description": "Arcane Blessing\nUsing this spell will blast a cone-shaped area with psychic force, damaging and stunning hostiles caught in it.",
     "message": "A faint distortion in the air ripples out before you, and you sense an unearthly force exerting its will.",
     "effect": "attack",
     "shape": "cone",
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "SILENT", "NO_FAIL" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "SILENT",
+      "NO_FAIL"
+    ],
     "effect_str": "stunned",
     "min_damage": 15,
     "max_damage": 120,
@@ -91,20 +123,52 @@
   {
     "id": "arcana_blessing_conjure_miasma",
     "type": "SPELL",
-    "name": { "str": "Blessing: Conjure Miasma" },
+    "name": {
+      "str": "Blessing: Conjure Miasma"
+    },
     "description": "Arcane Blessing\nUsing this spell will engulf the targeted area in a swirling miasma of various poisonous vapors, afflicting many forms of harm.",
     "message": "A rush of unnatural wind swirls at your command, bringing forth myriad poisonous gales with it.",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
-      { "id": "arcana_aftermath_brief_poison_ward", "hit_self": true },
-      { "id": "arcana_aftermath_conjure_miasma_tear", "hit_self": false, "max_level": 20 },
-      { "id": "arcana_aftermath_conjure_miasma_nuke", "hit_self": false, "max_level": 20 },
-      { "id": "arcana_aftermath_conjure_miasma_fungicide", "hit_self": false, "max_level": 20 },
-      { "id": "arcana_aftermath_conjure_miasma_noise", "hit_self": false, "max_level": 20 }
+      {
+        "id": "arcana_aftermath_brief_poison_ward",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_aftermath_conjure_miasma_tear",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_conjure_miasma_nuke",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_conjure_miasma_fungicide",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_conjure_miasma_noise",
+        "hit_self": false,
+        "max_level": 20
+      }
     ],
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "SILENT", "NO_FAIL" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "SILENT",
+      "NO_FAIL"
+    ],
     "min_damage": 15,
     "max_damage": 120,
     "damage_increment": 5.25,
@@ -138,14 +202,32 @@
   {
     "id": "arcana_blessing_conjure_lightburst",
     "type": "SPELL",
-    "name": { "str": "Blessing: Conjure Lightburst" },
+    "name": {
+      "str": "Blessing: Conjure Lightburst"
+    },
     "description": "Arcane Blessing\nUsing this spell will conjure a flood of magical illumination at the targeted area, and scorch that which shuns the light.",
     "message": "Flickering candle-flames of light scatter across the ground at your guidance, before a lingering glow permeates that area.",
     "effect": "attack",
     "shape": "blast",
-    "extra_effects": [ { "id": "arcana_aftermath_conjure_lightburst_searing", "hit_self": false, "max_level": 20 } ],
-    "valid_targets": [ "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "SILENT", "NO_FAIL" ],
+    "extra_effects": [
+      {
+        "id": "arcana_aftermath_conjure_lightburst_searing",
+        "hit_self": false,
+        "max_level": 20
+      }
+    ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "SILENT",
+      "NO_FAIL"
+    ],
     "min_range": 6,
     "max_range": 24,
     "range_increment": 0.9,
@@ -173,14 +255,33 @@
   {
     "id": "arcana_blessing_conjure_shadow_field",
     "type": "SPELL",
-    "name": { "str": "Blessing: Conjure Shadows" },
+    "name": {
+      "str": "Blessing: Conjure Shadows"
+    },
     "description": "Arcane Blessing\nUsing this spell will envelop the targeted area in lingering darkness, in addition to inflicting blindness on enemies caught in the initial effect.",
     "message": "Wisps of inky, living shadow emerge from the ground, engulfing the area as you will it.",
     "effect": "attack",
     "shape": "blast",
-    "extra_effects": [ { "id": "arcana_aftermath_conjure_shadow_field_blindness", "hit_self": false, "max_level": 20 } ],
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "SILENT", "NO_FAIL" ],
+    "extra_effects": [
+      {
+        "id": "arcana_aftermath_conjure_shadow_field_blindness",
+        "hit_self": false,
+        "max_level": 20
+      }
+    ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "SILENT",
+      "NO_FAIL"
+    ],
     "min_range": 6,
     "max_range": 24,
     "range_increment": 0.9,
@@ -210,17 +311,36 @@
   {
     "id": "arcana_blessing_consecrate",
     "type": "SPELL",
-    "name": { "str": "Blessing: Consecrate" },
+    "name": {
+      "str": "Blessing: Consecrate"
+    },
     "description": "Arcane Blessing\nUsing this spell will alter the terrain, driving off various signs of otherworldly corruption afflicting the land, along with disrupting most intruders from Beyond, with hostile summoned creatures taking double damage.",
     "message": "You channel the will of He From Beyond The Veil, to bring order to this unearthly intrusion.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "NO_FAIL" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "NO_FAIL"
+    ],
     "effect": "ter_transform",
     "shape": "blast",
     "effect_str": "arcana_consecrate",
     "extra_effects": [
-      { "id": "arcana_aftermath_consecrate_dispel_summons", "hit_self": false, "max_level": 20 },
-      { "id": "arcana_aftermath_consecrate_daze_intruders", "hit_self": false, "max_level": 20 }
+      {
+        "id": "arcana_aftermath_consecrate_dispel_summons",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_consecrate_daze_intruders",
+        "hit_self": false,
+        "max_level": 20
+      }
     ],
     "energy_source": "MANA",
     "difficulty": 80,
@@ -245,20 +365,51 @@
   {
     "id": "arcana_blessing_divine_storm",
     "type": "SPELL",
-    "name": { "str": "Blessing: Divine Storm" },
+    "name": {
+      "str": "Blessing: Divine Storm"
+    },
     "description": "Arcane Blessing\nUsing this spell will call forth a storm of unearthly lightning all around you, smiting and striking foes blind.  Random areas around you will be blasted for additional damage.",
     "message": "A ring of strange blue light encircles you, before pale bolts of lightning surge out in every direction.",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
-      { "id": "arcana_aftermath_brief_lightning_ward", "hit_self": true },
-      { "id": "arcana_aftermath_divine_storm_blast", "hit_self": false, "max_level": 20 },
-      { "id": "arcana_aftermath_divine_storm_blast", "hit_self": false, "max_level": 20 },
-      { "id": "arcana_aftermath_divine_storm_blast", "hit_self": false, "max_level": 20 },
-      { "id": "arcana_aftermath_divine_storm_noise", "hit_self": false, "max_level": 20 }
+      {
+        "id": "arcana_aftermath_brief_lightning_ward",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_aftermath_divine_storm_blast",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_divine_storm_blast",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_divine_storm_blast",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_divine_storm_noise",
+        "hit_self": false,
+        "max_level": 20
+      }
     ],
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "NO_FAIL" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "NO_FAIL"
+    ],
     "effect_str": "blind",
     "min_damage": 10,
     "max_damage": 80,
@@ -290,11 +441,20 @@
   {
     "id": "arcana_blessing_drain_life",
     "type": "SPELL",
-    "name": { "str": "Blessing: Drain Life" },
+    "name": {
+      "str": "Blessing: Drain Life"
+    },
     "description": "Arcane Blessing\nUsing this spell will anoint you with a horned halo, granting you a life-draining effect.",
     "message": "A shimmering aura permeates you, sparking a yearning for battle and the death of your enemies.",
-    "valid_targets": [ "self" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "spawn_item",
     "shape": "blast",
     "effect_str": "halo_drainlife",
@@ -315,17 +475,38 @@
   {
     "id": "arcana_blessing_holy_flare",
     "type": "SPELL",
-    "name": { "str": "Blessing: Holy Flare" },
+    "name": {
+      "str": "Blessing: Holy Flare"
+    },
     "description": "Arcane Blessing\nUsing this spell will conjure an eruption of otherworldly flames at the location targeted, that will leave the terrain unharmed.  Anything in the center will take double damage and be knocked down.",
     "message": "A spark of radiant golden flame erupts from out of thin air, by your command.",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
-      { "id": "arcana_aftermath_holy_flare_spike", "hit_self": false, "max_level": 20 },
-      { "id": "arcana_aftermath_holy_flare_noise", "hit_self": false, "max_level": 20 }
+      {
+        "id": "arcana_aftermath_holy_flare_spike",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_holy_flare_noise",
+        "hit_self": false,
+        "max_level": 20
+      }
     ],
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "SILENT", "NO_FAIL" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "SILENT",
+      "NO_FAIL"
+    ],
     "effect_str": "dazed",
     "sound_description": "the roar of flames",
     "min_damage": 10,
@@ -361,11 +542,21 @@
   {
     "id": "arcana_blessing_holy_ward",
     "type": "SPELL",
-    "name": { "str": "Blessing: Holy Ward" },
+    "name": {
+      "str": "Blessing: Holy Ward"
+    },
     "description": "Arcane Blessing\nUsing this spell will create an aura protecting against blades, and guard against various anomalous hazards.  It can be used on yourself or an ally.",
     "message": "You feel the threads of reality pulled taut, as a powerful protective spell is channeled through you.",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "min_range": 0,
     "max_range": 15,
     "range_increment": 0.75,
@@ -389,11 +580,21 @@
   {
     "id": "arcana_blessing_illusion_cloak",
     "type": "SPELL",
-    "name": { "str": "Blessing: Illusion Cloak" },
+    "name": {
+      "str": "Blessing: Illusion Cloak"
+    },
     "description": "Arcane Blessing\nUsing this spell will cloak one in illusions, hiding them from sight and protecting against certain optical effects.",
     "message": "You channel a shimmering aura, that fades into swirling illusory shadows.",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "arcana_invis",
@@ -417,11 +618,21 @@
   {
     "id": "arcana_blessing_might",
     "type": "SPELL",
-    "name": { "str": "Blessing: Might" },
+    "name": {
+      "str": "Blessing: Might"
+    },
     "description": "Arcane Blessing\nUsing this spell will grant a temporary boost to strength.  It can be used on yourself or an ally.",
     "message": "You feel raw strength channeled through you, surging forth at your command.",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "spell_might",
@@ -445,11 +656,23 @@
   {
     "id": "arcana_blessing_open_lock",
     "type": "SPELL",
-    "name": { "str": "Blessing: Opening" },
+    "name": {
+      "str": "Blessing: Opening"
+    },
     "description": "Arcane Blessing\nUsing this spell will unbind locks, unseal barricades, and otherwise open the way forward in the targeted area.",
     "message": "You focus, strange influence on the land exerted by your will.",
-    "valid_targets": [ "self", "ally", "hostile", "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "ter_transform",
     "shape": "blast",
     "effect_str": "arcana_open_lock",
@@ -475,11 +698,22 @@
   {
     "id": "arcana_blessing_pacify_monsters",
     "type": "SPELL",
-    "name": { "str": "Blessing: Pacify Monsters" },
+    "name": {
+      "str": "Blessing: Pacify Monsters"
+    },
     "description": "Arcane Blessing\nUsing this spell will momentarily sway monsters to your side.  It only works on monsters that have been sufficiently weakened, but the effectiveness increases with spell level.",
     "message": "You focus, channeling a soothing aura through your hands.",
-    "valid_targets": [ "self" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "NO_FAIL" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "NO_FAIL"
+    ],
     "effect": "charm_monster",
     "shape": "blast",
     "energy_source": "MANA",
@@ -508,18 +742,42 @@
   {
     "id": "arcana_blessing_radiant_burst",
     "type": "SPELL",
-    "name": { "str": "Blessing: Radiant Burst" },
+    "name": {
+      "str": "Blessing: Radiant Burst"
+    },
     "description": "Arcane Blessing\nUsing this spell will blast a cone-shaped area with a crackling burst of energy, striking enemies blind with divine lightning.  Anything in the center line will take double damage.",
     "message": "Unearthly trails of lightning arc outward, bathing a swath ahead of you in an eerie glow.",
     "effect": "attack",
     "shape": "cone",
-    "valid_targets": [ "hostile", "ground" ],
-    "extra_effects": [
-      { "id": "arcana_aftermath_brief_lightning_ward", "hit_self": true },
-      { "id": "arcana_aftermath_radiant_burst_line", "hit_self": false, "max_level": 20 },
-      { "id": "arcana_aftermath_radiant_burst_noise", "hit_self": false, "max_level": 20 }
+    "valid_targets": [
+      "hostile",
+      "ground"
     ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "SILENT", "NO_FAIL" ],
+    "extra_effects": [
+      {
+        "id": "arcana_aftermath_brief_lightning_ward",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_aftermath_radiant_burst_line",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_radiant_burst_noise",
+        "hit_self": false,
+        "max_level": 20
+      }
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "SILENT",
+      "NO_FAIL"
+    ],
     "effect_str": "blind",
     "min_damage": 15,
     "max_damage": 120,
@@ -554,11 +812,20 @@
   {
     "id": "arcana_blessing_summon_giant_centipedes",
     "type": "SPELL",
-    "name": { "str": "Blessing: Summon Centipedes" },
+    "name": {
+      "str": "Blessing: Summon Centipedes"
+    },
     "description": "Arcane Blessing\nUsing this spell will summon mutated vermin, which will be loyal but not permanent.",
     "message": "You focus, imagery of false omens being averted lingering in your mind, as unnatural vermin slither into existence.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_centipede_giant_summoned",
@@ -587,11 +854,20 @@
   {
     "id": "arcana_blessing_summon_homunculus",
     "type": "SPELL",
-    "name": { "str": "Blessing: Summon Homunculus" },
+    "name": {
+      "str": "Blessing: Summon Homunculus"
+    },
     "description": "Arcane Blessing\nUsing this spell will summon a mimicry of the human form, which will be loyal but not permanent.",
     "message": "You focus, imagery of false omens lingering in your mind as a living construct is called to serve you.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_homunculus_summoned",
@@ -617,11 +893,20 @@
   {
     "id": "arcana_blessing_summon_skeletal_dog",
     "type": "SPELL",
-    "name": { "str": "Blessing: Summon Skeletal Dogs" },
+    "name": {
+      "str": "Blessing: Summon Skeletal Dogs"
+    },
     "description": "Arcane Blessing\nUsing this spell will summon a number of animalistic revenants, which will be loyal but not permanent.",
     "message": "You focus, imagery of a dead world lingering in your mind as an undead hunting pack surges forth.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_dog_skeleton_summoned",
@@ -650,11 +935,20 @@
   {
     "id": "arcana_blessing_summon_skeleton",
     "type": "SPELL",
-    "name": { "str": "Blessing: Summon Skeleton" },
+    "name": {
+      "str": "Blessing: Summon Skeleton"
+    },
     "description": "Arcane Blessing\nUsing this spell will summon a humanoid revenant, which will be loyal but not permanent.",
     "message": "You focus, imagery of humanity's extinction lingering in your mind as an undead servant appears before you.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_skeleton_summoned",
@@ -680,11 +974,20 @@
   {
     "id": "arcana_blessing_summon_thing",
     "type": "SPELL",
-    "name": { "str": "Blessing: Summon Thing" },
+    "name": {
+      "str": "Blessing: Summon Thing"
+    },
     "description": "Arcane Blessing\nUsing this spell will summon a tentacled abomination, which will be loyal but not permanent.",
     "message": "You focus, imagery of the horrors your enemies embody lingering in your mind, as a writhing mass of tendrils wavers into existence.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_thing_summoned",
@@ -710,11 +1013,20 @@
   {
     "id": "arcana_blessing_summon_vortices",
     "type": "SPELL",
-    "name": { "str": "Blessing: Summon Vortices" },
+    "name": {
+      "str": "Blessing: Summon Vortices"
+    },
     "description": "Arcane Blessing\nUsing this spell will summon swirling beings from Beyond, which will be loyal but not permanent.",
     "message": "You focus, imagery of uncertain, distant futures lingering in your mind, as the living wind heeds your call.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_vortex_summoned",
@@ -743,13 +1055,29 @@
   {
     "id": "arcana_blessing_surge_adrenaline",
     "type": "SPELL",
-    "name": { "str": "Blessing: Surging Force" },
+    "name": {
+      "str": "Blessing: Surging Force"
+    },
     "description": "Arcane Blessing\nUsing this spell will provoke a rush of otherworldly adrenaline and warp time for urgent situations, with none of the usual drawbacks.  It can be used on yourself or an ally.",
     "message": "You channel an uplifting rush of energy, time seeming to slow momentarily.",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect_str": "adrenaline_arcana",
-    "extra_effects": [ { "id": "arcana_aftermath_surge_adrenaline_timewarp", "hit_self": false, "max_level": 20 } ],
+    "extra_effects": [
+      {
+        "id": "arcana_aftermath_surge_adrenaline_timewarp",
+        "hit_self": false,
+        "max_level": 20
+      }
+    ],
     "max_level": 20,
     "min_range": 0,
     "max_range": 15,
@@ -772,11 +1100,20 @@
   {
     "id": "arcana_blessing_wall_force",
     "type": "SPELL",
-    "name": { "str": "Blessing: Wall of Force" },
+    "name": {
+      "str": "Blessing: Wall of Force"
+    },
     "description": "Arcane Blessing\nUsing this spell will conjure a magical barrier where you target it, which can be used to trap enemies if placed carefully.",
     "message": "A flickering flame marks the ground for a moment, before an impenetrable barrier envelops it.  Examine it to dismiss the barrier.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "ter_transform",
     "shape": "blast",
     "effect_str": "arcana_barrier",
@@ -802,11 +1139,21 @@
   {
     "id": "arcana_blessing_ward_acid",
     "type": "SPELL",
-    "name": { "str": "Blessing: Ward (Acid)" },
+    "name": {
+      "str": "Blessing: Ward (Acid)"
+    },
     "description": "Arcane Blessing\nUsing this spell will grant a blessing that completely protects against acid, even direct contact.  It can be used on yourself or an ally.",
     "message": "You channel a shimmering aura, and the air passing through carries a faintly bitter scent to it.",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "acid_ward_true",
@@ -830,11 +1177,21 @@
   {
     "id": "arcana_blessing_ward_cold",
     "type": "SPELL",
-    "name": { "str": "Blessing: Ward (Cold)" },
+    "name": {
+      "str": "Blessing: Ward (Cold)"
+    },
     "description": "Arcane Blessing\nUsing this spell will protect against the cold, and certain forms of supernatural harm.  It can be used on yourself or an ally.",
     "message": "You channel a protective aura, the air gaining a soothing warmth to it.",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "min_range": 0,
     "max_range": 15,
     "range_increment": 0.75,
@@ -858,11 +1215,21 @@
   {
     "id": "arcana_blessing_ward_flame",
     "type": "SPELL",
-    "name": { "str": "Blessing: Ward (Flame)" },
+    "name": {
+      "str": "Blessing: Ward (Flame)"
+    },
     "description": "Arcane Blessing\nUsing this spell will completely protect against fire, as well as the side effects caused by heat and smoke.  It can be used on yourself or an ally.",
     "message": "You channel a protective aura, the air seeming chilled by your actions.",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "heat_ward_true",
@@ -886,11 +1253,20 @@
   {
     "id": "arcana_blessing_ward_lightning",
     "type": "SPELL",
-    "name": { "str": "Blessing: Ward (Lightning)" },
+    "name": {
+      "str": "Blessing: Ward (Lightning)"
+    },
     "description": "Arcane Blessing\nUsing this spell will grant a blessing that completely protects against lightning.  It can be used on yourself or on an ally.",
     "message": "You channel a soothing, insulating aura.",
-    "valid_targets": [ "self" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "lightning_ward_true",
@@ -914,11 +1290,21 @@
   {
     "id": "arcana_blessing_ward_poison",
     "type": "SPELL",
-    "name": { "str": "Blessing: Ward (Poison)" },
+    "name": {
+      "str": "Blessing: Ward (Poison)"
+    },
     "description": "Arcane Blessing\nUsing this spell will grant a blessing that protects against toxic gas and other forms of poison.  It can be used on yourself or an ally.",
     "message": "You channel energy, spreading a revitalizing glow by your will.",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "NO_FAIL" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "poison_ward",
@@ -942,20 +1328,52 @@
   {
     "id": "arcana_blessing_wave_destruction",
     "type": "SPELL",
-    "name": { "str": "Blessing: Wave of Destruction" },
+    "name": {
+      "str": "Blessing: Wave of Destruction"
+    },
     "description": "Arcane Blessing\nUsing this spell will unleash a devastating, destructive blast of force, scouring the very land itself.  Anything close enough will take double damage.  Overuse will fatigue the user's body and mind.",
     "message": "The very air wavers as an otherworldly roar resounds, blasting everything around you with the lightning of an unnatural storm.",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
-      { "id": "arcana_aftermath_brief_lightning_ward", "hit_self": true },
-      { "id": "arcana_aftermath_wave_destruction_spike", "hit_self": false, "max_level": 20 },
-      { "id": "arcana_aftermath_wave_destruction_pulse", "hit_self": false, "max_level": 20 },
-      { "id": "arcana_aftermath_wave_destruction_side_effects", "hit_self": true, "max_level": 20 },
-      { "id": "arcana_aftermath_wave_destruction_noise", "hit_self": false, "max_level": 20 }
+      {
+        "id": "arcana_aftermath_brief_lightning_ward",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_aftermath_wave_destruction_spike",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_wave_destruction_pulse",
+        "hit_self": false,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_wave_destruction_side_effects",
+        "hit_self": true,
+        "max_level": 20
+      },
+      {
+        "id": "arcana_aftermath_wave_destruction_noise",
+        "hit_self": false,
+        "max_level": 20
+      }
     ],
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "SILENT", "NO_FAIL" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "SILENT",
+      "NO_FAIL"
+    ],
     "effect_str": "stunned",
     "min_damage": 25,
     "max_damage": 200,

@@ -2,17 +2,37 @@
   {
     "id": "arcana_item_athame_sanguine_art",
     "type": "SPELL",
-    "name": { "str": "Sanguine Art" },
+    "name": {
+      "str": "Sanguine Art"
+    },
     "description": "Prepares a ritual to turn part of your life force into a usable form of essence.  Doing so will take 5 minutes, inflicting blood loss and damage at the end, as well as potential consequences if overused...",
     "message": "You work a ritual to draw power from your own blood, instinct guiding your hand as you trace patterns across your skin with the dull blade.  As you work the last rune, the only one to actually break the skin, wounds open elsewhere on your body!",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE" ],
-    "valid_targets": [ "self" ],
-    "extra_effects": [
-      { "id": "arcana_item_athame_sanguine_art_fatigue", "hit_self": true },
-      { "id": "arcana_item_athame_sanguine_art_corruption", "hit_self": true },
-      { "id": "arcana_item_generate_blood_essence", "hit_self": true }
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DAMAGE"
     ],
-    "affected_body_parts": [ "torso" ],
+    "valid_targets": [
+      "self"
+    ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_athame_sanguine_art_fatigue",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_athame_sanguine_art_corruption",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_generate_blood_essence",
+        "hit_self": true
+      }
+    ],
+    "affected_body_parts": [
+      "torso"
+    ],
     "effect_str": "bleed",
     "effect": "attack",
     "shape": "blast",
@@ -27,11 +47,19 @@
   {
     "id": "arcana_item_athame_sanguine_art_fatigue",
     "type": "SPELL",
-    "name": { "str": "Sanguine Art Fatigue" },
+    "name": {
+      "str": "Sanguine Art Fatigue"
+    },
     "description": "Dirty hack caused by DDA-specific fuckery.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -20,
     "max_damage": -20,
     "effect": "recover_energy",
@@ -41,11 +69,19 @@
   {
     "id": "arcana_item_athame_sanguine_art_corruption",
     "type": "SPELL",
-    "name": { "str": "Sanguine Art Corruption" },
+    "name": {
+      "str": "Sanguine Art Corruption"
+    },
     "description": "This inflicts the more insidious effects of the athame.  That's 2 entire days of side-effect buildup per use, by the way.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect_str": "blood_athame_side_effects",
     "effect": "attack",
     "shape": "blast",
@@ -55,26 +91,47 @@
   {
     "type": "SPELL",
     "id": "arcana_item_brooch_iridescent_empowered",
-    "name": { "str": "Guard And Guide" },
+    "name": {
+      "str": "Guard And Guide"
+    },
     "description": "Grants the recovery effect to the user.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "A burst of protective magic radiates from the brooch!",
     "effect": "spawn_item",
     "shape": "blast",
-    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "effect_str": "halo_brooch_effect",
-    "extra_effects": [ { "id": "arcana_item_brooch_iridescent_empowered_fatigue", "hit_self": true } ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_brooch_iridescent_empowered_fatigue",
+        "hit_self": true
+      }
+    ],
     "min_duration": 108000,
     "max_duration": 108000
   },
   {
     "id": "arcana_item_brooch_iridescent_empowered_fatigue",
     "type": "SPELL",
-    "name": { "str": "Guard And Guide Fatigue" },
+    "name": {
+      "str": "Guard And Guide Fatigue"
+    },
     "description": "And this makes it cost as much fatigue as it would cost if this were a Magic Sign at SL 5.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -88,
     "max_damage": -88,
     "effect": "recover_energy",
@@ -85,20 +142,49 @@
     "id": "arcana_item_chalice_offering",
     "type": "SPELL",
     "//": "Todo: add a difficulty of 3 and remove no-failure from the item's action, if it turns out that skill reasonably reduces an unleveled spell's failure rate to be feasible, when spell skill is no longer hardcoded.",
-    "name": { "str": "Offering" },
+    "name": {
+      "str": "Offering"
+    },
     "description": "Prepares a ritual to turn part of your life force into a usable form of essence.  Doing so will take 15 minutes, inflicting harm upon your body at the end, as well as dire consequences if overused...",
     "message": "You work a ritual to draw power from your own breath, drawn by instinct to whisper words in an unfamiliar language.  The verses complete, you raise the chalice as if to drink from it, only for your breath to be drawn from your lungs!",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE" ],
-    "extra_effects": [
-      { "id": "arcana_item_chalice_offering_fatigue", "hit_self": true },
-      { "id": "arcana_item_chalice_offering_winding", "hit_self": true },
-      { "id": "arcana_item_chalice_offering_corruption", "hit_self": true },
-      { "id": "arcana_item_generate_blood_essence", "hit_self": true },
-      { "id": "arcana_item_generate_blood_essence", "hit_self": true },
-      { "id": "arcana_item_generate_blood_essence", "hit_self": true }
+    "valid_targets": [
+      "self"
     ],
-    "affected_body_parts": [ "torso" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DAMAGE"
+    ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_chalice_offering_fatigue",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_chalice_offering_winding",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_chalice_offering_corruption",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_generate_blood_essence",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_generate_blood_essence",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_generate_blood_essence",
+        "hit_self": true
+      }
+    ],
+    "affected_body_parts": [
+      "torso"
+    ],
     "effect": "attack",
     "shape": "blast",
     "min_damage": 8,
@@ -110,11 +196,19 @@
   {
     "id": "arcana_item_chalice_offering_fatigue",
     "type": "SPELL",
-    "name": { "str": "Offering Fatigue" },
+    "name": {
+      "str": "Offering Fatigue"
+    },
     "description": "Dirty hack caused by DDA-specific fuckery.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -60,
     "max_damage": -60,
     "effect": "recover_energy",
@@ -124,11 +218,19 @@
   {
     "id": "arcana_item_chalice_offering_winding",
     "type": "SPELL",
-    "name": { "str": "Offering Windedness" },
+    "name": {
+      "str": "Offering Windedness"
+    },
     "description": "This is so that the chalice ritual actually knocks the wind out of you.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -10000,
     "max_damage": -10000,
     "effect": "recover_energy",
@@ -138,11 +240,19 @@
   {
     "id": "arcana_item_chalice_offering_corruption",
     "type": "SPELL",
-    "name": { "str": "Offering Corruption" },
+    "name": {
+      "str": "Offering Corruption"
+    },
     "description": "This inflicts the more insidious effects of the chalice.  That's 2 entire days of side-effect buildup per use, by the way.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect_str": "chalice_offering_side_effects",
     "effect": "attack",
     "shape": "blast",
@@ -152,18 +262,36 @@
   {
     "type": "SPELL",
     "id": "arcana_item_charm_bone_empowered",
-    "name": { "str": "Stunning Blast" },
+    "name": {
+      "str": "Stunning Blast"
+    },
     "description": "Blasts nearby targets for heavy damage.",
-    "valid_targets": [ "ally", "hostile" ],
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
     "message": "A powerful blast of energy radiates from the charm!",
     "extra_effects": [
-      { "id": "arcana_item_charm_bone_empowered_spike", "hit_self": false },
-      { "id": "arcana_item_charm_bone_empowered_paralyze", "hit_self": false },
-      { "id": "arcana_item_charm_bone_empowered_fatigue", "hit_self": true }
+      {
+        "id": "arcana_item_charm_bone_empowered_spike",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_charm_bone_empowered_paralyze",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_charm_bone_empowered_fatigue",
+        "hit_self": true
+      }
     ],
     "effect": "attack",
     "shape": "blast",
-    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "min_damage": 48,
     "max_damage": 48,
     "damage_type": "heat",
@@ -173,13 +301,22 @@
   {
     "type": "SPELL",
     "id": "arcana_item_charm_bone_empowered_spike",
-    "name": { "str": "Stunning Blast Spike" },
+    "name": {
+      "str": "Stunning Blast Spike"
+    },
     "description": "Doubles the damage for enemies that are close enough.",
-    "valid_targets": [ "ally", "hostile" ],
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "min_damage": 48,
     "max_damage": 48,
     "damage_type": "heat",
@@ -189,11 +326,20 @@
   {
     "id": "arcana_item_charm_bone_empowered_paralyze",
     "type": "SPELL",
-    "name": { "str": "Stunning Blast Paralysis" },
+    "name": {
+      "str": "Stunning Blast Paralysis"
+    },
     "description": "This makes the enemies brain-zapped for once!",
-    "valid_targets": [ "ally", "hostile" ],
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
     "message": "",
-    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "effect": "mod_moves",
     "shape": "blast",
     "min_damage": -2200,
@@ -204,11 +350,19 @@
   {
     "id": "arcana_item_charm_bone_empowered_fatigue",
     "type": "SPELL",
-    "name": { "str": "Stunning Blast Fatigue" },
+    "name": {
+      "str": "Stunning Blast Fatigue"
+    },
     "description": "And this makes it cost as much fatigue as it would cost if this were a Magic Sign at SL 5.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -48,
     "max_damage": -48,
     "effect": "recover_energy",
@@ -218,15 +372,32 @@
   {
     "id": "arcana_item_coalescent_conversion",
     "type": "SPELL",
-    "name": { "str": "Coalescent Conversion" },
+    "name": {
+      "str": "Coalescent Conversion"
+    },
     "description": "This exists to make magic scrolls leave a blank scroll when used up, obsoleting the previous hack of making the item transform to exploit revert_to.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "The air wavers as sparks leap from the device, a thunderclap resounding as energy is pulled from the fabric of reality, solidifying into a crystalline sliver.\nGlowing white-hot for the first split-second of its existence, the thin shard of condensed essence rapidly cools down to something safe to handle.",
-    "flags": [ "PERMANENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "PERMANENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "extra_effects": [
-      { "id": "arcana_item_coalescent_conversion_sound", "hit_self": false },
-      { "id": "arcana_item_coalescent_conversion_side_effects", "hit_self": false },
-      { "id": "arcana_item_coalescent_conversion_wonder", "hit_self": false }
+      {
+        "id": "arcana_item_coalescent_conversion_sound",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_coalescent_conversion_side_effects",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_coalescent_conversion_wonder",
+        "hit_self": false
+      }
     ],
     "effect": "spawn_item",
     "shape": "blast",
@@ -237,7 +408,9 @@
   {
     "type": "SPELL",
     "id": "arcana_item_coalescent_conversion_sound",
-    "name": { "str": "Coalescent Conversion Noise" },
+    "name": {
+      "str": "Coalescent Conversion Noise"
+    },
     "description": "Less spammy sound",
     "message": "",
     "sound_description": "a thundering boom!",
@@ -247,16 +420,24 @@
     "sound_variant": "shockwave",
     "min_damage": 80,
     "max_damage": 80,
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "noise",
     "shape": "blast"
   },
   {
     "type": "SPELL",
     "id": "arcana_item_coalescent_conversion_sound",
-    "name": { "str": "Coalescent Conversion Noise" },
+    "name": {
+      "str": "Coalescent Conversion Noise"
+    },
     "description": "Aside from it doing fuck-all to NPCs, this works decently enough.",
-    "valid_targets": [ "hostile", "ground", "self" ],
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "self"
+    ],
     "effect": "flashbang",
     "shape": "blast",
     "message": "",
@@ -266,11 +447,19 @@
   {
     "id": "arcana_item_coalescent_conversion_side_effects",
     "type": "SPELL",
-    "name": { "str": "Coalescent Conversion Side Effects" },
+    "name": {
+      "str": "Coalescent Conversion Side Effects"
+    },
     "description": "Zaps the user briefly, creates hot air.",
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
-    "valid_targets": [ "self" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "self"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "zapped",
@@ -285,45 +474,100 @@
   {
     "type": "SPELL",
     "id": "arcana_item_coalescent_conversion_wonder",
-    "name": { "str": "Coalescent Conversion Wonder" },
+    "name": {
+      "str": "Coalescent Conversion Wonder"
+    },
     "description": "Some risk of a few Fun consequences.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
     "effect": "none",
     "shape": "blast",
-    "flags": [ "WONDER", "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "WONDER",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "extra_effects": [
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_item_coalescent_conversion_wonder_archon" },
-      { "id": "arcana_item_coalescent_conversion_wonder_tindalos" }
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_item_coalescent_conversion_wonder_archon"
+      },
+      {
+        "id": "arcana_item_coalescent_conversion_wonder_tindalos"
+      }
     ]
   },
   {
     "id": "arcana_item_coalescent_conversion_wonder_archon",
     "type": "SPELL",
-    "name": { "str": "Coalescent Conversion Archon Rift" },
+    "name": {
+      "str": "Coalescent Conversion Archon Rift"
+    },
     "description": "Creates an archon rift nearby.",
-    "valid_targets": [ "ground" ],
-    "message": "You feel a slight chill despite the heat given off by the newly-created crystal…",
-    "flags": [ "RANDOM_TARGET", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "message": "You feel a slight chill despite the heat given off by the newly-created crystal\u2026",
+    "flags": [
+      "RANDOM_TARGET",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "min_range": 10,
@@ -338,11 +582,19 @@
   {
     "id": "arcana_item_coalescent_conversion_wonder_tindalos",
     "type": "SPELL",
-    "name": { "str": "Coalescent Conversion Tindalos Rift" },
+    "name": {
+      "str": "Coalescent Conversion Tindalos Rift"
+    },
     "description": "Creates a tindalos rift nearby.",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "message": "You feel as though something is stalking you, some unseen watcher giving off a sense of otherworldly killing intent.",
-    "flags": [ "RANDOM_TARGET", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "RANDOM_TARGET",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "min_range": 10,
@@ -357,18 +609,44 @@
   {
     "id": "arcana_item_coalescent_offering",
     "type": "SPELL",
-    "name": { "str": "Coalescent Offering" },
+    "name": {
+      "str": "Coalescent Offering"
+    },
     "description": "Prepares a ritual to obtain crystallized essence.  Doing so will take 15 minutes, inflicting harm upon your body at the end, as well as dire consequences if overused...",
     "message": "You work a ritual to draw power from within, drawn by instinct to whisper words in an unfamiliar language.  The verses complete, you raise the chalice up high, a bliding flash resounding as a sliver of magical energy solidifies within the chalice!",
-    "valid_targets": [ "self" ],
-    "flags": [ "PERMANENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "PERMANENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "extra_effects": [
-      { "id": "arcana_item_coalescent_offering_fatigue", "hit_self": true },
-      { "id": "arcana_item_coalescent_conversion_sound", "hit_self": false },
-      { "id": "arcana_item_coalescent_conversion_side_effects", "hit_self": false },
-      { "id": "arcana_item_chalice_offering_winding", "hit_self": true },
-      { "id": "arcana_item_chalice_offering_corruption", "hit_self": true },
-      { "id": "arcana_aftermath_wave_destruction_side_effects", "hit_self": true }
+      {
+        "id": "arcana_item_coalescent_offering_fatigue",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_coalescent_conversion_sound",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_coalescent_conversion_side_effects",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_chalice_offering_winding",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_chalice_offering_corruption",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_aftermath_wave_destruction_side_effects",
+        "hit_self": true
+      }
     ],
     "effect": "spawn_item",
     "shape": "blast",
@@ -379,11 +657,19 @@
   {
     "id": "arcana_item_coalescent_offering_fatigue",
     "type": "SPELL",
-    "name": { "str": "Offering Fatigue" },
+    "name": {
+      "str": "Offering Fatigue"
+    },
     "description": "Dirty hack caused by DDA-specific fuckery.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -300,
     "max_damage": -300,
     "effect": "recover_energy",
@@ -393,26 +679,47 @@
   {
     "type": "SPELL",
     "id": "arcana_item_amulet_exotic_empowered",
-    "name": { "str": "Hidden Aura" },
+    "name": {
+      "str": "Hidden Aura"
+    },
     "description": "Spawns the item needed to make the effects work.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "A strange pulse from the amulet courses through your body!",
     "effect": "spawn_item",
     "shape": "blast",
-    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "effect_str": "halo_amulet_effect",
-    "extra_effects": [ { "id": "arcana_item_amulet_exotic_empowered_fatigue", "hit_self": true } ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_amulet_exotic_empowered_fatigue",
+        "hit_self": true
+      }
+    ],
     "min_duration": 90000,
     "max_duration": 90000
   },
   {
     "id": "arcana_item_amulet_exotic_empowered_fatigue",
     "type": "SPELL",
-    "name": { "str": "Hidden Aura Fatigue" },
+    "name": {
+      "str": "Hidden Aura Fatigue"
+    },
     "description": "And this makes it cost as much fatigue as it would cost if this were a Magic Sign at SL 5.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -72,
     "max_damage": -72,
     "effect": "recover_energy",
@@ -422,11 +729,19 @@
   {
     "id": "arcana_item_generate_blood_essence",
     "type": "SPELL",
-    "name": { "str": "Generate Blood Essence" },
+    "name": {
+      "str": "Generate Blood Essence"
+    },
     "description": "This is used by blood magic items to produce blood essence.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "PERMANENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "PERMANENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect_str": "essence_blood",
     "effect": "spawn_item",
     "shape": "blast"
@@ -434,12 +749,25 @@
   {
     "id": "arcana_item_gilded_aegis_healing",
     "type": "SPELL",
-    "name": { "str": "Aegis Mending" },
+    "name": {
+      "str": "Aegis Mending"
+    },
     "description": "Forces the body to heal itself, but also hurts quite a bit.",
     "message": "Your cloak shimmers with odd light, and a painful jolt of healing power surges through you!",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
-    "extra_effects": [ { "id": "arcana_item_gilded_aegis_pain", "hit_self": true } ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_gilded_aegis_pain",
+        "hit_self": true
+      }
+    ],
     "effect_str": "arcana_aegis_mending",
     "min_damage": -8,
     "max_damage": -8,
@@ -451,11 +779,19 @@
   {
     "id": "arcana_item_gilded_aegis_pain",
     "type": "SPELL",
-    "name": { "str": "Aegis Pain Side Effect" },
+    "name": {
+      "str": "Aegis Pain Side Effect"
+    },
     "description": "Take your medicine, Hunter.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -12,
     "max_damage": -12,
     "effect": "recover_energy",
@@ -465,17 +801,33 @@
   {
     "type": "SPELL",
     "id": "arcana_item_hammerzeit",
-    "name": { "str": "Thunderous Wrath" },
+    "name": {
+      "str": "Thunderous Wrath"
+    },
     "description": "Flashbang on user, blinding anyone nearby.",
-    "valid_targets": [ "ally", "hostile", "ground", "self" ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground",
+      "self"
+    ],
     "message": "\"Ave martello!\"  The hammer gives off a golden light, that rises to a blinding flare and resounding bang!",
     "extra_effects": [
-      { "id": "arcana_item_hammerzeit_attack", "hit_self": false },
-      { "id": "arcana_item_hammerzeit_dazzle", "hit_self": false }
+      {
+        "id": "arcana_item_hammerzeit_attack",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_hammerzeit_dazzle",
+        "hit_self": false
+      }
     ],
     "effect": "flashbang",
     "shape": "blast",
-    "flags": [ "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": 40,
     "max_damage": 40,
     "min_aoe": 6,
@@ -484,12 +836,17 @@
   {
     "id": "arcana_item_hammerzeit_attack",
     "type": "SPELL",
-    "name": { "str": "Hammer Secondary Effect" },
+    "name": {
+      "str": "Hammer Secondary Effect"
+    },
     "description": "Mild damage and dazing for every vanilla monster with SUNDEATH, and every summoned monster based off such creatures.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ally", "hostile" ],
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
     "targeted_monster_ids": [
       "mon_dark_wyrm",
       "mon_albino_penguin",
@@ -505,7 +862,13 @@
       "mon_shadow_snake_summoned",
       "mon_shadow_snake_summoned_fake"
     ],
-    "flags": [ "RANDOM_DAMAGE", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "effect_str": "dazed",
     "min_damage": 6,
     "max_damage": 12,
@@ -518,13 +881,23 @@
   {
     "id": "arcana_item_hammerzeit_dazzle",
     "type": "SPELL",
-    "name": { "str": "Hammer Blindness" },
+    "name": {
+      "str": "Hammer Blindness"
+    },
     "description": "This is a hack for the flashbang effect not affecting NPCs.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ally", "hostile" ],
-    "flags": [ "RANDOM_DURATION", "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
+    "flags": [
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "min_aoe": 6,
     "max_aoe": 6,
     "min_duration": 200,
@@ -537,18 +910,37 @@
   {
     "type": "SPELL",
     "id": "arcana_item_hammerzeit_greater",
-    "name": { "str": "Luminous Wrath" },
+    "name": {
+      "str": "Luminous Wrath"
+    },
     "description": "Flashbang on user, blinding anyone nearby, and bonus damage to anyone else in AoE.",
-    "valid_targets": [ "ally", "hostile", "ground", "self" ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground",
+      "self"
+    ],
     "message": "\"Ave martello!\"  With a thunderous blast, a searing light erupts from the hammer!",
     "extra_effects": [
-      { "id": "arcana_item_hammerzeit_greater_attack_1", "hit_self": false },
-      { "id": "arcana_item_hammerzeit_greater_attack_2", "hit_self": false },
-      { "id": "arcana_item_hammerzeit_dazzle", "hit_self": false }
+      {
+        "id": "arcana_item_hammerzeit_greater_attack_1",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_hammerzeit_greater_attack_2",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_hammerzeit_dazzle",
+        "hit_self": false
+      }
     ],
     "effect": "flashbang",
     "shape": "blast",
-    "flags": [ "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": 40,
     "max_damage": 40,
     "min_aoe": 6,
@@ -557,13 +949,24 @@
   {
     "id": "arcana_item_hammerzeit_greater_attack_1",
     "type": "SPELL",
-    "name": { "str": "Hammer Greater Secondary Effect 1" },
+    "name": {
+      "str": "Hammer Greater Secondary Effect 1"
+    },
     "description": "Fire damage and dazing for anything in the AoE, except the user.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ally", "hostile" ],
-    "flags": [ "RANDOM_DAMAGE", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "effect_str": "dazed",
     "min_damage": 20,
     "max_damage": 40,
@@ -576,12 +979,17 @@
   {
     "id": "arcana_item_hammerzeit_greater_attack_2",
     "type": "SPELL",
-    "name": { "str": "Hammer Greater Secondary Effect 2" },
+    "name": {
+      "str": "Hammer Greater Secondary Effect 2"
+    },
     "description": "Extra damage for every vanilla monster with SUNDEATH, and every summoned monster based off such creatures.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ally", "hostile" ],
+    "valid_targets": [
+      "ally",
+      "hostile"
+    ],
     "targeted_monster_ids": [
       "mon_dark_wyrm",
       "mon_albino_penguin",
@@ -597,7 +1005,13 @@
       "mon_shadow_snake_summoned",
       "mon_shadow_snake_summoned_fake"
     ],
-    "flags": [ "RANDOM_DAMAGE", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "min_damage": 20,
     "max_damage": 40,
     "min_aoe": 6,
@@ -607,13 +1021,23 @@
   {
     "id": "arcana_item_immolate",
     "type": "SPELL",
-    "name": { "str": "Immolate" },
+    "name": {
+      "str": "Immolate"
+    },
     "description": "Blast a nearby target with fire.",
     "message": "The talisman burns away, loosing a bolt of flame!",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ally", "hostile", "ground" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "min_damage": 15,
     "max_damage": 15,
     "damage_type": "heat",
@@ -629,14 +1053,28 @@
   {
     "id": "arcana_item_jade_hauberk_healing",
     "type": "SPELL",
-    "name": { "str": "Hauberk Mending" },
+    "name": {
+      "str": "Hauberk Mending"
+    },
     "description": "Weaker healing than gilded aegis, but less pain.",
     "message": "Your armor's mantle shimmers with an odd light, sending the dull ache of healing magic through your body.",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "extra_effects": [
-      { "id": "arcana_item_jade_hauberk_healing_fatigue", "hit_self": true },
-      { "id": "arcana_item_jade_hauberk_pain", "hit_self": true }
+      {
+        "id": "arcana_item_jade_hauberk_healing_fatigue",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_jade_hauberk_pain",
+        "hit_self": true
+      }
     ],
     "effect_str": "arcana_aegis_mending",
     "min_damage": -4,
@@ -649,11 +1087,19 @@
   {
     "id": "arcana_item_jade_hauberk_healing_fatigue",
     "type": "SPELL",
-    "name": { "str": "Hauberk Mending Fatigue" },
+    "name": {
+      "str": "Hauberk Mending Fatigue"
+    },
     "description": "Dirty hack caused by DDA-specific fuckery.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -8,
     "max_damage": -8,
     "effect": "recover_energy",
@@ -663,11 +1109,19 @@
   {
     "id": "arcana_item_jade_hauberk_pain",
     "type": "SPELL",
-    "name": { "str": "Hauberk Pain Side Effect" },
+    "name": {
+      "str": "Hauberk Pain Side Effect"
+    },
     "description": "Still stings a bit.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -6,
     "max_damage": -6,
     "effect": "recover_energy",
@@ -677,17 +1131,36 @@
   {
     "id": "arcana_item_lichhook",
     "type": "SPELL",
-    "name": { "str": "Sundering Flesh" },
+    "name": {
+      "str": "Sundering Flesh"
+    },
     "description": "Ensnares and poisons a single target.",
     "message": "Venomous tendrils erupt from the ground by your command, to ensnare and infest your enemy!",
-    "valid_targets": [ "hostile" ],
+    "valid_targets": [
+      "hostile"
+    ],
     "extra_effects": [
-      { "id": "arcana_item_lichhook_freeze", "hit_self": false },
-      { "id": "arcana_item_lichhook_slow", "hit_self": false },
-      { "id": "arcana_item_lichhook_poison", "hit_self": false }
+      {
+        "id": "arcana_item_lichhook_freeze",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_lichhook_slow",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_lichhook_poison",
+        "hit_self": false
+      }
     ],
     "effect_str": "badpoison",
-    "flags": [ "RANDOM_DAMAGE", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "min_range": 3,
     "max_range": 3,
     "effect": "attack",
@@ -705,11 +1178,20 @@
   {
     "id": "arcana_item_lichhook_freeze",
     "type": "SPELL",
-    "name": { "str": "Sundering Flesh Freeze" },
+    "name": {
+      "str": "Sundering Flesh Freeze"
+    },
     "description": "This paralyzes the target for a few seconds.",
     "message": "",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "RANDOM_DAMAGE", "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "min_range": 3,
     "max_range": 3,
     "effect": "mod_moves",
@@ -720,12 +1202,20 @@
   {
     "id": "arcana_item_lichhook_poison",
     "type": "SPELL",
-    "name": { "str": "Sundering Flesh Poison" },
+    "name": {
+      "str": "Sundering Flesh Poison"
+    },
     "description": "This adds the lower level poison, max duration.",
     "message": "",
-    "valid_targets": [ "hostile" ],
+    "valid_targets": [
+      "hostile"
+    ],
     "effect_str": "poison",
-    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "min_range": 3,
     "max_range": 3,
     "effect": "attack",
@@ -736,12 +1226,21 @@
   {
     "id": "arcana_item_lichhook_slow",
     "type": "SPELL",
-    "name": { "str": "Sundering Flesh Slow" },
+    "name": {
+      "str": "Sundering Flesh Slow"
+    },
     "description": "This adds paralytic poison.",
     "message": "",
-    "valid_targets": [ "hostile" ],
+    "valid_targets": [
+      "hostile"
+    ],
     "effect_str": "paralyzepoison",
-    "flags": [ "RANDOM_DURATION", "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "min_range": 3,
     "max_range": 3,
     "effect": "attack",
@@ -752,11 +1251,19 @@
   {
     "id": "arcana_item_mana_potion",
     "type": "SPELL",
-    "name": { "str": "Mana Boost" },
+    "name": {
+      "str": "Mana Boost"
+    },
     "description": "Restores 600 mana.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "You drink the potion and feel magical energy flowing through you.",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": 600,
     "max_damage": 600,
     "effect": "recover_energy",
@@ -766,13 +1273,21 @@
   {
     "id": "arcana_item_mantle_shadow",
     "type": "SPELL",
-    "name": { "str": "Illusory Shroud" },
+    "name": {
+      "str": "Illusory Shroud"
+    },
     "description": "Grants the user the illusion cloak effect.",
     "message": "The robe's fabric darkens to a rich shade of black, cloaking your surroundings in a flickering illusion.",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect_str": "arcana_invis_lesser",
     "min_duration": 30000,
     "max_duration": 30000
@@ -780,14 +1295,29 @@
   {
     "id": "arcana_item_mech_flare",
     "type": "SPELL",
-    "name": { "str": "Ghostly Flare" },
+    "name": {
+      "str": "Ghostly Flare"
+    },
     "description": "Fires an ethereal flare that will leave a lingering glow on whatever you directly target, and illuminate the surrounding area.",
     "message": "An otherworldly plume of blue flame arcs out from an emitter on the mech's shoulder, casting an eerie glow over the area!",
     "effect": "attack",
     "shape": "blast",
-    "extra_effects": [ { "id": "arcana_item_mech_flare_spike" }, { "id": "arcana_item_mech_flare_dazzle" } ],
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "RANDOM_DURATION", "SILENT" ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_mech_flare_spike"
+      },
+      {
+        "id": "arcana_item_mech_flare_dazzle"
+      }
+    ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "RANDOM_DURATION",
+      "SILENT"
+    ],
     "min_damage": 30,
     "max_damage": 30,
     "damage_type": "cold",
@@ -805,13 +1335,20 @@
   {
     "id": "arcana_item_mech_flare_spike",
     "type": "SPELL",
-    "name": { "str": "Ghostly Flare Spike" },
+    "name": {
+      "str": "Ghostly Flare Spike"
+    },
     "description": "Doubles damage for anything in the center, and adds plasma for flavor.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ground" ],
-    "flags": [ "RANDOM_DURATION", "SILENT" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "RANDOM_DURATION",
+      "SILENT"
+    ],
     "min_damage": 30,
     "max_damage": 30,
     "damage_type": "cold",
@@ -828,13 +1365,20 @@
   {
     "id": "arcana_item_mech_flare_dazzle",
     "type": "SPELL",
-    "name": { "str": "Ghostly Flare Dazzle" },
+    "name": {
+      "str": "Ghostly Flare Dazzle"
+    },
     "description": "And this adds dazzling fields to potentially blind targets.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ground" ],
-    "flags": [ "RANDOM_DURATION", "SILENT" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "RANDOM_DURATION",
+      "SILENT"
+    ],
     "min_range": 45,
     "max_range": 45,
     "min_aoe": 5,
@@ -849,19 +1393,44 @@
   {
     "id": "arcana_item_meteoric_verge_bolt",
     "type": "SPELL",
-    "name": { "str": "Bolt From Beyond" },
+    "name": {
+      "str": "Bolt From Beyond"
+    },
     "description": "Blasts everything in AoE with lightning.",
     "message": "A surge of energy strikes the ground as you raise the verge, resounding with a thunderous blast!",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
-      { "id": "arcana_item_meteoric_verge_spike", "hit_self": false },
-      { "id": "arcana_item_meteoric_verge_pulse", "hit_self": false },
-      { "id": "arcana_item_meteoric_verge_noise", "hit_self": false },
-      { "id": "arcana_item_meteoric_verge_buff", "hit_self": true }
+      {
+        "id": "arcana_item_meteoric_verge_spike",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_meteoric_verge_pulse",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_meteoric_verge_noise",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_meteoric_verge_buff",
+        "hit_self": true
+      }
     ],
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "IGNORE_WALLS", "NO_PROJECTILE", "RANDOM_DAMAGE", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "effect_str": "blind",
     "min_damage": 45,
     "max_damage": 90,
@@ -880,13 +1449,23 @@
   {
     "id": "arcana_item_meteoric_verge_spike",
     "type": "SPELL",
-    "name": { "str": "Verge Spike" },
+    "name": {
+      "str": "Verge Spike"
+    },
     "description": "Double damage in epicenter.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "IGNORE_WALLS", "NO_PROJECTILE", "RANDOM_DAMAGE", "SILENT" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "RANDOM_DAMAGE",
+      "SILENT"
+    ],
     "min_damage": 45,
     "max_damage": 90,
     "damage_type": "electric",
@@ -898,14 +1477,33 @@
   {
     "id": "arcana_item_meteoric_verge_pulse",
     "type": "SPELL",
-    "name": { "str": "Verge Pulse" },
+    "name": {
+      "str": "Verge Pulse"
+    },
     "description": "This adds the terrain damage.",
-    "valid_targets": [ "self", "ally", "hostile", "ground" ],
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile",
+      "ground"
+    ],
     "message": "",
-    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE", "RANDOM_DAMAGE", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "bash",
     "shape": "blast",
-    "extra_effects": [ { "id": "arcana_item_meteoric_verge_pulse_extra", "hit_self": false } ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_meteoric_verge_pulse_extra",
+        "hit_self": false
+      }
+    ],
     "min_damage": 45,
     "max_damage": 90,
     "min_aoe": 9,
@@ -916,12 +1514,18 @@
   {
     "id": "arcana_item_meteoric_verge_pulse_extra",
     "type": "SPELL",
-    "name": { "str": "Verge Pulse Extra" },
+    "name": {
+      "str": "Verge Pulse Extra"
+    },
     "description": "Dirty hack to work around bugs in magic code.",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "ter_transform",
     "shape": "blast",
-    "flags": [ "SILENT" ],
+    "flags": [
+      "SILENT"
+    ],
     "message": "",
     "effect_str": "arcana_pulse",
     "min_damage": 10,
@@ -934,7 +1538,9 @@
   {
     "type": "SPELL",
     "id": "arcana_item_meteoric_verge_noise",
-    "name": { "str": "Verge Noise" },
+    "name": {
+      "str": "Verge Noise"
+    },
     "description": "Less spammy sound",
     "message": "",
     "sound_description": "a thunderclap!",
@@ -946,40 +1552,71 @@
     "max_damage": 88,
     "min_range": 50,
     "max_range": 50,
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "noise",
     "shape": "blast"
   },
   {
     "id": "arcana_item_meteoric_verge_buff",
     "type": "SPELL",
-    "name": { "str": "Verge Buff" },
+    "name": {
+      "str": "Verge Buff"
+    },
     "description": "Grants brief lightning immunity to the user and any nearby allies.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
     "effect_str": "lightning_ward_true",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "IGNORE_WALLS", "NO_PROJECTILE", "RANDOM_DURATION", "SILENT" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "RANDOM_DURATION",
+      "SILENT"
+    ],
     "min_duration": 500,
     "max_duration": 1000
   },
   {
     "type": "SPELL",
     "id": "arcana_item_orb_veil_mapping",
-    "name": { "str": "Gaze Into Greater Horizons" },
+    "name": {
+      "str": "Gaze Into Greater Horizons"
+    },
     "description": "Knowledge is power, but power comes at a price...",
     "effect": "map",
     "shape": "blast",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "extra_effects": [
-      { "id": "arcana_item_orb_veil_revelation", "hit_self": false },
-      { "id": "arcana_item_orb_veil_attention", "hit_self": false },
-      { "id": "arcana_item_scroll_artifice_pain", "hit_self": false },
-      { "id": "arcana_item_orb_veil_wonder", "hit_self": false }
+      {
+        "id": "arcana_item_orb_veil_revelation",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_orb_veil_attention",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_artifice_pain",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder",
+        "hit_self": false
+      }
     ],
     "message": "You look deep into the orb, and see a vision of the surrounding area hidden among headache-inducing geometries.",
-    "flags": [ "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_aoe": 30,
     "max_aoe": 30,
     "base_casting_time": 100
@@ -987,11 +1624,19 @@
   {
     "id": "arcana_item_orb_veil_revelation",
     "type": "SPELL",
-    "name": { "str": "Orb: Revelation" },
+    "name": {
+      "str": "Orb: Revelation"
+    },
     "description": "Grants a random duration of the Revelation spell effect.",
     "message": "A surge of strange visions flood your mind...",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "spell_revelation",
@@ -1001,11 +1646,20 @@
   {
     "id": "arcana_item_orb_veil_attention",
     "type": "SPELL",
-    "name": { "str": "Orb Attention" },
+    "name": {
+      "str": "Orb Attention"
+    },
     "description": "Applies nether attention, lower duration because the orb comes with a host of random side effects.",
     "message": "",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "attention",
@@ -1015,34 +1669,68 @@
   {
     "type": "SPELL",
     "id": "arcana_item_orb_veil_wonder",
-    "name": { "str": "Orb Random Effects" },
+    "name": {
+      "str": "Orb Random Effects"
+    },
     "description": "Random side effects to using the orb of the veil.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
     "effect": "none",
     "shape": "blast",
-    "flags": [ "WONDER", "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "WONDER",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "extra_effects": [
-      { "id": "arcana_item_orb_veil_wonder_archon" },
-      { "id": "arcana_item_orb_veil_wonder_blind" },
-      { "id": "arcana_item_orb_veil_wonder_citrine" },
-      { "id": "arcana_item_orb_veil_wonder_hallu" },
-      { "id": "arcana_item_orb_veil_wonder_insight" },
-      { "id": "arcana_item_orb_veil_wonder_stunned" },
-      { "id": "arcana_item_orb_veil_wonder_ward" },
-      { "id": "arcana_item_orb_veil_wonder_2" }
+      {
+        "id": "arcana_item_orb_veil_wonder_archon"
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder_blind"
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder_citrine"
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder_hallu"
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder_insight"
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder_stunned"
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder_ward"
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder_2"
+      }
     ]
   },
   {
     "id": "arcana_item_orb_veil_wonder_archon",
     "type": "SPELL",
-    "name": { "str": "Orb: Archon Effect" },
+    "name": {
+      "str": "Orb: Archon Effect"
+    },
     "description": "Applies a decent dose of the archon's gaze effect.",
     "message": "You saw something looking back at you, far more intently than the other things out there...",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "archon_gaze_effect",
@@ -1052,11 +1740,20 @@
   {
     "id": "arcana_item_orb_veil_wonder_blind",
     "type": "SPELL",
-    "name": { "str": "Orb: Blindness" },
+    "name": {
+      "str": "Orb: Blindness"
+    },
     "description": "Blinds you for for a modest duration.",
     "message": "You see a blinding white light among the strange visions within.",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "blind",
@@ -1066,11 +1763,20 @@
   {
     "id": "arcana_item_orb_veil_wonder_citrine",
     "type": "SPELL",
-    "name": { "str": "Orb: Incense" },
+    "name": {
+      "str": "Orb: Incense"
+    },
     "description": "Grants a random duration of citrine incense's effect.",
     "message": "Wisps of enervating essence accompany the visions, seeming far more real than the hallucinations...",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "potion_incense",
@@ -1080,12 +1786,24 @@
   {
     "id": "arcana_item_orb_veil_wonder_hallu",
     "type": "SPELL",
-    "name": { "str": "Orb: Hallucinations" },
+    "name": {
+      "str": "Orb: Hallucinations"
+    },
     "description": "Grants hallucinations.",
     "message": "Even after you look away from the orb, the visions linger in the back of your mind...",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
-    "extra_effects": [ { "id": "arcana_item_orb_veil_wonder_hallu2" } ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_orb_veil_wonder_hallu2"
+      }
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "visuals",
@@ -1095,11 +1813,19 @@
   {
     "id": "arcana_item_orb_veil_wonder_hallu2",
     "type": "SPELL",
-    "name": { "str": "Orb: Hallucinations 2" },
+    "name": {
+      "str": "Orb: Hallucinations 2"
+    },
     "description": "Second hallucination effect.",
     "message": "",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "hallu",
@@ -1109,11 +1835,20 @@
   {
     "id": "arcana_item_orb_veil_wonder_insight",
     "type": "SPELL",
-    "name": { "str": "Orb: Insight" },
+    "name": {
+      "str": "Orb: Insight"
+    },
     "description": "Grants a random duration of the Insight spell effect.",
     "message": "A glimpse of otherworldly insight floods your mind.",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "spell_insight",
@@ -1123,11 +1858,20 @@
   {
     "id": "arcana_item_orb_veil_wonder_stunned",
     "type": "SPELL",
-    "name": { "str": "Orb: Stun" },
+    "name": {
+      "str": "Orb: Stun"
+    },
     "description": "Stuns for for a short duration.",
     "message": "The visions within the orb leave you reeling for a moment.",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "stunned",
@@ -1137,11 +1881,20 @@
   {
     "id": "arcana_item_orb_veil_wonder_ward",
     "type": "SPELL",
-    "name": { "str": "Orb: Ward" },
+    "name": {
+      "str": "Orb: Ward"
+    },
     "description": "Grants a random duration of Ward Against Evil.",
     "message": "You see a vision of something watching over you, among the strange sights within the orb.",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "cleric_warding",
@@ -1151,31 +1904,60 @@
   {
     "type": "SPELL",
     "id": "arcana_item_orb_veil_wonder_2",
-    "name": { "str": "Orb Random Summon" },
+    "name": {
+      "str": "Orb Random Summon"
+    },
     "description": "Wonder-ception, this summons a random monster.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "For some reason, the visions in the orb seem a lot more real than they should...",
     "effect": "none",
     "shape": "blast",
-    "flags": [ "WONDER", "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "WONDER",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "extra_effects": [
-      { "id": "arcana_item_orb_veil_wonder_2_krecks" },
-      { "id": "arcana_item_orb_veil_wonder_2_fiend" },
-      { "id": "arcana_item_orb_veil_wonder_2_shadows" },
-      { "id": "arcana_item_orb_veil_wonder_2_angel" },
-      { "id": "arcana_item_orb_veil_wonder_2_vortices" }
+      {
+        "id": "arcana_item_orb_veil_wonder_2_krecks"
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder_2_fiend"
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder_2_shadows"
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder_2_angel"
+      },
+      {
+        "id": "arcana_item_orb_veil_wonder_2_vortices"
+      }
     ]
   },
   {
     "id": "arcana_item_orb_veil_wonder_2_krecks",
     "type": "SPELL",
-    "name": { "str": "Orb Summon: Krecks" },
+    "name": {
+      "str": "Orb Summon: Krecks"
+    },
     "description": "Somewhere out there are critters that shouldn't be real, but are...",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "message": "",
-    "flags": [ "RANDOM_DAMAGE", "RANDOM_TARGET", "HOSTILE_50", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "RANDOM_TARGET",
+      "HOSTILE_50",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_kreck_summoned",
@@ -1191,11 +1973,20 @@
   {
     "id": "arcana_item_orb_veil_wonder_2_fiend",
     "type": "SPELL",
-    "name": { "str": "Orb Summon: Fiend" },
+    "name": {
+      "str": "Orb Summon: Fiend"
+    },
     "description": "Somewhere out there is a critter that shouldn't be real, but is...",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "message": "",
-    "flags": [ "RANDOM_TARGET", "HOSTILE_50", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "RANDOM_TARGET",
+      "HOSTILE_50",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_zombie_fiend_summoned",
@@ -1211,11 +2002,21 @@
   {
     "id": "arcana_item_orb_veil_wonder_2_shadows",
     "type": "SPELL",
-    "name": { "str": "Orb Summon: Shadows" },
+    "name": {
+      "str": "Orb Summon: Shadows"
+    },
     "description": "Somewhere out there are critters that shouldn't be real, but are...",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "message": "",
-    "flags": [ "RANDOM_DAMAGE", "RANDOM_TARGET", "HOSTILE_50", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "RANDOM_TARGET",
+      "HOSTILE_50",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_shadow_summoned",
@@ -1231,11 +2032,20 @@
   {
     "id": "arcana_item_orb_veil_wonder_2_angel",
     "type": "SPELL",
-    "name": { "str": "Orb Summon: Angel" },
+    "name": {
+      "str": "Orb Summon: Angel"
+    },
     "description": "Somewhere out there is a critter that shouldn't be real, but is...",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "message": "",
-    "flags": [ "RANDOM_TARGET", "HOSTILE_50", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "RANDOM_TARGET",
+      "HOSTILE_50",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_flesh_angel_summoned",
@@ -1251,11 +2061,21 @@
   {
     "id": "arcana_item_orb_veil_wonder_2_vortices",
     "type": "SPELL",
-    "name": { "str": "Orb Summon: Vortices" },
+    "name": {
+      "str": "Orb Summon: Vortices"
+    },
     "description": "Somewhere out there are critters that shouldn't be real, but are...",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "message": "",
-    "flags": [ "RANDOM_DAMAGE", "RANDOM_TARGET", "HOSTILE_50", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "RANDOM_TARGET",
+      "HOSTILE_50",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_vortex_summoned",
@@ -1271,15 +2091,30 @@
   {
     "id": "arcana_item_pestilence",
     "type": "SPELL",
-    "name": { "str": "Pestilence Summons" },
+    "name": {
+      "str": "Pestilence Summons"
+    },
     "description": "Mutated vermin come to your aid.",
     "message": "Vermin slither out from the earth at your feet, heeding your call as a thunderous blast emanates from the spear!",
     "extra_effects": [
-      { "id": "arcana_item_pestilence_stun", "hit_self": false },
-      { "id": "arcana_item_pestilence_aftereffect", "hit_self": false }
+      {
+        "id": "arcana_item_pestilence_stun",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_pestilence_aftereffect",
+        "hit_self": false
+      }
     ],
-    "valid_targets": [ "ground" ],
-    "flags": [ "RANDOM_DAMAGE", "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_centipede_giant_summoned",
@@ -1293,10 +2128,19 @@
   {
     "id": "arcana_item_pestilence_stun",
     "type": "SPELL",
-    "name": { "str": "Pestilence Stun" },
+    "name": {
+      "str": "Pestilence Stun"
+    },
     "description": "AoE damage and stun for any hostiles nearby.",
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "SILENT", "RANDOM_DAMAGE", "RANDOM_DURATION" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION"
+    ],
     "effect": "attack",
     "shape": "blast",
     "message": "",
@@ -1312,10 +2156,17 @@
   {
     "id": "arcana_item_pestilence_aftereffect",
     "type": "SPELL",
-    "name": { "str": "Pestilence Aftermath" },
+    "name": {
+      "str": "Pestilence Aftermath"
+    },
     "description": "Destruction of terrain around you.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "ter_transform",
     "shape": "blast",
     "message": "",
@@ -1328,26 +2179,47 @@
   {
     "type": "SPELL",
     "id": "arcana_item_triffid_garland_empowered",
-    "name": { "str": "Verdant Boost" },
+    "name": {
+      "str": "Verdant Boost"
+    },
     "description": "Grants the recovery effect to the user.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "A surge of energy flows through you from the garland!",
     "effect": "attack",
     "shape": "blast",
-    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "effect_str": "triffid_garland_buff",
-    "extra_effects": [ { "id": "arcana_item_triffid_garland_empowered_fatigue", "hit_self": true } ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_triffid_garland_empowered_fatigue",
+        "hit_self": true
+      }
+    ],
     "min_duration": 84000,
     "max_duration": 84000
   },
   {
     "id": "arcana_item_triffid_garland_empowered_fatigue",
     "type": "SPELL",
-    "name": { "str": "Verdant Boost" },
+    "name": {
+      "str": "Verdant Boost"
+    },
     "description": "And this makes it cost as much fatigue as it would cost if this were a Magic Sign at SL 5.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -56,
     "max_damage": -56,
     "effect": "recover_energy",
@@ -1357,15 +2229,26 @@
   {
     "type": "SPELL",
     "id": "arcana_item_scroll_artifice",
-    "name": { "str": "Call to Order" },
+    "name": {
+      "str": "Call to Order"
+    },
     "description": "Attempts to pacify monsters for a moderate duration, paralyzes user and inflicts pain.",
     "effect": "charm_monster",
     "shape": "blast",
     "message": "\"By order, we ascend beyond that of animals.\"  A wave of energy radiates outwards, fragments of otherworldly perspectives flooding your mind in the process!",
     "extra_effects": [
-      { "id": "arcana_item_scroll_artifice_pain", "hit_self": true },
-      { "id": "arcana_item_scroll_artifice_paralyze", "hit_self": true },
-      { "id": "arcana_item_scroll_leftover", "hit_self": false }
+      {
+        "id": "arcana_item_scroll_artifice_pain",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_scroll_artifice_paralyze",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_scroll_leftover",
+        "hit_self": false
+      }
     ],
     "min_damage": 100,
     "max_damage": 300,
@@ -1373,31 +2256,57 @@
     "max_duration": 1080000,
     "min_aoe": 24,
     "max_aoe": 24,
-    "valid_targets": [ "self", "hostile" ],
-    "flags": [ "RANDOM_DAMAGE", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ]
+    "valid_targets": [
+      "self",
+      "hostile"
+    ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ]
   },
   {
     "type": "SPELL",
     "id": "arcana_item_scroll_artifice_pain",
-    "name": { "str": "Divine Scroll: Artifice Pain" },
+    "name": {
+      "str": "Divine Scroll: Artifice Pain"
+    },
     "description": "Used instead of Artifact Pain to suppress the message and make the range more narrow.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
     "effect": "recover_energy",
     "shape": "blast",
     "effect_str": "PAIN",
-    "flags": [ "RANDOM_DAMAGE", "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -15,
     "max_damage": -20
   },
   {
     "id": "arcana_item_scroll_artifice_paralyze",
     "type": "SPELL",
-    "name": { "str": "Divine Scroll: Artifice Paralysis" },
+    "name": {
+      "str": "Divine Scroll: Artifice Paralysis"
+    },
     "description": "This gives scrolls of command a brief brain-zap, longer than normal artifact paralysis.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "RANDOM_DAMAGE", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "mod_moves",
     "shape": "blast",
     "min_damage": -200,
@@ -1406,21 +2315,52 @@
   {
     "id": "arcana_item_scroll_destruction",
     "type": "SPELL",
-    "name": { "str": "Cry of Hatred" },
+    "name": {
+      "str": "Cry of Hatred"
+    },
     "description": "Similar effects to Wave of Destruction, though with different side effects.",
     "message": "\"There is an end to all things.\"  A horrible cacophony resounds, rising to a thunderous boom that blasts your surroundings!",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
-      { "id": "arcana_item_scroll_destruction_spike", "hit_self": true },
-      { "id": "arcana_item_scroll_destruction_noise", "hit_self": true },
-      { "id": "arcana_item_scroll_destruction_attention", "hit_self": true },
-      { "id": "arcana_item_scroll_destruction_cold", "hit_self": false },
-      { "id": "arcana_item_scroll_destruction_pulse", "hit_self": false },
-      { "id": "arcana_item_scroll_leftover", "hit_self": false }
+      {
+        "id": "arcana_item_scroll_destruction_spike",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_scroll_destruction_noise",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_scroll_destruction_attention",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_scroll_destruction_cold",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_destruction_pulse",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_leftover",
+        "hit_self": false
+      }
     ],
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE", "RANDOM_DAMAGE", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "SILENT",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect_str": "dazed",
     "min_damage": 44,
     "max_damage": 132,
@@ -1437,13 +2377,23 @@
   {
     "id": "arcana_item_scroll_destruction_spike",
     "type": "SPELL",
-    "name": { "str": "Divine Scroll: Destruction Spike" },
+    "name": {
+      "str": "Divine Scroll: Destruction Spike"
+    },
     "description": "Increases damage in epicenter.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE", "RANDOM_DAMAGE" ],
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "SILENT",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "RANDOM_DAMAGE"
+    ],
     "min_damage": 44,
     "max_damage": 132,
     "effect_str": "downed",
@@ -1456,7 +2406,9 @@
   {
     "type": "SPELL",
     "id": "arcana_item_scroll_destruction_noise",
-    "name": { "str": "Divine Scroll: Destruction Noise" },
+    "name": {
+      "str": "Divine Scroll: Destruction Noise"
+    },
     "description": "Less spammy sound",
     "message": "",
     "sound_description": "a huge explosion!",
@@ -1466,34 +2418,58 @@
     "sound_variant": "shockwave",
     "min_damage": 220,
     "max_damage": 220,
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "noise",
     "shape": "blast"
   },
   {
     "id": "arcana_item_scroll_destruction_attention",
     "type": "SPELL",
-    "name": { "str": "Divine Scroll: Destruction Attention" },
+    "name": {
+      "str": "Divine Scroll: Destruction Attention"
+    },
     "description": "This is used instead of Artifact Attention to suppress the message and narrow the duration range.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
     "effect": "attack",
     "shape": "blast",
     "effect_str": "attention",
-    "flags": [ "RANDOM_DURATION", "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "RANDOM_DURATION",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_duration": 540000,
     "max_duration": 900000
   },
   {
     "id": "arcana_item_scroll_destruction_cold",
     "type": "SPELL",
-    "name": { "str": "Divine Scroll: Destruction Coldness" },
+    "name": {
+      "str": "Divine Scroll: Destruction Coldness"
+    },
     "description": "This adds a chill to the air, inflicted by scrolls of sundering.",
     "effect": "attack",
     "shape": "blast",
     "message": "",
-    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE", "NO_HANDS", "NO_LEGS" ],
-    "valid_targets": [ "self", "ally", "hostile", "ground" ],
+    "flags": [
+      "SILENT",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile",
+      "ground"
+    ],
     "min_aoe": 24,
     "max_aoe": 24,
     "field_id": "fd_cold_air1",
@@ -1504,12 +2480,31 @@
   {
     "id": "arcana_item_scroll_destruction_pulse",
     "type": "SPELL",
-    "name": { "str": "Divine Scroll: Destruction Pulse" },
+    "name": {
+      "str": "Divine Scroll: Destruction Pulse"
+    },
     "description": "This adds a highly-random pulse effect to the scroll.",
-    "valid_targets": [ "self", "ally", "hostile", "ground" ],
-    "extra_effects": [ { "id": "arcana_item_scroll_destruction_pulse_extra", "hit_self": false } ],
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_scroll_destruction_pulse_extra",
+        "hit_self": false
+      }
+    ],
     "message": "",
-    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE", "RANDOM_DAMAGE", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "bash",
     "shape": "blast",
     "min_damage": 25,
@@ -1520,12 +2515,18 @@
   {
     "id": "arcana_item_scroll_destruction_pulse_extra",
     "type": "SPELL",
-    "name": { "str": "Divine Scroll: Destruction Pulse Extra" },
+    "name": {
+      "str": "Divine Scroll: Destruction Pulse Extra"
+    },
     "description": "Dirty hack to work around bugs in magic code.",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "ter_transform",
     "shape": "blast",
-    "flags": [ "SILENT" ],
+    "flags": [
+      "SILENT"
+    ],
     "message": "",
     "effect_str": "arcana_pulse",
     "max_level": 20,
@@ -1537,11 +2538,20 @@
   {
     "id": "arcana_item_scroll_leftover",
     "type": "SPELL",
-    "name": { "str": "Scroll: Leftovers" },
+    "name": {
+      "str": "Scroll: Leftovers"
+    },
     "description": "This exists to make magic scrolls leave a blank scroll when used up, obsoleting the previous hack of making the item transform to exploit revert_to.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "PERMANENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "PERMANENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "spawn_item",
     "shape": "blast",
     "effect_str": "scroll_blank",
@@ -1551,15 +2561,38 @@
   {
     "id": "arcana_item_scroll_moon",
     "type": "SPELL",
-    "name": { "str": "Sightless Sanctuary" },
+    "name": {
+      "str": "Sightless Sanctuary"
+    },
     "description": "Overwhelming darkness, both in field and event form, blinds monsters.",
     "message": "\"Do not fear the unknown.\"  A shadowy mist spreads out in all directions, wisps of living dark trailing upwards to blot out everything in its wake!",
-    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE", "NO_HANDS", "NO_LEGS", "RANDOM_DURATION" ],
-    "valid_targets": [ "self", "ally", "hostile", "ground" ],
+    "flags": [
+      "SILENT",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DURATION"
+    ],
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile",
+      "ground"
+    ],
     "extra_effects": [
-      { "id": "arcana_item_scroll_moon_blind", "hit_self": false },
-      { "id": "arcana_item_scroll_moon_event", "hit_self": false },
-      { "id": "arcana_item_scroll_leftover", "hit_self": false }
+      {
+        "id": "arcana_item_scroll_moon_blind",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_moon_event",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_leftover",
+        "hit_self": false
+      }
     ],
     "effect": "attack",
     "shape": "blast",
@@ -1575,13 +2608,24 @@
   {
     "id": "arcana_item_scroll_moon_blind",
     "type": "SPELL",
-    "name": { "str": "Divine Scroll: Moon Blinding Effect" },
+    "name": {
+      "str": "Divine Scroll: Moon Blinding Effect"
+    },
     "description": "This blinds all targets in the area for a random amount of time.",
     "effect": "attack",
     "shape": "blast",
     "message": "",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect_str": "blind",
     "min_aoe": 24,
     "max_aoe": 24,
@@ -1591,11 +2635,18 @@
   {
     "type": "SPELL",
     "id": "arcana_item_scroll_moon_event",
-    "name": { "str": "Divine Scroll: Moon Event" },
+    "name": {
+      "str": "Divine Scroll: Moon Event"
+    },
     "description": "This adds 100 minutes of darkness.",
     "message": "",
-    "valid_targets": [ "self" ],
-    "flags": [ "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "timed_event",
     "shape": "blast",
     "effect_str": "dim",
@@ -1605,16 +2656,34 @@
   {
     "id": "arcana_item_scroll_nature",
     "type": "SPELL",
-    "name": { "str": "Chaotic Mending" },
+    "name": {
+      "str": "Chaotic Mending"
+    },
     "description": "Massive dose of unpredictable healing, widespread application of Overgrowth, risk of mutation.",
     "message": "\"Do not deny your instincts.\"  Life flows through your body, radiating out in a burst of chaotic energy!",
-    "valid_targets": [ "self" ],
-    "extra_effects": [
-      { "id": "arcana_item_scroll_nature_plants", "hit_self": false },
-      { "id": "arcana_item_scroll_nature_wonder", "hit_self": false },
-      { "id": "arcana_item_scroll_leftover", "hit_self": false }
+    "valid_targets": [
+      "self"
     ],
-    "flags": [ "SILENT", "RANDOM_DAMAGE", "NO_HANDS", "NO_LEGS" ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_scroll_nature_plants",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_nature_wonder",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_leftover",
+        "hit_self": false
+      }
+    ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect_str": "arcana_scroll_nature_effect",
     "min_damage": -1,
     "max_damage": -100,
@@ -1626,11 +2695,21 @@
   {
     "id": "arcana_item_scroll_nature_plants",
     "type": "SPELL",
-    "name": { "str": "Divine Scroll: Nature Plant Effect" },
+    "name": {
+      "str": "Divine Scroll: Nature Plant Effect"
+    },
     "description": "Basically just a beefier version of Overgrowth.",
     "message": "",
-    "valid_targets": [ "ground" ],
-    "flags": [ "IGNORE_WALLS", "NO_PROJECTILE", "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "ter_transform",
     "shape": "blast",
     "effect_str": "arcana_plants",
@@ -1642,21 +2721,39 @@
   {
     "type": "SPELL",
     "id": "arcana_item_scroll_nature_wonder",
-    "name": { "str": "Divine Scroll: Nature Wonder" },
+    "name": {
+      "str": "Divine Scroll: Nature Wonder"
+    },
     "description": "Randomizes what mutation spell the scroll rolls for.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
     "effect": "none",
     "shape": "blast",
-    "flags": [ "WONDER", "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "WONDER",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": 1,
     "max_damage": 1,
-    "extra_effects": [ { "id": "arcana_item_scroll_nature_mutate_dragonblood" }, { "id": "arcana_item_scroll_nature_mutate_plant" } ]
+    "extra_effects": [
+      {
+        "id": "arcana_item_scroll_nature_mutate_dragonblood"
+      },
+      {
+        "id": "arcana_item_scroll_nature_mutate_plant"
+      }
+    ]
   },
   {
     "type": "SPELL",
     "id": "arcana_item_scroll_nature_mutate_dragonblood",
-    "name": { "str": "Divine Scroll: Nature Mutation 1" },
+    "name": {
+      "str": "Divine Scroll: Nature Mutation 1"
+    },
     "effect": "mutate",
     "shape": "blast",
     "effect_str": "DRAGONBLOOD",
@@ -1664,13 +2761,21 @@
     "message": "",
     "min_damage": 3333,
     "max_damage": 3333,
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
-    "valid_targets": [ "self" ]
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "self"
+    ]
   },
   {
     "type": "SPELL",
     "id": "arcana_item_scroll_nature_mutate_plant",
-    "name": { "str": "Divine Scroll: Nature Mutation 2" },
+    "name": {
+      "str": "Divine Scroll: Nature Mutation 2"
+    },
     "effect": "mutate",
     "shape": "blast",
     "effect_str": "PLANT",
@@ -1678,25 +2783,57 @@
     "message": "",
     "min_damage": 3333,
     "max_damage": 3333,
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
-    "valid_targets": [ "self" ]
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "self"
+    ]
   },
   {
     "id": "arcana_item_scroll_subversion",
     "type": "SPELL",
-    "name": { "str": "Elusive Gateway" },
+    "name": {
+      "str": "Elusive Gateway"
+    },
     "description": "Teleports you away, leaving a mess of nasty shit behind you.  Uses a lot of Archon-specific effects, but that's mainly because they're more useful for what this spell should do, the entity the scroll is dedicated to probably isn't the Archon.",
     "message": "\"Cast aside the veil of reality.\"  You feel yanked in a non-existent direction!",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
-      { "id": "arcana_item_scroll_subversion_shadows", "hit_self": false },
-      { "id": "AEA_FATIGUE", "hit_self": false },
-      { "id": "arcana_item_scroll_subversion_teleport", "hit_self": false },
-      { "id": "arcana_item_scroll_leftover", "hit_self": false }
+      {
+        "id": "arcana_item_scroll_subversion_shadows",
+        "hit_self": false
+      },
+      {
+        "id": "AEA_FATIGUE",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_subversion_teleport",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_leftover",
+        "hit_self": false
+      }
     ],
-    "valid_targets": [ "self", "ally", "hostile", "ground" ],
-    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "SILENT",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect_str": "archon_gaze_effect",
     "min_aoe": 5,
     "max_aoe": 5,
@@ -1710,10 +2847,14 @@
   {
     "type": "SPELL",
     "id": "arcana_item_scroll_subversion_shadows",
-    "name": { "str": "Divine Scroll: Subversion Shadows" },
+    "name": {
+      "str": "Divine Scroll: Subversion Shadows"
+    },
     "description": "Neherit, otira atvess...except, not really.",
     "message": "",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_shadow_summoned",
@@ -1723,34 +2864,71 @@
     "max_aoe": 5,
     "min_duration": 1500000,
     "max_duration": 1500000,
-    "flags": [ "RANDOM_DAMAGE", "HOSTILE_SUMMON", "PERMANENT", "SILENT", "NO_HANDS", "NO_LEGS" ]
+    "flags": [
+      "RANDOM_DAMAGE",
+      "HOSTILE_SUMMON",
+      "PERMANENT",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ]
   },
   {
     "type": "SPELL",
     "id": "arcana_item_scroll_subversion_teleport",
-    "name": { "str": "Divine Scroll: Subversion Teleport" },
+    "name": {
+      "str": "Divine Scroll: Subversion Teleport"
+    },
     "description": "Yeets you rather far away.  The one benefit is it's a safe teleport.  Effect is last to hopefully ensure you leave the other side effects behind.",
     "message": "",
     "effect": "short_range_teleport",
     "shape": "blast",
-    "valid_targets": [ "self" ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_range": 20,
     "max_range": 40
   },
   {
     "id": "arcana_item_scroll_sun",
     "type": "SPELL",
-    "name": { "str": "Solar Blessing" },
+    "name": {
+      "str": "Solar Blessing"
+    },
     "description": "Massive wave of light, sunlight event, adrenaline and morale.",
     "message": "\"Let purity guide your hand and your heart.\"  A brilliant radiance envelops your surroundings, piercing the heavens as a surge of power flows through your body!",
-    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE", "NO_HANDS", "NO_LEGS" ],
-    "valid_targets": [ "ground" ],
+    "flags": [
+      "SILENT",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
+    "valid_targets": [
+      "ground"
+    ],
     "extra_effects": [
-      { "id": "arcana_item_scroll_sun_event", "hit_self": false },
-      { "id": "arcana_item_scroll_sun_adrenaline", "hit_self": false },
-      { "id": "arcana_item_scroll_sun_timewarp", "hit_self": false },
-      { "id": "arcana_item_scroll_leftover", "hit_self": false }
+      {
+        "id": "arcana_item_scroll_sun_event",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_sun_adrenaline",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_sun_timewarp",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_scroll_leftover",
+        "hit_self": false
+      }
     ],
     "effect": "attack",
     "shape": "blast",
@@ -1766,11 +2944,20 @@
   {
     "type": "SPELL",
     "id": "arcana_item_scroll_sun_adrenaline",
-    "name": { "str": "Divine Scroll: Sun Adrenaline" },
+    "name": {
+      "str": "Divine Scroll: Sun Adrenaline"
+    },
     "description": "Uses this instead of Artifact Adrenaline mainly to suppress the message, also changes duration range.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "adrenaline",
@@ -1780,11 +2967,19 @@
   {
     "type": "SPELL",
     "id": "arcana_item_scroll_sun_event",
-    "name": { "str": "Divine Scroll: Sun Event" },
+    "name": {
+      "str": "Divine Scroll: Sun Event"
+    },
     "description": "This adds 100 minutes of sunlight.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "timed_event",
     "shape": "blast",
     "effect_str": "artifact_light",
@@ -1794,11 +2989,20 @@
   {
     "id": "arcana_item_scroll_sun_timewarp",
     "type": "SPELL",
-    "name": { "str": "Divine Scroll: Sun Timewarp" },
+    "name": {
+      "str": "Divine Scroll: Sun Timewarp"
+    },
     "description": "Oh hey, what's with divine magics combining adrenaline with timestop...",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "RANDOM_DAMAGE", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "mod_moves",
     "shape": "blast",
     "min_damage": 400,
@@ -1807,17 +3011,33 @@
   {
     "id": "arcana_item_spatial_displacement",
     "type": "SPELL",
-    "name": { "str": "Spatial Displacement" },
+    "name": {
+      "str": "Spatial Displacement"
+    },
     "description": "Controlled teleport, with some risk of side effects.",
     "message": "You feel yanked in a non-existent direction!",
     "effect": "ter_transform",
     "shape": "blast",
     "extra_effects": [
-      { "id": "arcana_item_spatial_displacement_wonder", "hit_self": true },
-      { "id": "arcana_item_spatial_displacement_summon", "hit_self": false }
+      {
+        "id": "arcana_item_spatial_displacement_wonder",
+        "hit_self": true
+      },
+      {
+        "id": "arcana_item_spatial_displacement_summon",
+        "hit_self": false
+      }
     ],
-    "valid_targets": [ "ground" ],
-    "flags": [ "IGNORE_WALLS", "NO_PROJECTILE", "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "effect_str": "arcana_pulse",
     "min_damage": 1,
     "max_damage": 1,
@@ -1827,46 +3047,103 @@
   {
     "type": "SPELL",
     "id": "arcana_item_spatial_displacement_wonder",
-    "name": { "str": "Spatial Displacement Wonder" },
+    "name": {
+      "str": "Spatial Displacement Wonder"
+    },
     "description": "Random side effects to balance controlled teleportation.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
     "effect": "none",
     "shape": "blast",
-    "flags": [ "WONDER", "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "WONDER",
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "extra_effects": [
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_react_nothing" },
-      { "id": "arcana_item_spatial_displacement_wonder_taint" },
-      { "id": "arcana_item_spatial_displacement_wonder_archon" },
-      { "id": "arcana_item_spatial_displacement_wonder_blind" },
-      { "id": "arcana_item_spatial_displacement_wonder_paralyze" }
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_react_nothing"
+      },
+      {
+        "id": "arcana_item_spatial_displacement_wonder_taint"
+      },
+      {
+        "id": "arcana_item_spatial_displacement_wonder_archon"
+      },
+      {
+        "id": "arcana_item_spatial_displacement_wonder_blind"
+      },
+      {
+        "id": "arcana_item_spatial_displacement_wonder_paralyze"
+      }
     ]
   },
   {
     "type": "SPELL",
     "id": "arcana_item_spatial_displacement_wonder_taint",
-    "name": { "str": "Spatial Displacement Touched Mind" },
+    "name": {
+      "str": "Spatial Displacement Touched Mind"
+    },
     "description": "Hyperspace Is A Scary Place.",
-    "valid_targets": [ "self" ],
-    "message": "You saw something out there during the brief trip through the in-between, visions lingering in the back of your mind…",
-    "flags": [ "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "message": "You saw something out there during the brief trip through the in-between, visions lingering in the back of your mind\u2026",
+    "flags": [
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "hallu",
@@ -1876,11 +3153,19 @@
   {
     "type": "SPELL",
     "id": "arcana_item_spatial_displacement_wonder_archon",
-    "name": { "str": "Spatial Displacement Glimpse of The Beyond" },
+    "name": {
+      "str": "Spatial Displacement Glimpse of The Beyond"
+    },
     "description": "They're watching you.",
-    "valid_targets": [ "self" ],
-    "message": "You saw something out there in the in-between… and it saw you, leaving you disoriented and numb!",
-    "flags": [ "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "message": "You saw something out there in the in-between\u2026 and it saw you, leaving you disoriented and numb!",
+    "flags": [
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "archon_gaze_effect",
@@ -1890,11 +3175,19 @@
   {
     "type": "SPELL",
     "id": "arcana_item_spatial_displacement_wonder_blind",
-    "name": { "str": "Spatial Displacement Paralysis" },
+    "name": {
+      "str": "Spatial Displacement Paralysis"
+    },
     "description": "Brief touch of blindness.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "Your vision goes black as you emerge from the teleport, blinded by the otherwordly haze of the in-between!",
-    "flags": [ "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "effect_str": "blind",
@@ -1904,11 +3197,19 @@
   {
     "id": "arcana_item_spatial_displacement_wonder_paralyze",
     "type": "SPELL",
-    "name": { "str": "Spatial Displacement Paralysis" },
+    "name": {
+      "str": "Spatial Displacement Paralysis"
+    },
     "description": "Brain go zappy.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "You're left reeling for a moment as you emerge from the teleport!",
-    "flags": [ "RANDOM_DAMAGE", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect": "mod_moves",
     "shape": "blast",
     "min_damage": -250,
@@ -1917,14 +3218,30 @@
   {
     "id": "arcana_item_spatial_displacement_summon",
     "type": "SPELL",
-    "name": { "str": "Spatial Summon" },
+    "name": {
+      "str": "Spatial Summon"
+    },
     "description": "This summons a critter afterward, enabling SWAP_POS hijinks.",
     "message": "",
     "effect": "summon",
     "shape": "blast",
-    "extra_effects": [ { "id": "arcana_item_spatial_displacement_swap", "hit_self": false } ],
-    "valid_targets": [ "ground" ],
-    "flags": [ "IGNORE_WALLS", "NO_PROJECTILE", "NO_HANDS", "NO_LEGS", "SILENT", "RANDOM_DURATION" ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_spatial_displacement_swap",
+        "hit_self": false
+      }
+    ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT",
+      "RANDOM_DURATION"
+    ],
     "effect_str": "mon_shadow_summoned_fake",
     "min_damage": 1,
     "max_damage": 1,
@@ -1936,13 +3253,24 @@
   {
     "id": "arcana_item_spatial_displacement_swap",
     "type": "SPELL",
-    "name": { "str": "Spatial Swap" },
+    "name": {
+      "str": "Spatial Swap"
+    },
     "description": "And this does the actual switching.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ground" ],
-    "flags": [ "SWAP_POS", "IGNORE_WALLS", "NO_PROJECTILE", "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "SWAP_POS",
+      "IGNORE_WALLS",
+      "NO_PROJECTILE",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "effect_str": "stunned",
     "min_range": 50,
     "max_range": 50,
@@ -1952,14 +3280,27 @@
   {
     "id": "arcana_item_sparks",
     "type": "SPELL",
-    "name": { "str": "Spark Flame" },
+    "name": {
+      "str": "Spark Flame"
+    },
     "description": "Spark a small fire nearby.",
     "message": "Embers fly from your fingertips, stoking magical flames as they fall to the ground.",
     "effect": "attack",
     "shape": "blast",
-    "extra_effects": [ { "id": "arcana_item_sparks_fatigue", "hit_self": false } ],
-    "valid_targets": [ "ground" ],
-    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_sparks_fatigue",
+        "hit_self": false
+      }
+    ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "min_range": 2,
     "max_range": 2,
     "base_casting_time": 80,
@@ -1972,11 +3313,19 @@
   {
     "id": "arcana_item_sparks_fatigue",
     "type": "SPELL",
-    "name": { "str": "Hauberk Mending Fatigue" },
+    "name": {
+      "str": "Hauberk Mending Fatigue"
+    },
     "description": "Dirty hack caused by DDA-specific fuckery.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -18,
     "max_damage": -18,
     "effect": "recover_energy",
@@ -1986,26 +3335,47 @@
   {
     "type": "SPELL",
     "id": "arcana_item_stinger_flute_empowered",
-    "name": { "str": "Elusive Enhancement" },
+    "name": {
+      "str": "Elusive Enhancement"
+    },
     "description": "Spawns the item needed to make the effects work.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "A jolt of energy arcs through your body from the flute!",
     "effect": "spawn_item",
     "shape": "blast",
-    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "effect_str": "halo_flute_effect",
-    "extra_effects": [ { "id": "arcana_item_amulet_exotic_empowered_fatigue", "hit_self": true } ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_amulet_exotic_empowered_fatigue",
+        "hit_self": true
+      }
+    ],
     "min_duration": 96000,
     "max_duration": 96000
   },
   {
     "id": "arcana_item_stinger_flute_empowered_fatigue",
     "type": "SPELL",
-    "name": { "str": "Elusive Enhancement Fatigue" },
+    "name": {
+      "str": "Elusive Enhancement Fatigue"
+    },
     "description": "And this makes it cost as much fatigue as it would cost if this were a Magic Sign at SL 5.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -80,
     "max_damage": -80,
     "effect": "recover_energy",
@@ -2015,13 +3385,26 @@
   {
     "id": "arcana_item_pet",
     "type": "SPELL",
-    "name": { "str": "Familiar Pact" },
+    "name": {
+      "str": "Familiar Pact"
+    },
     "description": "Binds friendly summoned monsters to you, making it serve as a pet if it isn't already fully tamed.",
     "message": "Faint wisps of mist fly from the talisman, to bring enlightenment through a bond with your own mind, and guard them against hazards.",
     "effect": "attack",
     "shape": "blast",
-    "extra_effects": [ { "id": "arcana_item_pet_buff", "hit_self": false }, { "id": "arcana_item_pet_heal", "hit_self": false } ],
-    "valid_targets": [ "ally" ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_pet_buff",
+        "hit_self": false
+      },
+      {
+        "id": "arcana_item_pet_heal",
+        "hit_self": false
+      }
+    ],
+    "valid_targets": [
+      "ally"
+    ],
     "targeted_monster_ids": [
       "mon_dark_wyrm_summoned",
       "mon_zombie_fiend_summoned",
@@ -2043,7 +3426,11 @@
       "mon_shadow_snake_summoned",
       "mon_centipede_giant_summoned"
     ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect_str": "pet",
     "min_aoe": 5,
     "max_aoe": 5,
@@ -2056,12 +3443,16 @@
   {
     "id": "arcana_item_pet_buff",
     "type": "SPELL",
-    "name": { "str": "Familiar Pact Buff Effect" },
+    "name": {
+      "str": "Familiar Pact Buff Effect"
+    },
     "description": "Binds friendly summoned monsters to you, making it serve as a pet if it isn't already fully tamed.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ally" ],
+    "valid_targets": [
+      "ally"
+    ],
     "targeted_monster_ids": [
       "mon_dark_wyrm_summoned",
       "mon_zombie_fiend_summoned",
@@ -2083,7 +3474,11 @@
       "mon_shadow_snake_summoned",
       "mon_centipede_giant_summoned"
     ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "effect_str": "talisman_pet_buff",
     "min_aoe": 5,
     "max_aoe": 5,
@@ -2095,13 +3490,22 @@
   {
     "id": "arcana_item_pet_heal",
     "type": "SPELL",
-    "name": { "str": "Familiar Pact Healing" },
+    "name": {
+      "str": "Familiar Pact Healing"
+    },
     "description": "Heals any ally in range, even if it isn't a summoned monster.",
     "message": "",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "ally" ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE" ],
+    "valid_targets": [
+      "ally"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_HANDS",
+      "NO_LEGS",
+      "RANDOM_DAMAGE"
+    ],
     "min_damage": -15,
     "max_damage": -20,
     "min_aoe": 5,
@@ -2112,13 +3516,28 @@
   {
     "id": "arcana_item_thunder_gauntlets_taze",
     "type": "SPELL",
-    "name": { "str": "Hand of Thunder" },
+    "name": {
+      "str": "Hand of Thunder"
+    },
     "description": "A short-ranged jolt, doing minor damage and stunning the target.",
     "message": "A bolt of blood-red lightning arcs from your fingertips, fading to a natural coloration as it courses through your victim!",
-    "valid_targets": [ "hostile" ],
-    "extra_effects": [ { "id": "arcana_item_thunder_gauntlets_lifedrain", "hit_self": true } ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_thunder_gauntlets_lifedrain",
+        "hit_self": true
+      }
+    ],
     "effect_str": "stunned",
-    "flags": [ "RANDOM_DAMAGE", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS", "SILENT" ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS",
+      "SILENT"
+    ],
     "sound_description": "an electric buzzing",
     "min_range": 2,
     "max_range": 2,
@@ -2138,11 +3557,20 @@
   {
     "id": "arcana_item_thunder_gauntlets_lifedrain",
     "type": "SPELL",
-    "name": { "str": "Gauntlet Lifedrain" },
+    "name": {
+      "str": "Gauntlet Lifedrain"
+    },
     "description": "Oh, now the reference in the item ID makes sense!",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "message": "",
-    "flags": [ "SILENT", "RANDOM_DAMAGE", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "SILENT",
+      "RANDOM_DAMAGE",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": -6,
     "max_damage": -10,
     "effect": "attack",
@@ -2151,15 +3579,31 @@
   {
     "id": "arcana_item_wyrmskin_acid",
     "type": "SPELL",
-    "name": { "str": "Wyrm's Venom" },
+    "name": {
+      "str": "Wyrm's Venom"
+    },
     "description": "A low-level acid spell, with greater focus on ground effect.",
     "message": "Flowing venom slithers over the surface of your armor, until an acrid spray lashes out and soaks the ground!",
     "effect": "attack",
     "shape": "cone",
-    "extra_effects": [ { "id": "arcana_item_wyrmskin_acid_noise", "hit_self": false } ],
-    "valid_targets": [ "ally", "hostile", "ground" ],
+    "extra_effects": [
+      {
+        "id": "arcana_item_wyrmskin_acid_noise",
+        "hit_self": false
+      }
+    ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
     "sound_description": "splash",
-    "flags": [ "RANDOM_DAMAGE", "RANDOM_DURATION", "NO_HANDS", "NO_LEGS" ],
+    "flags": [
+      "RANDOM_DAMAGE",
+      "RANDOM_DURATION",
+      "NO_HANDS",
+      "NO_LEGS"
+    ],
     "min_damage": 31,
     "max_damage": 57,
     "min_range": 5,
@@ -2178,7 +3622,9 @@
   {
     "type": "SPELL",
     "id": "arcana_item_wyrmskin_acid_noise",
-    "name": { "str": "Wyrm's Venom Noise" },
+    "name": {
+      "str": "Wyrm's Venom Noise"
+    },
     "description": "Less spammy sound",
     "message": "",
     "sound_description": "a soft hiss.",
@@ -2188,7 +3634,9 @@
     "sound_variant": "shockwave",
     "min_damage": 33,
     "max_damage": 33,
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "noise",
     "shape": "blast"
   }

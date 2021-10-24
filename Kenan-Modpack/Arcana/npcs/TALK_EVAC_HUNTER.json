@@ -7,12 +7,27 @@
         "text": "I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
         "condition": {
           "and": [
-            { "u_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" },
             {
-              "not": { "npc_has_var": "johnathan_prelude_mid", "type": "mission", "context": "rural_church", "value": "yes" }
+              "u_has_var": "johnathan_prelude_mid",
+              "type": "mission",
+              "context": "rural_church",
+              "value": "yes"
             },
             {
-              "not": { "u_has_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
+              "not": {
+                "npc_has_var": "johnathan_prelude_mid",
+                "type": "mission",
+                "context": "rural_church",
+                "value": "yes"
+              }
+            },
+            {
+              "not": {
+                "u_has_var": "johnathan_prelude_data_5",
+                "type": "mission",
+                "context": "rural_church",
+                "value": "yes"
+              }
             }
           ]
         },
@@ -34,8 +49,17 @@
         "topic": "TALK_FREE_MERCHANT_STOCKS_CF_REP_MISSION_4",
         "condition": {
           "and": [
-            { "not": { "u_has_var": "sofia_allies_secured", "type": "mission", "context": "rural_church", "value": "yes" } },
-            { "u_has_mission": "MISSION_CF_REP_4" }
+            {
+              "not": {
+                "u_has_var": "sofia_allies_secured",
+                "type": "mission",
+                "context": "rural_church",
+                "value": "yes"
+              }
+            },
+            {
+              "u_has_mission": "MISSION_CF_REP_4"
+            }
           ]
         }
       }
@@ -45,6 +69,11 @@
     "id": "TALK_EVAC_HUNTER_LIFE",
     "type": "talk_topic",
     "dynamic_line": "You're talking to the wrong person for that.  If you're hitting up hunters and scavengers for work, best person to talk to would be the broker.  They arrange the contracts and such, should be in that room over there.",
-    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_DONE"
+      }
+    ]
   }
 ]

@@ -3,33 +3,55 @@
     "type": "COMESTIBLE",
     "id": "tea_willow",
     "copy-from": "tea",
-    "name": { "str_sp": "willow tea" },
+    "name": {
+      "str_sp": "willow tea"
+    },
     "container": "bottle_glass",
     "healthy": -1,
     "stim": 0,
     "description": "A bitter herbal tea made from willow bark, used since ancient times as a mild painkiller.",
     "price": "12 USD",
     "fun": -3,
-    "use_action": { "type": "consume_drug", "effects": [ { "id": "pkill1", "duration": 90 } ] }
+    "use_action": {
+      "type": "consume_drug",
+      "effects": [
+        {
+          "id": "pkill1",
+          "duration": 90
+        }
+      ]
+    }
   },
   {
     "id": "tar_oil",
     "type": "COMESTIBLE",
     "comestible_type": "MED",
-    "name": { "str_sp": "tar oil" },
+    "name": {
+      "str_sp": "tar oil"
+    },
     "description": "A thick, runny tar typically made from birch bark or pine.  Among various historical uses, it is also used as an antiseptic and astringent.",
     "weight": "40 g",
     "volume": "250 ml",
-    "material": [ "oil" ],
+    "material": [
+      "oil"
+    ],
     "symbol": "~",
     "color": "yellow",
     "phase": "liquid",
-    "use_action": { "type": "heal", "disinfectant_power": 2, "bleed": 2, "bite": 0.8, "move_cost": 100 }
+    "use_action": {
+      "type": "heal",
+      "disinfectant_power": 2,
+      "bleed": 2,
+      "bite": 0.8,
+      "move_cost": 100
+    }
   },
   {
     "type": "COMESTIBLE",
     "id": "oil_garlic",
-    "name": { "str_sp": "garlic oil" },
+    "name": {
+      "str_sp": "garlic oil"
+    },
     "weight": "25 g",
     "color": "white",
     "container": "bottle_glass",
@@ -40,36 +62,63 @@
     "description": "A strong-tasting extract made from garlic, traditionally used to help resist infection, especially in Eastern Europe.  Not as powerful as modern full-strength antibiotics, but better than nothing.  Use once every 12 hours.",
     "charges": 6,
     "price": "10 USD",
-    "material": [ "garlic" ],
+    "material": [
+      "garlic"
+    ],
     "volume": "250 ml",
     "phase": "liquid",
     "fun": -8,
     "use_action": "WEAK_ANTIBIOTIC",
-    "flags": [ "NPC_SAFE", "NUTRIENT_OVERRIDE" ]
+    "flags": [
+      "NPC_SAFE",
+      "NUTRIENT_OVERRIDE"
+    ]
   },
   {
     "type": "COMESTIBLE",
     "id": "garlic_roasted",
     "copy-from": "garlic",
-    "name": { "str_sp": "roasted garlic" },
+    "name": {
+      "str_sp": "roasted garlic"
+    },
     "spoils_in": "180 days",
     "quench": -1,
     "description": "Cloves of garlic, lightly seasoned and roasted.",
     "price": 800,
-    "material": [ "garlic" ],
+    "material": [
+      "garlic"
+    ],
     "fun": 1
   },
   {
     "type": "COMESTIBLE",
     "id": "bread_garlic",
     "copy-from": "bread",
-    "name": { "str_sp": "garlic bread" },
+    "name": {
+      "str_sp": "garlic bread"
+    },
     "calories": 105,
     "quench": -2,
     "description": "Bread cooked with garlic and seasonings.",
     "price": 100,
-    "material": [ "wheat", "garlic" ],
-    "vitamins": [ [ "vitC", 6 ], [ "calcium", 12 ], [ "iron", 5 ] ],
+    "material": [
+      "wheat",
+      "garlic"
+    ],
+    "vitamins": [
+      [
+        "vitC",
+        6
+      ],
+      [
+        "calcium",
+        12
+      ],
+      [
+        "iron",
+        5
+      ]
+    ],
     "charges": 3,
     "fun": 3
   },
@@ -77,7 +126,9 @@
     "type": "COMESTIBLE",
     "id": "chili_pepper_roasted",
     "copy-from": "chili_pepper",
-    "name": { "str": "roasted chili pepper" },
+    "name": {
+      "str": "roasted chili pepper"
+    },
     "description": "Spicy chili pepper, lightly seasoned and roasted.",
     "charges": 1,
     "fun": 1
@@ -86,30 +137,59 @@
     "id": "makeshift_poultice",
     "type": "COMESTIBLE",
     "comestible_type": "MED",
-    "name": { "str": "makeshift poultice" },
+    "name": {
+      "str": "makeshift poultice"
+    },
     "description": "A primitive poultice using improvised antiseptic, held in place by a cloth or leather wrap.  Applied loosely, it is designed to stave off infection but can still help staunch bleeding.",
     "weight": "70 g",
     "volume": "250 ml",
     "price": 300,
-    "material": [ "veggy" ],
+    "material": [
+      "veggy"
+    ],
     "symbol": "!",
     "color": "light_gray",
     "charges": 3,
     "stack_size": 9,
-    "use_action": { "type": "heal", "bandages_power": 3, "bleed": 8, "bite": 0.75, "move_cost": 300 }
+    "use_action": {
+      "type": "heal",
+      "bandages_power": 3,
+      "bleed": 8,
+      "bite": 0.75,
+      "move_cost": 300
+    }
   },
   {
     "id": "posca",
     "copy-from": "fruit_wine",
     "type": "COMESTIBLE",
-    "name": { "str_sp": "posca" },
+    "name": {
+      "str_sp": "posca"
+    },
     "description": "A traditional Roman drink made of cheap, often sour wine watered down, and usually made more palatable with herbs and honey.",
     "weight": "230 g",
     "charges": 1,
     "healthy": 0,
     "price": 250,
     "container": "waterskin",
-    "vitamins": [ [ "vitA", 10 ], [ "vitC", 6 ], [ "calcium", 2 ], [ "iron", 1 ] ],
+    "vitamins": [
+      [
+        "vitA",
+        10
+      ],
+      [
+        "vitC",
+        6
+      ],
+      [
+        "calcium",
+        2
+      ],
+      [
+        "iron",
+        1
+      ]
+    ],
     "calories": 60,
     "quench": 40,
     "stim": -1,
@@ -120,31 +200,41 @@
     "type": "COMESTIBLE",
     "id": "porridge_cooked",
     "copy-from": "wheat",
-    "name": { "str_sp": "porridge" },
+    "name": {
+      "str_sp": "porridge"
+    },
     "weight": "247 g",
     "spoils_in": "10 days",
     "comestible_type": "FOOD",
     "symbol": "%",
     "description": "Simple fare made from cooking wheat or barley, bland but filling.",
-    "flags": [ "EATEN_HOT" ],
+    "flags": [
+      "EATEN_HOT"
+    ],
     "fun": -1
   },
   {
     "id": "jerky_offal",
     "copy-from": "jerky",
     "type": "COMESTIBLE",
-    "name": { "str_sp": "jerked offal" },
+    "name": {
+      "str_sp": "jerked offal"
+    },
     "description": "Salty dried organ meat.  Smells a bit like dog food, but will last a long time.",
     "fun": -2,
     "healthy": -1,
     "calories": 92,
-    "proportional": { "price": 0.8 }
+    "proportional": {
+      "price": 0.8
+    }
   },
   {
     "type": "COMESTIBLE",
     "id": "tree_bacon",
     "looks_like": "bacon",
-    "name": { "str_sp": "roasted bark" },
+    "name": {
+      "str_sp": "roasted bark"
+    },
     "weight": "300 g",
     "color": "brown",
     "comestible_type": "FOOD",
@@ -156,20 +246,48 @@
     "description": "Tree bacon, slices of inner bark from birch or pine that have been roasted, to render them less stringy and more edible.  Can be eaten as-is, or dried and milled into flour.  While commonly considered a survival food, it is relatively palatable.",
     "price": 120,
     "price_postapoc": 40,
-    "material": [ "dried_vegetable" ],
+    "material": [
+      "dried_vegetable"
+    ],
     "volume": "250 ml",
     "//": "Not millable as it requires a bit more drying to make into flour, and there may be technical issues if allowed to process less calorie-dense material into flour.",
-    "flags": [ "EDIBLE_FROZEN", "NUTRIENT_OVERRIDE" ],
-    "vitamins": [ [ "vitC", 1 ], [ "vitA", 3 ] ]
+    "flags": [
+      "EDIBLE_FROZEN",
+      "NUTRIENT_OVERRIDE"
+    ],
+    "vitamins": [
+      [
+        "vitC",
+        1
+      ],
+      [
+        "vitA",
+        3
+      ]
+    ]
   },
   {
     "type": "COMESTIBLE",
     "id": "potted_meat",
     "copy-from": "pemmican",
-    "name": { "str_sp": "potted meat" },
+    "name": {
+      "str_sp": "potted meat"
+    },
     "conditional_names": [
-      { "type": "FLAG", "condition": "CANNIBALISM", "name": { "str_sp": "potted person" } },
-      { "type": "COMPONENT_ID", "condition": "mutant", "name": { "str_sp": "potted freak" } }
+      {
+        "type": "FLAG",
+        "condition": "CANNIBALISM",
+        "name": {
+          "str_sp": "potted person"
+        }
+      },
+      {
+        "type": "COMPONENT_ID",
+        "condition": "mutant",
+        "name": {
+          "str_sp": "potted freak"
+        }
+      }
     ],
     "weight": "310 g",
     "container": "can_medium",
@@ -177,9 +295,36 @@
     "description": "Meat cooked and preserved in butter or melted fat, a form of food preservation from the days before canning.  Also known as confit.  Rich and fattening, it will last for a long time.",
     "price": "12 USD",
     "price_postapoc": "4 USD",
-    "material": [ "flesh" ],
-    "vitamins": [ [ "vitA", 7 ], [ "vitC", 16 ], [ "calcium", 2 ], [ "iron", 69 ], [ "vitB", 781 ] ],
+    "material": [
+      "flesh"
+    ],
+    "vitamins": [
+      [
+        "vitA",
+        7
+      ],
+      [
+        "vitC",
+        16
+      ],
+      [
+        "calcium",
+        2
+      ],
+      [
+        "iron",
+        69
+      ],
+      [
+        "vitB",
+        781
+      ]
+    ],
     "fun": 1,
-    "extend": { "flags": [ "EATEN_HOT" ] }
+    "extend": {
+      "flags": [
+        "EATEN_HOT"
+      ]
+    }
   }
 ]

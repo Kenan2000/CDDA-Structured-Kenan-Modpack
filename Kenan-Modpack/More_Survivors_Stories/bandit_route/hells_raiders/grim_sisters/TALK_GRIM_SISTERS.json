@@ -1,7 +1,9 @@
 [
   {
     "type": "talk_topic",
-    "id": [ "TALK_GRIM_SISTERS" ],
+    "id": [
+      "TALK_GRIM_SISTERS"
+    ],
     "dynamic_line": {
       "u_male": true,
       "yes": {
@@ -16,14 +18,34 @@
     },
     "speaker_effect": {
       "condition": {
-        "and": [ { "not": { "npc_has_var": "talked_once", "type": "flag", "context": "talked", "value": "yes" } }, "u_male" ]
+        "and": [
+          {
+            "not": {
+              "npc_has_var": "talked_once",
+              "type": "flag",
+              "context": "talked",
+              "value": "yes"
+            }
+          },
+          "u_male"
+        ]
       },
-      "effect": { "npc_add_var": "talked_once", "type": "flag", "context": "talked", "value": "yes" }
+      "effect": {
+        "npc_add_var": "talked_once",
+        "type": "flag",
+        "context": "talked",
+        "value": "yes"
+      }
     },
     "responses": [
       {
-        "text": "…",
-        "condition": { "npc_has_var": "talked_once", "type": "flag", "context": "talked", "value": "yes" },
+        "text": "\u2026",
+        "condition": {
+          "npc_has_var": "talked_once",
+          "type": "flag",
+          "context": "talked",
+          "value": "yes"
+        },
         "effect": "insult_combat",
         "topic": "TALK_DONE",
         "switch": true
@@ -37,7 +59,11 @@
         "default": true
       },
       {
-        "truefalsetext": { "true": "Don't be nervous, please.", "false": "Thanks.", "condition": "u_male" },
+        "truefalsetext": {
+          "true": "Don't be nervous, please.",
+          "false": "Thanks.",
+          "condition": "u_male"
+        },
         "topic": "TALK_DONE",
         "switch": true,
         "default": true

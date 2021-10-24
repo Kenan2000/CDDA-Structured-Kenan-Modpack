@@ -2,7 +2,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_ALLY_ORDERS",
-    "responses": [ { "text": "What do you think about transferring to another faction?", "topic": "TALK_ally_transfer" } ]
+    "responses": [
+      {
+        "text": "What do you think about transferring to another faction?",
+        "topic": "TALK_ally_transfer"
+      }
+    ]
   },
   {
     "type": "talk_topic",
@@ -40,8 +45,19 @@
         "topic": "TALK_ally_transfer_iron_palm",
         "condition": {
           "and": [
-            { "u_compare_var": "bbm_students", "type": "flag", "context": "meeting", "op": "<", "value": 2 },
-            { "u_has_var": "ally_transfer_ip", "type": "flag", "context": "transfer", "value": "yes" }
+            {
+              "u_compare_var": "bbm_students",
+              "type": "flag",
+              "context": "meeting",
+              "op": "<",
+              "value": 2
+            },
+            {
+              "u_has_var": "ally_transfer_ip",
+              "type": "flag",
+              "context": "transfer",
+              "value": "yes"
+            }
           ]
         }
       },
@@ -50,8 +66,19 @@
         "topic": "TALK_ally_transfer_flame_knuckle",
         "condition": {
           "and": [
-            { "u_compare_var": "fkl_students", "type": "flag", "context": "meeting", "op": "<", "value": 2 },
-            { "u_has_var": "ally_transfer_fk", "type": "flag", "context": "transfer", "value": "yes" }
+            {
+              "u_compare_var": "fkl_students",
+              "type": "flag",
+              "context": "meeting",
+              "op": "<",
+              "value": 2
+            },
+            {
+              "u_has_var": "ally_transfer_fk",
+              "type": "flag",
+              "context": "transfer",
+              "value": "yes"
+            }
           ]
         }
       },
@@ -60,12 +87,26 @@
         "topic": "TALK_ally_transfer_boxer_johnny",
         "condition": {
           "and": [
-            { "u_compare_var": "bj_students", "type": "flag", "context": "meeting", "op": "<", "value": 2 },
-            { "u_has_var": "ally_transfer_bj", "type": "flag", "context": "transfer", "value": "yes" }
+            {
+              "u_compare_var": "bj_students",
+              "type": "flag",
+              "context": "meeting",
+              "op": "<",
+              "value": 2
+            },
+            {
+              "u_has_var": "ally_transfer_bj",
+              "type": "flag",
+              "context": "transfer",
+              "value": "yes"
+            }
           ]
         }
       },
-      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
+      {
+        "text": "<done_conversation_section>",
+        "topic": "TALK_NONE"
+      }
     ]
   },
   {
@@ -78,19 +119,38 @@
         "topic": "TALK_DONE",
         "condition": {
           "and": [
-            { "npc_at_om_location": "dojo_1" },
-            { "u_has_var": "ally_transfer_ip", "type": "flag", "context": "transfer", "value": "yes" }
+            {
+              "npc_at_om_location": "dojo_1"
+            },
+            {
+              "u_has_var": "ally_transfer_ip",
+              "type": "flag",
+              "context": "transfer",
+              "value": "yes"
+            }
           ]
         },
         "effect": [
           "leave",
-          { "npc_change_faction": "iron_palm" },
+          {
+            "npc_change_faction": "iron_palm"
+          },
           "assign_guard",
-          { "npc_first_topic": "TALK_npc_student_ip" },
-          { "u_adjust_var": "bbm_students", "type": "flag", "context": "meeting", "adjustment": 1 }
+          {
+            "npc_first_topic": "TALK_npc_student_ip"
+          },
+          {
+            "u_adjust_var": "bbm_students",
+            "type": "flag",
+            "context": "meeting",
+            "adjustment": 1
+          }
         ]
       },
-      { "text": "Maybe later.", "topic": "TALK_FRIEND" }
+      {
+        "text": "Maybe later.",
+        "topic": "TALK_FRIEND"
+      }
     ]
   },
   {
@@ -103,19 +163,38 @@
         "topic": "TALK_DONE",
         "condition": {
           "and": [
-            { "npc_at_om_location": "fk_base_1" },
-            { "u_has_var": "ally_transfer_fk", "type": "flag", "context": "transfer", "value": "yes" }
+            {
+              "npc_at_om_location": "fk_base_1"
+            },
+            {
+              "u_has_var": "ally_transfer_fk",
+              "type": "flag",
+              "context": "transfer",
+              "value": "yes"
+            }
           ]
         },
         "effect": [
           "leave",
-          { "npc_change_faction": "flame_knuckle" },
+          {
+            "npc_change_faction": "flame_knuckle"
+          },
           "assign_guard",
-          { "npc_first_topic": "TALK_npc_student_fk" },
-          { "u_adjust_var": "fkl_students", "type": "flag", "context": "meeting", "adjustment": 1 }
+          {
+            "npc_first_topic": "TALK_npc_student_fk"
+          },
+          {
+            "u_adjust_var": "fkl_students",
+            "type": "flag",
+            "context": "meeting",
+            "adjustment": 1
+          }
         ]
       },
-      { "text": "Maybe later.", "topic": "TALK_FRIEND" }
+      {
+        "text": "Maybe later.",
+        "topic": "TALK_FRIEND"
+      }
     ]
   },
   {
@@ -128,37 +207,71 @@
         "topic": "TALK_DONE",
         "condition": {
           "and": [
-            { "npc_at_om_location": "gym" },
-            { "u_has_var": "ally_transfer_bj", "type": "flag", "context": "transfer", "value": "yes" }
+            {
+              "npc_at_om_location": "gym"
+            },
+            {
+              "u_has_var": "ally_transfer_bj",
+              "type": "flag",
+              "context": "transfer",
+              "value": "yes"
+            }
           ]
         },
         "effect": [
           "leave",
-          { "npc_change_faction": "boxer_johnny_gym" },
+          {
+            "npc_change_faction": "boxer_johnny_gym"
+          },
           "assign_guard",
-          { "npc_first_topic": "TALK_npc_student_bj" },
-          { "u_adjust_var": "bj_students", "type": "flag", "context": "meeting", "adjustment": 1 }
+          {
+            "npc_first_topic": "TALK_npc_student_bj"
+          },
+          {
+            "u_adjust_var": "bj_students",
+            "type": "flag",
+            "context": "meeting",
+            "adjustment": 1
+          }
         ]
       },
-      { "text": "Maybe later.", "topic": "TALK_FRIEND" }
+      {
+        "text": "Maybe later.",
+        "topic": "TALK_FRIEND"
+      }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_npc_student_ip",
     "dynamic_line": "Iron Palm <swear> RULE!",
-    "responses": [ { "text": "Glad for you.", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "Glad for you.",
+        "topic": "TALK_DONE"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_npc_student_fk",
     "dynamic_line": "Flame Knuckle <swear> RULE!",
-    "responses": [ { "text": "Glad for you.", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "Glad for you.",
+        "topic": "TALK_DONE"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_npc_student_bj",
     "dynamic_line": "Boxer Johnny <swear> RULE!",
-    "responses": [ { "text": "Glad for you.", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "Glad for you.",
+        "topic": "TALK_DONE"
+      }
+    ]
   }
 ]
