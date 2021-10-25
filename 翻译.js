@@ -479,7 +479,6 @@ async function translateWithCache(value, modTranslationCache, context) {
     // process.exit(1);
     return value;
   }
-  logger.log(`\nTranslating ${value}\n`);
   let translatedValue = modTranslationCache.get(value);
   // 有时候 tag 没有被正确翻译，原文里有 tag，结果里没有
   const hasNotTranslatedTag =
@@ -489,7 +488,7 @@ async function translateWithCache(value, modTranslationCache, context) {
     logger.error(`之前的翻译有问题，没有 tag：\n${value}\n${translatedValue}\n`);
   }
   if (translatedValue !== undefined /*  && !hasNotTranslatedTag */) {
-    logger.log(`Use Cached version ${translatedValue}\n--\n`);
+    // logger.log(`Use Cached version ${translatedValue}\n--\n`);
   } else {
     // 没有缓存，就更新缓存
     logger.log(`No Cached Translation for ${value}\n`);
@@ -524,7 +523,8 @@ function getFileJSON(inspectData, parentPath = '') {
       try {
         return { ...inspectData, content: JSON.parse(fs.read(filePath)), filePath };
       } catch (error) {
-        console.error(filePath, error.message);
+        console.error('JSON 格式出错' + error.message);
+        console.error(filePath);
         process.exit(-1);
       }
     } else {
