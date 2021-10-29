@@ -9,10 +9,10 @@
     "shape": "blast",
     "valid_targets": [ "ally", "hostile" ],
     "flags": [ "SILENT", "SOMATIC", "NO_HANDS", "NO_FAIL" ],
-    "extra_effects": [ { "id": "arcana_aftermath_destructive_absorption_side_effects", "hit_self": true, "max_level": 5 }, { "id": "arcana_aftermath_drain_life_fatigue", "hit_self": false } ],
-    "min_damage": 70,
-    "max_damage": 360,
-    "damage_increment": 58,
+    "extra_effects": [ { "id": "arcana_aftermath_destructive_absorption_side_effects", "hit_self": true, "max_level": 5 } ],
+    "min_damage": 200,
+    "max_damage": 500,
+    "damage_increment": 60,
     "min_range": 3,
     "max_range": 6,
     "range_increment": 0.6,
@@ -28,7 +28,7 @@
     "energy_increment": -4.4,
     "damage_type": "cold",
     "field_id": "fd_fatigue",
-    "field_chance": 50,
+    "field_chance": 100,
     "min_field_intensity": 1,
     "max_field_intensity": 1
   },
@@ -57,8 +57,8 @@
     "base_energy_cost": 20,
     "final_energy_cost": 10,
     "energy_increment": -2,
-    "min_duration": 1600,
-    "max_duration": 6400,
+    "min_duration": 3200,
+    "max_duration": 8000,
     "duration_increment": 960,
     "field_id": "fd_blood",
     "field_chance": 1,
@@ -88,9 +88,9 @@
     "base_energy_cost": 28,
     "final_energy_cost": 14,
     "energy_increment": -2.8,
-    "min_duration": 108000,
-    "max_duration": 180000,
-    "duration_increment": 14400
+    "min_duration": 216000,
+    "max_duration": 540000,
+    "duration_increment": 64800
   },
   {
     "id": "arcana_mark_elemental_sign",
@@ -101,8 +101,7 @@
     "valid_targets": [ "self" ],
     "flags": [ "SOMATIC", "NO_HANDS", "NO_FAIL" ],
     "extra_effects": [
-      { "id": "arcana_aftermath_elemental_coldness", "hit_self": false, "max_level": 5 },
-      { "id": "arcana_aftermath_elemental_stun", "hit_self": false, "max_level": 5 }
+      { "id": "arcana_aftermath_elemental_coldness", "hit_self": false, "max_level": 5 }
     ],
     "effect": "attack",
     "shape": "blast",
@@ -117,9 +116,9 @@
     "base_energy_cost": 24,
     "final_energy_cost": 12,
     "energy_increment": -2.4,
-    "min_duration": 45000,
-    "max_duration": 75000,
-    "duration_increment": 6000
+    "min_duration": 30000,
+    "max_duration": 150000,
+    "duration_increment": 24000
   },
   {
     "id": "arcana_mark_infernal_flame",
@@ -138,28 +137,28 @@
       { "id": "arcana_aftermath_infernal_flame_field", "hit_self": false, "max_level": 5 },
       { "id": "arcana_aftermath_infernal_flame_noise", "hit_self": false, "max_level": 5 }
     ],
-    "min_damage": 14,
-    "max_damage": 72,
-    "damage_increment": 11.6,
+    "min_damage": 140,
+    "max_damage": 350,
+    "damage_increment": 42,
     "effect_str": "bleed",
-    "min_duration": 600,
-    "max_duration": 1200,
-    "duration_increment": 120,
+    "min_duration": 5600,
+    "max_duration": 14000,
+    "duration_increment": 1680,
     "min_range": 9,
     "max_range": 14,
     "range_increment": 1,
     "min_aoe": 2,
     "max_aoe": 2,
     "max_level": 5,
-    "difficulty": 20,
+    "difficulty": 70,
     "skill": "magic",
-    "base_casting_time": 90,
-    "final_casting_time": 45,
-    "casting_time_increment": -9,
+    "base_casting_time": 240,
+    "final_casting_time": 120,
+    "casting_time_increment": -24,
     "energy_source": "HP",
-    "base_energy_cost": 12,
-    "final_energy_cost": 6,
-    "energy_increment": -1.2,
+    "base_energy_cost": 32,
+    "final_energy_cost": 16,
+    "energy_increment": -3.2,
     "damage_type": "heat",
     "field_id": "fd_fire",
     "field_chance": 3,
@@ -179,9 +178,9 @@
     "valid_targets": [ "hostile" ],
     "flags": [ "SILENT", "SOMATIC", "NO_HANDS", "NO_FAIL" ],
     "extra_effects": [ { "id": "arcana_aftermath_malevolent_gaze_slowdown", "hit_self": false, "max_level": 5 } ],
-    "min_damage": -1500,
-    "max_damage": -3000,
-    "damage_increment": -300,
+    "min_damage": -4000,
+    "max_damage": -10000,
+    "damage_increment": -1200,
     "min_range": 5,
     "max_range": 10,
     "range_increment": 1,
@@ -217,9 +216,9 @@
     "base_energy_cost": 24,
     "final_energy_cost": 12,
     "energy_increment": -2.4,
-    "min_duration": 90000,
+    "min_duration": 60000,
     "max_duration": 150000,
-    "duration_increment": 12000
+    "duration_increment": 18000
   },
   {
     "id": "arcana_mark_revenant_blood",
@@ -242,9 +241,9 @@
     "base_energy_cost": 20,
     "final_energy_cost": 10,
     "energy_increment": -2,
-    "min_duration": 36000,
-    "max_duration": 60000,
-    "duration_increment": 4800
+    "min_duration": 48000,
+    "max_duration": 120000,
+    "duration_increment": 14400
   },
   {
     "id": "arcana_mark_summon_dark_wyrm",
@@ -272,9 +271,9 @@
     "base_energy_cost": 24,
     "final_energy_cost": 12,
     "energy_increment": -2.4,
-    "min_duration": 360000,
-    "max_duration": 1200000,
-    "duration_increment": 168000
+    "min_duration": 900000,
+    "max_duration": 2250000,
+    "duration_increment": 270000
   },
   {
     "id": "arcana_mark_summon_fiend",
@@ -302,9 +301,9 @@
     "base_energy_cost": 20,
     "final_energy_cost": 10,
     "energy_increment": -2,
-    "min_duration": 288000,
-    "max_duration": 960000,
-    "duration_increment": 134400
+    "min_duration": 720000,
+    "max_duration": 1800000,
+    "duration_increment": 216000
   },
   {
     "id": "arcana_mark_summon_jabberwock",
@@ -332,9 +331,9 @@
     "base_energy_cost": 28,
     "final_energy_cost": 14,
     "energy_increment": -2.8,
-    "min_duration": 432000,
-    "max_duration": 1440000,
-    "duration_increment": 201600
+    "min_duration": 1080000,
+    "max_duration": 2700000,
+    "duration_increment": 324000
   },
   {
     "id": "arcana_mark_surge_adrenaline",
@@ -357,8 +356,8 @@
     "difficulty": 20,
     "skill": "magic",
     "min_duration": 36000,
-    "max_duration": 60000,
-    "duration_increment": 4800,
+    "max_duration": 180000,
+    "duration_increment": 28800,
     "energy_source": "HP"
   }
 ]

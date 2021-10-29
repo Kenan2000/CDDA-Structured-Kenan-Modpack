@@ -879,12 +879,7 @@
       },
       {
         "text": "I may have followed the same path as them, but I was not one of them.",
-        "condition": {
-          "and": [
-            { "not": { "u_has_trait": "PROF_SANGUINE" } },
-            { "u_has_trait": "THRESH_DRAGONBLOOD" }
-          ]
-        },
+        "condition": { "and": [ { "not": { "u_has_trait": "PROF_SANGUINE" } }, { "u_has_trait": "THRESH_DRAGONBLOOD" } ] },
         "topic": "TALK_HERMIT_DISCUSS_1_DRAGONBLOOD"
       },
       {
@@ -943,7 +938,11 @@
     "id": "TALK_HERMIT_DISCUSS_1_DESTROY",
     "dynamic_line": "What?  Please, you can't!  I know that this corruption is dangerous, and it will take great effort to fix it, but it can do so much good if it is restored… I can't allow that.",
     "responses": [
-      { "text": "Fine.  Tell me what I need to do to fix it.", "topic": "TALK_MISSION_LIST", "condition": { "not": "has_no_available_mission" } },
+      {
+        "text": "Fine.  Tell me what I need to do to fix it.",
+        "topic": "TALK_MISSION_LIST",
+        "condition": { "not": "has_no_available_mission" }
+      },
       { "text": "We shall see.", "topic": "TALK_HERMIT" },
       {
         "text": "[ATTACK] My duty demands it, this is far too dangerous to risk.  Try and stop me, old man.",
@@ -1502,10 +1501,7 @@
         "topic": "TALK_HERMIT_DISCUSS_4_DREAMS"
       },
       { "text": "What remains of the Keepers of The Oath?", "topic": "TALK_HERMIT_DISCUSS_4_KEEPERS" },
-      {
-        "text": "Why did the blood mages betray you, anyway?",
-        "topic": "TALK_HERMIT_DISCUSS_4_BETRAYAL"
-      },
+      { "text": "Why did the blood mages betray you, anyway?", "topic": "TALK_HERMIT_DISCUSS_4_BETRAYAL" },
       {
         "text": "Will sealing these portals really ensure humanity's survival?",
         "topic": "TALK_HERMIT_DISCUSS_4_SURVIVAL"
@@ -1741,10 +1737,7 @@
         "opinion": { "value": -1 },
         "topic": "TALK_HERMIT_BOOK_RELIGIOUS_HUNTER"
       },
-      {
-        "text": "I'm just a survivor, these days.",
-        "topic": "TALK_HERMIT_BOOK_RELIGIOUS_SURVIVOR"
-      },
+      { "text": "I'm just a survivor, these days.", "topic": "TALK_HERMIT_BOOK_RELIGIOUS_SURVIVOR" },
       { "text": "It's nothing.  Never mind.", "topic": "TALK_HERMIT" }
     ]
   },
@@ -1930,7 +1923,14 @@
       {
         "text": "I have seen what the arcane can lead to.  Great things, but also great danger.",
         "condition": {
-          "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2", "PROF_SANGUINE", "PROF_ARCANIST", "PROF_ARCANIST2", "THRESH_DRAGONBLOOD" ]
+          "u_has_any_trait": [
+            "PROF_CLEANSINGFLAME",
+            "PROF_CLEANSINGFLAME2",
+            "PROF_SANGUINE",
+            "PROF_ARCANIST",
+            "PROF_ARCANIST2",
+            "THRESH_DRAGONBLOOD"
+          ]
         },
         "topic": "TALK_HERMIT_BOOK_REVEAL",
         "effect": { "u_add_effect": "hermit_earned_trust_1", "duration": "PERMANENT" }

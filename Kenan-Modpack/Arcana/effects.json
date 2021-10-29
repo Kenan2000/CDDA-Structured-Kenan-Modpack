@@ -8,9 +8,10 @@
     "apply_message": "You feel a slight sense of exertion from casting the spell.",
     "remove_message": "The exertion of spellcasting fades from your mind.",
     "rating": "bad",
-    "max_duration": "8 h",
+    "max_duration": "24 h",
+    "max_intensity": 1440,
     "int_dur_factor": "1 m",
-    "base_mods": { "fatigue_min": [ 1 ], "fatigue_tick": [ 300, 600 ] }
+    "base_mods": { "fatigue_min": [ 1 ], "fatigue_tick": [ 250, 500 ] }
   },
   {
     "type": "effect_type",
@@ -663,34 +664,34 @@
   {
     "type": "effect_type",
     "id": "dragonbreath_side_effects",
-    "max_duration": "1 s",
-    "base_mods": { "hunger_min": [ 30 ] }
+    "max_duration": "60 m",
+    "base_mods": { "hunger_min": [ 2 ] }
   },
   {
     "type": "effect_type",
     "id": "destructive_absorption_side_effects",
     "name": [ "Absorption Aftereffects" ],
     "desc": [ "Reduces hunger and thirst, at the expense of stamina and fatigue." ],
-    "max_duration": "3 m",
+    "max_duration": "30 m",
     "base_mods": {
       "hunger_min": [ -1 ],
-      "hunger_chance": [ 90 ],
-      "hunger_chance_bot": [ 100 ],
+      "hunger_tick": [ 5 ],
       "thirst_min": [ -1 ],
-      "thirst_chance": [ 60 ],
-      "thirst_chance_bot": [ 100 ],
-      "stamina_min": [ -100 ],
-      "stamina_chance": [ 90 ],
-      "stamina_chance_bot": [ 100 ],
+      "thirst_tick": [ 5 ],
+      "stamina_min": [ -200 ],
+      "stamina_tick": [ 5 ],
       "fatigue_min": [ 1 ],
-      "fatigue_chance": [ 60 ],
+      "fatigue_chance": [ 75 ],
       "fatigue_chance_bot": [ 100 ],
+      "fatigue_tick": [ 5 ],
       "health_min": [ 1 ],
-      "health_chance": [ 30 ],
+      "health_chance": [ 50 ],
       "health_chance_bot": [ 100 ],
+      "health_tick": [ 5 ],
       "h_mod_min": [ 1 ],
-      "h_mod_chance": [ 30 ],
-      "h_mod_chance_bot": [ 100 ]
+      "h_mod_chance": [ 50 ],
+      "h_mod_chance_bot": [ 100 ],
+      "h_mod_tick": [ 5 ]
     }
   },
   {
@@ -721,7 +722,8 @@
       "Drawing upon power from Beyond to heal the body is slowing your natural healing, and making exertion more difficult."
     ],
     "max_intensity": 6,
-    "int_dur_factor": "12 h",
+    "max_duration": "24 h",
+    "int_dur_factor": "2 h",
     "base_mods": {
       "health_min": [ -1 ],
       "health_tick": [ 1800, 2000 ],
@@ -742,7 +744,8 @@
       "Human minds and bodies were not made to be a conduit for such destructive energy.  Overuse won't kill you, but will make it harder to focus on spellcasting."
     ],
     "max_intensity": 6,
-    "int_dur_factor": "12 h",
+    "max_duration": "24 h",
+    "int_dur_factor": "2 h",
     "base_mods": {
       "int_mod": [ -1 ],
       "stamina_min": [ -5 ],

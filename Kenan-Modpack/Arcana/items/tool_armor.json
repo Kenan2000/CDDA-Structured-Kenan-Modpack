@@ -53,14 +53,21 @@
     "price": "700 USD",
     "price_postapoc": "80 USD",
     "color": "yellow",
-    "material_thickness": 5,
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_dull_type": 60 } } ],
     "charges_per_use": 20,
     "ammo": "essence_dull_type",
     "use_action": { "type": "cast_spell", "spell_id": "arcana_item_gilded_aegis_healing", "no_fail": true, "level": 0, "need_worn": true },
-    "relative": { "weight": 3020, "material_thickness": 3 },
+    "relative": { "weight": 3020 },
     "extend": { "flags": [ "NO_SALVAGE", "HELMET_COMPAT", "FANCY", "TRADER_KEEP_EQUIPPED" ] },
-    "armor": [ { "encumbrance": 12, "coverage": 100, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ] } ]
+    "armor": [
+      {
+        "encumbrance": 12,
+        "coverage": 100,
+        "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ],
+        "material": [ "leather", "iron", "gold" ],
+        "material_thickness": 5
+      }
+    ]
   },
   {
     "id": "arcana_ench_somen_clairvoyance",
@@ -89,8 +96,6 @@
     "charges_per_use": 1,
     "ammo": "essence_dull_type",
     "warmth": 10,
-    "material_thickness": 3,
-    "environmental_protection": 1,
     "relic_data": { "passive_effects": [ { "id": "arcana_ench_somen_clairvoyance" } ] },
     "use_action": {
       "target": "somen_clairvoyance_on",
@@ -102,7 +107,16 @@
       "type": "transform"
     },
     "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ],
-    "armor": [ { "encumbrance": 8, "coverage": 100, "covers": [ "eyes", "mouth" ] } ]
+    "armor": [
+      {
+        "encumbrance": 8,
+        "coverage": 100,
+        "covers": [ "eyes", "mouth" ],
+        "material": [ "iron", "copper", "leather" ],
+        "material_thickness": 3,
+        "environmental_protection": 1
+      }
+    ]
   },
   {
     "id": "somen_clairvoyance_on",
@@ -140,8 +154,6 @@
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_dull_type": 24 } } ],
     "charges_per_use": 1,
     "ammo": "essence_dull_type",
-    "material_thickness": 3,
-    "environmental_protection": 1,
     "relic_data": { "passive_effects": [ { "id": "arcana_ench_somen_clairvoyance" } ] },
     "use_action": {
       "target": "somen_clairvoyance_xl_on",
@@ -153,7 +165,16 @@
       "type": "transform"
     },
     "flags": [ "NO_SALVAGE", "OVERSIZE", "OUTER" ],
-    "armor": [ { "encumbrance": 8, "coverage": 100, "covers": [ "eyes" ] } ]
+    "armor": [
+      {
+        "encumbrance": 8,
+        "coverage": 100,
+        "covers": [ "eyes" ],
+        "material": [ "iron", "copper", "leather" ],
+        "material_thickness": 3,
+        "environmental_protection": 1
+      }
+    ]
   },
   {
     "id": "somen_clairvoyance_xl_on",
@@ -187,13 +208,20 @@
     "symbol": "[",
     "looks_like": "armor_larmor",
     "color": "green",
-    "armor": [ { "encumbrance": 9, "coverage": 90, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r", "foot_l", "foot_r" ] } ],
+    "armor": [
+      {
+        "encumbrance": 9,
+        "coverage": 90,
+        "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
+        "material": [ "wyrmskin", "leather" ],
+        "material_thickness": 5,
+        "environmental_protection": 10
+      }
+    ],
     "warmth": 20,
-    "material_thickness": 5,
     "valid_mods": [ "steel_padded" ],
     "charges_per_use": 4,
     "ammo": "essence_blood_type",
-    "environmental_protection": 10,
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_blood_type": 16 } } ],
     "use_action": [
       {
@@ -232,14 +260,13 @@
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_blood_type": 6 } } ],
     "charges_per_use": 2,
     "ammo": "essence_blood_type",
-    "material_thickness": 1,
     "use_action": {
       "type": "consume_drug",
       "activation_message": "The gem shimmers with malevolent red light as you feel a strange hunger, a craving for rotting meat and stagnant water...",
       "effects": [ { "id": "revenant_hunger", "duration": 1800 } ]
     },
     "flags": [ "BELTED", "OVERSIZE", "NO_SALVAGE", "ALLOWS_NATURAL_ATTACKS", "TRADER_KEEP_EQUIPPED" ],
-    "armor": [ { "coverage": 20, "covers": [ "head" ] } ]
+    "armor": [ { "coverage": 20, "covers": [ "head" ], "material": [ "silver", "diamond" ], "material_thickness": 1 } ]
   },
   {
     "id": "ENCH_MANTLE_SHADOWS",
@@ -258,6 +285,7 @@
     "description": "A loose-fitting robe of some sort, heavily altered with decorations resting on the shoulders, dyed in a simple dark gray.  Activating it will grant invisibility, constantly draining essence while in use.",
     "price": "900 USD",
     "price_postapoc": "70 USD",
+    "material": [ "cotton" ],
     "color": "dark_gray",
     "charges_per_use": 1,
     "ammo": "essence_type",
@@ -275,9 +303,17 @@
         "type": "transform"
       }
     ],
-    "relative": { "weight": 616, "volume": -1, "material_thickness": 2 },
+    "relative": { "weight": 616, "volume": -1 },
     "extend": { "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ] },
-    "armor": [ { "covers": [ "torso", "leg_l", "leg_r", "arm_l", "arm_r" ], "coverage": 85, "encumbrance": [ 8, 8 ] } ]
+    "armor": [
+      {
+        "covers": [ "torso", "leg_l", "leg_r", "arm_l", "arm_r" ],
+        "coverage": 85,
+        "encumbrance": [ 8, 8 ],
+        "material": [ "cotton" ],
+        "material_thickness": 3
+      }
+    ]
   },
   {
     "id": "robe_shadow_on",
@@ -316,7 +352,6 @@
     "repairs_like": "robe_shadow",
     "color": "dark_gray",
     "warmth": 20,
-    "material_thickness": 4,
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_type": 20 } } ],
     "charges_per_use": 1,
     "ammo": "essence_type",
@@ -336,7 +371,7 @@
       }
     ],
     "flags": [ "OVERSIZE", "OUTER", "NO_SALVAGE" ],
-    "armor": [ { "encumbrance": 8, "coverage": 85, "covers": [ "torso" ] } ]
+    "armor": [ { "encumbrance": 8, "coverage": 85, "covers": [ "torso" ], "material": [ "cotton" ], "material_thickness": 4 } ]
   },
   {
     "id": "robe_shadow_xl_on",
@@ -387,7 +422,8 @@
         "need_worn": true
       }
     ],
-    "relative": { "weight": 210, "material_thickness": 1 },
+    "material_thickness": 5,
+    "relative": { "weight": 210 },
     "extend": { "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ] }
   },
   {
@@ -422,9 +458,17 @@
         "need_worn": true
       }
     ],
-    "relative": { "weight": 120, "material_thickness": 1 },
+    "relative": { "weight": 120 },
     "extend": { "flags": [ "NO_SALVAGE", "ALLOWS_NATURAL_ATTACKS", "OVERSIZE", "OUTER" ] },
-    "armor": [ { "encumbrance": 75, "coverage": 10, "covers": [ "hand_l", "hand_r" ] } ]
+    "armor": [
+      {
+        "encumbrance": 75,
+        "coverage": 10,
+        "covers": [ "hand_l", "hand_r" ],
+        "material": [ "iron", "leather", "silver" ],
+        "material_thickness": 5
+      }
+    ]
   },
   {
     "id": "cyclopean_mirror",
@@ -443,7 +487,6 @@
     "color": "light_gray",
     "charges_per_use": 1,
     "ammo": "essence_type",
-    "material_thickness": 4,
     "use_action": [
       {
         "target": "cyclopean_mirror_on",
@@ -469,7 +512,8 @@
       "ONLY_ONE",
       "POWERARMOR_COMPATIBLE"
     ],
-    "armor": [ { "coverage": 40, "covers": [ "torso" ] } ]
+    "armor_data": { "material": [ "iron" ], "armor": [ { "encumbrance": 10, "coverage": 5, "covers": [ "torso" ] } ] },
+    "armor": [ { "coverage": 40, "covers": [ "torso" ], "material": [ "iron" ], "material_thickness": 4 } ]
   },
   {
     "id": "cyclopean_mirror_on",
@@ -478,6 +522,7 @@
     "name": { "str": "cyclopean mirror (on)" },
     "category": "armor",
     "description": "An ornate round mirror in an archaic style.  It has shifted into a brightly-glowing barrier that protects the user from electricity and radiation, along with partial protection from psychic influence, some resistance to extreme temperatures, and minor environmental protection.  The barrier's physical protection is half that of the mirror itself, but protects your body fully.",
+    "material": [ "iron" ],
     "turns_per_charge": 600,
     "revert_to": "cyclopean_mirror",
     "use_action": {
@@ -485,7 +530,7 @@
       "msg": "The protective glow vanishes as the mirror rematerializes.",
       "type": "transform"
     },
-    "relative": { "weight": -500, "material_thickness": -2, "bashing": -8, "environmental_protection": 12 },
+    "relative": { "weight": -500, "bashing": -8 },
     "extend": {
       "flags": [
         "CLIMATE_CONTROL",
@@ -507,7 +552,10 @@
     "armor": [
       {
         "coverage": 100,
-        "covers": [ "head", "eyes", "mouth", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+        "covers": [ "head", "eyes", "mouth", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
+        "material": [ "iron" ],
+        "material_thickness": 2,
+        "environmental_protection": 12
       }
     ]
   },
@@ -521,7 +569,6 @@
     "price_postapoc": "150 USD",
     "material": [ "iron", "copper", "leather", "cotton" ],
     "color": "light_red",
-    "environmental_protection": 1,
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_dull_type": 120 } } ],
     "relic_data": {
       "passive_effects": [
@@ -556,9 +603,18 @@
         "need_worn": true
       }
     ],
-    "relative": { "weight": "3020 g", "price": "550 USD", "material_thickness": 1 },
+    "relative": { "weight": "3020 g", "price": "550 USD" },
     "extend": { "flags": [ "NO_SALVAGE", "ELECTRIC_IMMUNE", "RAINPROOF", "TRADER_KEEP_EQUIPPED" ] },
-    "armor": [ { "encumbrance": 20, "coverage": 100, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ] } ]
+    "armor": [
+      {
+        "encumbrance": 20,
+        "coverage": 100,
+        "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ],
+        "material": [ "iron", "copper", "leather", "iron" ],
+        "material_thickness": 7,
+        "environmental_protection": 1
+      }
+    ]
   },
   {
     "id": "hauberk_jade_on",
@@ -571,6 +627,7 @@
     "turns_per_charge": 10,
     "revert_to": "hauberk_jade",
     "use_action": { "target": "hauberk_jade", "msg": "The glow emanating from your jade hauberk fades.", "type": "transform" },
+    "qualities": [ [ "GLARE", 1 ] ],
     "extend": {
       "flags": [ "GAS_PROOF", "RAD_PROOF", "SUN_GLASSES", "BULLET_IMMUNE", "STAB_IMMUNE", "HEAT_IMMUNE", "CLIMATE_CONTROL" ]
     }
@@ -594,7 +651,6 @@
     "color": "green",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_blood_type": 30 } } ],
     "ammo": "essence_blood_type",
-    "material_thickness": 1,
     "relic_data": {
       "passive_effects": [
         {
@@ -616,7 +672,7 @@
       "type": "transform"
     },
     "flags": [ "BELTED", "OVERSIZE", "ALLOWS_NATURAL_ATTACKS", "TRADER_KEEP_EQUIPPED" ],
-    "armor": [ { "encumbrance": 10, "coverage": 20, "covers": [ "head" ] } ]
+    "armor": [ { "encumbrance": 10, "coverage": 20, "covers": [ "head" ], "material": [ "stone" ], "material_thickness": 1 } ]
   },
   {
     "id": "jade_wreath_on",
