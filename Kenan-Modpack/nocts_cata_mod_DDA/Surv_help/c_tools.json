@@ -79,8 +79,15 @@
       "need_charges": 1,
       "need_charges_msg": "The flashlight's batteries are dead."
     },
-    "material_thickness": 2,
-    "armor": [ { "encumbrance": 1, "coverage": 15, "covers": [ "head" ] } ]
+    "armor": [
+      {
+        "encumbrance": 1,
+        "coverage": 15,
+        "covers": [ "head" ],
+        "material": [ "plastic", "aluminum" ],
+        "material_thickness": 2
+      }
+    ]
   },
   {
     "id": "wear_solar_flashlight_on",
@@ -109,8 +116,15 @@
       "msg": "You turn the flashlight off.",
       "target": "wear_solar_flashlight"
     },
-    "material_thickness": 2,
-    "armor": [ { "encumbrance": 1, "coverage": 15, "covers": [ "head" ] } ]
+    "armor": [
+      {
+        "encumbrance": 1,
+        "coverage": 15,
+        "covers": [ "head" ],
+        "material": [ "plastic", "aluminum" ],
+        "material_thickness": 2
+      }
+    ]
   },
   {
     "id": "solar_crude_firestarter",
@@ -668,7 +682,7 @@
     "flags": [ "BELTED", "WATCH", "ALARMCLOCK", "RECHARGE", "NO_UNLOAD", "NO_RELOAD" ],
     "phase": "solid",
     "sided": true,
-    "armor": [ { "encumbrance": 5, "coverage": 10, "covers": [ "hand_l", "hand_r" ] } ]
+    "armor": [ { "encumbrance": 5, "coverage": 10, "covers": [ "hand_l", "hand_r" ], "material": [ "steel" ] } ]
   },
   {
     "id": "stim",
@@ -860,7 +874,7 @@
     "sided": true,
     "use_action": [ "WEATHER_TOOL", "DISASSEMBLE" ],
     "flags": [ "WATCH", "ALARMCLOCK", "BELTED", "FRAGILE", "ALLOWS_NATURAL_ATTACKS", "THERMOMETER" ],
-    "armor": [ { "encumbrance": 1, "coverage": 5, "covers": [ "hand_l", "hand_r" ] } ]
+    "armor": [ { "encumbrance": 1, "coverage": 5, "covers": [ "hand_l", "hand_r" ], "material": [ "plastic", "steel" ] } ]
   },
   {
     "id": "parabracelets",
@@ -878,7 +892,7 @@
     "sided": true,
     "flags": [ "BELTED", "FRAGILE", "ALLOWS_NATURAL_ATTACKS" ],
     "use_action": "DISASSEMBLE",
-    "armor": [ { "encumbrance": 1, "coverage": 5, "covers": [ "hand_l", "hand_r" ] } ]
+    "armor": [ { "encumbrance": 1, "coverage": 5, "covers": [ "hand_l", "hand_r" ], "material": [ "cotton" ] } ]
   },
   {
     "id": "flesh_weapon_kit",
@@ -926,13 +940,20 @@
     "volume": "3 L",
     "bashing": 4,
     "warmth": 20,
-    "material_thickness": 2,
     "ammo": [ "battery" ],
     "charges_per_use": 1,
     "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "1 h", "regenerate_ammo": true } },
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "battery": 25 } } ],
     "use_action": { "type": "cast_spell", "spell_id": "c_cbm_rtg_induction", "no_fail": true, "level": 0 },
-    "armor": [ { "encumbrance": 5, "coverage": 25, "covers": [ "torso" ] } ]
+    "armor": [
+      {
+        "encumbrance": 5,
+        "coverage": 25,
+        "covers": [ "torso" ],
+        "material": [ "plastic", "aluminum" ],
+        "material_thickness": 2
+      }
+    ]
   },
   {
     "id": "thermal_lance_makeshift",

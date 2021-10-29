@@ -38,12 +38,19 @@
     "turns_per_charge": 0,
     "revert_to": null,
     "warmth": 10,
-    "material_thickness": 4,
-    "environmental_protection": 0,
     "techniques": [ "WBLOCK_1" ],
     "use_action": "ROBOTCONTROL",
     "flags": [ "WATER_FRIENDLY", "STURDY", "VARSIZE" ],
-    "armor": [ { "encumbrance": 20, "coverage": 95, "covers": [ "head" ] } ]
+    "armor": [
+      {
+        "encumbrance": 20,
+        "coverage": 95,
+        "covers": [ "head" ],
+        "material": [ "kevlar", "plastic" ],
+        "material_thickness": 4,
+        "environmental_protection": 0
+      }
+    ]
   },
   {
     "id": "cddaxp_goggles_artnv",
@@ -84,8 +91,6 @@
     "turns_per_charge": 0,
     "revert_to": null,
     "warmth": 20,
-    "material_thickness": 2,
-    "environmental_protection": 8,
     "use_action": {
       "target": "cddaxp_goggles_artnv_on",
       "msg": "You activate your %s",
@@ -95,7 +100,16 @@
       "type": "transform"
     },
     "flags": [ "FRAGILE", "VARSIZE" ],
-    "armor": [ { "encumbrance": 30, "coverage": 100, "covers": [ "eyes" ] } ]
+    "armor": [
+      {
+        "encumbrance": 30,
+        "coverage": 100,
+        "covers": [ "eyes" ],
+        "material": [ "plastic", "aluminum" ],
+        "material_thickness": 2,
+        "environmental_protection": 8
+      }
+    ]
   },
   {
     "id": "cddaxp_goggles_artnv_on",
@@ -136,12 +150,19 @@
     "turns_per_charge": 5,
     "revert_to": "cddaxp_goggles_artnv",
     "warmth": 25,
-    "material_thickness": 2,
-    "environmental_protection": 8,
     "relic_data": { "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "values": [ { "value": "PERCEPTION", "add": 3 } ] } ] },
     "use_action": { "target": "cddaxp_goggles_artnv", "msg": "Your %s deactivates.", "type": "transform" },
     "flags": [ "GNV_EFFECT", "FRAGILE", "VARSIZE" ],
-    "armor": [ { "encumbrance": 15, "coverage": 100, "covers": [ "eyes" ] } ]
+    "armor": [
+      {
+        "encumbrance": 15,
+        "coverage": 100,
+        "covers": [ "eyes" ],
+        "material": [ "plastic", "aluminum" ],
+        "material_thickness": 2,
+        "environmental_protection": 8
+      }
+    ]
   },
   {
     "id": "cddaxp_artclocloak",
@@ -182,8 +203,6 @@
     "turns_per_charge": 0,
     "revert_to": null,
     "warmth": 50,
-    "material_thickness": 2,
-    "environmental_protection": 6,
     "use_action": {
       "target": "cddaxp_artclocloak_on",
       "msg": "You activate your %s.  You are invisible!",
@@ -197,7 +216,10 @@
       {
         "encumbrance": 5,
         "coverage": 95,
-        "covers": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r" ]
+        "covers": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r" ],
+        "material": [ "cotton", "plastic" ],
+        "material_thickness": 2,
+        "environmental_protection": 6
       }
     ]
   },
@@ -240,8 +262,6 @@
     "turns_per_charge": 2,
     "revert_to": "cddaxp_artclocloak",
     "warmth": 55,
-    "material_thickness": 2,
-    "environmental_protection": 6,
     "relic_data": {
       "passive_effects": [
         {
@@ -258,7 +278,10 @@
       {
         "encumbrance": 5,
         "coverage": 95,
-        "covers": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r" ]
+        "covers": [ "torso", "head", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r" ],
+        "material": [ "cotton", "plastic" ],
+        "material_thickness": 2,
+        "environmental_protection": 6
       }
     ]
   },
@@ -293,8 +316,6 @@
     "turns_per_charge": 0,
     "revert_to": null,
     "warmth": 5,
-    "material_thickness": 2,
-    "environmental_protection": 0,
     "use_action": {
       "target": "cddaxp_artesosk_on",
       "msg": "You activate your %s.",
@@ -304,7 +325,16 @@
       "type": "transform"
     },
     "flags": [ "STURDY", "WATCH", "ALARMCLOCK", "OUTER", "VARSIZE" ],
-    "armor": [ { "encumbrance": 15, "coverage": 60, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ] } ]
+    "armor": [
+      {
+        "encumbrance": 15,
+        "coverage": 60,
+        "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ],
+        "material": [ "aluminum", "cddaxp_carbonfiber" ],
+        "material_thickness": 2,
+        "environmental_protection": 0
+      }
+    ]
   },
   {
     "id": "cddaxp_artesosk_on",
@@ -337,12 +367,19 @@
     "turns_per_charge": 2,
     "revert_to": "cddaxp_artesosk",
     "warmth": 10,
-    "material_thickness": 2,
-    "environmental_protection": 0,
     "relic_data": { "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "values": [ { "value": "STRENGTH", "add": 3 } ] } ] },
     "use_action": { "target": "cddaxp_artesosk", "msg": "Your %s deactivates.", "type": "transform" },
     "flags": [ "STURDY", "WATCH", "ALARMCLOCK", "OUTER", "VARSIZE", "LIGHT_100", "CHARGEDIM" ],
-    "armor": [ { "encumbrance": 10, "coverage": 60, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ] } ]
+    "armor": [
+      {
+        "encumbrance": 10,
+        "coverage": 60,
+        "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ],
+        "material": [ "aluminum", "cddaxp_carbonfiber" ],
+        "material_thickness": 2,
+        "environmental_protection": 0
+      }
+    ]
   },
   {
     "id": "cddaxp_artgloves",
@@ -383,8 +420,6 @@
     "turns_per_charge": 0,
     "revert_to": null,
     "warmth": 20,
-    "material_thickness": 2,
-    "environmental_protection": 1,
     "use_action": {
       "target": "cddaxp_artgloves_on",
       "msg": "You activate your %s.",
@@ -394,7 +429,16 @@
       "type": "transform"
     },
     "flags": [ "VARSIZE", "STURDY" ],
-    "armor": [ { "encumbrance": 14, "coverage": 100, "covers": [ "hand_l", "hand_r" ] } ]
+    "armor": [
+      {
+        "encumbrance": 14,
+        "coverage": 100,
+        "covers": [ "hand_l", "hand_r" ],
+        "material": [ "kevlar", "plastic" ],
+        "material_thickness": 2,
+        "environmental_protection": 1
+      }
+    ]
   },
   {
     "id": "cddaxp_artgloves_on",
@@ -435,12 +479,19 @@
     "turns_per_charge": 2,
     "revert_to": "cddaxp_artgloves",
     "warmth": 25,
-    "material_thickness": 2,
-    "environmental_protection": 1,
     "relic_data": { "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "values": [ { "value": "DEXTERITY", "add": 3 } ] } ] },
     "use_action": { "target": "cddaxp_artgloves", "msg": "Your %s deactivates.", "type": "transform" },
     "flags": [ "VARSIZE", "STURDY" ],
-    "armor": [ { "encumbrance": 14, "coverage": 100, "covers": [ "hand_l", "hand_r" ] } ]
+    "armor": [
+      {
+        "encumbrance": 14,
+        "coverage": 100,
+        "covers": [ "hand_l", "hand_r" ],
+        "material": [ "kevlar", "plastic" ],
+        "material_thickness": 2,
+        "environmental_protection": 1
+      }
+    ]
   },
   {
     "id": "cddaxp_survrbelt",
@@ -454,7 +505,6 @@
     "material": [ "leather", "iron" ],
     "symbol": "[",
     "color": "brown",
-    "material_thickness": 2,
     "qualities": [
       [ "HAMMER", 3 ],
       [ "SAW_M", 2 ],
@@ -482,7 +532,9 @@
     ],
     "use_action": [ { "type": "holster" }, "HAMMER", "HACKSAW", "LUMBER", "REMOVE_ALL_MODS", "CROWBAR" ],
     "flags": [ "VARSIZE", "WATER_FRIENDLY", "STURDY", "WAIST", "OVERSIZE" ],
-    "armor": [ { "encumbrance": 0, "coverage": 15, "covers": [ "torso" ] } ]
+    "armor": [
+      { "encumbrance": 0, "coverage": 15, "covers": [ "torso" ], "material": [ "leather", "iron" ], "material_thickness": 2 }
+    ]
   },
   {
     "id": "cddaxp_mtsuit",
@@ -509,8 +561,6 @@
     ],
     "charges_per_use": 1,
     "warmth": 10,
-    "material_thickness": 2,
-    "environmental_protection": 2,
     "use_action": {
       "target": "cddaxp_mtsuit_on",
       "msg": "You activate your %s.",
@@ -524,7 +574,10 @@
       {
         "encumbrance": 0,
         "coverage": 100,
-        "covers": [ "head", "mouth", "torso", "arm_l", "arm_r", "leg_l", "leg_r", "hand_l", "hand_r", "foot_l", "foot_r" ]
+        "covers": [ "head", "mouth", "torso", "arm_l", "arm_r", "leg_l", "leg_r", "hand_l", "hand_r", "foot_l", "foot_r" ],
+        "material": [ "wool", "neoprene" ],
+        "material_thickness": 2,
+        "environmental_protection": 2
       }
     ]
   },
@@ -554,15 +607,16 @@
     "turns_per_charge": 8,
     "revert_to": "cddaxp_mtsuit",
     "warmth": 80,
-    "material_thickness": 2,
-    "environmental_protection": 2,
     "use_action": { "target": "cddaxp_mtsuit", "msg": "Your %s deactivates.", "type": "transform" },
     "flags": [ "VARSIZE", "SKINTIGHT", "WATER_FRIENDLY", "WATERPROOF" ],
     "armor": [
       {
         "encumbrance": 0,
         "coverage": 100,
-        "covers": [ "head", "mouth", "torso", "arm_l", "arm_r", "leg_l", "leg_r", "hand_l", "hand_r", "foot_l", "foot_r" ]
+        "covers": [ "head", "mouth", "torso", "arm_l", "arm_r", "leg_l", "leg_r", "hand_l", "hand_r", "foot_l", "foot_r" ],
+        "material": [ "wool", "neoprene" ],
+        "material_thickness": 2,
+        "environmental_protection": 2
       }
     ]
   }

@@ -16,9 +16,9 @@
     "cutting": 0,
     "to_hit": 0,
     "warmth": 0,
-    "environmental_protection": 0,
-    "material_thickness": 1,
-    "armor": [ { "encumbrance": 0, "coverage": 10 } ]
+    "armor": [
+      { "encumbrance": 0, "coverage": 10, "material": [ "nanite" ], "material_thickness": 1, "environmental_protection": 0 }
+    ]
   },
   {
     "id": "nano_shield",
@@ -36,11 +36,18 @@
     "material": [ "nanite" ],
     "symbol": "[",
     "color": "light_gray",
-    "material_thickness": 4,
     "techniques": [ "WBLOCK_3" ],
     "flags": [ "OVERSIZE", "BELTED", "RESTRICT_HANDS", "BLOCK_WHILE_WORN", "TRADER_AVOID" ],
     "use_action": { "type": "transform", "target": "nano_shield_active", "active": false, "msg": "Shield switched to active mode." },
-    "armor": [ { "encumbrance": 28, "coverage": 90, "covers": [ "arm_l", "arm_r", "hand_l", "hand_r" ] } ]
+    "armor": [
+      {
+        "encumbrance": 28,
+        "coverage": 90,
+        "covers": [ "arm_l", "arm_r", "hand_l", "hand_r" ],
+        "material": [ "nanite" ],
+        "material_thickness": 4
+      }
+    ]
   },
   {
     "id": "nano_shield_active",
@@ -58,11 +65,12 @@
     "material": [ "nanite" ],
     "symbol": "[",
     "color": "light_gray",
-    "material_thickness": 4,
     "techniques": [ "WBLOCK_3" ],
     "flags": [ "OVERSIZE", "BELTED", "BLOCK_WHILE_WORN", "TRADER_AVOID" ],
     "use_action": { "type": "transform", "target": "nano_shield", "active": false, "msg": "Shield switched to passive mode." },
-    "armor": [ { "encumbrance": 15, "coverage": 60, "covers": [ "arm_l", "arm_r" ] } ]
+    "armor": [
+      { "encumbrance": 15, "coverage": 60, "covers": [ "arm_l", "arm_r" ], "material": [ "nanite" ], "material_thickness": 4 }
+    ]
   },
   {
     "type": "ARMOR",
@@ -86,7 +94,15 @@
       }
     ],
     "extend": { "flags": [ "BELTED", "TARDIS" ] },
-    "armor": [ { "coverage": 30, "covers": [ "torso" ] } ]
+    "armor": [
+      {
+        "coverage": 30,
+        "covers": [ "torso" ],
+        "material": [ "nanite" ],
+        "material_thickness": 1,
+        "environmental_protection": 0
+      }
+    ]
   },
   {
     "type": "ARMOR",
@@ -107,7 +123,7 @@
       }
     ],
     "use_action": { "type": "holster", "holster_prompt": "Store weapon", "holster_msg": "You store your %s" },
-    "armor": [ { "covers": [ "leg_l", "leg_r" ] } ]
+    "armor": [ { "covers": [ "leg_l", "leg_r" ], "material": [ "nanite" ], "material_thickness": 1, "environmental_protection": 0 } ]
   },
   {
     "type": "ARMOR",
@@ -128,7 +144,7 @@
       }
     ],
     "use_action": { "type": "holster", "holster_prompt": "Store weapon?", "holster_msg": "You store your %s" },
-    "armor": [ { "covers": [ "leg_l", "leg_r" ] } ]
+    "armor": [ { "covers": [ "leg_l", "leg_r" ], "material": [ "nanite" ], "material_thickness": 1, "environmental_protection": 0 } ]
   },
   {
     "type": "ARMOR",
@@ -149,7 +165,7 @@
       }
     ],
     "use_action": { "type": "holster", "holster_prompt": "Store ammo", "holster_msg": "You store your %s." },
-    "armor": [ { "covers": [ "arm_l", "arm_r" ] } ]
+    "armor": [ { "covers": [ "arm_l", "arm_r" ], "material": [ "nanite" ], "material_thickness": 1, "environmental_protection": 0 } ]
   },
   {
     "type": "ARMOR",
@@ -173,7 +189,6 @@
         }
       ]
     },
-    "environmental_protection": 30,
     "qualities": [ [ "GLARE", 1 ] ],
     "extend": {
       "flags": [
@@ -202,7 +217,6 @@
         "WATERPROOF"
       ]
     },
-    "material_thickness": 3,
     "use_action": [
       {
         "type": "transform",
@@ -215,7 +229,10 @@
     "armor": [
       {
         "coverage": 100,
-        "covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+        "covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
+        "material_thickness": 3,
+        "environmental_protection": 30,
+        "material": [ "nanite" ]
       }
     ]
   },
@@ -325,7 +342,9 @@
     "cutting": 0,
     "to_hit": 0,
     "material": [ "nanite" ],
-    "armor_data": { "material_thickness": 1, "armor": [ { "encumbrance": 4, "coverage": 10, "covers": [ "torso" ] } ] },
+    "armor_data": {
+      "armor": [ { "encumbrance": 4, "coverage": 10, "covers": [ "torso" ], "material_thickness": 1, "material": [ "nanite" ] } ]
+    },
     "flags": [ "NONCONDUCTIVE", "TRADER_AVOID", "TARDIS" ],
     "insulation": 50
   }

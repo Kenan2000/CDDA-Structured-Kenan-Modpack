@@ -13,7 +13,6 @@
     "symbol": "[",
     "looks_like": "leather_pouch",
     "color": "red",
-    "material_thickness": 1,
     "pocket_data": [
       {
         "ammo_restriction": {
@@ -66,7 +65,15 @@
       }
     ],
     "flags": [ "WAIST", "OVERSIZE", "WATER_FRIENDLY" ],
-    "armor": [ { "encumbrance": 5, "coverage": 10, "covers": [ "torso" ] } ]
+    "armor": [
+      {
+        "encumbrance": 5,
+        "coverage": 10,
+        "covers": [ "torso" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_ammo_satchel",
@@ -80,7 +87,6 @@
     "symbol": "[",
     "looks_like": "ragpouch",
     "color": "red",
-    "material_thickness": 1,
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
@@ -93,7 +99,15 @@
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
     "flags": [ "WATER_FRIENDLY", "WAIST" ],
-    "armor": [ { "encumbrance": 4, "coverage": 20, "covers": [ "torso" ] } ]
+    "armor": [
+      {
+        "encumbrance": 4,
+        "coverage": 20,
+        "covers": [ "torso" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_chestpouch",
@@ -107,7 +121,6 @@
     "symbol": "[",
     "looks_like": "ragpouch",
     "color": "red",
-    "material_thickness": 1,
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
@@ -120,7 +133,7 @@
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
     "flags": [ "WATER_FRIENDLY", "BELTED" ],
-    "armor": [ { "coverage": 15, "covers": [ "torso" ] } ]
+    "armor": [ { "coverage": 15, "covers": [ "torso" ], "material": [ "secro_flesh_artificial" ], "material_thickness": 1 } ]
   },
   {
     "id": "secro_flesh_chestrig",
@@ -134,7 +147,6 @@
     "symbol": "[",
     "looks_like": "tool_belt",
     "color": "red",
-    "material_thickness": 1,
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
@@ -171,7 +183,7 @@
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
     "flags": [ "WATER_FRIENDLY", "BELTED" ],
-    "armor": [ { "coverage": 15, "covers": [ "torso" ] } ]
+    "armor": [ { "coverage": 15, "covers": [ "torso" ], "material": [ "secro_flesh_artificial" ], "material_thickness": 1 } ]
   },
   {
     "id": "secro_flesh_xl_chestrig",
@@ -194,7 +206,6 @@
     "symbol": "[",
     "looks_like": "quiver",
     "color": "red",
-    "material_thickness": 1,
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
@@ -244,7 +255,15 @@
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash javelins", "holster_msg": "You stash your %s." },
     "flags": [ "WATER_FRIENDLY", "OVERSIZE", "BELTED" ],
-    "armor": [ { "encumbrance": 10, "coverage": 30, "covers": [ "torso" ] } ]
+    "armor": [
+      {
+        "encumbrance": 10,
+        "coverage": 30,
+        "covers": [ "torso" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_legpouch",
@@ -259,7 +278,6 @@
     "looks_like": "ragpouch",
     "color": "red",
     "sided": true,
-    "material_thickness": 1,
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
@@ -272,7 +290,15 @@
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
     "flags": [ "WATER_FRIENDLY", "BELTED", "OVERSIZE", "ALLOWS_NATURAL_ATTACKS", "NOT_FOOTWEAR" ],
-    "armor": [ { "encumbrance": 1, "coverage": 5, "covers": [ "foot_l", "foot_r" ] } ]
+    "armor": [
+      {
+        "encumbrance": 1,
+        "coverage": 5,
+        "covers": [ "foot_l", "foot_r" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "type": "ARMOR",
@@ -287,7 +313,6 @@
     "looks_like": "ammo_satchel",
     "color": "red",
     "sided": true,
-    "material_thickness": 1,
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
@@ -308,7 +333,9 @@
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
     "flags": [ "WATER_FRIENDLY", "BELTED" ],
-    "armor": [ { "coverage": 15, "covers": [ "leg_l", "leg_r" ] } ]
+    "armor": [
+      { "coverage": 15, "covers": [ "leg_l", "leg_r" ], "material": [ "secro_flesh_artificial" ], "material_thickness": 1 }
+    ]
   },
   {
     "id": "secro_flesh_quiver",
@@ -324,10 +351,17 @@
     "looks_like": "bscabbard",
     "color": "red",
     "sided": true,
-    "material_thickness": 1,
     "pocket_data": [ { "ammo_restriction": { "arrow": 20, "bolt": 20 }, "moves": 20 } ],
     "flags": [ "WAIST", "OVERSIZE", "WATER_FRIENDLY" ],
-    "armor": [ { "encumbrance": 3, "coverage": 10, "covers": [ "leg_l", "leg_r" ] } ]
+    "armor": [
+      {
+        "encumbrance": 3,
+        "coverage": 10,
+        "covers": [ "leg_l", "leg_r" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_quiver_large",
@@ -342,10 +376,17 @@
     "symbol": "[",
     "looks_like": "quiver",
     "color": "red",
-    "material_thickness": 1,
     "pocket_data": [ { "ammo_restriction": { "arrow": 60, "bolt": 60 }, "moves": 20 } ],
     "flags": [ "BELTED", "OVERSIZE", "WATER_FRIENDLY" ],
-    "armor": [ { "encumbrance": 3, "coverage": 15, "covers": [ "torso" ] } ]
+    "armor": [
+      {
+        "encumbrance": 3,
+        "coverage": 15,
+        "covers": [ "torso" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_tacvest",
@@ -359,7 +400,6 @@
     "valid_mods": [ "secro_flesh_reinforced_coat" ],
     "symbol": "[",
     "color": "red",
-    "material_thickness": 1,
     "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
     "pocket_data": [
       {
@@ -400,7 +440,15 @@
       }
     ],
     "flags": [ "WATER_FRIENDLY", "WAIST" ],
-    "armor": [ { "encumbrance": 2, "coverage": 20, "covers": [ "torso" ] } ]
+    "armor": [
+      {
+        "encumbrance": 2,
+        "coverage": 20,
+        "covers": [ "torso" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_xl_tacvest",
