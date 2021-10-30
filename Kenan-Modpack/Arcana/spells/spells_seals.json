@@ -18,8 +18,8 @@
     "max_level": 10,
     "base_casting_time": 100,
     "final_casting_time": 100,
-    "min_duration": 96000,
-    "max_duration": 144000
+    "min_duration": 216000,
+    "max_duration": 288000
   },
   {
     "id": "arcana_seal_clairvoyance",
@@ -36,8 +36,8 @@
     "max_level": 10,
     "base_casting_time": 140,
     "final_casting_time": 140,
-    "min_duration": 144000,
-    "max_duration": 216000
+    "min_duration": 324000,
+    "max_duration": 432000
   },
   {
     "id": "arcana_seal_clarity_blood",
@@ -57,8 +57,8 @@
     "max_level": 10,
     "base_casting_time": 100,
     "final_casting_time": 100,
-    "min_duration": 48000,
-    "max_duration": 72000
+    "min_duration": 72000,
+    "max_duration": 96000
   },
   {
     "id": "arcana_seal_confuse_monster",
@@ -79,8 +79,8 @@
     "skill": "magic",
     "base_casting_time": 80,
     "final_casting_time": 80,
-    "min_duration": 3150,
-    "max_duration": 5400
+    "min_duration": 9000,
+    "max_duration": 12000
   },
   {
     "id": "arcana_seal_conjure_acid",
@@ -98,8 +98,8 @@
     "valid_targets": [ "ally", "hostile", "ground" ],
     "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "SILENT", "RANDOM_DAMAGE", "RANDOM_DURATION" ],
     "effect_str": "corroding",
-    "min_damage": 33,
-    "max_damage": 57,
+    "min_damage": 60,
+    "max_damage": 80,
     "min_range": 5,
     "max_range": 15,
     "range_increment": 1,
@@ -108,10 +108,10 @@
     "aoe_increment": 0.4,
     "max_level": 10,
     "skill": "magic",
-    "base_casting_time": 80,
-    "final_casting_time": 80,
-    "min_duration": 1500,
-    "max_duration": 2400,
+    "base_casting_time": 100,
+    "final_casting_time": 100,
+    "min_duration": 4800,
+    "max_duration": 6400,
     "damage_type": "acid",
     "field_id": "fd_acid",
     "field_chance": 6,
@@ -139,8 +139,8 @@
     "max_level": 10,
     "base_casting_time": 80,
     "final_casting_time": 80,
-    "min_duration": 72000,
-    "max_duration": 108000
+    "min_duration": 54000,
+    "max_duration": 72000
   },
   {
     "id": "arcana_seal_healing",
@@ -151,16 +151,16 @@
     "valid_targets": [ "self", "ally" ],
     "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "RANDOM_DAMAGE" ],
     "effect_str": "arcane_healing_staunch",
-    "min_damage": -19,
-    "max_damage": -32,
+    "min_damage": -30,
+    "max_damage": -40,
     "max_level": 10,
     "min_range": 1,
     "max_range": 10,
     "range_increment": 0.9,
     "effect": "attack",
     "shape": "blast",
-    "base_casting_time": 120,
-    "final_casting_time": 120,
+    "base_casting_time": 140,
+    "final_casting_time": 140,
     "skill": "magic",
     "min_duration": 100,
     "max_duration": 100
@@ -183,8 +183,8 @@
     "max_level": 10,
     "base_casting_time": 120,
     "final_casting_time": 120,
-    "min_duration": 60000,
-    "max_duration": 90000
+    "min_duration": 90000,
+    "max_duration": 120000
   },
   {
     "id": "arcana_seal_insight",
@@ -204,8 +204,8 @@
     "max_level": 10,
     "base_casting_time": 80,
     "final_casting_time": 80,
-    "min_duration": 72000,
-    "max_duration": 108000
+    "min_duration": 162000,
+    "max_duration": 216000
   },
   {
     "id": "arcana_seal_lightning_ward",
@@ -225,8 +225,8 @@
     "max_level": 10,
     "base_casting_time": 100,
     "final_casting_time": 100,
-    "min_duration": 48000,
-    "max_duration": 72000
+    "min_duration": 72000,
+    "max_duration": 96000
   },
   {
     "id": "arcana_seal_might",
@@ -246,8 +246,8 @@
     "max_level": 10,
     "base_casting_time": 120,
     "final_casting_time": 120,
-    "min_duration": 120000,
-    "max_duration": 180000
+    "min_duration": 270000,
+    "max_duration": 360000
   },
   {
     "id": "arcana_seal_overgrowth",
@@ -289,19 +289,20 @@
     "max_level": 10,
     "base_casting_time": 140,
     "final_casting_time": 140,
-    "min_duration": 72000,
-    "max_duration": 108000
+    "min_duration": 108000,
+    "max_duration": 144000
   },
   {
     "id": "arcana_seal_shockstorm",
     "type": "SPELL",
     "name": { "str": "Seal: Shockstorm" },
-    "description": "Magic Seal\nUsing this spell will call forth lightning all around you, harming anyone close enough.  Beware using it around allies.",
+    "description": "Magic Seal\nUsing this spell will call forth lightning all around you.  Anything close to you will take double damage.  Beware using it around allies.",
     "message": "\"Let it be a thunder to split the heavens and earth...\"  You cast %s!",
     "effect": "attack",
     "shape": "blast",
     "extra_effects": [
       { "id": "arcana_aftermath_brief_lightning_ward", "hit_self": true },
+      { "id": "arcana_aftermath_shockstorm_spike", "hit_self": false, "max_level": 10 },
       { "id": "arcana_aftermath_shockstorm_line", "hit_self": false, "max_level": 10 },
       { "id": "arcana_aftermath_shockstorm_line", "hit_self": false, "max_level": 10 },
       { "id": "arcana_aftermath_shockstorm_line", "hit_self": false, "max_level": 10 },
@@ -311,17 +312,17 @@
     "valid_targets": [ "ally", "hostile", "ground" ],
     "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "SILENT", "RANDOM_DAMAGE", "RANDOM_DURATION" ],
     "effect_str": "zapped",
-    "min_damage": 44,
-    "max_damage": 76,
+    "min_damage": 75,
+    "max_damage": 100,
     "min_aoe": 4,
     "max_aoe": 12,
     "aoe_increment": 0.8,
     "max_level": 10,
     "skill": "magic",
-    "base_casting_time": 60,
-    "final_casting_time": 60,
-    "min_duration": 2100,
-    "max_duration": 3600,
+    "base_casting_time": 120,
+    "final_casting_time": 120,
+    "min_duration": 15000,
+    "max_duration": 20000,
     "damage_type": "electric",
     "field_id": "fd_electricity",
     "field_chance": 10,
@@ -348,7 +349,7 @@
     "max_level": 10,
     "base_casting_time": 120,
     "final_casting_time": 120,
-    "min_duration": 60000,
-    "max_duration": 90000
+    "min_duration": 90000,
+    "max_duration": 120000
   }
 ]

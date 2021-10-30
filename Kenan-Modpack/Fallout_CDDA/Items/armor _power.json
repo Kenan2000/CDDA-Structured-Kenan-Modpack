@@ -16,8 +16,6 @@
     "pocket_data": [ { "pocket_type": "CONTAINER", "max_contains_volume": "2500 ml", "max_contains_weight": "5 kg", "moves": 80 } ],
     "warmth": 90,
     "power_armor": true,
-    "material_thickness": 15,
-    "environmental_protection": 15,
     "ammo": [ "battery" ],
     "use_action": { "type": "transform", "msg": "The %s engages.", "target": "power_armor_t51_on", "active": true },
     "flags": [ "WATERPROOF", "STURDY", "ELECTRIC_IMMUNE" ],
@@ -25,7 +23,10 @@
       {
         "encumbrance": 30,
         "coverage": 100,
-        "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+        "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
+        "material": [ "steel" ],
+        "material_thickness": 15,
+        "environmental_protection": 15
       }
     ]
   },
@@ -41,7 +42,14 @@
     "power_draw": 4000000,
     "revert_to": "power_armor_t51",
     "use_action": { "type": "transform", "menu_text": "Turn off", "msg": "The %s armor disengages.", "target": "power_armor_t51" },
-    "armor": [ { "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ] } ]
+    "armor": [
+      {
+        "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
+        "material": [ "steel" ],
+        "material_thickness": 15,
+        "environmental_protection": 15
+      }
+    ]
   },
   {
     "id": "power_armor_helmet_t51",
@@ -59,11 +67,18 @@
     "color": "light_gray",
     "warmth": 90,
     "power_armor": true,
-    "material_thickness": 15,
-    "environmental_protection": 15,
     "qualities": [ [ "GLARE", 1 ] ],
     "flags": [ "WATCH", "WATERPROOF", "STURDY", "PARTIAL_DEAF", "THERMOMETER", "SUN_GLASSES" ],
-    "armor": [ { "encumbrance": 30, "coverage": 100, "covers": [ "head", "eyes", "mouth" ] } ]
+    "armor": [
+      {
+        "encumbrance": 30,
+        "coverage": 100,
+        "covers": [ "head", "eyes", "mouth" ],
+        "material": [ "steel" ],
+        "material_thickness": 15,
+        "environmental_protection": 15
+      }
+    ]
   },
   {
     "id": "power_armor_t45",
@@ -82,15 +97,16 @@
     "pocket_data": [ { "pocket_type": "CONTAINER", "max_contains_volume": "4 L", "max_contains_weight": "5 kg", "moves": 80 } ],
     "warmth": 60,
     "power_armor": true,
-    "material_thickness": 10,
-    "environmental_protection": 16,
     "use_action": { "type": "transform", "msg": "The %s engages.", "target": "power_armor_t45_on", "active": true },
     "flags": [ "WATERPROOF", "STURDY", "ELECTRIC_IMMUNE" ],
     "armor": [
       {
         "encumbrance": 80,
         "coverage": 100,
-        "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+        "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
+        "material": [ "hardsteel", "steel" ],
+        "material_thickness": 10,
+        "environmental_protection": 16
       }
     ]
   },
@@ -106,7 +122,14 @@
     "power_draw": 4000000,
     "revert_to": "power_armor_t45",
     "use_action": { "type": "transform", "menu_text": "Turn off", "msg": "The %s armor disengages.", "target": "power_armor_t45" },
-    "armor": [ { "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ] } ]
+    "armor": [
+      {
+        "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
+        "material": [ "hardsteel", "steel" ],
+        "material_thickness": 10,
+        "environmental_protection": 16
+      }
+    ]
   },
   {
     "id": "power_armor_helmet_t45",
@@ -124,11 +147,18 @@
     "color": "dark_gray",
     "warmth": 60,
     "power_armor": true,
-    "material_thickness": 10,
-    "environmental_protection": 16,
     "qualities": [ [ "GLARE", 1 ] ],
     "flags": [ "WATCH", "WATERPROOF", "STURDY", "PARTIAL_DEAF", "THERMOMETER", "SUN_GLASSES" ],
-    "armor": [ { "encumbrance": 80, "coverage": 100, "covers": [ "head", "eyes", "mouth" ] } ]
+    "armor": [
+      {
+        "encumbrance": 80,
+        "coverage": 100,
+        "covers": [ "head", "eyes", "mouth" ],
+        "material": [ "hardsteel", "steel" ],
+        "material_thickness": 10,
+        "environmental_protection": 16
+      }
+    ]
   },
   {
     "id": "power_armor_x01",
@@ -147,15 +177,16 @@
     "pocket_data": [ { "pocket_type": "CONTAINER", "max_contains_volume": "2500 ml", "max_contains_weight": "4 kg", "moves": 80 } ],
     "warmth": 90,
     "power_armor": true,
-    "material_thickness": 15,
-    "environmental_protection": 35,
     "use_action": { "type": "transform", "msg": "The %s engages.", "target": "power_armor_x01_on", "active": true },
     "flags": [ "WATERPROOF", "STURDY", "ELECTRIC_IMMUNE" ],
     "armor": [
       {
         "encumbrance": 30,
         "coverage": 100,
-        "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+        "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
+        "material": [ "ceramic", "superalloy" ],
+        "material_thickness": 15,
+        "environmental_protection": 35
       }
     ]
   },
@@ -171,7 +202,14 @@
     "power_draw": 4000000,
     "revert_to": "power_armor_x01",
     "use_action": { "type": "transform", "menu_text": "Turn off", "msg": "The %s armor disengages.", "target": "power_armor_x01" },
-    "armor": [ { "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ] } ]
+    "armor": [
+      {
+        "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
+        "material": [ "hardsteel", "steel" ],
+        "material_thickness": 10,
+        "environmental_protection": 16
+      }
+    ]
   },
   {
     "id": "power_armor_helmet_x01",
@@ -189,8 +227,6 @@
     "color": "light_gray",
     "warmth": 90,
     "power_armor": true,
-    "material_thickness": 15,
-    "environmental_protection": 15,
     "qualities": [ [ "GLARE", 1 ] ],
     "ammo": [ "battery" ],
     "charges_per_use": 1,
@@ -213,7 +249,16 @@
       }
     ],
     "flags": [ "WATCH", "WATERPROOF", "STURDY", "PARTIAL_DEAF", "THERMOMETER", "SUN_GLASSES" ],
-    "armor": [ { "encumbrance": 30, "coverage": 100, "covers": [ "head", "eyes", "mouth" ] } ]
+    "armor": [
+      {
+        "encumbrance": 30,
+        "coverage": 100,
+        "covers": [ "head", "eyes", "mouth" ],
+        "material": [ "ceramic", "superalloy" ],
+        "material_thickness": 15,
+        "environmental_protection": 15
+      }
+    ]
   },
   {
     "id": "power_armor_helmet_x01_on",
@@ -237,6 +282,13 @@
     "revert_to": "power_armor_helmet_x01",
     "use_action": { "menu_text": "Turn off", "type": "transform", "msg": "The %s flicks off.", "target": "power_armor_helmet_x01" },
     "techniques": [ "WBLOCK_1" ],
-    "armor": [ { "covers": [ "head" ] } ]
+    "armor": [
+      {
+        "covers": [ "head" ],
+        "material": [ "ceramic", "superalloy" ],
+        "material_thickness": 15,
+        "environmental_protection": 15
+      }
+    ]
   }
 ]
