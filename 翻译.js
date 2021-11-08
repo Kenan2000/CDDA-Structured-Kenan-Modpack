@@ -1103,6 +1103,8 @@ ${getItemBrowserLink(fullItem)}`
       for (const text of item.text) {
         text.text = await translateFunction(text.text);
       }
+    } else if (typeof item.text === 'string') {
+      item.text = await translateFunction(item.text);
     }
   };
   translators.technique = namePlDesc;
