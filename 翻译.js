@@ -449,14 +449,14 @@ class ModCache {
         this.insertToCache(key, translatedValue);
         this.stages[key] = this.stages['copies of ' + key];
       }
-      // 如果官中有此内容，且翻译部分还没有审核过，则直接使用官中，并把翻译进度拉到已审核
+      // 如果已有翻译库有此内容，且翻译部分还没有审核过，则直接使用已有翻译库
       if (
         sharedTranslationCache[key] !== undefined &&
         (this.stages[key] === undefined || this.stages[key] === 1 || this.stages[key] === 0)
       ) {
-        logger.log('使用官中');
+        logger.log('使用已有翻译库');
         this.insertToCache(key, translatedValue);
-        this.stages[key] = 5;
+        // this.stages[key] = 5;
         translatedValue = sharedTranslationCache[key];
       }
       return translatedValue;
