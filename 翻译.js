@@ -64,7 +64,7 @@ fs.dir(path.join(__dirname, translateCacheDirName));
 fs.dir(path.join(__dirname, cddaWikiFolder));
 //  首先读取 Kenan-Modpack 文件夹里的所有文件名
 const sourceModDirs = _.sortedUniq(
-  fs.list(path.resolve(__dirname, 'Kenan-Modpack')).filter((name) => name !== '.DS_Store')
+  fs.list(path.resolve(__dirname, 'Kenan-Structured-Modpack')).filter((name) => name !== '.DS_Store')
 );
 // 别忘了把百度翻译 API 的 .env 文件黏贴到文件夹里！
 // 搜狗的网上搜到了别人的 https://github.com/lunaragon/Translator/blob/b91481c4254ee01b3ce8eae1cea6586c33066e69/competitors/sougou.js#L6  	const PID = '059ad85853c5f20e54508cebf85287cd' const SECRET_KEY = 'c447fe597dc86f8c586cf7adef9dec21'
