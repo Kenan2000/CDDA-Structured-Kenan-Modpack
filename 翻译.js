@@ -9,7 +9,7 @@ const crypto = require('crypto');
 const debouncePromise = require('awesome-debounce-promise').default;
 
 const wikiSiteBase = 'https://onetwo.ren/CDDA-Kenan-Modpack-Chinese/#';
-const sourceDirName = 'Kenan-Modpack';
+const sourceDirName = 'Kenan-Structured-Modpack';
 const translatedDirName = `Kenan-Modpack-Chinese`;
 const translateCacheDirName = `中文翻译`;
 const cddaWikiFolder = path.join(__dirname, 'wiki', 'tiddlers', 'cdda');
