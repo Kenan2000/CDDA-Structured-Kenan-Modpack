@@ -1084,6 +1084,11 @@ ${getItemBrowserLink(fullItem)}`
         await namePlDesc(buff);
       }
     }
+    if (Array.isArray(item.oncrit_buffs)) {
+      for (const buff of item.oncrit_buffs) {
+        await namePlDesc(buff);
+      }
+    }
     if (Array.isArray(item.onkill_buffs)) {
       for (const buff of item.onkill_buffs) {
         await namePlDesc(buff);
