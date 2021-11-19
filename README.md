@@ -9,7 +9,7 @@ Kenan's **personal** structured modpack for Cataclysm - Dark Days Ahead for **LA
 
 **1) Download the modpack by clicking Code - Download ZIP, or clicking** [**here**](https://github.com/Kenan2000/CDDA-Structured-Kenan-Modpack/archive/master.zip) ;
 
-**2) Copy mods that you want to play with (**try NOT to enable ALL mods at the same time unless you really want to play with all mods**) from the modpack folder (`CDDA-Structured-Kenan-Modpack/Kenan-Structured-Modpack/High-Maintenance-Mods`) as shown in the** [**picture**](https://imgur.com/a/cpok2UT) ;
+**2) Copy mods that you want to play with (**try NOT to enable ALL mods at the same time unless you really want to play with all mods**) from the modpack folder (`CDDA-Structured-Kenan-Modpack/Kenan-Structured-Modpack/High-Maintenance-Huge-Mods`) as shown in the** [**picture**](https://imgur.com/a/cpok2UT) ;
 
 **3) Paste mods that you want to play with into the `cdda/data/mods` directory as shown in the** [**picture**](https://imgur.com/a/mK1cEER) ;
 
