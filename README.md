@@ -1,5 +1,5 @@
-# CDDA-Kenan-Modpack
-Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for **LATEST** experimental versions
+# CDDA-Structured-Kenan-Modpack
+Kenan's **personal** structured modpack for Cataclysm - Dark Days Ahead for **LATEST** experimental versions
 
 **1)** **IF YOU ARE EXPERIENCING ANY BUGS OR ERRORS - EITHER THE FIXES WILL BE RELEASED SOON-ISH OR THE MOD IS WIP** ;
 
@@ -7,11 +7,11 @@ Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for **LATEST** expe
 
 # Installation Guide (MUST-READ)
 
-**1) Download the modpack by clicking Code - Download ZIP, or clicking** [**here**](https://github.com/Kenan2000/CDDA-Kenan-Modpack/archive/master.zip) ;
+**1) Download the modpack by clicking Code - Download ZIP, or clicking** [**here**](https://github.com/Kenan2000/CDDA-Structured-Kenan-Modpack/archive/master.zip) ;
 
-**2) Copy all of the mods from the modpack folder (`CDDA-Kenan-Modpack/Kenan-Modpack`) as shown in the** [**picture**](https://imgur.com/a/cpok2UT) ;
+**2) Copy mods that you want to play with (**try NOT to enable ALL mods at the same time unless you really want to play with all mods**) from the modpack folder (`CDDA-Structured-Kenan-Modpack/Kenan-Structured-Modpack/High-Maintenance-Mods`) as shown in the** [**picture**](https://imgur.com/a/cpok2UT) ;
 
-**3) Paste them all into the `cdda/data/mods` directory as shown in the** [**picture**](https://imgur.com/a/mK1cEER) ;
+**3) Paste mods that you want to play with into the `cdda/data/mods` directory as shown in the** [**picture**](https://imgur.com/a/mK1cEER) ;
 
 **4) Overwrite and replace all the files if you get a prompt** ;
 
@@ -34,7 +34,7 @@ Kenan's **personal** modpack for Cataclysm - Dark Days Ahead for **LATEST** expe
   * A: It is rare, but will happen when some mod that've been used in your save has new ID and/or name, or you're trying to load the mod that is no longer used/merged with other one. You can fix it by reading `debug.log` to view what's mod should be changed, then go to `cdda\save\world_name\mods.json` and replace target mod ID with the new one, or delete it's entry from this file if there is no replacement. Also, you can read latest commits to see what is happening, if you want
 
 * Q: I have some other issues to report!
-  * A: Feel free to submit your issue into the [**issues tab**](https://github.com/Kenan2000/CDDA-Kenan-Modpack/issues).
+  * A: Feel free to submit your issue into the [**issues tab**](https://github.com/Kenan2000/CDDA-Structured-Kenan-Modpack/issues).
 
 # Link to Supporters' and Contributors ASTOUNDINGLY NOICE WORKS
 
@@ -78,10 +78,10 @@ Updated and even more awesome Otopack soundpack maintained by me
 
 Bright Nights modpack
 
-**4) https://github.com/Kenan2000/Bright-Nights-Kenan-Mod-Pack - Bright Nights Modpack**
+**4) https://github.com/Kenan2000/BrightNights-Structured-Kenan-Modpack - Bright Nights Structured Modpack**
 
 **5) https://github.com/Kenan2000/CDDA-NoMods-Anthology - monster and rebalancing exclusions/inclusions Modpack**
 
-## Link to my CDDA modding server 
+## Link to my CDDA/Bright Nights modding server 
 
 **https://discord.gg/sg5cM89Veb**
