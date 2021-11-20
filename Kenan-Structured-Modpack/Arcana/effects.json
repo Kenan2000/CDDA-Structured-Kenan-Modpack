@@ -55,6 +55,7 @@
     "decay_messages": [ [ "The numbing effect of your potion is starting to fade.", "bad" ] ],
     "rating": "good",
     "max_duration": "30 m",
+    "max_intensity": 30,
     "int_dur_factor": "1 m",
     "base_mods": { "pain_tick": [ 25 ], "pain_min": [ -15 ], "speed_mod": [ -25, -15 ] }
   },
@@ -68,6 +69,7 @@
     "decay_messages": [ [ "The strengthening effect of your potion is starting to fade.", "bad" ] ],
     "rating": "good",
     "max_duration": "30 m",
+    "max_intensity": 30,
     "int_dur_factor": "1 m",
     "base_mods": {
       "pain_chance": [ 12, 24 ],
@@ -98,6 +100,7 @@
     "decay_messages": [ [ "The quickening effect of your potion is starting to fade.", "bad" ] ],
     "rating": "good",
     "max_duration": "30 m",
+    "max_intensity": 30,
     "int_dur_factor": "1 m",
     "base_mods": {
       "pain_chance": [ 12, 24 ],
@@ -127,6 +130,7 @@
     "decay_messages": [ [ "The soothing effect of your potion is starting to fade.", "bad" ] ],
     "rating": "good",
     "max_duration": "30 m",
+    "max_intensity": 30,
     "int_dur_factor": "1 m",
     "base_mods": {
       "health_min": [ 1 ],
@@ -149,6 +153,7 @@
     "decay_messages": [ [ "The after-effects of the vulnerary are fading.", "bad" ] ],
     "rating": "good",
     "max_duration": "20 m",
+    "max_intensity": 20,
     "int_dur_factor": "1 m",
     "base_mods": {
       "health_min": [ 1 ],
@@ -170,6 +175,7 @@
     "decay_messages": [ [ "The effects of the incense are fading.", "bad" ] ],
     "rating": "good",
     "max_duration": "60 m",
+    "max_intensity": 60,
     "int_dur_factor": "1 m",
     "base_mods": {
       "str_mod": [ 1 ],
@@ -192,6 +198,7 @@
     "decay_messages": [ [ "Your craving for rotten food is starting to wane.", "bad" ] ],
     "rating": "good",
     "max_duration": "30 m",
+    "max_intensity": 30,
     "int_dur_factor": "1 m",
     "base_mods": { "hunger_min": [ 1 ], "hunger_chance": [ 18, 36 ], "fatigue_min": [ 1 ], "fatigue_chance": [ 36, 72 ] }
   },
@@ -205,6 +212,7 @@
     "decay_messages": [ [ "Your ward against cold is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m"
   },
   {
@@ -217,6 +225,7 @@
     "decay_messages": [ [ "Your greater ward against cold is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "flags": [ "COLD_IMMUNE" ]
   },
@@ -243,6 +252,7 @@
     "decay_messages": [ [ "Your spell of free action is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m"
   },
   {
@@ -255,6 +265,7 @@
     "decay_messages": [ [ "Your sensory ward is fading.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m"
   },
   {
@@ -267,6 +278,7 @@
     "decay_messages": [ [ "The ward against heat is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m"
   },
   {
@@ -279,6 +291,7 @@
     "decay_messages": [ [ "The ward against flame is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "flags": [ "HEAT_IMMUNE", "HEATPROOF" ]
   },
@@ -321,6 +334,7 @@
     "decay_messages": [ [ "Your clarity of blood spell is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "base_mods": {
       "hurt_min": [ 0, 1 ],
@@ -343,7 +357,8 @@
     "removes_effects": [ "corroding" ],
     "decay_messages": [ [ "Your ward against corrosion is waning.", "bad" ] ],
     "rating": "good",
-    "max_intensity": 100,
+    "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m"
   },
   {
@@ -356,6 +371,7 @@
     "decay_messages": [ [ "Your ward against acid is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "flags": [ "ACID_IMMUNE" ]
   },
@@ -386,6 +402,7 @@
       "irradiated"
     ],
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "base_mods": { "rad_min": [ -1 ] }
   },
@@ -415,13 +432,14 @@
     "decay_messages": [ [ "Your ward against evil is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m"
   },
   {
     "type": "effect_type",
     "id": "cleric_warding_true",
     "name": [ "Holy Ward" ],
-    "desc": [ "Immunity to blade and bullet, protection from anomalous effects." ],
+    "desc": [ "Immunity to blade and bullet, protection from anomalous effects and cold-type damage." ],
     "remove_message": "The magical protection enveloping your body flickers and fades.",
     "removes_effects": [
       "darkness",
@@ -440,6 +458,7 @@
     "decay_messages": [ [ "Your holy ward is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "//": "Replace with resistances when implemented, physical immunities are way more OP than elemental immunities.",
     "flags": [ "CUT_IMMUNE", "STAB_IMMUNE", "BULLET_IMMUNE", "COLD_IMMUNE" ]
@@ -448,81 +467,39 @@
     "type": "effect_type",
     "id": "spell_might",
     "name": [
-      "Might",
-      "Might [2]",
-      "Might [3]",
-      "Might [4]",
-      "Might [5]",
-      "Might [6]",
-      "Might [7]",
-      "Might [8]",
-      "Might [9]",
-      "Might [10]",
-      "Might [11]",
-      "Might [12]",
-      "Might [13]",
-      "Might [14]",
-      "Might [15+]"
+      "Might"
     ],
     "desc": [ "The fabric of The Veil is woven into your frame.  Your strength is augmented by magic." ],
     "remove_message": "You feel weakened as your magically-induced strength leaves you.",
     "decay_messages": [ [ "Your spell of might is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
-    "max_intensity": 15,
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "base_mods": { "str_mod": [ 1 ] },
-    "scaling_mods": { "str_mod": [ 0.5 ] }
+    "scaling_mods": { "str_mod": [ 0.0825 ] }
   },
   {
     "type": "effect_type",
     "id": "spell_agility",
     "name": [
-      "Agility",
-      "Agility [2]",
-      "Agility [3]",
-      "Agility [4]",
-      "Agility [5]",
-      "Agility [6]",
-      "Agility [7]",
-      "Agility [8]",
-      "Agility [9]",
-      "Agility [10]",
-      "Agility [11]",
-      "Agility [12]",
-      "Agility [13]",
-      "Agility [14]",
-      "Agility [15+]"
+      "Agility"
     ],
     "desc": [ "The winds of distant realms are at your back.  Your dexterity and speed are augmented by magic." ],
     "remove_message": "You feel sluggish as your magically-induced agility leaves you.",
     "decay_messages": [ [ "Your spell of agility is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
-    "max_intensity": 15,
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "base_mods": { "dex_mod": [ 1 ], "speed_mod": [ 3 ], "stamina_min": [ 1 ] },
-    "scaling_mods": { "dex_mod": [ 0.5 ], "speed_mod": [ 3 ], "stamina_min": [ 1 ] }
+    "scaling_mods": { "dex_mod": [ 0.0825 ], "speed_mod": [ 0.38 ], "stamina_min": [ 0.08 ] }
   },
   {
     "type": "effect_type",
     "id": "spell_insight",
     "name": [
-      "Insight",
-      "Insight [2]",
-      "Insight [3]",
-      "Insight [4]",
-      "Insight [5]",
-      "Insight [6]",
-      "Insight [7]",
-      "Insight [8]",
-      "Insight [9]",
-      "Insight [10]",
-      "Insight [11]",
-      "Insight [12]",
-      "Insight [13]",
-      "Insight [14]",
-      "Insight [15+]"
+      "Insight"
     ],
     "desc": [
       "The eyes of The Beyond shall guide you.  Your perception is augmented by magic, and you can see clearly in darkness."
@@ -531,10 +508,10 @@
     "decay_messages": [ [ "Your spell of insight is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
-    "max_intensity": 15,
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "base_mods": { "per_mod": [ 1 ] },
-    "scaling_mods": { "per_mod": [ 0.5 ] },
+    "scaling_mods": { "per_mod": [ 0.0825 ] },
     "flags": [ "NIGHT_VISION" ]
   },
   {
@@ -563,6 +540,7 @@
     "blocks_effects": [ "bleed", "winded", "lack_sleep", "sleep", "redcells_anemia", "hypovolemia" ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "base_mods": {
       "pain_tick": [ 10 ],
@@ -584,6 +562,7 @@
     "decay_messages": [ [ "The water talisman's blessing is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "30 m",
+    "max_intensity": 30,
     "int_dur_factor": "1 m"
   },
   {
@@ -646,6 +625,7 @@
     "decay_messages": [ [ "The protective magic flowing through your blood is starting to wane.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "base_mods": {
       "hunger_min": [ 1 ],
@@ -673,6 +653,8 @@
     "name": [ "Absorption Aftereffects" ],
     "desc": [ "Reduces hunger and thirst, at the expense of stamina and fatigue." ],
     "max_duration": "30 m",
+    "max_intensity": 30,
+    "int_dur_factor": "1 m",
     "base_mods": {
       "hunger_min": [ -1 ],
       "hunger_tick": [ 5 ],
@@ -763,42 +745,6 @@
   },
   {
     "type": "effect_type",
-    "id": "arcana_suppression",
-    "name": [ "Suppressed Fire" ],
-    "desc": [ "Reduces hunger and thirst gain, hinders stamina regen." ],
-    "resist_effects": [ "talisman_warding" ],
-    "remove_message": "The warmth within your body flares up as the suppression effect fades.",
-    "blocks_effects": [
-      "nausea",
-      "poison",
-      "badpoison",
-      "foodpoison",
-      "bloodworms",
-      "paincysts",
-      "brainworms",
-      "tapeworm",
-      "spores",
-      "fungus"
-    ],
-    "decay_messages": [ [ "The magic suppressing your inner fire is waning.", "bad" ] ],
-    "rating": "good",
-    "max_duration": "120 m",
-    "int_dur_factor": "1 m",
-    "base_mods": {
-      "hunger_min": [ -1 ],
-      "hunger_tick": [ 300 ],
-      "thirst_min": [ -1 ],
-      "thirst_tick": [ 300 ],
-      "health_min": [ -1 ],
-      "health_tick": [ 600 ],
-      "h_mod_min": [ -1 ],
-      "h_mod_tick": [ 600 ],
-      "stamina_min": [ -5 ],
-      "stamina_tick": [ 5 ]
-    }
-  },
-  {
-    "type": "effect_type",
     "id": "arcana_aegis_mending",
     "blocks_effects": [ "bleed", "redcells_anemia", "hypovolemia" ],
     "rating": "good"
@@ -839,6 +785,7 @@
     "decay_messages": [ [ "The illusions enveloping you are starting to fade.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "base_mods": { "per_mod": [ -2 ] },
     "flags": [ "INVISIBLE" ]
@@ -861,6 +808,7 @@
     "decay_messages": [ [ "The ward against lightning is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "base_mods": { "dex_mod": [ -1 ], "speed_mod": [ -10 ] },
     "flags": [ "ELECTRIC_IMMUNE" ]
@@ -875,6 +823,7 @@
     "decay_messages": [ [ "The greater ward against lightning is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "flags": [ "ELECTRIC_IMMUNE" ]
   },
@@ -896,6 +845,7 @@
     "remove_message": "You feel a faint sense of relief wash over you.",
     "miss_messages": [ [ "Afterimages on the edge of your vision distract you.", 10 ] ],
     "rating": "bad",
+    "max_duration": "250 m",
     "max_intensity": 10,
     "int_dur_factor": "25 m",
     "base_mods": {
@@ -938,7 +888,7 @@
       "Otherworldly Offering",
       "Otherworldly Offering",
       "Otherworldly Offering",
-      "Otherworldly Offering"
+      "Severe Otherworldly Offering"
     ],
     "desc": [
       "",
@@ -951,6 +901,7 @@
       "Your very essence is nothing more than fuel for the pyre…"
     ],
     "rating": "bad",
+    "max_duration": "49 d",
     "max_intensity": 7,
     "int_dur_factor": "7 d",
     "//": "This will EVENTUALLY kill you if you max out the effects, unless you're abusing magical healing.",
@@ -985,16 +936,17 @@
     "resist_effects": [ "talisman_warding" ],
     "resist_traits": [ "PROF_SANGUINE", "THRESH_DRAGONBLOOD" ],
     "//": "This won't kill you, but the health and stat penalties will make you wish it did later on down the line.",
-    "name": [ "", "Strange Anemia", "Strange Anemia", "Strange Anemia", "Strange Anemia", "Strange Anemia" ],
+    "name": [ "", "Strange Anemia", "Strange Anemia", "Strange Anemia", "Strange Anemia", "Severe Strange Anemia" ],
     "desc": [
       "",
       "Your muscles have been feeling more fatigued lately, and you feel faintly queasy on the inside.  Maybe overusing that athame did something to you…",
       "The weakness in your body has worsened, and you've been having hunger pangs.  It seems blood magic has consequences if overused.",
       "Your body feels sluggish and drained, and it seems to be getting worse the more you rely on blood magic.  Relying on it less might help ease your suffering.",
       "It feels like your body is struggling to sustain itself, as your overuse of the athame's magic has taken its toll on you.  It might be a good idea to stop using that damn thing for a while…",
-      "It feels like your body is struggling to sustain itself, as your overuse of the athame's magic has taken its toll on you.  It might be a good idea to stop using that damn thing for a while…"
+      "Using that athame so many times was a terrible mistake, you feel like you've been drained half to death…"
     ],
     "rating": "bad",
+    "max_duration": "30 d",
     "max_intensity": 6,
     "int_dur_factor": "5 d",
     "base_mods": {
@@ -1054,6 +1006,7 @@
     "id": "arcana_evil_mimic",
     "apply_message": "You feel an evil presence…",
     "rating": "bad",
+    "max_duration": "100 h",
     "max_intensity": 25,
     "int_dur_factor": "4 h",
     "base_mods": {
@@ -1110,28 +1063,14 @@
     "type": "effect_type",
     "id": "adrenaline_arcana",
     "name": [
-      "Killing Surge",
-      "Killing Surge [2]",
-      "Killing Surge [3]",
-      "Killing Surge [4]",
-      "Killing Surge [5]",
-      "Killing Surge [6]",
-      "Killing Surge [7]",
-      "Killing Surge [8]",
-      "Killing Surge [9]",
-      "Killing Surge [10]",
-      "Killing Surge [11]",
-      "Killing Surge [12]",
-      "Killing Surge [13]",
-      "Killing Surge [14]",
-      "Killing Surge [15+]"
+      "Killing Surge"
     ],
-    "desc": [ "You feel a rush of otherworldly adrenaline" ],
+    "desc": [ "You feel a rush of otherworldly adrenaline." ],
     "remove_message": "The otherworldly adrenaline running through you fades.",
-    "decay_messages": [ [ "You can feel the unnatural surge of adrenaline fade.", "bad" ] ],
+    "decay_messages": [ [ "You can feel the unnatural surge of adrenaline waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
-    "max_intensity": 15,
+    "max_intensity": 120,
     "int_dur_factor": "1 m",
     "removes_effects": [ "winded" ],
     "base_mods": { "speed_mod": [ 25 ], "str_mod": [ 2 ], "dex_mod": [ 2 ], "per_mod": [ 1 ], "stamina_min": [ 5 ] }
