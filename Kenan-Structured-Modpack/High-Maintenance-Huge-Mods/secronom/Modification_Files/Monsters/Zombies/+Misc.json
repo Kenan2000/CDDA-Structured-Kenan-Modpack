@@ -5,7 +5,7 @@
     "looks_like": "mon_zombie_mancroc",
     "type": "MONSTER",
     "name": { "str": "nautilus" },
-    "description": "A morbidly large zombie heavily mutated from long exposure to irradiated waters, which altered most of its body parts into something, like that of a mollusk. Sluggish, yet full of surprises.",
+    "description": "A morbidly large zombie heavily mutated from long exposure to irradiated waters, which altered most of its body parts into something like that of a mollusk. Sluggish, yet full of surprises.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_2" ],
     "volume": "92500 ml",
@@ -29,6 +29,43 @@
     "armor_stab": 4,
     "vision_day": 10,
     "vision_night": 18,
+    "weakpoints": [
+      {
+        "name": "the head",
+        "armor_mult": { "bash": 0.9, "cut": 0.8, "stab": 0.8 },
+        "armor_penalty": { "bash": 10, "cut": 5, "stab": 5 },
+        "difficulty": { "melee": 3, "bash": 3 },
+        "coverage": 10,
+        "coverage_mult": { "all": 0.75 },
+        "effects": [
+          {
+            "effect": "stunned",
+            "duration": [ 2, 2 ],
+            "intensity": [ 1, 1 ],
+            "damage_required": [ 10, 100 ],
+            "message": "The %s is disorientated."
+          }
+        ]
+      },
+      {
+        "name": "underneath the belly",
+        "armor_mult": { "cut": 0.5, "stab": 0.5, "bullet": 0.8 },
+        "armor_penalty": { "cut": 20, "stab": 20 },
+        "difficulty": { "melee": 3, "cut": 3 },
+        "damage_mult": { "all": 1.2 },
+        "coverage": 20,
+        "required_effects": [ "stunned" ],
+        "effects": [
+          {
+            "effect": "bleed",
+            "duration": [ 10, 10 ],
+            "intensity": [ 5, 5 ],
+            "damage_required": [ 25, 100 ],
+            "message": "The %s is rapidly losing health."
+          }
+        ]
+      }
+    ],
     "special_attacks": [
       {
         "type": "spell",
@@ -695,6 +732,32 @@
     "vision_day": 30,
     "vision_night": 6,
     "harvest": "exempt",
+    "bleed_rate": 0,
+    "weakpoints": [
+      {
+        "name": "the orb",
+        "armor_mult": { "cut": 0, "stab": 0, "bullet": 0 },
+        "difficulty": { "point": 6 },
+        "coverage": 30,
+        "damage_mult": { "all": 1.5 },
+        "effects": [
+          {
+            "effect": "secro_gorepit_absorb",
+            "duration": [ 8, 10 ],
+            "damage_required": [ 8, 18 ],
+            "//": "Around 200 damage.",
+            "message": "<color_light_red>The %s unleashes an ear-splitting screech!</color>\n<color_magenta>The %s's orb is absorbing its surrounding flesh, replenishing itself.</color>"
+          },
+          {
+            "effect": "secro_gorepit_explode",
+            "permanent": true,
+            "damage_required": [ 19, 100 ],
+            "//": "Around 500 damage.",
+            "message": "The %s's orb exploded!"
+          }
+        ]
+      }
+    ],
     "special_attacks": [
       {
         "type": "spell",
@@ -703,7 +766,7 @@
         "monster_message": "<color_red>You feel the ground shaking as it originates from %1$s!</color>\n<color_yellow>%1$s sends a defeaning screech!</color>"
       }
     ],
-    "death_function": { "message": "The %s disintegrates!", "corpse_type": "NO_CORPSE" },
+    "death_function": { "message": "The %s collapses!", "corpse_type": "NO_CORPSE" },
     "flags": [ "SEES", "WARM", "IMMOBILE", "POISON", "NO_BREATHE", "PRIORITIZE_TARGETS", "STUN_IMMUNE", "FLIES" ]
   },
   {
@@ -734,6 +797,7 @@
     "armor_stab": 1,
     "armor_cut": 2,
     "armor_bullet": 2,
+    "bleed_rate": 0,
     "vision_day": 13,
     "vision_night": 13,
     "harvest": "exempt",
@@ -845,6 +909,15 @@
     "vision_day": 23,
     "vision_night": 3,
     "harvest": "zombie",
+    "weakpoints": [
+      {
+        "name": "the head",
+        "armor_mult": { "bash": 0.8, "cut": 1.1, "stab": 1.1, "bullet": 1.1 },
+        "difficulty": { "melee": 3, "ranged": 3 },
+        "coverage": 5,
+        "damage_mult": { "all": 1.15 }
+      }
+    ],
     "special_attacks": [
       {
         "type": "spell",
@@ -1938,6 +2011,16 @@
     "vision_day": 30,
     "vision_night": 30,
     "harvest": "zombie",
+    "weakpoints": [
+      {
+        "name": "the core",
+        "armor_mult": { "bash": 1.2, "cut": 0.8, "stab": 0.8 },
+        "coverage": 10,
+        "damage_mult": { "all": 1.33 },
+        "crit_mult": { "all": 1.22 },
+        "effects": [ { "effect": "stunned", "duration": [ 1, 2 ], "damage_required": [ 0, 100 ], "message": "The %s trembles." } ]
+      }
+    ],
     "special_attacks": [
       [ "FLESH_TENDRIL", 1 ],
       {

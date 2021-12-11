@@ -26,6 +26,17 @@
     "armor_cut": 3,
     "armor_bullet": 2,
     "armor_stab": 2,
+    "weakpoints": [
+      {
+        "name": "one of its hands",
+        "armor_mult": { "cut": 0.5, "stab": 0.5, "bullet": 0.5 },
+        "armor_penalty": { "cut": 30, "stab": 30, "bullet": 30 },
+        "difficulty": { "melee": 3 },
+        "coverage": 10,
+        "coverage_mult": { "point": 0.5 },
+        "damage_mult": { "all": 1.25 }
+      }
+    ],
     "special_attacks": [
       {
         "type": "spell",
@@ -83,6 +94,18 @@
     "//": "slow attack speed, so don't worry.",
     "death_drops": "default_zombie_death_drops",
     "anger_triggers": [ "FRIEND_DIED", "FRIEND_ATTACKED" ],
+    "weakpoints": [
+      {
+        "name": "the core",
+        "armor_mult": { "cut": 0.5, "stab": 0.5, "bullet": 0.5 },
+        "armor_penalty": { "cut": 20, "stab": 20, "bullet": 20 },
+        "coverage": 5,
+        "coverage_mult": { "point": 0.5 },
+        "damage_mult": { "all": 1.33 },
+        "difficulty": { "melee": 5 },
+        "effects": [ { "effect": "stunned", "duration": [ 1, 2 ], "intensity": [ 1, 1 ], "message": "The %s took a fatal blow!" } ]
+      }
+    ],
     "special_attacks": [
       {
         "type": "spell",
