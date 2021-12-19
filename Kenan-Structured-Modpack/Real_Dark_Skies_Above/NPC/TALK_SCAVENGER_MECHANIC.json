@@ -13,20 +13,20 @@
     "id": "NC_SCAVENGER_MECHANIC",
     "name": { "str": "Scavenger" },
     "job_description": "I'm here to salvage pre-cataclysm vehicles to make my own kill-dozer.",
-    "common": false,	
+    "common": false,
     "traits": [
       { "trait": "DKZ_TECH", "prob": 100 },
-      { "group": "NPC_starting_traits" }, 
-	  { "group": "Appearance_demographics" },
+      { "group": "NPC_starting_traits" },
+      { "group": "Appearance_demographics" },
       { "trait": "ROBUST", "prob": 20 }
     ],
     "skills": [
       { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -4 } ] } },
-      { "skill": "computer", "bonus": { "rng": [ 2, 4 ] } },	  
-      { "skill": "fabrication", "bonus": { "rng": [ 3, 5 ] } },	  
+      { "skill": "computer", "bonus": { "rng": [ 2, 4 ] } },
+      { "skill": "fabrication", "bonus": { "rng": [ 3, 5 ] } },
       { "skill": "mechanics", "bonus": { "rng": [ 4, 8 ] } },
-      { "skill": "electronics", "bonus": { "rng": [ 1, 3 ] } },		  
-      { "skill": "chemistry", "bonus": { "rng": [ 1, 3 ] } },		  
+      { "skill": "electronics", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "chemistry", "bonus": { "rng": [ 1, 3 ] } },
       { "skill": "survival", "bonus": { "rng": [ 2, 3 ] } },
       { "skill": "dodge", "bonus": { "rng": [ 1, 3 ] } },
       { "skill": "melee", "bonus": { "rng": [ 2, 4 ] } },
@@ -41,9 +41,8 @@
     "bonus_int": { "rng": [ 3, 5 ] },
     "bonus_per": { "rng": [ -1, 2 ] }
   },
-  
   {
-    "//": "----------INVENTORY LOADOUTS-----------------------------------------------------------------------------------",  
+    "//": "----------INVENTORY LOADOUTS-----------------------------------------------------------------------------------",
     "type": "item_group",
     "id": "NC_SCAVENGER_MECHANIC_underwear_bottom_male",
     "subtype": "collection",
@@ -86,7 +85,7 @@
       { "item": "pants", "prob": 10 },
       { "item": "pants_leather", "prob": 20 },
       { "item": "pants_cargo", "prob": 20 },
-      { "item": "technician_pants_gray", "prob": 60 },	  
+      { "item": "technician_pants_gray", "prob": 60 },
       { "item": "pants_army", "prob": 50 },
       { "item": "bunker_pants", "prob": 20 }
     ]
@@ -100,8 +99,8 @@
       { "item": "pants", "prob": 10 },
       { "item": "pants_leather", "prob": 20 },
       { "item": "pants_cargo", "prob": 20 },
-      { "item": "technician_pants_gray", "prob": 60 },		  
-      { "item": "pants_army", "prob": 50 },	  
+      { "item": "technician_pants_gray", "prob": 60 },
+      { "item": "pants_army", "prob": 50 },
       { "item": "skirt", "prob": 20 },
       { "item": "skirt_leather", "prob": 70 },
       { "item": "bunker_pants", "prob": 10 }
@@ -172,7 +171,6 @@
       { "item": "mask_dust", "prob": 10 },
       { "item": "bandana", "prob": 50 },
       { "item": "mask_filter", "prob": 10, "charges-min": 60 }
-	  
     ]
   },
   {
@@ -237,10 +235,7 @@
     "type": "item_group",
     "id": "NC_SCAVENGER_MECHANIC_stabbing",
     "subtype": "distribution",
-    "entries": [
-      { "item": "spear_knife", "prob": 50 },
-      { "item": "spear_rebar", "prob": 5 }
-    ]
+    "entries": [ { "item": "spear_knife", "prob": 50 }, { "item": "spear_rebar", "prob": 5 } ]
   },
   {
     "type": "item_group",
@@ -304,15 +299,14 @@
       { "item": "antiparasitic", "prob": 20 }
     ]
   },
-  
   {
-    "//": "----------DIALOGUE OPTIONS-------------------------------------------------------------------------------------",  
+    "//": "----------DIALOGUE OPTIONS-------------------------------------------------------------------------------------",
     "id": "TALK_SCAVENGER_MECHANIC_ROOT",
     "type": "talk_topic",
     "dynamic_line": {
       "u_is_wearing": "badge_marshal",
       "yes": [ "Are you lost, marshal?", "Oh, a U.S. marshal, where did all of you guys go?." ],
-      "no": [ "Welcome…", "Here to trade, I hope?", "Safe travels, scavenger." ]
+      "no": [ "Welcome\u2026", "Here to trade, I hope?", "Safe travels, scavenger." ]
     },
     "responses": [
       { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_MECHANIC_ROOT" },
@@ -331,7 +325,7 @@
     "responses": [
       { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_MECHANIC_ROOT" },
       { "text": "Nice arrangement for everyone.", "topic": "TALK_SCAVENGER_MECHANIC_ROOT" },
-	  { "text": "Ok, good bye.", "topic": "TALK_DONE" }
+      { "text": "Ok, good bye.", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -346,5 +340,5 @@
       { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_MECHANIC_ROOT" },
       { "text": "Well, bye.", "topic": "TALK_DONE" }
     ]
-  }  
+  }
 ]

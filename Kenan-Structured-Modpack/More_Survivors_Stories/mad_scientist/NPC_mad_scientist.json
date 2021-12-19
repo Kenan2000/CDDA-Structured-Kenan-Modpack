@@ -80,7 +80,7 @@
     "type": "talk_topic",
     "id": "TALK_mad_scientist_start_insult",
     "dynamic_line": "I don't believe any of your lies!  Die, liar!",
-    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_DONE", "effect": "insult_combat" } ]
   },
   {
     "type": "talk_topic",
@@ -99,7 +99,7 @@
     "id": [ "TALK_mad_scientist_1", "TALK_mad_scientist_Background", "TALK_mad_scientist_Background_they" ],
     "dynamic_line": "<greet>",
     "responses": [
-      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "About that job\u2026", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
       { "text": "<BGSS_intro_question>", "topic": "TALK_mad_scientist_Background" },
       {
         "text": "What about that serum?",
@@ -176,14 +176,14 @@
         "topic": "TALK_mad_scientist_experiment",
         "condition": { "npc_compare_time_since_var": "making_serum", "type": "flag", "context": "experiment", "op": ">", "time": "1 day" }
       },
-      { "text": "…", "topic": "TALK_DONE" }
+      { "text": "\u2026", "topic": "TALK_DONE" }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_mad_scientist_experiment",
-    "dynamic_line": "Let's start…\"  he took a syringe from his pocket.  \"Relax, it wouldn't hurt.",
-    "responses": [ { "text": "I hope so…", "topic": "TALK_mad_scientist_experiment1" } ]
+    "dynamic_line": "Let's start\u2026\"  he took a syringe from his pocket.  \"Relax, it wouldn't hurt.",
+    "responses": [ { "text": "I hope so\u2026", "topic": "TALK_mad_scientist_experiment1" } ]
   },
   {
     "type": "talk_topic",
@@ -194,10 +194,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_mad_scientist_experiment2",
-    "dynamic_line": "Hmm, maybe I forgot to add something…",
+    "dynamic_line": "Hmm, maybe I forgot to add something\u2026",
     "responses": [
       {
-        "text": "Wait a second, doc.  I'm feeling something strange…",
+        "text": "Wait a second, doc.  I'm feeling something strange\u2026",
         "topic": "TALK_mad_scientist_experiment3",
         "effect": "assign_mission"
       }
@@ -206,7 +206,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_mad_scientist_experiment3",
-    "dynamic_line": "You look norm… bloody hell!  <name_g>, what happened to you!",
+    "dynamic_line": "You look norm\u2026 bloody hell!  <name_g>, what happened to you!",
     "speaker_effect": {
       "sentinel": "hadnt_trait",
       "condition": { "not": { "u_has_trait": "CHAOTIC_BAD" } },
@@ -217,20 +217,22 @@
   {
     "type": "talk_topic",
     "id": "TALK_mad_scientist_experiment4",
-    "dynamic_line": "*gave you his pocket mirror.  \"I'm sorry, <name_g>, I just remembered what I forgot to add.  It's all my fault…\"\n\nYou looked in the mirror and screamed in shock.",
+    "dynamic_line": "*gave you his pocket mirror.  \"I'm sorry, <name_g>, I just remembered what I forgot to add.  It's all my fault\u2026\"\n\nYou looked in the mirror and screamed in shock.",
     "responses": [ { "text": "Doc, what did you do to me?  I've become an abomination! ", "topic": "TALK_mad_scientist_experiment5" } ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_mad_scientist_experiment5",
-    "dynamic_line": "Don't worry, I know how to fix it.  I just need to find more berries…",
+    "dynamic_line": "Don't worry, I know how to fix it.  I just need to find more berries\u2026",
     "responses": [ { "text": "What are you talking about?!", "topic": "TALK_mad_scientist_experiment6" } ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_mad_scientist_experiment6",
     "dynamic_line": "There are some very interesting berries growing nearby, which I had never met before <the_cataclysm>.  I managed to pick a couple and having studied them.  I discovered their amazing healing properties.  I will show you the place where I last saw them.  Go there and bring me 3 of that berries, so I can make a cure for you.  But please hurry, if you don't make it in time, I'm afraid the changes will be irreversible.",
-    "responses": [ { "text": "I hope it helps…", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_mad_scientist_wait" } } ]
+    "responses": [
+      { "text": "I hope it helps\u2026", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_mad_scientist_wait" } }
+    ]
   },
   {
     "type": "talk_topic",
@@ -251,7 +253,7 @@
     "dynamic_line": "Good.  Wait here for some time.  It will take no more than a day.",
     "responses": [
       {
-        "text": "Please hurry, doc…",
+        "text": "Please hurry, doc\u2026",
         "topic": "TALK_DONE",
         "effect": [
           { "npc_add_var": "mad_scientist_need_time", "type": "flag", "context": "wait", "time": true },
@@ -292,7 +294,7 @@
     "dynamic_line": "OK, let's wait for a while.",
     "responses": [
       {
-        "text": "…",
+        "text": "\u2026",
         "trial": { "type": "CONDITION", "condition": { "u_has_mission": "MISSION_mad_scientist_5" } },
         "success": { "topic": "TALK_mad_scientist_brew_good" },
         "failure": { "topic": "TALK_mad_scientist_brew_bad" }
@@ -341,7 +343,7 @@
     "id": "TALK_mad_scientist_brew_bad",
     "dynamic_line": "Sorry, <name_g>, you didn't make it in time.  Better luck next time, I guess.",
     "speaker_effect": { "effect": [ { "npc_first_topic": "TALK_mad_scientist_1" }, "clear_mission" ] },
-    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_DONE" } ]
   },
   {
     "id": "MISSION_mad_scientist_1",
@@ -362,7 +364,7 @@
       "accepted": "Good.  First, I want to study how the virus affected cute little animals like spiders.  Perhaps you saw what happened to them.  A terrible sight.  Bring me 15 spider eggs.",
       "rejected": "Bah.",
       "advice": "Spiders love to settle in forests and near swamps.",
-      "inquire": "How’s your search going?",
+      "inquire": "How\u2019s your search going?",
       "success": "Wonderful.  I start studying it immediately!",
       "success_lie": "-",
       "failure": "-"
@@ -387,7 +389,7 @@
       "accepted": "Good. This time, I want to study how the virus affected cute animals like ants.  Perhaps you saw what happened to them.  These poor hard workers have mutated into terrible creatures: the size of a car, blade-paws, chitinous armor, and some also know how to spit fire!  A terrible sight.  Bring me 20 ant eggs.",
       "rejected": "Bah.",
       "advice": "As far as I know, they have always liked to hide underground.  Surely these versions of them also hide their queen somewhere below.",
-      "inquire": "How’s your search going?",
+      "inquire": "How\u2019s your search going?",
       "success": "Wonderful.  I start studying it immediately!",
       "success_lie": "-",
       "failure": "-"
@@ -412,7 +414,7 @@
       "accepted": "Good.  This time, I want to study how the virus affected cute animals like razorclaw.  These creatures have mutated into real death machines!  A terrible sight.  Bring me 8 razorclaw roe.",
       "rejected": "Bah.",
       "advice": "They can be found near various water sources, like rivers or lakes.",
-      "inquire": "How’s your search going?",
+      "inquire": "How\u2019s your search going?",
       "success": "Wonderful.  I start studying it immediately!",
       "success_lie": "-",
       "failure": "-"
@@ -438,7 +440,7 @@
       "accepted": "Good.  This time, I want to study how the virus affected cute animals like bees.  These critters have mutated into real flying and buzzing killers!  A terrible sight.  Bring me 5 royal jelly.",
       "rejected": "Bah",
       "advice": "They still build their hives in warm places, but since they are now the size of a cow, the hives take up a lot more space and you shouldn't have a hard time finding them.",
-      "inquire": "How’s your search going?",
+      "inquire": "How\u2019s your search going?",
       "success": "Wonderful. Immediately I begin to study.  By the way, thanks to the samples that you brought me, I was able to make some progress in my own research.  I won't go into details, but based on my findings, I can make an experimental serum that can enhance human potential.  Tell me if you want to experience it for yourself.",
       "success_lie": "-",
       "failure": "-"
@@ -449,7 +451,7 @@
     "type": "mission_definition",
     "has_generic_rewards": false,
     "name": { "str": "Wild experiment" },
-    "description": "That didn't go well for you.  If you bring 3 berries in time, maybe it can be reverted…",
+    "description": "That didn't go well for you.  If you bring 3 berries in time, maybe it can be reverted\u2026",
     "goal": "MGOAL_CONDITION",
     "goal_condition": { "npc_has_var": "-", "type": "-", "context": "-", "value": "-" },
     "difficulty": 0,

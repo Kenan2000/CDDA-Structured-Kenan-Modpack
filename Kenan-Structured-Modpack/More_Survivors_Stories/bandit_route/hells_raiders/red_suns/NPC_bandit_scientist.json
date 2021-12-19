@@ -69,7 +69,7 @@
         }
       },
       {
-        "text": "…",
+        "text": "\u2026",
         "topic": "TALK_DONE",
         "condition": { "npc_has_var": "push", "type": "count", "context": "dialogue", "value": "2" },
         "effect": "flee",
@@ -93,7 +93,7 @@
     "type": "talk_topic",
     "id": "TALK_bandit_rs_scientist_start_flee",
     "dynamic_line": "*managed to break free and run from you.",
-    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "flee" } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_DONE", "effect": "flee" } ]
   },
   {
     "type": "talk_topic",
@@ -117,7 +117,7 @@
   {
     "id": "TALK_bandit_rs_scientist_follow",
     "type": "talk_topic",
-    "dynamic_line": "I hope you're not leading me to certain death…",
+    "dynamic_line": "I hope you're not leading me to certain death\u2026",
     "responses": [
       {
         "text": "Welcome to your new workplace.",
@@ -129,7 +129,7 @@
   {
     "id": "TALK_bandit_rs_scientist_follow1",
     "type": "talk_topic",
-    "dynamic_line": "Did they bring everything here that at least somehow resembled scientific equipment?  I wouldn't need most of this junk.  Well, it's still better than waiting patiently for my death in that seedy pit…",
+    "dynamic_line": "Did they bring everything here that at least somehow resembled scientific equipment?  I wouldn't need most of this junk.  Well, it's still better than waiting patiently for my death in that seedy pit\u2026",
     "responses": [
       {
         "text": "I like your attitude.",
@@ -155,7 +155,7 @@
     ],
     "dynamic_line": "<greet>",
     "responses": [
-      { "text": "About that job…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "About that job\u2026", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
       { "text": "<BGSS_intro_question>", "topic": "TALK_bandit_rs_scientist_Background" },
       {
         "text": "You don't need to worry about your safety.",
@@ -226,7 +226,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_bandit_rs_scientist_poison_sure",
-    "dynamic_line": "Well, if you put it that way… still, are you sure that new leader would be that willing to let me live after something like this?  I need to be sure, you know.",
+    "dynamic_line": "Well, if you put it that way\u2026 still, are you sure that new leader would be that willing to let me live after something like this?  I need to be sure, you know.",
     "speaker_effect": {
       "effect": [
         { "u_add_var": "poison_agreed", "type": "flag", "context": "agreed", "value": "yes" },
@@ -250,7 +250,10 @@
     "id": "TALK_bandit_rs_scientist_made_poison",
     "dynamic_line": "Fine, I'll try make something.\"  she left and returned after five minutes.  \"Here, take it.",
     "speaker_effect": {
-      "effect": [ { "u_lose_var": "rs_scientist_poison", "type": "flag", "context": "open_option" }, { "u_spawn_item": "bandit_item_3" } ]
+      "effect": [
+        { "u_lose_var": "rs_scientist_poison", "type": "flag", "context": "open_option" },
+        { "u_spawn_item": "bandit_item_3" }
+      ]
     }
   },
   {

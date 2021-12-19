@@ -67,7 +67,7 @@
     "speaker_effect": { "sentinel": "met", "effect": { "add_mission": "MISSION_boxer_johnny_0" } },
     "responses": [
       {
-        "text": "About that job…",
+        "text": "About that job\u2026",
         "topic": "TALK_MISSION_INQUIRE",
         "condition": { "and": [ "mission_complete", "has_many_assigned_missions" ] }
       },
@@ -80,7 +80,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_boxer_johnny_Background",
-    "dynamic_line": "Well I’m just a regular boxer, really.  I worked here before <the_cataclysm>, but now I live here, I suppose.",
+    "dynamic_line": "Well I\u2019m just a regular boxer, really.  I worked here before <the_cataclysm>, but now I live here, I suppose.",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
   },
   {
@@ -96,12 +96,15 @@
           "condition": { "npc_has_var": "boxer_johnny_teach", "type": "general", "context": "meeting", "value": "yes" }
         },
         "success": {
-          "effect": [ { "u_spawn_item": "manual_boxing" }, { "npc_lose_var": "boxer_johnny_teach", "type": "general", "context": "meeting" } ],
+          "effect": [
+            { "u_spawn_item": "manual_boxing" },
+            { "npc_lose_var": "boxer_johnny_teach", "type": "general", "context": "meeting" }
+          ],
           "topic": "TALK_boxer_johnny_teach"
         },
         "failure": { "topic": "TALK_boxer_johnny_teach_done" }
       },
-      { "text": "…", "topic": "TALK_NONE" }
+      { "text": "\u2026", "topic": "TALK_NONE" }
     ]
   },
   {
@@ -128,7 +131,7 @@
         "condition": { "u_has_var": "bj_debt_repaid", "type": "flag", "context": "meeting", "value": "yes" },
         "effect": [ "mission_success", { "npc_first_topic": "TALK_boxer_johnny_1" } ]
       },
-      { "text": "…", "topic": "TALK_DONE" }
+      { "text": "\u2026", "topic": "TALK_DONE" }
     ]
   },
   {
@@ -157,8 +160,8 @@
     "followup": "MISSION_boxer_johnny_2",
     "dialogue": {
       "describe": "-",
-      "offer": "Well, you know, I don't know if I should tell you, but… Ah, what the hell, I'm a dead man anyway!  Before <the_cataclysm>, I took a lot of money from moneylender to make some improvements for my gym.  At first, things went smoothly, but after that day, as you can guess, my cash flow goes straight to zero.  Somehow, that bastard managed to survive and, can you believe it, asked me to repay my debt!  What for? He would buy himself a nice car or something?!  And there's more!  When I refused to pay, he said that he would sell me as slave to a local bandit band or something.  Hell, I wouldn't turn myself to slave easily, I'll fight for my freedom!  Would you help me?",
-      "accepted": "Hell, we will teach those bastards some proper manners… <speech_warning>  I think they're here!  Let's go kick their asses!",
+      "offer": "Well, you know, I don't know if I should tell you, but\u2026 Ah, what the hell, I'm a dead man anyway!  Before <the_cataclysm>, I took a lot of money from moneylender to make some improvements for my gym.  At first, things went smoothly, but after that day, as you can guess, my cash flow goes straight to zero.  Somehow, that bastard managed to survive and, can you believe it, asked me to repay my debt!  What for? He would buy himself a nice car or something?!  And there's more!  When I refused to pay, he said that he would sell me as slave to a local bandit band or something.  Hell, I wouldn't turn myself to slave easily, I'll fight for my freedom!  Would you help me?",
+      "accepted": "Hell, we will teach those bastards some proper manners\u2026 <speech_warning>  I think they're here!  Let's go kick their asses!",
       "rejected": "C'mon, man!",
       "advice": "Move like a butterfly, sting like a bee!",
       "inquire": "So?",
@@ -191,14 +194,14 @@
     "followup": "MISSION_boxer_johnny_3",
     "dialogue": {
       "describe": "-",
-      "offer": "Good to see you again. Unfortunately for me, that moneylender guy don't let me go so easily.  He sent me his goon with a message recently.  He said that if I want to keep my gym and my head, I need to repay him, and that guy convinced me, that his boss is serious about it.  Now I'm a little scared.  If only I could somehow deal with this problem…",
-      "accepted": "You want to help me?  Thank you, I owe you a big one!  But if you serious about it, you don't have much time.  He gave no more than a month, so if you or me didn't make it in time…",
+      "offer": "Good to see you again. Unfortunately for me, that moneylender guy don't let me go so easily.  He sent me his goon with a message recently.  He said that if I want to keep my gym and my head, I need to repay him, and that guy convinced me, that his boss is serious about it.  Now I'm a little scared.  If only I could somehow deal with this problem\u2026",
+      "accepted": "You want to help me?  Thank you, I owe you a big one!  But if you serious about it, you don't have much time.  He gave no more than a month, so if you or me didn't make it in time\u2026",
       "rejected": "C'mon, man!",
       "advice": "He's <very> dangerous man, I assure you, so take care!",
-      "inquire": "…",
+      "inquire": "\u2026",
       "success": "I don't know what to say.  You saved my ass, and know I'm in eternal debt to you!  Thank you.",
-      "success_lie": "…",
-      "failure": "…"
+      "success_lie": "\u2026",
+      "failure": "\u2026"
     },
     "fail": { "effect": "npc_die" }
   },
@@ -242,7 +245,7 @@
       "inquire": "I'm waiting.",
       "success": "<very> good, <name_g>.  If you want, I could make another pair of steel fists for you too!  Talk to me if you're interested.",
       "success_lie": "Why?",
-      "failure": "…"
+      "failure": "\u2026"
     }
   },
   {

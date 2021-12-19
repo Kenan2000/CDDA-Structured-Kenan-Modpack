@@ -28,7 +28,7 @@
     "type": "talk_topic",
     "id": "TALK_bandit_sb_leader_done",
     "dynamic_line": "I've had enough of you, begone.",
-    "responses": [ { "text": "…", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
@@ -68,7 +68,7 @@
     "dynamic_line": "Now get out, I have things to do.",
     "responses": [
       { "text": "Hey, what about my payment?", "topic": "TALK_bandit_sb_leader_package_money1" },
-      { "text": "…", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_bandit_sb_leader_1" } }
+      { "text": "\u2026", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_bandit_sb_leader_1" } }
     ]
   },
   {
@@ -89,7 +89,7 @@
         "switch": true
       },
       {
-        "text": "…",
+        "text": "\u2026",
         "topic": "TALK_DONE",
         "effect": { "npc_first_topic": "TALK_bandit_sb_leader_1" },
         "switch": true
@@ -100,7 +100,7 @@
     "type": "talk_topic",
     "id": "TALK_bandit_sb_leader_package_money2",
     "dynamic_line": "My guys will show you the exit.  <kill_npc_h>, <name_b>!",
-    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": { "u_faction_rep": -100 } } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_DONE", "effect": { "u_faction_rep": -100 } } ]
   },
   {
     "type": "talk_topic",
@@ -120,7 +120,7 @@
         { "u_add_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "value": "4" }
       ]
     },
-    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_bandit_sb_leader_1" } } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_DONE", "effect": { "npc_first_topic": "TALK_bandit_sb_leader_1" } } ]
   },
   {
     "//": "TODO make ask for money reward after talking to merchant",
@@ -129,7 +129,7 @@
     "dynamic_line": "Make it quick, <name_b>.  I don't have time for your mumbling.",
     "responses": [
       {
-        "text": "About that job…",
+        "text": "About that job\u2026",
         "condition": { "and": [ "has_many_assigned_missions", "mission_complete" ] },
         "topic": "TALK_MISSION_INQUIRE"
       },
@@ -143,9 +143,9 @@
         "condition": { "u_has_var": "bandit_sb_leader_pay", "type": "flag", "context": "payment", "value": "1" },
         "topic": "TALK_bandit_sb_leader_package_money"
       },
-      { "text": "I would like to ask you about something…", "topic": "TALK_bandit_sb_leader_questions" },
+      { "text": "I would like to ask you about something\u2026", "topic": "TALK_bandit_sb_leader_questions" },
       {
-        "text": "I want to talk about workforce for the farm…",
+        "text": "I want to talk about workforce for the farm\u2026",
         "condition": {
           "and": [
             { "u_has_mission": "MISSION_bandit_sb_drugmaker_3" },

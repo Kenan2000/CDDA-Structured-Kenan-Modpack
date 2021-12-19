@@ -2,31 +2,17 @@
   {
     "id": "TALK_gallian_guard_start",
     "type": "talk_topic",
-    "dynamic_line": {
-      "u_female": true,
-      "yes": "Hello, Miss, What do you want from me?",
-      "no": "Hello, what do you want from me?"
-        },
+    "dynamic_line": { "u_female": true, "yes": "Hello, Miss, What do you want from me?", "no": "Hello, what do you want from me?" },
     "responses": [
-      {
-        "text": "How do you serve as a soldier for Gallia?", "topic": "TALK_gallian_guard_go"
-      },
-      {
-        "text": "Goodbye.",
-        "topic": "TALK_DONE"
-      }
-	  ]
-	},
+      { "text": "How do you serve as a soldier for Gallia?", "topic": "TALK_gallian_guard_go" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
+    ]
+  },
   {
     "id": "TALK_gallian_guard_go",
     "type": "talk_topic",
     "dynamic_line": "It's pretty rough work, I can't speak about it much for security reasons, but I can tell you a bit. Imagine endless tedium interspersed with immediate threat from Imperial attack, that's what it's like being a soldier. The pay isn't very good, but you know you're fighting for your squad, hometown and country.",
-    "responses": [
-      {
-        "text": "Thanks for the info.",
-        "topic": "TALK_DONE"
-      }
-    ]
+    "responses": [ { "text": "Thanks for the info.", "topic": "TALK_DONE" } ]
   },
   {
     "id": "TALK_gallian_officer_start",
@@ -35,31 +21,18 @@
       "u_female": true,
       "yes": "Hello, Miss, What do you want from me? I'm busy.",
       "no": "Hello, what do you want from me? I'm busy."
-        },
+    },
     "responses": [
-      {
-        "text": "What are you currently doing as an officer?", "topic": "TALK_gallian_officer_go"
-      },
-      {
-        "text": "Do you have a task for me?",
-        "topic": "TALK_MISSION_LIST"
-      },
-      {
-        "text": "Goodbye.",
-        "topic": "TALK_DONE"
-      }
+      { "text": "What are you currently doing as an officer?", "topic": "TALK_gallian_officer_go" },
+      { "text": "Do you have a task for me?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Goodbye.", "topic": "TALK_DONE" }
     ]
   },
   {
     "id": "TALK_gallian_officer_go",
     "type": "talk_topic",
     "dynamic_line": "It's pretty busy serving as an officer in the Gallian military, especially during wartime. It's one thing to worry about one's own safety, it's another thing entirely to worry about all the men and women under your command!",
-    "responses": [
-      {
-        "text": "Thanks for the info.",
-        "topic": "TALK_DONE"
-      }
-    ]
+    "responses": [ { "text": "Thanks for the info.", "topic": "TALK_DONE" } ]
   },
   {
     "id": "MISSION_VAL_OFFICERKILL",
@@ -76,7 +49,8 @@
         { "u_spawn_item": "valrifmag1", "count": 2 },
         { "u_spawn_item": "val_gall1" },
         { "u_spawn_item": "val_gall3R" },
-        { "u_spawn_item": "gal792_b", "count": 60 } ]
+        { "u_spawn_item": "gal792_b", "count": 60 }
+      ]
     },
     "start": {
       "assign_mission_target": { "om_terrain": "field", "reveal_radius": 2, "random": true, "search_range": 6 },
@@ -108,10 +82,15 @@
           "                        "
         ],
         "terrain": { "@": "t_grass", "b": "t_dirt", "M": "t_dirt" },
-        "place_nested": [ { "chunks": [ [ "ishock_spawn", 30 ], [ "null", 70 ] ], "x": 5, "y": 16 },
-            { "chunks": [ [ "isniper_spawn", 30 ], [ "null", 70 ] ], "x": 14, "y": 16 }
+        "place_nested": [
+          { "chunks": [ [ "ishock_spawn", 30 ], [ "null", 70 ] ], "x": 5, "y": 16 },
+          { "chunks": [ [ "isniper_spawn", 30 ], [ "null", 70 ] ], "x": 14, "y": 16 }
         ],
-        "place_npcs": [ { "class": "imperial_scout", "x": 12, "y": 12, "target": true }, { "class": "imperial_scout", "x": 9, "y": 9 }, { "class": "imperial_shock", "x": 3, "y": 9 } ]
+        "place_npcs": [
+          { "class": "imperial_scout", "x": 12, "y": 12, "target": true },
+          { "class": "imperial_scout", "x": 9, "y": 9 },
+          { "class": "imperial_shock", "x": 3, "y": 9 }
+        ]
       }
     },
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -127,6 +106,4 @@
       "failure": "Yet another encroachment of the Empire into our lands..."
     }
   }
-  
-  
 ]
