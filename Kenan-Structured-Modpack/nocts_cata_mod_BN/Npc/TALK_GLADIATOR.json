@@ -1,0 +1,91 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_GLADIATOR",
+    "dynamic_line": {
+      "u_has_trait": "PROF_GLADIATOR",
+      "yes": [
+        "Huh, where'd the guard go…",
+        "Grab a weapon, we might have a chance to bust out of here.",
+        "Not a good time for this, fresh meat.  What's wrong?",
+        "You sure we have time to talk?  What is it?",
+        "I don't know what's going on, but we might be able to get out of here."
+      ],
+      "no": [
+        "I don't know what you're here for, but you've got good timing.",
+        "Hey you!  You've got to help us, please…",
+        "You're not one of the guards, don't look like one of their so-called clients either.  What are you here for?",
+        "Hey, you're not one of them …can you help us?",
+        "You've got to get us out of here!"
+      ]
+    },
+    "responses": [
+      { "text": "What's going on?", "topic": "TALK_GLADIATOR_SITUATION" },
+      { "text": "Why are the others attacking us?", "topic": "TALK_GLADIATOR_HOSTILE" },
+      {
+        "text": "Follow my lead, I'll get us out of here.",
+        "condition": { "u_has_trait": "PROF_GLADIATOR" },
+        "switch": true,
+        "topic": "TALK_GLADIATOR_RECRUIT"
+      },
+      { "text": "I'll help get you out of here.", "switch": true, "default": true, "topic": "TALK_GLADIATOR_RECRUIT" },
+      { "text": "Bye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_GLADIATOR_SITUATION",
+    "dynamic_line": {
+      "u_has_trait": "PROF_GLADIATOR",
+      "yes": [
+        "Guard set the cells to unlock themselves and left.  Something's going on, and we might be able to escape.",
+        "Fucking riot or something, bastards cut both cell blocks loose.  If we don't get eaten alive by the others we might be able to escape.",
+        "I'm not sure, but what matters is the fact they let the other animals out too."
+      ],
+      "no": [
+        "We've been stuck down here for months fighting for the amusement of a bunch of sick fucks.  Guard running the place remotely unlocked all of our cells and abandoned us.",
+        "I don't know.  We've been stuck down here for so long, but if we can get out …maybe you help us?",
+        "Are you with the police?  Please, they've had us trapped down here for their fucking pit fights."
+      ]
+    },
+    "responses": [ { "text": "I see…", "topic": "TALK_GLADIATOR" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_GLADIATOR_HOSTILE",
+    "dynamic_line": {
+      "u_has_trait": "PROF_GLADIATOR",
+      "yes": [
+        "That's why you should be glad you're fresh meat.  They move you to Red Team if you survive long enough, and the shit they do to you afterward turns you into an animal.",
+        "They're little better than animals, after all the shit they do to people survive enough fights.",
+        "They stage these fights pitting one cell block against the other, eventually the ones that snap get used to trying to kill anyone else not on their side…"
+      ],
+      "no": [
+        "They're the ones that have been held captive long enough to get used to being a fucking pit dog.",
+        "They're the other team in the fucking death matches these assholes would stage for their amusement.  They're the ones that've been here long enough to actually get into it…",
+        "They've been running this blood sport long enough that some of us can't even remember the surface."
+      ]
+    },
+    "responses": [ { "text": "Oh.", "topic": "TALK_GLADIATOR" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_GLADIATOR_RECRUIT",
+    "dynamic_line": {
+      "u_has_trait": "PROF_GLADIATOR",
+      "yes": [
+        "Alright.  Let's give Red Team their final rest and see if we can escape…",
+        "To glory and death.",
+        "There has to be a way out of here.  Lead the way.",
+        "Fine by me.  Let's go."
+      ],
+      "no": [
+        "Thank you!  I'll follow your lead.",
+        "Alright.  Watch out for the others from Red Team.",
+        "Any place has to be better than this.  Lead on!",
+        "You're really getting me out of here?  Thank you…"
+      ]
+    },
+    "responses": [ { "text": "Let's go!", "topic": "TALK_DONE", "effect": "follow" } ]
+  }
+]

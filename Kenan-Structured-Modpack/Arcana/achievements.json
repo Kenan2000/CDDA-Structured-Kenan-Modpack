@@ -1,0 +1,401 @@
+[
+  {
+    "id": "achievement_arcana_npc_alexander",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> The Old Man" },
+    "description": "Earn the trust of an old survivor.",
+    "//": "Achievement is fully hidden until you reveal it.",
+    "hidden_by": [ "achievement_arcana_npc_alexander" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_npc_alexander", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_npc_alexander",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_npc_alexander"
+  },
+  {
+    "id": "avatar_arcana_npc_alexander",
+    "type": "event_transformation",
+    "event_type": "character_gains_effect",
+    "value_constraints": { "effect": { "equals": [ "efftype_id", "hermit_earned_trust_2" ] } },
+    "drop_fields": [ "effect" ]
+  },
+  {
+    "id": "achievement_arcana_mission_deacon",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Distant Faith" },
+    "description": "Learn of another settlement surviving out there.",
+    "//": "Achievement is fully hidden until you reveal it.",
+    "hidden_by": [ "achievement_arcana_mission_deacon" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_mission_deacon", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_mission_deacon",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_mission_deacon"
+  },
+  {
+    "id": "avatar_arcana_mission_deacon",
+    "type": "event_transformation",
+    "event_type": "character_gains_effect",
+    "value_constraints": { "effect": { "equals": [ "efftype_id", "rural_church_aware" ] } },
+    "drop_fields": [ "effect" ]
+  },
+  {
+    "id": "achievement_arcana_npc_sofia",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> The Priestess" },
+    "description": "Make contact with a survivor in an old roadside church.",
+    "hidden_by": [ "achievement_arcana_npc_johnathan" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_npc_sofia", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_npc_sofia",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_npc_sofia"
+  },
+  {
+    "id": "avatar_arcana_npc_sofia",
+    "type": "event_transformation",
+    "event_type": "character_gains_effect",
+    "value_constraints": { "effect": { "equals": [ "efftype_id", "sofia_deacon_message" ] } },
+    "drop_fields": [ "effect" ]
+  },
+  {
+    "id": "achievement_arcana_npc_johnathan",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> The Knight-Errant" },
+    "description": "Complete missions for Sofia, attracting allies to her cause.",
+    "hidden_by": [ "achievement_arcana_npc_sofia" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_npc_johnathan", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_npc_johnathan",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_npc_johnathan"
+  },
+  {
+    "id": "avatar_arcana_npc_johnathan",
+    "type": "event_transformation",
+    "event_type": "character_gains_effect",
+    "value_constraints": { "effect": { "equals": [ "efftype_id", "cf_mission_sofia_3" ] } },
+    "drop_fields": [ "effect" ]
+  },
+  {
+    "id": "achievement_arcana_npc_matthew",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> The Scholar" },
+    "description": "Complete missions for Johnathan, leading to further reinforcements.",
+    "hidden_by": [ "achievement_arcana_npc_johnathan" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_npc_matthew", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_npc_matthew",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_npc_matthew"
+  },
+  {
+    "id": "avatar_arcana_npc_matthew",
+    "type": "event_transformation",
+    "event_type": "character_gains_effect",
+    "value_constraints": { "effect": { "equals": [ "efftype_id", "cf_mission_johnathan_3" ] } },
+    "drop_fields": [ "effect" ]
+  },
+  {
+    "id": "achievement_arcana_npc_nicholas",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> The Artificers" },
+    "description": "Complete Sofia's missions, bringing various allies to her cause.",
+    "hidden_by": [ "achievement_arcana_npc_johnathan" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_npc_nicholas", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_npc_nicholas",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_npc_nicholas"
+  },
+  {
+    "id": "avatar_arcana_npc_nicholas",
+    "type": "event_transformation",
+    "event_type": "character_gains_effect",
+    "value_constraints": { "effect": { "equals": [ "efftype_id", "cf_mission_sofia_7" ] } },
+    "drop_fields": [ "effect" ]
+  },
+  {
+    "id": "achievement_arcana_mission_sword",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> A Lost Dream, Rekindled" },
+    "description": "Restore a forgotten relic of a nearly-extinguished faith.",
+    "hidden_by": [ "achievement_arcana_npc_alexander" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_mission_sword", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_mission_sword",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_mission_sword"
+  },
+  {
+    "id": "avatar_arcana_mission_sword",
+    "type": "event_transformation",
+    "event_type": "character_gains_effect",
+    "value_constraints": { "effect": { "equals": [ "efftype_id", "hermit_stage_2" ] } },
+    "drop_fields": [ "effect" ]
+  },
+  {
+    "id": "achievement_arcana_location_curious_structure",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Sacred Ground" },
+    "requirements": [
+      {
+        "event_statistic": "last_oter_type_avatar_entered",
+        "is": "==",
+        "target": [ "oter_type_str_id", "curious_structure" ],
+        "description": "Enter a curious structure, a fallen sanctum of unknown purpose."
+      }
+    ]
+  },
+  {
+    "id": "achievement_arcana_location_strange_grove",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Barrows Of Pine And Birch" },
+    "requirements": [
+      {
+        "event_statistic": "last_oter_type_avatar_entered",
+        "is": "==",
+        "target": [ "oter_type_str_id", "strange_grove" ],
+        "description": "Enter a strange grove, where secrets lay buried among the trees."
+      }
+    ]
+  },
+  {
+    "id": "achievement_arcana_location_impact_site",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Omen Along Fallen Stars" },
+    "requirements": [
+      {
+        "event_statistic": "last_oter_type_avatar_entered",
+        "is": "==",
+        "target": [ "oter_type_str_id", "impact_site" ],
+        "description": "Enter an impact site, over which a strange floating temple awaits."
+      }
+    ]
+  },
+  {
+    "id": "achievement_arcana_location_island_temple_1",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Blood And Bone" },
+    "requirements": [
+      {
+        "event_statistic": "last_oter_type_avatar_entered",
+        "is": "==",
+        "target": [ "oter_type_str_id", "island_temple_1" ],
+        "description": "Enter a peculiar shrine, where stagnant water hides wicked deeds."
+      }
+    ]
+  },
+  {
+    "id": "achievement_arcana_monkill_spirit_of_fire",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Never Too Deep" },
+    "description": "Purge the land of a demon lurking beneath sacred ground.",
+    "hidden_by": [ "achievement_arcana_location_curious_structure" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_monkill_spirit_of_fire", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_monkill_spirit_of_fire",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_monkill_spirit_of_fire"
+  },
+  {
+    "id": "avatar_arcana_monkill_spirit_of_fire",
+    "type": "event_transformation",
+    "event_type": "character_kills_monster",
+    "value_constraints": { "victim_type": { "equals": [ "mtype_id", "mon_spirit_of_fire" ] } },
+    "drop_fields": [ "victim_type" ]
+  },
+  {
+    "id": "achievement_arcana_monkill_moruboru",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Wild Rose" },
+    "description": "Slay the beast that stalks an abandoned grove.",
+    "hidden_by": [ "achievement_arcana_location_strange_grove" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_monkill_moruboru", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_monkill_moruboru",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_monkill_moruboru"
+  },
+  {
+    "id": "avatar_arcana_monkill_moruboru",
+    "type": "event_transformation",
+    "event_type": "character_kills_monster",
+    "value_constraints": { "victim_type": { "equals": [ "mtype_id", "mon_moruboru" ] } },
+    "drop_fields": [ "victim_type" ]
+  },
+  {
+    "id": "achievement_arcana_monkill_archon",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> May He Forge Your Chains" },
+    "description": "Kill a possessed priest, hidden away in a temple on floating stone.",
+    "hidden_by": [ "achievement_arcana_location_impact_site" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_monkill_archon", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_monkill_archon",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_monkill_archon"
+  },
+  {
+    "id": "avatar_arcana_monkill_archon",
+    "type": "event_transformation",
+    "event_type": "character_kills_monster",
+    "value_constraints": { "victim_type": { "equals": [ "mtype_id", "mon_archon" ] } },
+    "drop_fields": [ "victim_type" ]
+  },
+  {
+    "id": "achievement_arcana_monkill_dracolich",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Dragon Re-Slayer" },
+    "description": "Put down an infested creature, dragged from the Beyond to a lost temple.",
+    "hidden_by": [ "achievement_arcana_location_island_temple_1" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_monkill_dracolich", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_monkill_dracolich",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_monkill_dracolich"
+  },
+  {
+    "id": "avatar_arcana_monkill_dracolich",
+    "type": "event_transformation",
+    "event_type": "character_kills_monster",
+    "value_constraints": { "victim_type": { "equals": [ "mtype_id", "mon_dracolich" ] } },
+    "drop_fields": [ "victim_type" ]
+  },
+  {
+    "id": "achievement_arcana_monkill_seraphic_shade",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> So Long As The Sun Shines" },
+    "description": "Complete Johnathan's Missions, hunting the enemies of humanity.",
+    "hidden_by": [ "achievement_arcana_npc_matthew" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_monkill_seraphic_shade", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_monkill_seraphic_shade",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_monkill_seraphic_shade"
+  },
+  {
+    "id": "avatar_arcana_monkill_seraphic_shade",
+    "type": "event_transformation",
+    "event_type": "character_kills_monster",
+    "value_constraints": { "victim_type": { "equals": [ "mtype_id", "mon_seraphic_shade" ] } },
+    "drop_fields": [ "victim_type" ]
+  },
+  {
+    "id": "achievement_arcana_mutation_paragon",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Anointed" },
+    "description": "Offer power to He From Beyond The Veil, and be rewarded.",
+    "hidden_by": [ "achievement_arcana_mission_sword" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_mutation_paragon", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_mutation_paragon",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_mutation_paragon"
+  },
+  {
+    "id": "avatar_arcana_mutation_paragon",
+    "type": "event_transformation",
+    "event_type": "crosses_mutation_threshold",
+    "value_constraints": { "category": { "equals": [ "mutation_category_id", "VEIL" ] } },
+    "drop_fields": [ "category" ]
+  },
+  {
+    "id": "achievement_arcana_mutation_dragonblood",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Sacramentum Sanguinem" },
+    "description": "Pursue The Path using a heart ripped out of a winged abomination.",
+    "hidden_by": [ "achievement_arcana_monkill_dracolich" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_mutation_dragonblood", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_mutation_dragonblood",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_mutation_dragonblood"
+  },
+  {
+    "id": "avatar_arcana_mutation_dragonblood",
+    "type": "event_transformation",
+    "event_type": "crosses_mutation_threshold",
+    "value_constraints": { "category": { "equals": [ "mutation_category_id", "DRAGONBLOOD" ] } },
+    "drop_fields": [ "category" ]
+  },
+  {
+    "id": "achievement_lvl_7_arcana",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Insight" },
+    "description": "There are things mankind was not meant to learn.  And some things we were destined to learn.",
+    "requirements": [ { "event_statistic": "num_gains_arcana_level_7", "is": ">=", "target": 1 } ]
+  },
+  {
+    "id": "avatar_gains_arcana_level_7",
+    "type": "event_transformation",
+    "event_type": "gains_skill_level",
+    "value_constraints": {
+      "character": { "equals_statistic": "avatar_id" },
+      "skill": { "equals": [ "skill_id", "magic" ] },
+      "new_level": { "equals": [ "int", "7" ] }
+    },
+    "drop_fields": [ "character", "skill", "new_level" ]
+  },
+  {
+    "id": "num_gains_arcana_level_7",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_gains_arcana_level_7",
+    "description": { "str_sp": "arcana skill level 7 gained" }
+  },
+  {
+    "id": "achievement_lvl_10_arcana",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Apprehension" },
+    "description": "Seek not the things that are too high for thee.  But, it's in our nature to master the unknown.",
+    "requirements": [ { "event_statistic": "num_gains_arcana_level_10", "is": ">=", "target": 1 } ],
+    "hidden_by": [ "achievement_lvl_7_arcana" ]
+  },
+  {
+    "id": "avatar_gains_arcana_level_10",
+    "type": "event_transformation",
+    "event_type": "gains_skill_level",
+    "value_constraints": {
+      "character": { "equals_statistic": "avatar_id" },
+      "skill": { "equals": [ "skill_id", "magic" ] },
+      "new_level": { "equals": [ "int", "10" ] }
+    },
+    "drop_fields": [ "character", "skill", "new_level" ]
+  },
+  {
+    "id": "num_gains_arcana_level_10",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_gains_arcana_level_10",
+    "description": { "str_sp": "arcana skill level 10 gained" }
+  }
+]
