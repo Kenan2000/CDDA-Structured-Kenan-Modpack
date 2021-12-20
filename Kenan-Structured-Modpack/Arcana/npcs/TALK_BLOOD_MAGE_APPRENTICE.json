@@ -44,29 +44,29 @@
     "type": "talk_topic",
     "dynamic_line": {
       "u_has_trait": "THRESH_DRAGONBLOOD",
-      "yes": "Oh!  Sorry, didn't recognize you at fi- wait a minute…",
-      "no": "Eh?  How did you…"
+      "yes": "Oh!  Sorry, didn't recognize you at fi- wait a minute\u2026",
+      "no": "Eh?  How did you\u2026"
     },
     "responses": [
       {
-         "text": "A former enemy taught me this secret.  We need not be enemies either.",
-         "condition": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ] },
-         "switch": true,
-         "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_FLAME"
+        "text": "A former enemy taught me this secret.  We need not be enemies either.",
+        "condition": { "u_has_any_trait": [ "PROF_CLEANSINGFLAME", "PROF_CLEANSINGFLAME2" ] },
+        "switch": true,
+        "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_FLAME"
       },
       {
-         "text": "There are many followers of The Path who still live.",
-         "condition": { "u_has_trait": "PROF_SANGUINE" },
-         "switch": true,
-         "topic": "TALK_BLOOD_MAGE_APPRENTICE_SANGUINE"
+        "text": "There are many followers of The Path who still live.",
+        "condition": { "u_has_trait": "PROF_SANGUINE" },
+        "switch": true,
+        "topic": "TALK_BLOOD_MAGE_APPRENTICE_SANGUINE"
       },
       {
-         "text": "We are not enemies.  Some of your own have joined us.",
-         "switch": true,
-         "default": true,
-         "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_NORMAL"
+        "text": "We are not enemies.  Some of your own have joined us.",
+        "switch": true,
+        "default": true,
+        "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_NORMAL"
       },
-      { "text": "[ATTACK] …", "topic": "TALK_DONE", "effect": "player_leaving" }
+      { "text": "[ATTACK] \u2026", "topic": "TALK_DONE", "effect": "player_leaving" }
     ]
   },
   {
@@ -75,9 +75,9 @@
     "dynamic_line": "What, you expect us to just give up and join you, hunter?  When The Path has prepared us to survive in this ruined world, why would one of the shrikes defect to your cause?",
     "responses": [
       {
-         "text": "And why would a hunter complete the Dragonblood Sacrament?  We must all do what is necessary for humanity to survive.",
-         "condition": { "u_has_trait": "THRESH_DRAGONBLOOD" },
-         "topic": "TALK_BLOOD_MAGE_APPRENTICE_DRAGONBLOOD"
+        "text": "And why would a hunter complete the Dragonblood Sacrament?  We must all do what is necessary for humanity to survive.",
+        "condition": { "u_has_trait": "THRESH_DRAGONBLOOD" },
+        "topic": "TALK_BLOOD_MAGE_APPRENTICE_DRAGONBLOOD"
       },
       {
         "text": "They have seen that the error is not in The Path, but in using it for self-destructive reasons.",
@@ -85,7 +85,11 @@
         "success": { "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_FLAME_SUCCESS" },
         "failure": { "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_FLAME_FAIL" }
       },
-      { "text": "[ATTACK] I expect nothing but a quick death from you, sanguinist.", "topic": "TALK_DONE", "effect": "insult_combat" }
+      {
+        "text": "[ATTACK] I expect nothing but a quick death from you, sanguinist.",
+        "topic": "TALK_DONE",
+        "effect": "insult_combat"
+      }
     ]
   },
   {
@@ -111,7 +115,7 @@
     "id": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_FLAME_FAIL",
     "type": "talk_topic",
     "dynamic_line": "Bullshit.  You interrogated one of them to get that old code phrase, didn't you?  Probably killed them afterwards too.  Die, hunter!",
-    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_DONE", "effect": "insult_combat" } ]
   },
   {
     "id": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_NORMAL",
@@ -119,9 +123,9 @@
     "dynamic_line": "So one of the shrikes sent you?  Have they strayed from The Path?  What is the meaning of this?",
     "responses": [
       {
-         "text": "Why not ask yourself why I'm standing here, having completed what your master is still trying to recreate?",
-         "condition": { "u_has_trait": "THRESH_DRAGONBLOOD" },
-         "topic": "TALK_BLOOD_MAGE_APPRENTICE_DRAGONBLOOD"
+        "text": "Why not ask yourself why I'm standing here, having completed what your master is still trying to recreate?",
+        "condition": { "u_has_trait": "THRESH_DRAGONBLOOD" },
+        "topic": "TALK_BLOOD_MAGE_APPRENTICE_DRAGONBLOOD"
       },
       {
         "text": "They've saved valuable knowledge from destruction, and have made amends with the Cleaning Flame.  We don't have to fight either.",
@@ -129,7 +133,7 @@
         "success": { "topic": "TALK_BLOOD_MAGE_APPRENTICE_PASSWORD_NORMAL_SUCCESS" },
         "failure": { "topic": "TALK_BLOOD_MAGE_APPRENTICE_GET_OUT" }
       },
-      { "text": "[ATTACK] …", "topic": "TALK_DONE", "effect": "player_leaving" }
+      { "text": "[ATTACK] \u2026", "topic": "TALK_DONE", "effect": "player_leaving" }
     ]
   },
   {
@@ -211,7 +215,7 @@
     "id": "TALK_BLOOD_MAGE_APPRENTICE_MISTAKE",
     "type": "talk_topic",
     "dynamic_line": "Actually, my masters might find you useful, as a sacrifice if nothing else.  Die!",
-    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_DONE", "effect": "insult_combat" } ]
   },
   {
     "id": "TALK_BLOOD_MAGE_APPRENTICE_DRAGONBLOOD",
@@ -230,7 +234,7 @@
         "success": { "topic": "TALK_DONE", "opinion": { "fear": 2 }, "effect": "flee" },
         "failure": { "topic": "TALK_DONE", "opinion": { "anger": 1 }, "effect": [ { "u_faction_rep": -30 }, "insult_combat" ] }
       },
-      { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" }
+      { "text": "\u2026", "topic": "TALK_DONE", "effect": "insult_combat" }
     ]
   },
   {
@@ -364,12 +368,12 @@
     "id": "TALK_BLOOD_MAGE_APPRENTICE_NOPE",
     "type": "talk_topic",
     "dynamic_line": "And you think you're any more fit to rule in this dying world?  \"Even those of great power, if laid low, may serve to better the victor.\"  Die!",
-    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat" } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_DONE", "effect": "insult_combat" } ]
   },
   {
     "id": "TALK_BLOOD_MAGE_APPRENTICE_INTIMIDATE",
     "type": "talk_topic",
-    "dynamic_line": "What?  Oh shit…  no, not you!  Leave us alone, hunter!",
+    "dynamic_line": "What?  Oh shit\u2026  no, not you!  Leave us alone, hunter!",
     "responses": [
       {
         "text": "[ATTACK] Subire mortem tuam, sub malleo deorum!",
@@ -411,21 +415,30 @@
     "id": "TALK_BLOOD_MAGE_APPRENTICE_BEGONE",
     "type": "talk_topic",
     "dynamic_line": "Forget you ever saw anything here.  Before I change my mind.",
-    "responses": [ { "text": "…", "topic": "TALK_DONE", "effect": "player_leaving", "opinion": { "fear": -1, "value": -1 } } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_DONE", "effect": "player_leaving", "opinion": { "fear": -1, "value": -1 } } ]
   },
   {
     "id": "TALK_BLOOD_MAGE_APPRENTICE_PATHETIC",
     "type": "talk_topic",
     "dynamic_line": "Really?  How pathetic.  Your very presence endangers what we're working on.  I can't let you leave alive.",
     "responses": [
-      { "text": "…", "topic": "TALK_DONE", "effect": "insult_combat", "opinion": { "fear": -5, "value": -5, "anger": 3 } }
+      {
+        "text": "\u2026",
+        "topic": "TALK_DONE",
+        "effect": "insult_combat",
+        "opinion": { "fear": -5, "value": -5, "anger": 3 }
+      }
     ]
   },
   {
     "id": "TALK_FRIEND_CONVERSATION",
     "type": "talk_topic",
     "responses": [
-      { "text": "<CWH_intro_question>", "topic": "BGSS_BLOOD_MAGE_1_IDEAS1", "condition": { "npc_has_trait": "BGSS_BLOOD_MAGE_1" } },
+      {
+        "text": "<CWH_intro_question>",
+        "topic": "BGSS_BLOOD_MAGE_1_IDEAS1",
+        "condition": { "npc_has_trait": "BGSS_BLOOD_MAGE_1" }
+      },
       {
         "text": "<BGSS_intro_question>",
         "topic": "BGSS_BLOOD_MAGE_1_STORY1",
@@ -448,10 +461,7 @@
     "id": "BGSS_BLOOD_MAGE_1_IDEAS2",
     "type": "talk_topic",
     "dynamic_line": "The magi liked to isolate us from civilization at large.  Typical cult stuff now that I think about it, plus made it easier to cover our tracks.  But, for all the talk of preparation and adaptation, I don't know if they really predicted this, but our isolation kept us from suffering the same fate as those in the cities.  Now it's just a matter of surviving, I guess.",
-    "responses": [
-      { "text": "<done_conversation_section>", "topic": "TALK_NONE" },
-      { "text": "<end_talking>", "topic": "TALK_DONE" }
-    ]
+    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" }, { "text": "<end_talking>", "topic": "TALK_DONE" } ]
   },
   {
     "id": "BGSS_BLOOD_MAGE_1_STORY1",
@@ -467,7 +477,7 @@
   {
     "id": "BGSS_BLOOD_MAGE_1_STORY2",
     "type": "talk_topic",
-    "dynamic_line": "There were a few, yeah.  The higher-rank blood mages, basically.  This was before the one at the hideout split off from the others, and led us into trying to scrounge up some old research.  Things were tense back then, but at least I felt like I could trust those higher up in rank to reward fair study…",
+    "dynamic_line": "There were a few, yeah.  The higher-rank blood mages, basically.  This was before the one at the hideout split off from the others, and led us into trying to scrounge up some old research.  Things were tense back then, but at least I felt like I could trust those higher up in rank to reward fair study\u2026",
     "responses": [
       { "text": "So what happened?", "topic": "BGSS_CF_1_STORY3" },
       { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
@@ -487,7 +497,7 @@
   {
     "id": "BGSS_BLOOD_MAGE_1_STORY4",
     "type": "talk_topic",
-    "dynamic_line": "At first it was just the same shit, only thing that seemed strange was talking about it like it had already happened.  Before they'd be all vague, talking about portents and omens of doom, but it wasn't until we moved on to the next hideout that most of us at the bottom of the totem pole figured out something went down…",
+    "dynamic_line": "At first it was just the same shit, only thing that seemed strange was talking about it like it had already happened.  Before they'd be all vague, talking about portents and omens of doom, but it wasn't until we moved on to the next hideout that most of us at the bottom of the totem pole figured out something went down\u2026",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" }, { "text": "<end_talking>", "topic": "TALK_DONE" } ]
   }
 ]

@@ -4,7 +4,7 @@
     "type": "talk_topic",
     "dynamic_line": {
       "u_is_wearing": "badge_bio_weapon",
-      "yes": "That thing you are wearing… a Bio-Weapon Badge…",
+      "yes": "That thing you are wearing\u2026 a Bio-Weapon Badge\u2026",
       "no": "Hey you, are you also after the Bio-Weapons?"
     },
     "responses": [
@@ -12,21 +12,13 @@
         "text": "Yeah, I am one of them.",
         "topic": "TALK_BHUNTER_IAM_BIO",
         "condition": {
-          "u_has_any_trait": [
-            "BIO_WEAPON_ALPHA",
-            "BIO_WEAPON_BETA",
-            "BIO_WEAPON_GAMMA",
-            "BIO_WEAPON_DELTA",
-            "BIO_WEAPON_FAILED"
-          ]
+          "u_has_any_trait": [ "BIO_WEAPON_ALPHA", "BIO_WEAPON_BETA", "BIO_WEAPON_GAMMA", "BIO_WEAPON_DELTA", "BIO_WEAPON_FAILED" ]
         }
       },
       {
         "text": "Part of the Super Soldier project, actually.",
         "topic": "TALK_BHUNTER_IAM_SOLDAT",
-        "condition": {
-          "u_has_trait": "SUPER_SOLDIER_MARKER"
-        }
+        "condition": { "u_has_trait": "SUPER_SOLDIER_MARKER" }
       },
       { "text": "Bio-Weapon?", "topic": "TALK_BHUNTER_ASK_BIO" },
       { "text": "What's going on out here?", "topic": "TALK_BHUNTER_ASK_SITUATION" },
@@ -39,7 +31,7 @@
   {
     "id": "TALK_BHUNTER_ASK_SITUATION",
     "type": "talk_topic",
-    "dynamic_line": "Not good.  I had another person with me when I arrived, and he was guarding the vehicle when those things showed up.  Luckily they seemed reluctant to barge into the bunker, and things are getting hectic out there as it seems my buddy took a couple of them out before he bit it, and they started getting back up…",
+    "dynamic_line": "Not good.  I had another person with me when I arrived, and he was guarding the vehicle when those things showed up.  Luckily they seemed reluctant to barge into the bunker, and things are getting hectic out there as it seems my buddy took a couple of them out before he bit it, and they started getting back up\u2026",
     "responses": [ { "text": "What are those things?", "topic": "TALK_BHUNTER_THINGS" }, { "text": "I see.", "topic": "TALK_BHUNTER" } ]
   },
   {
@@ -57,7 +49,7 @@
         "topic": "TALK_BHUNTER"
       },
       {
-        "text": "I don't want to end up like those things.  I don't want to become a monster, please…",
+        "text": "I don't want to end up like those things.  I don't want to become a monster, please\u2026",
         "trial": { "type": "NONE" },
         "success": { "opinion": { "fear": -1, "trust": 1 }, "topic": "TALK_BHUNTER_THINGS_FAILED" },
         "condition": { "u_has_any_trait": [ "BIO_WEAPON_FAILED" ] }
@@ -85,7 +77,7 @@
     },
     "responses": [
       {
-        "text": "I can prove it.  If I can recall… Project Mesektet, First Series, external designation RD-Z-01.",
+        "text": "I can prove it.  If I can recall\u2026 Project Mesektet, First Series, external designation RD-Z-01.",
         "topic": "TALK_BHUNTER_CONFIRM_BIO",
         "condition": { "u_has_any_trait": [ "BIO_WEAPON_ALPHA", "BIO_WEAPON_BETA", "BIO_WEAPON_GAMMA", "BIO_WEAPON_DELTA" ] }
       },
@@ -100,7 +92,7 @@
         "topic": "TALK_BHUNTER_NOBADGE",
         "condition": { "not": { "u_is_wearing": "badge_bio_weapon" } }
       },
-      { "text": "…", "topic": "TALK_BHUNTER" }
+      { "text": "\u2026", "topic": "TALK_BHUNTER" }
     ]
   },
   {
@@ -120,7 +112,7 @@
   {
     "id": "TALK_BHUNTER_CONFIRM_BIO",
     "type": "talk_topic",
-    "dynamic_line": "Project… you're right.  Between that and your augmentations, it's hard to deny the evidence right in front of me.  Sorry I doubted you.",
+    "dynamic_line": "Project\u2026 you're right.  Between that and your augmentations, it's hard to deny the evidence right in front of me.  Sorry I doubted you.",
     "responses": [
       {
         "text": "It's fine.",
@@ -133,7 +125,7 @@
     "id": "TALK_BHUNTER_CONFIRM_FAILED",
     "type": "talk_topic",
     "dynamic_line": "Alright, you're right.  Looks like they really did a number on you.  I'm sorry they did this to you.",
-    "responses": [ { "text": "…", "topic": "TALK_BHUNTER" } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_BHUNTER" } ]
   },
   {
     "id": "TALK_BHUNTER_CONFIRM_OUST",
@@ -158,8 +150,8 @@
     "type": "talk_topic",
     "dynamic_line": {
       "u_is_wearing": "badge_bio_weapon",
-      "yes": "You're kidding, right?  You really don't know?  Is that badge actually yours…? Maybe that mindwipe rumor was true after all…",
-      "no": "So you don't know about them, huh?  Maybe I'm wasting my time… but you did find this place, so you probably know what you're doing."
+      "yes": "You're kidding, right?  You really don't know?  Is that badge actually yours\u2026? Maybe that mindwipe rumor was true after all\u2026",
+      "no": "So you don't know about them, huh?  Maybe I'm wasting my time\u2026 but you did find this place, so you probably know what you're doing."
     },
     "responses": [
       {
@@ -183,7 +175,7 @@
       "no": "Let me give you the basics.  Some time ago, the military launched a joint research project with an end goal of creating artificial combatants, made to perform various specific tasks - basically, living weapons.  They wanted them to be as low-maintenance as possible.  So to accomplish that, the research team used resources from already ongoing projects to first mutate and then cybernetically enhance humans, focusing on developing whatever qualities the military needed at the time.  This lab is one of several places in which the actual modifications were performed."
     },
     "responses": [
-      { "text": "I'll be damned…", "topic": "TALK_BHUNTER" },
+      { "text": "I'll be damned\u2026", "topic": "TALK_BHUNTER" },
       { "text": "How did you learn all this?", "topic": "TALK_BHUNTER_ASK_LEARN" }
     ]
   },
@@ -205,11 +197,7 @@
           ]
         },
         "trial": { "type": "PERSUADE", "difficulty": 3 },
-        "success": {
-          "topic": "TALK_BHUNTER_ADMIT",
-          "opinion": { "trust": 1 },
-          "effect": { "u_add_effect": "evy_ousted" }
-        },
+        "success": { "topic": "TALK_BHUNTER_ADMIT", "opinion": { "trust": 1 }, "effect": { "u_add_effect": "evy_ousted" } },
         "failure": {
           "topic": "TALK_BHUNTER_DENY",
           "opinion": { "trust": -1, "anger": 1 },
@@ -246,13 +234,13 @@
     "id": "TALK_BHUNTER_DENY",
     "type": "talk_topic",
     "dynamic_line": "Scavenged the kit along the way.  I wouldn't still be alive if I wasn't both resourceful and lucky.  I'd rather not talk about what I've had to go through to survive, at least not right now.  Okay?",
-    "responses": [ { "text": "Okay…", "topic": "TALK_BHUNTER" } ]
+    "responses": [ { "text": "Okay\u2026", "topic": "TALK_BHUNTER" } ]
   },
   {
     "id": "TALK_BHUNTER_NOPE",
     "type": "talk_topic",
     "dynamic_line": "You already asked me about it not that long ago.  I'd really prefer not to discuss it.",
-    "responses": [ { "text": "…", "topic": "TALK_BHUNTER" } ]
+    "responses": [ { "text": "\u2026", "topic": "TALK_BHUNTER" } ]
   },
   {
     "id": "TALK_BHUNTER_NOCARE",
@@ -290,7 +278,7 @@
   {
     "id": "TALK_BHUNTER_ASK_DO",
     "type": "talk_topic",
-    "dynamic_line": "I'm trying to reach a hideout built by former scientists who worked on the Bio-Weapon Project.  Rumor has it they live somewhere in the woods.  Maybe you could help me find it…",
+    "dynamic_line": "I'm trying to reach a hideout built by former scientists who worked on the Bio-Weapon Project.  Rumor has it they live somewhere in the woods.  Maybe you could help me find it\u2026",
     "responses": [ { "text": "I'll think about it.", "topic": "TALK_BHUNTER" } ]
   }
 ]
