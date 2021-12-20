@@ -3,7 +3,6 @@ name: Release Chinese Kenan Modpack
 on:
   push:
     branches:
-      - master
       - update
   # schedule:
     # * is a special character in YAML so you have to quote this string
@@ -66,7 +65,7 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: true
           automatic_release_tag: "archive-${{ steps.get-timestamp.outputs.time }}"
-          title: 'CDDA-Kenan-Mod合集汉化版 ${{ steps.get-timestamp.outputs.time }}'
+          title: 'CDDA-Kenan-Mod合集汉化版 ${{ steps.get-timestamp.outputs.time }} 测试包'
           files: |
             Kenan-Modpack-Mod汉化版.zip
       - name: Deploy Tiddlywiki
