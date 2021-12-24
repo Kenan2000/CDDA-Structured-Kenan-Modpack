@@ -1,3 +1,4 @@
+(更新见update分支)
 # CDDA-Kenan-Modpack CDDA Kenan Mod 合集的汉化
 
 |                                                                         [最新版下载按钮 Download](https://github.com/linonetwo/CDDA-Kenan-Modpack-Chinese/releases/latest)                                                                         |
