@@ -5,12 +5,12 @@
     "looks_like": "mon_zombie_mancroc",
     "type": "MONSTER",
     "name": { "str": "nautilus" },
-    "description": "A morbidly large zombie heavily mutated from long exposure to irradiated waters, which altered most of its body parts into something like that of a mollusk. Sluggish, yet full of surprises.",
+    "description": "A morbidly large zombie heavily mutated from long exposure to irradiated waters, which altered most of its body parts into something like that of a mollusk.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_2" ],
     "volume": "92500 ml",
     "weight": "120000 g",
-    "hp": 555,
+    "hp": 385,
     "speed": 40,
     "material": [ "flesh" ],
     "symbol": "⛣",
@@ -69,9 +69,9 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_nautilus_sewave" },
-        "cooldown": 26,
-        "monster_message": "<color_yellow>%1$s submerges and generates a seismic wave towards %3$s</color>!"
+        "spell_data": { "id": "mon_zombie_nautilus_disturbance_check" },
+        "cooldown": 33,
+        "monster_message": "<color_dark_gray>%1$s submerges\u2026</color>"
       }
     ],
     "flags": [
@@ -94,7 +94,7 @@
     "looks_like": "mon_zombieworm_noxeater",
     "type": "MONSTER",
     "name": { "str": "nautilus torpedo" },
-    "description": "A squidling, or some sort of maggot, but with tentacles. Tiny, feeble and short-lived, it seeks a lively host on its ways to attach to.",
+    "description": "A squidling, or some sort of maggot but with tentacles. Tiny, feeble and short-lived, it seeks a lively host on its ways to attach to.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE" ],
     "volume": "750 ml",
@@ -117,7 +117,7 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_nautilus_pedo_restraint_target" },
+        "spell_data": { "id": "mon_zombie_nautilus_pedo_restraint_check" },
         "cooldown": 1,
         "monster_message": "<color_yellow>%1$s latches onto %3$s!</color>"
       }
@@ -553,7 +553,7 @@
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "REVIVES", "HARDTOSHOOT" ]
   },
   {
-    "//": "Aggro-type zed. Like a shady zombie, but much stronger and tougher with chained abilities.",
+    "//": "Aggro-type zed. Like a shady zombie, but much stronger and tougher.",
     "id": "mon_zombie_nocturne",
     "type": "MONSTER",
     "name": { "str": "nocturne" },
@@ -583,13 +583,9 @@
     "vision_night": 26,
     "harvest": "zombie",
     "special_attacks": [
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_zombie_nocturne_spull_target" },
-        "cooldown": 72,
-        "monster_message": "<color_yellow>Errant shadows emerges from %1$s as they perform an onslaught!</color>"
-      },
-      { "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 20, "armor_multiplier": 1.22 } ] }
+      [ "nocturne_nsweep", 24 ],
+      [ "nocturne_sstrike", 38 ],
+      { "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 16, "armor_multiplier": 0.8 } ] }
     ],
     "regenerates": 3,
     "regenerates_in_dark": true,
@@ -720,7 +716,7 @@
     "color": "red",
     "aggression": 100,
     "morale": 100,
-    "emit_fields": [ "emit_down_immunity", "emit_gorepit_edge", "emit_gorepit_passive_summon" ],
+    "emit_fields": [ "emit_down_immunity", "emit_gorepit_edge" ],
     "melee_skill": 0,
     "melee_dice": 0,
     "melee_dice_sides": 0,
@@ -743,9 +739,9 @@
         "effects": [
           {
             "effect": "secro_gorepit_absorb",
-            "duration": [ 8, 10 ],
+            "duration": [ 30, 45 ],
             "damage_required": [ 8, 18 ],
-            "//": "Around 200 damage.",
+            "//": "Around 130 damage. Will trigger another ability if this effect is active.",
             "message": "<color_light_red>The %s unleashes an ear-splitting screech!</color>\n<color_magenta>The %s's orb is absorbing its surrounding flesh, replenishing itself.</color>"
           },
           {
@@ -766,8 +762,12 @@
         "monster_message": "<color_red>You feel the ground shaking as it originates from %1$s!</color>\n<color_yellow>%1$s sends a defeaning screech!</color>"
       }
     ],
-    "death_function": { "message": "The %s collapses!", "corpse_type": "NO_CORPSE" },
-    "flags": [ "SEES", "WARM", "IMMOBILE", "POISON", "NO_BREATHE", "PRIORITIZE_TARGETS", "STUN_IMMUNE", "FLIES" ]
+    "death_function": {
+      "message": "The %s collapses!",
+      "corpse_type": "NO_CORPSE",
+      "effect": { "id": "mon_zombie_gorepit_death", "hit_self": true }
+    },
+    "flags": [ "SEES", "WARM", "IMMOBILE", "POISON", "NO_BREATHE", "PRIORITIZE_TARGETS", "STUN_IMMUNE", "FLIES", "NOHEAD" ]
   },
   {
     "//": "Gorepit's main damage dealer.",
@@ -788,7 +788,7 @@
     "emit_fields": [ "emit_down_immunity" ],
     "aggression": 100,
     "morale": 100,
-    "attack_cost": 575,
+    "attack_cost": 425,
     "melee_skill": 8,
     "melee_dice": 4,
     "melee_dice_sides": 6,
@@ -801,14 +801,44 @@
     "vision_day": 13,
     "vision_night": 13,
     "harvest": "exempt",
-    "special_attacks": [
-      [ "gorepit_tent_hswing", 30 ],
-      [ "gorepit_tent_stab", 22 ],
-      [ "gorepit_tent_slam", 40 ],
-      [ "DISAPPEAR", 250 ]
-    ],
-    "death_function": { "message": "The %s disintegrates!", "corpse_type": "NO_CORPSE" },
-    "flags": [ "SEES", "WARM", "IMMOBILE", "POISON", "NO_BREATHE", "NOHEAD", "STUN_IMMUNE", "PRIORITIZE_TARGETS" ]
+    "special_attacks": [ [ "gorepit_tent_hswing", 30 ], [ "gorepit_tent_stab", 22 ], [ "gorepit_tent_slam", 40 ], [ "DISAPPEAR", 250 ] ],
+    "death_function": { "message": "The %s disappears into the ground.", "corpse_type": "NO_CORPSE" },
+    "flags": [ "SEES", "WARM", "IMMOBILE", "POISON", "NO_BREATHE", "NOHEAD", "STUN_IMMUNE", "PRIORITIZE_TARGETS", "NOHEAD" ]
+  },
+  {
+    "id": "mon_zombie_gorepit_tent_massive",
+    "type": "MONSTER",
+    "name": { "str": "massive tendril" },
+    "description": "A huge tendril, with a darker hue and almost double the size of a regular variant. Unlike others, this one emerged from the depths of the gorepit.",
+    "default_faction": "zombie",
+    "species": [ "ZOMBIE" ],
+    "volume": "1000 L",
+    "weight": "1000000 g",
+    "hp": 500,
+    "speed": 50,
+    "diff": 100,
+    "material": [ "flesh", "bone" ],
+    "symbol": "?",
+    "color": "white_red",
+    "emit_fields": [ "emit_down_immunity" ],
+    "aggression": 100,
+    "morale": 100,
+    "attack_cost": 600,
+    "melee_skill": 10,
+    "melee_dice": 10,
+    "melee_dice_sides": 10,
+    "melee_cut": 0,
+    "armor_bash": 3,
+    "armor_stab": 3,
+    "armor_cut": 6,
+    "armor_bullet": 6,
+    "bleed_rate": 0,
+    "vision_day": 13,
+    "vision_night": 13,
+    "harvest": "exempt",
+    "special_attacks": [ [ "gorepit_tent_hswing", 25 ], [ "gorepit_tent_stab", 19 ], [ "gorepit_tent_slam", 33 ], [ "DISAPPEAR", 600 ] ],
+    "death_function": { "message": "The %s disappears into the pit.", "corpse_type": "NO_CORPSE" },
+    "flags": [ "SEES", "WARM", "IMMOBILE", "POISON", "NO_BREATHE", "NOHEAD", "STUN_IMMUNE", "PRIORITIZE_TARGETS", "NOHEAD" ]
   },
   {
     "//": "Aggro-type zed, both durable and lethal. Unlike other zed mutants, this one's very dependant on healing for itself whilst dealing damage, in addition to its unique debuff-inflicting acid.",
@@ -842,10 +872,16 @@
     "harvest": "zombie",
     "special_attacks": [
       {
-        "type": "spell",
-        "spell_data": { "id": "mon_zombie_cordev_target_random" },
-        "cooldown": 9,
-        "monster_message": "<color_yellow>%1$s's sight locks onto %3$s...</color>"
+        "type": "gun",
+        "cooldown": 55,
+        "move_cost": 125,
+        "gun_type": "cordev_mouth",
+        "fake_skills": [ [ "gun", 2 ], [ "rifle", 2 ] ],
+        "ranges": [ [ 1, 9, "N" ] ],
+        "require_targeting_player": false,
+        "require_targeting_npc": false,
+        "require_targeting_monster": false,
+        "description": "The corrupted devourer spits a glob of acid!"
       },
       {
         "cooldown": 15,
@@ -879,7 +915,7 @@
     "id": "mon_zombie_fleshysnaky",
     "type": "MONSTER",
     "name": { "str": "flesilisk" },
-    "description": "A massive conglomeration of thick, gangrenous flesh, forming a snake-like figurine with its head resembling a dragon. Terrifyingly disastrous, its entire body is covered in bony scales and lies under it are spikes of similar material. Yet its great lack of intuitive perception causes it to easily become enraged by the time it senses a prey.",
+    "description": "A massive conglomeration of thick, gangrenous flesh, forming a snake-like figurine with its head resembling a dragon. Terrifyingly disastrous, its entire body is covered in bony scales and lies under it are spikes of similar material.",
     "default_faction": "zombie",
     "bodytype": "snake",
     "species": [ "ZOMBIE", "SECROZED_ULTIMATE", "ABERRATION" ],
@@ -918,9 +954,21 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_fleshysnaky_target" },
-        "cooldown": 21,
-        "monster_message": "<color_yellow>%1$s's rage intensifies as it glares at %3$s!</color>"
+        "spell_data": { "id": "mon_zombie_fleshysnaky_devastate_check" },
+        "cooldown": 101,
+        "monster_message": "<color_yellow>%1$s slams at %3$s!</color>"
+      },
+      {
+        "type": "gun",
+        "cooldown": 101,
+        "move_cost": 400,
+        "gun_type": "fleshysnaky_bn_shower",
+        "fake_skills": [ [ "gun", 1 ], [ "rifle", 1 ] ],
+        "ranges": [ [ 3, 4, "N" ] ],
+        "require_targeting_player": false,
+        "require_targeting_npc": false,
+        "require_targeting_monster": false,
+        "description": "The flesilisk coils and releases itself afterwards, flinging hundreds of bone needles!"
       },
       {
         "cooldown": 31,
@@ -993,7 +1041,7 @@
     "id": "mon_zombie_equinox",
     "type": "MONSTER",
     "name": { "str": "equinox" },
-    "description": "An overwhelming mass of flesh resembling a brain, constantly excreting vaporized poison gas originating from its protruding shroom-like outgrowths. Large, hollow gaps reveal nothing but shady gloom. However, when observed closely, harsh screeches are heard indistinctly.",
+    "description": "An overwhelming mass of flesh resembling a brain, constantly emitting vaporized poison gas originating from its protruding shroom-like outgrowths. Large, hollow gaps reveal nothing but shady gloom.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_ULTIMATE", "ABERRATION" ],
     "bodytype": "blob",
@@ -1026,10 +1074,22 @@
     "vision_night": 12,
     "special_attacks": [
       {
+        "type": "gun",
+        "cooldown": 66,
+        "move_cost": 1000,
+        "gun_type": "equinox_hole",
+        "fake_skills": [ [ "gun", 7 ], [ "rifle", 1 ] ],
+        "ranges": [ [ 1, 40, "N" ] ],
+        "require_targeting_player": false,
+        "require_targeting_npc": false,
+        "require_targeting_monster": false,
+        "description": "Necrotic flesh spreads from the equinox!"
+      },
+      {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_equinox_target" },
+        "spell_data": { "id": "mon_zombie_equinox_summon_check_target_random" },
         "cooldown": 33,
-        "monster_message": "<color_yellow>Twisted abominations starts to crawl out of %1$s!</color>"
+        "monster_message": "<color_yellow>Twisted abominations crawl out of %1$s!</color>"
       }
     ],
     "harvest": "zombie",

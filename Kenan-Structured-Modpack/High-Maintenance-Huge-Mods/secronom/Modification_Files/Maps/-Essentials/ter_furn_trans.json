@@ -61,6 +61,18 @@
   },
   {
     "type": "ter_furn_transform",
+    "id": "flesilisk_destroy",
+    "fail_message": "Nothing to destroy here.",
+    "terrain": [ { "result": "t_dirtmound", "valid_flags": [ "DIGGABLE", "MINEABLE" ], "message": "The terrain here ruptures." } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "flesilisk_revert",
+    "fail_message": "Nothing to revert.",
+    "terrain": [ { "result": "t_dirt", "valid_terrain": [ "t_dirtmound" ], "message": "Terrain here has reverted." } ]
+  },
+  {
+    "type": "ter_furn_transform",
     "id": "veinhole_open",
     "fail_message": "You were too far from the entrance...",
     "terrain": [
@@ -69,19 +81,6 @@
         "result": "t_secro_flesh_entrance_open",
         "valid_flags": [ "FF_ENTRANCE" ],
         "message": "The veinhole leaves a vile gap upon its death."
-      }
-    ]
-  },
-  {
-    "type": "ter_furn_transform",
-    "id": "sflesh_sack",
-    "fail_message": "Can't place the egg.",
-    "furniture": [
-      {
-        "result": "f_secro_sack_hatch",
-        "valid_flags": [ "TRANSPARENT", "S_FLESH" ],
-        "valid_furniture": [ "f_null" ],
-        "message": "The flesh sack hatches."
       }
     ]
   },
@@ -886,11 +885,7 @@
         "valid_flags": [ "WALL", "CONNECT_TO_WALL" ],
         "message": "The flesh spreads successfully."
       },
-      {
-        "result": "t_secro_flesh",
-        "valid_flags": [ "ROAD" ],
-        "message": "The flesh spreads successfully."
-      }
+      { "result": "t_secro_flesh", "valid_flags": [ "ROAD" ], "message": "The flesh spreads successfully." }
     ]
   },
   {

@@ -97,12 +97,16 @@
       { "type": "bite", "infection_chance": 100, "cooldown": 15 },
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_leptiosa_ngas" },
-        "cooldown": 33,
-        "monster_message": "<color_yellow>%1$s generates a noxious, corrosive gas then sends it to %3$s!</color>"
+        "spell_data": { "id": "mon_zombie_leptiosa_ngas_check" },
+        "cooldown": 44,
+        "monster_message": "<color_yellow>%1$s is accumulating noxious gas!</color>"
       }
     ],
-    "death_function": { "effect": { "id": "death_gas", "hit_self": true }, "corpse_type": "NO_CORPSE", "message": "A %s explodes!" },
-    "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
+    "death_function": {
+      "effect": { "id": "mon_zombie_leptiosa_death", "hit_self": true },
+      "corpse_type": "NO_CORPSE",
+      "message": "A %s explodes!"
+    },
+    "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "POISON", "NO_BREATHE", "REVIVES", "FILTHY", "ACIDPROOF", "ACID_BLOOD" ]
   }
 ]

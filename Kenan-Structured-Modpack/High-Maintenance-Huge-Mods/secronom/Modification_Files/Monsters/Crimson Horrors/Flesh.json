@@ -36,7 +36,8 @@
         "monster_message": "<color_light_red>%1$s trembles!</color>"
       }
     ],
-    "regenerates": 20,
+    "bleed_rate": 0,
+    "regenerates": 15,
     "death_drops": "mon_sflesh_flesh_death_drop",
     "harvest": "meatslug",
     "death_function": {
@@ -81,10 +82,14 @@
         "type": "spell",
         "spell_data": { "id": "mon_sflesh_flesh_city_target" },
         "cooldown": 16,
-        "monster_message": "<color_light_red>%1$s trembles, pounding everything with its tentacles!\n%1$s's tendrils pierces %3$s!</color>"
-      }
+        "monster_message": "<color_light_red>%1$s trembles!</color>"
+      },
+      [ "sflesh_flesh_city_thrash", 27 ],
+      [ "sflesh_flesh_city_thrust", 41 ],
+      [ "sflesh_flesh_city_fturmoil", 100 ]
     ],
-    "regenerates": 10,
+    "bleed_rate": 0,
+    "regenerates": 8,
     "death_drops": "mon_sflesh_flesh_death_drop",
     "harvest": "meatslug",
     "death_function": {
@@ -123,14 +128,8 @@
     "armor_stab": 12,
     "vision_day": 30,
     "vision_night": 30,
-    "special_attacks": [
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_sflesh_flesh_weak_target" },
-        "cooldown": 10,
-        "monster_message": "<color_light_red>%1$s thrashes a tentacle at %3$s!</color>"
-      }
-    ],
+    "special_attacks": [ [ "sflesh_flesh_city_thrash", 16 ] ],
+    "bleed_rate": 0,
     "regenerates": 4,
     "death_drops": "mon_sflesh_flesh_weak_death_drop",
     "harvest": "meatslug",
