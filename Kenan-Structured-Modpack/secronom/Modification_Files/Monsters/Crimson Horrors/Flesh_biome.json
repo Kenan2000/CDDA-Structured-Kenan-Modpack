@@ -27,7 +27,7 @@
         "spell_data": { "id": "mon_sflesh_surface_spawner_target" },
         "//": "Since the player is walking on the flesh, this spell's cooldown should be VERY high.",
         "cooldown": 225,
-        "monster_message": "<color_light_red>%1$s writhes, sending crimson horrors to confront %3$s!</color>"
+        "monster_message": "<color_light_red>%1$s glares at %3$s!</color>"
       }
     ],
     "harvest": "exempt",
@@ -57,14 +57,7 @@
     "melee_cut": 4,
     "armor_bash": 8,
     "armor_stab": 2,
-    "special_attacks": [
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_sflesh_tendril_lace" },
-        "cooldown": 15,
-        "monster_message": "<color_light_red>%1$s slashes %3$s!</color>"
-      }
-    ],
+    "special_attacks": [ [ "sflesh_tendril_lace", 20 ] ],
     "harvest": "exempt",
     "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "NOHEAD", "STUN_IMMUNE", "IMMOBILE" ]
@@ -73,7 +66,7 @@
     "id": "mon_sflesh_jaw",
     "type": "MONSTER",
     "name": { "str": "jawed flesh" },
-    "description": "An oddly formed orifice that has emerged as an outgrowth of the flesh, with rows of bones surrounding the gap. Its small, yet powerful jaws can render a target immobilized.",
+    "description": "An oddly formed orifice that has emerged as an outgrowth of the flesh, with rows of razor-sharp bones surrounding the gap.",
     "default_faction": "secro_flesh",
     "bodytype": "blob",
     "species": [ "SFLESH", "ABERRATION" ],
@@ -111,7 +104,7 @@
     "id": "mon_sflesh_entrance",
     "type": "MONSTER",
     "name": { "str": "veinhole" },
-    "description": "A large mouth protruding from the flesh, accompanied by numerous viscious tendrils sticking out from its sides.",
+    "description": "A large mouth protruding from the flesh, accompanied by numerous vicious tendrils sticking out from its sides.",
     "default_faction": "secro_flesh",
     "bodytype": "blob",
     "species": [ "SFLESH", "ABERRATION" ],
@@ -152,7 +145,7 @@
     "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "NOHEAD", "STUN_IMMUNE", "IMMOBILE" ]
   },
   {
-    "//": "Destroying the sack is better than letting it hatch (killing itself). Destroying makes it spawn 2 parasytes, but if it hatches, it can spawn up to 5 parasytes and will spawn more if you don't bash the hatched flesh sack.",
+    "//": "Will spawn about 3-6 parasytes.",
     "id": "mon_sflesh_sack",
     "type": "MONSTER",
     "name": { "str": "flesh sack" },
@@ -187,13 +180,8 @@
         "monster_message": "<color_light_red>%1$s bursts, giving birth to parasytes!</color>"
       }
     ],
-    "death_drops": "mon_sflesh_sack_death_drop",
     "harvest": "exempt",
-    "death_function": {
-      "corpse_type": "NO_CORPSE",
-      "message": "The %s melts away.",
-      "effect": { "id": "mon_sflesh_sack_death", "hit_self": true }
-    },
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "NOHEAD", "IMMOBILE", "PACIFIST" ]
   },
   {
@@ -201,7 +189,7 @@
     "id": "mon_sflesh_parasyte",
     "type": "MONSTER",
     "name": { "str": "parasyte" },
-    "description": "Frail yet nimble, this scorpion/spider hybrid shows predatory nature by leaping into its prey, despite the fact it just recently pop out from the sack.",
+    "description": "Frail yet nimble, this scorpion/spider hybrid shows predatory nature by leaping into its prey, despite the fact it just recently popped out from its \"egg\".",
     "default_faction": "secro_flesh",
     "bodytype": "spider",
     "species": [ "SFLESH", "ABERRATION" ],
@@ -218,7 +206,7 @@
     "melee_dice": 1,
     "melee_dice_sides": 2,
     "melee_cut": 2,
-    "dodge": 4,
+    "dodge": 2,
     "harvest": "zombie_meatslug",
     "death_function": { "corpse_type": "NORMAL", "message": "The %s dies!" },
     "flags": [ "SEES", "SMELLS", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "CLIMBS", "PATH_AVOID_DANGER_2" ]
@@ -234,7 +222,7 @@
     "diff": 10,
     "volume": "50 L",
     "weight": "115 kg",
-    "hp": 55,
+    "hp": 15,
     "speed": 100,
     "emit_fields": [ "emit_veinstalk_limiter" ],
     "material": [ "flesh" ],
@@ -248,12 +236,17 @@
     "melee_cut": 0,
     "armor_bash": 6,
     "vision_day": 60,
+    "vision_night": 60,
     "harvest": "zombie",
-    "death_function": {
-      "corpse_type": "NO_CORPSE",
-      "message": "<color_yellow>The %s disappears into the ground.",
-      "effect": { "id": "mon_sflesh_veinstalk_spread", "hit_self": true }
-    },
-    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "IMMOBILE", "PACIFIST", "FILTHY" ]
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_veinstalk_spread_check" },
+        "cooldown": 20,
+        "monster_message": "<color_yellow>%1$s twitches."
+      }
+    ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "<color_yellow>The %s disappears into the ground." },
+    "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "IMMOBILE", "PACIFIST" ]
   }
 ]

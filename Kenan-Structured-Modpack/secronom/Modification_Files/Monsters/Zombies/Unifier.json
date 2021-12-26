@@ -40,9 +40,9 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_unify_bv_target" },
-        "cooldown": 45,
-        "monster_message": "<color_yellow>A blood vessel were created under %1$s's hands!</color>"
+        "spell_data": { "id": "mon_zombie_unify_bv_check" },
+        "cooldown": 40,
+        "monster_message": "<color_yellow>A blood vessel were formed under %1$s's hands!</color>"
       }
     ],
     "death_drops": "default_zombie_death_drops",
@@ -109,9 +109,9 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_unity_bv_target" },
-        "cooldown": 60,
-        "monster_message": "<color_yellow>Blood vessels has emerged from %1$s's core!</color>"
+        "spell_data": { "id": "mon_zombie_unity_bv_check" },
+        "cooldown": 50,
+        "monster_message": "<color_yellow>Blood vessels emerge from %1$s's core!</color>"
       }
     ],
     "upgrades": { "half_life": 20, "into_group": "GROUP_UNIFIER_UPGRADEX" },
@@ -165,9 +165,9 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_hemo_bwave" },
-        "cooldown": 60,
-        "monster_message": "<color_red>%1$s manipulates its own blood and sends it to %3$s!</color>\n<color_yellow>Several blood vessel emerges from %1$s's body!</color>"
+        "spell_data": { "id": "mon_zombie_hemo_bspit" },
+        "cooldown": 65,
+        "monster_message": "<color_yellow>%1$s's blood gurgling intensifies...</color>\n<color_red>%1$s spits a glob of thick blood at %3$s</color>"
       }
     ],
     "regenerates": 2,
@@ -196,7 +196,7 @@
     "species": [ "ZOMBIE" ],
     "volume": "62500 ml",
     "weight": "81500 g",
-    "hp": 20,
+    "hp": 55,
     "speed": 50,
     "material": [ "flesh" ],
     "attack_effs": [ { "id": "unity_bloodslow", "duration": 120, "chance": 25 } ],
@@ -207,6 +207,7 @@
     "color": "light_red",
     "aggression": 100,
     "morale": 100,
+    "emit_fields": [ "emit_veinstalk_limiter" ],
     "melee_skill": 4,
     "melee_dice": 2,
     "melee_dice_sides": 2,
@@ -217,7 +218,7 @@
       "message": "The %s melts away.",
       "effect": { "id": "mon_zombie_bloodvessel_explo", "hit_self": true }
     },
-    "regenerates": 1,
+    "regenerates": -1,
     "flags": [
       "SEES",
       "HEARS",
@@ -241,7 +242,7 @@
     "species": [ "ZOMBIE" ],
     "volume": "92500 ml",
     "weight": "120000 g",
-    "hp": 40,
+    "hp": 100,
     "speed": 40,
     "diff": 50,
     "material": [ "flesh" ],
@@ -250,6 +251,7 @@
     "harvest": "exempt",
     "symbol": "&",
     "color": "red",
+    "emit_fields": [ "emit_veinstalk_limiter" ],
     "aggression": 100,
     "morale": 100,
     "melee_skill": 6,
@@ -262,7 +264,6 @@
       "message": "The %s melts away.",
       "effect": { "id": "mon_zombie_bloodfiend_explo", "hit_self": true }
     },
-    "regenerates": 2,
     "looks_like": "mon_zombie_bloodvessel",
     "flags": [
       "SEES",

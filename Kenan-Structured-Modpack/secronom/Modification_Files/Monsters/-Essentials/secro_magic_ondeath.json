@@ -75,6 +75,22 @@
     "damage_type": "bash"
   },
   {
+    "id": "mon_zombie_leptiosa_death",
+    "type": "SPELL",
+    "name": { "str": "Lepotitsa Death" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster's accumulated noxious gas explodes violently.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE", "RANDOM_AOE", "RANDOM_DURATION" ],
+    "valid_targets": [ "self", "hostile", "ally", "ground" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_aoe": 4,
+    "max_aoe": 4,
+    "field_id": "fd_secro_lepotiosa_ngas",
+    "min_field_intensity": 3,
+    "max_field_intensity": 3,
+    "damage_type": "bash"
+  },
+  {
     "id": "mon_zombie_tentawraith_death",
     "type": "SPELL",
     "name": { "str": "Wraith Death" },
@@ -85,11 +101,11 @@
     "targeted_monster_ids": [ "mon_zombie_tentawraith_tent" ],
     "effect": "attack",
     "shape": "blast",
-    "min_damage": 1000,
-    "max_damage": 1000,
+    "effect_str": "secro_sacrifice_effect",
     "min_aoe": 42,
     "max_aoe": 42,
-    "damage_type": "pure"
+    "min_duration": 200,
+    "max_duration": 200
   },
   {
     "type": "SPELL",
@@ -196,19 +212,6 @@
     "effect_str": "mon_insect_saddler_scout"
   },
   {
-    "id": "mon_sflesh_veinstalk_spread",
-    "type": "SPELL",
-    "name": { "str": "Spread" },
-    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster guides the flesh to spread to nearby tiles.'",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE" ],
-    "valid_targets": [ "ground", "self", "ally", "hostile" ],
-    "effect": "ter_transform",
-    "shape": "blast",
-    "effect_str": "flesh_spread",
-    "min_aoe": 3,
-    "max_aoe": 3
-  },
-  {
     "id": "mon_sflesh_entrance_open",
     "type": "SPELL",
     "name": { "str": "Veinhole Death" },
@@ -238,22 +241,6 @@
     "base_casting_time": -1
   },
   {
-    "id": "mon_sflesh_sack_death",
-    "type": "SPELL",
-    "name": { "str": "Spawn Parasytes" },
-    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster creates a lingering field that constantly spawns parasytes.'",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE" ],
-    "valid_targets": [ "ally", "hostile", "ground" ],
-    "effect": "attack",
-    "shape": "blast",
-    "min_aoe": 2,
-    "max_aoe": 2,
-    "field_id": "fd_sflesh_sack_dead",
-    "field_chance": 2,
-    "min_field_intensity": 1,
-    "max_field_intensity": 1
-  },
-  {
     "type": "SPELL",
     "id": "mon_sflesh_taken_death",
     "name": { "str": "Spawn Takens" },
@@ -277,11 +264,41 @@
     "effect": "attack",
     "shape": "blast",
     "targeted_monster_ids": [ "mon_zombie_nightwail_shadow" ],
-    "damage_type": "pure",
-    "min_damage": 999999,
-    "max_damage": 999999,
+    "effect_str": "secro_sacrifice_effect",
     "min_aoe": 30,
     "max_aoe": 30,
     "flags": [ "SILENT" ]
+  },
+  {
+    "id": "mon_zombie_gorepit_deathmore",
+    "type": "SPELL",
+    "name": { "str": "Tendril Collapse" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster removes all tendrils.'",
+    "valid_targets": [ "hostile", "ally" ],
+    "effect": "attack",
+    "shape": "blast",
+    "targeted_monster_ids": [ "mon_zombie_gorepit_tent", "mon_zombie_gorepit_tent_massive" ],
+    "effect_str": "secro_sacrifice_effect",
+    "min_aoe": 40,
+    "max_aoe": 40,
+    "flags": [ "SILENT", "IGNORE_WALLS" ],
+    "min_duration": 200,
+    "max_duration": 200
+  },
+  {
+    "id": "mon_zombie_gorepit_death",
+    "type": "SPELL",
+    "name": { "str": "Collapse" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster's death removes all of its minions on the fields, and stops further spawning.'",
+    "flags": [ "SILENT", "IGNORE_WALLS" ],
+    "valid_targets": [ "hostile" ],
+    "effect": "attack",
+    "shape": "blast",
+    "effect_str": "eff_zombie_gorepit_spawnmore_stop",
+    "extra_effects": [ { "id": "mon_zombie_gorepit_deathmore", "hit_self": true } ],
+    "min_aoe": 40,
+    "max_aoe": 40,
+    "min_duration": 1500,
+    "max_duration": 1500
   }
 ]
