@@ -29,7 +29,7 @@
     "effect": [
       { "npc_add_effect": "controlled", "duration": "8 seconds" },
       {
-        "npc_location_variable": { "value": "secro_leptiosa", "type": "eoc", "context": "noxiousgas", "global": true }
+        "npc_location_variable": { "global_val": "secro_leptiosa_noxiousgas" }
       },
       {
         "set_queue_effect_on_condition": [
@@ -38,7 +38,7 @@
             "effect": [
               {
                 "u_set_field": "fd_secro_lepotiosa_ngas",
-                "target_var": { "value": "secro_leptiosa", "type": "eoc", "context": "noxiousgas", "global": true },
+                "target_var": { "global_val": "secro_leptiosa_noxiousgas" },
                 "radius": 3,
                 "intensity": 3
               }
@@ -102,7 +102,7 @@
         "outdoor_only": true
       },
       {
-        "u_location_variable": { "value": "secro_gorepit", "type": "eoc", "context": "spawn_target", "global": true }
+        "u_location_variable": { "global_val": "secro_gorepit_spawn" }
       },
       {
         "set_queue_effect_on_condition": [
@@ -112,7 +112,7 @@
             "effect": [
               {
                 "u_set_spawn_monster": "mon_zombie_gorepit_tent",
-                "target_var": { "value": "secro_gorepit", "type": "eoc", "context": "spawn_target", "global": true },
+                "target_var": { "global_val": "secro_gorepit_spawn" },
                 "real_count": 1,
                 "min_radius": 2,
                 "max_radius": 4,
@@ -147,7 +147,7 @@
             "effect": [
               {
                 "u_set_spawn_monster": "mon_zombie_gorepit_tent",
-                "target_var": { "value": "secro_gorepit", "type": "eoc", "context": "spawn_target", "global": true },
+                "target_var": { "global_val": "secro_gorepit_spawn" },
                 "real_count": 1,
                 "min_radius": 2,
                 "max_radius": 4,
@@ -189,7 +189,7 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_equinox_summon_check",
     "effect": [
-      { "npc_location_variable": { "value": "secro_equinox", "type": "eoc", "context": "spawn_target", "global": true } },
+      { "npc_location_variable": { "global_val": "secro_equinox_spawn" } },
       {
         "set_weighted_list_eocs": [
           [
@@ -198,7 +198,7 @@
               "effect": [
                 {
                   "u_set_spawn_monster": "mon_zombie_equinox_necros",
-                  "target_var": { "value": "secro_equinox", "type": "eoc", "context": "spawn_target", "global": true },
+                  "target_var": { "global_val": "secro_equinox_spawn" },
                   "real_count": 1,
                   "min_radius": 1,
                   "max_radius": 2
@@ -213,7 +213,7 @@
               "effect": [
                 {
                   "u_set_spawn_monster": "mon_zombie_equinox_necros_stab",
-                  "target_var": { "value": "secro_equinox", "type": "eoc", "context": "spawn_target", "global": true },
+                  "target_var": { "global_val": "secro_equinox_spawn" },
                   "real_count": 1,
                   "min_radius": 1,
                   "max_radius": 2
@@ -228,7 +228,7 @@
               "effect": [
                 {
                   "u_set_spawn_monster": "mon_zombie_equinox_necros_cut",
-                  "target_var": { "value": "secro_equinox", "type": "eoc", "context": "spawn_target", "global": true },
+                  "target_var": { "global_val": "secro_equinox_spawn" },
                   "real_count": 1,
                   "min_radius": 1,
                   "max_radius": 2
@@ -243,7 +243,7 @@
               "effect": [
                 {
                   "u_set_spawn_monster": "mon_zombie_equinox_necros_emit",
-                  "target_var": { "value": "secro_equinox", "type": "eoc", "context": "spawn_target", "global": true },
+                  "target_var": { "global_val": "secro_equinox_spawn" },
                   "real_count": 1,
                   "min_radius": 1,
                   "max_radius": 2
@@ -265,7 +265,7 @@
       { "u_make_sound": "an intense rumbling of the ground.", "volume": 150, "type": "combat" },
       { "u_transform_radius": 2, "ter_furn_transform": "flesilisk_destroy" },
       {
-        "u_location_variable": { "value": "secro_fleshysnaky", "type": "eoc", "context": "devastate_center", "global": true }
+        "u_location_variable": { "global_val": "secro_fleshysnaky_devcent" }
       },
       {
         "set_queue_effect_on_condition": [
@@ -275,7 +275,7 @@
               {
                 "u_transform_radius": 2,
                 "ter_furn_transform": "flesilisk_revert",
-                "target_var": { "value": "secro_fleshysnaky", "type": "eoc", "context": "devastate_center", "global": true }
+                "target_var": { "global_val": "secro_fleshysnaky_devcent" }
               }
             ]
           }
@@ -304,7 +304,7 @@
     "effect": [
       { "npc_add_effect": "controlled", "duration": "4 seconds" },
       {
-        "npc_location_variable": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true }
+        "npc_location_variable": { "global_val": "secro_nautilus_discent" }
       },
       {
         "set_queue_effect_on_condition": [
@@ -315,21 +315,21 @@
                 "u_make_sound": "a rumbling.",
                 "volume": 100,
                 "type": "combat",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true }
+                "target_var": { "global_val": "secro_nautilus_discent" }
               },
               {
                 "u_set_field": "fd_nautilus_disturbance",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true },
+                "target_var": { "global_val": "secro_nautilus_discent" },
                 "radius": 1
               },
               {
                 "u_set_field": "fd_nautilus_disturbance",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true },
+                "target_var": { "global_val": "secro_nautilus_discent" },
                 "radius": 2
               },
               {
                 "u_set_field": "fd_nautilus_disturbance",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true },
+                "target_var": { "global_val": "secro_nautilus_discent" },
                 "radius": 5
               }
             ]
@@ -342,11 +342,11 @@
                 "u_make_sound": "a sploosh.",
                 "volume": 80,
                 "type": "alert",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true }
+                "target_var": { "global_val": "secro_nautilus_discent" }
               },
               {
                 "u_set_spawn_monster": "mon_zombie_nautilus_pedo",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true },
+                "target_var": { "global_val": "secro_nautilus_discent" },
                 "real_count": 1,
                 "min_radius": 1,
                 "max_radius": 2,
@@ -363,11 +363,11 @@
                 "u_make_sound": "a sploosh.",
                 "volume": 80,
                 "type": "alert",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true }
+                "target_var": { "global_val": "secro_nautilus_discent" }
               },
               {
                 "u_set_spawn_monster": "mon_zombie_nautilus_pedo",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true },
+                "target_var": { "global_val": "secro_nautilus_discent" },
                 "real_count": 1,
                 "min_radius": 1,
                 "max_radius": 2,
@@ -384,11 +384,11 @@
                 "u_make_sound": "a sploosh.",
                 "volume": 80,
                 "type": "alert",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true }
+                "target_var": { "global_val": "secro_nautilus_discent" }
               },
               {
                 "u_set_spawn_monster": "mon_zombie_nautilus_pedo",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true },
+                "target_var": { "global_val": "secro_nautilus_discent" },
                 "real_count": 1,
                 "min_radius": 1,
                 "max_radius": 2,
@@ -405,11 +405,11 @@
                 "u_make_sound": "a sploosh.",
                 "volume": 80,
                 "type": "alert",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true }
+                "target_var": { "global_val": "secro_nautilus_discent" }
               },
               {
                 "u_set_spawn_monster": "mon_zombie_nautilus_pedo",
-                "target_var": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true },
+                "target_var": { "global_val": "secro_nautilus_discent" },
                 "real_count": 1,
                 "min_radius": 1,
                 "max_radius": 2,
@@ -425,7 +425,7 @@
     ],
     "false_effect": [
       {
-        "npc_location_variable": { "value": "secro_nautilus", "type": "eoc", "context": "disturbance_center", "global": true }
+        "npc_location_variable": { "global_val": "secro_nautilus_discent" }
       },
       {
         "set_queue_effect_on_condition": [
@@ -582,7 +582,7 @@
       { "npc_make_sound": "hummm.", "volume": 40, "type": "alert" },
       { "npc_add_effect": "controlled", "duration": "7 seconds" },
       {
-        "u_location_variable": { "value": "secro_cyberdragon", "type": "eoc", "context": "direct_shock", "global": true }
+        "u_location_variable": { "global_val": "secro_cyberdragon_dirsho" }
       },
       {
         "set_queue_effect_on_condition": [
@@ -593,17 +593,17 @@
                 "u_make_sound": "Brrrrzzt.",
                 "volume": 150,
                 "type": "combat",
-                "target_var": { "value": "secro_cyberdragon", "type": "eoc", "context": "direct_shock", "global": true }
+                "target_var": { "global_val": "secro_cyberdragon_dirsho" }
               },
               {
                 "u_set_field": "fd_electricity",
-                "target_var": { "value": "secro_cyberdragon", "type": "eoc", "context": "direct_shock", "global": true },
+                "target_var": { "global_val": "secro_cyberdragon_dirsho" },
                 "radius": 1,
                 "intensity": 2
               },
               {
                 "u_set_field": "fd_electricity",
-                "target_var": { "value": "secro_cyberdragon", "type": "eoc", "context": "direct_shock", "global": true },
+                "target_var": { "global_val": "secro_cyberdragon_dirsho" },
                 "radius": 3,
                 "intensity": 1
               }
