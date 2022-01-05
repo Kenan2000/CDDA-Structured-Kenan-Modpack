@@ -126,7 +126,18 @@
     "resist_effects": [ "talisman_warding" ],
     "desc": [ "Not immortality, but it still feels nice." ],
     "remove_message": "The healing effect fades.",
-    "removes_effects": [ "infected", "fungus", "bleed", "common_cold", "flu", "tetanus", "redcells_anemia", "hypovolemia" ],
+    "removes_effects": [
+      "poison",
+      "badpoison",
+      "infected",
+      "fungus",
+      "bleed",
+      "common_cold",
+      "flu",
+      "tetanus",
+      "redcells_anemia",
+      "hypovolemia"
+    ],
     "decay_messages": [ [ "The soothing effect of your potion is starting to fade.", "bad" ] ],
     "rating": "good",
     "max_duration": "30 m",
@@ -466,9 +477,7 @@
   {
     "type": "effect_type",
     "id": "spell_might",
-    "name": [
-      "Might"
-    ],
+    "name": [ "Might" ],
     "desc": [ "The fabric of The Veil is woven into your frame.  Your strength is augmented by magic." ],
     "remove_message": "You feel weakened as your magically-induced strength leaves you.",
     "decay_messages": [ [ "Your spell of might is waning.", "bad" ] ],
@@ -482,9 +491,7 @@
   {
     "type": "effect_type",
     "id": "spell_agility",
-    "name": [
-      "Agility"
-    ],
+    "name": [ "Agility" ],
     "desc": [ "The winds of distant realms are at your back.  Your dexterity and speed are augmented by magic." ],
     "remove_message": "You feel sluggish as your magically-induced agility leaves you.",
     "decay_messages": [ [ "Your spell of agility is waning.", "bad" ] ],
@@ -498,9 +505,7 @@
   {
     "type": "effect_type",
     "id": "spell_insight",
-    "name": [
-      "Insight"
-    ],
+    "name": [ "Insight" ],
     "desc": [
       "The eyes of The Beyond shall guide you.  Your perception is augmented by magic, and you can see clearly in darkness."
     ],
@@ -613,6 +618,8 @@
       "poison",
       "badpoison",
       "foodpoison",
+      "dermatik",
+      "formication",
       "bloodworms",
       "paincysts",
       "brainworms",
@@ -986,7 +993,7 @@
     "id": "arcana_scroll_nature_effect",
     "//": "Explicitly punish Mycus players who will be immune to mutation, that's what you get for channeling a rival interloper's nature magic.",
     "resist_traits": [ "THRESH_MARLOSS", "THRESH_MYCUS" ],
-    "blocks_effects": [
+    "removes_effects": [
       "blind",
       "deaf",
       "infected",
@@ -1070,9 +1077,7 @@
   {
     "type": "effect_type",
     "id": "adrenaline_arcana",
-    "name": [
-      "Killing Surge"
-    ],
+    "name": [ "Killing Surge" ],
     "desc": [ "You feel a rush of otherworldly adrenaline." ],
     "remove_message": "The otherworldly adrenaline running through you fades.",
     "decay_messages": [ [ "You can feel the unnatural surge of adrenaline waning.", "bad" ] ],
