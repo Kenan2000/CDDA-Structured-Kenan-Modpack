@@ -626,6 +626,35 @@
     "max_field_intensity": 1
   },
   {
+    "type": "SPELL",
+    "id": "arcana_item_incense",
+    "name": { "str": "Citrine Incense" },
+    "description": "Restores a large chunk of stamina and fatigue.",
+    "valid_targets": [ "self" ],
+    "extra_effects": [ { "id": "arcana_item_incense_fatigue", "hit_self": true } ],
+    "message": "Wisps of smoke rapidly fade away as the incense suddenly evaporates, filling you with energy.",
+    "effect": "recover_energy",
+    "shape": "blast",
+    "effect_str": "STAMINA",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "min_damage": 6000,
+    "max_damage": 6000
+  },
+  {
+    "type": "SPELL",
+    "id": "arcana_item_incense_fatigue",
+    "name": { "str": "Citrine Incense Fatigue" },
+    "description": "And the fatigue effect.",
+    "valid_targets": [ "self" ],
+    "message": "",
+    "effect": "recover_energy",
+    "shape": "blast",
+    "effect_str": "FATIGUE",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "min_damage": 24,
+    "max_damage": 24
+  },
+  {
     "id": "arcana_item_jade_hauberk_healing",
     "type": "SPELL",
     "name": { "str": "Hauberk Mending" },

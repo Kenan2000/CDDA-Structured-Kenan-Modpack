@@ -123,7 +123,7 @@
     "comestible_type": "DRINK",
     "category": "drugs",
     "name": { "str": "silver potion", "str_pl": "silver potion" },
-    "description": "A strange liquid that looks like mercury, albeit quite a bit less dense and significantly less toxic.  Drinking it will imbue you with magical energy.  Highly useful to someone who uses mana for spells, but worthless to someone limited to fatigue-draining Magic Signs.  Each dose will restore 600 mana.",
+    "description": "A strange liquid that looks like mercury, albeit quite a bit less dense and significantly less toxic.  Drinking it will imbue you with magical energy.  Highly useful to someone who uses mana for spells, but worthless to someone limited to fatigue-draining Magic Signs.\n\nEach dose will restore 600 mana.",
     "weight": "150 g",
     "volume": "250 ml",
     "price": "750 USD",
@@ -178,7 +178,7 @@
     "category": "drugs",
     "name": { "str": "citrine incense", "str_pl": "citrine incense" },
     "//": "Citrine isn't quite white-yellow either, but jasmine incense would imply the flower rather than the color.",
-    "description": "An alchemical mixture permeating a combustible base of charcoal or resin, resulting in a peculiar sort of incense.  Lighting it will rapidly burn away the strange concoction, invigorating its user with a focused effect similar to the potions originally used to make it.  It trades much of its effect on strength and speed for instead directly relieving fatigue through unusual means, though long-term use without rest is not recommended.",
+    "description": "An alchemical mixture permeating a combustible base of charcoal or resin, resulting in a peculiar sort of incense.  Using it will invigorate the user with a focused effect similar to the potions originally used to make it.  Rather than affecting strength and speed, it will directly restore a large burst of stamina and fatigue.\n\nIt will restore 24 fatigue, and 6000 stamina.",
     "weight": "550 g",
     "volume": "250 ml",
     "price": "350 USD",
@@ -188,13 +188,7 @@
     "color": "light_gray",
     "charges": 2,
     "stack_size": 9,
-    "use_action": {
-      "type": "consume_drug",
-      "activation_message": "Wisps of smoke rapidly fade away as you light the incense, filling you with energy.",
-      "effects": [ { "id": "potion_incense", "duration": 900 } ],
-      "charges_needed": { "fire": 1 },
-      "moves": 50
-    },
+    "use_action": { "type": "cast_spell", "spell_id": "arcana_item_incense", "no_fail": true, "level": 0 },
     "flags": [ "NO_INGEST", "EATEN_COLD", "NPC_SAFE", "NUTRIENT_OVERRIDE" ]
   },
   {
