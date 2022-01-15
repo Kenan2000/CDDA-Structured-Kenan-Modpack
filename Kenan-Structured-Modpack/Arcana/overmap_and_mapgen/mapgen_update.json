@@ -867,6 +867,7 @@
       "place_loot": [
         { "group": "swat_gear", "x": 4, "y": [ 17, 20 ], "chance": 50, "repeat": 10 },
         { "group": "tools_gunsmith", "x": 6, "y": 20, "chance": 50, "repeat": 5 },
+        { "group": "drugs_soldier", "x": 6, "y": 20, "chance": 50, "repeat": 5 },
         { "group": "rural_church_start_scales", "x": 6, "y": 20 }
       ],
       "faction_owner": [ { "id": "cleansing_flame", "x": [ 4, 6 ], "y": [ 17, 20 ] } ],
@@ -880,8 +881,8 @@
     "object": {
       "place_nested": [ { "chunks": [ "cf_church_upgrade_4_e" ], "x": 4, "y": 0 } ],
       "place_npcs": [
-        { "class": "cf_auxillery_guard_2", "x": 4, "y": 10, "add_trait": "CF_AUX_MARKER_1" },
-        { "class": "cf_auxillery_guard_2", "x": 10, "y": 13, "add_trait": "CF_AUX_MARKER_1" }
+        { "class": "cf_auxillery_guard_2", "x": 4, "y": 10, "add_trait": "CF_AUX_MARKER_2" },
+        { "class": "cf_auxillery_guard_2", "x": 10, "y": 13, "add_trait": "CF_AUX_MARKER_2" }
       ]
     }
   },
@@ -911,8 +912,8 @@
     "object": {
       "place_nested": [ { "chunks": [ "cf_church_upgrade_4_e" ], "x": 4, "y": 0 } ],
       "place_npcs": [
-        { "class": "cf_auxillery_guard_3", "x": 4, "y": 10, "add_trait": "CF_AUX_MARKER_2" },
-        { "class": "cf_auxillery_guard_3", "x": 10, "y": 13, "add_trait": "CF_AUX_MARKER_2" }
+        { "class": "cf_auxillery_guard_3", "x": 4, "y": 10, "add_trait": "CF_AUX_MARKER_1" },
+        { "class": "cf_auxillery_guard_3", "x": 10, "y": 13, "add_trait": "CF_AUX_MARKER_1" }
       ]
     }
   },
@@ -955,8 +956,8 @@
       ],
       "faction_owner": [ { "id": "cleansing_flame", "x": 13, "y": [ 13, 15 ] } ],
       "place_npcs": [
-        { "class": "cf_auxillery_guard_3", "x": 4, "y": 10, "add_trait": "CF_AUX_MARKER_2" },
-        { "class": "cf_auxillery_guard_3", "x": 10, "y": 13, "add_trait": "CF_AUX_MARKER_2" },
+        { "class": "cf_auxillery_guard_3", "x": 4, "y": 10, "add_trait": "CF_AUX_MARKER_1" },
+        { "class": "cf_auxillery_guard_3", "x": 10, "y": 13, "add_trait": "CF_AUX_MARKER_1" },
         { "class": "cf_auxillery_merchant_5", "x": 12, "y": 14, "add_trait": "CF_AUX_MARKER_6" }
       ]
     }
@@ -1398,8 +1399,8 @@
       "mapgensize": [ 18, 18 ],
       "rows": [
         " .... ........ ...",
-        "+.... ........+...",
-        " ....+........    ",
+        " .... ........+...",
+        "+....+........    ",
         " .... ........+...",
         " .... ........ ...",
         "         ++       ",
@@ -1549,7 +1550,7 @@
         { "point": "furniture", "id": "f_workbench", "x": 4, "y": 4 },
         { "point": "furniture", "id": "f_anvil", "x": 5, "y": 4 },
         { "point": "furniture", "id": "f_forge", "x": 6, "y": 4 },
-        { "line": "furniture", "id": "f_rack_wood", "x": 3, "x2": 3, "y": 6, "y2": 8 },
+        { "point": "furniture", "id": "f_rack_wood", "x": 3, "y": 8 },
         { "point": "furniture", "id": "f_rack_wood", "x": 6, "y": 8 },
         { "line": "furniture", "id": "f_counter", "x": 4, "x2": 5, "y": 9, "y2": 9 }
       ]
@@ -1630,9 +1631,10 @@
     "object": {
       "set": [
         { "point": "terrain", "id": "t_drystone_wall", "x": 18, "y": 16 },
-        { "point": "terrain", "id": "t_drystone_wall", "x": 18, "y": 21 }
-      ],
-      "place_loot": [ { "item": "candle_warding_special", "x": 20, "y": 17 }, { "item": "candle_warding_special", "x": 20, "y": 20 } ]
+        { "point": "terrain", "id": "t_drystone_wall", "x": 18, "y": 21 },
+        { "point": "furniture", "id": "f_arcane_candlestick_lit", "x": 20, "y": 17 },
+        { "point": "furniture", "id": "f_arcane_candlestick_lit", "x": 20, "y": 20 }
+      ]
     }
   },
   {
@@ -1642,18 +1644,18 @@
     "object": {
       "set": [
         { "point": "terrain", "id": "t_drystone_wall", "x": 3, "y": 16 },
-        { "point": "terrain", "id": "t_drystone_wall", "x": 3, "y": 21 }
+        { "point": "terrain", "id": "t_drystone_wall", "x": 3, "y": 21 },
+        { "point": "furniture", "id": "f_arcane_candlestick_lit", "x": 1, "y": 17 },
+        { "point": "furniture", "id": "f_arcane_candlestick_lit", "x": 1, "y": 20 }
       ],
       "place_loot": [
-        { "item": "candle_warding_special", "x": 1, "y": 17 },
-        { "item": "candle_warding_special", "x": 1, "y": 20 },
-        { "group": "rural_church_restock_scales", "x": 3, "y": 6 },
-        { "group": "tools_science", "x": 3, "y": [ 6, 8 ], "chance": 50, "repeat": 5 },
-        { "group": "supplies_reagents_lab", "x": 3, "y": [ 6, 8 ], "chance": 50, "repeat": 5 },
-        { "group": "bionics", "x": 3, "y": [ 6, 8 ], "chance": 25, "repeat": 5 },
+        { "group": "rural_church_restock_scales", "x": 6, "y": 8 },
+        { "group": "tools_science", "x": 3, "y": 8, "chance": 50, "repeat": 5 },
+        { "group": "supplies_reagents_lab", "x": 6, "y": 8, "chance": 50, "repeat": 5 },
+        { "group": "bionics", "x": 3, "y": 8, "chance": 25, "repeat": 5 },
         { "group": "metal_workshop", "x": 6, "y": 8, "chance": 75, "repeat": 10 }
       ],
-      "faction_owner": [ { "id": "cleansing_flame", "x": 3, "y": [ 6, 8 ] }, { "id": "cleansing_flame", "x": 6, "y": 8 } ],
+      "faction_owner": [ { "id": "cleansing_flame", "x": 3, "y": 8 }, { "id": "cleansing_flame", "x": 6, "y": 8 } ],
       "place_npcs": [
         { "class": "cleansing_flame_purifier_merchant", "x": 5, "y": 8 },
         { "class": "cleansing_flame_purifier_rep", "x": 12, "y": 5, "add_trait": "FIX_CF_GM" }
