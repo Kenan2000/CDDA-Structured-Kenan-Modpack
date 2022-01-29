@@ -1,0 +1,74 @@
+[ 
+  {
+    "type": "scenario",
+    "id": "dkz_combatpatrol",
+    "name": "Foxtrot Uniform Charlie Kilo",
+    "points": 0,
+    "description": "You were out on a combat patrol against the Xenoids, and scavenge useful supplies in the processes, but you've attracted the attention of the alien invaders in some way, now they're all around and you'll likely have to fight thorough them if you want to escape.  Also the buiiding is on fire.\n\nThis mission is Foxtrot Uniform Charlie Kilo.",
+    "custom_initial_date": { "season": "summer", "year": 1 },
+    "forced_traits": [ "DKZ_COMBAT" ],
+    "allowed_locs": [
+      "sloc_house",
+      "sloc_house_boarded",
+      "sloc_grocery_store",
+      "sloc_garage",
+      "sloc_furniture_store",
+      "sloc_library",
+      "sloc_bookstore",
+      "sloc_zoo_giftshop",
+      "sloc_golfcourse_clubhouse",
+      "sloc_church",
+      "sloc_fire_station",
+      "sloc_police"
+    ],
+    "professions": [
+      "k9_cop",
+      "cop",
+      "detective",
+      "swat",
+      "swat_heavy",
+      "sniper_police",
+      "riot_police",
+      "firefighter",
+      "demolition_expert",
+      "mili_pilot",
+      "mili_medic",
+      "mili_burner",
+      "security",
+      "recruit",
+      "rifleman",
+      "specops",
+      "medic",
+      "hazmat_unit",
+      "major-general",
+      "nco",
+      "combat-mechanic",
+      "combat-engineer"
+    ],
+    "start_name": "In Town",
+    "flags": [ "SUR_START", "FIRE_START", "CHALLENGE", "CITY_START" ],
+    "missions": [ "DKZ_MAQUIS_RENDEZVOUS_TO_BASE" ]
+  },
+  {
+    "id": "DKZ_MAQUIS_RENDEZVOUS_TO_BASE",
+    "type": "mission_definition",
+    "name": { "str": "Rendezvous at local resistance base." },
+    "description": "With your military acumen, you have to get to the local Maquis resistance base to help resist the Xenoid Invaders.",
+    "goal": "MGOAL_CONDITION",	
+    "goal_condition": { "u_has_var": "u_found_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" },
+    "difficulty": 1,
+    "value": 0,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "racing_tower_z7_4_1",
+        "om_special": "arcology_racing",
+        "search_range": 500,
+        "random": true,
+        "min_distance": 88
+      },
+      "update_mapgen": { "place_npcs": [ { "class": "DKZ_CHAD_ERIKSON", "x": 3, "y": 3, "target": true } ] },
+      "effect": [ { "u_add_var": "MrEriksonExists", "type": "knowledge", "context": "flag", "value": "yes" } ]
+    },
+    "origins": [ "ORIGIN_GAME_START" ]
+  }
+]

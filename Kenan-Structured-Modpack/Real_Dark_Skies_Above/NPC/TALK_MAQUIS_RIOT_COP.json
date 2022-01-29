@@ -1,0 +1,311 @@
+[
+  {
+    "type": "npc",
+    "id": "DKZ_MAQUIS_RIOT_COP",
+    "class": "NC_MAQUIS_RIOT_COP",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_MAQUIS_RIOT_COP_ROOT",
+    "faction": "maquis"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_MAQUIS_RIOT_COP",
+    "name": { "str": "MAQUIS" },
+    "job_description": "I'm to keep the peace and provide combat support.",
+    "common": false,		
+    "traits": [
+      { "trait": "DKZ_COMBAT", "prob": 100 },
+      { "group": "DKZ_starting_traits" }, 
+	  { "group": "Appearance_demographics" },
+      { "trait": "WAKEFUL", "prob": 50 },
+      { "trait": "GOODHEARING", "prob": 25 },
+      { "trait": "ROBUST", "prob": 70 },
+      { "trait": "ANTIJUNK", "prob": 50 },
+      { "trait": "DEX_ALPHA", "prob": 30  },
+      { "trait": "STR_ALPHA", "prob": 90  }
+    ],
+    "skills": [
+      { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -4 } ] } },
+      { "skill": "survival", "bonus": { "rng": [ 2, 3 ] } },
+      { "skill": "firstaid", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 2, 3 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 3, 5 ] } },
+      { "skill": "unarmed", "bonus": { "rng": [ 1, 3 ] } },
+	  { "skill": "bashing", "bonus": { "rng": [ 2, 4 ] } },
+      { "skill": "stabbing", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "cutting", "bonus": { "rng": [ 1, 3 ] } },
+      { "skill": "gun", "bonus": { "rng": [ 5, 7 ] } },
+      { "skill": "shotgun", "bonus": { "rng": [ 2, 5 ] } },	  
+      { "skill": "pistol", "bonus": { "rng": [ 2, 5 ] } },
+      { "skill": "rifle", "bonus": { "rng": [ 5, 7 ] } }
+    ],
+    "bonus_str": { "rng": [ 1, 5 ] },
+    "bonus_dex": { "rng": [ 1, 5 ] },
+    "bonus_int": { "rng": [ -2, -1 ] },
+    "bonus_per": { "rng": [ 1, 3 ] }
+
+  },
+  
+  {
+    "//": "----------INVENTORY LOADOUTS-----------------------------------------------------------------------------------",  
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_underwear_bottom_male",
+    "subtype": "collection",
+    "items": [ [ "boxer_shorts", 10 ], [ "briefs", 80 ], [ "boxer_briefs", 20 ] ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_underwear_bottom_female",
+    "subtype": "collection",
+    "items": [ [ "panties", 70 ], [ "boy_shorts", 50 ], [ "bikini_bottom", 10 ] ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_underwear_top_male",
+    "subtype": "collection",
+    "items": [ [ "null", 100 ] ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_underwear_top_female",
+    "subtype": "collection",
+    "items": [ [ "null", 1 ], [ "bra", 10 ], [ "sports_bra", 89 ] ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_underwear_feet_male",
+    "items": [ [ "null", 2 ], [ "socks", 80 ], [ "socks_ankle", 30 ], [ "socks_wool", 20 ] ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_underwear_feet_female",
+    "items": [ [ "null", 2 ], [ "socks", 50 ], [ "socks_ankle", 20 ], [ "socks_wool", 10 ] ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_shirt_male",
+    "subtype": "distribution",
+    "entries": [ { "item": "tank_top", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_shirt_female",
+    "subtype": "distribution",
+    "entries": [ { "item": "tank_top", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_gloves",
+    "subtype": "distribution",
+    "entries": [ { "item": "gloves_tactical", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_coat",
+    "subtype": "distribution",
+    "entries": [ { "item": "swat_armor", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_shoes",
+    "subtype": "distribution",
+    "entries": [ { "item": "boots_combat", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_masks",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "mask_gas", "prob": 100 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_eyes",
+    "subtype": "distribution",
+    "entries": [ { "item": "null", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_hat",
+    "subtype": "distribution",
+    "entries": [ { "item": "helmet_riot", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_extra",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "null", "prob": 5 },
+      { "item": "backpack", "prob": 75 },
+      { "item": "backpack_leather", "prob": 25 },
+      { "item": "rucksack", "prob": 5 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_bashing",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "hammer", "prob": 20 },
+      { "item": "wrench", "prob": 20 },
+      { "item": "hammer_sledge", "prob": 10 },
+      { "item": "hammer_sledge_short", "prob": 10 },
+      { "item": "pipe", "prob": 20 },
+      { "item": "bat", "prob": 20 },
+      { "item": "bat_metal", "prob": 20 },
+      { "item": "crowbar", "prob": 20 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_cutting",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "knife_butcher", "prob": 20 },
+      { "item": "hatchet", "prob": 20 },
+      { "item": "ax", "prob": 20 },
+      { "item": "machete", "prob": 20 },
+      { "item": "knife_combat", "prob": 20 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_stabbing",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "spear_knife", "prob": 50 },
+      { "item": "spear_rebar", "prob": 5 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_throw",
+    "subtype": "distribution",
+    "entries": [ { "item": "throwing_knife", "prob": 50 }, { "item": "throwing_axe", "prob": 50 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_archery",
+    "subtype": "distribution",
+    "entries": [ { "item": "crossbow", "prob": 5 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_pistols",
+    "subtype": "distribution",
+    "entries": [ { "group": "guns_pistol_common", "prob": 70 }, { "group": "guns_pistol_rare", "prob": 20 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_shotgun",
+    "subtype": "distribution",
+    "entries": [ { "group": "guns_shotgun_common", "prob": 70 }, { "group": "guns_shotgun_rare", "prob": 20 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_smg",
+    "subtype": "distribution",
+    "entries": [ { "group": "guns_smg_common", "prob": 70 }, { "group": "guns_smg_rare", "prob": 20 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_rifle",
+    "subtype": "distribution",
+    "entries": [ { "group": "guns_rifle_common", "prob": 100 }, { "group": "guns_rifle_rare", "prob": 60 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_launcher",
+    "subtype": "distribution",
+    "entries": [ { "group": "guns_launcher_milspec", "prob": 70 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_weapon_random",
+    "subtype": "distribution",
+    "entries": [ { "item": "q_staff", "prob": 100 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "NC_MAQUIS_RIOT_COP_misc",
+    "subtype": "distribution",
+    "entries": [
+      { "group": "rad_gear", "count-min": 1, "count-max": 2, "prob": 90 },
+      { "group": "fireman_gear", "count-min": 1, "count-max": 2, "prob": 90 },
+	  { "item": "badge_swat", "prob": 100 },
+	  { "item": "atomic_lamp", "prob": 100 },
+      { "item": "baton", "prob": 100 }
+    ]
+  },  
+  
+  {
+    "//": "----------DIALOGUE OPTIONS-------------------------------------------------------------------------------------",  
+    "id": "TALK_MAQUIS_RIOT_COP_ROOT",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_is_wearing": "badge_marshal",
+      "yes": [ "Are you lost, marshal?", "Don't start any trouble marshal, you aren't the law anymore." ],
+      "no": [ "Don't cause any trouble here, I'd rather kill monsters than people.", "Safe travels." ]
+    },
+    "responses": [
+      { "text": "What are you doing here?", "topic": "TALK_MAQUIS_RIOT_COP_DOING" },
+      { "text": "What is upstairs?", "topic": "TALK_MAQUIS_RIOT_COP_UPSTAIRS" },
+      {
+        "text": "[MISSION] I'm looking for Chad Erikson, Randy sent me.",	
+        "condition": {
+          "and": [
+            { "not": { "u_has_var": "u_met_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" } },
+            { "u_has_mission": "MISSION_CHECK_UP_ON_BIG_BROTHER" }
+          ]
+        },			
+        "topic": "TALK_MAQUIS_RIOT_COP_BIG_BROTHER"		
+      },
+      {
+        "text": "Is there anything I can do to help you out?",
+        "condition": { "and": [ { "not": "has_many_assigned_mission" }, { "not": "has_assigned_mission" } ] },
+        "topic": "TALK_MISSION_LIST"
+      },
+      { "text": "About that mission…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },	  
+      { "text": "See you later.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_MAQUIS_RIOT_COP_BIG_BROTHER",
+    "dynamic_line": [
+      "Mr. Erikson is very busy with the various operations against the aliens.",
+	  "I am not sure where Mr. Erikson's office is.",
+	  "Chad Erikson is the closest thing to a leader the resistance has."
+    ],
+    "responses": [ { "text": "Ok, Thanks.", "topic": "TALK_NONE" }, { "text": "Ok, I have to go now.", "topic": "TALK_DONE" } ]
+  },   {
+    "id": "TALK_MAQUIS_RIOT_COP_DOING",
+    "type": "talk_topic",
+    "dynamic_line": [
+      "There is an arrangement with everyone that lives here, the bottom two floors are a free trade zone and the upper floors are for the alien resistance operation.  We also help keep the outside defences in place and warn of any zombies or xenoids around the perimeter.  It takes a lot to keep this place running",
+	  "Enforcing Rule #1: No Killing, the penalty is death.",
+      "I keep the peace down here, but everyone is very civil to each other since there are monsters outside."
+    ],
+    "responses": [
+      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_MAQUIS_RIOT_COP_ROOT" },
+      { "text": "Nice arrangement for everyone.", "topic": "TALK_MAQUIS_RIOT_COP_ROOT" },
+	  { "text": "Ok, I'll leave you to it.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_MAQUIS_RIOT_COP_UPSTAIRS",
+    "type": "talk_topic",
+    "dynamic_line": [
+      "Sometimes I'll go up to the roof to help with sniper overwatch.  Its fun to use the really powerful rifles even if we can't take them down here.  Plus they always need another set of eyes.",
+      "I only go upstairs to check out the casino, its fun to use looted cash cards to gamble.  I'm up almost a hundred-thousand dollars.",
+	  "The library is nice, they're always on the look for more books, the more rare, the more they'll give for them.",
+	  "There are some heavily mutated people upstairs.  They are good people, but if you see them don't stare, its rude."
+    ],
+    "responses": [
+      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_MAQUIS_RIOT_COP_ROOT" },
+      { "text": "Well, bye.", "topic": "TALK_DONE" }
+    ]
+  }  
+]

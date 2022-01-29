@@ -1,0 +1,598 @@
+[
+  {
+    "//": "Provides plot hooks and missions arcs",
+    "type": "npc",
+    "id": "DKZ_CHAD_ERIKSON",
+    "class": "NC_Chad_Erikson",
+    "name_unique": "Chad Erikson",
+    "gender": "male",
+    "attitude": 0,
+    "mission": 7,
+    "mission_offered": "MISSION_REFUGEE_CHAD_ERIKSON_1",
+    "chat": "TALK_CHAD_ERIKSON_ROOT",
+    "faction": "maquis"
+  },
+  {
+    "type": "npc_class",
+    "id": "NC_Chad_Erikson",
+    "name": { "str": "Chad Erikson" },
+    "job_description": "I am the leader of the local chapter of the Maquis, the last human resistance against the Xenoid invaders.",
+    "skills": [
+      { "skill": "computer", "level": { "rng": [ 4, 5 ] } },
+      { "skill": "electronics", "level": { "rng": [ 4, 5 ] } },
+      { "skill": "dodge", "level": { "rng": [ 5, 7 ] } },
+      { "skill": "gun", "level": { "rng": [ 8, 9 ] } },
+      { "skill": "pistol", "level": { "rng": [ 8, 9 ] } },
+      { "skill": "rifle", "level": { "rng": [ 5, 7 ] } },
+      { "skill": "shotgun", "level": { "rng": [ 4, 6 ] } },
+      { "skill": "smg", "level": { "rng": [ 3, 5 ] } },
+      { "skill": "firstaid", "level": { "rng": [ 2, 3 ] } },
+      { "skill": "fabrication", "level": { "rng": [ 2, 3 ] } },
+      {
+        "skill": "ALL",
+        "level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 4, 2 ] }, { "rng": [ -3, 0 ] } ] } ] }
+      }
+    ],
+    "traits": [
+      { "trait": "DKZ_LEADER", "prob": 100 },
+      { "trait": "PALE", "prob": 100 },
+      { "trait": "hair_white_crewcut", "prob": 100 },
+      { "trait": "FACIAL_HAIR_3DAYSTUBBLE", "prob": 100 },
+      { "trait": "DISRESISTANT", "prob": 100 },
+      { "trait": "INFRESIST", "prob": 100 },
+      { "trait": "ROBUST", "prob": 100 },
+      { "trait": "LOVES_BOOKS", "prob": 100 },
+      { "trait": "FASTREADER", "prob": 100 },
+      { "trait": "THIRST", "prob": 100 },
+      { "trait": "HUNGER", "prob": 100 },
+      { "trait": "INSOMNIA", "prob": 100 }
+    ],
+    "bionics": [
+      { "id": "bio_metabolics", "chance": 100 },
+      { "id": "bio_tools", "chance": 100 },
+      { "id": "bio_cqb", "chance": 100 },
+      { "id": "bio_blade", "chance": 100 },
+      { "id": "bio_power_armor_interface_mkII", "chance": 100 },
+      { "id": "bio_power_storage_mkII", "chance": 100 },
+      { "id": "bio_power_storage_mkII", "chance": 100 }
+    ],
+    "bonus_str": { "rng": [ 2, 3 ] },
+    "bonus_dex": { "rng": [ -1, 0 ] },
+    "bonus_int": { "rng": [ 2, 3 ] },
+    "bonus_per": { "rng": [ 3, 4 ] },
+    "worn_override": "NC_DKZ_CHAD_ERIKSON_worn",
+    "carry_override": "NC_DKZ_CHAD_ERIKSON_carried",
+    "weapon_override": "NC_DKZ_CHAD_ERIKSON_weapon"
+  },
+  {
+    "id": "NC_DKZ_CHAD_ERIKSON_weapon",
+    "type": "item_group",
+    "subtype": "collection",
+    "entries": [ { "item": "rm103a_pistol" } ]
+  },
+  {
+    "id": "NC_DKZ_CHAD_ERIKSON_worn",
+    "type": "item_group",
+    "subtype": "collection",
+    "entries": [
+      { "item": "socks" },	
+      { "item": "boxer_shorts" },
+      { "item": "flag_shirt" },
+      { "item": "pants_cargo" },
+      { "item": "ballistic_vest_esapi" },
+      { "item": "boots_combat" },
+      { "item": "beret_wool" },
+      { "item": "backpack" },
+      { "item": "badge_marshal" },
+      {
+        "item": "light_minus_battery_cell",
+        "ammo-item": "battery",
+        "charges": 150,
+        "container-item": "dkz_zenture_industries_premium_zwatch"
+      }
+    ]
+  },
+  {
+    "id": "NC_DKZ_CHAD_ERIKSON_carried",
+    "type": "item_group",
+    "subtype": "collection",
+    "items": [
+      {
+        "item": "light_battery_cell",
+        "ammo-item": "battery",
+        "charges": 300,
+        "container-item": "radio"
+      },
+      { "group": "charged_two_way_radio" },	  
+      { "item": "syringe" },
+      { "item": "8x40_10_mag", "charges-min": 7, "count": 2 },
+      { "item": "8mm_caseless", "count": 3 },
+      { "item": "multitool" }
+    ]
+  },
+  {
+    "//": "----------DIALOGUE OPTIONS-------------------------------------------------------------------------------------",  
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ROOT",
+    "dynamic_line": {
+      "u_has_var": "u_met_Chad_Erikson",
+      "type": "general",
+      "context": "meeting",
+      "value": "yes",
+      "yes": {
+        "u_is_wearing": "badge_marshal",
+        "yes": [ "Hello marshal" ],
+        "no": [ "How can I help you citizen?", "Hello again citizen." ]
+      },
+      "no": {
+        "u_is_wearing": "badge_marshal",
+        "yes": [
+          "I am so glad to see anyone still wearing a U.S. Marshal Badge.  I'm going to assume that you didn't pick it up off a dead zombie but it doesn't really matter since this Armageddon is the great equalizer.  What can we do for each other today?"
+        ],
+        "no": [
+          "I don't recognize you, but I will next time.  My name is Mr. Erikson and I'm in overall ground command around here, by attrition if nothing else.  If you've come all the way up here you must have a reason.  What can we do for each other today?"
+        ]
+      }
+    },
+    "responses": [
+      {
+        "text": "Hey, Chad.  How did you end up in charge here?",
+        "effect": { "u_add_var": "u_met_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" },
+        "opinion": { "trust": -1, "value": -1 },
+        "condition": { "not": { "u_has_var": "u_met_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" } },
+        "topic": "TALK_CHAD_ERIKSON_FIRSTMEET"
+      },
+      {
+        "text": "Hello Mr. Erikson, I have some questions for you.",
+        "effect": { "u_add_var": "u_met_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" },
+        "opinion": { "trust": 1, "value": 1 },
+        "condition": { "not": { "u_has_var": "u_met_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" } },
+        "topic": "TALK_CHAD_ERIKSON_QUESTIONS"
+      },
+      {
+        "text": "Hi, Mr. Erikson.  Got a second to talk?",
+        "topic": "TALK_CHAD_ERIKSON_QUESTIONS",
+        "condition": { "u_has_var": "u_met_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" }
+      },
+      {
+        "text": "Hey Chad, nice to meet you too.  Bye.",
+        "effect": { "u_add_var": "u_met_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" },
+        "opinion": { "trust": -1, "value": -2 },
+        "condition": { "not": { "u_has_var": "u_met_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" } },
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_FIRSTMEET",
+    "dynamic_line": "Thats Mr. Erikson and like I said, attrition.  I had been an federal agent for decades was about a month from retiring and then the shit really hit the fan.",
+    "responses": [
+      { "text": "I just had some questions.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      {
+        "text": "Which agency did you work for?",
+        "effect": { "u_add_var": "u_Talk_To_ChadErikson_about_Background", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": {
+          "not": { "u_has_var": "u_Talk_To_ChadErikson_about_Background", "type": "general", "context": "meeting", "value": "yes" }
+        },
+        "topic": "TALK_CHAD_ERIKSON_BACKGROUND"
+      },
+      { "text": "Actually I'm just heading out. Bye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_BACKGROUND",
+    "dynamic_line": [
+      "It was a three letter acronym United States Federal government agency, I won't mention which one, but that doesn't matter much now.  Lets just say that I still have some useful combat and espionage skills that happened to be very useful for an alien invasion."
+    ],
+    "responses": [
+      { "text": "Ok, I had some questions.", "topic": "TALK_NONE" },
+      { "text": "Ok, see you later.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_CHAD_ERIKSON_QUESTIONS",
+    "type": "talk_topic",
+    "dynamic_line": [
+      "What do you require?",
+      "Yes, what do you want?",
+      "I'm pretty busy but could probably help.",
+      { "u_male": [ "Buddy, what do you want?", "Dude, what?" ], "no": [ "Girl, want do you want?" ] }
+    ],
+    "responses": [
+      {
+        "text": "That is a very nice watch.",
+        "effect": { "u_add_var": "u_Talk_To_ChadErikson_about_Watch", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": {
+          "and": [
+            { "not": { "u_has_var": "u_Talk_To_ChadErikson_about_Watch", "type": "general", "context": "meeting", "value": "yes" } }
+          ]
+        },
+        "opinion": { "trust": 1, "value": 1 },
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_WATCH"
+      },
+      {
+        "text": "What was this building supposed to have been?",
+        "effect": { "u_add_var": "u_Talk_To_ChadErikson_about_Building", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": {
+          "and": [
+            {
+              "not": { "u_has_var": "u_Talk_To_ChadErikson_about_Building", "type": "general", "context": "meeting", "value": "yes" }
+            }
+          ]
+        },
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_RACING_ARCOLOGY"
+      },
+      {
+        "text": "[MISSION] Sir!  Latest Mission Foxtrot Uniform Charlie Kilo.  Sir!",
+        "effect": { "u_add_var": "u_found_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": {
+          "and": [
+            { "not": { "u_has_var": "u_found_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" } },
+            { "u_has_mission": "DKZ_MAQUIS_RENDEZVOUS_TO_BASE" }
+          ]
+        },
+        "opinion": { "trust": 3, "value": -1 },
+        "topic": "TALK_CHAD_ERIKSON_RENDEZVOUS_TO_BASE"
+      },	  
+      {
+        "text": "[MISSION] Your nephew Randy wanted me to see how you are doing.",
+        "effect": { "u_add_var": "u_found_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": {
+          "and": [
+            { "not": { "u_has_var": "u_found_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" } },
+            { "u_has_mission": "MISSION_CHECK_UP_ON_BIG_BROTHER" }
+          ]
+        },
+        "opinion": { "trust": 3, "value": 4 },
+        "topic": "TALK_CHAD_ERIKSON_BIG_BROTHER"
+      },
+      {
+        "text": "So how did you end up here?",
+        "effect": { "u_add_var": "u_Talk_To_ChadErikson_about_Background", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": {
+          "not": { "u_has_var": "u_Talk_To_ChadErikson_about_Background", "type": "general", "context": "meeting", "value": "yes" }
+        },
+        "topic": "TALK_CHAD_ERIKSON_BACKGROUND"
+      },
+      { "text": "Is there anything I can do to help you out?", "topic": "TALK_MISSION_LIST" },
+      { "text": "About that mission…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
+      { "text": "I would like to ask you about the Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS" },
+      { "text": "Goodbye…", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_RENDEZVOUS_TO_BASE",
+    "dynamic_line": [
+	"Thats unfortunate but at least you made it back.  I may have something for you to do to help gain much needed intelligence."
+
+    ],
+    "responses": [
+      {
+        "text": "What can I do to help the Maquis?", 
+        "topic": "TALK_MISSION_LIST"
+      },
+      { "text": "I would like to ask you about the Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS" },	  
+      {
+        "text": "I have something else to ask you first.",
+        "topic": "TALK_NONE"
+      }	  
+    ]
+  },  
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_BIG_BROTHER",
+    "dynamic_line": [
+      "That's my nephew, always worrying about what secret business I was up to.  I'm glad that throughout all this craziness with the world ending that young man ended up exactly where he is needed.  Randy always took stuff apart as a kid and usually put it back together, so I'm sure he'll make a great technician for the refugee center."
+    ],
+    "responses": [
+      { "text": "I'll go let him know that I found you.  Bye.", "topic": "TALK_DONE" },
+      {
+        "text": "I'll tell him the next time I see him, I have something else to ask you first.",
+        "topic": "TALK_NONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_WATCH",
+    "dynamic_line": [
+      "You want one?  I have several hundred of them in a cardboard box around here somewhere.  I don't have any batteries, but it shouldn't be too hard to find an ultra-light battery downstairs from one of the merchants."
+    ],
+    "responses": [
+      {
+        "text": "Not right now, maybe later.",
+        "effect": { "u_add_var": "u_Talk_To_ChadErikson_about_Watch", "type": "general", "context": "meeting", "value": "no" },
+        "topic": "TALK_NONE"
+      },
+      {
+        "text": "Sure, I'll take one.",
+        "effect": [ { "u_buy_item": "dkz_zenture_industries_basic_zwatch" } ],
+        "topic": "TALK_NONE"
+      },
+      { "text": "No thanks, I'll pass. Bye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_RACING_ARCOLOGY",
+    "dynamic_line": [
+      "Its a funny story about a Mexican cartel drug front, a CIA Honeypot, an FBI Reco case, and the Library of Congress's newspaper archives.  The Cartel was trying to launder their drug and human trafficking money by building a large indoor go-cart race track.  Somehow the CIA had an agent within the that specific cartel and were able to influence the cartel to invest far more money than they should have, after which the FBI collected all the bad guys they had this building practically ready to open.  The FBI ended up giving most of the floors to the Library of Congress to store newspapers, and some of the other usual suspects took their share too.  Once this cataclysm happened and much of the government was destroyed, this site was commandeered to coordinate local responses against the Xenoids."
+    ],
+    "responses": [
+      { "text": "I have some questions about the Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS" },
+      { "text": "Interesting story.", "topic": "TALK_NONE" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS",
+    "dynamic_line": [ "Where do you want me to start?", "I'll tell you whatever I can.", "What do you need to know about them?" ],
+    "responses": [
+      { "text": "What are the Xenoids exactly?", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_WHAT" },
+      { "text": "Where did the Xenoids come from?", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_WHERE" },
+      { "text": "Do you know why we have been attacked?", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_WHY" },
+      {
+        "text": "Are these Xenoids related to everything else that has happened?",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_RELATED"
+      },
+      {
+        "text": "I have a question about the specific types of Xenoid attackers?",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_UNITS"
+      },
+      { "text": "That's all for now.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "Good bye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_WHAT",
+    "dynamic_line": [
+      "We don't exactly know what they are or how exactly they relate to the rest this cataclysm that has been happening.  From their tactics we can assume that the Xenoids are operating as a sort of paramilitary or an expeditionary force. They seem to favor melee weapons and shield rather than long range firearms, however they also are able to fire short range flechette darts.  As if that was bad enough these aliens have some mind-affecting abilities that I cannot explain at all.  Having said all that they are not immortal, we can make them bleed so we can make them die."
+    ],
+    "responses": [
+      {
+        "text": "[INT 11] Wait, back that up.  What do you mean 'mind-affecting'?",
+        "condition": { "u_has_intelligence": 11 },
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_MAGIC"
+      },
+      {
+        "text": "I have some more general questions about the Xenoids.",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS"
+      },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_MAGIC",
+    "dynamic_line": [
+      "I haven't experienced it myself, but there have been numerous credible reports of the Xenoids waving their hands around and causing severe nausea, hallucinations, even panic attacks to someone nearby.",
+      "It wasn't bad enough that we are fighting against an extra-terrestrial invasion force, but of course they have to have some kind of evil Jedi mind powers."
+    ],
+    "responses": [
+      { "text": "How can you fight against alien magic?", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_MAGIC_TACTICS" },
+      {
+        "text": "I have some more general questions about the Xenoids.",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS"
+      },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_MAGIC_TACTICS",
+    "dynamic_line": [
+      "The Xenoids seem to require line of sight to active their 'magic', also it seems to be fairly short range.",
+      "Given what this 'magic' seems to cause, I suspect that it to aid them with the use of close quarters weapons."
+    ],
+    "responses": [
+      { "text": "I have some more general questions about the Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS" },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_WHERE",
+    "dynamic_line": [
+      "They appeared suddenly as soon as the cataclysm began, several high value military bases in the west US, along with the largest population centers were effectively disintegrated by space based weapon systems, and virtually every man-made satellite blinked off at the same instant.  Our military response has been crippled as there is some unknown effect which prevents aircraft from operating higher than a few hundred feet.",
+      "Based on our latest reports, the Xenoids are an extra-terrestrial invasion which has used weapons of mass destruction on human civillians, and seems bent on the conquest of Earth.  Its like the plot of a 1950's pulp science fiction book or a poorly conceived open-source game."
+    ],
+    "responses": [
+      { "text": "I have some more general questions about the Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS" },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_WHY",
+    "dynamic_line": [
+      "Because they want this planet for its resources?  Because their God commands it?  Because we're just in the way?  Take your pick.",
+      "What does it matter why they're here. What matters is that we drive them off our homeworld and save the human species from extinction."
+    ],
+    "responses": [
+      { "text": "I have some more general questions about the Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS" },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_RELATED",
+    "dynamic_line": [
+      "Well it does seem coincidental that as soon as zombies start appearing that an alien army from outer space invades.",
+      "I've heard reports that Xenoids have attacked some of the non-humanoid aliens.  We don't have any intel other than the xenoids seem to concentrate their attacks against other aliens",
+      "I cannot confirm that its related, but it certainly does feel like it to me."
+    ],
+    "responses": [
+      { "text": "I have some more general questions about the Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS" },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_UNITS",
+    "dynamic_line": [
+      "There seem to be several broad types of Xenoid infantry that have been encountered so far, but more elite types are likely.  There is the 'Ranger' type commonly encountered in rural areas, along with an 'Enforcer' type found more in urban areas or along side the 'Knight'.  There have been rumors of other types haven't been encountered yet."
+    ],
+    "responses": [
+      { "text": "I want to know more about the drones.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_DRONES" },
+      { "text": "Tell me about the Ranger.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_RANGER" },
+      { "text": "What about the Enforcer.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_ENFORCER" },
+      { "text": "I want to know about the Knights.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_KNIGHT" },
+      { "text": "What do you mean elite types?", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_ELITE" },
+      {
+        "text": "I have some more general questions about the Xenoids.",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS"
+      },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_FAUNA",
+    "dynamic_line": [ "You noticed a few new kinds of critters too?  There are the dog-lizard and the cow-lizard, which are generally not hostile unless they're in large packs.  There are also Lurkers, some kind of tentacle monster found in swamps or sewers, but they absorb bullets pretty effectivly.  Finally there are wisps which seem like alien fire-flys." ],
+    "responses": [
+      { "text": "I want to know more about the types of Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_UNITS" },
+      {
+        "text": "I have some more general questions about the Xenoids.",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS"
+      },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_DRONES",
+    "dynamic_line": [
+      "We know of two types of Xenoid drones, reconnaissance and seeker drones.  Seeker drones do just that, seek out enemies and engage them.  Reconnaissance drones won't engage in combat unless cornered and if they are engaged they flee as quickly as possible.  Both types of drones are capable of emitting a bright light and temporarily blinding you, but seeker drones can also taze you."
+    ],
+    "responses": [
+      { "text": "I want to know more about the types of Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_UNITS" },
+      {
+        "text": "I have some more general questions about the Xenoids.",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS"
+      },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_RANGER",
+    "dynamic_line": [
+      "The Ranger Xenoid is typically encountered in forests and rural areas.  It is armed with a short cutting sword that superficially resembles a machete and wears a camouflaged cloak."
+    ],
+    "responses": [
+      { "text": "I want to know more about the types of Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_UNITS" },
+      {
+        "text": "I have some more general questions about the Xenoids.",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS"
+      },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_ENFORCER",
+    "dynamic_line": [ "We've named the Enforcer Xenoid as such because it seems to be the mainstay of their expeditionary force, and is also a formidable opponent to a unprepared civilian.  They are armed with a short tazer club and carry what looks like a riot shield.  What makes them especially dangerous is that they often travel in small teams or as additional members of larger Xenoid squads." ],
+    "responses": [
+      { "text": "I want to know more about the types of Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_UNITS" },
+      {
+        "text": "I have some more general questions about the Xenoids.",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS"
+      },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_KNIGHT",
+    "dynamic_line": [ "The Knight Xenoid is exactly that, it is an alien knight in armor, a seeming anachronism in modern combat, but terrifyingly effective.  The dark-silvered plate armor is fairly effective against common ammunition types, but armor peircing around are still useful against them.  They are extremely effective with their slashing sword, and the shield can counter many attacks." ],
+    "responses": [
+      { "text": "I want to know more about the types of Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_UNITS" },
+      {
+        "text": "I have some more general questions about the Xenoids.",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS"
+      },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_ELITE",
+    "dynamic_line": {
+      "days_since_cataclysm": 90,
+      "yes": "It was suspected that at least some kind of Xenoid wound be armed with a gun, and the Fumigator seems to be using chemical-biological warfare against life.  There is also the Xenoid Incinerator that has a long range flame thrower which is incredibly dangerous.",
+      "no": "There have been scattered reports of Xenoid patrols with some kind of fire or gas attack, but very few have lived long enough to provide significant intel."
+    },
+    "responses": [
+      { "text": "I want to know more about the types of Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_UNITS" },
+      {
+        "text": "I have some more general questions about the Xenoids.",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS"
+      },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_EMISSARY",
+    "dynamic_line": {
+      "days_since_cataclysm": 165,
+      "yes": { "days_since_cataclysm": 530, "yes": "The Walker of War is real.", "no": "I've seen them." },
+      "no": "I've heard rumors of some kind of heavy armor unit and given what we've faced so far I wouldn't doubt that the Xenoids would have an ace in the hole."
+    },
+    "responses": [
+      { "text": "I want to know more about the types of Xenoids.", "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS_UNITS" },
+      {
+        "text": "I have some more general questions about the Xenoids.",
+        "topic": "TALK_CHAD_ERIKSON_ASK_ABOUT_XENOIDS"
+      },
+      { "text": "Lets change the subject.", "topic": "TALK_CHAD_ERIKSON_QUESTIONS" },
+      { "text": "I have to go now.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "MISSION_REFUGEE_CHAD_ERIKSON_1",
+    "type": "mission_definition",
+    "name": { "str": "Find a military operations map" },
+    "goal": "MGOAL_FIND_ITEM",
+    "description": "Mr. Erikson needs fire-power that the United States Military used to have.  Find a map of military operations so that you can know where the heavy guns can be found.",
+    "difficulty": 4,
+    "value": 0,
+    "item": "militarymap",
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "end": {
+      "effect": [
+        { "u_adjust_var": "maquis_morale", "type": "counter", "context": "refugee_center", "adjustment": 2 }
+      ]
+    },	
+    "followup": "MISSION_REFUGEE_CHAD_ERIKSON_1",
+    "dialogue": {
+      "describe": "I need you to go into find me an operations map.  It doesn't matter if you look at it first, I just need some kind of intel for the local area.",
+      "offer": "The next time you go out salvaging I need you to find me an operations map for whatever military was in this area, things got crazy when the aliens first arrived and any new information would help.",
+      "accepted": "Thank you.",
+      "rejected": "Then why ask?",
+      "advice": "There is definitely one at the nearest military base, but its probably in the hidden underground center, but then again you could find an operation map on any random zombie soldier.",
+      "inquire": "How is the search going?",
+      "success": "Thanks!  Now to see what is around here.",
+      "success_lie": "Well where is it?",
+      "failure": "Disappointing."
+    }
+  }
+]

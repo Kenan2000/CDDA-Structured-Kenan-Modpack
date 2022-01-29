@@ -27,7 +27,7 @@
     "vision_night": 5,
     "regenerates": 1,
     "harvest": "mutant_human",
-    "path_settings": { "max_dist": 4 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "GRAB", 7 ], [ "scratch", 20 ] ],
     "death_drops": "default_zombie_death_drops",
     "upgrades": { "half_life": 21, "into_group": "DKZ_GROUP_STRAY_UPGRADE" },
@@ -75,7 +75,7 @@
     "vision_night": 5,
     "regenerates": 1,
     "harvest": "mutant_human",
-    "path_settings": { "max_dist": 4 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [
       { "type": "bite", "cooldown": 5 },
       [ "GRAB", 7 ],
@@ -129,7 +129,7 @@
     "vision_night": 5,
     "regenerates": 1,
     "harvest": "mutant_human",
-    "path_settings": { "max_dist": 5 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [
       { "type": "bite", "cooldown": 5 },
       [ "GRAB", 7 ],
@@ -184,7 +184,7 @@
     "vision_night": 5,
     "regenerates": 1,
     "harvest": "mutant_human",
-    "path_settings": { "max_dist": 4 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [ { "id": "slam" }, [ "GRAB", 7 ] ],
     "death_drops": "mon_zombie_fireman_death_drops",
     "upgrades": { "half_life": 120, "into": "dkz_mon_crystal_baby" },
@@ -235,8 +235,8 @@
     "vision_night": 5,
     "regenerates": 1,
     "harvest": "mutant_human",
-    "path_settings": { "max_dist": 4 },
-    "special_attacks": [ { "type": "bite", "cooldown": 5, "min_mul": 0.75, "infection_chance": 10 }, [ "GRAB", 6 ], [ "SHRIEK", 10 ] ],
+    "path_settings": { "max_dist": 15 },
+    "special_attacks": [ { "type": "bite", "cooldown": 5, "min_mul": 0.75, "no_infection_chance": 10 }, [ "GRAB", 6 ], [ "SHRIEK", 10 ] ],
     "death_drops": "default_zombie_death_drops",
     "upgrades": { "half_life": 21, "into": "dkz_mon_stray_eater" },
     "flags": [
@@ -285,10 +285,10 @@
     "vision_night": 5,
     "regenerates": 2,
     "harvest": "mutant_human",
-    "path_settings": { "max_dist": 4 },
-    "special_attacks": [ [ "BOOMER", 20 ], { "type": "bite", "cooldown": 5, "min_mul": 0.75, "infection_chance": 10 }, [ "SHRIEK", 10 ] ],
+    "path_settings": { "max_dist": 15 },
+    "special_attacks": [ [ "BOOMER", 20 ], { "type": "bite", "cooldown": 5, "min_mul": 0.75, "no_infection_chance": 10 }, [ "SHRIEK", 10 ] ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": { "effect": { "id": "death_boomer", "hit_self": true }, "message": "A %s explode!" },
+    "death_function": [ "BOOMER_GLOW", "NORMAL" ],
     "upgrades": { "half_life": 21, "into": "dkz_mon_stray_tender" },
     "flags": [
       "SEES",
@@ -336,13 +336,13 @@
     "vision_night": 5,
     "regenerates": 2,
     "harvest": "zombie",
-    "path_settings": { "max_dist": 5 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [ [ "BOOMER_GLOW", 20 ], [ "SHRIEK_ALERT", 20 ], [ "SHRIEK_STUN", 1 ] ],
     "death_drops": "mon_zombie_hulk_death_drops",
     "reproduction": { "baby_monster": "dkz_mon_crystal_mite", "baby_count": 5, "baby_timer": 60 },
     "anger_triggers": [ "PLAYER_CLOSE", "FRIEND_ATTACKED" ],
     "placate_triggers": [ "PLAYER_WEAK" ],
-    "death_function": { "effect": { "id": "death_boomer_glow", "hit_self": true, "min_level": 1 }, "message": "A %s explode!" },
+    "death_function": [ "BOOMER_GLOW", "NORMAL" ],
     "upgrades": { "half_life": 60, "into": "dkz_mon_crystal_hive" },
     "flags": [
       "SEES",
@@ -390,7 +390,7 @@
     "vision_night": 5,
     "regenerates": 2,
     "harvest": "mutant_human",
-    "path_settings": { "max_dist": 4 },
+    "path_settings": { "max_dist": 15 },
     "special_when_hit": [ "ZAPBACK", 100 ],
     "death_drops": "default_zombie_death_drops",
     "upgrades": { "half_life": 10, "into": "dkz_mon_stray_electric" },
@@ -441,7 +441,7 @@
     "vision_night": 5,
     "regenerates": 2,
     "harvest": "zombie",
-    "path_settings": { "max_dist": 4 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [ [ "SHOCKSTORM", 25 ] ],
     "special_when_hit": [ "ZAPBACK", 100 ],
     "death_drops": "default_zombie_death_drops",
@@ -549,7 +549,7 @@
     "vision_night": 5,
     "regenerates": 2,
     "harvest": "mutant_human",
-    "path_settings": { "max_dist": 9 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [
       { "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 12 } ] },
       {
@@ -664,7 +664,7 @@
     "vision_night": 5,
     "regenerates": 2,
     "harvest": "mutant_human",
-    "path_settings": { "max_dist": 4 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [
       [ "GRAB", 7 ],
       { "id": "slam", "damage_max_instance": [ { "damage_type": "bash", "amount": 15, "armor_multiplier": 0.8 } ] }
@@ -718,7 +718,7 @@
     "vision_night": 5,
     "harvest": "zombie",
     "regenerates": 3,
-    "path_settings": { "max_dist": 5 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [
       [ "SMASH", 30 ],
       [ "GRAB", 7 ],
@@ -773,7 +773,7 @@
     "vision_night": 5,
     "harvest": "zombie",
     "regenerates": 3,
-    "path_settings": { "max_dist": 6 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [
       [ "SMASH", 20 ],
       { "id": "slam", "damage_max_instance": [ { "damage_type": "bash", "amount": 24, "armor_multiplier": 0.7 } ] }
@@ -827,7 +827,7 @@
     "vision_night": 5,
     "regenerates": 1,
     "harvest": "mutant_human",
-    "path_settings": { "max_dist": 2 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "scratch", 10 ] ],
     "death_drops": { "subtype": "collection", "groups": [ [ "default_zombie_children_clothes", 100 ], [ "child_items", 65 ] ] },
     "upgrades": { "half_life": 50, "into": "dkz_mon_stray_wretch" },
@@ -875,7 +875,7 @@
     "vision_night": 15,
     "regenerates": 1,
     "harvest": "zombie_fur",
-    "path_settings": { "max_dist": 3 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [ [ "scratch", 10 ], { "type": "bite", "cooldown": 5 } ],
     "upgrades": { "half_life": 21, "into": "dkz_mon_stray_wretch" },
     "flags": [
@@ -923,7 +923,7 @@
     "vision_night": 7,
     "regenerates": 1,
     "harvest": "zombie_fur",
-    "path_settings": { "max_dist": 5 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [
       { "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 10 } ] },
       { "type": "leap", "cooldown": 10, "max_range": 5 },
@@ -980,7 +980,7 @@
     "vision_night": 7,
     "regenerates": 2,
     "harvest": "zombie_fur",
-    "path_settings": { "max_dist": 5 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [
       { "id": "slam", "damage_max_instance": [ { "damage_type": "bash", "amount": 15 } ] },
       { "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 10, "armor_multiplier": 0.7 } ] },
@@ -1032,7 +1032,7 @@
     "regenerates": 2,
     "harvest": "zombie_thorny",
     "attack_effs": [ { "id": "paralyzepoison", "duration": 33 } ],
-    "path_settings": { "max_dist": 5 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [ { "type": "leap", "cooldown": 10, "max_range": 5 }, [ "RANGED_PULL", 20 ], [ "GRAB_DRAG", 3 ], [ "LONGSWIPE", 20 ] ],
     "flags": [
       "SEES",
@@ -1082,7 +1082,7 @@
     "vision_night": 5,
     "regenerates": 2,
     "harvest": "zombie",
-    "path_settings": { "max_dist": 10 },
+    "path_settings": { "max_dist": 15 },
     "special_attacks": [ { "type": "leap", "cooldown": 10, "max_range": 5 } ],
     "special_when_hit": [ "ZAPBACK", 100 ],
     "flags": [
@@ -1112,8 +1112,8 @@
     "species": [ "BIOCRYSTAL" ],
     "volume": "74973 ml",
     "weight": "90718 g",
-    "hp": 350,
-    "speed": 120,
+    "hp": 140,
+    "speed": 90,
     "material": [ "flesh" ],
     "symbol": "S",
     "color": "light_gray",
@@ -1131,7 +1131,7 @@
     "vision_night": 7,
     "regenerates": 2,
     "harvest": "zombie_fur",
-    "path_settings": { "max_dist": 10 },
+    "path_settings": { "max_dist": 15 },
     "reproduction": { "baby_monster": "dkz_mon_stray_wretch", "baby_count": 2, "baby_timer": 14 },
     "special_attacks": [
       [ "STRETCH_ATTACK", 20 ],
@@ -1182,7 +1182,7 @@
     "regenerates": 1,
     "harvest": "exempt",
     "special_when_hit": [ "ZAPBACK", 100 ],
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": [ "MELT" ],
     "upgrades": { "half_life": 5, "into": "dkz_mon_crystal_sprout" },
     "flags": [ "IMMOBILE", "NOGIB", "ELECTRIC", "WARM", "NO_BREATHE", "NOHEAD", "ARTHROPOD_BLOOD" ]
   },
@@ -1190,7 +1190,7 @@
     "id": "dkz_mon_crystal_sprout",
     "type": "MONSTER",
     "name": { "str": "sprouting crystal mass", "str_pl": "sprouting crystal masses" },
-    "description": "A human-sized mound of shimmering blue-purple crystals growing on the base of what looks like a mound of foul smelling garbage and organic leftovers.  Long, thin tendrils appear to grow out of the mound, and are subtly rooting down into the ground below it, boring through dirt and concrete alike.  It crackles weakly with electrical energy.  If you look closely, it almost looks like something wet and meaty is squirming just inside the inner shell of crystals\u2026",
+    "description": "A human-sized mound of shimmering blue-purple crystals growing on the base of what looks like a mound of foul smelling garbage and organic leftovers.  Long, thin tendrils appear to grow out of the mound, and are subtly rooting down into the ground below it, boring through dirt and concrete alike.  It crackles weakly with electrical energy.  If you look closely, it almost looks like something wet and meaty is squirming just inside the inner shell of crystals…",
     "default_faction": "stray",
     "bodytype": "blob",
     "categories": [ "ALIEN" ],
@@ -1211,7 +1211,7 @@
     "regenerates": 2,
     "harvest": "exempt",
     "special_when_hit": [ "ZAPBACK", 100 ],
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": [ "MELT" ],
     "upgrades": { "half_life": 5, "into_group": "MON_CRYSTAL_UPGRADE" },
     "flags": [ "IMMOBILE", "NOGIB", "ELECTRIC", "WARM", "NO_BREATHE", "NOHEAD", "ARTHROPOD_BLOOD" ]
   },
@@ -1243,7 +1243,7 @@
     "harvest": "exempt",
     "special_attacks": [ [ "SHRIEK_ALERT", 20 ], [ "SHRIEK_STUN", 1 ] ],
     "special_when_hit": [ "ZAPBACK", 100 ],
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": [ "MELT" ],
     "flags": [ "SEES", "IMMOBILE", "HARDTOSHOOT", "NOGIB", "ELECTRIC", "WARM", "NO_BREATHE", "NOHEAD", "ARTHROPOD_BLOOD" ]
   },
   {
@@ -1277,7 +1277,7 @@
     "harvest": "exempt",
     "special_attacks": [ [ "RANGED_PULL", 20 ], [ "STRETCH_ATTACK", 20 ] ],
     "special_when_hit": [ "ZAPBACK", 100 ],
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": [ "MELT" ],
     "flags": [ "SEES", "IMMOBILE", "NOGIB", "ELECTRIC", "WARM", "NO_BREATHE", "NOHEAD", "ARTHROPOD_BLOOD" ]
   },
   {
@@ -1309,7 +1309,7 @@
     "harvest": "exempt",
     "emit_fields": [ { "emit_id": "emit_shock_cloud", "delay": "2  s" } ],
     "special_when_hit": [ "ZAPBACK", 100 ],
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": [ "MELT" ],
     "flags": [ "IMMOBILE", "NOGIB", "ELECTRIC", "WARM", "NO_BREATHE", "NOHEAD", "ARTHROPOD_BLOOD" ]
   },
   {
@@ -1340,7 +1340,7 @@
     "luminance": 10,
     "harvest": "exempt",
     "special_when_hit": [ "ZAPBACK", 100 ],
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": [ "MELT" ],
     "flags": [ "IMMOBILE", "NOGIB", "ELECTRIC", "WARM", "NO_BREATHE", "NOHEAD", "ARTHROPOD_BLOOD" ]
   },
   {
@@ -1375,11 +1375,7 @@
     "reproduction": { "baby_monster": "dkz_mon_crystal_mite", "baby_count": 4, "baby_timer": 60 },
     "special_attacks": [ [ "BOOMER_GLOW", 20 ], [ "STRETCH_ATTACK", 20 ], [ "LONGSWIPE", 20 ] ],
     "special_when_hit": [ "ZAPBACK", 100 ],
-    "death_function": {
-      "effect": { "id": "death_boomer_glow", "hit_self": true, "min_level": 1 },
-      "message": "A %s explode!",
-      "corpse_type": "NO_CORPSE"
-    },
+    "death_function": [ "BOOMER_GLOW", "NORMAL" ],
     "flags": [ "SEES", "IMMOBILE", "NOGIB", "ELECTRIC", "WARM", "NO_BREATHE", "NOHEAD", "ARTHROPOD_BLOOD" ]
   },
   {
@@ -1407,7 +1403,7 @@
     "harvest": "exempt",
     "upgrades": { "age_grow": 12, "into": "dkz_mon_crystal_mite_fat" },
     "fear_triggers": [ "SOUND", "PLAYER_CLOSE" ],
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": [ "MELT" ],
     "flags": [
       "SEES",
       "HEARS",

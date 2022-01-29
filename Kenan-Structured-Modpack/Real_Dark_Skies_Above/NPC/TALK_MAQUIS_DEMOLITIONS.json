@@ -1,109 +1,107 @@
 [
   {
     "type": "npc",
-    "id": "DKZ_SCAVENGER_GUNSLINGER",
-    "class": "NC_SCAVENGER_GUNSLINGER",
+    "id": "DKZ_MAQUIS_DEMOLITIONS",
+    "class": "NC_MAQUIS_DEMOLITIONS",
     "attitude": 0,
-    "mission": 3,
-    "chat": "TALK_SCAVENGER_GUNSLINGER_ROOT",
-    "faction": "wasteland_scavengers"
+    "mission": 7,
+    "chat": "TALK_MAQUIS_DEMOLITIONS_ROOT",
+    "faction": "maquis"
   },
   {
     "type": "npc_class",
-    "id": "NC_SCAVENGER_GUNSLINGER",
-    "name": { "str": "Scavenger" },
-    "job_description": "I'm here to shoot the wings off flies.",
-    "common": false,
+    "id": "NC_MAQUIS_DEMOLITIONS",
+    "name": { "str": "MAQUIS" },
+    "job_description": "I provide the people of this community with bombs and bomb accessories.",
     "traits": [
       { "trait": "DKZ_COMBAT", "prob": 100 },
-      { "group": "NPC_starting_traits" },
-      { "group": "Appearance_demographics" },
-      { "trait": "ROBUST", "prob": 80 }
+      { "group": "DKZ_starting_traits" }, 
+	  { "group": "Appearance_demographics" },
+      { "trait": "ROBUST", "prob": 70 },
+      { "trait": "BADHEARING", "prob": 90 },
+      { "trait": "ANTIJUNK", "prob": 20 },
+      { "trait": "DEX_ALPHA", "prob": 10  },
+      { "trait": "STR_ALPHA", "prob": 30  }
     ],
     "skills": [
       { "skill": "ALL", "level": { "sum": [ { "dice": [ 3, 2 ] }, { "constant": -4 } ] } },
+      { "skill": "fabrication", "bonus": { "rng": [ 1, 3 ] } },	  
+      { "skill": "mechanics", "bonus": { "rng": [ 2, 4 ] } },
+      { "skill": "electronics", "bonus": { "rng": [ 2, 3 ] } },		  
+      { "skill": "chemistry", "bonus": { "rng": [ 2, 5 ] } },		  
       { "skill": "survival", "bonus": { "rng": [ 1, 3 ] } },
-      { "skill": "firstaid", "bonus": { "rng": [ 1, 2 ] } },
-      { "skill": "dodge", "bonus": { "rng": [ 3, 5 ] } },
-      { "skill": "melee", "bonus": { "rng": [ 2, 3 ] } },
+      { "skill": "firstaid", "bonus": { "rng": [ 2, 3 ] } },
+      { "skill": "dodge", "bonus": { "rng": [ 2, 3 ] } },
+      { "skill": "melee", "bonus": { "rng": [ 1, 3 ] } },
       { "skill": "unarmed", "bonus": { "rng": [ 1, 3 ] } },
-      { "skill": "bashing", "bonus": { "rng": [ 2, 4 ] } },
-      { "skill": "stabbing", "bonus": { "rng": [ 1, 3 ] } },
+	  { "skill": "bashing", "bonus": { "rng": [ 1, 2 ] } },
+      { "skill": "stabbing", "bonus": { "rng": [ 1, 2 ] } },
       { "skill": "cutting", "bonus": { "rng": [ 1, 3 ] } },
       { "skill": "gun", "bonus": { "rng": [ 2, 4 ] } },
-      { "skill": "smg", "bonus": { "rng": [ 2, 4 ] } },
-      { "skill": "shotgun", "bonus": { "rng": [ 2, 4 ] } },
-      { "skill": "pistol", "bonus": { "rng": [ 7, 11 ] } },
-      { "skill": "rifle", "bonus": { "rng": [ 3, 5 ] } }
+      { "skill": "shotgun", "bonus": { "rng": [ 1, 3 ] } },	  
+      { "skill": "pistol", "bonus": { "rng": [ 2, 3 ] } },
+      { "skill": "launcher", "bonus": { "rng": [ 4, 7 ] } }
     ],
     "bonus_str": { "rng": [ 1, 3 ] },
-    "bonus_dex": { "rng": [ 3, 5 ] },
+    "bonus_dex": { "rng": [ 1, 3 ] },
     "bonus_int": { "rng": [ -1, 1 ] },
-    "bonus_per": { "rng": [ 3, 5 ] }
-  },
+    "bonus_per": { "rng": [ 1, 3 ] }
+  },  
+
   {
-    "//": "----------INVENTORY LOADOUTS-----------------------------------------------------------------------------------",
+    "//": "----------INVENTORY LOADOUTS-----------------------------------------------------------------------------------",  
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_underwear_bottom_male",
+    "id": "NC_MAQUIS_DEMOLITIONS_underwear_bottom_male",
     "subtype": "collection",
     "items": [ [ "boxer_shorts", 70 ], [ "briefs", 30 ], [ "boxer_briefs", 50 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_underwear_bottom_female",
+    "id": "NC_MAQUIS_DEMOLITIONS_underwear_bottom_female",
     "subtype": "collection",
     "items": [ [ "panties", 70 ], [ "boy_shorts", 50 ], [ "bikini_bottom", 10 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_underwear_top_male",
+    "id": "NC_MAQUIS_DEMOLITIONS_underwear_top_male",
     "subtype": "collection",
     "items": [ [ "null", 50 ], [ "undershirt", 50 ], [ "long_undertop", 20 ], [ "tank_top", 25 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_underwear_top_female",
+    "id": "NC_MAQUIS_DEMOLITIONS_underwear_top_female",
     "subtype": "collection",
     "items": [ [ "null", 10 ], [ "bra", 70 ], [ "sports_bra", 50 ], [ "tank_top", 50 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_underwear_feet_male",
+    "id": "NC_MAQUIS_DEMOLITIONS_underwear_feet_male",
     "items": [ [ "null", 5 ], [ "socks", 80 ], [ "socks_ankle", 60 ], [ "socks_wool", 20 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_underwear_feet_female",
+    "id": "NC_MAQUIS_DEMOLITIONS_underwear_feet_female",
     "items": [ [ "null", 5 ], [ "socks", 50 ], [ "socks_ankle", 30 ], [ "socks_wool", 10 ], [ "stockings", 20 ], [ "tights", 20 ] ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_pants_male",
+    "id": "NC_MAQUIS_DEMOLITIONS_pants_male",
     "subtype": "distribution",
     "entries": [
-      { "item": "jeans", "prob": 20 },
-      { "item": "pants", "prob": 20 },
-      { "item": "pants_leather", "prob": 20 },
-      { "item": "pants_cargo", "prob": 20 },
-      { "item": "bunker_pants", "prob": 20 }
+      { "item": "trousers_eod_light", "prob": 20 } 
     ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_pants_female",
+    "id": "NC_MAQUIS_DEMOLITIONS_pants_female",
     "subtype": "distribution",
     "entries": [
-      { "item": "jeans", "prob": 20 },
-      { "item": "pants", "prob": 20 },
-      { "item": "pants_leather", "prob": 20 },
-      { "item": "pants_cargo", "prob": 20 },
-      { "item": "skirt", "prob": 20 },
-      { "item": "bunker_pants", "prob": 10 }
+      { "item": "trousers_eod_light", "prob": 20 } 
     ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_shirt_male",
+    "id": "NC_MAQUIS_DEMOLITIONS_shirt_male",
     "subtype": "distribution",
     "entries": [
       { "item": "tshirt", "prob": 20 },
@@ -114,7 +112,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_shirt_female",
+    "id": "NC_MAQUIS_DEMOLITIONS_shirt_female",
     "subtype": "distribution",
     "entries": [
       { "item": "tshirt", "prob": 20 },
@@ -125,37 +123,31 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_gloves",
+    "id": "NC_MAQUIS_DEMOLITIONS_gloves",
     "subtype": "distribution",
     "entries": [
-      { "item": "null", "prob": 60 },
       { "item": "gloves_leather", "prob": 20 },
-      { "item": "gloves_fingerless", "prob": 20 }
+      { "item": "gloves_eod", "prob": 60 }
     ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_coat",
+    "id": "NC_MAQUIS_DEMOLITIONS_coat",
     "subtype": "distribution",
     "entries": [
-      { "item": "touring_suit", "prob": 20 },
-      { "item": "jacket_leather", "prob": 20 },
-      { "item": "trenchcoat", "prob": 20 },
-      { "item": "jacket_jean", "prob": 20 },
-      { "item": "bunker_coat", "prob": 10 },
-      { "item": "jacket_windbreaker", "prob": 10 },
-      { "item": "kevlar", "prob": 5 }
-    ]
+      { "item": "jacket_eod_light", "prob": 20 },
+      { "item": "jacket_eod", "prob": 20 }
+	]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_shoes",
+    "id": "NC_MAQUIS_DEMOLITIONS_shoes",
     "subtype": "distribution",
-    "entries": [ { "item": "boots_western", "prob": 20 } ]
+    "entries": [ { "item": "foot_protectors_eod", "prob": 20 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_masks",
+    "id": "NC_MAQUIS_DEMOLITIONS_masks",
     "subtype": "distribution",
     "entries": [
       { "item": "null", "prob": 800 },
@@ -166,27 +158,22 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_eyes",
+    "id": "NC_MAQUIS_DEMOLITIONS_eyes",
     "subtype": "distribution",
     "entries": [ { "item": "null", "prob": 80 }, { "item": "glasses_safety", "prob": 20 }, { "item": "sunglasses", "prob": 20 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_hat",
+    "id": "NC_MAQUIS_DEMOLITIONS_hat",
     "subtype": "distribution",
     "entries": [
-      { "item": "null", "prob": 80 },
-      { "item": "hat_ball", "prob": 10 },
-      { "item": "hat_hard", "prob": 10 },
-      { "item": "helmet_bike", "prob": 10 },
-      { "item": "helmet_riot", "prob": 10 },
-      { "item": "helmet_motor", "prob": 10 },
-      { "item": "hat_hunting", "prob": 10 }
+      { "item": "null", "prob": 1 },
+      { "item": "helmet_eod", "prob": 50 }
     ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_extra",
+    "id": "NC_MAQUIS_DEMOLITIONS_extra",
     "subtype": "distribution",
     "entries": [
       { "item": "null", "prob": 5 },
@@ -197,7 +184,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_bashing",
+    "id": "NC_MAQUIS_DEMOLITIONS_bashing",
     "subtype": "distribution",
     "entries": [
       { "item": "hammer", "prob": 20 },
@@ -212,7 +199,7 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_cutting",
+    "id": "NC_MAQUIS_DEMOLITIONS_cutting",
     "subtype": "distribution",
     "entries": [
       { "item": "knife_butcher", "prob": 20 },
@@ -224,113 +211,133 @@
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_stabbing",
+    "id": "NC_MAQUIS_DEMOLITIONS_stabbing",
     "subtype": "distribution",
-    "entries": [ { "item": "spear_knife", "prob": 50 }, { "item": "spear_rebar", "prob": 5 } ]
+    "entries": [
+      { "item": "spear_knife", "prob": 50 },
+      { "item": "spear_rebar", "prob": 5 }
+    ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_throw",
+    "id": "NC_MAQUIS_DEMOLITIONS_throw",
     "subtype": "distribution",
     "entries": [ { "item": "throwing_knife", "prob": 50 }, { "item": "throwing_axe", "prob": 50 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_archery",
+    "id": "NC_MAQUIS_DEMOLITIONS_archery",
     "subtype": "distribution",
     "entries": [ { "item": "crossbow", "prob": 5 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_pistols",
+    "id": "NC_MAQUIS_DEMOLITIONS_pistols",
     "subtype": "distribution",
-    "entries": [ { "group": "guns_pistol_rare", "prob": 130 } ]
+    "entries": [ { "group": "guns_pistol_common", "prob": 70 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_shotgun",
+    "id": "NC_MAQUIS_DEMOLITIONS_shotgun",
     "subtype": "distribution",
     "entries": [ { "group": "guns_shotgun_common", "prob": 70 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_smg",
+    "id": "NC_MAQUIS_DEMOLITIONS_smg",
     "subtype": "distribution",
-    "entries": [ { "group": "guns_smg_common", "prob": 20 } ]
+    "entries": [ { "group": "guns_smg_common", "prob": 70 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_rifle",
+    "id": "NC_MAQUIS_DEMOLITIONS_rifle",
     "subtype": "distribution",
-    "entries": [ { "group": "guns_rifle_common", "prob": 20 } ]
+    "entries": [ { "group": "guns_rifle_common", "prob": 70 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_launcher",
+    "id": "NC_MAQUIS_DEMOLITIONS_launcher",
     "subtype": "distribution",
-    "entries": [ { "group": "guns_launcher_milspec", "prob": 20 } ]
+    "entries": [ { "group": "guns_launcher_milspec", "prob": 130 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_weapon_random",
+    "id": "NC_MAQUIS_DEMOLITIONS_weapon_random",
     "subtype": "distribution",
     "entries": [ { "item": "q_staff", "prob": 100 } ]
   },
   {
     "type": "item_group",
-    "id": "NC_SCAVENGER_GUNSLINGER_misc",
+    "id": "NC_MAQUIS_DEMOLITIONS_misc",
     "subtype": "distribution",
     "entries": [
       { "group": "rad_gear", "count-min": 1, "count-max": 2, "prob": 90 },
       { "group": "fireman_gear", "count-min": 1, "count-max": 2, "prob": 90 },
-      { "group": "gear_survival", "count-min": 1, "count-max": 3, "prob": 90 },
-      { "item": "western_holster", "prob": 100 },
+      { "item": "fungicide", "prob": 20 },
       { "item": "insecticide", "prob": 20 },
       { "item": "antifungal", "prob": 20 },
       { "item": "antiparasitic", "prob": 20 }
     ]
   },
+  
   {
-    "//": "----------DIALOGUE OPTIONS-------------------------------------------------------------------------------------",
-    "id": "TALK_SCAVENGER_GUNSLINGER_ROOT",
+    "//": "----------DIALOGUE OPTIONS-------------------------------------------------------------------------------------",  
+    "id": "TALK_MAQUIS_DEMOLITIONS_ROOT",
     "type": "talk_topic",
     "dynamic_line": {
       "u_is_wearing": "badge_marshal",
       "yes": [ "Are you lost, marshal?", "Don't start any trouble marshal, you aren't the law anymore." ],
-      "no": [ "Don't cause any trouble here, I'd rather kill monsters than people.", "Safe travels, scavenger." ]
+      "no": [ "Don't cause any trouble here, I'd rather kill monsters than people.", "Safe travels." ]
     },
     "responses": [
-      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_GUNSLINGER_ROOT" },
-      { "text": "What are you doing here?", "topic": "TALK_SCAVENGER_GUNSLINGER_DOING" },
-      { "text": "What is upstairs?", "topic": "TALK_SCAVENGER_GUNSLINGER_UPSTAIRS" },
+      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_MAQUIS_DEMOLITIONS_ROOT" },
+      { "text": "What are you doing here?", "topic": "TALK_MAQUIS_DEMOLITIONS_DOING" },
+      { "text": "What is upstairs?", "topic": "TALK_MAQUIS_DEMOLITIONS_UPSTAIRS" },
+      {
+        "text": "[MISSION] I'm looking for Chad Erikson, Randy sent me.",	
+        "condition": {
+          "and": [
+            { "not": { "u_has_var": "u_met_Chad_Erikson", "type": "general", "context": "meeting", "value": "yes" } },
+            { "u_has_mission": "MISSION_CHECK_UP_ON_BIG_BROTHER" }
+          ]
+        },			
+        "topic": "TALK_MAQUIS_DEMOLITIONS_BIG_BROTHER"		
+      },	  
       { "text": "See you later.", "topic": "TALK_DONE" }
     ]
   },
   {
-    "id": "TALK_SCAVENGER_GUNSLINGER_DOING",
+    "type": "talk_topic",
+    "id": "TALK_MAQUIS_DEMOLITIONS_BIG_BROTHER",
+    "dynamic_line": [
+      "I'm not sure where Mr. Erikson is at right now."
+    ],
+    "responses": [ { "text": "Ok, Thanks.", "topic": "TALK_NONE" }, { "text": "Ok, I have to go now.", "topic": "TALK_DONE" } ]
+  }, 
+  {
+    "id": "TALK_MAQUIS_DEMOLITIONS_DOING",
     "type": "talk_topic",
     "dynamic_line": [
-      "There is an arrangement with everyone that lives here, the bottom two floors are a free trade zone and the upper floors are for the alien resistance operation.  We all help them keep the outside defences in place and warn of any zombies or xenoids around the perimeter.  You can always count on the snipers upstairs for overwatch while smashing and looting.",
-      "I'm there are some mutants in the upper floors and some in the basement, but they're good people.  So long as you don't stare at the heavily deformed ones.",
+      "There is an arrangement with everyone that lives here, the bottom two floors are a free trade zone and the upper floors are for the alien resistance operation.  We also help them keep the outside defences in place and warn of any zombies or xenoids around the perimeter.  There is always something that needs to be blown up.",
       "I keep the peace down here between other scavengers, but everyone is very civil to each other since there are monsters outside."
     ],
     "responses": [
-      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_GUNSLINGER_ROOT" },
-      { "text": "Nice arrangement for everyone.", "topic": "TALK_SCAVENGER_GUNSLINGER_ROOT" },
-      { "text": "Ok, I'll leave you to it.", "topic": "TALK_DONE" }
+      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_MAQUIS_DEMOLITIONS_ROOT" },
+      { "text": "Nice arrangement for everyone.", "topic": "TALK_MAQUIS_DEMOLITIONS_ROOT" },
+	  { "text": "Ok, I'll leave you to it.", "topic": "TALK_DONE" }
     ]
   },
   {
-    "id": "TALK_SCAVENGER_GUNSLINGER_UPSTAIRS",
+    "id": "TALK_MAQUIS_DEMOLITIONS_UPSTAIRS",
     "type": "talk_topic",
     "dynamic_line": [
       "Sometimes I'll go up to the roof to help with sniper overwatch.  Its fun to use the really powerful rifles even if we can't take them down here.",
       "I only go upstairs to check out the casino, its fun to use looted cash cards to gamble.  I'm up almost a hundred-thousand dollars.",
-      "The library is nice, they're always on the look for more books, the more rare, the more they'll give for them."
+	  "The library is nice, they're always on the look for more books, the more rare, the more they'll give for them."
     ],
     "responses": [
-      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_SCAVENGER_GUNSLINGER_ROOT" },
+      { "text": "Let's trade.", "effect": "start_trade", "topic": "TALK_MAQUIS_DEMOLITIONS_ROOT" },
       { "text": "Well, bye.", "topic": "TALK_DONE" }
     ]
-  }
+  }  
 ]
