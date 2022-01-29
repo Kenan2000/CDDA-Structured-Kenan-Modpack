@@ -1,0 +1,263 @@
+[
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "BL9_library" ],
+    "weight": 1000,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "........................",
+        "........................",
+        "..###oo####++####oo###..",
+        "..#           c b   [#..",
+        "..#QQQQQQQ    c     y#..",
+        "..#QQQQQQQ    ccccc y#..",
+        "..o                  o..",
+        "..o             h    o..",
+        "..#OOOOOJJJJJ  [[h  Q#..",
+        "..#OOOOOJJJJJ h[[h  Q#..",
+        "..o                 Q#..",
+        "..o                 Q#..",
+        "..#UUUUUUUUUU h[[h  Q#..",
+        "..#IIIIIIIIII  [[h  Q#..",
+        "..o                 Q#..",
+        "..o                 Q#..",
+        "..#WWWWMMMMNNNNPy   Q#..",
+        "..##########||||o+|||#..",
+        "..G.......4#MAW   + S#..",
+        "...........o b    | t#..",
+        "...........oB  [ y|||#..",
+        "...........o      | S#..",
+        "...........#y CC  + t#..",
+        "...........###########.."
+      ],
+      "palettes": [ "standard_building_palette", "library_palette" ],
+      "nested": { "G": { "chunks": [ "roof_6x6_garden_1" ] } },
+      "terrain": { "G": "t_grass" },
+      "place_monsters": [ { "monster": "GROUP_ZOMBIE", "x": [ 0, 0 ], "y": [ 23, 23 ], "chance": 2, "repeat": [ 2, 3 ] } ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": "BL9_library_roof",
+    "object": {
+      "fill_ter": "t_flat_roof",
+      "rows": [
+        "                        ",
+        "                        ",
+        "  |2222222222222222223  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |..................3  ",
+        "  |--------5.........3  ",
+        "           |......Z..3  ",
+        "           |.U.......3  ",
+        "           |.....R...3  ",
+        "           |.........3  ",
+        "           |.........3  ",
+        "           |---------3  "
+      ],
+      "palettes": [ "roof_palette" ],
+      "nested": {
+        "U": { "chunks": [ "roof_2x2_infrastructure" ] },
+        "R": { "chunks": [ "roof_2x2_infrastructure_1" ] },
+        "Z": { "chunks": [ "roof_2x2_infrastructure_2" ] }
+      },
+      "place_nested": [
+        {
+          "chunks": [
+            [ "null", 20 ],
+            [ "roof_2x2_utilities_b", 15 ],
+            [ "roof_2x2_utilities_c", 5 ],
+            [ "roof_2x2_utilities_d", 40 ],
+            [ "roof_2x2_utilities", 50 ]
+          ],
+          "x": [ 5, 15 ],
+          "y": [ 13, 14 ]
+        },
+        {
+          "chunks": [ [ "null", 20 ], [ "roof_4x4_utility", 40 ], [ "roof_6x6_utility", 20 ] ],
+          "x": [ 4, 10 ],
+          "y": [ 4, 6 ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "BL9_bookstore" ],
+    "weight": 3000,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "~~~~~~~~~~~~~~~~~~~~~~~~",
+        "~~~~~~~~~~~~~~~~~~~~~~~~",
+        "~~~~~~~~~~~~~~~~~~~~~~~~",
+        "**|========::-OO--OO-|**",
+        "**|hTh.hTh...#.......|**",
+        "**|.h...h....#%##%##.|**",
+        "*qO..................Oq*",
+        "**|###%#.h...........|**",
+        "**|e...#.T...[[[[[..]|**",
+        "**|s..c#....>|-|....]|**",
+        "**|c..c#....||s|....]|**",
+        "**|...a#.h..|t.|TT..]|**",
+        "**|.##%#.T..|-+|TT..]|**",
+        "*qO.................]|**",
+        "**|hTh.hTh..........]|**",
+        "*qO.................]|**",
+        "**|[[[[[[[..[[[[[[..]|**",
+        "**|[[[[[[[..[[[[[[..]|**",
+        "**|..................|**",
+        "*qO..................Oq*",
+        "**|]]]]]]]]]]]]]]]]]]|**",
+        "**|------------------|**",
+        "************************",
+        "************************"
+      ],
+      "terrain": {
+        "#": "t_floor",
+        "*": "t_region_groundcover_urban",
+        "+": "t_door_c",
+        "-": "t_wall_w",
+        ".": "t_floor",
+        ":": "t_door_glass_c",
+        "=": "t_wall_glass",
+        ">": "t_stairs_up",
+        "O": "t_window",
+        "q": "t_region_groundcover_urban",
+        "|": "t_wall_w",
+        "~": "t_sidewalk"
+      },
+      "furniture": {
+        "%": "f_console_broken",
+        "#": "f_counter",
+        "T": "f_table",
+        "[": "f_rack",
+        "]": "f_bookcase",
+        "a": "f_stool",
+        "c": "f_cupboard",
+        "e": "f_fridge",
+        "h": "f_chair",
+        "q": "f_bluebell",
+        "s": "f_sink"
+      },
+      "toilets": { "t": {  } },
+      "place_items": [
+        { "item": "magazines", "x": [ 3, 20 ], "y": 20, "chance": 80, "repeat": [ 6, 20 ] },
+        { "item": "novels", "x": [ 3, 9 ], "y": [ 16, 17 ], "chance": 90, "repeat": [ 8, 16 ] },
+        { "item": "novels", "x": [ 12, 17 ], "y": [ 16, 17 ], "chance": 90, "repeat": [ 8, 16 ] },
+        { "item": "bookstore_misc", "x": [ 13, 17 ], "y": 8, "chance": 50, "repeat": [ 5, 10 ] },
+        { "item": "homebooks", "x": [ 16, 17 ], "y": [ 11, 12 ], "chance": 90, "repeat": [ 4, 16 ] },
+        { "item": "manuals", "x": 20, "y": [ 8, 17 ], "chance": 60, "repeat": [ 2, 5 ] },
+        { "item": "textbooks", "x": 20, "y": [ 8, 17 ], "chance": 60, "repeat": [ 2, 5 ] },
+        { "item": "coffee_display", "x": 7, "y": [ 7, 12 ], "chance": 50, "repeat": [ 3, 4 ] },
+        { "item": "coffee_fridge", "x": 3, "y": 8, "chance": 50, "repeat": 2 },
+        { "item": "coffee_display", "x": 6, "y": [ 9, 10 ], "chance": 50, "repeat": [ 2, 3 ] },
+        { "item": "coffee_table", "x": 4, "y": 4, "chance": 20 },
+        { "item": "coffee_table", "x": 8, "y": 4, "chance": 20 },
+        { "item": "coffee_table", "x": 9, "y": 8, "chance": 20 },
+        { "item": "coffee_table", "x": 9, "y": 12, "chance": 20 },
+        { "item": "coffee_table", "x": 4, "y": 13, "chance": 20 },
+        { "item": "coffee_table", "x": 8, "y": 13, "chance": 20 }
+      ],
+      "place_item": [ { "item": "coffeemaker", "x": 4, "y": 7, "chance": 30 }, { "item": "coffeemaker", "x": 4, "y": 12, "chance": 30 } ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": "BL9_bookstore_roof",
+    "weight": 200,
+    "object": {
+      "fill_ter": "t_floor",
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "  ##O#O###O#O#O##O#O##  ",
+        "  #fSc__btb_btb___btb#  ",
+        "  Of_c____________btbO  ",
+        "  #_cc___b####_______O  ",
+        "  O______t#AX#___btb_#  ",
+        "  #tb____b#+##_##O#O##  ",
+        "  ###+#####_>__+...HH-  ",
+        "  -.....&4##OO##...PP-  ",
+        "  -................HH-  ",
+        "  -.....HH....HH.....-  ",
+        "  -PT...PP....PP...TP-  ",
+        "  -PT...HH....HH...TP-  ",
+        "  -PT..............TP-  ",
+        "  -PT..............TP-  ",
+        "  -PT...HH....HH...TP-  ",
+        "  -PT...PP....PP...TP-  ",
+        "  -PT...HH....HH...TP-  ",
+        "  -..................-  ",
+        "  --------------------  ",
+        "                        ",
+        "                        "
+      ],
+      "terrain": {
+        " ": "t_open_air",
+        ".": "t_tile_flat_roof",
+        "H": "t_tile_flat_roof",
+        "T": "t_tile_flat_roof",
+        "P": "t_tile_flat_roof",
+        "&": "t_tile_flat_roof",
+        "_": "t_floor",
+        ">": "t_stairs_down",
+        "-": "t_glass_railing",
+        "O": "t_window_domestic",
+        "+": "t_door_locked",
+        "4": "t_gutter_downspout",
+        "#": "t_wall_w"
+      },
+      "furniture": {
+        "X": "f_water_heater",
+        "A": "f_air_conditioner",
+        "b": "f_chair",
+        "t": "f_table",
+        "&": "f_trashcan",
+        "c": "f_counter",
+        "S": "f_sink",
+        "f": "f_glass_fridge",
+        "H": "f_bench",
+        "Y": "f_statue",
+        "T": "f_stool",
+        "P": "f_table"
+      },
+      "items": {
+        "P": [
+          { "item": "coffee_condiments", "chance": 20 },
+          { "item": "baked_goods", "chance": 30 },
+          { "item": "coffee_counter", "chance": 20 }
+        ],
+        "t": [
+          { "item": "coffee_dishes", "chance": 20 },
+          { "item": "coffee_condiments", "chance": 20 },
+          { "item": "coffee_counter", "chance": 20 }
+        ],
+        "f": [ { "item": "coffee_freezer", "chance": 20 }, { "item": "coffee_counter", "chance": 20 } ],
+        "c": [
+          { "item": "coffee_condiments", "chance": 20 },
+          { "item": "baked_goods", "chance": 30 },
+          { "item": "coffee_counter", "chance": 20 }
+        ]
+      }
+    }
+  }
+]

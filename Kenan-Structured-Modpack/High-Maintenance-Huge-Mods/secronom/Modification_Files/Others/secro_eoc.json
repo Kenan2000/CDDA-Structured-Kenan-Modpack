@@ -1,0 +1,115 @@
+[
+  {
+    "type": "snippet",
+    "category": "SECRO_FLESHFOREST_CENTER",
+    "text": [ "The flesh feels warm.", "You hear trembling underneath." ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_fleshforest_top",
+    "recurrence_min": "5 minutes",
+    "recurrence_max": "20 minutes",
+    "global": true,
+    "condition": {
+      "or": [
+        { "u_at_om_location": "flesh_forest_1" },
+        { "u_at_om_location": "flesh_forest_2" },
+        { "u_at_om_location": "flesh_forest_3" },
+        { "u_at_om_location": "flesh_forest_4" },
+        { "u_at_om_location": "flesh_forest_5" },
+        { "u_at_om_location": "flesh_forest_6" },
+        { "u_at_om_location": "flesh_forest_7" },
+        { "u_at_om_location": "flesh_forest_8" },
+        { "u_at_om_location": "flesh_forest_9" }
+      ]
+    },
+    "effect": [ { "u_message": "SECRO_FLESHFOREST_CENTER", "snippet": true } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_fleshforest_ch_spawns",
+    "recurrence_min": "5 minutes",
+    "recurrence_max": "10 minutes",
+    "global": true,
+    "condition": {
+      "or": [
+        { "u_at_om_location": "flesh_forest_bot1_1" },
+        { "u_at_om_location": "flesh_forest_bot1_2" },
+        { "u_at_om_location": "flesh_forest_bot1_3" },
+        { "u_at_om_location": "flesh_forest_bot1_4" },
+        { "u_at_om_location": "flesh_forest_bot1_5" },
+        { "u_at_om_location": "flesh_forest_bot1_6" },
+        { "u_at_om_location": "flesh_forest_bot1_7" },
+        { "u_at_om_location": "flesh_forest_bot1_8" },
+        { "u_at_om_location": "flesh_forest_bot1_9" },
+        { "u_at_om_location": "flesh_forest_bot2_1" },
+        { "u_at_om_location": "flesh_forest_bot2_2" },
+        { "u_at_om_location": "flesh_forest_bot2_3" },
+        { "u_at_om_location": "flesh_forest_bot2_4" },
+        { "u_at_om_location": "flesh_forest_bot2_5" },
+        { "u_at_om_location": "flesh_forest_bot2_6" },
+        { "u_at_om_location": "flesh_forest_bot2_7" },
+        { "u_at_om_location": "flesh_forest_bot2_8" },
+        { "u_at_om_location": "flesh_forest_bot2_9" },
+        { "u_at_om_location": "flesh_forest_bot3_1" },
+        { "u_at_om_location": "flesh_forest_bot3_2" },
+        { "u_at_om_location": "flesh_forest_bot3_3" },
+        { "u_at_om_location": "flesh_forest_bot3_4" },
+        { "u_at_om_location": "flesh_forest_bot3_5" },
+        { "u_at_om_location": "flesh_forest_bot3_6" },
+        { "u_at_om_location": "flesh_forest_bot3_7" },
+        { "u_at_om_location": "flesh_forest_bot3_8" },
+        { "u_at_om_location": "flesh_forest_bot3_9" },
+        { "u_at_om_location": "flesh_forest_boss_1" },
+        { "u_at_om_location": "flesh_forest_boss_2" },
+        { "u_at_om_location": "flesh_forest_boss_3" },
+        { "u_at_om_location": "flesh_forest_boss_4" },
+        { "u_at_om_location": "flesh_forest_boss_5" },
+        { "u_at_om_location": "flesh_forest_boss_6" },
+        { "u_at_om_location": "flesh_forest_boss_7" },
+        { "u_at_om_location": "flesh_forest_boss_8" },
+        { "u_at_om_location": "flesh_forest_boss_9" }
+      ]
+    },
+    "effect": [
+      { "u_message": "<color_dark_gray>Something emerged out from the walls...</color>" },
+      {
+        "u_set_spawn_monster": "GROUP_FLESH_TENTCLUS",
+        "group": true,
+        "real_count": 1,
+        "min_radius": 6,
+        "max_radius": 12
+      },
+      {
+        "set_queue_effect_on_condition": [
+          {
+            "id": "eoc_secro_fleshforest_ch_spawns_more",
+            "condition": { "one_in_chance": 2 },
+            "effect": [
+              {
+                "u_set_spawn_monster": "GROUP_FLESH_TENTCLUS",
+                "group": true,
+                "real_count": 1,
+                "min_radius": 6,
+                "max_radius": 12
+              }
+            ]
+          },
+          {
+            "id": "eoc_secro_fleshforest_ch_spawns_morer",
+            "condition": { "one_in_chance": 3 },
+            "effect": [
+              {
+                "u_set_spawn_monster": "GROUP_FLESH_TENTCLUS",
+                "group": true,
+                "real_count": 1,
+                "min_radius": 6,
+                "max_radius": 12
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
