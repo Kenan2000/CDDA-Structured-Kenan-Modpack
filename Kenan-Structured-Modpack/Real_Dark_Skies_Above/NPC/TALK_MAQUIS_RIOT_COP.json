@@ -6,6 +6,7 @@
     "attitude": 0,
     "mission": 7,
     "chat": "TALK_MAQUIS_RIOT_COP_ROOT",
+    "mission_offered": "DKZ_MAQUIS_KILL_12_XENOIDS",	
     "faction": "maquis"
   },
   {
@@ -264,7 +265,19 @@
       },
       {
         "text": "Is there anything I can do to help you out?",
-        "condition": { "and": [ { "not": "has_many_assigned_mission" }, { "not": "has_assigned_mission" } ] },
+        "condition": {
+          "and": [
+            { "not": "has_many_assigned_mission" },
+            { "not": "has_assigned_mission" },
+            {
+              "u_compare_var": "maquis_morale",
+              "type": "counter",
+              "context": "refugee_center",
+              "op": "<",
+              "value": 15
+            }
+          ]
+        },
         "topic": "TALK_MISSION_LIST"
       },
       { "text": "About that mission…", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },	  

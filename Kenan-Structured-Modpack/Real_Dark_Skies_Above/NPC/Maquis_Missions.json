@@ -9,17 +9,17 @@
     "difficulty": 3,
     "value": 125000,
     "origins": [ "ORIGIN_SECONDARY" ],
-   "start": {
+    "start": {
       "effect": [
         "follow_only",
         { "npc_add_var": "temporal_follower", "type": "general", "context": "maquis_riot_guard", "value": "yes" }
       ]
-},	  
+    },
     "end": {
       "effect": [
         { "u_adjust_var": "maquis_morale", "type": "counter", "context": "refugee_center", "adjustment": 2 },
         { "npc_add_var": "Maquis_Riot_Guard_Mission1", "type": "mission", "context": "flag", "value": "yes" },
-        { "add_mission": "DKZ_MAQUIS_RETURN_z0_2_2" }		
+        { "add_mission": "DKZ_MAQUIS_RETURN_z0_3_3" }
       ]
     },
     "dialogue": {
@@ -44,18 +44,18 @@
     "difficulty": 3,
     "value": 25000,
     "origins": [ "ORIGIN_SECONDARY" ],
-   "start": {
+    "start": {
       "effect": [
         "follow_only",
         { "npc_add_var": "temporal_follower", "type": "general", "context": "maquis_riot_guard", "value": "yes" }
       ]
-},	  
+    },
     "followup": "DKZ_MAQUIS_RETURN_z0_2_2",
     "end": {
       "effect": [
         { "u_adjust_var": "maquis_morale", "type": "counter", "context": "refugee_center", "adjustment": 1 },
         { "u_add_var": "Maquis_Guard_Mission1", "type": "mission", "context": "flag", "value": "yes" },
-        { "add_mission": "DKZ_MAQUIS_RETURN_z0_2_2" }	
+        { "add_mission": "DKZ_MAQUIS_RETURN_z0_2_2" }
       ]
     },
     "dialogue": {
@@ -80,7 +80,13 @@
     "difficulty": 0,
     "value": 0,
     "start": {
-      "assign_mission_target": { "om_terrain": "racing_tower_z0_2_2", "om_special": "arcology_racing", "reveal_radius": 1, "search_range": 360, "z": 0 }
+      "assign_mission_target": {
+        "om_terrain": "racing_tower_z0_2_2",
+        "om_special": "arcology_racing",
+        "reveal_radius": 1,
+        "search_range": 360,
+        "z": 0
+      }
     },
     "end": {
       "effect": [
@@ -102,5 +108,44 @@
       "success_lie": "Are you lost or something?",
       "failure": "Can't believe we got lost…"
     }
-  }  
+  },
+  {
+    "id": "DKZ_MAQUIS_RETURN_z0_3_3",
+    "type": "mission_definition",
+    "name": { "str": "Return to Maquis HQ" },
+    "description": "Return to Maquis HQ.",
+    "goal": "MGOAL_GO_TO_TYPE",
+    "destination": "racing_tower_z0_2_2",
+    "difficulty": 0,
+    "value": 0,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "racing_tower_z0_3_3",
+        "om_special": "arcology_racing",
+        "reveal_radius": 1,
+        "search_range": 360,
+        "z": 0
+      }
+    },
+    "end": {
+      "effect": [
+        "stop_following",
+        { "u_adjust_var": "maquis_morale", "type": "counter", "context": "refugee_center", "adjustment": 2 },
+        { "npc_lose_var": "temporal_follower", "type": "general", "context": "maquis_riot_guard" }
+      ]
+    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "has_generic_rewards": false,
+    "dialogue": {
+      "describe": "…",
+      "offer": "Lets go back to base.",
+      "accepted": "Alright, lets be off.  You don't mind taking point, right?",
+      "rejected": "Well…",
+      "advice": "You keep a map around don't you?  I do, and you probably should too.",
+      "inquire": "We there yet?",
+      "success": "Thanks for having my back.  As I said, I owe you one.",
+      "success_lie": "Are you lost or something?",
+      "failure": "Can't believe we got lost…"
+    }
+  }
 ]

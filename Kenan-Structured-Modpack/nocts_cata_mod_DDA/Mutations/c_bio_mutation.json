@@ -7,11 +7,7 @@
     "description": "Your genome is unique to you, this is a DNA marker identifying you as Bio-Weapon Alpha.  It may prove useful one day.",
     "valid": false,
     "purifiable": false,
-    "profession": true,
-    "fat_to_max_hp": 1.0,
-    "dodge_modifier": 1,
-    "stomach_size_multiplier": 2.5,
-    "enchantments": [ "C_MEP_BIO_PAINREC" ]
+    "profession": true
   },
   {
     "type": "mutation",
@@ -21,10 +17,7 @@
     "description": "Your genome is unique to you, this is a DNA marker identifying you as Bio-Weapon Beta.  It may prove useful one day.",
     "valid": false,
     "purifiable": false,
-    "profession": true,
-    "stamina_regen_modifier": 0.25,
-    "bleed_resist": 1,
-    "enchantments": [ "C_MEP_BIO_PAINREC" ]
+    "profession": true
   },
   {
     "type": "mutation",
@@ -34,10 +27,7 @@
     "description": "Your genome is unique to you, this is a DNA marker identifying you as Bio-Weapon Gamma.  It may prove useful one day.",
     "valid": false,
     "purifiable": false,
-    "profession": true,
-    "craft_skill_bonus": [ [ "computer", 2 ], [ "electronics", 2 ], [ "firstaid", 2 ] ],
-    "anger_relations": [ [ "ROBOT", -45 ] ],
-    "enchantments": [ "C_MEP_BIO_PAINREC" ]
+    "profession": true
   },
   {
     "type": "mutation",
@@ -47,11 +37,7 @@
     "description": "Your genome is unique to you, this is a DNA marker identifying you as Bio-Weapon Delta.  It may prove useful one day.",
     "valid": false,
     "purifiable": false,
-    "profession": true,
-    "stealth_modifier": 15,
-    "noise_modifier": 0.85,
-    "scent_modifier": 0.85,
-    "enchantments": [ "C_MEP_BIO_PAINREC" ]
+    "profession": true
   },
   {
     "type": "mutation",
@@ -61,8 +47,7 @@
     "description": "This DNA marker serves as a reminder of what you are - a Bio-Weapon.  This is for NPCs, if you have this it's a bug to pester Noctifer about!",
     "valid": false,
     "purifiable": false,
-    "profession": true,
-    "enchantments": [ "C_MEP_BIO_PAINREC" ]
+    "profession": true
   },
   {
     "type": "mutation",
@@ -73,8 +58,7 @@
     "valid": false,
     "purifiable": false,
     "profession": true,
-    "anger_relations": [ [ "FBIO-WEAPON", -25 ] ],
-    "enchantments": [ "C_MEP_BIO_PAINREC" ]
+    "anger_relations": [ [ "FBIO-WEAPON", -25 ] ]
   },
   {
     "type": "mutation",
@@ -86,6 +70,247 @@
     "valid": false,
     "purifiable": false,
     "profession": true
+  },
+  {
+    "type": "mutation",
+    "id": "ARMOR_BIOWEAPON",
+    "name": { "str": "Natural Armor" },
+    "points": 1,
+    "mixed_effect": true,
+    "description": "Your skin and underlying muscles are hard as stone.  You have innate resistance to all forms of physical damage and are less likely to suffer bleeding, but you also suffer extra encumbrance.",
+    "valid": false,
+    "purifiable": false,
+    "cancels": [ "THINSKIN", "THICKSKIN" ],
+    "types": [ "SKIN" ],
+    "bleed_resist": 1,
+    "encumbrance_always": [
+      [ "torso", 5 ],
+      [ "head", 5 ],
+      [ "arm_l", 5 ],
+      [ "arm_r", 5 ],
+      [ "hand_l", 5 ],
+      [ "hand_r", 5 ],
+      [ "leg_l", 5 ],
+      [ "leg_r", 5 ],
+      [ "foot_l", 5 ],
+      [ "foot_r", 5 ]
+    ],
+    "armor": [ { "parts": "ALL", "physical": 10 } ]
+  },
+  {
+    "type": "mutation",
+    "id": "HUNGER_BIOWEAPON",
+    "name": { "str": "Metabolic Instability" },
+    "points": -1,
+    "mixed_effect": true,
+    "description": "Your body requires more resources than normal, burning calories and requiring more food in exchange for warming you up more easily.",
+    "valid": false,
+    "purifiable": false,
+    "types": [ "METABOLISM" ],
+    "cancels": [ "THIRST" ],
+    "bodytemp_modifiers": [ 0, 2000 ],
+    "metabolism_modifier": 1.25,
+    "thirst_modifier": 0.75
+  },
+  {
+    "type": "mutation",
+    "id": "NEURO_BAD_BIOWEAPON",
+    "name": { "str": "Neural Degeneration" },
+    "points": -1,
+    "description": "You suffer from a form of artificially-induced atavism.  Reading is much slower, and crafting is more difficult.  Persuading NPCs will be more difficult, but threatening them will be easier.",
+    "valid": false,
+    "purifiable": false,
+    "cancels": [ "NEURO_GOOD_BIOWEAPON", "FASTREADER", "SLOWREADER" ],
+    "reading_speed_multiplier": 1.5,
+    "craft_skill_bonus": [
+      [ "electronics", -2 ],
+      [ "tailor", -2 ],
+      [ "mechanics", -2 ],
+      [ "firstaid", -2 ],
+      [ "computer", -2 ],
+      [ "traps", -2 ],
+      [ "fabrication", -2 ],
+      [ "cooking", -2 ],
+      [ "survival", -2 ]
+    ],
+    "social_modifiers": { "persuade": -40, "lie": -20, "intimidate": 15 }
+  },
+  {
+    "type": "mutation",
+    "id": "NEURO_GOOD_BIOWEAPON",
+    "name": { "str": "Neural Augmentation" },
+    "points": 1,
+    "mixed_effect": true,
+    "description": "Your brain has been basically rewired to handle technical tasks more easily.  You can read much faster, and find it easier to craft.  However, this increased activity makes you require much more sleep as well.",
+    "valid": false,
+    "purifiable": false,
+    "cancels": [ "NEURO_BAD_BIOWEAPON", "FASTREADER", "SLOWREADER" ],
+    "reading_speed_multiplier": 0.75,
+    "craft_skill_bonus": [
+      [ "electronics", 2 ],
+      [ "tailor", 2 ],
+      [ "mechanics", 2 ],
+      [ "firstaid", 2 ],
+      [ "computer", 2 ],
+      [ "traps", 2 ],
+      [ "fabrication", 2 ],
+      [ "cooking", 2 ],
+      [ "survival", 2 ]
+    ],
+    "fatigue_modifier": 0.75
+  },
+  {
+    "type": "mutation",
+    "id": "PAINREC_BIOWEAPON",
+    "name": { "str": "Pain Mitigation" },
+    "points": 1,
+    "description": "Your body is conditioned to easily shrug off pain.  Any aches and pains you accumulate will steadily fade away.",
+    "valid": false,
+    "purifiable": false,
+    "enchantments": [ "C_MEP_BIO_PAINREC" ]
+  },
+  {
+    "type": "mutation",
+    "id": "PONDEROUS_BIOWEAPON",
+    "name": { "str": "Unsteady Footwork" },
+    "points": -1,
+    "description": "It's far easier for someone of your stature to simply stand there and take it.  Your movement across flat terrain and in water is 10% slower, your movement in rough terrain is 30% slower, and you suffer a severe penalty to dodging.",
+    "valid": false,
+    "purifiable": false,
+    "types": [ "RUNNING" ],
+    "cancels": [ "PARKOUR", "BADKNEES" ],
+    "movecost_flatground_modifier": 1.1,
+    "movecost_swim_modifier": 1.1,
+    "movecost_obstacle_modifier": 1.3,
+    "dodge_modifier": -6
+  },
+  {
+    "type": "mutation",
+    "id": "ROBOT_FRIEND_BIOWEAPON",
+    "name": { "str": "Machine Empathy" },
+    "points": 1,
+    "description": "Something they did to you seems to confound facial recognition software.  Most of the haywire robots out there will be slower to identify you as a threat.",
+    "valid": false,
+    "purifiable": false,
+    "anger_relations": [ [ "ROBOT", -45 ] ]
+  },
+  {
+    "type": "mutation",
+    "id": "REGEN_BIOWEAPON",
+    "name": { "str": "Augmented Healing" },
+    "points": 1,
+    "description": "Your body recovers from injury much quicker than normal, especially when you're awake and active.",
+    "valid": false,
+    "purifiable": false,
+    "types": [ "HEALING" ],
+    "healing_awake": 2.5,
+    "healing_resting": 1.0,
+    "mending_modifier": 10.0
+  },
+  {
+    "type": "mutation",
+    "id": "SCOUT_BIOWEAPON",
+    "name": { "str": "Navigator" },
+    "points": 1,
+    "description": "Your mental conditioning makes it easier to handle the outdoors, and to find your way.  Your sight radius on the overmap is increased, and you suffer reduced wet penalties.",
+    "valid": false,
+    "purifiable": false,
+    "cancels": [ "EAGLEEYED", "MYOPIC", "UNOBSERVANT", "OUTDOORSMAN" ],
+    "overmap_sight": 5,
+    "wet_protection": [
+      { "part": "head", "neutral": 5 },
+      { "part": "leg_l", "neutral": 10 },
+      { "part": "leg_r", "neutral": 10 },
+      { "part": "foot_l", "neutral": 5 },
+      { "part": "foot_r", "neutral": 5 },
+      { "part": "arm_l", "neutral": 7 },
+      { "part": "arm_r", "neutral": 7 },
+      { "part": "hand_l", "neutral": 10 },
+      { "part": "hand_r", "neutral": 10 },
+      { "part": "torso", "neutral": 15 }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "SLOW_METABOLISM_BIOWEAPON",
+    "name": { "str": "Metabolic Stasis" },
+    "points": -1,
+    "mixed_effect": true,
+    "description": "Your body is tuned to operate at a much slower pace to conserve energy.  You need less food, water, and sleep than normal people, but your stamina regenerates much more slowly, and you heal slower too.",
+    "valid": false,
+    "purifiable": false,
+    "types": [ "METABOLISM", "HEALING" ],
+    "cancels": [ "THIRST" ],
+    "metabolism_modifier": -0.25,
+    "thirst_modifier": -0.25,
+    "fatigue_modifier": -0.25,
+    "stamina_regen_modifier": -0.5,
+    "healing_resting": -0.5,
+    "mending_modifier": 0.25
+  },
+  {
+    "type": "mutation",
+    "id": "SPEED_BIOWEAPON",
+    "name": { "str": "Hunter-Killer" },
+    "points": 1,
+    "description": "Your reflexes and agility have been greatly augmented.  You move faster overall, attack much faster, and can find it easier to dodge attacks.  What's more, your instincts have been honed to make combat skills easier to learn, and you find killing easier on the mind.",
+    "valid": false,
+    "purifiable": false,
+    "types": [ "RUNNING" ],
+    "cancels": [ "PARKOUR", "BADKNEES" ],
+    "movecost_flatground_modifier": 0.75,
+    "movecost_obstacle_modifier": 0.75,
+    "movecost_swim_modifier": 0.75,
+    "attackcost_modifier": 0.5,
+    "dodge_modifier": 3,
+    "flags": [ "PRED2" ]
+  },
+  {
+    "type": "mutation",
+    "id": "STAMINA_BIOWEAPON",
+    "name": { "str": "Cardioefficiency" },
+    "points": 1,
+    "description": "You find it easier than normal to recover from physical exertion, gaining increased stamina regeneration.",
+    "valid": false,
+    "purifiable": false,
+    "stamina_regen_modifier": 0.25
+  },
+  {
+    "type": "mutation",
+    "id": "SUBTLE_BIOWEAPON",
+    "name": { "str": "Subtlety" },
+    "points": 1,
+    "description": "Your innate conditioning makes it much easier to slip past undetected and manipulate others.  You're harder to spot and your movement is more quiet, plus it's much easier to persuade and lie to NPCs.",
+    "valid": false,
+    "purifiable": false,
+    "cancels": [ "LIGHTSTEP", "CLUMSY" ],
+    "stealth_modifier": 30,
+    "noise_modifier": 0.5,
+    "social_modifiers": { "persuade": 25, "lie": 50 }
+  },
+  {
+    "type": "mutation",
+    "id": "TOUGH_BIOWEAPON",
+    "name": { "str": "Unyielding" },
+    "points": 1,
+    "description": "Your durability and resilience are overall far beyond normal humans.  You gain a flat +50 to all hit points, plus your maximum stamina and stamina regeneration is 30% higher than normal.",
+    "valid": false,
+    "purifiable": false,
+    "cancels": [ "TOUGH", "FLIMSY", "FLIMSY2", "FLIMSY3", "GLASSJAW", "GOODCARDIO", "BADCARDIO" ],
+    "hp_adjustment": 50,
+    "max_stamina_modifier": 1.3
+  },
+  {
+    "type": "mutation",
+    "id": "WEAK_BIOWEAPON",
+    "name": { "str": "Vulnerable" },
+    "points": -1,
+    "description": "Your body is much less resilient overall. Your maximum HP is 50% lower than normal, and you suffer increased phyiscal damage.",
+    "valid": false,
+    "purifiable": false,
+    "cancels": [ "TOUGH", "FLIMSY", "FLIMSY2", "FLIMSY3", "GLASSJAW", "THICKSKIN", "THINSKIN" ],
+    "hp_modifier": -0.5,
+    "armor": [ { "parts": "ALL", "physical": -5 } ]
   },
   {
     "type": "mutation",
