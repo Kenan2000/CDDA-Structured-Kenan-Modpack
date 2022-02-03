@@ -3,7 +3,7 @@
     "id": "mon_dkz_glowdrone",
     "type": "MONSTER",
     "name": { "str": "xenoid reconnaissance drone" },
-    "description": "A sleek, white-plated spherical robot about the size of a soccer ball, with a prominent golden insignia of a stylized sun being pierced with a flaming sword.  Capable of effortless flight, it hovers about the ruins of the former world; irregularly placed integrated cameras and high-intensity spotlights dispassionately bear witness to the chaos around it.  Who knows what might be watching on the other side…",
+    "description": "A sleek, white-plated spherical robot about the size of a soccer ball, with a prominent golden insignia of a stylized sun being pierced with a flaming sword.  Capable of effortless flight, it hovers about the ruins of the former world; irregularly placed integrated cameras and high-intensity spotlights dispassionately bear witness to the chaos around it.  Who knows what might be watching on the other side\u2026",
     "default_faction": "xenoid_bot",
     "looks_like": "mon_eyebot",
     "categories": [ "ALIEN" ],
@@ -44,8 +44,9 @@
         "monster_message": "<color_white>%1$s blinds %3$s with its integrated camera!</color>"
       }
     ],
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "allow_open_doors": true, "bash_strength": 1 },
-    "death_function": [ "BROKEN" ],
+    "path_settings": { "max_dist": 5 },
+    "death_drops": { "groups": [ [ "robots", 4 ], [ "eyebot", 1 ], [ "turret_searchlight", 1 ] ] },
+    "death_function": { "corpse_type": "BROKEN" },
     "flags": [
       "SEES",
       "SMELLS",
@@ -64,7 +65,7 @@
     "id": "mon_dkz_scidrone",
     "type": "MONSTER",
     "name": { "str": "xenoid seeker drone" },
-    "description": "A small, sleek, white-plated robot with a golden insignia of a stylized sun being pierced with a sword.  Capable of limited flight, it hovers about the ruins of the former world, using a suite of rather sharp looking retractable tools, a bright camera flash, and integrated 'arms' to manipulate the world around it with surprising dexterity and procure samples.  It seems to watch you closely…",
+    "description": "A small, sleek, white-plated robot with a golden insignia of a stylized sun being pierced with a sword.  Capable of limited flight, it hovers about the ruins of the former world, using a suite of rather sharp looking retractable tools, a bright camera flash, and integrated 'arms' to manipulate the world around it with surprising dexterity and procure samples.  It seems to watch you closely\u2026",
     "default_faction": "xenoid_bot",
     "looks_like": "mon_eyebot",
     "categories": [ "ALIEN" ],
@@ -112,9 +113,10 @@
         "monster_message": "<color_white>%1$s blinds %3$s with its integrated camera!</color>"
       }
     ],
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "allow_open_doors": true, "bash_strength": 1 },
+    "path_settings": { "max_dist": 5 },
     "anger_triggers": [ "HURT", "PLAYER_WEAK", "STALK" ],
-    "death_function": [ "BROKEN" ],
+    "death_drops": { "groups": [ [ "robots", 4 ], [ "skitterbot", 1 ] ] },
+    "death_function": { "corpse_type": "BROKEN" },
     "flags": [
       "SEES",
       "SMELLS",
@@ -184,7 +186,7 @@
       }
     ],
     "death_drops": "dkz_mon_xenoid_ranger",
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "allow_open_doors": true, "bash_strength": 10 },
+    "path_settings": { "max_dist": 20 },
     "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK", "STALK" ],
     "upgrades": { "half_life": 30, "into_group": "DKZ_GROUP_RANGER_UPGRADE" },
     "flags": [
@@ -197,7 +199,7 @@
       "BASHES",
       "GROUP_BASH",
       "HUMAN",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "FIREPROOF",
       "PRIORITIZE_TARGETS",
       "CLIMBS",
@@ -258,7 +260,7 @@
       }
     ],
     "death_drops": "dkz_mon_xenoid_hunter",
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "allow_open_doors": true, "bash_strength": 12 },
+    "path_settings": { "max_dist": 20 },
     "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK", "STALK" ],
     "flags": [
       "SEES",
@@ -271,7 +273,7 @@
       "BASHES",
       "GROUP_BASH",
       "HUMAN",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "FIREPROOF",
       "PRIORITIZE_TARGETS",
       "CLIMBS",
@@ -334,7 +336,7 @@
       }
     ],
     "death_drops": "dkz_mon_xenoid_enforcer",
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "allow_open_doors": true, "bash_strength": 10 },
+    "path_settings": { "max_dist": 5 },
     "upgrades": { "half_life": 30, "into_group": "DKZ_GROUP_ENFORCER_UPGRADE" },
     "flags": [
       "SEES",
@@ -348,7 +350,7 @@
       "GROUP_BASH",
       "FIREPROOF",
       "HUMAN",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS",
       "CLIMBS",
       "CAN_OPEN_DOORS"
@@ -409,7 +411,7 @@
       }
     ],
     "death_drops": "dkz_mon_xenoid_oppressor",
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "allow_open_doors": true, "bash_strength": 10 },
+    "path_settings": { "max_dist": 5 },
     "flags": [
       "SEES",
       "SMELLS",
@@ -423,7 +425,7 @@
       "GROUP_BASH",
       "FIREPROOF",
       "HUMAN",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS",
       "CLIMBS",
       "CAN_OPEN_DOORS"
@@ -482,7 +484,7 @@
       }
     ],
     "death_drops": "dkz_xenoid_fumigator",
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "allow_open_doors": true, "bash_strength": 10 },
+    "path_settings": { "max_dist": 5 },
     "flags": [
       "SEES",
       "SMELLS",
@@ -496,7 +498,7 @@
       "GROUP_BASH",
       "FIREPROOF",
       "HUMAN",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS",
       "CLIMBS",
       "CAN_OPEN_DOORS"
@@ -557,8 +559,8 @@
       }
     ],
     "death_drops": "dkz_mon_xenoid_pyro",
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "allow_open_doors": true, "bash_strength": 15 },
-    "death_function": [ "CONFLAGRATION" ],
+    "path_settings": { "max_dist": 15 },
+    "death_function": { "effect": { "id": "death_fireball", "hit_self": true } },
     "flags": [
       "SEES",
       "SMELLS",
@@ -572,7 +574,7 @@
       "GROUP_BASH",
       "FIREPROOF",
       "ACIDPROOF",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS",
       "CAN_OPEN_DOORS"
     ]
@@ -632,7 +634,7 @@
       }
     ],
     "death_drops": "dkz_mon_xenoid_knight",
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "allow_open_doors": true, "bash_strength": 15 },
+    "path_settings": { "max_dist": 10 },
     "upgrades": { "half_life": 30, "into_group": "DKZ_GROUP_KNIGHT_UPGRADE" },
     "flags": [
       "SEES",
@@ -646,7 +648,7 @@
       "GROUP_BASH",
       "FIREPROOF",
       "ACIDPROOF",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS",
       "CAN_OPEN_DOORS"
     ]
@@ -706,7 +708,7 @@
       }
     ],
     "death_drops": "dkz_mon_xenoid_templar",
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "allow_open_doors": true, "bash_strength": 15 },
+    "path_settings": { "max_dist": 10 },
     "flags": [
       "SEES",
       "SMELLS",
@@ -720,7 +722,7 @@
       "GROUP_BASH",
       "FIREPROOF",
       "ACIDPROOF",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS",
       "CAN_OPEN_DOORS"
     ]
@@ -756,7 +758,7 @@
     "vision_day": 50,
     "vision_night": 12,
     "emit_fields": [ { "emit_id": "emit_toxic_leak", "delay": "1 s" } ],
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "avoid_sharp": true, "allow_open_doors": true, "bash_strength": 100 },
+    "path_settings": { "max_dist": 30 },
     "death_drops": { "groups": [ [ "robots", 4 ], [ "eyebot", 1 ], [ "turret_searchlight", 1 ] ] },
     "anger_triggers": [ "HURT", "PLAYER_WEAK", "STALK" ],
     "fear_triggers": [ "HURT" ],
@@ -780,7 +782,7 @@
         "description": "<color_light_green>The %1$s fires a stream of blue hazy gas!</color>"
       }
     ],
-    "death_function": [ "BROKEN" ],
+    "death_function": { "corpse_type": "BROKEN" },
     "flags": [
       "SEES",
       "HEARS",
@@ -797,7 +799,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS"
     ]
   },
@@ -831,14 +833,13 @@
     "armor_bullet": 29,
     "vision_day": 50,
     "vision_night": 12,
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "avoid_sharp": true, "allow_open_doors": true, "bash_strength": 100 },
+    "path_settings": { "max_dist": 30 },
     "emit_fields": [ { "emit_id": "emit_toxic_leak", "delay": "1 s" } ],
     "death_drops": { "groups": [ [ "robots", 4 ], [ "eyebot", 1 ], [ "turret_searchlight", 1 ] ] },
     "fear_triggers": [ "HURT" ],
     "special_attacks": [
-      [ "PARROT", 5 ],
-      [ "IMPALE", 20 ],	  
-      [ "TAZER", 30 ],
+      [ "PARROT", 20 ],
+      [ "TAZER", 20 ],
       [ "SMASH", 30 ],
       [ "LONGSWIPE", 20 ],
       {
@@ -856,7 +857,7 @@
         "description": "Putrid gas rolls across the landscape!"
       }
     ],
-    "death_function": [ "BROKEN" ],
+    "death_function": { "corpse_type": "BROKEN" },
     "flags": [
       "SEES",
       "HEARS",
@@ -873,7 +874,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS"
     ]
   },
@@ -907,13 +908,12 @@
     "armor_bullet": 31,
     "vision_day": 50,
     "vision_night": 12,
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "avoid_sharp": true, "allow_open_doors": true, "bash_strength": 100 },
+    "path_settings": { "max_dist": 30 },
     "emit_fields": [ { "emit_id": "emit_toxic_leak", "delay": "1 s" } ],
     "death_drops": { "groups": [ [ "robots", 4 ], [ "eyebot", 1 ], [ "turret_searchlight", 1 ] ] },
     "fear_triggers": [ "HURT" ],
     "special_attacks": [
-      [ "PARROT", 5 ],
-      [ "IMPALE", 20 ],	  
+      [ "PARROT", 20 ],
       [ "TAZER", 20 ],
       [ "SMASH", 30 ],
       [ "LONGSWIPE", 20 ],
@@ -934,7 +934,7 @@
         "description": "<color_light_red>A blinding lazer causes widespread devastation.</color>"
       }
     ],
-    "death_function": [ "BROKEN" ],
+    "death_function": { "corpse_type": "BROKEN" },
     "flags": [
       "SEES",
       "HEARS",
@@ -951,7 +951,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS"
     ]
   },
@@ -985,12 +985,11 @@
     "armor_bullet": 29,
     "vision_day": 50,
     "vision_night": 12,
-    "path_settings": { "max_dist": 45, "max_length": 15, "avoid_traps": true, "avoid_sharp": true, "allow_open_doors": true, "bash_strength": 100 },
+    "path_settings": { "max_dist": 30 },
     "death_drops": { "groups": [ [ "robots", 4 ], [ "eyebot", 1 ], [ "turret_searchlight", 1 ] ] },
     "fear_triggers": [ "HURT" ],
     "special_attacks": [
-      [ "PARROT", 5 ],
-      [ "IMPALE", 20 ],	  
+      [ "PARROT", 20 ],
       [ "TAZER", 20 ],
       [ "SMASH", 30 ],
       [ "LONGSWIPE", 20 ],
@@ -1008,7 +1007,7 @@
         "description": "Sound returns as the emissary's cannon roars to life!!"
       }
     ],
-    "death_function": [ "BROKEN" ],
+    "death_function": { "corpse_type": "BROKEN" },
     "flags": [
       "SEES",
       "HEARS",
@@ -1025,7 +1024,7 @@
       "GROUP_MORALE",
       "PUSH_MON",
       "PUSH_VEH",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER_2",
       "PRIORITIZE_TARGETS"
     ]
   },
@@ -1062,13 +1061,13 @@
       [ "GRAB_DRAG", 3 ],
       {
         "type": "bite",
-        "no_infection_chance": 10,
+        "infection_chance": 10,
         "damage_max_instance": [ { "damage_type": "stab", "amount": 12, "armor_multiplier": 0.8 } ],
         "cooldown": 10
       }
     ],
     "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK" ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "SEES", "HEARS", "SMELLS", "SWIMS", "AQUATIC", "POISON", "HARDTOSHOOT" ]
   },
   {
@@ -1112,7 +1111,7 @@
       [ "SMASH", 20 ]
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "HURT" ],
-    "death_function": [ "MELT" ],
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "SEES", "HEARS", "SMELLS", "BASHES", "DESTROYS", "ACIDPROOF", "CAN_DIG" ]
   }
 ]

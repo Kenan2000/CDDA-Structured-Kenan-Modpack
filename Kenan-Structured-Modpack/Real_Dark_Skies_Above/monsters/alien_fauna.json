@@ -24,13 +24,12 @@
     "armor_bash": 6,
     "armor_cut": 2,
     "harvest": "zombie_leather",
-    "path_settings": { "max_dist": 5 },	
     "special_attacks": [
       [ "RANGED_PULL", 20 ],
       [ "GRAB_DRAG", 3 ],
       {
         "type": "bite",
-        "no_infection_chance": 2,
+        "infection_chance": 50,
         "damage_max_instance": [ { "damage_type": "stab", "amount": 10, "armor_multiplier": 0.8 } ],
         "cooldown": 10
       }
@@ -63,7 +62,6 @@
     "armor_bash": 12,
     "armor_cut": 18,
     "harvest": "zombie_leather",
-	"path_settings": { "max_dist": 5 },
     "special_attacks": [
       [ "GRAB_DRAG", 3 ],
       {
@@ -111,18 +109,12 @@
     "anger_triggers": [ "HURT" ],
     "fear_triggers": [ "FIRE" ],
     "placate_triggers": [ "MEAT", "PLAYER_WEAK" ],
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "WARM",
-      "KEENNOSE",
-      "PATH_AVOID_DANGER_1",
-      "ANIMAL",
-      "PET_WONT_FOLLOW",
-      "PET_MOUNTABLE",
-      "CATTLEFODDER"
-    ]
+    "petfood": {
+      "food": [ "CATTLEFOOD" ],
+      "feed": "The %s seems to like you! It lets you pat its head and seems friendly.",
+      "pet": "The %s happily wags its tail while you pat their head."
+    },
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "KEENNOSE", "PATH_AVOID_DANGER_1", "ANIMAL", "PET_WONT_FOLLOW", "PET_MOUNTABLE" ]
   },
   {
     "id": "dkz_mon_packliz",
@@ -157,6 +149,11 @@
     "anger_triggers": [ "PLAYER_CLOSE", "FRIEND_ATTACKED", "HURT" ],
     "fear_triggers": [ "FIRE" ],
     "placate_triggers": [ "MEAT" ],
+    "petfood": {
+      "food": [ "DOGFOOD" ],
+      "feed": "The %s seems to like you! It lets you pat its head and seems friendly.",
+      "pet": "The %s happily wags its tail while you pat their head."
+    },
     "flags": [
       "SEES",
       "HEARS",
@@ -169,8 +166,7 @@
       "ANIMAL",
       "ATTACKMON",
       "SWIMS",
-      "PET_WONT_FOLLOW",
-      "DOGFOOD"
+      "PET_WONT_FOLLOW"
     ]
   },
   {
@@ -193,21 +189,14 @@
     "aggression": -99,
     "morale": 0,
     "dodge": 4,
-    "path_settings": { "max_dist": 5 },	
     "fear_triggers": [ "SOUND", "FIRE", "FRIEND_DIED", "FRIEND_ATTACKED", "HURT" ],
-    "death_function": [ "MELT" ],
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "KEENNOSE",
-      "ANIMAL",
-      "PATH_AVOID_DANGER_1",
-      "FLIES",
-      "SWARMS",
-      "PET_WONT_FOLLOW",
-      "CATFOOD"
-    ]
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "petfood": {
+      "food": [ "CATFOOD" ],
+      "feed": "The %s seems to like you! It lets you pat its head and seems friendly.",
+      "pet": "The %s happily wiggles around while you pat their head."
+    },
+    "flags": [ "SEES", "HEARS", "SMELLS", "KEENNOSE", "ANIMAL", "PATH_AVOID_DANGER_1", "FLIES", "SWARMS", "PET_WONT_FOLLOW" ]
   },
   {
     "id": "dkz_mon_bileworm",
@@ -234,10 +223,9 @@
     "melee_damage": [ { "damage_type": "acid", "amount": 4 } ],
     "armor_bash": 2,
     "harvest": "mutant_meatslug",
-    "path_settings": { "max_dist": 5 },	
     "special_attacks": [ [ "ACID_BARF", 10 ] ],
     "anger_triggers": [ "PLAYER_WEAK" ],
     "placate_triggers": [ "MEAT" ],
-    "flags": [ "KEENNOSE", "HEARS", "SMELLS", "BASHES", "DESTROYS", "ACIDPROOF", "PATH_AVOID_DANGER_1", "CAN_DIG" ]
+    "flags": [ "KEENNOSE", "HEARS", "SMELLS", "BASHES", "DESTROYS", "ACIDPROOF", "CAN_DIG" ]
   }
 ]
