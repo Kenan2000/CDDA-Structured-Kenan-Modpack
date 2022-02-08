@@ -17,7 +17,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_hemo_bcurl_check",
-    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, { "const": 4 } ], "op": "<=" },
+    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 4 } ] },
     "effect": [
       { "u_message": "Blood accumulates around you!", "type": "bad" },
       { "u_add_effect": "unity_bloodslow", "duration": "25 seconds" }
@@ -72,8 +72,8 @@
     "id": "eoc_secro_mon_zombie_tentawraith_tentgrasp_check",
     "condition": {
       "and": [
-        { "compare_int": [ { "u_val": "skill_level", "skill": "dodge" }, { "const": 4 } ], "op": ">=" },
-        { "compare_int": [ { "u_val": "dexterity" }, { "const": 8 } ], "op": ">=" }
+        { "compare_int": [ { "u_val": "skill_level", "skill": "dodge" }, ">=", { "const": 4 } ] },
+        { "compare_int": [ { "u_val": "dexterity" }, ">=", { "const": 8 } ] }
       ]
     },
     "effect": [ { "u_message": "A barrage of tentacles tried to grasp at you, but you dodge!", "type": "good" } ],
@@ -448,7 +448,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_ayenel_lockon_check",
-    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, { "const": 5 } ], "op": ">=" },
+    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 5 } ] },
     "effect": [ { "u_add_effect": "blind", "duration": "6 seconds" }, { "u_add_effect": "glowing", "duration": "60 seconds" } ]
   },
   {
@@ -618,7 +618,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_secrodragon_woke_check",
-    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, { "const": 2 } ], "op": "<=" },
+    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 2 } ] },
     "effect": [ { "set_queue_effect_on_condition": [ "eoc_secro_mon_secrodragon_woke_barrier_check" ] } ],
     "false_effect": [ { "set_queue_effect_on_condition": [ "eoc_secro_mon_secrodragon_woke_ranged_check" ] } ]
   }
