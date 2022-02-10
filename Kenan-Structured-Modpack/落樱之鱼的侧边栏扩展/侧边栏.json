@@ -1,0 +1,810 @@
+[
+    {
+        "id": "生命值头部数值",
+        "type": "widget",
+        "label": "头部",
+        "var": "bp_hp",
+        "bodypart": "head",
+        "copy-from": "hitpoint_num"
+      },
+      {
+        "id": "生命值躯干数值",
+        "type": "widget",
+        "label": "躯干",
+        "var": "bp_hp",
+        "bodypart": "torso",
+        "copy-from": "hitpoint_num"
+      },
+      {
+        "id": "生命值左臂数值",
+        "type": "widget",
+        "label": "左臂",
+        "var": "bp_hp",
+        "bodypart": "arm_l",
+        "copy-from": "hitpoint_num"
+      },
+      {
+        "id": "生命值右臂数值",
+        "type": "widget",
+        "label": "右臂",
+        "var": "bp_hp",
+        "bodypart": "arm_r",
+        "copy-from": "hitpoint_num"
+      },
+      {
+        "id": "生命值左腿数值",
+        "type": "widget",
+        "label": "左腿",
+        "var": "bp_hp",
+        "bodypart": "leg_l",
+        "copy-from": "hitpoint_num"
+      },
+      {
+        "id": "生命值右腿数值",
+        "type": "widget",
+        "label": "右腿",
+        "var": "bp_hp",
+        "bodypart": "leg_r",
+        "copy-from": "hitpoint_num"
+      },
+      {
+        "id": "地点基础",
+        "type": "widget",
+        "label": { "str": "地点", "ctxt": "UI sidebar" },
+        "style": "text",
+        "var": "place_text"
+      },
+
+  {
+    "id": "生命值上侧数值",
+    "type": "widget",
+    "label": "生命值数值上侧",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [ "生命值头部数值", "生命值躯干数值"  ]
+  },
+  {
+    "id": "生命值中间数值",
+    "type": "widget",
+    "label": "生命值数值下侧",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [ "生命值左臂数值", "生命值右臂数值" ]
+  },
+  {
+    "id": "生命值下侧数值",
+    "type": "widget",
+    "label": "生命值数值下侧",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [ "生命值左腿数值", "生命值右腿数值" ]
+  },
+  {
+      "id":"生命值数值",
+      "type": "widget",
+      "style": "layout",
+      "label": "生命值数值（窄）",
+      "arrange": "rows",
+      "widgets": [ "生命值上侧数值", "生命值中间数值", "生命值下侧数值" ],
+      "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "生命值上侧宽数值",
+    "type": "widget",
+    "label": "生命值数值下侧",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [ "生命值左腿数值", "生命值头部数值", "生命值右腿数值" ]
+  },
+  {
+    "id": "生命值下侧宽数值",
+    "type": "widget",
+    "label": "生命值数值下侧",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [ "生命值左腿数值", "生命值躯干数值", "生命值右腿数值" ]
+  },
+  {
+    "id":"生命值数值宽",
+    "type": "widget",
+    "style": "layout",
+    "label": "生命值数值（宽）",
+    "arrange": "rows",
+    "widgets": [ "生命值上侧宽数值", "生命值下侧宽数值" ]
+  },
+  {
+    "id": "疼痛与健康数值",
+    "type": "widget",
+    "style": "layout",
+    "label": "疼痛与健康",
+    "arrange": "columns",
+    "widgets": [ "疼痛数值", "健康数值" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "疼痛数值",
+    "type": "widget",
+    "label": "疼痛",
+    "var": "pain",
+    "style": "number",
+    "colors": [ "c_white", "c_yellow", "c_light_red", "c_red" ]
+  },
+  {
+    "id": "健康数值",
+    "type": "widget",
+    "label": "健康",
+    "var": "health",
+    "style": "number",
+    "colors": [ "c_red", "c_light_red", "c_light_green", "c_green" ]
+  },
+  {
+    "id": "耐力与心肺功能数值",
+    "type": "widget",
+    "style": "layout",
+    "label": "耐力和心肺功能",
+    "arrange": "columns",
+    "widgets": [ "耐力数值", "心肺功能数值" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "耐力数值",
+    "type": "widget",
+    "copy-from": "stamina_widget",
+    "label": "耐力值",
+    "style": "number"
+  },
+  {
+    "id": "心肺功能数值",
+    "type": "widget",
+    "label": "心肺功能",
+    "var": "cardio_fit",
+    "style": "number"
+  },
+  {
+    "id": "生命值图形窄",
+    "type": "widget",
+    "style": "layout",
+    "label": "Hit Points",
+    "arrange": "rows",
+    "widgets": [ "hitpoints_head_torso_layout", "hitpoints_arms_layout", "hitpoints_legs_layout" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "生命值图形宽",
+    "type": "widget",
+    "style": "layout",
+    "label": "HP(宽)",
+    "arrange": "rows",
+    "widgets": [ "hitpoint_graphs_top_layout", "hitpoint_graphs_bottom_layout" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "情绪/专注",
+    "type": "widget",
+    "style": "layout",
+    "label": "Mood/Focus",
+    "arrange": "columns",
+    "widgets": [ "mood_desc", "focus_num" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "心情状态",
+    "type": "widget",
+    "style": "layout",
+    "label": "心情状态",
+    "arrange": "columns",
+    "widgets": [ "疼痛数值", "健康数值", "mood_desc", "focus_num" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "行动速度与移动速度",
+    "type": "widget",
+    "style": "layout",
+    "label": "Move/Speed",
+    "arrange": "columns",
+    "widgets": [ "move_num", "speed_num" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "行动信息",
+    "type": "widget",
+    "style": "layout",
+    "label": "行动信息",
+    "arrange": "columns",
+    "widgets": [ "耐力数值", "move_num", "speed_num", "心肺功能数值" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "行动信息改",
+    "type": "widget",
+    "style": "layout",
+    "label": "行动信息(改)",
+    "arrange": "columns",
+    "widgets": [ "耐力数值", "speed_num", "心肺功能数值" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "力量与敏捷",
+    "type": "widget",
+    "style": "layout",
+    "label": "Str/Dex",
+    "arrange": "columns",
+    "widgets": [ "str_num", "dex_num" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "智力与感知",
+    "type": "widget",
+    "style": "layout",
+    "label": "Int/Per",
+    "arrange": "columns",
+    "widgets": [ "int_num", "per_num" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "人物属性",
+    "type": "widget",
+    "style": "layout",
+    "label": "人物属性",
+    "arrange": "columns",
+    "widgets": [ "力量与敏捷", "智力与感知" ]
+  },
+  {
+    "id": "移动",
+    "type": "widget",
+    "style": "layout",
+    "label": "Movement",
+    "arrange": "rows",
+    "widgets": [ "move_count_cost_layout", "move_mode_speed_layout" ]
+  },
+  {
+    "id": "耐力与疲劳",
+    "type": "widget",
+    "style": "layout",
+    "label": "Stamina/Weariness",
+    "arrange": "rows",
+    "widgets": [ "stamina_graph", "activity_desc", "weariness_desc", "weary_malus_desc" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "疲劳",
+    "type": "widget",
+    "style": "layout",
+    "label": "疲劳",
+    "arrange": "columns",
+    "widgets": [ "activity_desc", "weariness_desc", "weary_malus_desc" ]
+  },
+  {
+    "id": "需求",
+    "type": "widget",
+    "style": "layout",
+    "label": "Needs",
+    "arrange": "rows",
+    "widgets": [ "hunger_desc", "thirst_desc", "weight_desc", "fatigue_desc", "pain_desc", "body_temp_desc" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "需求上",
+    "type": "widget",
+    "style": "layout",
+    "label": "需求(宽)",
+    "arrange": "columns",
+    "widgets": [ "hunger_desc", "thirst_desc" ]
+  },
+  {
+    "id": "需求中",
+    "type": "widget",
+    "style": "layout",
+    "label": "需求(宽)",
+    "arrange": "columns",
+    "widgets": [ "weight_desc", "fatigue_desc" ]
+  },
+  {
+    "id": "需求下",
+    "type": "widget",
+    "style": "layout",
+    "label": "需求(宽)",
+    "arrange": "columns",
+    "widgets": [ "pain_desc", "body_temp_desc" ]
+  },
+  {
+    "id": "需求宽",
+    "type": "widget",
+    "style": "layout",
+    "label": "需求(宽)",
+    "arrange": "rows",
+    "widgets": [ "需求上", "需求中", "需求下" ]
+  },
+  {
+    "id": "安全模式与声音",
+    "type": "widget",
+    "style": "layout",
+    "label": "Safe/Sound",
+    "arrange": "columns",
+    "widgets": [ "safe_mode_desc", "sound_num" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "安全模式与声音和辐射",
+    "type": "widget",
+    "style": "layout",
+    "label": "辐射/声音/安全模式",
+    "arrange": "columns",
+    "widgets": [ "辐射", "sound_num", "safe_mode_desc" ]
+  },
+  {
+    "id": "生物能量",
+    "type": "widget",
+    "label": "Bionic Power",
+    "style": "text",
+    "var": "power_text",
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "生化能量与移动计时",
+    "type": "widget",
+    "style": "layout",
+    "label": "生化能量/行动点",
+    "arrange": "columns",
+    "widgets": [ "生物能量", "move_num" ]
+  },
+  {
+    "id": "辐射",
+    "type": "widget",
+    "label": "Radiation",
+    "style": "text",
+    "default_clause": { "text": "Unknown", "color": "light_gray" },
+    "copy-from": "rad_badge_template",
+    "//": "Shows worn/wielded radiation badge color from display::rad_badge_text_color",
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "罗盘",
+    "type": "widget",
+    "label": "Compass",
+    "style": "layout",
+    "arrange": "rows",
+    "widgets": [ "compass_top_layout", "compass_middle_layout", "compass_bottom_layout", "compass_legend_text" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "罗盘动态",
+    "type": "widget",
+    "label": "Compass (Dynamic)",
+    "style": "layout",
+    "arrange": "rows",
+    "widgets": [ "compass_top_layout", "compass_middle_layout", "compass_bottom_layout", "compass_legend_text_alt" ]
+  },
+  {
+    "id": "武器与武术",
+    "type": "widget",
+    "style": "layout",
+    "label": "Weapon/Style",
+    "arrange": "rows",
+    "widgets": [ "wielding_desc", "style_desc" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "武器与武术宽",
+    "type": "widget",
+    "style": "layout",
+    "label": "武器/武术(宽)",
+    "arrange": "columns",
+    "widgets": [ "style_desc","wielding_desc"  ]
+  },
+  {
+    "id": "地点日期时间",
+    "type": "widget",
+    "label": "Place/Date/Time",
+    "style": "layout",
+    "arrange": "rows",
+    "widgets": [ "地点基础", "date_desc", "time_desc" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "地点日期时间宽",
+    "type": "widget",
+    "label": "日期/时间/地点(宽)",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [  "date_desc", "time_desc" , "地点基础" ],
+    "flags": [ "W_LABEL_NONE" ]
+  },
+  {
+    "id": "日期时间",
+    "type": "widget",
+    "label": "日期/时间",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [ "date_desc", "time_desc" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "地点位置",
+    "type": "widget",
+    "label": "地点/位置",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [ "地点基础", "位置" ],
+    "flags": [ "W_DISABLED" ]
+  },
+  {
+    "id": "大地图",
+    "type": "widget",
+    "label": "Overmap",
+    "var": "overmap_text",
+    "style": "text",
+    "width": 0,
+    "height": 7,
+    "flags": [ "W_LABEL_NONE" ]
+  },
+  {
+    "id": "位置",
+    "type": "widget",
+    "label": "Location",
+    "var": "overmap_loc_text",
+    "style": "text",
+    "flags": [ "W_LABEL_NONE" ]
+  },
+  {
+    "id": "环境信息",
+    "type": "widget",
+    "label": "Environment",
+    "style": "layout",
+    "arrange": "rows",
+    "widgets": [ "lighting_desc", "moon_phase_desc", "wind_desc", "env_temp_desc" ],
+    "flags": [ "W_LABEL_NONE" ]
+  },
+  {
+    "id": "环境信息宽",
+    "type": "widget",
+    "label": "环境(宽)",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [ "lighting_desc", "moon_phase_desc", "wind_desc", "env_temp_desc" ],
+    "flags": [ "W_LABEL_NONE" ]
+  },
+  {
+    "id": "车辆信息",
+    "type": "widget",
+    "label": "Vehicle",
+    "style": "layout",
+    "arrange": "rows",
+    "widgets": [ "vehicle_azimuth_desc", "vehicle_cruise_desc", "vehicle_fuel_desc" ],
+    "flags": [ "W_LABEL_NONE" ]
+  },
+  {
+    "id": "车辆信息宽",
+    "type": "widget",
+    "label": "载具(宽)",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [ "vehicle_azimuth_desc", "vehicle_cruise_desc", "vehicle_fuel_desc" ]
+  },
+  {
+    "id": "护甲信息",
+    "type": "widget",
+    "style": "layout",
+    "label": "Armor",
+    "arrange": "rows",
+    "widgets": [
+      "bp_armor_outer_head_text",
+      "bp_armor_outer_torso_text",
+      "bp_armor_outer_arms_text",
+      "bp_armor_outer_hands_text",
+      "bp_armor_outer_legs_text",
+      "bp_armor_outer_feet_text"
+    ],
+    "flags": [ "W_LABEL_NONE" ]
+  },
+  {
+    "id": "身体部件状态",
+    "type": "widget",
+    "style": "layout",
+    "label": "Body Part Status",
+    "arrange": "rows",
+    "widgets": [
+      "bp_status_head_text",
+      "bp_status_torso_text",
+      "bp_status_left_arm_text",
+      "bp_status_right_arm_text",
+      "bp_status_left_leg_text",
+      "bp_status_right_leg_text"
+    ],
+    "flags": [ "W_LABEL_NONE" ]
+  },
+  {
+    "id": "身体部件状态新",
+    "type": "widget",
+    "style": "layout",
+    "label": "Body Part Status Alt",
+    "arrange": "rows",
+    "widgets": [ "bodypart_status_top_sym_layout", "bodypart_status_bottom_sym_layout", "bp_status_legend_text" ],
+    "flags": [ "W_LABEL_NONE" ]
+  },
+  {
+    "id": "疼痛信息",
+    "type": "widget",
+    "label": "疼痛",
+    "style": "text",
+    "var": "pain_text",
+    "//": "Uses display::pain_text_color"
+  },
+  {
+    "id": "饥饿信息",
+    "type": "widget",
+    "label": "饥饿",
+    "style": "text",
+    "clauses": [
+      { "id": "engorged", "text": "Engorged", "color": "red", "condition": { "u_has_effect": "hunger_engorged" } },
+      { "id": "full", "text": "Full", "color": "yellow", "condition": { "u_has_effect": "hunger_full" } },
+      {
+        "id": "satisfied",
+        "text": "Satisfied",
+        "color": "green",
+        "condition": { "u_has_effect": "hunger_satisfied" }
+      },
+      { "id": "blank", "text": "", "color": "white", "condition": { "u_has_effect": "hunger_blank" } },
+      { "id": "hungry", "text": "Hungry", "color": "yellow", "condition": { "u_has_effect": "hunger_hungry" } },
+      {
+        "id": "very_hungry",
+        "text": "Very hungry",
+        "color": "yellow",
+        "condition": { "u_has_effect": "hunger_very_hungry" }
+      },
+      {
+        "id": "near_starving",
+        "text": "Near starving",
+        "color": "red",
+        "condition": { "u_has_effect": "hunger_near_starving" }
+      },
+      { "id": "starving", "text": "Starving!", "color": "red", "condition": { "u_has_effect": "hunger_starving" } },
+      {
+        "id": "famished",
+        "text": "Famished",
+        "color": "light_red",
+        "condition": { "u_has_effect": "hunger_famished" }
+      }
+    ]
+  },
+  {
+    "id": "口渴信息",
+    "type": "widget",
+    "label": "口渴",
+    "style": "text",
+    "clauses": [
+      {
+        "id": "parched",
+        "text": "Parched",
+        "color": "light_red",
+        "condition": { "compare_int": [ { "u_val": "thirst" }, ">", { "const": 520 } ] }
+      },
+      {
+        "id": "dehydrated",
+        "text": "Dehydrated",
+        "color": "light_red",
+        "condition": {
+          "and": [
+            { "compare_int": [ { "u_val": "thirst" }, ">", { "const": 240 } ] },
+            { "compare_int": [ { "u_val": "thirst" }, "<=", { "const": 520 } ] }
+          ]
+        }
+      },
+      {
+        "id": "very_thirsty",
+        "text": "Very thirsty",
+        "color": "yellow",
+        "condition": {
+          "and": [
+            { "compare_int": [ { "u_val": "thirst" }, ">", { "const": 80 } ] },
+            { "compare_int": [ { "u_val": "thirst" }, "<=", { "const": 240 } ] }
+          ]
+        }
+      },
+      {
+        "id": "thirsty",
+        "text": "Thirsty",
+        "color": "yellow",
+        "condition": {
+          "and": [
+            { "compare_int": [ { "u_val": "thirst" }, ">", { "const": 40 } ] },
+            { "compare_int": [ { "u_val": "thirst" }, "<=", { "const": 80 } ] }
+          ]
+        }
+      },
+      {
+        "id": "neutral",
+        "text": "",
+        "color": "white",
+        "condition": {
+          "and": [
+            { "compare_int": [ { "u_val": "thirst" }, ">=", { "const": 0 } ] },
+            { "compare_int": [ { "u_val": "thirst" }, "<=", { "const": 40 } ] }
+          ]
+        }
+      },
+      {
+        "id": "slaked",
+        "text": "Slaked",
+        "color": "green",
+        "condition": {
+          "and": [
+            { "compare_int": [ { "u_val": "thirst" }, ">=", { "const": -20 } ] },
+            { "compare_int": [ { "u_val": "thirst" }, "<", { "const": 0 } ] }
+          ]
+        }
+      },
+      {
+        "id": "hydrated",
+        "text": "Hydrated",
+        "color": "green",
+        "condition": {
+          "and": [
+            { "compare_int": [ { "u_val": "thirst" }, ">=", { "const": -60 } ] },
+            { "compare_int": [ { "u_val": "thirst" }, "<", { "const": -20 } ] }
+          ]
+        }
+      },
+      {
+        "id": "turgid",
+        "text": "Turgid",
+        "color": "green",
+        "condition": { "compare_int": [ { "u_val": "thirst" }, "<", { "const": -60 } ] }
+      }
+    ]
+  },
+  {
+    "id": "疲惫信息",
+    "type": "widget",
+    "label": "疲惫",
+    "style": "text",
+    "var": "fatigue_text",
+    "//": "Uses display::fatigue_text_color"
+  },
+  {
+    "id": "速度数值",
+    "type": "widget",
+    "label": "速度",
+    "var": "speed",
+    "style": "number",
+    "colors": [ "c_red", "c_light_red", "c_light_green", "c_green" ]
+  },
+  {
+    "id": "耐力图表",
+    "type": "widget",
+    "copy-from": "stamina_widget",
+    "//": "Like the classic 5-bar stamina graph, but twice as wide",
+    "label": "耐",
+    "style": "graph",
+    "width": 10,
+    "symbols": ".\\|"
+  },
+  {
+    "id": "主要信息1",
+    "type": "widget",
+    "style": "layout",
+    "label": "第一行",
+    "arrange": "columns",
+    "widgets": ["生命值头部数值","疼痛信息","str_num"]
+  },
+  {
+    "id": "主要信息2",
+    "type": "widget",
+    "style": "layout",
+    "label": "第二行",
+    "arrange": "columns",
+    "widgets": ["生命值躯干数值","饥饿信息","dex_num"]
+  },
+  {
+    "id": "主要信息3",
+    "type": "widget",
+    "style": "layout",
+    "label": "第三行",
+    "arrange": "columns",
+    "widgets": ["生命值左臂数值","口渴信息","int_num"]
+  },
+  {
+    "id": "主要信息4",
+    "type": "widget",
+    "style": "layout",
+    "label": "第四行",
+    "arrange": "columns",
+    "widgets": ["生命值右臂数值","疲惫信息","per_num"]
+  },
+  {
+    "id": "主要信息5",
+    "type": "widget",
+    "style": "layout",
+    "label": "第五行",
+    "arrange": "columns",
+    "widgets": ["生命值左腿数值","focus_num","mood_desc"]
+  },
+  {
+    "id": "主要信息6",
+    "type": "widget",
+    "style": "layout",
+    "label": "第六行",
+    "arrange": "columns",
+    "widgets": ["生命值右腿数值","速度数值","耐力图表"]
+  },
+  {
+    "id":"重要数据改",
+    "type": "widget",
+    "style": "layout",
+    "label": "主要信息(改)",
+    "arrange": "rows",
+    "widgets": ["主要信息1","主要信息2","主要信息3","主要信息4","主要信息5","主要信息6"]
+  },
+  {
+    "id": "光照和月相",
+    "type": "widget",
+    "label": "光照/月相(宽)",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [ "lighting_desc", "moon_phase_desc" ]
+  },
+  {
+    "id": "风速和温度",
+    "type": "widget",
+    "label": "风速/温度(宽)",
+    "style": "layout",
+    "arrange": "columns",
+    "widgets": [ "wind_desc", "env_temp_desc" ]
+  },
+  {
+    "id": "lyzy_sidebar",
+    "type": "widget",
+    "style": "sidebar",
+    "label": { "str": "落樱之鱼侧边栏", "ctxt": "UI sidebar" },
+    "width": 50,
+    "widgets": [
+      "重要数据改",
+      "武器与武术宽",
+      "安全模式与声音和辐射",
+      "地点位置",
+      "日期时间",
+      "光照和月相",
+      "风速和温度",
+      "current_max_mana_nums_layout", 
+
+      "生命值数值",
+      "生命值数值宽",
+      "疼痛与健康数值",
+      "耐力与心肺功能数值",
+      "生命值图形窄",
+      "生命值图形宽",
+      "情绪/专注",
+      "行动速度与移动速度",
+      "力量与敏捷",
+      "智力与感知",
+      "移动",
+      "耐力与疲劳",
+      "需求",
+      "安全模式与声音",
+      "生物能量",
+      "辐射",
+      "罗盘",
+      "罗盘动态",
+      "武器与武术",
+      "地点日期时间",
+      "大地图",
+      "位置",
+      "环境信息",
+      "车辆信息",
+      "护甲信息",
+      "身体部件状态",
+      "身体部件状态新",
+      "疲劳",
+      "需求宽",
+      "地点日期时间宽",
+      "环境信息宽",
+	    "人物属性",
+      "行动信息",
+      "行动信息改",
+      "生化能量与移动计时",
+      "心情状态",
+      "mana_graph_layout", 
+      "mana_pool_layout"
+    ]
+  }
+]
