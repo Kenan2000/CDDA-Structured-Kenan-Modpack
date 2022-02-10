@@ -13,9 +13,16 @@
     "color": "light_gray",
     "warmth": 10,
     "extend": { "flags": [ "OVERSIZE" ] },
-    "armor": [ { "encumbrance": 20, "coverage": 100, "covers": [ "mouth" ] } ],
-    "material_thickness": 2,
-    "environmental_protection": 7
+    "armor": [
+      {
+        "encumbrance": 20,
+        "coverage": 100,
+        "covers": [ "mouth" ],
+        "material": [ "plastic" ],
+        "material_thickness": 2,
+        "environmental_protection": 7
+      }
+    ]
   },
   {
     "id": "arm_warmers_xl_vo",
@@ -31,7 +38,9 @@
     "warmth": 20,
     "material_thickness": 2,
     "flags": [ "VARSIZE", "SKINTIGHT", "OVERSIZE" ],
-    "armor": [ { "encumbrance": 7, "coverage": 80, "covers": [ "arm_l", "arm_r" ] } ]
+    "armor": [
+      { "encumbrance": 7, "coverage": 80, "covers": [ "arm_l", "arm_r" ], "material": [ "cotton" ], "material_thickness": 2 }
+    ]
   },
   {
     "id": "quiver_leg_vo",
@@ -49,7 +58,9 @@
     "material_thickness": 1,
     "pocket_data": [ { "ammo_restriction": { "arrow": 10, "bolt": 10 }, "moves": 3 } ],
     "flags": [ "WAIST", "VARSIZE", "OVERSIZE" ],
-    "armor": [ { "encumbrance": 7, "coverage": 5, "covers": [ "leg_l", "leg_r" ] } ]
+    "armor": [
+      { "encumbrance": 7, "coverage": 5, "covers": [ "leg_l", "leg_r" ], "material": [ "leather" ], "material_thickness": 1 }
+    ]
   },
   {
     "id": "assist_armor_off_vo",
@@ -80,9 +91,16 @@
     "revert_to": "assist_armor_off_vo",
     "warmth": 0,
     "use_action": [ { "type": "transform", "msg": "I turned on the assist function.", "active": true, "target": "assist_armor_on_vo" } ],
-    "armor": [ { "encumbrance": 20, "coverage": 40, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r", "foot_l", "foot_r" ] } ],
-    "material_thickness": 2,
-    "environmental_protection": 0
+    "armor": [
+      {
+        "encumbrance": 20,
+        "coverage": 40,
+        "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
+        "material": [ "steel", "plastic" ],
+        "material_thickness": 2,
+        "environmental_protection": 0
+      }
+    ]
   },
   {
     "id": "assist_armor_on_vo",
@@ -123,8 +141,15 @@
         }
       ]
     },
-    "armor": [ { "encumbrance": 10, "coverage": 40, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r", "foot_l", "foot_r" ] } ],
-    "material_thickness": 2,
-    "environmental_protection": 0
+    "armor": [
+      {
+        "encumbrance": 10,
+        "coverage": 40,
+        "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r", "foot_l", "foot_r" ],
+        "material": [ "steel", "plastic" ],
+        "material_thickness": 2,
+        "environmental_protection": 0
+      }
+    ]
   }
 ]
