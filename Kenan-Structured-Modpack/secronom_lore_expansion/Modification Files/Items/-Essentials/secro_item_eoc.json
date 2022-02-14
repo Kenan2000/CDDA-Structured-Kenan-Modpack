@@ -14,7 +14,7 @@
     ],
     "false_effect": [
       {
-        "run_eocs": 
+        "queue_eocs": [
           {
             "id": "eoc_secro_pafv_fleshconsumption_fail",
             "condition": {
@@ -79,6 +79,7 @@
               }
             ]
           }
+        ]
       }
     ]
   },
@@ -107,7 +108,11 @@
       { "u_message": "You felt uncomfortable for a split second\u2024", "type": "grazing" },
       { "u_adjust_var": "secro_fleshvessel", "type": "growth", "context": "time", "adjustment": 1 },
       {
-        "arithmetic": [ { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" }, "+=", { "u_val": "var", "var_name": "secro_fleshvessel", "type": "growth", "context": "time" } ]
+        "arithmetic": [
+          { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" },
+          "+=",
+          { "u_val": "var", "var_name": "secro_fleshvessel", "type": "growth", "context": "time" }
+        ]
       }
     ]
   },
@@ -166,7 +171,11 @@
       { "u_cast_spell": { "id": "secro_pafv_grow2", "hit_self": true } },
       { "u_message": "The flesh vessel has increased in mass.", "type": "good" },
       {
-        "arithmetic": [ { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" }, "+=", { "const": 10 } ]
+        "arithmetic": [
+          { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" },
+          "+=",
+          { "const": 10 }
+        ]
       }
     ]
   },
@@ -192,7 +201,11 @@
       { "u_cast_spell": { "id": "secro_pafv_grow3", "hit_self": true } },
       { "u_message": "The flesh vessel has increased in mass.", "type": "good" },
       {
-        "arithmetic": [ { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" }, "+=", { "const": 25 } ]
+        "arithmetic": [
+          { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" },
+          "+=",
+          { "const": 25 }
+        ]
       }
     ]
   }
