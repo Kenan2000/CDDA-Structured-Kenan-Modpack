@@ -2,17 +2,17 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_unify_bv_check",
-    "effect": [ { "npc_set_spawn_monster": "mon_zombie_bloodvessel", "real_count": 1, "min_radius": 1, "max_radius": 2 } ]
+    "effect": [ { "npc_spawn_monster": "mon_zombie_bloodvessel", "real_count": 1, "min_radius": 1, "max_radius": 2 } ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_unity_bv_check",
-    "effect": [ { "npc_set_spawn_monster": "mon_zombie_bloodvessel", "real_count": 2, "min_radius": 1, "max_radius": 2 } ]
+    "effect": [ { "npc_spawn_monster": "mon_zombie_bloodvessel", "real_count": 2, "min_radius": 1, "max_radius": 2 } ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_hemo_bf_check",
-    "effect": [ { "npc_set_spawn_monster": "mon_zombie_bloodfiend", "real_count": 1, "min_radius": 1, "max_radius": 2 } ]
+    "effect": [ { "npc_spawn_monster": "mon_zombie_bloodfiend", "real_count": 1, "min_radius": 1, "max_radius": 2 } ]
   },
   {
     "type": "effect_on_condition",
@@ -28,11 +28,9 @@
     "id": "eoc_secro_mon_zombie_leptiosa_ngas_check",
     "effect": [
       { "npc_add_effect": "controlled", "duration": "8 seconds" },
+      { "npc_location_variable": { "global_val": "secro_leptiosa_noxiousgas" } },
       {
-        "npc_location_variable": { "global_val": "secro_leptiosa_noxiousgas" }
-      },
-      {
-        "set_queue_effect_on_condition": [
+        "queue_eocs": [
           {
             "id": "eoc_secro_mon_zombie_leptiosa_ngas_checked",
             "effect": [
@@ -57,7 +55,7 @@
     "effect": [
       { "u_message": "A tentacle bursts out of the ground!", "type": "bad" },
       {
-        "u_set_spawn_monster": "mon_zombie_tentawraith_tent",
+        "u_spawn_monster": "mon_zombie_tentawraith_tent",
         "real_count": 1,
         "min_radius": 1,
         "max_radius": 3,
@@ -88,30 +86,28 @@
     "effect": [
       { "u_message": "The ground trembles underneath you!", "type": "bad" },
       {
-        "u_set_spawn_monster": "mon_zombie_gorepit_tent",
+        "u_spawn_monster": "mon_zombie_gorepit_tent",
         "real_count": 2,
         "min_radius": 2,
         "max_radius": 4,
         "outdoor_only": true
       },
       {
-        "npc_set_spawn_monster": "mon_zombie_gorepit_tent",
+        "npc_spawn_monster": "mon_zombie_gorepit_tent",
         "real_count": 1,
         "min_radius": 2,
         "max_radius": 3,
         "outdoor_only": true
       },
+      { "u_location_variable": { "global_val": "secro_gorepit_spawn" } },
       {
-        "u_location_variable": { "global_val": "secro_gorepit_spawn" }
-      },
-      {
-        "set_queue_effect_on_condition": [
+        "queue_eocs": [
           {
             "id": "eoc_secro_mon_zombie_gorepit_spawnfurther_check",
             "condition": { "not": { "u_has_effect": "eff_zombie_gorepit_spawnmore_stop" } },
             "effect": [
               {
-                "u_set_spawn_monster": "mon_zombie_gorepit_tent",
+                "u_spawn_monster": "mon_zombie_gorepit_tent",
                 "target_var": { "global_val": "secro_gorepit_spawn" },
                 "real_count": 1,
                 "min_radius": 2,
@@ -133,20 +129,20 @@
     "effect": [
       { "u_message": "The ground trembles underneath you!", "type": "bad" },
       {
-        "u_set_spawn_monster": "mon_zombie_gorepit_tent",
+        "u_spawn_monster": "mon_zombie_gorepit_tent",
         "real_count": 1,
         "min_radius": 2,
         "max_radius": 4,
         "outdoor_only": true
       },
       {
-        "set_queue_effect_on_condition": [
+        "queue_eocs": [
           {
             "id": "eoc_secro_mon_zombie_gorepit_spawnfurthermore_check",
             "condition": { "not": { "u_has_effect": "eff_zombie_gorepit_spawnmore_stop" } },
             "effect": [
               {
-                "u_set_spawn_monster": "mon_zombie_gorepit_tent",
+                "u_spawn_monster": "mon_zombie_gorepit_tent",
                 "target_var": { "global_val": "secro_gorepit_spawn" },
                 "real_count": 1,
                 "min_radius": 2,
@@ -175,7 +171,7 @@
       { "npc_cast_spell": { "id": "mon_zombie_gorepit_rage", "hit_self": true, "npc_message": "" } },
       { "npc_cast_spell": { "id": "mon_zombie_gorepit_rage", "hit_self": true, "npc_message": "" } },
       {
-        "npc_set_spawn_monster": "mon_zombie_gorepit_tent_massive",
+        "npc_spawn_monster": "mon_zombie_gorepit_tent_massive",
         "real_count": 1,
         "min_radius": 1,
         "max_radius": 2,
@@ -191,13 +187,13 @@
     "effect": [
       { "npc_location_variable": { "global_val": "secro_equinox_spawn" } },
       {
-        "set_weighted_list_eocs": [
+        "weighted_list_eocs": [
           [
             {
               "id": "eoc_secro_mon_zombie_equinox_summon_necros_check",
               "effect": [
                 {
-                  "u_set_spawn_monster": "mon_zombie_equinox_necros",
+                  "u_spawn_monster": "mon_zombie_equinox_necros",
                   "target_var": { "global_val": "secro_equinox_spawn" },
                   "real_count": 1,
                   "min_radius": 1,
@@ -212,7 +208,7 @@
               "id": "eoc_secro_mon_zombie_equinox_summon_necros_stab_check",
               "effect": [
                 {
-                  "u_set_spawn_monster": "mon_zombie_equinox_necros_stab",
+                  "u_spawn_monster": "mon_zombie_equinox_necros_stab",
                   "target_var": { "global_val": "secro_equinox_spawn" },
                   "real_count": 1,
                   "min_radius": 1,
@@ -227,7 +223,7 @@
               "id": "eoc_secro_mon_zombie_equinox_summon_necros_cut_check",
               "effect": [
                 {
-                  "u_set_spawn_monster": "mon_zombie_equinox_necros_cut",
+                  "u_spawn_monster": "mon_zombie_equinox_necros_cut",
                   "target_var": { "global_val": "secro_equinox_spawn" },
                   "real_count": 1,
                   "min_radius": 1,
@@ -242,7 +238,7 @@
               "id": "eoc_secro_mon_zombie_equinox_summon_necros_emit_check",
               "effect": [
                 {
-                  "u_set_spawn_monster": "mon_zombie_equinox_necros_emit",
+                  "u_spawn_monster": "mon_zombie_equinox_necros_emit",
                   "target_var": { "global_val": "secro_equinox_spawn" },
                   "real_count": 1,
                   "min_radius": 1,
@@ -264,11 +260,9 @@
       { "u_cast_spell": { "id": "mon_zombie_fleshysnaky_devastate", "hit_self": true } },
       { "u_make_sound": "an intense rumbling of the ground.", "volume": 150, "type": "combat" },
       { "u_transform_radius": 2, "ter_furn_transform": "flesilisk_destroy" },
+      { "u_location_variable": { "global_val": "secro_fleshysnaky_devcent" } },
       {
-        "u_location_variable": { "global_val": "secro_fleshysnaky_devcent" }
-      },
-      {
-        "set_queue_effect_on_condition": [
+        "queue_eocs": [
           {
             "id": "eoc_secro_mon_zombie_fleshysnaky_devastate_checked",
             "effect": [
@@ -303,11 +297,9 @@
     },
     "effect": [
       { "npc_add_effect": "controlled", "duration": "4 seconds" },
+      { "npc_location_variable": { "global_val": "secro_nautilus_discent" } },
       {
-        "npc_location_variable": { "global_val": "secro_nautilus_discent" }
-      },
-      {
-        "set_queue_effect_on_condition": [
+        "queue_eocs": [
           {
             "id": "eoc_secro_mon_zombie_nautilus_disturbance_checked",
             "effect": [
@@ -345,7 +337,7 @@
                 "target_var": { "global_val": "secro_nautilus_discent" }
               },
               {
-                "u_set_spawn_monster": "mon_zombie_nautilus_pedo",
+                "u_spawn_monster": "mon_zombie_nautilus_pedo",
                 "target_var": { "global_val": "secro_nautilus_discent" },
                 "real_count": 1,
                 "min_radius": 1,
@@ -366,7 +358,7 @@
                 "target_var": { "global_val": "secro_nautilus_discent" }
               },
               {
-                "u_set_spawn_monster": "mon_zombie_nautilus_pedo",
+                "u_spawn_monster": "mon_zombie_nautilus_pedo",
                 "target_var": { "global_val": "secro_nautilus_discent" },
                 "real_count": 1,
                 "min_radius": 1,
@@ -387,7 +379,7 @@
                 "target_var": { "global_val": "secro_nautilus_discent" }
               },
               {
-                "u_set_spawn_monster": "mon_zombie_nautilus_pedo",
+                "u_spawn_monster": "mon_zombie_nautilus_pedo",
                 "target_var": { "global_val": "secro_nautilus_discent" },
                 "real_count": 1,
                 "min_radius": 1,
@@ -408,7 +400,7 @@
                 "target_var": { "global_val": "secro_nautilus_discent" }
               },
               {
-                "u_set_spawn_monster": "mon_zombie_nautilus_pedo",
+                "u_spawn_monster": "mon_zombie_nautilus_pedo",
                 "target_var": { "global_val": "secro_nautilus_discent" },
                 "real_count": 1,
                 "min_radius": 1,
@@ -424,11 +416,9 @@
       }
     ],
     "false_effect": [
+      { "npc_location_variable": { "global_val": "secro_nautilus_discent" } },
       {
-        "npc_location_variable": { "global_val": "secro_nautilus_discent" }
-      },
-      {
-        "set_queue_effect_on_condition": [
+        "queue_eocs": [
           "eoc_secro_mon_zombie_nautilus_pedo1_check",
           "eoc_secro_mon_zombie_nautilus_pedo2_check",
           "eoc_secro_mon_zombie_nautilus_pedo3_check",
@@ -456,7 +446,7 @@
     "id": "eoc_secro_mon_sflesh_sack_birth_check",
     "effect": [
       { "u_message": "A parasyte pops out of the flesh sack!", "type": "warning" },
-      { "npc_set_spawn_monster": "mon_sflesh_parasyte", "real_count": 3, "min_radius": 1, "max_radius": 2 }
+      { "npc_spawn_monster": "mon_sflesh_parasyte", "real_count": 3, "min_radius": 1, "max_radius": 2 }
     ]
   },
   {
@@ -465,7 +455,7 @@
     "condition": { "one_in_chance": 2 },
     "effect": [
       { "u_message": "A parasyte pops out of the flesh sack!", "type": "warning" },
-      { "npc_set_spawn_monster": "mon_sflesh_parasyte", "real_count": 1, "min_radius": 1, "max_radius": 2 }
+      { "npc_spawn_monster": "mon_sflesh_parasyte", "real_count": 1, "min_radius": 1, "max_radius": 2 }
     ]
   },
   {
@@ -474,7 +464,7 @@
     "effect": [
       { "u_message": "A jaw emerges from the flesh!", "type": "warning" },
       {
-        "npc_set_spawn_monster": "fd_sflesh_spawn_jaw",
+        "npc_spawn_monster": "fd_sflesh_spawn_jaw",
         "real_count": 1,
         "min_radius": 2,
         "max_radius": 4,
@@ -489,7 +479,7 @@
     "effect": [
       { "u_message": "A tendril emerges from the flesh!", "type": "warning" },
       {
-        "npc_set_spawn_monster": "fd_sflesh_spawn_tent",
+        "npc_spawn_monster": "fd_sflesh_spawn_tent",
         "real_count": 1,
         "min_radius": 2,
         "max_radius": 4,
@@ -504,7 +494,7 @@
     "condition": { "one_in_chance": 2 },
     "effect": [
       { "u_message": "A membranous pod emerges from the flesh underneath!", "type": "bad" },
-      { "u_set_spawn_monster": "mon_sflesh_taken_potent", "real_count": 1, "min_radius": 4, "max_radius": 6 }
+      { "u_spawn_monster": "mon_sflesh_taken_potent", "real_count": 1, "min_radius": 4, "max_radius": 6 }
     ]
   },
   {
@@ -524,7 +514,7 @@
     "condition": { "one_in_chance": 2 },
     "effect": [
       { "u_message": "The flesh undulates!", "type": "mixed" },
-      { "u_set_spawn_monster": "mon_sflesh_flesh_wall_city", "real_count": 1, "min_radius": 1, "max_radius": 1 }
+      { "u_spawn_monster": "mon_sflesh_flesh_wall_city", "real_count": 1, "min_radius": 1, "max_radius": 1 }
     ]
   },
   {
@@ -532,7 +522,7 @@
     "id": "eoc_secro_mon_sflesh_flesh_city_wall_check",
     "effect": [
       { "u_message": "The flesh undulates!", "type": "mixed" },
-      { "u_set_spawn_monster": "mon_sflesh_flesh_wall_city", "real_count": 1, "min_radius": 1, "max_radius": 1 }
+      { "u_spawn_monster": "mon_sflesh_flesh_wall_city", "real_count": 1, "min_radius": 1, "max_radius": 1 }
     ]
   },
   {
@@ -581,11 +571,9 @@
       { "u_message": "The secronom dragon accumulates electricity.", "type": "warning" },
       { "npc_make_sound": "hummm.", "volume": 40, "type": "alert" },
       { "npc_add_effect": "controlled", "duration": "7 seconds" },
+      { "u_location_variable": { "global_val": "secro_cyberdragon_dirsho" } },
       {
-        "u_location_variable": { "global_val": "secro_cyberdragon_dirsho" }
-      },
-      {
-        "set_queue_effect_on_condition": [
+        "queue_eocs": [
           {
             "id": "eoc_secro_mon_secrodragon_woke_directshock_check",
             "effect": [
@@ -619,7 +607,7 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_secrodragon_woke_check",
     "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 2 } ] },
-    "effect": [ { "set_queue_effect_on_condition": [ "eoc_secro_mon_secrodragon_woke_barrier_check" ] } ],
-    "false_effect": [ { "set_queue_effect_on_condition": [ "eoc_secro_mon_secrodragon_woke_ranged_check" ] } ]
+    "effect": [ { "queue_eocs": [ "eoc_secro_mon_secrodragon_woke_barrier_check" ] } ],
+    "false_effect": [ { "queue_eocs": [ "eoc_secro_mon_secrodragon_woke_ranged_check" ] } ]
   }
 ]
