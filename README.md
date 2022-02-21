@@ -1,5 +1,5 @@
 # CDDA-Structured-Kenan-Modpack
-Kenan's **personal** structured modpack for Cataclysm - Dark Days Ahead for **LATEST** experimental versions
+Kenan's **personal** structured modpack for Cataclysm - Dark Days Ahead for **LATEST** experimental versions!
 
 **1)** **IF YOU ARE EXPERIENCING ANY BUGS OR ERRORS - EITHER THE FIXES WILL BE RELEASED SOON-ISH OR THE MOD IS WIP** ;
 
