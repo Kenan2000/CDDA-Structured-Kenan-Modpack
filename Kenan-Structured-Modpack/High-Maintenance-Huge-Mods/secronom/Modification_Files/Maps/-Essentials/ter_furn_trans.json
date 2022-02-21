@@ -2,7 +2,6 @@
   {
     "type": "ter_furn_transform",
     "id": "vectorize",
-    "fail_message": "There's no organic terrain here to vectorize.",
     "terrain": [
       { "result": "t_vector", "valid_flags": [ "DIGGABLE" ], "message": "The ground here has been vectorized." },
       { "result": "t_shrub_vector", "valid_flags": [ "SHRUB" ], "message": "The shrubs here has been vectorized." },
@@ -18,7 +17,6 @@
   {
     "type": "ter_furn_transform",
     "id": "vectorize_weak",
-    "fail_message": "There's no organic terrain here to vectorize.",
     "terrain": [
       { "result": "t_vector", "valid_terrain": [ "t_dirt" ], "message": "The ground here has been vectorized." },
       { "result": "t_shrub_vector", "valid_flags": [ "SHRUB" ], "message": "The shrubs here has been vectorized." }
@@ -28,14 +26,12 @@
   {
     "type": "ter_furn_transform",
     "id": "vectocide",
-    "fail_message": "There's no vectorized terrain here to kill.",
     "terrain": [ { "result": [ [ "t_dirt", 5 ], "t_grass" ], "valid_flags": [ "VECTOR" ], "message": "The vector here dies." } ],
     "furniture": [ { "result": "f_null", "valid_flags": [ "VECTOR" ], "message": "The vector here dies." } ]
   },
   {
     "type": "ter_furn_transform",
     "id": "gorepit_pit",
-    "fail_message": "There's no organic terrain here to vectorize.",
     "terrain": [
       {
         "//": "Make every adjacent opaque terrains into dirt, so that we don't encounter bugs with gorepit's essential fields.",
@@ -62,19 +58,16 @@
   {
     "type": "ter_furn_transform",
     "id": "flesilisk_destroy",
-    "fail_message": "Nothing to destroy here.",
     "terrain": [ { "result": "t_dirtmound", "valid_flags": [ "DIGGABLE", "MINEABLE" ], "message": "The terrain here ruptures." } ]
   },
   {
     "type": "ter_furn_transform",
     "id": "flesilisk_revert",
-    "fail_message": "Nothing to revert.",
     "terrain": [ { "result": "t_dirt", "valid_terrain": [ "t_dirtmound" ], "message": "Terrain here has reverted." } ]
   },
   {
     "type": "ter_furn_transform",
     "id": "veinhole_open",
-    "fail_message": "You were too far from the entrance...",
     "terrain": [
       {
         "//": "We use a spell to open the closed entrance once the veinhole dies.",
@@ -87,13 +80,11 @@
   {
     "type": "ter_furn_transform",
     "id": "sflesh_flesh_trap",
-    "fail_message": "Can't place traps.",
     "furniture": [ { "result": "f_secro_flesh", "valid_furniture": [ "f_null" ], "message": "The flesh here became a biohazard!" } ]
   },
   {
     "type": "ter_furn_transform",
     "id": "sflesh_flesh_biohazard_accurate",
-    "fail_message": "Can't place traps.",
     "furniture": [
       {
         "result": [ [ "f_secro_flesh", 20 ], "f_secro_flesh_bones", "f_secro_flesh_tent" ],
@@ -110,7 +101,6 @@
   {
     "type": "ter_furn_transform",
     "id": "sflesh_flesh_biohazard",
-    "fail_message": "Can't place traps.",
     "furniture": [
       {
         "result": [ [ "f_secro_flesh", 200 ], "f_secro_flesh_bones", "f_secro_flesh_tent" ],
@@ -128,7 +118,6 @@
     "//": "To prevent the abuse of traps and/or to keep some safe area.",
     "type": "ter_furn_transform",
     "id": "sflesh_flesh_biohazard_remove_bone",
-    "fail_message": "Can't remove traps.",
     "furniture": [
       {
         "result": [ [ "f_secro_flesh_bones", 10 ], "f_secro_flesh" ],
@@ -140,7 +129,6 @@
   {
     "type": "ter_furn_transform",
     "id": "sflesh_flesh_biohazard_remove_tent",
-    "fail_message": "Can't remove traps.",
     "furniture": [
       {
         "result": [ [ "f_secro_flesh_tent", 10 ], "f_secro_flesh" ],
@@ -153,7 +141,6 @@
     "//": "The lair will become safe after the flesh's death.",
     "type": "ter_furn_transform",
     "id": "sflesh_flesh_biohazard_dead",
-    "fail_message": "Can't remove all traps.",
     "terrain": [
       {
         "//": "The exit opens once you beat the flesh.",
@@ -173,14 +160,12 @@
   {
     "type": "ter_furn_transform",
     "id": "sflesh_flesh_wall",
-    "fail_message": "Can't make walls.",
     "terrain": [ { "result": "t_secro_flesh_wall_weak", "valid_flags": [ "S_FLESH" ], "message": "A wall has been created!" } ],
     "furniture": [ { "result": "f_secro_flesh_wall", "valid_flags": [ "S_FLESH" ], "message": "The biohazards has been neutralized!" } ]
   },
   {
     "type": "ter_furn_transform",
     "id": "secro_wormonger_destroy",
-    "fail_message": "There's nothing here to destroy.",
     "terrain": [
       {
         "result": [ [ "t_dirt", 2 ], "t_dirtmound" ],
@@ -198,7 +183,6 @@
     "//": "Flesh spreading alternative for now.",
     "type": "ter_furn_transform",
     "id": "flesh_spread",
-    "fail_message": "There's nothing for the flesh to devour here.",
     "terrain": [
       {
         "result": [ [ "t_secro_dirt_flesh", 5 ], [ "t_secro_grass_flesh", 3 ], "t_secro_grass_long_flesh", [ "t_dirt", 10 ] ],
@@ -536,7 +520,6 @@
     "//": "Flesh spreading for buildings. No veinstalks.",
     "type": "ter_furn_transform",
     "id": "building_flesh_spread",
-    "fail_message": "There's nothing for the flesh to devour here.",
     "terrain": [
       {
         "result": [ [ "t_secro_dirt_flesh", 5 ], [ "t_secro_grass_flesh", 3 ], "t_secro_grass_long_flesh", [ "t_dirt", 10 ] ],
@@ -878,7 +861,6 @@
   {
     "type": "ter_furn_transform",
     "id": "fleshknot_spread",
-    "fail_message": "There's nothing for the flesh to devour here.",
     "terrain": [
       {
         "result": "t_secro_flesh_wall",
@@ -892,7 +874,6 @@
     "//": "Same conversion as above, but for flesh bases.",
     "type": "ter_furn_transform",
     "id": "fv_flesh_spread",
-    "fail_message": "There's nothing for the flesh to devour here.",
     "terrain": [
       {
         "result": [
@@ -1234,7 +1215,6 @@
   {
     "type": "ter_furn_transform",
     "id": "secro_flesh_traverse",
-    "fail_message": "Flesh here have reverted.",
     "terrain": [
       { "result": "t_dirt", "valid_terrain": [ "t_secro_dirt_flesh_camp" ], "message": "The biohazard here has withdraw!" },
       {
@@ -1299,13 +1279,11 @@
   {
     "type": "ter_furn_transform",
     "id": "secro_furn_removal",
-    "fail_message": "There's nothing to remove here.",
     "furniture": [ { "result": "f_null", "valid_flags": [ "FLOWER", "RUBBLE" ], "message": "The furnitures here has collapsed." } ]
   },
   {
     "type": "ter_furn_transform",
     "id": "secro_furn_build",
-    "fail_message": "Can't build a flesh furniture.",
     "furniture": [
       {
         "result": "f_secro_flesh_camp_bed",
