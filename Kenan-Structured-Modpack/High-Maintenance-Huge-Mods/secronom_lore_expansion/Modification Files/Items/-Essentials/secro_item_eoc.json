@@ -2,8 +2,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_pafv_fleshconsumption",
-    "recurrence_min": "4 hours",
-    "recurrence_max": "5 hours 30 minutes",
+    "recurrence": [ "4 hours", "5 hours 30 minutes" ],
     "condition": { "and": [ { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" }, { "u_has_items": { "item": "secro_flesh", "count": 5 } } ] },
     "effect": [
       { "u_message": "The vessel consumes your flesh.", "type": "good" },
@@ -14,7 +13,7 @@
     ],
     "false_effect": [
       {
-        "set_queue_effect_on_condition": [
+        "queue_eocs": [
           {
             "id": "eoc_secro_pafv_fleshconsumption_fail",
             "condition": {
@@ -86,8 +85,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_pafv_growth",
-    "recurrence_min": "24 hours",
-    "recurrence_max": "24 hours",
+    "recurrence": [ "24 hours", "24 hours" ],
     "condition": {
       "and": [
         { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" },
@@ -108,7 +106,11 @@
       { "u_message": "You felt uncomfortable for a split second\u2024", "type": "grazing" },
       { "u_adjust_var": "secro_fleshvessel", "type": "growth", "context": "time", "adjustment": 1 },
       {
-        "arithmetic": [ { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" }, "+=", { "u_val": "var", "var_name": "secro_fleshvessel", "type": "growth", "context": "time" } ]
+        "arithmetic": [
+          { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" },
+          "+=",
+          { "u_val": "var", "var_name": "secro_fleshvessel", "type": "growth", "context": "time" }
+        ]
       }
     ]
   },
@@ -139,8 +141,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_pafv_core",
-    "recurrence_min": "24 hours",
-    "recurrence_max": "48 hours",
+    "recurrence": [ "24 hours", "48 hours" ],
     "condition": { "and": [ { "not": { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" } }, { "u_has_item": "secro_flesh_core" } ] },
     "deactivate_condition": { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" },
     "effect": [ { "u_message": "You feel the flesh core beat.", "type": "info" } ]
@@ -148,8 +149,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_pafv_grow2",
-    "recurrence_min": "2 hours",
-    "recurrence_max": "3 hours",
+    "recurrence": [ "2 hours", "3 hours" ],
     "condition": {
       "and": [
         { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" },
@@ -167,15 +167,18 @@
       { "u_cast_spell": { "id": "secro_pafv_grow2", "hit_self": true } },
       { "u_message": "The flesh vessel has increased in mass.", "type": "good" },
       {
-        "arithmetic": [ { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" }, "+=", { "const": 10 } ]
+        "arithmetic": [
+          { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" },
+          "+=",
+          { "const": 10 }
+        ]
       }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_pafv_grow3",
-    "recurrence_min": "3 hours",
-    "recurrence_max": "3 hours",
+    "recurrence": [ "3 hours", "3 hours" ],
     "condition": {
       "and": [
         { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" },
@@ -193,7 +196,11 @@
       { "u_cast_spell": { "id": "secro_pafv_grow3", "hit_self": true } },
       { "u_message": "The flesh vessel has increased in mass.", "type": "good" },
       {
-        "arithmetic": [ { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" }, "+=", { "const": 25 } ]
+        "arithmetic": [
+          { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" },
+          "+=",
+          { "const": 25 }
+        ]
       }
     ]
   }
