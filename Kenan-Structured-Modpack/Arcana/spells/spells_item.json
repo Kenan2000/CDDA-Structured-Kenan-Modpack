@@ -224,6 +224,7 @@
     "flags": [ "PERMANENT", "NO_HANDS", "NO_LEGS" ],
     "extra_effects": [
       { "id": "arcana_item_coalescent_conversion_sound", "hit_self": false },
+      { "id": "arcana_item_coalescent_conversion_flash", "hit_self": false },
       { "id": "arcana_item_coalescent_conversion_side_effects", "hit_self": false },
       { "id": "arcana_item_coalescent_conversion_wonder", "hit_self": false }
     ],
@@ -252,7 +253,7 @@
   },
   {
     "type": "SPELL",
-    "id": "arcana_item_coalescent_conversion_sound",
+    "id": "arcana_item_coalescent_conversion_flash",
     "name": { "str": "Coalescent Conversion Noise" },
     "description": "Aside from it doing fuck-all to NPCs, this works decently enough.",
     "valid_targets": [ "hostile", "ground", "self" ],
@@ -949,7 +950,7 @@
     "valid_targets": [ "ground" ],
     "effect": "ter_transform",
     "shape": "blast",
-    "flags": [ "SILENT" ],
+    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE" ],
     "message": "",
     "effect_str": "arcana_pulse",
     "min_damage": 10,
@@ -1343,7 +1344,7 @@
     "name": { "str": "Pestilence Aftermath" },
     "description": "Destruction of terrain around you.",
     "valid_targets": [ "ground" ],
-    "flags": [ "NO_HANDS", "NO_LEGS" ],
+    "flags": [ "NO_HANDS", "NO_LEGS", "SILENT", "IGNORE_WALLS", "NO_PROJECTILE" ],
     "effect": "ter_transform",
     "shape": "blast",
     "message": "",
@@ -1553,7 +1554,7 @@
     "valid_targets": [ "ground" ],
     "effect": "ter_transform",
     "shape": "blast",
-    "flags": [ "SILENT" ],
+    "flags": [ "SILENT", "IGNORE_WALLS", "NO_PROJECTILE" ],
     "message": "",
     "effect_str": "arcana_pulse",
     "max_level": 20,
