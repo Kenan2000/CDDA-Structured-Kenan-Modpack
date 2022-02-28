@@ -514,5 +514,42 @@
       "fields_min_intensity": 1,
       "fields_max_intensity": 2,
       "no_deactivate_msg": "Its a bug that you can see this, but that doesnt mean it won't kill you.  Throw it!"
-    }
+    },
+		{
+			"id": "mon_ant_soldier",
+			"type": "MONSTER",
+			"copy-from": "mon_ant_soldier",
+			"default_faction": "ant_hack",
+			"speed": 105,
+			"aggression": 7,
+			"morale": 100,
+			"melee_skill": 5,
+			"melee_dice": 1,
+			"melee_dice_sides": 8,
+			"melee_damage": [ { "damage_type": "bash", "amount": 2 } ],
+			"melee_cut": 5,
+			"dodge": 2,
+			"armor_bash": 8,
+			"armor_cut": 14,
+			"armor_bullet": 11,
+			"armor_fire": 3,
+			"vision_day": 5,
+			"vision_night": 5,
+			"special_attacks": [
+				[ "GRAB", 60 ],
+				[ "ant_sinject", 20 ],
+				{
+					"type": "bite",
+					"cooldown": 15,
+					"accuracy": 7,
+					"infection_chance": 5,
+					"damage_max_instance": [
+						{ "damage_type": "stab", "amount": 10, "armor_multiplier": 0.8 },
+						{ "damage_type": "bash", "amount": 6, "armor_multiplier": 0.8 }
+					]
+				}
+			],
+			"upgrades": { "half_life": 21, "into_group": "GROUP_SOLDIER" },
+			"extend": { "anger_triggers": [ "FIRE" ], "flags": [ "KEENNOSE" ] }
+		}
   }
