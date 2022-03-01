@@ -210,7 +210,11 @@
     "healthy": -6,
     "fun": -8,
     "freezing_point": -10,
-    "use_action": { "type": "mutagen", "mutation_category": "DRAGONBLOOD", "is_strong": true },
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You drink the blood effigy.",
+      "vitamins": [ [ "arcana_mutagen_dragonblood", 450, 550 ], [ "mutagen", 125 ] ]
+    },
     "flags": [ "NO_INGEST", "EATEN_COLD", "NPC_SAFE", "NUTRIENT_OVERRIDE" ]
   },
   {
@@ -319,7 +323,11 @@
     "symbol": "!",
     "color": "light_gray",
     "flags": [ "NO_INGEST", "TRADER_AVOID", "ZERO_WEIGHT" ],
-    "use_action": { "type": "mutagen_iv", "mutation_category": "VEIL" }
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You absorb the energy within the ritual offering.",
+      "vitamins": [ [ "arcana_mutagen_veil", 900, 1100 ], [ "mutagen", 125 ] ]
+    }
   },
   {
     "id": "draconic_heart_mutator_mutagen_item",
@@ -333,6 +341,10 @@
     "symbol": "!",
     "color": "light_gray",
     "flags": [ "NO_INGEST", "TRADER_AVOID", "ZERO_WEIGHT" ],
-    "use_action": { "type": "mutagen_iv", "mutation_category": "DRAGONBLOOD" }
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You absorb the energy within the Dragonblood offering.",
+      "vitamins": [ [ "arcana_mutagen_dragonblood", 900, 1100 ], [ "mutagen", 125 ] ]
+    }
   }
 ]
