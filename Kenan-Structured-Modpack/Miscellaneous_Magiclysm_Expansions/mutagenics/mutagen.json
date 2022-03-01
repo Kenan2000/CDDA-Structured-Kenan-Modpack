@@ -17,7 +17,12 @@
     "volume": "250 ml",
     "phase": "liquid",
     "charges": 1,
-    "use_action": { "type": "mutagen_iv", "mutation_category": "ORC" },
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You inject the orc slurry.",
+      "tools_needed": { "syringe": -1 },
+      "vitamins": [ [ "mutagen_orc", 450, 550 ] ]
+    },
     "flags": [ "EATEN_COLD" ],
     "freezing_point": -22,
     "fun": 0
@@ -40,7 +45,12 @@
     "volume": "250 ml",
     "phase": "liquid",
     "charges": 1,
-    "use_action": { "type": "mutagen_iv", "mutation_category": "MAGIC" },
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You inject the magic mutagenic primer.",
+      "tools_needed": { "syringe": -1 },
+      "vitamins": [ [ "mutagen_magic", 450, 550 ] ]
+    }
     "flags": [ "EATEN_COLD" ],
     "freezing_point": -22,
     "fun": 0

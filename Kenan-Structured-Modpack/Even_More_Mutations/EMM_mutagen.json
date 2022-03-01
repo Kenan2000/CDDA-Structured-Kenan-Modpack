@@ -5,7 +5,12 @@
     "type": "COMESTIBLE",
     "name": { "str": "crab serum" },
     "color": "red",
-    "use_action": { "type": "mutagen_iv", "mutation_category": "CRAB" }
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You inject the necromantic mutagenic primer.",
+      "tools_needed": { "syringe": -1 },
+      "vitamins": [ [ "mutagen_crab", 450, 550 ] ]
+    }
   },
   {
     "id": "mutagen_crab",
@@ -13,7 +18,7 @@
     "type": "COMESTIBLE",
     "name": { "str": "crab mutagen" },
     "color": "red",
-    "use_action": { "type": "mutagen", "mutation_category": "CRAB" }
+    "vitamins": [ [ "mutagen_crab", 175 ], [ "mutagen", 125 ] ]
   },
   {
     "id": "iv_mutagen_snake",
@@ -21,7 +26,12 @@
     "type": "COMESTIBLE",
     "name": { "str": "snake serum" },
     "color": "dark_gray",
-    "use_action": { "type": "mutagen_iv", "mutation_category": "SNAKE" }
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You inject the snake mutagenic primer.",
+      "tools_needed": { "syringe": -1 },
+      "vitamins": [ [ "mutagen_snake", 450, 550 ] ]
+    }
   },
   {
     "id": "mutagen_snake",
@@ -29,7 +39,7 @@
     "type": "COMESTIBLE",
     "name": { "str": "snake mutagen" },
     "color": "dark_gray",
-    "use_action": { "type": "mutagen", "mutation_category": "SNAKE" }
+    "vitamins": [ [ "mutagen_snake", 175 ], [ "mutagen", 125 ] ]
   },
   {
     "id": "iv_mutagen_rabbit",
@@ -37,7 +47,12 @@
     "type": "COMESTIBLE",
     "name": { "str": "rabbit serum" },
     "color": "light_red",
-    "use_action": { "type": "mutagen_iv", "mutation_category": "RABBIT" }
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You inject the rabbit mutagenic primer.",
+      "tools_needed": { "syringe": -1 },
+      "vitamins": [ [ "mutagen_rabbit", 450, 550 ] ]
+    }
   },
   {
     "id": "mutagen_rabbit",
@@ -45,6 +60,6 @@
     "type": "COMESTIBLE",
     "name": { "str": "rabbit mutagen" },
     "color": "light_red",
-    "use_action": { "type": "mutagen", "mutation_category": "RABBIT" }
+    "vitamins": [ [ "mutagen_rabbit", 175 ], [ "mutagen", 125 ] ]
   }
 ]
