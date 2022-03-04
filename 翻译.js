@@ -880,8 +880,12 @@ ${getItemBrowserLink(fullItem)}`
     if (item.dynamic_line) {
       if (typeof item.dynamic_line === 'string') {
         item.dynamic_line = await translateFunction(item.dynamic_line);
+      } else if (typeof item.dynamic_line === 'object'){
+				if (Array.isArray(item.dynamic_line)) {
+					item.dynamic_line = await Promise.all(item.dynamic_line.map((no) => translateFunction(no)));
       } else {
-        await dynamicLine(item.dynamic_line);
+        await dynamicLine(line.no);
+      }
       }
     }
   };
