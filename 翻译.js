@@ -882,9 +882,9 @@ ${getItemBrowserLink(fullItem)}`
         item.dynamic_line = await translateFunction(item.dynamic_line);
       } else if (typeof item.dynamic_line === 'object'){
 				if (Array.isArray(item.dynamic_line)) {
-					item.dynamic_line = await Promise.all(item.dynamic_line.map((no) => translateFunction(no)));
+					item.dynamic_line = await Promise.all(item.dynamic_line.map((dynamic_line) => translateFunction(dynamic_line)));
       } else {
-        await dynamicLine(line.no);
+        await dynamicLine(item.dynamic_line);
       }
       }
     }
