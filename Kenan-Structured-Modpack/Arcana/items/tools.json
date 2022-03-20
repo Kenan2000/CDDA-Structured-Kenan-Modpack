@@ -2081,7 +2081,11 @@
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_pure_type": 10 } } ],
     "charges_per_use": 1,
     "ammo": "essence_pure_type",
-    "use_action": { "type": "cast_spell", "spell_id": "arcana_item_veilblade", "no_fail": true, "level": 0 },
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You channel a sliver of essence through the blade, as an offering to the Beyond…",
+      "effects": [ { "id": "arcana_paragon_veilblade_effect", "duration": 5 } ]
+    },
     "relic_data": {
       "passive_effects": [
         {
@@ -2098,7 +2102,7 @@
     "id": "draconic_heart_mutator",
     "type": "TOOL",
     "name": { "str": "sacramental heart" },
-    "description": "A vibrant red chunk of petrified flesh, purified and set in an ornamental mounting like a morbid brooch.  It resonates with unnatural power, as though imbued with the essence of the creature it was cut away from.  Channeling blood essence through it will start you down the path to becoming something ...else.  A path you can't return from.",
+    "description": "A vibrant red chunk of petrified flesh, purified and set in an ornamental mounting like a morbid brooch.  It resonates with unnatural power, as though imbued with the essence of the creature it was cut away from.  Channeling blood essence through it will start you down the path to becoming something …else.  A path you can't return from.",
     "weight": "2500 g",
     "volume": "1 L",
     "//": "The dracolich was summoned during that nebulous window of time when The Veil was wide enough to allow things to be yanked through, but before Zero Day.  Actually completing what they wanted to do with is a post-cataclysm development, but as with the ritual blades we're still reflecting the value of its original form.",
@@ -2113,7 +2117,11 @@
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_blood_type": 10 } } ],
     "charges_per_use": 10,
     "ammo": "essence_blood_type",
-    "use_action": { "type": "cast_spell", "spell_id": "arcana_item_draconic_heart_mutator", "no_fail": true, "level": 0 }
+    "use_action": {
+      "type": "consume_drug",
+      "activation_message": "You fuel the heart with blood essence, and feel its power resonate through you…",
+      "effects": [ { "id": "arcana_dragonblood_sacramental_heart_effect", "duration": 5 } ]
+    }
   },
   {
     "id": "stormbringer",

@@ -213,7 +213,7 @@
     "use_action": {
       "type": "consume_drug",
       "activation_message": "You drink the blood effigy.",
-      "vitamins": [ [ "arcana_mutagen_dragonblood", 450, 550 ], [ "mutagen", 125 ] ]
+      "effects": [ { "id": "arcana_dragonblood_blood_effigy_effect", "duration": 5 } ]
     },
     "flags": [ "NO_INGEST", "EATEN_COLD", "NPC_SAFE", "NUTRIENT_OVERRIDE" ]
   },
@@ -270,8 +270,7 @@
   },
   {
     "id": "earth_talisman",
-    "type": "COMESTIBLE",
-    "comestible_type": "MED",
+    "type": "TOOL",
     "category": "other",
     "name": { "str": "earth talisman" },
     "description": "A crude paper talisman marked with strange patterns, and anointed with a peculiar sacrifice.  Using it will conjure and transmutate a structure of strange earth and stone, to serve as a meager shelter in times of desperation.",
@@ -292,7 +291,7 @@
       "door_opened": "f_door_arcana_o",
       "door_closed": "f_door_arcana_c"
     },
-    "flags": [ "NO_SALVAGE", "NO_INGEST", "NUTRIENT_OVERRIDE" ]
+    "flags": [ "NO_SALVAGE" ]
   },
   {
     "id": "air_talisman",
@@ -310,41 +309,5 @@
     "color": "cyan",
     "use_action": { "type": "cast_spell", "spell_id": "arcana_item_pet", "no_fail": true, "level": 0 },
     "flags": [ "NO_SALVAGE", "NO_INGEST", "NUTRIENT_OVERRIDE" ]
-  },
-  {
-    "id": "veilblade_mutagen_item",
-    "type": "COMESTIBLE",
-    "//": "This only exists because DDA did something to break mutagenic tools.",
-    "name": { "str": "ritual offering" },
-    "description": "A faintly glowing mote of dimensional energy, swirling like a floating raindrop.  Consume it to absorb the energy bound to it, and take a permanent step closer to making a pact with something from Beyond…",
-    "comestible_type": "MED",
-    "category": "mutagen",
-    "volume": "15 ml",
-    "symbol": "!",
-    "color": "light_gray",
-    "flags": [ "NO_INGEST", "TRADER_AVOID", "ZERO_WEIGHT" ],
-    "use_action": {
-      "type": "consume_drug",
-      "activation_message": "You absorb the energy within the ritual offering.",
-      "vitamins": [ [ "arcana_mutagen_veil", 900, 1100 ], [ "mutagen", 125 ] ]
-    }
-  },
-  {
-    "id": "draconic_heart_mutator_mutagen_item",
-    "type": "COMESTIBLE",
-    "//": "This only exists because DDA did something to break mutagenic tools.",
-    "name": { "str": "Dragonblood offering" },
-    "description": "A vibrant, blood-red orb of strange essence, floating and moving as though it contained a viscous liquid inside of it.  Consume it to transform the body, a permanent step towards completing the Dragonblood Sacrament.",
-    "comestible_type": "MED",
-    "category": "mutagen",
-    "volume": "15 ml",
-    "symbol": "!",
-    "color": "light_gray",
-    "flags": [ "NO_INGEST", "TRADER_AVOID", "ZERO_WEIGHT" ],
-    "use_action": {
-      "type": "consume_drug",
-      "activation_message": "You absorb the energy within the Dragonblood offering.",
-      "vitamins": [ [ "arcana_mutagen_dragonblood", 900, 1100 ], [ "mutagen", 125 ] ]
-    }
   }
 ]

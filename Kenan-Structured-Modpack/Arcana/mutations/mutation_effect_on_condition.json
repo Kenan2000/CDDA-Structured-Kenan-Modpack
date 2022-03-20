@@ -1,0 +1,104 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "arcana_dragonblood_blood_effigy_eoc",
+    "recurrence": [ "1 s", "1 s" ],
+    "condition": { "u_has_effect" : "arcana_dragonblood_blood_effigy_effect" },
+    "effect": [
+      {
+        "u_message": "You feel unearthly life flow through your body.",
+        "type": "mixed"
+      },
+      { "u_mutate_category" : "DRAGONBLOOD", "use_vitamins": false },
+      { "u_lose_effect" : "arcana_dragonblood_blood_effigy_effect" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "arcana_dragonblood_sacramental_heart_eoc",
+    "recurrence": [ "1 s", "1 s" ],
+    "condition": { "u_has_effect" : "arcana_dragonblood_sacramental_heart_effect" },
+    "effect": [
+      {
+        "u_message": "You feel a powerful resonance throughout your body, another irreversible step down the Path to Power.",
+        "type": "mixed"
+      },
+      { "run_eocs": [ "arcana_dragonblood_sacramental_heart_eoc_thresh_test" ] },
+      { "u_mutate_category" : "DRAGONBLOOD", "use_vitamins": false },
+      { "run_eocs": [ "arcana_dragonblood_sacramental_heart_eoc_trigger_bonus" ] },
+      { "u_lose_effect" : "arcana_dragonblood_sacramental_heart_effect" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "arcana_dragonblood_sacramental_heart_eoc_trigger_bonus",
+    "condition": { "one_in_chance": 2 },
+    "effect": [
+      { "u_mutate_category" : "DRAGONBLOOD", "use_vitamins": false }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "arcana_dragonblood_sacramental_heart_eoc_thresh_test",
+    "condition": {
+      "and": [
+        { "u_has_flag": "ARCANA_DRAGONBLOOD_MARKER_FIRE" },
+        { "u_has_flag": "ARCANA_DRAGONBLOOD_MARKER_WINGS" },
+        { "u_has_flag": "ARCANA_DRAGONBLOOD_MARKER_TAIL" },
+        { "not": { "u_has_flag": "MUTATION_THRESHOLD" } }
+      ]
+    },
+    "effect": [
+      {
+        "u_message": "You feel an intense fire burning inside of you, before… you're… FREE!",
+        "type": "good"
+      },
+      { "u_add_trait" : "THRESH_DRAGONBLOOD" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "arcana_paragon_veilblade_eoc",
+    "recurrence": [ "1 s", "1 s" ],
+    "condition": { "u_has_effect" : "arcana_paragon_veilblade_effect" },
+    "effect": [
+      {
+        "u_message": "You feel an otherworldly presence reaching out to you.",
+        "type": "mixed"
+      },
+      { "run_eocs": [ "arcana_paragon_veilblade_eoc_thresh_test" ] },
+      { "u_mutate_category" : "VEIL", "use_vitamins": false },
+      { "run_eocs": [ "arcana_paragon_veilblade_eoc_trigger_bonus" ] },
+      { "u_lose_effect" : "arcana_paragon_veilblade_effect" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "arcana_paragon_veilblade_eoc_trigger_bonus",
+    "condition": { "one_in_chance": 5 },
+    "effect": [
+      { "u_mutate_category" : "VEIL", "use_vitamins": false }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "arcana_paragon_veilblade_eoc_thresh_test",
+    "condition": {
+      "and": [
+        { "u_has_flag": "ARCANA_VEIL_MARKER_ALTERATION" },
+        { "u_has_flag": "ARCANA_VEIL_MARKER_AUGMENTATION" },
+        { "u_has_flag": "ARCANA_VEIL_MARKER_DESTRUCTION" },
+        { "u_has_flag": "ARCANA_VEIL_MARKER_PROTECTION" },
+        { "u_has_flag": "ARCANA_VEIL_MARKER_SUMMONING" },
+        { "not": { "u_has_flag": "MUTATION_THRESHOLD" } }
+      ]
+    },
+    "effect": [
+      {
+        "u_message": "Your mind strains under the blade's resonance, and then… a powerful force flows through your very being!",
+        "type": "good"
+      },
+      { "u_add_trait" : "THRESH_VEIL" }
+    ]
+  }
+]
