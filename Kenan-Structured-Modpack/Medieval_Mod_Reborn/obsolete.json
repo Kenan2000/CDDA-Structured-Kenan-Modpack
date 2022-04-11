@@ -1,0 +1,61 @@
+[
+  {
+    "id": "helmet_closehelm",
+    "type": "ARMOR",
+    "category": "armor",
+    "name": { "str": "close helmet" },
+    "description": "A late medieval helmet that completely encloses the head, with a visor and bevor that can be lifted up.  Activate it to lift the visor, exposing your face.",
+    "weight": "1175 g",
+    "volume": "2500 ml",
+    "price": 30000,
+    "price_postapoc": 4000,
+    "bashing": 10,
+    "material": [ "steel", "leather" ],
+    "symbol": "[",
+    "looks_like": "helmet_plate",
+    "color": "light_gray",
+    "warmth": 10,
+    "material_thickness": 4,
+    "techniques": [ "WBLOCK_1" ],
+    "flags": [ "VARSIZE", "STURDY" ],
+    "use_action": {
+      "menu_text": "Raise",
+      "type": "transform",
+      "target": "helmet_closehelm_raised",
+      "msg": "You lift the visor of your helmet."
+    },
+    "armor": [ { "encumbrance": 35, "coverage": 100, "covers": [ "head", "eyes", "mouth" ] } ]
+  },
+  {
+    "id": "helmet_closehelm_raised",
+    "type": "ARMOR",
+    "category": "armor",
+    "name": { "str": "close helmet (raised)", "str_pl": "close helmets (raised)" },
+    "description": "A late medieval helmet that completely encloses the head, with a visor and bevor that has currently been lifted up.  Activate it to lower the visor back down to cover the face.",
+    "weight": "1175 g",
+    "volume": "2500 ml",
+    "price": 30000,
+    "price_postapoc": 4000,
+    "bashing": 10,
+    "material": [ "steel", "leather" ],
+    "symbol": "[",
+    "looks_like": "helmet_plate",
+    "color": "light_gray",
+    "warmth": 10,
+    "material_thickness": 4,
+    "techniques": [ "WBLOCK_1" ],
+    "flags": [ "VARSIZE", "STURDY" ],
+    "use_action": {
+      "menu_text": "Lower",
+      "type": "transform",
+      "target": "helmet_closehelm",
+      "msg": "You lower the visor of your helmet back down over your face."
+    },
+    "armor": [ { "encumbrance": 35, "coverage": 100, "covers": [ "head" ] } ]
+  },
+  {
+    "type": "recipe",
+    "result": "helmet_closehelm",
+    "obsolete": true
+  }
+]
