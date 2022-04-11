@@ -14,17 +14,20 @@
   {
     "type": "item_group",
     "id": "bionics",
-    "items": [
-      [ "bio_lobotomy_awakened", 10 ],
-      [ "bio_lobotomy_badtemper", 10 ],
-      [ "bio_lobotomy_chemimbalance", 10 ],
-      [ "bio_lobotomy_schizophrenic", 10 ],
-      [ "bio_lobotomy_moodswings", 10 ],
-      [ "bio_lobotomy_psychopath", 10 ],
-      [ "bio_lobotomy_narcoleptic", 10 ],
-      [ "bio_lobotomy_hoarder", 10 ],
-      [ "bio_lobotomy_insomnia", 10 ]
-    ]
+    "copy-from": "bionics",
+    "extend": {
+      "items": [
+        [ "bio_lobotomy_awakened", 10 ],
+        [ "bio_lobotomy_badtemper", 10 ],
+        [ "bio_lobotomy_chemimbalance", 10 ],
+        [ "bio_lobotomy_schizophrenic", 10 ],
+        [ "bio_lobotomy_moodswings", 10 ],
+        [ "bio_lobotomy_psychopath", 10 ],
+        [ "bio_lobotomy_narcoleptic", 10 ],
+        [ "bio_lobotomy_hoarder", 10 ],
+        [ "bio_lobotomy_insomnia", 10 ]
+      ]
+    }
   },
   {
     "type": "item_group",
@@ -46,6 +49,7 @@
     "type": "item_group",
     "id": "bionics_common",
     "subtype": "distribution",
-    "items": [ { "group": "bionics_medical_brain", "prob": 5 } ]
+    "copy-from": "bionics_common",
+    "extend": { "items": [ { "group": "bionics_medical_brain", "prob": 5 } ] }
   }
 ]
