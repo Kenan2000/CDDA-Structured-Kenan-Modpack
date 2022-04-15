@@ -234,7 +234,7 @@
     "ammo": "essence_blood_type",
     "use_action": {
       "type": "consume_drug",
-      "activation_message": "The gem shimmers with malevolent red light as you feel a strange hunger, a craving for rotting meat and stagnant water...",
+      "activation_message": "The gem shimmers with malevolent red light as you feel a strange hunger, a craving for rotting meat and stagnant water…",
       "effects": [ { "id": "revenant_hunger", "duration": 1800 } ]
     },
     "flags": [ "BELTED", "OVERSIZE", "NO_SALVAGE", "ALLOWS_NATURAL_ATTACKS", "TRADER_KEEP_EQUIPPED" ],
@@ -435,7 +435,7 @@
     "type": "TOOL_ARMOR",
     "name": { "str": "cyclopean mirror" },
     "category": "armor",
-    "description": "An ornate round mirror in an archaic style, unnaturally light for its size.  Natural scenery appears to be engraved into it, and light reflected from it projects a completely different, otherworldly pattern.  It is capable of moving on its own when equipped, blocking melee attacks like a small shield.  When fueled by essence, it projects a barrier that provides less physical defense, but protects against electricity and radiation, along with partial resistance to psychic influence and extreme temperatures.",
+    "description": "An ornate round mirror in an archaic style, unnaturally light for its size.  Natural scenery appears to be engraved into it, and light reflected from it projects a completely different, otherworldly pattern.  It is capable of moving on its own when equipped, blocking melee attacks like a small shield.  When fueled by essence, it projects a barrier that provides minor physical defense to the entire body, negates electricity and radiation, halves other forms of elemental damage, and grants partial resistance to psychic influence and extreme temperatures.",
     "weight": "500 g",
     "volume": "4 L",
     "price": "900 USD",
@@ -451,7 +451,7 @@
     "use_action": [
       {
         "target": "cyclopean_mirror_on",
-        "msg": "The mirror fades out of reality, as a faint protective aura envelops you.",
+        "msg": "he mirror glows and reveals its otherworldly reflection, as a faint protective aura envelops you.",
         "active": true,
         "need_worn": true,
         "need_charges": 1,
@@ -461,6 +461,23 @@
       }
     ],
     "techniques": [ "WBLOCK_2" ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ACTIVE",
+          "values": [
+            { "value": "ARMOR_BASH", "add": -10 },
+            { "value": "ARMOR_CUT", "add": -10 },
+            { "value": "ARMOR_STAB", "add": -10 },
+            { "value": "ARMOR_BULLET", "add": -10 },
+            { "value": "ARMOR_HEAT", "multiply": -0.5 },
+            { "value": "ARMOR_COLD", "multiply": -0.5 },
+            { "value": "ARMOR_ACID", "multiply": -0.5 }
+          ]
+        }
+      ]
+    },
     "flags": [
       "ALLOWS_NATURAL_ATTACKS",
       "OVERSIZE",
@@ -468,13 +485,13 @@
       "UNBREAKABLE_MELEE",
       "BLOCK_WHILE_WORN",
       "NO_SALVAGE",
-      "SEMITANGIBLE",
       "AURA",
       "ONLY_ONE",
       "POWERARMOR_COMPATIBLE"
     ],
+    "sided": true,
     "material_thickness": 4,
-    "armor": [ { "coverage": 40, "covers": [ "torso" ] } ]
+    "armor": [ { "encumbrance": 10, "coverage": 80, "covers": [ "arm_l", "arm_r", "hand_l", "hand_r" ] } ]
   },
   {
     "id": "cyclopean_mirror_on",
@@ -482,15 +499,10 @@
     "type": "TOOL_ARMOR",
     "name": { "str": "cyclopean mirror (on)" },
     "category": "armor",
-    "description": "An ornate round mirror in an archaic style.  It has shifted into a brightly-glowing barrier that protects the user from electricity and radiation, along with partial protection from psychic influence, some resistance to extreme temperatures, and minor environmental protection.  The barrier's physical protection is half that of the mirror itself, but protects your body fully.",
+    "description": "An ornate round mirror in an archaic style.  It casts a brightly-glowing barrier that protects the user from electricity and radiation, along with partial protection from psychic influence, some resistance to extreme temperatures, increased physical resistance, and halved damage from other elemental damage.",
     "turns_per_charge": 600,
     "revert_to": "cyclopean_mirror",
-    "use_action": {
-      "target": "cyclopean_mirror",
-      "msg": "The protective glow vanishes as the mirror rematerializes.",
-      "type": "transform"
-    },
-    "relative": { "weight": -500, "bashing": -8 },
+    "use_action": { "target": "cyclopean_mirror", "msg": "The protective glow vanishes as the mirror deactivates.", "type": "transform" },
     "extend": {
       "flags": [
         "CLIMATE_CONTROL",
@@ -507,16 +519,7 @@
         "ELECTRIC_IMMUNE",
         "DIMENSIONAL_ANCHOR"
       ]
-    },
-    "delete": { "flags": [ "BLOCK_WHILE_WORN" ] },
-    "material_thickness": 2,
-    "environmental_protection": 12,
-    "armor": [
-      {
-        "coverage": 100,
-        "covers": [ "head", "eyes", "mouth", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
-      }
-    ]
+    }
   },
   {
     "id": "hauberk_jade",
@@ -589,7 +592,7 @@
     "type": "TOOL_ARMOR",
     "category": "clothing",
     "name": { "str": "jade wreath" },
-    "description": "A crown of dark green stone with strange geometric patterns carved into it.  Activating it will harden the body against flame and heat, consuming blood essence while it's in effect.",
+    "description": "A crown of dark green stone with strange geometric patterns carved into it.  Activating it will harden the body against heat and smoke, consuming blood essence while it's in effect.",
     "//": "The shrine lesser artifacts are all post-cataclysm items.",
     "price_postapoc": "100 USD",
     "weight": "600 g",
@@ -608,8 +611,8 @@
         {
           "has": "WORN",
           "condition": "ACTIVE",
-          "values": [ { "value": "ARMOR_HEAT", "multiply": -1.0 } ],
-          "ench_effects": [ { "effect": "heat_ward_true", "intensity": 1 } ]
+          "values": [ { "value": "ARMOR_HEAT", "multiply": -0.5 } ],
+          "ench_effects": [ { "effect": "heat_ward", "intensity": 1 } ]
         }
       ]
     },
@@ -620,7 +623,7 @@
       "need_worn": true,
       "need_charges": 1,
       "need_charges_msg": "Fuel the wreath with essence of blood.",
-      "menu_text": "Activate ward against flame",
+      "menu_text": "Activate ward against heat",
       "type": "transform"
     },
     "flags": [ "BELTED", "OVERSIZE", "ALLOWS_NATURAL_ATTACKS", "TRADER_KEEP_EQUIPPED" ],
@@ -633,8 +636,8 @@
     "copy-from": "jade_wreath",
     "repairs_like": "jade_wreath",
     "name": { "str": "jade wreath (on)", "str_pl": "jade wreaths (on)" },
-    "description": "A crown of dark green stone with strange geometric patterns carved into it.  It is currently active, completely protecting you against heat and flame.",
-    "turns_per_charge": 100,
+    "description": "A crown of dark green stone with strange geometric patterns carved into it.  It is currently active, completely protecting you against heat and smoke.",
+    "turns_per_charge": 150,
     "revert_to": "jade_wreath",
     "use_action": { "target": "jade_wreath", "msg": "The glowing carvings on the jade wreath fade.", "type": "transform" },
     "extend": { "flags": [ "CLIMATE_CONTROL", "TRADER_AVOID", "NO_TAKEOFF" ] }
@@ -644,7 +647,7 @@
     "type": "TOOL_ARMOR",
     "name": { "str": "meteoric talisman" },
     "category": "armor",
-    "description": "An ornate necklace with a small charm resembling a round shield, made from a hard iridescent metal.  Activating it will ward against electricity, consuming dull essence while active.",
+    "description": "An ornate necklace with a small charm resembling a round shield, made from a hard iridescent metal.  Activating it will ward against electricity at the expense of slowing you down slightly, consuming dull essence while active.",
     "weight": "60 g",
     "volume": "250 ml",
     "price_postapoc": "100 USD",
@@ -666,7 +669,7 @@
       "type": "transform"
     },
     "relic_data": {
-      "passive_effects": [ { "has": "WORN", "condition": "ACTIVE", "ench_effects": [ { "effect": "lightning_ward_true", "intensity": 1 } ] } ]
+      "passive_effects": [ { "has": "WORN", "condition": "ACTIVE", "ench_effects": [ { "effect": "lightning_ward", "intensity": 1 } ] } ]
     },
     "flags": [ "FANCY", "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ]
   },
@@ -676,8 +679,8 @@
     "copy-from": "meteoric_talisman",
     "repairs_like": "meteoric_talisman",
     "name": { "str": "meteoric talisman (on)", "str_pl": "meteoric talismans (on)" },
-    "description": "An ornate necklace with a small charm resembling a round shield, made from a hard iridescent metal.  It is currently activate, insulating you against electrical attacks.",
-    "turns_per_charge": 10,
+    "description": "An ornate necklace with a small charm resembling a round shield, made from a hard iridescent metal.  It is currently activate, insulating you against electrical attacks but also slowing you down a bit.",
+    "turns_per_charge": 15,
     "revert_to": "meteoric_talisman",
     "use_action": {
       "target": "meteoric_talisman",
@@ -692,7 +695,7 @@
     "copy-from": "ruby_silver_ring",
     "repairs_like": "orb_veil",
     "name": { "str": "ring of the fallen angel", "str_pl": "rings of the fallen angel" },
-    "description": "A simple silver ring, adorned with a small red gem and a wing motif.  Using it channels an extremely powerful protective spell, guarding against blade, bullet, and many forms of supernatural harm.",
+    "description": "A simple silver ring, adorned with a small red gem and a wing motif.  Using it channels a powerful protective spell, guarding against many forms of supernatural harm.",
     "//": "While unassuming, those who knew what rituals it was useful for would value it highly.  Those people are probably now dead.",
     "price": "3600 USD",
     "price_postapoc": "150 USD",
@@ -707,11 +710,11 @@
       "need_worn": true,
       "need_charges": 1,
       "need_charges_msg": "Provide essence, and the fallen angel shall spread its wings.",
-      "menu_text": "Activate holy ward",
+      "menu_text": "Activate ward against evil",
       "type": "transform"
     },
     "relic_data": {
-      "passive_effects": [ { "has": "WORN", "condition": "ACTIVE", "ench_effects": [ { "effect": "cleric_warding_true", "intensity": 1 } ] } ]
+      "passive_effects": [ { "has": "WORN", "condition": "ACTIVE", "ench_effects": [ { "effect": "cleric_warding", "intensity": 1 } ] } ]
     },
     "extend": { "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED", "PSYSHIELD_PARTIAL" ] }
   },
@@ -721,10 +724,10 @@
     "copy-from": "cleric_ring",
     "repairs_like": "cleric_ring",
     "name": { "str": "ring of the fallen angel (on)", "str_pl": "rings of the fallen angel (on)" },
-    "description": "A simple silver ring, adorned with a small red gem and a wing motif.  The wings encircle the gem and shimmer with an eerie pale glow, its protective magic protecting against blade, bullet, and various anomalous influences.",
-    "turns_per_charge": 300,
+    "description": "A simple silver ring, adorned with a small red gem and a wing motif.  The wings encircle the gem and shimmer with an eerie pale glow, its protective magic protecting against various anomalous influences.",
+    "turns_per_charge": 450,
     "revert_to": "cleric_ring",
     "use_action": { "target": "cleric_ring", "msg": "The ring's energy fades, returning to normal.", "type": "transform" },
-    "extend": { "flags": [ "TRADER_AVOID", "NO_TAKEOFF" ] }
+    "extend": { "flags": [ "TRADER_AVOID", "NO_TAKEOFF", "DIMENSIONAL_ANCHOR", "PORTAL_PROOF" ] }
   }
 ]

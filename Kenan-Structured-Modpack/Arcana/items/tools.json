@@ -124,7 +124,7 @@
     "id": "offering_chalice",
     "type": "TOOL",
     "name": { "str": "offering chalice" },
-    "description": "This is a strange chalice made of gold, engraved all over with some unfamiliar text.  It is filled with a thick black liquid that you seem unable to pour out.  Using it will allow you to perform a ritual that can convert your own life force into blood essence.  Doing so will take 15 minutes, inflicting harm upon your body at the end, as well as dire consequences if overused...",
+    "description": "This is a strange chalice made of gold, engraved all over with some unfamiliar text.  It is filled with a thick black liquid that you seem unable to pour out.  Using it will allow you to perform a ritual that can convert your own life force into blood essence.  Doing so will take 15 minutes, inflicting harm upon your body at the end, as well as dire consequences if overused…",
     "weight": "2500 g",
     "volume": "1 L",
     "price": "1600 USD",
@@ -156,7 +156,7 @@
     "//": "By necessity can't yet define this to use copy-from, as qualities will break it.",
     "category": "weapons",
     "name": { "str": "silver athame" },
-    "description": "An ornate silver dagger, seemingly made for ritual purposes.  It seems sharper than silver has any right to be.  It can be used to perform a ritual converting your life force into blood essence.  Doing so will take 5 minutes, inflicting blood loss and damage at the end, as well as potential consequences if overused...",
+    "description": "An ornate silver dagger, seemingly made for ritual purposes.  It seems sharper than silver has any right to be.  It can be used to perform a ritual converting your life force into blood essence.  Doing so will take 5 minutes, inflicting blood loss and damage at the end, as well as potential consequences if overused…",
     "weight": "1302 g",
     "volume": "750 ml",
     "longest_side": "50 cm",
@@ -186,6 +186,7 @@
     "id": "sun_sword",
     "type": "TOOL",
     "category": "weapons",
+    "copy-from": "arming_sword",
     "name": { "str": "incorruptible sword" },
     "//": "Stats are a blend of the available swords you can use to make it, same deal as the mantle of shadows.",
     "description": "This is some manner of sword, decorated with a golden cross motif worked into the blade.  When powered by consecrated magical essence, it has the power to cut through darkness itself.",
@@ -305,7 +306,7 @@
     "//": "Designed to be compatible with Via Gladium et Malleo, so the silver decoration is on the other end to shift the center of balance.  No damage bonus from the extra weight, but also no 0.7x melee damage from POLEARM flag.",
     "relative": { "weight": "450 g", "to_hit": 1 },
     "extend": { "flags": [ "NO_SALVAGE" ] },
-    "delete": { "flags": [ "ALWAYS_TWOHAND", "POLEARM" ] }
+    "delete": { "flags": [ "ALWAYS_TWOHAND", "POLEARM" ], "weapon_category": [ "POLEARMS" ] }
   },
   {
     "id": "spear_pestilence",
@@ -1024,7 +1025,7 @@
     "use_action": {
       "type": "place_monster",
       "monster_id": "mon_shoggoth_summoned",
-      "friendly_msg": "You hear a voice in your mind.  \"Tekili ...l-li?\"  Your mind exerts a strange influence upon the shoggoth.",
+      "friendly_msg": "You hear a voice in your mind.  \"Tekili …l-li?\"  Your mind exerts a strange influence upon the shoggoth.",
       "hostile_msg": "You hear a voice in your mind.  \"Tekeli-li!\"  The shoggoth resists your efforts to control it!",
       "difficulty": 10,
       "moves": 60,
@@ -1698,7 +1699,7 @@
     "type": "TOOL",
     "category": "tools",
     "name": { "str": "orb of the veil", "str_pl": "orbs of the veil" },
-    "description": "A mysterious orb made of a dark, almost glassy stone.  An eye pattern is worked into it, using gold for the irises and a diamond pupil.  It is said to represent a desire to protect the old knowledge and old ways, strengthened by a yearning for further enlightenment.  Using it will show you a vision of the surrounding area, along with other random side effects, along with attracting unwanted attention from Beyond...",
+    "description": "A mysterious orb made of a dark, almost glassy stone.  An eye pattern is worked into it, using gold for the irises and a diamond pupil.  It is said to represent a desire to protect the old knowledge and old ways, strengthened by a yearning for further enlightenment.  Using it will show you a vision of the surrounding area, along with other random side effects, along with attracting unwanted attention from Beyond…",
     "weight": "2000 g",
     "volume": "1 L",
     "price": "1200 USD",
@@ -2028,7 +2029,12 @@
             }
           ]
         },
-        { "has": "WIELD", "condition": "ACTIVE", "ench_effects": [ { "effect": "cold_ward_true", "intensity": 1 } ] }
+        {
+          "has": "WIELD",
+          "condition": "ACTIVE",
+          "values": [ { "value": "ARMOR_COLD", "multiply": -0.5 } ],
+          "ench_effects": [ { "effect": "cold_ward", "intensity": 1 } ]
+        }
       ]
     },
     "use_action": {
@@ -2050,7 +2056,7 @@
     "repairs_like": "moonstone_fang",
     "name": { "str": "moonstone fang (on)", "str_pl": "moonstone fangs (on)" },
     "description": "A short, curved spike made of a white opalescent gemstone, richly engraved with swirling serpentine imagery.  In addition to its life-draining strikes and blinding attackers, it is currently protecting you against the cold.  It can't be released until deactivated, however.",
-    "turns_per_charge": 300,
+    "turns_per_charge": 450,
     "revert_to": "moonstone_fang",
     "use_action": {
       "target": "moonstone_fang",
@@ -2062,10 +2068,11 @@
   {
     "id": "veilblade",
     "looks_like": "zweihander",
+    "copy-from": "zweihander",
     "type": "TOOL",
     "category": "weapons",
     "name": { "str": "restored ritual blade" },
-    "description": "A two-handed sword richly engraved with exotic runes, all in scripts not of this world.  Once corrupted and now restored, it can only serve a fragment of its original purpose.  Fueling it with crystallized essence will grant great gifts, but set you down a path you can't return from.",
+    "description": "A two-handed sword richly engraved with exotic runes, all in scripts not of this world.  Once corrupted and now restored, it can only serve a fragment of its original purpose.  Linger near a portal to collapse it into a form you can harvest crystallized essence from.  It will grant great gifts, but set you down a path you can't return from.",
     "weight": "2267 g",
     "volume": "3 L",
     "longest_side": "140 cm",
@@ -2091,7 +2098,9 @@
         {
           "has": "WIELD",
           "condition": "ALWAYS",
-          "values": [ { "value": "INTELLIGENCE", "add": 4 }, { "value": "REGEN_MANA", "multiply": 0.5 } ]
+          "values": [ { "value": "INTELLIGENCE", "add": 4 }, { "value": "REGEN_MANA", "multiply": 0.5 } ],
+          "ench_effects": [ { "effect": "arcana_veilblade_halt_portal_storms", "intensity": 1 } ],
+          "intermittent_activation": { "effects": [ { "frequency": "3 minutes", "spell_effects": [ { "id": "arcana_react_veilblade" } ] } ] }
         }
       ]
     },
@@ -2205,6 +2214,7 @@
       ]
     },
     "techniques": [ "WBLOCK_1", "WIDE", "BRUTAL", "SWEEP", "VORPAL" ],
-    "flags": [ "UNBREAKABLE_MELEE", "NO_SALVAGE", "NO_UNWIELD", "NO_UNLOAD", "NO_RELOAD", "TRADER_KEEP_EQUIPPED" ]
+    "flags": [ "UNBREAKABLE_MELEE", "NO_SALVAGE", "NO_UNWIELD", "NO_UNLOAD", "NO_RELOAD", "TRADER_KEEP_EQUIPPED" ],
+    "weapon_category": [ "MEDIEVAL_SWORDS", "GREAT_SWORDS" ]
   }
 ]

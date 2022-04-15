@@ -64,9 +64,17 @@
         "moves": 35
       }
     ],
-    "flags": [ "WAIST", "OVERSIZE", "WATER_FRIENDLY" ],
-    "material_thickness": 1,
-    "armor": [ { "encumbrance": 5, "coverage": 10, "covers": [ "torso" ] } ]
+    "flags": [ "BELTED", "OVERSIZE", "WATER_FRIENDLY" ],
+    "armor": [
+      {
+        "encumbrance": 5,
+        "coverage": 10,
+        "covers": [ "torso" ],
+        "specifically_covers": [ "torso_waist" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_ammo_satchel",
@@ -91,9 +99,17 @@
       }
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
-    "flags": [ "WATER_FRIENDLY", "WAIST" ],
-    "material_thickness": 1,
-    "armor": [ { "encumbrance": 4, "coverage": 20, "covers": [ "torso" ] } ]
+    "flags": [ "WATER_FRIENDLY", "BELTED" ],
+    "armor": [
+      {
+        "encumbrance": 4,
+        "coverage": 20,
+        "covers": [ "torso" ],
+        "specifically_covers": [ "torso_waist" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_chestpouch",
@@ -119,8 +135,7 @@
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
     "flags": [ "WATER_FRIENDLY", "BELTED" ],
-    "material_thickness": 1,
-    "armor": [ { "coverage": 15, "covers": [ "torso" ] } ]
+    "armor": [ { "coverage": 15, "covers": [ "torso" ], "material": [ "secro_flesh_artificial" ], "material_thickness": 1 } ]
   },
   {
     "id": "secro_flesh_chestrig",
@@ -170,8 +185,7 @@
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
     "flags": [ "WATER_FRIENDLY", "BELTED" ],
-    "material_thickness": 1,
-    "armor": [ { "coverage": 15, "covers": [ "torso" ] } ]
+    "armor": [ { "coverage": 15, "covers": [ "torso" ], "specifically_covers": [ "torso_waist" ], "material": [ "secro_flesh_artificial" ], "material_thickness": 1 } ]
   },
   {
     "id": "secro_flesh_xl_chestrig",
@@ -180,7 +194,7 @@
     "name": { "str": "XL chest rig" },
     "description": "Popularized during the Vietnam War, chest rigs like these are typically plain, barebones affairs consisting of three or more pouches in a row, with straps to secure them on your chest.  This one can hold four magazines in its pouches and fits larger-than-human forms.",
     "proportional": { "weight": 1.25, "volume": 1.13 },
-    "flags": [ "WATER_FRIENDLY", "WAIST", "OVERSIZE" ]
+    "flags": [ "WATER_FRIENDLY", "BELTED", "OVERSIZE" ]
   },
   {
     "id": "secro_flesh_javelin_bag",
@@ -243,8 +257,15 @@
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash javelins", "holster_msg": "You stash your %s." },
     "flags": [ "WATER_FRIENDLY", "OVERSIZE", "BELTED" ],
-    "material_thickness": 1,
-    "armor": [ { "encumbrance": 10, "coverage": 30, "covers": [ "torso" ] } ]
+    "armor": [
+      {
+        "encumbrance": 10,
+        "coverage": 30,
+        "covers": [ "torso" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_legpouch",
@@ -271,8 +292,15 @@
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
     "flags": [ "WATER_FRIENDLY", "BELTED", "OVERSIZE", "ALLOWS_NATURAL_ATTACKS", "NOT_FOOTWEAR" ],
-    "material_thickness": 1,
-    "armor": [ { "encumbrance": 1, "coverage": 5, "covers": [ "foot_l", "foot_r" ] } ]
+    "armor": [
+      {
+        "encumbrance": 1,
+        "coverage": 5,
+        "covers": [ "foot_l", "foot_r" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "type": "ARMOR",
@@ -307,8 +335,9 @@
     ],
     "use_action": { "type": "holster", "holster_prompt": "Stash ammo", "holster_msg": "You stash your %s." },
     "flags": [ "WATER_FRIENDLY", "BELTED" ],
-    "material_thickness": 1,
-    "armor": [ { "coverage": 15, "covers": [ "leg_l", "leg_r" ] } ]
+    "armor": [
+      { "coverage": 15, "covers": [ "leg_l", "leg_r" ], "material": [ "secro_flesh_artificial" ], "material_thickness": 1 }
+    ]
   },
   {
     "id": "secro_flesh_quiver",
@@ -325,9 +354,17 @@
     "color": "red",
     "sided": true,
     "pocket_data": [ { "ammo_restriction": { "arrow": 20, "bolt": 20 }, "moves": 20 } ],
-    "flags": [ "WAIST", "OVERSIZE", "WATER_FRIENDLY" ],
-    "material_thickness": 1,
-    "armor": [ { "encumbrance": 3, "coverage": 10, "covers": [ "leg_l", "leg_r" ] } ]
+    "flags": [ "BELTED", "OVERSIZE", "WATER_FRIENDLY" ],
+    "armor": [
+      {
+        "encumbrance": 3,
+        "coverage": 10,
+        "covers": [ "leg_l", "leg_r" ],
+        "specifically_covers": [ "torso_waist" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_quiver_large",
@@ -344,8 +381,15 @@
     "color": "red",
     "pocket_data": [ { "ammo_restriction": { "arrow": 60, "bolt": 60 }, "moves": 20 } ],
     "flags": [ "BELTED", "OVERSIZE", "WATER_FRIENDLY" ],
-    "material_thickness": 1,
-    "armor": [ { "encumbrance": 3, "coverage": 15, "covers": [ "torso" ] } ]
+    "armor": [
+      {
+        "encumbrance": 3,
+        "coverage": 15,
+        "covers": [ "torso" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_tacvest",
@@ -398,9 +442,16 @@
         "moves": 60
       }
     ],
-    "flags": [ "WATER_FRIENDLY", "WAIST" ],
-    "material_thickness": 1,
-    "armor": [ { "encumbrance": 2, "coverage": 20, "covers": [ "torso" ] } ]
+    "flags": [ "WATER_FRIENDLY", "BELTED" ],
+    "armor": [
+      {
+        "encumbrance": 2,
+        "coverage": 20,
+        "covers": [ "torso" ],
+        "material": [ "secro_flesh_artificial" ],
+        "material_thickness": 1
+      }
+    ]
   },
   {
     "id": "secro_flesh_xl_tacvest",
@@ -409,6 +460,6 @@
     "name": { "str": "XL tac vest" },
     "description": "This light vest is meant to carry your gear and ammunition comfortably distributed about your torso.  They are popular amongst law enforcement, but less so than combination tactical vests incorporating Kevlar.  Oversized and easy to don, this vest can hold four magazines close at hand in its many pouches.",
     "proportional": { "weight": 1.25, "volume": 1.13 },
-    "flags": [ "WATER_FRIENDLY", "WAIST", "OVERSIZE" ]
+    "flags": [ "WATER_FRIENDLY", "BELTED", "OVERSIZE" ]
   }
 ]

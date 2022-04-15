@@ -4,209 +4,335 @@
     "copy-from": "homebooks",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": {
+      "entries": [
+        { "item": "book_magicfordummies", "prob": 1 },
+        { "item": "book_potioncraft", "prob": 1 },
+        { "item": "book_scrollcraft", "prob": 1 }
+      ]
+    }
   },
   {
     "id": "church",
     "copy-from": "church",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": {
+      "entries": [
+        { "item": "book_hexenhammer", "prob": 1 },
+        { "item": "book_scrollcraft", "prob": 1 },
+        { "item": "manual_cleansingflame", "prob": 1 }
+      ]
+    }
   },
   {
     "id": "religious_books",
     "copy-from": "religious_books",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": {
+      "entries": [
+        { "item": "book_hexenhammer", "prob": 1 },
+        { "item": "book_scrollcraft", "prob": 1 },
+        { "item": "book_sacrifice", "prob": 1 }
+      ]
+    }
   },
   {
     "id": "mansion_books",
     "copy-from": "mansion_books",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": { "entries": [ { "group": "magic_books", "prob": 15 } ] }
   },
   {
     "id": "mansion_bookcase",
     "copy-from": "mansion_bookcase",
     "type": "item_group",
     "subtype": "collection",
-    "extend": {  }
+    "extend": { "groups": [ [ "magic_books", 15 ] ] }
   },
   {
     "id": "exotic_books",
     "copy-from": "exotic_books",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": { "entries": [ { "group": "magic_books", "prob": 15 } ] }
   },
   {
     "id": "rare_martial_arts_books",
     "copy-from": "rare_martial_arts_books",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": { "entries": [ { "item": "manual_cleansingflame", "prob": 1 }, { "item": "manual_shrike", "prob": 1 } ] }
   },
   {
     "id": "SUS_chemistry_bookcase",
     "copy-from": "SUS_chemistry_bookcase",
     "type": "item_group",
     "subtype": "collection",
-    "extend": {  }
+    "extend": { "entries": [ { "item": "book_potioncraft", "prob": 5 } ] }
   },
   {
     "id": "SUS_book_nonf_hard_spirit",
     "copy-from": "SUS_book_nonf_hard_spirit",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": {
+      "entries": [
+        { "item": "book_hexenhammer", "prob": 2 },
+        { "item": "book_scrollcraft", "prob": 2 },
+        { "item": "book_sacrifice", "prob": 1 }
+      ]
+    }
   },
   {
     "id": "SUS_book_nonf_soft_occult",
     "copy-from": "SUS_book_nonf_soft_occult",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": { "entries": [ { "group": "magic_books", "prob": 1 } ] }
   },
   {
     "id": "mansion_safe",
     "copy-from": "mansion_safe",
     "type": "item_group",
     "subtype": "collection",
-    "extend": {  }
+    "extend": {
+      "items": [
+        { "group": "magic_consumables", "prob": 45 },
+        { "group": "magic_items", "prob": 30 },
+        { "group": "magic_tools", "prob": 15 },
+        [ "arcanemap", 20 ]
+      ]
+    }
   },
   {
     "id": "cop_evidence",
     "copy-from": "cop_evidence",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": { "entries": [ { "item": "offering_chalice", "prob": 1 }, { "item": "blood_athame", "prob": 1 } ] }
   },
   {
     "id": "creepy",
     "copy-from": "creepy",
     "type": "item_group",
-    "extend": {  }
+    "extend": { "items": [ [ "offering_chalice", 5 ], [ "blood_athame", 5 ], [ "dragonblood_mutagen", 1 ] ] }
   },
   {
     "id": "vault",
     "copy-from": "vault",
     "type": "item_group",
-    "extend": {  }
+    "extend": {
+      "items": [
+        { "group": "magic_books", "prob": 25 },
+        [ "arcanemap", 10 ],
+        [ "hexenhammer", 5 ],
+        [ "offering_chalice", 5 ],
+        [ "blood_athame", 5 ],
+        [ "mana_gem", 2 ],
+        [ "mana_gem_blood", 2 ],
+        [ "mana_gem_dull", 1 ],
+        [ "totem_elecresist", 1 ],
+        [ "totem_clairvoyance", 1 ],
+        [ "totem_insight", 1 ],
+        [ "totem_lightning", 1 ]
+      ]
+    }
   },
   {
     "id": "antique_rare",
     "copy-from": "antique_rare",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": {
+      "entries": [
+        { "item": "mana_gem", "prob": 1 },
+        { "item": "mana_gem_blood", "prob": 1 },
+        { "item": "mana_gem_dull", "prob": 1 },
+        { "item": "offering_chalice", "prob": 2 },
+        { "item": "blood_athame", "prob": 2 },
+        { "item": "revenant_crown", "prob": 1 },
+        { "item": "gauntlets_necro", "prob": 1 },
+        { "item": "thunder_sigil", "prob": 1 },
+        { "item": "brooch_iridescent", "prob": 3 }
+      ]
+    }
   },
   {
     "id": "art",
     "copy-from": "art",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": {
+      "entries": [
+        { "item": "mana_gem", "prob": 1 },
+        { "item": "mana_gem_blood", "prob": 1 },
+        { "item": "mana_gem_dull", "prob": 1 },
+        { "item": "offering_chalice", "prob": 3 },
+        { "item": "revenant_crown", "prob": 3 },
+        { "item": "gauntlets_necro", "prob": 1 },
+        { "item": "thunder_sigil", "prob": 3 },
+        { "item": "amulet_exotic", "prob": 2 },
+        { "item": "brooch_iridescent", "prob": 2 },
+        { "item": "totem_elecresist", "prob": 1 },
+        { "item": "totem_clairvoyance", "prob": 1 },
+        { "item": "totem_insight", "prob": 1 },
+        { "item": "totem_lightning", "prob": 1 }
+      ]
+    }
   },
   {
     "id": "hive_center",
     "copy-from": "hive_center",
     "type": "item_group",
-    "extend": {  }
+    "extend": { "items": [ [ "dermatik_sting", 1 ] ] }
   },
   {
     "id": "jewelry_back",
     "copy-from": "jewelry_back",
     "type": "item_group",
-    "extend": {  }
+    "extend": { "items": [ [ "amulet_exotic", 15 ], [ "brooch_iridescent", 10 ] ] }
   },
   {
     "id": "jewelry_safe",
     "copy-from": "jewelry_safe",
     "type": "item_group",
-    "extend": {  }
+    "extend": {
+      "items": [
+        [ "mana_gem", 10 ],
+        [ "mana_gem_blood", 10 ],
+        [ "mana_gem_dull", 5 ],
+        [ "totem_elecresist", 10 ],
+        [ "totem_clairvoyance", 10 ],
+        [ "totem_insight", 10 ],
+        [ "totem_lightning", 10 ]
+      ]
+    }
   },
   {
     "id": "pawn",
     "copy-from": "pawn",
     "type": "item_group",
-    "extend": {  }
+    "extend": {
+      "items": [ [ "mana_gem", 1 ], [ "mana_gem_blood", 1 ], [ "mana_gem_dull", 1 ], [ "offering_chalice", 1 ], [ "blood_athame", 1 ] ]
+    }
   },
   {
     "id": "my_precious",
     "copy-from": "my_precious",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": {
+      "entries": [
+        { "item": "book_hexenhammer", "prob": 10 },
+        { "item": "book_sacrifice", "prob": 10 },
+        { "item": "book_bloodmagic", "prob": 10 }
+      ]
+    }
   },
   {
     "id": "spider",
     "copy-from": "spider",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": {
+      "entries": [
+        { "item": "arcanemap", "prob": 5 },
+        { "group": "magic_tools", "prob": 1 },
+        { "group": "magic_items", "prob": 1 },
+        { "group": "magic_consumables", "prob": 1 },
+        { "group": "magic_books_postapoc", "prob": 1 }
+      ]
+    }
   },
   {
     "id": "drugdealer",
     "copy-from": "drugdealer",
     "type": "item_group",
-    "extend": {  }
+    "extend": { "items": [ { "group": "magic_books_postapoc", "prob": 5 } ] }
   },
   {
     "id": "science",
     "copy-from": "science",
     "type": "item_group",
-    "extend": {  }
+    "extend": {
+      "items": [
+        { "group": "lab_misc_anomalous_items", "prob": 5 },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        [ "tindalos_whistle", 1 ],
+        [ "spatial_displacer", 1 ]
+      ]
+    }
   },
   {
     "id": "teleport",
     "copy-from": "teleport",
     "type": "item_group",
-    "extend": {  }
+    "extend": { "items": [ [ "tindalos_whistle", 5 ], [ "recipe_lab_arcana", 7 ] ] }
   },
   {
     "id": "rare",
     "copy-from": "rare",
     "type": "item_group",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": {
+      "entries": [
+        { "group": "magic_books_postapoc", "prob": 5 },
+        { "group": "magic_consumables", "prob": 2 },
+        { "group": "magic_tools", "prob": 2 },
+        { "group": "magic_items", "prob": 1 },
+        { "item": "tindalos_whistle", "prob": 10 },
+        { "item": "spatial_displacer", "prob": 5 }
+      ]
+    }
   },
   {
     "id": "museum_misc",
     "copy-from": "museum_misc",
     "type": "item_group",
-    "extend": {  }
+    "extend": { "items": [ [ "offering_chalice", 1 ], [ "blood_athame", 1 ] ] }
   },
   {
     "id": "museum_primitive",
     "copy-from": "museum_primitive",
     "type": "item_group",
-    "extend": {  }
+    "extend": { "items": [ [ "totem_cleric", 1 ], [ "totem_agile", 1 ], [ "totem_strength", 1 ], [ "totem_invis", 1 ] ] }
   },
   {
     "id": "tools_robotics",
     "copy-from": "tools_robotics",
     "type": "item_group",
-    "extend": {  }
+    "extend": { "items": [ [ "recipe_lab_arcana", 2 ] ] }
   },
   {
     "id": "guns_energy",
     "copy-from": "guns_energy",
     "type": "item_group",
-    "extend": {  }
+    "extend": { "items": [ [ "electrothermal_arc_cannon", 3 ], [ "rift_focus_cannon", 2 ] ] }
   },
   {
     "id": "gunmod_energy",
     "copy-from": "gunmod_energy",
     "type": "item_group",
-    "extend": {  }
+    "extend": {
+      "items": [ [ "arcane_accelerator_railgun", 5 ], [ "arcane_accelerator_plasma", 3 ], [ "arcane_accelerator_nuke", 2 ] ]
+    }
   },
   {
     "id": "bionics",
     "copy-from": "bionics",
     "type": "item_group",
-    "extend": {  }
+    "extend": {
+      "items": [
+        [ "bio_electrothermal_arc_projector", 1 ],
+        [ "bio_rift_focus_projector", 1 ],
+        [ "bio_essence_surge_cell", 1 ],
+        [ "bio_temporal_stimulation", 1 ],
+        [ "bio_life_sign_suppression", 1 ]
+      ]
+    }
   },
   {
     "id": "bionics_op",
@@ -238,13 +364,13 @@
     "type": "item_group",
     "id": "roof_holdout",
     "copy-from": "roof_holdout",
-    "extend": {  }
+    "extend": { "items": [ { "group": "magic_books_postapoc", "prob": 5 }, { "group": "arcana_hunt_random", "prob": 15 } ] }
   },
   {
     "type": "item_group",
     "id": "flt_loot_rare",
     "copy-from": "flt_loot_rare",
-    "extend": {  }
+    "extend": { "items": [ { "group": "magic_books_postapoc", "prob": 5 }, { "group": "arcana_hunt_random", "prob": 10 } ] }
   },
   {
     "type": "item_group",
@@ -256,34 +382,34 @@
     "type": "item_group",
     "id": "sc_loot_rare",
     "copy-from": "sc_loot_rare",
-    "extend": {  }
+    "extend": { "items": [ { "group": "magic_books_postapoc", "prob": 15 }, { "group": "arcana_hunt_random", "prob": 20 } ] }
   },
   {
     "id": "standing_stones_accident",
     "copy-from": "standing_stones_accident",
     "type": "item_group",
     "subtype": "collection",
-    "extend": {  }
+    "extend": { "items": [ { "group": "magic_books", "prob": 10 } ] }
   },
   {
     "type": "item_group",
     "id": "monparts",
     "copy-from": "monparts",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": { "entries": [ { "group": "arcana_hunt_random", "prob": 5 } ] }
   },
   {
     "type": "item_group",
     "id": "cyborg_harvest",
     "copy-from": "cyborg_harvest",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": { "entries": [ { "group": "lab_magitech_bionics", "prob": 1 } ] }
   },
   {
     "type": "item_group",
     "id": "ammo_shotgun_reloaded",
     "copy-from": "ammo_shotgun_reloaded",
     "subtype": "distribution",
-    "extend": {  }
+    "extend": { "entries": [ { "item": "reloaded_shot_00_arcana", "prob": 25 } ] }
   }
 ]

@@ -4,21 +4,27 @@
     "id": "arcana_dragonblood_blood_effigy_effect",
     "max_duration": "10 s",
     "name": [ "Blood Effigy" ],
-    "desc": [ "This is just used for Arcana mutagenic effects.  If you see this, that likely means DDA has bugged out in some way again." ]
+    "desc": [
+      "This is just used for Arcana mutagenic effects.  If you see this, that likely means DDA has bugged out in some way again."
+    ]
   },
   {
     "type": "effect_type",
     "id": "arcana_dragonblood_sacramental_heart_effect",
     "max_duration": "10 s",
     "name": [ "Sacramental Heart" ],
-    "desc": [ "This is just used for Arcana mutagenic effects.  If you see this, that likely means DDA has bugged out in some way again." ]
+    "desc": [
+      "This is just used for Arcana mutagenic effects.  If you see this, that likely means DDA has bugged out in some way again."
+    ]
   },
   {
     "type": "effect_type",
     "id": "arcana_paragon_veilblade_effect",
     "max_duration": "10 s",
     "name": [ "Ritual Blade" ],
-    "desc": [ "This is just used for Arcana mutagenic effects.  If you see this, that likely means DDA has bugged out in some way again." ]
+    "desc": [
+      "This is just used for Arcana mutagenic effects.  If you see this, that likely means DDA has bugged out in some way again."
+    ]
   },
   {
     "type": "effect_type",
@@ -32,6 +38,19 @@
     "max_intensity": 200,
     "int_dur_factor": "1 m",
     "base_mods": { "fatigue_min": [ 1 ], "fatigue_tick": [ 25 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "sanguine_mark_burnout",
+    "name": [ "Draconic Exertion" ],
+    "desc": [ "Overuse of Sanguine Marks increases hunger gain." ],
+    "apply_message": "You feel your inner fire waver from casting the spell.",
+    "remove_message": "The strange sense of unease from spellcasting fades.",
+    "rating": "bad",
+    "max_duration": "200 m",
+    "max_intensity": 200,
+    "int_dur_factor": "1 m",
+    "base_mods": { "hunger_min": [ 1 ], "hunger_tick": [ 25 ] }
   },
   {
     "type": "effect_type",
@@ -643,73 +662,48 @@
     "resist_effects": [ "talisman_warding" ],
     "remove_message": "The protective effect of your sanguine mark fades, leaving a momentary itch in your veins.",
     "removes_effects": [
-      "nausea",
+      "stung",
       "poison",
       "badpoison",
       "foodpoison",
-      "dermatik",
-      "formication",
-      "bloodworms",
-      "paincysts",
-      "brainworms",
-      "tapeworm",
+      "paralyzepoison",
+      "teargas",
+      "migo_atmosphere",
+      "venom_dmg",
+      "venom_weaken",
+      "irradiated",
       "spores",
       "fungus",
-      "hunger_full",
-      "hunger_engorged"
+      "dermatik",
+      "formication",
+      "tapeworm",
+      "bloodworms",
+      "brainworms",
+      "paincysts"
     ],
     "decay_messages": [ [ "The protective magic flowing through your blood is starting to wane.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
     "max_intensity": 120,
     "int_dur_factor": "1 m",
-    "base_mods": {
-      "hunger_min": [ 1 ],
-      "hunger_chance": [ 18, 36 ],
-      "thirst_min": [ 1 ],
-      "thirst_chance": [ 18, 36 ],
-      "fatigue_min": [ 1 ],
-      "fatigue_chance": [ 36, 12 ],
-      "stamina_min": [ 30 ],
-      "health_min": [ 1 ],
-      "health_chance": [ 12 ],
-      "h_mod_min": [ 1 ],
-      "h_mod_chance": [ 12 ]
-    }
-  },
-  {
-    "type": "effect_type",
-    "id": "dragonbreath_side_effects",
-    "max_duration": "60 m",
-    "base_mods": { "hunger_min": [ 2 ] }
+    "base_mods": { "rad_min": [ -1 ] }
   },
   {
     "type": "effect_type",
     "id": "destructive_absorption_side_effects",
     "name": [ "Absorption Aftereffects" ],
-    "desc": [ "Reduces hunger and thirst, at the expense of stamina and fatigue." ],
+    "desc": [ "Recovers stamina and healthiness, steady fatigue recovery." ],
     "max_duration": "30 m",
     "max_intensity": 30,
     "int_dur_factor": "1 m",
     "base_mods": {
-      "hunger_min": [ -1 ],
-      "hunger_tick": [ 5 ],
-      "thirst_min": [ -1 ],
-      "thirst_tick": [ 5 ],
-      "stamina_min": [ -200 ],
-      "stamina_tick": [ 5 ],
+      "stamina_min": [ 25 ],
       "fatigue_min": [ 1 ],
-      "fatigue_chance": [ 75 ],
-      "fatigue_chance_bot": [ 100 ],
-      "fatigue_tick": [ 5 ],
+      "fatigue_tick": [ 25 ],
       "health_min": [ 1 ],
-      "health_chance": [ 50 ],
-      "health_chance_bot": [ 100 ],
-      "health_tick": [ 5 ],
+      "health_tick": [ 10 ],
       "h_mod_min": [ 1 ],
-      "h_mod_chance": [ 50 ],
-      "h_mod_chance_bot": [ 100 ],
-      "h_mod_tick": [ 5 ]
+      "h_mod_tick": [ 10 ]
     }
   },
   {
@@ -1116,6 +1110,14 @@
     "int_dur_factor": "1 m",
     "removes_effects": [ "winded" ],
     "base_mods": { "speed_mod": [ 25 ], "str_mod": [ 2 ], "dex_mod": [ 2 ], "per_mod": [ 1 ], "stamina_min": [ 5 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "arcana_veilblade_halt_portal_storms",
+    "name": [ "Ethereal Guidance" ],
+    "desc": [
+      "Should you master the secrets of this blade, wielding it will force portal storms to burn out earlier than normal.  Only the worthy will be offered protection."
+    ]
   },
   {
     "type": "effect_type",

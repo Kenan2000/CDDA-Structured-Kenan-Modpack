@@ -931,6 +931,54 @@
     "death_drops": "mon_zpider_mass_death_drops"
   },
   {
+    "id": "mon_unseen_hunter",
+    "copy-from": "mon_unseen_hunter",
+    "type": "MONSTER",
+    "death_drops": "mon_unseen_hunter_death_drops"
+  },
+  {
+    "id": "mon_shifting_mass",
+    "copy-from": "mon_shifting_mass",
+    "type": "MONSTER",
+    "death_drops": "mon_shifting_mass_death_drops"
+  },
+  {
+    "id": "mon_impossible_shape",
+    "copy-from": "mon_impossible_shape",
+    "type": "MONSTER",
+    "death_drops": "mon_impossible_shape_death_drops"
+  },
+  {
+    "id": "mon_absence",
+    "copy-from": "mon_absence",
+    "type": "MONSTER",
+    "death_drops": "mon_absence_death_drops"
+  },
+  {
+    "id": "mon_giant_appendage",
+    "copy-from": "mon_giant_appendage",
+    "type": "MONSTER",
+    "death_drops": "mon_giant_appendage_death_drops"
+  },
+  {
+    "id": "mon_memory",
+    "copy-from": "mon_memory",
+    "type": "MONSTER",
+    "death_drops": "mon_memory_death_drops"
+  },
+  {
+    "id": "mon_swarm_structure",
+    "copy-from": "mon_swarm_structure",
+    "type": "MONSTER",
+    "death_drops": "mon_swarm_structure_death_drops"
+  },
+  {
+    "id": "mon_twisting_blade",
+    "copy-from": "mon_twisting_blade",
+    "type": "MONSTER",
+    "death_drops": "mon_twisting_blade_death_drops"
+  },
+  {
     "id": "mon_spirit_of_fire",
     "type": "MONSTER",
     "name": { "str": "spirit of fire", "str_pl": "spirits of fire" },
@@ -962,6 +1010,11 @@
     "harvest": "exempt",
     "regenerates": 1,
     "special_attacks": [
+      {
+        "id": "slam",
+        "cooldown": 30,
+        "damage_max_instance": [ { "damage_type": "heat", "amount": 15, "armor_multiplier": 0.9 } ]
+      },
       {
         "type": "gun",
         "cooldown": 10,
@@ -1032,7 +1085,16 @@
     "vision_night": 20,
     "emit_fields": [ "emit_toxic_leak" ],
     "harvest": "moruboru_harvest",
-    "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "TENTACLE", 5 ] ],
+    "special_attacks": [
+      { "type": "bite", "cooldown": 5 },
+      [ "TENTACLE", 5 ],
+      {
+        "type": "spell",
+        "spell_data": { "id": "arcana_monster_moruboru_fetid_exhalation" },
+        "cooldown": 50,
+        "monster_message": "A strange vapor emanates from the moruboru."
+      }
+    ],
     "death_drops": "mon_moruboru_death_drops",
     "flags": [ "SEES", "SMELLS", "NOHEAD", "POISON", "NO_BREATHE", "PARALYZEVENOM", "PATH_AVOID_DANGER_2", "PRIORITIZE_TARGETS" ],
     "//": "Boss-level essence and an item"
@@ -1145,11 +1207,25 @@
     "vision_night": 30,
     "harvest": "dracolich_harvest",
     "special_attacks": [
-      [ "FLESH_GOLEM", 5 ],
-      { "type": "bite", "cooldown": 10 },
+      {
+        "id": "scratch",
+        "cooldown": 30,
+        "damage_max_instance": [ { "damage_type": "cut", "amount": 25, "armor_multiplier": 0.75 } ],
+        "body_parts": [ [ "leg_l", 5 ], [ "leg_r", 5 ], [ "head", 3 ], [ "arm_l", 5 ], [ "arm_r", 5 ], [ "torso", 7 ] ],
+        "effects": [ { "id": "downed", "duration": 3 } ],
+        "hit_dmg_u": "The %1$s slashes at you with a wicked claw!",
+        "hit_dmg_npc": "The %1$s slashes at <npcname> with a wicked claw!",
+        "no_dmg_msg_u": "The %1$s tries to slash at you, but fails to penetrate your armor!",
+        "no_dmg_msg_npc": "The %1$s tries to slash <npcname>, but fails to penetrate their armor!"
+      },
+      {
+        "type": "bite",
+        "cooldown": 5,
+        "damage_max_instance": [ { "damage_type": "stab", "amount": 15, "armor_multiplier": 0.5 } ]
+      },
       {
         "type": "gun",
-        "cooldown": 10,
+        "cooldown": 15,
         "move_cost": 500,
         "gun_type": "monster_fire_fake",
         "fake_str": 9,
@@ -1159,6 +1235,12 @@
         "require_targeting_player": false,
         "description": "Wicked flames erupt from the dracolich's mouth!",
         "no_ammo_sound": "a howl of feral anger!"
+      },
+      {
+        "type": "spell",
+        "spell_data": { "id": "arcana_monster_dracolich_failed_breath" },
+        "cooldown": 15,
+        "monster_message": "A stream of charred gore erupts from the dracolich's mouth!"
       }
     ],
     "death_drops": "mon_dracolich_death_drops",

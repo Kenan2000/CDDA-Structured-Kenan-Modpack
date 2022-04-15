@@ -1,0 +1,57 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "arcana_veilblade_halt_portal_storms",
+    "recurrence": [ "1 m", "1 m" ],
+    "condition": {
+      "and": [
+        { "or": [ { "u_has_trait": "THRESH_VEIL" }, { "u_has_trait": "PROF_CHALICE" } ] },
+        { "u_has_effect": "arcana_veilblade_halt_portal_storms" },
+        { "is_weather": "early_portal_storm" }
+      ]
+    },
+    "effect": [
+      { "arithmetic": [ { "global_val": "var", "var_name": "ps_min_length" }, "=", { "time": "2 hours" } ] },
+      { "arithmetic": [ { "global_val": "var", "var_name": "ps_max_length" }, "=", { "time": "4 hours" } ] },
+      { "arithmetic": [ { "global_val": "var", "var_name": "ps_base_str" }, "=", { "const": 1 } ] },
+      { "arithmetic": [ { "global_val": "var", "var_name": "cause_portal_storm" }, "=", { "const": 1 } ] },
+      { "arithmetic": [ { "global_val": "var", "var_name": "cause_early_portal_storm" }, "=", { "const": 0 } ] },
+      "next_weather",
+      {
+        "u_message": "Your blade resonates with the decaying fabric of reality, the air growing still.  The eye of the storm has formed around you.",
+        "type": "good"
+      },
+      { "queue_eocs": "arcana_veilblade_cancel_portal_storm", "time_in_future": [ "21 minutes", "25 minutes" ] }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "arcana_veilblade_devour_portals",
+    "effect": [
+      {
+        "u_transform_radius": 3,
+        "ter_furn_transform": "arcana_veilblade"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "arcana_veilblade_cancel_portal_storm",
+    "condition": {
+      "or": [
+        { "is_weather": "portal_storm" },
+        { "compare_int": [ { "global_val": "var", "var_name": "cause_portal_storm" }, "=", { "const": 1 } ] }
+      ]
+    },
+    "effect": [
+      { "arithmetic": [ { "global_val": "var", "var_name": "cause_portal_storm" }, "=", { "const": 0 } ] },
+      { "arithmetic": [ { "global_val": "var", "var_name": "cause_early_portal_storm" }, "=", { "const": 0 } ] },
+      "next_weather",
+      {
+        "u_message": "Reality re-asserts itself as the storm fades.  The worst has passed, as is the will of He From Beyond The Veil…",
+        "type": "good"
+      },
+      { "u_add_var": "u_witnessed_portal_storm", "type": "global", "context": "portal_storms", "value": "yes" }
+    ]
+  }
+]
