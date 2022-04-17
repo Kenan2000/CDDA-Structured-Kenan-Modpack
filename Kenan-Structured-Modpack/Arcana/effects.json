@@ -263,11 +263,30 @@
   },
   {
     "type": "effect_type",
+    "id": "arcana_lingering_chill",
+    "name": [ "Lingering Chill" ],
+    "desc": [ "An unearthly chill soaks deep into your very core, sapping the life from your body!" ],
+    "resist_traits": [ "ARCANA_INNERHEAT", "ARCANA_INNERFIRE", "ARCANA_DRAGONFIRE" ],
+    "apply_message": "A brutally cold wind chills you to the bone!",
+    "remove_message": "The otherworldly chill leaves your body.",
+    "rating": "bad",
+    "max_duration": "30 s",
+    "base_mods": {
+      "speed_mod": [ -20, -15 ],
+      "dex_mod": [ -1, 0 ],
+      "hurt_min": [ 2, 1 ],
+      "hurt_chance": [ 2, 3 ],
+      "hit_mod": [ -2 ],
+      "dodge_mod": [ -3 ]
+    }
+  },
+  {
+    "type": "effect_type",
     "id": "cold_ward",
     "name": [ "Ward Against Cold" ],
     "desc": [ "Protection against the effects of cold." ],
     "remove_message": "For a moment you feel a terrible chill in the air, as the ward against cold fades.",
-    "removes_effects": [ "cold", "frostbite", "frostbite_recovery" ],
+    "removes_effects": [ "cold", "frostbite", "frostbite_recovery", "arcana_lingering_chill" ],
     "decay_messages": [ [ "Your ward against cold is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
@@ -280,13 +299,19 @@
     "name": [ "Greater Ward Against Cold" ],
     "desc": [ "Protection against the effects of cold, and any sources of direct damage." ],
     "remove_message": "For a moment you feel a terrible chill in the air, as the greater ward against cold fades.",
-    "removes_effects": [ "cold", "frostbite", "frostbite_recovery" ],
+    "removes_effects": [ "cold", "frostbite", "frostbite_recovery", "arcana_lingering_chill" ],
     "decay_messages": [ [ "Your greater ward against cold is waning.", "bad" ] ],
     "rating": "good",
     "max_duration": "120 m",
     "max_intensity": 120,
     "int_dur_factor": "1 m",
     "flags": [ "COLD_IMMUNE" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "cold_ward_hidden",
+    "removes_effects": [ "arcana_lingering_chill" ],
+    "max_duration": "5 s"
   },
   {
     "type": "effect_type",

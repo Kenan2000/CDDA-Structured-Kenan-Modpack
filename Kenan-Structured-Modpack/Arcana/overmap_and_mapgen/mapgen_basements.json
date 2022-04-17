@@ -313,6 +313,65 @@
   {
     "type": "mapgen",
     "method": "json",
+    "om_terrain": "house_05ab_basement",
+    "weight": 300,
+    "//": "mostly empty basement, but hidden hint of some weirdness going on.",
+    "object": {
+      "fill_ter": "t_thconc_floor",
+      "rows": [
+        "^^^^^^^^^^^^^^^^^^^^^^^^",
+        "^######################^",
+        "^#||||||||||||||||||||#^",
+        "^#|9..|..............|#^",
+        "^#|...+..............|#^",
+        "^#|tCS|..............|#^",
+        "^#||||||.............|#^",
+        "^#|RRRR||+|####|||||||#^",
+        "^#|    |             |#^",
+        "^#|h   =             |#^",
+        "^#|rrT |             |#^",
+        "^#||||||  !          |#^",
+        "^#|@@  |             |#^",
+        "^#|@@  =             |#^",
+        "^#|    |  !          |#^",
+        "^#|db  |             |#^",
+        "^#||||||  !          |#^",
+        "^#|sss |  <          |#^",
+        "^#|    =             |#^",
+        "^#|    |             |#^",
+        "^#|v NN|   !!!!!!    |#^",
+        "^#||||||||||||||||||||#^",
+        "^######################^",
+        "^^^^^^^^^^^^^^^^^^^^^^^^"
+      ],
+      "palettes": [ "standard_domestic_palette", "standard_domestic_basement_palette" ],
+      "terrain": {
+        "=": "t_door_boarded",
+        "@": "t_thconc_floor",
+        "N": "t_thconc_floor",
+        "R": "t_thconc_floor",
+        "T": "t_thconc_floor",
+        "b": "t_thconc_floor",
+        "d": "t_thconc_floor",
+        "h": "t_thconc_floor",
+        "r": "t_thconc_floor",
+        "s": "t_thconc_floor",
+        "v": "t_thconc_floor"
+      },
+      "items": {
+        " ": { "item": "trash", "chance": 2 },
+        "R": { "item": "unaligned_arcanist_books_postapoc", "chance": 25, "repeat": 3 },
+        "h": { "item": "summoner_casualties_fresh", "chance": 100 },
+        "s": { "item": "magic_consumables", "chance": 25, "repeat": 2 },
+        "N": { "item": "magic_crafting", "chance": 50, "repeat": 2 }
+      },
+      "place_nested": [ { "chunks": [ [ "null", 15 ], [ "utility_3x3_N", 10 ], [ "utility_3x3_S", 5 ] ], "x": 7, "y": 3 } ],
+      "place_monsters": [ { "monster": "GROUP_CF_BASEMENT", "x": [ 3, 6 ], "y": [ 8, 19 ], "density": 0.15 } ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
     "om_terrain": "house_prepper2_basement",
     "weight": 500,
     "object": {

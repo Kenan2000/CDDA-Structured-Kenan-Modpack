@@ -12,6 +12,12 @@
     "entries": [ { "item": "reloaded_shot_00_arcana", "charges": 25 } ]
   },
   {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "charged_candle",
+    "entries": [ { "item": "candle", "charges": 100 } ]
+  },
+  {
     "type": "profession",
     "id": "arcanist_apprentice",
     "name": "Apprentice",
@@ -34,6 +40,7 @@
     "description": "You studied under a well-learned scholar, a seeker of the fabled elixir of life.  Despite the tutelage of a master alchemist, you never got any closer to finishing the great work.",
     "points": 2,
     "skills": [ { "level": 5, "name": "chemistry" }, { "level": 2, "name": "cooking" }, { "level": 1, "name": "firstaid" } ],
+    "proficiencies": [ "prof_intro_chemistry", "prof_distilling" ],
     "items": {
       "both": {
         "items": [
@@ -165,7 +172,7 @@
   },
   {
     "type": "profession",
-    "id": "arcanist_oathkeeper",
+    "id": "arcanist_dark_priest",
     "name": "Dark Priest",
     "description": "He From Beyond The Veil calls to you, to your brothers and sisters.  And the faithful, those who remain at least, shall bring him into this world.",
     "points": 6,
@@ -194,7 +201,7 @@
     "spells": [ { "id": "arcana_magic_summon_shadow", "level": 1 }, { "id": "arcana_magic_summon_shadow_snake", "level": 1 } ],
     "points": 6,
     "skills": [ { "level": 6, "name": "magic" }, { "level": 5, "name": "fabrication" }, { "level": 2, "name": "dodge" } ],
-    "proficiencies": [ "prof_fibers", "prof_fibers_rope", "prof_leatherworking_basic", "prof_metalworking" ],
+    "proficiencies": [ "prof_fibers", "prof_fibers_rope", "prof_leatherworking_basic", "prof_metalworking", "prof_carving" ],
     "items": {
       "both": {
         "items": [
@@ -249,7 +256,7 @@
       { "level": 1, "name": "survival" },
       { "level": 1, "name": "firstaid" }
     ],
-    "proficiencies": [ "prof_leatherworking_basic", "prof_metalworking", "prof_tanning_basic" ],
+    "proficiencies": [ "prof_leatherworking_basic", "prof_metalworking", "prof_tanning_basic", "prof_handloading" ],
     "items": {
       "both": {
         "items": [
@@ -379,6 +386,7 @@
       { "level": 2, "name": "cutting" },
       { "level": 2, "name": "computer" }
     ],
+    "proficiencies": [ "prof_leatherworking_basic", "prof_metalworking", "prof_lockpicking", "prof_elec_soldering" ],
     "items": {
       "both": {
         "items": [
@@ -404,6 +412,58 @@
       "female": [ "bra", "panties" ]
     },
     "traits": [ "PROF_CLEANSINGFLAME2" ],
+    "flags": [ "SCEN_ONLY" ]
+  },
+  {
+    "type": "profession",
+    "id": "arcanist_mendicant",
+    "name": "Keeper Mendicant",
+    "description": "When your order crumbled, and the world fell into darkness soon thereafter, you were driven to wander in your struggle to survive.  But your oath is immortal, and when the stars are right you will find a way to serve the Shrouded King once more.",
+    "points": 10,
+    "spells": [ { "id": "arcana_magic_temporal_aura", "level": 1 } ],
+    "skills": [
+      { "level": 2, "name": "fabrication" },
+      { "level": 3, "name": "tailor" },
+      { "level": 2, "name": "cooking" },
+      { "level": 5, "name": "magic" },
+      { "level": 2, "name": "gun" },
+      { "level": 3, "name": "melee" },
+      { "level": 2, "name": "stabbing" },
+      { "level": 3, "name": "dodge" },
+      { "level": 3, "name": "survival" }
+    ],
+    "proficiencies": [ "prof_fibers", "prof_fibers_rope", "prof_leatherworking_basic", "prof_metalworking", "prof_carving" ],
+    "items": {
+      "both": {
+        "items": [
+          "loincloth",
+          "armor_plarmor",
+          "robe",
+          "footrags",
+          "boots_larmor",
+          "gloves_wraps",
+          "gauntlets_larmor",
+          "helmet_larmor",
+          "patchwork_scarf",
+          "leather_pouch",
+          "charm_bone",
+          "waterskin",
+          "flint_steel",
+          "bowl_clay",
+          "book_sacrifice"
+        ],
+        "entries": [
+          { "item": "spear_pestilence", "ammo-item": "essence", "charges": 9, "container-item": "spearsling" },
+          { "item": "cyclopean_mirror", "charges": 25 },
+          { "item": "salt", "container-item": "bag_canvas_small", "charges": 100 },
+          { "group": "charged_candle" },
+          { "item": "sewing_kit", "charges": 50 },
+          { "item": "copper_knife", "container-item": "sheath" }
+        ]
+      },
+      "female": [ "chestwrap" ]
+    },
+    "traits": [ "PROF_CHALICE" ],
     "flags": [ "SCEN_ONLY" ]
   },
   {

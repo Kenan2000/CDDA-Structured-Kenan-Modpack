@@ -1035,6 +1035,36 @@
     "spell_class": "SPELL_DAYLIGHT"
   },
   {
+    "id": "arcana_magic_temporal_aura",
+    "type": "SPELL",
+    "name": { "str": "Sign: Temporal Aura" },
+    "description": "Magic Sign\nUsing this spell will strike any nearby enemies (or allies) with a temporal effect.  Rather than dealing damage, it will freeze them in place momentarily, and leave them temporarily blinded.",
+    "message": "\"Guard and guide me, out of the clutches of the wicked…\"  You cast %s!",
+    "extra_effects": [
+      { "id": "arcana_aftermath_temporal_aura_blindness", "hit_self": false, "max_level": 10 },
+      { "id": "arcana_aftermath_magic_sign_exertion_4", "hit_self": true, "max_level": 10 }
+    ],
+    "effect": "mod_moves",
+    "shape": "blast",
+    "valid_targets": [ "ally", "hostile", "ground" ],
+    "flags": [ "NO_HANDS", "NO_LEGS", "VERBAL", "SILENT", "NO_FAIL", "NO_PROJECTILE" ],
+    "min_damage": -3200,
+    "max_damage": -6400,
+    "damage_increment": -320,
+    "min_aoe": 2,
+    "max_aoe": 2,
+    "max_level": 10,
+    "difficulty": 40,
+    "skill": "magic",
+    "base_casting_time": 200,
+    "final_casting_time": 100,
+    "casting_time_increment": -10,
+    "energy_source": "STAMINA",
+    "base_energy_cost": 2500,
+    "final_energy_cost": 1250,
+    "energy_increment": -125
+  },
+  {
     "id": "arcana_magic_ward_against_evil",
     "type": "SPELL",
     "name": { "str": "Sign: Ward Against Evil" },

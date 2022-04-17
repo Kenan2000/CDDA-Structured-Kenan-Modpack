@@ -14,6 +14,20 @@
     "max_duration": 500
   },
   {
+    "id": "arcana_aftermath_brief_cold_ward",
+    "type": "SPELL",
+    "name": { "str": "Brief Cold Spell Immunity" },
+    "description": "This exists so frost spells won't fry the user right off the bat.",
+    "valid_targets": [ "self" ],
+    "message": "",
+    "flags": [ "SILENT" ],
+    "effect_str": "cold_ward_hidden",
+    "effect": "attack",
+    "shape": "blast",
+    "min_duration": 500,
+    "max_duration": 500
+  },
+  {
     "id": "arcana_aftermath_brief_fire_ward",
     "type": "SPELL",
     "name": { "str": "Brief Fire Spell Immunity" },
@@ -1161,12 +1175,10 @@
     "min_duration": 1400,
     "max_duration": 5600,
     "duration_increment": 420,
-    "field_id": "fd_fog",
+    "field_id": "fd_fog_arcana",
     "field_chance": 2,
     "min_field_intensity": 1,
-    "max_field_intensity": 3,
-    "field_intensity_increment": 0.2,
-    "field_intensity_variance": 0.5
+    "max_field_intensity": 1
   },
   {
     "id": "arcana_aftermath_elemental_burst_line_fire",
@@ -1282,12 +1294,13 @@
     "id": "arcana_aftermath_elemental_burst_water",
     "type": "SPELL",
     "name": { "str": "Elemental Burst Water" },
-    "description": "Creates fog and slows down victims.",
+    "description": "Creates dangerous fog and slows down victims.",
     "message": "",
     "effect": "attack",
     "shape": "cone",
     "valid_targets": [ "hostile", "ground" ],
     "extra_effects": [
+      { "id": "arcana_aftermath_brief_cold_ward", "hit_self": true },
       { "id": "arcana_aftermath_elemental_noise_water", "hit_self": false, "max_level": 10 },
       { "id": "arcana_aftermath_elemental_burst_line_water", "hit_self": false, "max_level": 10 }
     ],
@@ -1303,12 +1316,10 @@
     "min_duration": 5600,
     "max_duration": 11200,
     "duration_increment": 560,
-    "field_id": "fd_fog",
+    "field_id": "fd_fog_arcana",
     "field_chance": 8,
     "min_field_intensity": 1,
-    "max_field_intensity": 3,
-    "field_intensity_increment": 0.2,
-    "field_intensity_variance": 0.5
+    "max_field_intensity": 1
   },
   {
     "id": "arcana_aftermath_elemental_burst_fire",
@@ -1320,6 +1331,7 @@
     "shape": "cone",
     "valid_targets": [ "hostile", "ground" ],
     "extra_effects": [
+      { "id": "arcana_aftermath_brief_fire_ward", "hit_self": true },
       { "id": "arcana_aftermath_elemental_noise_fire", "hit_self": false, "max_level": 10 },
       { "id": "arcana_aftermath_elemental_burst_line_fire", "hit_self": false, "max_level": 10 }
     ],
@@ -1352,6 +1364,7 @@
     "shape": "cone",
     "valid_targets": [ "hostile", "ground" ],
     "extra_effects": [
+      { "id": "arcana_aftermath_brief_lightning_ward", "hit_self": true },
       { "id": "arcana_aftermath_elemental_noise_wind", "hit_self": false, "max_level": 10 },
       { "id": "arcana_aftermath_elemental_burst_line_wind", "hit_self": false, "max_level": 10 }
     ],
@@ -1384,6 +1397,7 @@
     "shape": "cone",
     "valid_targets": [ "hostile", "ground" ],
     "extra_effects": [
+      { "id": "arcana_aftermath_brief_acid_ward", "hit_self": true },
       { "id": "arcana_aftermath_elemental_noise_earth", "hit_self": false, "max_level": 10 },
       { "id": "arcana_aftermath_elemental_burst_line_earth", "hit_self": false, "max_level": 10 }
     ],
@@ -1496,13 +1510,13 @@
     "max_aoe": 10,
     "aoe_increment": 1,
     "max_level": 5,
-    "field_id": "fd_cold_air1",
-    "field_chance": 1,
+    "field_id": "fd_fog_arcana",
+    "field_chance": 2,
     "min_field_intensity": 1,
     "max_field_intensity": 1,
-    "min_duration": 30000,
-    "max_duration": 150000,
-    "duration_increment": 24000
+    "min_duration": 4000,
+    "max_duration": 10000,
+    "duration_increment": 1200
   },
   {
     "id": "arcana_aftermath_elemental_field_effect",
@@ -2147,6 +2161,24 @@
     "min_range": 0,
     "max_range": 15,
     "range_increment": 0.75
+  },
+  {
+    "id": "arcana_aftermath_temporal_aura_blindness",
+    "type": "SPELL",
+    "name": { "str": "Aftermath: Temporal Aura Blindness" },
+    "description": "This inflicts momentary blindness on targets caught in it.",
+    "message": "",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [ "ally", "hostile", "ground" ],
+    "flags": [ "SILENT", "NO_PROJECTILE" ],
+    "effect_str": "blind",
+    "min_aoe": 2,
+    "max_aoe": 2,
+    "max_level": 10,
+    "min_duration": 8000,
+    "max_duration": 16000,
+    "duration_increment": 800
   },
   {
     "id": "arcana_aftermath_wave_destruction_pulse",

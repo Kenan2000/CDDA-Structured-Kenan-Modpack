@@ -103,11 +103,12 @@
     "id": "arcana_mark_elemental_sign",
     "type": "SPELL",
     "name": { "str": "Mark: Elemental Sign" },
-    "description": "Sanguine Mark\nUsing this spell will grant complete immunity to fire, chilling the air and driving away flames from your immediate area.",
+    "description": "Sanguine Mark\nUsing this spell will grant complete immunity to fire, spreading a deathly chill and driving away flames from your immediate area.",
     "message": "With a gesture, your inner fire flares up.  %s!",
     "valid_targets": [ "self" ],
     "flags": [ "SOMATIC", "NO_HANDS", "NO_FAIL" ],
     "extra_effects": [
+      { "id": "arcana_aftermath_brief_cold_ward", "hit_self": true },
       { "id": "arcana_aftermath_elemental_coldness", "hit_self": false, "max_level": 5 },
       { "id": "arcana_aftermath_elemental_field_effect", "hit_self": false, "max_level": 5 },
       { "id": "arcana_aftermath_sanguine_mark_burnout_5", "hit_self": true, "max_level": 5 }
