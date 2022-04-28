@@ -1,9 +1,21 @@
 [
   {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "flintlock_pouch_surv_drifter",
+    "entries": [ { "item": "36navy_makeshift_magnum", "charges": 14 } ]
+  },
+  {
+    "type": "item_group",
+    "subtype": "collection",
+    "id": "cowboy_hat_surv_surv_drifter",
+    "entries": [ { "item": "36navy_makeshift_magnum", "charges": 6 } ]
+  },
+  {
     "type": "profession",
     "id": "can_sur",
     "name": "Canned Survivor",
-    "description": "You were a very busy person. That's why you bought a can of survival items and called it a day. Now it's the only thing you have.",
+    "description": "You were a very busy person.  That's why you bought a can of survival items and called it a day.  Now it's the only thing you have.",
     "points": 1,
     "items": {
       "both": [ "longshirt", "jacket_light", "runner_bag", "wristwatch", "surcan" ],
@@ -15,9 +27,10 @@
     "type": "profession",
     "id": "prepper",
     "name": "Prepper",
-    "description": "You were paranoid about the world ending so you jumped on the prepper bandwagon. You read a book on survival and got yourself a gun pack and some gear. The cataclysm was not what you expected.",
+    "description": "You were paranoid about the world ending so you jumped on the prepper bandwagon.  You read a book on survival and got yourself a gun pack and some gear.  The cataclysm was not what you expected.",
     "points": 5,
     "skills": [ { "level": 3, "name": "rifle" }, { "level": 2, "name": "gun" }, { "level": 1, "name": "survival" } ],
+    "proficiencies": [ "prof_fibers", "prof_fibers_rope", "prof_lockpicking" ],
     "items": {
       "both": {
         "items": [
@@ -46,5 +59,58 @@
       "male": [ "boxer_shorts" ],
       "female": [ "sports_bra", "boxer_shorts" ]
     }
+  },
+  {
+    "type": "profession",
+    "id": "surv_drifter",
+    "name": "Wasteland Drifter",
+    "description": "With the end of the world, you found yourself wandering from town to town, scavenging and learning as you go.  Sleeping under the stars, scraping by one meal and one bullet at a time, you've taken to this new life like a duck takes to water.",
+    "points": 8,
+    "skills": [
+      { "level": 4, "name": "gun" },
+      { "level": 3, "name": "pistol" },
+      { "level": 3, "name": "melee" },
+      { "level": 2, "name": "stabbing" },
+      { "level": 2, "name": "dodge" },
+      { "level": 4, "name": "tailor" },
+      { "level": 3, "name": "cooking" },
+      { "level": 3, "name": "fabrication" },
+      { "level": 2, "name": "survival" }
+    ],
+    "proficiencies": [ "prof_handloading", "prof_leatherworking_basic", "prof_leatherworking", "prof_millinery", "prof_furriery", "prof_closures" ],
+    "items": {
+      "both": {
+        "ammo": 100,
+        "items": [
+          "pants_cargo",
+          "longshirt",
+          "duster",
+          "socks",
+          "boots_hiking",
+          "bandana",
+          "gloves_fingerless",
+          "backpack",
+          "canteen",
+          "flint_steel",
+          "survivor_mess_kit",
+          "fur_rollmat",
+          "press",
+          "puller",
+          "pocketwatch"
+        ],
+        "entries": [
+          { "item": "cowboy_hat_surv", "contents-group": "cowboy_hat_surv_surv_drifter" },
+          { "item": "colt_navy", "ammo-item": "36navy_makeshift_magnum", "charges": 6, "container-item": "XL_holster" },
+          { "item": "flintlock_pouch", "contents-group": "flintlock_pouch_surv_drifter" },
+          { "item": "knife_hunting", "container-item": "sheath" },
+          { "item": "ear_plugs", "custom-flags": [ "no_auto_equip" ] },
+          { "item": "36navy_makeshift_magnum", "charges": 14 },
+          { "group": "charged_ref_lighter" }
+        ]
+      },
+      "male": [ "boxer_shorts" ],
+      "female": [ "sports_bra", "panties" ]
+    },
+    "flags": [ "SCEN_ONLY" ]
   }
 ]

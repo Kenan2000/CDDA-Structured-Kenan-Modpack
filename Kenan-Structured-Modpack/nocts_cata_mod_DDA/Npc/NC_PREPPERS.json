@@ -71,7 +71,12 @@
       { "item": "lsurvivor_armor" },
       { "item": "duster_survivor" },
       { "item": "gloves_lsurvivor", "prob": 50 },
-      { "item": "hood_lsurvivor" },
+      {
+        "distribution": [
+          { "item": "hood_lsurvivor", "prob": 75 },
+          { "item": "cowboy_hat_surv", "prob": 25 }
+        ]
+      },
       { "item": "mask_lsurvivor", "prob": 50 },
       { "item": "lsurvivor_pants" },
       { "item": "boots_lsurvivor" }
@@ -102,6 +107,21 @@
       { "group": "clothing_outdoor_torso" },
       { "group": "clothing_outdoor_pants" },
       { "group": "clothing_outdoor_shoes" },
+      {
+        "distribution": [
+          { "item": "helmet_army", "prob": 20 },
+          { "item": "tac_helmet", "prob": 5 },
+          { "item": "helmet_larmor", "prob": 15 },
+          { "item": "helmet_motor", "prob": 5 },
+          { "item": "firehelmet", "prob": 5 },
+          { "item": "hat_hard", "prob": 5 },
+          { "item": "hat_hard_hooded", "prob": 5 },
+          { "item": "cowboy_hat", "prob": 5 },
+          { "item": "hat_boonie", "prob": 10 },
+          { "item": "straw_hat", "prob": 5 },
+          { "item": "cowboy_hat_surv", "prob": 20 }
+        ]
+      },
       {
         "distribution": [
           { "item": "backpack", "prob": 30 },
@@ -169,7 +189,28 @@
     "subtype": "collection",
     "magazine": 100,
     "ammo": 100,
-    "entries": [ { "item": "surv_full_223" }, { "item": "surv_223_mag", "count": [ 2, 3 ] } ]
+    "entries": [
+      {
+        "distribution": [
+          {
+            "collection": [ { "item": "ar15" }, { "item": "stanag30", "count": [ 2, 3 ] } ],
+            "prob": 25
+          },
+          {
+            "collection": [ { "item": "ruger_mini" }, { "item": "ruger20", "count": [ 2, 3 ] } ],
+            "prob": 25
+          },
+          {
+            "collection": [ { "item": "surv_carbine_223" }, { "item": "survivor223mag", "count": [ 2, 3 ] } ],
+            "prob": 10
+          },
+          {
+            "collection": [ { "item": "surv_full_223" }, { "item": "surv_223_mag", "count": [ 2, 3 ] } ],
+            "prob": 40
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "NC_PREPPER_carry_9mm",
@@ -177,7 +218,24 @@
     "subtype": "collection",
     "magazine": 100,
     "ammo": 100,
-    "entries": [ { "item": "surv_full_9mm" }, { "item": "surv_9mm_mag", "count": [ 2, 3 ] } ]
+    "entries": [
+      {
+        "distribution": [
+          {
+            "collection": [ { "item": "cx4" }, { "item": "m9bigmag", "count": [ 2, 3 ] } ],
+            "prob": 25
+          },
+          {
+            "collection": [ { "item": "sten" }, { "item": "stenmag", "count": [ 2, 3 ] } ],
+            "prob": 25
+          },
+          {
+            "collection": [ { "item": "surv_full_9mm" }, { "item": "surv_9mm_mag", "count": [ 2, 3 ] } ],
+            "prob": 50
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "NC_PREPPER_carry_bow",
