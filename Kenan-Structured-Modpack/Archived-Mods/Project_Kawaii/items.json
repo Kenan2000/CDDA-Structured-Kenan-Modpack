@@ -1,23 +1,29 @@
 [
   {
     "id": "kawaii_maid_dress",
+    "copy-from": "maid_dress_short",
     "type": "ARMOR",
     "name": { "str": "Cute Maid Clothes" },
     "description": "Made out of the hopes and dreams of men.",
-    "weight": "250 g",
-    "volume": "250 ml",
-    "price": "500 USD",
-    "material": [ "cotton" ],
-    "material_thickness": 0.1,
-    "symbol": "[",
-    "color": "blue",
-    "pocket_data": [ { "pocket_type": "CONTAINER", "max_contains_volume": "3500 ml", "max_contains_weight": "4 kg", "moves": 80 } ],
-    "warmth": 15,
+    "weight": "200 g",
+    "pocket_data": [ { "pocket_type": "CONTAINER", "max_contains_volume": "1 L", "max_contains_weight": "4 kg", "moves": 80 } ],
     "flags": [ "VARSIZE", "FANCY" ],
     "armor": [
-      { "covers": [ "torso" ], "coverage": 100, "encumbrance": [ 5, 7 ] },
-      { "covers": [ "leg_l", "leg_r" ], "coverage": 95, "encumbrance": [ 5, 5 ] },
-      { "covers": [ "arm_l", "arm_r" ], "coverage": 95, "encumbrance": [ 5, 5 ] }
+      { "covers": [ "torso" ], "specifically_covers": [ "torso_lower" ], "coverage": 100, "encumbrance": [ 4, 5 ] },
+      { "covers": [ "torso" ], "specifically_covers": [ "torso_upper" ], "coverage": 30 },
+      {
+        "covers": [ "leg_l", "leg_r" ],
+        "specifically_covers": [ "leg_hip_l", "leg_hip_r" ],
+        "coverage": 100,
+        "encumbrance": [ 2, 2 ]
+      },
+      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 50 },
+      {
+        "covers": [ "arm_l", "arm_r" ],
+        "specifically_covers": [ "arm_shoulder_l", "arm_shoulder_r" ],
+        "coverage": 30,
+        "encumbrance": [ 2, 2 ]
+      }
     ]
   },
   {
@@ -25,22 +31,22 @@
     "type": "ARMOR",
     "name": { "str": "Cute Maid Adv. Uniform (summer form)" },
     "description": "Centuries of maid sewing techniques have culminated in this pinnacle of maid outfit technology: a year-round outfit that can be transformed to fit any weather or season.",
-    "weight": "5830 g",
-    "volume": "5000 ml",
+    "weight": "830 g",
+    "volume": "4250 ml",
     "price": "500 USD",
     "material": [ "cotton" ],
-    "material_thickness": 0.5,
+    "material_thickness": 0.3,
     "environmental_protection": 1,
     "symbol": "[",
     "color": "dark_gray",
     "looks_like": "kawaii_maid_dress",
     "pocket_data": [
-      { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "6 kg", "moves": 80 },
-      { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "6 kg", "moves": 80 },
-      { "pocket_type": "CONTAINER", "max_contains_volume": "1500 ml", "max_contains_weight": "3 kg", "moves": 120 },
-      { "pocket_type": "CONTAINER", "max_contains_volume": "1500 ml", "max_contains_weight": "3 kg", "moves": 120 }
+      { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "4 kg", "moves": 80 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "4 kg", "moves": 80 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "1 L", "max_contains_weight": "2 kg", "moves": 120 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "1 L", "max_contains_weight": "2 kg", "moves": 120 }
     ],
-    "warmth": 0,
+    "warmth": 2,
     "flags": [ "VARSIZE", "POCKETS", "FANCY" ],
     "use_action": {
       "type": "transform",
@@ -49,15 +55,28 @@
       "menu_text": "Add thermal lining"
     },
     "armor": [
-      { "covers": [ "torso" ], "coverage": 100, "encumbrance": [ 8, 16 ] },
-      { "covers": [ "leg_l", "leg_r" ], "coverage": 95, "encumbrance": [ 8, 8 ] },
-      { "covers": [ "arm_l", "arm_r" ], "coverage": 95, "encumbrance": [ 8, 8 ] }
+      { "covers": [ "torso" ], "specifically_covers": [ "torso_lower" ], "coverage": 100, "encumbrance": [ 8, 16 ] },
+      { "covers": [ "torso" ], "specifically_covers": [ "torso_upper" ], "coverage": 30 },
+      {
+        "covers": [ "leg_l", "leg_r" ],
+        "specifically_covers": [ "leg_hip_l", "leg_hip_r" ],
+        "coverage": 100,
+        "encumbrance": [ 8, 8 ]
+      },
+      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 50 },
+      {
+        "covers": [ "arm_l", "arm_r" ],
+        "specifically_covers": [ "arm_shoulder_l", "arm_shoulder_r" ],
+        "coverage": 30,
+        "encumbrance": [ 8, 8 ]
+      }
     ]
   },
   {
     "id": "kawaii_maid_dress_ex2",
     "copy-from": "kawaii_maid_dress_ex",
     "repairs_like": "kawaii_maid_dress_ex",
+    "looks_like": "kawaii_maid_dress_long",
     "type": "ARMOR",
     "name": { "str": "Cute Maid Adv. Uniform (winter form)" },
     "description": "Centuries of maid sewing techniques have culminated in this pinnacle of maid outfit technology: a year-round outfit that can be transformed to fit any weather or season.",
@@ -67,7 +86,12 @@
       "msg": "You modify the maid outfit to better protect against the heat.",
       "target": "kawaii_maid_dress_ex",
       "menu_text": "Remove thermal lining"
-    }
+    },
+    "armor": [
+      { "covers": [ "torso" ], "coverage": 100, "encumbrance": [ 8, 16 ] },
+      { "covers": [ "leg_l", "leg_r" ], "coverage": 95, "encumbrance": [ 8, 8 ] },
+      { "covers": [ "arm_l", "arm_r" ], "coverage": 95, "encumbrance": [ 8, 8 ] }
+    ]
   },
   {
     "id": "kawaii_maid_dress_lss",
@@ -134,29 +158,17 @@
   },
   {
     "id": "kawaii_maid_dress_long",
+    "copy-from": "maid_dress",
     "type": "ARMOR",
     "name": { "str": "Cute Victorian Maid Clothes" },
     "description": "A uniform with longer sleeves and skirt, better suited for winter.",
     "weight": "350 g",
-    "volume": "1750 ml",
-    "price": "500 USD",
-    "material": [ "cotton" ],
-    "material_thickness": 2,
-    "symbol": "[",
-    "color": "blue",
-    "pocket_data": [
-      { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "4 kg", "moves": 80 },
-      { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "4 kg", "moves": 80 },
-      { "pocket_type": "CONTAINER", "max_contains_volume": "500 ml", "max_contains_weight": "1 kg", "moves": 120 },
-      { "pocket_type": "CONTAINER", "max_contains_volume": "500 ml", "max_contains_weight": "1 kg", "moves": 120 }
-    ],
+    "price": 8000,
+    "price_postapoc": 80,
+    "material_thickness": 0.4,
+    "pocket_data": [ { "pocket_type": "CONTAINER", "max_contains_volume": "1 L", "max_contains_weight": "4 kg", "moves": 80 } ],
     "warmth": 40,
-    "flags": [ "VARSIZE", "FANCY" ],
-    "armor": [
-      { "covers": [ "torso" ], "coverage": 100, "encumbrance": [ 5, 15 ] },
-      { "covers": [ "leg_l", "leg_r" ], "coverage": 95, "encumbrance": [ 5, 5 ] },
-      { "covers": [ "arm_l", "arm_r" ], "coverage": 95, "encumbrance": [ 5, 5 ] }
-    ]
+    "flags": [ "VARSIZE", "FANCY" ]
   },
   {
     "id": "kawaii_wedding_dress",
@@ -164,7 +176,6 @@
     "type": "ARMOR",
     "name": { "str": "Cute Wedding Dress" },
     "description": "A pure white wedding dress.",
-    "price": "50 USD",
     "armor": [
       { "covers": [ "torso" ], "coverage": 100, "encumbrance": 15 },
       { "covers": [ "leg_l", "leg_r" ], "coverage": 95, "encumbrance": 15 },
@@ -176,11 +187,13 @@
     "type": "ARMOR",
     "name": { "str": "Cute Nun Habit" },
     "description": "A nun's habit for serving God that gives off a sacred aura.",
-    "weight": "200 g",
-    "volume": "1250 ml",
-    "price": "50 USD",
+    "weight": "800 g",
+    "volume": "3500 ml",
+    "price": 18000,
+    "price_postapoc": 60,
+    "to_hit": -5,
     "material": [ "cotton" ],
-    "material_thickness": 1,
+    "material_thickness": 0.4,
     "symbol": "[",
     "color": "blue",
     "pocket_data": [
@@ -189,7 +202,17 @@
     ],
     "warmth": 15,
     "flags": [ "VARSIZE", "FANCY" ],
-    "armor": [ { "encumbrance": [ 7, 10 ], "coverage": 85, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ] } ]
+    "armor": [
+      { "covers": [ "torso" ], "coverage": 95, "encumbrance": [ 10, 12 ] },
+      { "covers": [ "arm_l", "arm_r" ], "coverage": 95, "encumbrance": [ 8, 8 ] },
+      {
+        "covers": [ "leg_l", "leg_r" ],
+        "specifically_covers": [ "leg_hip_l", "leg_hip_r" ],
+        "coverage": 100,
+        "encumbrance": [ 5, 7 ]
+      },
+      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 50 }
+    ]
   },
   {
     "id": "kawaii_raincoat",
@@ -227,23 +250,10 @@
   },
   {
     "id": "kawaii_sailor_fuku",
+    "copy-from": "kawaii_sister_dress",
     "type": "ARMOR",
     "name": { "str": "Cute School Girl Uniform" },
-    "description": "A school uniform worn by female students.",
-    "weight": "200 g",
-    "volume": "1 L",
-    "price": "500 USD",
-    "material": [ "cotton" ],
-    "material_thickness": 0.3,
-    "symbol": "[",
-    "color": "blue",
-    "pocket_data": [
-      { "pocket_type": "CONTAINER", "max_contains_volume": "1250 ml", "max_contains_weight": "2 kg", "moves": 75 },
-      { "pocket_type": "CONTAINER", "max_contains_volume": "1250 ml", "max_contains_weight": "2 kg", "moves": 75 }
-    ],
-    "warmth": 5,
-    "flags": [ "VARSIZE", "FANCY" ],
-    "armor": [ { "encumbrance": [ 5, 8 ], "coverage": 85, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ] } ]
+    "description": "A school uniform worn by female students."
   },
   {
     "id": "kawaii_sukumizu_kon",
@@ -273,23 +283,27 @@
   },
   {
     "id": "kawaii_nurse",
+    "copy-from": "kawaii_sister_dress",
     "type": "ARMOR",
     "name": "Cute Nurse Uniform",
     "description": "A nurse's uniform.",
-    "weight": "200 g",
-    "volume": "1 L",
-    "price": "500 USD",
-    "material": [ "cotton" ],
-    "material_thickness": 1,
-    "symbol": "[",
-    "color": "white",
-    "pocket_data": [
-      { "pocket_type": "CONTAINER", "max_contains_volume": "1250 ml", "max_contains_weight": "2 kg", "moves": 75 },
-      { "pocket_type": "CONTAINER", "max_contains_volume": "1250 ml", "max_contains_weight": "2 kg", "moves": 75 }
-    ],
-    "warmth": 15,
-    "flags": [ "VARSIZE", "FANCY" ],
-    "armor": [ { "encumbrance": [ 5, 8 ], "coverage": 85, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r" ] } ]
+    "armor": [
+      { "covers": [ "torso" ], "specifically_covers": [ "torso_lower" ], "coverage": 100, "encumbrance": [ 4, 6 ] },
+      { "covers": [ "torso" ], "specifically_covers": [ "torso_upper" ], "coverage": 30 },
+      {
+        "covers": [ "leg_l", "leg_r" ],
+        "specifically_covers": [ "leg_hip_l", "leg_hip_r" ],
+        "coverage": 100,
+        "encumbrance": [ 2, 4 ]
+      },
+      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 50 },
+      {
+        "covers": [ "arm_l", "arm_r" ],
+        "specifically_covers": [ "arm_shoulder_l", "arm_shoulder_r" ],
+        "coverage": 30,
+        "encumbrance": [ 2, 2 ]
+      }
+    ]
   },
   {
     "id": "kawaii_maid_panties",
@@ -368,23 +382,10 @@
   },
   {
     "id": "kawaii_vest",
+    "copy-from": "vest",
     "type": "ARMOR",
     "name": { "str": "Cute Utility Vest" },
-    "description": "A modified utility vest with many pockets.",
-    "weight": "516 g",
-    "volume": "1 L",
-    "price": "39 USD",
-    "material": [ "cotton" ],
-    "material_thickness": 2,
-    "symbol": "[",
-    "color": "light_gray",
-    "pocket_data": [
-      { "pocket_type": "CONTAINER", "max_contains_volume": "1500 ml", "max_contains_weight": "3 kg", "moves": 75 },
-      { "pocket_type": "CONTAINER", "max_contains_volume": "1500 ml", "max_contains_weight": "3 kg", "moves": 75 }
-    ],
-    "warmth": 5,
-    "flags": [ "VARSIZE", "BELTED" ],
-    "armor": [ { "encumbrance": [ 5, 8 ], "coverage": 60, "covers": [ "torso" ], "specifically_covers": [ "torso_waist" ] } ]
+    "description": "A modified utility vest with many pockets."
   },
   {
     "id": "kawaii_maid_hat",
@@ -483,16 +484,19 @@
     "category": "armor",
     "name": { "str": "Cute Maid headdress LSS-PRO" },
     "description": "A maid must maintain her pride and attends to her duties, no matter how harsh the situation or environment. The headdress is not just a piece of the uniform, it's a symbol of a maid's pride.",
-    "weight": "15 g",
-    "volume": "250 ml",
-    "price": "550 USD",
-    "material": [ "cotton" ],
-    "material_thickness": 5,
-    "environmental_protection": 5,
+    "weight": "628 g",
+    "volume": "500 ml",
+    "price": 58000,
+    "price_postapoc": 3000,
+    "to_hit": -1,
+    "bashing": 10,
+    "material": [ "kevlar_layered", "cotton" ],
+    "material_thickness": 4,
+    "environmental_protection": 3,
     "symbol": "[",
     "color": "white",
     "looks_like": "kawaii_maid_hat",
-    "warmth": 40,
+    "warmth": 20,
     "flags": [ "VARSIZE", "FANCY", "WATERPROOF", "RAINPROOF", "STURDY" ],
     "pocket_data": [
       {
@@ -521,7 +525,7 @@
     "repairs_like": "kawaii_maid_hat_lss",
     "type": "TOOL_ARMOR",
     "name": { "str": "Cute Maid headdress LSS-PRO (warming)" },
-    "warmth": 80,
+    "warmth": 65,
     "power_draw": 7500,
     "revert_to": "kawaii_maid_hat_lss",
     "use_action": {
@@ -728,7 +732,8 @@
     "description": "It's a warm hat made of cotton, coloured white to better match a maid uniform.",
     "weight": "78 g",
     "volume": "250 ml",
-    "price": "20 USD",
+    "price": 2000,
+    "price_postapoc": 50,
     "material": [ "cotton" ],
     "material_thickness": 1,
     "symbol": "[",
@@ -739,19 +744,11 @@
   },
   {
     "id": "kawaii_balclava",
+    "copy-from": "balclava",
     "type": "ARMOR",
     "name": { "str": "Cute Balaclava" },
     "description": "'I refuse to cover up my cute face!' It's not as good against the cold as a normal balaclava, but it's a sacrifice necessary for the sake of fashion.",
-    "weight": "40 g",
-    "volume": "250 ml",
-    "price": "35 USD",
-    "material": [ "cotton" ],
-    "material_thickness": 2,
-    "symbol": "[",
-    "color": "dark_gray",
-    "warmth": 25,
-    "flags": [ "VARSIZE", "SKINTIGHT" ],
-    "armor": [ { "encumbrance": 5, "coverage": 95, "covers": [ "head", "mouth" ] } ]
+    "warmth": 25
   },
   {
     "id": "kawaii_wedding_veil_a",
@@ -1013,7 +1010,7 @@
     "volume": "38 L",
     "longest_side": "105 cm",
     "price": "120 USD",
-    "material": [ "plastic", "steel" ],
+    "material": [ "leather", "steel" ],
     "material_thickness": 2,
     "symbol": "[",
     "color": "dark_gray",
@@ -1040,7 +1037,7 @@
     "volume": "28 L",
     "longest_side": "95 cm",
     "price": "80 USD",
-    "material": [ "plastic", "steel" ],
+    "material": [ "leather", "steel" ],
     "material_thickness": 2,
     "symbol": "[",
     "color": "dark_gray",
@@ -1067,7 +1064,7 @@
     "volume": "18 L",
     "longest_side": "75 cm",
     "price": "80 USD",
-    "material": [ "plastic", "steel" ],
+    "material": [ "leather", "steel" ],
     "material_thickness": 2,
     "symbol": "[",
     "color": "dark_gray",
@@ -1306,7 +1303,7 @@
     "price": "550 USD",
     "material": [ "kevlar", "nomex" ],
     "material_thickness": 2.5,
-    "environmental_protection": 10,
+    "environmental_protection": 3,
     "symbol": "[",
     "color": "white",
     "warmth": 10,
