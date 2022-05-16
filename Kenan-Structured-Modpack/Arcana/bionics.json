@@ -22,14 +22,39 @@
   {
     "id": "bio_essence_surge_cell",
     "type": "bionic",
-    "name": { "str": "Essence Surge Cell" },
-    "description": "A miniaturized compact reactor of exotic manufacture, implanted in your body.  Consumes otherworldly essence to generate power at a steady rate, at high efficiency.  The only drawback is how rare and precious such anomalous energies are.",
+    "name": { "str": "Surge Cell - Essence" },
+    "description": "A miniaturized reactor of exotic manufacture, with separate chambers to store and consume one of three different types of essence at the same time.  This component will draw on any stored standard essence.",
     "occupied_bodyparts": [ [ "torso", 10 ] ],
-    "fuel_options": [ "arcana_fuel_essence", "arcana_fuel_essence_blood", "arcana_fuel_essence_dull", "arcana_fuel_essence_pure" ],
-    "fuel_capacity": 100,
+    "fuel_options": [ "arcana_fuel_essence" ],
+    "fuel_capacity": 20,
     "fuel_efficiency": 1.0,
     "time": 1,
-    "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ]
+    "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
+    "included_bionics": [ "bio_essence_blood_surge_cell", "bio_essence_dull_surge_cell" ]
+  },
+  {
+    "id": "bio_essence_blood_surge_cell",
+    "type": "bionic",
+    "name": { "str": "Surge Cell - Blood Essence" },
+    "description": "A miniaturized reactor of exotic manufacture, with separate chambers to store and consume one of three different types of essence at the same time.  This component will draw on any stored blood essence.",
+    "fuel_options": [ "arcana_fuel_essence_blood" ],
+    "fuel_capacity": 60,
+    "fuel_efficiency": 1.0,
+    "time": 1,
+    "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
+    "included": true
+  },
+  {
+    "id": "bio_essence_dull_surge_cell",
+    "type": "bionic",
+    "name": { "str": "Surge Cell - Dull Essence" },
+    "description": "A miniaturized reactor of exotic manufacture, with separate chambers to store and consume one of three different types of essence at the same time.  This component will draw on any stored dull essence.",
+    "fuel_options": [ "arcana_fuel_essence_dull" ],
+    "fuel_capacity": 300,
+    "fuel_efficiency": 1.0,
+    "time": 1,
+    "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
+    "included": true
   },
   {
     "id": "bio_temporal_stimulation",

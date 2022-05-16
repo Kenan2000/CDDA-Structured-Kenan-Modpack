@@ -1455,13 +1455,13 @@
     "category": "CC_AMMO",
     "subcategory": "CSC_AMMO_RIFLE",
     "skill_used": "fabrication",
-    "difficulty": 3,
-    "skills_required": [ "gun", 1 ],
-    "time": "1 m",
+    "difficulty": 4,
+    "skills_required": [ "gun", 2 ],
+    "time": "90 s",
     "batch_time_factors": [ 60, 5 ],
-    "book_learn": [ [ "manual_rifle", 2 ], [ "manual_pistol", 2 ], [ "recipe_bullets", 2 ], [ "recipe_surv", 2 ] ],
+    "book_learn": [ [ "manual_rifle", 3 ], [ "manual_pistol", 3 ], [ "recipe_bullets", 3 ], [ "recipe_surv", 3 ] ],
     "charges": 1,
-    "using": [ [ "ammo_bullet", 15 ] ],
+    "using": [ [ "bullet_forming", 20 ], [ "ammo_bullet", 15 ] ],
     "qualities": [ { "id": "CUT", "level": 1 } ],
     "components": [ [ [ "gunpowder", 5 ], [ "chem_black_powder", 8 ], [ "chem_match_head_powder", 8 ] ], [ [ "paper", 1 ] ] ]
   },
@@ -1797,6 +1797,8 @@
     "difficulty": 2,
     "skills_required": [ [ "fabrication", 2 ], [ "mechanics", 2 ] ],
     "time": "12 m",
+    "reversible": true,
+    "decomp_learn": 4,
     "book_learn": [ [ "omnitech_weapon_ups_manual", 2 ] ],
     "tools": [ [ [ "omnitech_weapon_ups_kit", -1 ] ] ],
     "components": [ [ [ "neo_laser_pistol", 1 ] ] ]
@@ -1811,6 +1813,8 @@
     "difficulty": 2,
     "skills_required": [ [ "fabrication", 2 ], [ "mechanics", 2 ] ],
     "time": "12 m",
+    "reversible": true,
+    "decomp_learn": 4,
     "book_learn": [ [ "omnitech_weapon_ups_manual", 2 ] ],
     "tools": [ [ [ "omnitech_weapon_ups_kit", -1 ] ] ],
     "components": [ [ [ "akro_laser_smg", 1 ] ] ]
@@ -1825,6 +1829,8 @@
     "difficulty": 2,
     "skills_required": [ [ "fabrication", 2 ], [ "mechanics", 2 ] ],
     "time": "12 m",
+    "reversible": true,
+    "decomp_learn": 4,
     "book_learn": [ [ "omnitech_weapon_ups_manual", 2 ] ],
     "tools": [ [ [ "omnitech_weapon_ups_kit", -1 ] ] ],
     "components": [ [ [ "arc_laser_rifle", 1 ] ] ]
@@ -1839,6 +1845,8 @@
     "difficulty": 2,
     "skills_required": [ [ "fabrication", 2 ], [ "mechanics", 2 ] ],
     "time": "12 m",
+    "reversible": true,
+    "decomp_learn": 4,
     "book_learn": [ [ "omnitech_weapon_ups_manual", 2 ] ],
     "tools": [ [ [ "omnitech_weapon_ups_kit", -1 ] ] ],
     "components": [ [ [ "krx_laser_lmg", 1 ] ] ]
@@ -1853,6 +1861,8 @@
     "difficulty": 2,
     "skills_required": [ [ "fabrication", 2 ], [ "mechanics", 2 ] ],
     "time": "12 m",
+    "reversible": true,
+    "decomp_learn": 4,
     "book_learn": [ [ "omnitech_weapon_ups_manual", 2 ] ],
     "tools": [ [ [ "omnitech_weapon_ups_kit", -1 ] ] ],
     "components": [ [ [ "mx_laser_sniper", 1 ] ] ]
@@ -1867,6 +1877,8 @@
     "difficulty": 2,
     "skills_required": [ [ "fabrication", 2 ], [ "mechanics", 2 ] ],
     "time": "12 m",
+    "reversible": true,
+    "decomp_learn": 4,
     "book_learn": [ [ "omnitech_weapon_ups_manual", 2 ] ],
     "tools": [ [ [ "omnitech_weapon_ups_kit", -1 ] ] ],
     "components": [ [ [ "xarm_laser_shotgun", 1 ] ] ]
@@ -2509,35 +2521,6 @@
   },
   {
     "type": "recipe",
-    "result": "autoclave_makeshift",
-    "activity_level": "MODERATE_EXERCISE",
-    "category": "CC_ELECTRONIC",
-    "subcategory": "CSC_ELECTRONIC_TOOLS",
-    "skill_used": "fabrication",
-    "skills_required": [ [ "mechanics", 4 ], [ "firstaid", 4 ] ],
-    "difficulty": 6,
-    "time": "3 h",
-    "book_learn": [
-      [ "textbook_fabrication", 7 ],
-      [ "textbook_mechanics", 7 ],
-      [ "recipe_augs", 6 ],
-      [ "recipe_mil_augs", 6 ],
-      [ "recipe_lab_elec", 5 ]
-    ],
-    "using": [ [ "welding_standard", 50 ] ],
-    "qualities": [ { "id": "HAMMER", "level": 3 }, { "id": "WRENCH", "level": 2 }, { "id": "SAW_M", "level": 2 } ],
-    "components": [
-      [ [ "pressure_cooker", 1 ] ],
-      [ [ "i6_diesel", 1 ], [ "v6_diesel", 1 ] ],
-      [ [ "metal_tank", 1 ] ],
-      [ [ "pump_complex", 1 ] ],
-      [ [ "hose", 2 ] ],
-      [ [ "cu_pipe", 4 ] ],
-      [ [ "thermometer", 1 ] ]
-    ]
-  },
-  {
-    "type": "recipe",
     "result": "pouch_autoclave",
     "activity_level": "LIGHT_EXERCISE",
     "category": "CC_OTHER",
@@ -2781,6 +2764,7 @@
     "skills_required": [ "fabrication", 3 ],
     "time": "1 h",
     "autolearn": true,
+    "book_learn": [ [ "recipe_surv", 3 ] ],
     "using": [ [ "sewing_standard", 40 ] ],
     "tools": [ [ [ "welder", 16 ], [ "welder_crude", 24 ], [ "soldering_iron", 24 ], [ "toolset", 24 ] ] ],
     "proficiencies": [ { "proficiency": "prof_millinery" }, { "proficiency": "prof_leatherworking_basic" } ],
@@ -2790,6 +2774,38 @@
       [ [ "rag", 3 ] ],
       [ [ "leather", 3 ] ],
       [ [ "duct_tape", 40 ] ]
+    ]
+  },
+  {
+    "result": "legrig_surv",
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_ARMOR",
+    "subcategory": "CSC_ARMOR_STORAGE",
+    "skill_used": "tailor",
+    "difficulty": 6,
+    "skills_required": [ "fabrication", 4 ],
+    "time": "1 h 20 m",
+    "autolearn": true,
+    "book_learn": [ [ "recipe_surv", 5 ] ],
+    "using": [ [ "sewing_standard", 100 ], [ "steel_tiny", 1 ] ],
+    "proficiencies": [ { "proficiency": "prof_leatherworking_basic" }, { "proficiency": "prof_leatherworking" } ],
+    "qualities": [ { "id": "HAMMER", "level": 2 }, { "id": "CUT", "level": 1 } ],
+    "components": [
+      [ [ "rag", 4 ] ],
+      [ [ "leather", 4 ] ],
+      [
+        [ "tacvest", 1 ],
+        [ "legrig", 1 ],
+        [ "vest", 1 ],
+        [ "tool_belt", 1 ],
+        [ "ragpouch", 4 ],
+        [ "leather_pouch", 2 ],
+        [ "dump_pouch", 1 ],
+        [ "purse", 2 ],
+        [ "fanny", 2 ]
+      ],
+      [ [ "duct_tape", 50 ] ]
     ]
   }
 ]

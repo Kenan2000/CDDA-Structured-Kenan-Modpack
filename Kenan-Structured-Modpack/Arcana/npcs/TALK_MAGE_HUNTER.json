@@ -234,14 +234,47 @@
   {
     "id": "TALK_MAGE_HUNTER_WHO",
     "type": "talk_topic",
-    "dynamic_line": [
-      "Hunters of otherworldly monsters.  It's the least we can do, in times like these.",
-      "Of many faiths, united in purpose.  Thane McKinnon would be better able to tell you more.",
-      "Before all this started, a gathering of different religious communities.  Before my time, I'm afraid.",
-      "Survivors, at this point.  All that matters now, so long as we don't abandon our duties in the process.",
-      "You've seen the monsters, right?  Strange events perhaps, supernatural even?  Our purpose is to do what little we can, to protect people from things like that."
-    ],
-    "responses": [ { "text": "I see.", "topic": "TALK_MAGE_HUNTER" } ]
+    "dynamic_line": {
+      "u_has_trait": "PROF_SANGUINE",
+      "yes": {
+        "u_has_effect": "cf_mission_1",
+        "yes": [
+          "Never encountered a hunter before?  Guess it's fortunate you didn't, given the work you've done for us.",
+          "You've seen who we are.  Though I'm grateful you've allied with us, do not forget that our order was founded in response to the Sanguine Order's depredations on others.",
+          "Now that there's nothing left to do but to pick up the pieces, survivors like any other I suppose.",
+          "Our mission is to do what we can to protect others from whatever dangers we can.  I'm glad that you did not make an enemy of us, as many others of your order had."
+        ],
+        "no": [
+          "Never encountered a hunter before, sanguinist?  Not many blood mages who had lived to tell the tale, I suppose.",
+          "Our order's purpose was to hunt down threats like those of your order.  Keep that in mind while you are here.",
+          "We are hunters of the wicked and otherworldly, and if you cause trouble you will share the fate of many blood mages who've run into us.",
+          "If not for Thane McKinnon's orders, the answer to that would be \"your worst nightmare\" before you'd even have the chance to ask it."
+        ]
+      },
+      "no": [
+        "Hunters of otherworldly monsters.  It's the least we can do, in times like these.",
+        "Of many faiths, united in purpose.  Thane McKinnon would be better able to tell you more.",
+        "Before all this started, a gathering of different religious communities.  Before my time, I'm afraid.",
+        "Survivors, at this point.  All that matters now, so long as we don't abandon our duties in the process.",
+        "You've seen the monsters, right?  Strange events perhaps, supernatural even?  Our purpose is to do what little we can, to protect people from things like that."
+      ]
+    },
+    "responses": [
+      {
+        "text": "You know what, you can go fuck yourself.",
+        "topic": "TALK_MAGE_HUNTER_INSULT",
+        "opinion": { "value": -3, "anger": 1 },
+        "effect": [ { "u_faction_rep": -1 } ],
+        "condition": { "and": [ { "not": { "u_has_effect": "cf_mission_1" } }, { "u_has_trait": "PROF_SANGUINE" } ] }
+      },
+      {
+        "text": "…",
+        "switch": true,
+        "condition": { "and": [ { "not": { "u_has_effect": "cf_mission_1" } }, { "u_has_trait": "PROF_SANGUINE" } ] },
+        "topic": "TALK_MAGE_HUNTER"
+      },
+      { "text": "I see.", "switch": true, "default": true, "topic": "TALK_MAGE_HUNTER" }
+    ]
   },
   {
     "id": "TALK_MAGE_HUNTER_REMAIN",
@@ -474,7 +507,7 @@
   {
     "id": "BGSS_CF_1_IDEAS1",
     "type": "talk_topic",
-    "dynamic_line": "The prevailing theory at first was that the Sanguine Order or Keepers of The Oath were to blame somehow, but many of us started to doubt that.  Especially with the reports coming in from the Purifiers, our contacts who dealth more closely with civilization.",
+    "dynamic_line": "The prevailing theory at first was that the Sanguine Order or Keepers of The Oath were to blame somehow, but many of us started to doubt that.  Especially with the reports coming in from the Purifiers, our contacts who dealt more closely with civilization.",
     "responses": [
       { "text": "What kind of reports?", "topic": "BGSS_CF_1_IDEAS2" },
       { "text": "<done_conversation_section>", "topic": "TALK_NONE" },
@@ -497,7 +530,7 @@
     "dynamic_line": "I was with a few others.  We were traveling to a planned rendezvous point to meet another hunting party, one of us had a cell phone.  Couldn't get any reception, I thought maybe it was because we were in a fairly rural area.  Right as we were arguing over why we might not be getting any signal, one of the others yells out for a mask check.",
     "responses": [
       { "text": "Mask check?", "topic": "BGSS_CF_1_STORY2" },
-      { "text": "What happaned?", "topic": "BGSS_CF_1_STORY3" },
+      { "text": "What happened?", "topic": "BGSS_CF_1_STORY3" },
       { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },
       { "text": "<end_talking>", "topic": "TALK_DONE" }
     ]
@@ -563,7 +596,7 @@
   {
     "id": "BGSS_CF_3_IDEAS2",
     "type": "talk_topic",
-    "dynamic_line": "To be honest, I'm not convinced that the rioting and pollution are related to that.  Most of the others suspect the undead might be connected to the latter, but I'm not sure of that either.  My personal hot take on this is that it was a personal storm of disasters, all of which made the anomalies themselves not only worse, but made it harder to prevent.",
+    "dynamic_line": "To be honest, I'm not convinced that the rioting and pollution are related to that.  Most of the others suspect the undead might be connected to the latter, but I'm not sure of that either.  My personal hot take on this is that it was a perfect storm of disasters, all of which made the anomalies themselves not only worse, but made it harder to prevent.",
     "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" }, { "text": "<end_talking>", "topic": "TALK_DONE" } ]
   },
   {
@@ -635,7 +668,7 @@
   {
     "id": "BGSS_CF_4_STORY4",
     "type": "talk_topic",
-    "dynamic_line": "It's not like we were that large a group, and we had a few contacts who had a vested interest in keeping us out of trouble.  No doubt they were already aware we existed, but likely saw us as just a small band of vigiliantes at most.  Which was practically what we were in the old days anyway.",
+    "dynamic_line": "It's not like we were that large a group, and we had a few contacts who had a vested interest in keeping us out of trouble.  No doubt they were already aware we existed, but likely saw us as just a small band of vigilantes at most.  Which was practically what we were in the old days anyway.",
     "responses": [
       { "text": "So what happened then?", "topic": "BGSS_CF_4_STORY5" },
       { "text": "<done_conversation_section>", "topic": "TALK_FRIEND" },

@@ -40,15 +40,7 @@
       {
         "text": "Do you know of any other settlements in the region?",
         "topic": "TALK_EVAC_MERCHANT_CF",
-        "effect": [
-          { "u_add_effect": "rural_church_aware", "duration": "PERMANENT" },
-          {
-            "mapgen_update": "arcana_dummy",
-            "om_terrain": "cf_church_4",
-            "om_special": "cf_rural_church",
-            "reveal_radius": 3
-          }
-        ],
+        "effect": [ { "u_add_effect": "rural_church_aware", "duration": "PERMANENT" } ],
         "condition": { "and": [ { "not": { "u_has_effect": "rural_church_aware" } }, { "npc_has_effect": "rural_church_aware" } ] }
       },
       {
@@ -180,11 +172,11 @@
         "effect": [ { "u_consume_item": "cf_rep_trade_arrangement" }, { "u_consume_item": "CF_golden_scale", "count": 20 } ]
       },
       {
-        "text": "How about 15 scales?",
+        "text": "The easier things are for them now, the more value you'll get out of them later on.  Think you could do 15 scales?",
         "condition": { "u_has_items": { "item": "CF_golden_scale", "count": 15 } },
         "trial": { "type": "PERSUADE", "difficulty": 10 },
         "success": {
-          "topic": "TALK_EVAC_MERCHANT_CF_MISSION_DEAL",
+          "topic": "TALK_EVAC_MERCHANT_CF_MISSION_DEAL_VALUE",
           "effect": [ { "u_consume_item": "cf_rep_trade_arrangement" }, { "u_consume_item": "CF_golden_scale", "count": 15 } ]
         },
         "failure": { "opinion": { "value": -1 }, "topic": "TALK_EVAC_MERCHANT_CF_MISSION_NODEAL" }
@@ -211,11 +203,11 @@
         "effect": [ { "u_consume_item": "cf_rep_trade_arrangement" }, { "u_consume_item": "CF_golden_scale", "count": 20 } ]
       },
       {
-        "text": "Could you accept 15 instead?",
+        "text": "They'll be even more valuable if their outpost has time to grow.  Might be worth it to cut them some slack, say about 15 instead?",
         "condition": { "u_has_items": { "item": "CF_golden_scale", "count": 15 } },
         "trial": { "type": "PERSUADE", "difficulty": 10 },
         "success": {
-          "topic": "TALK_EVAC_MERCHANT_CF_MISSION_DEAL",
+          "topic": "TALK_EVAC_MERCHANT_CF_MISSION_DEAL_VALUE",
           "effect": [ { "u_consume_item": "cf_rep_trade_arrangement" }, { "u_consume_item": "CF_golden_scale", "count": 15 } ]
         },
         "failure": { "opinion": { "value": -1 }, "topic": "TALK_EVAC_MERCHANT_CF_MISSION_NODEAL" }
@@ -227,20 +219,20 @@
   {
     "id": "TALK_EVAC_MERCHANT_CF_MISSION_CASH",
     "type": "talk_topic",
-    "dynamic_line": "If you have the cash, sure.  I've accepted that group's offers mostly since they've been reliable customers.  I've been honoring their deals pretty close to what they figure it at, so 175 Merch should cover it.",
+    "dynamic_line": "If you have the cash, sure.  I've accepted that group's offers mostly since they've been reliable customers.  I've been honoring their deals pretty close to what they figure it at, so 200 Merch should cover it.",
     "responses": [
       {
         "text": "You have a deal.",
         "topic": "TALK_EVAC_MERCHANT_CF_MISSION_DEAL",
-        "condition": { "u_has_items": { "item": "FMCNote", "count": 175 } },
-        "effect": [ { "u_consume_item": "cf_rep_trade_arrangement" }, { "u_consume_item": "FMCNote", "count": 175 } ]
+        "condition": { "u_has_items": { "item": "FMCNote", "count": 200 } },
+        "effect": [ { "u_consume_item": "cf_rep_trade_arrangement" }, { "u_consume_item": "FMCNote", "count": 200 } ]
       },
       {
         "text": "On second thought, I'll pay in scales.  Here you go.",
         "topic": "TALK_EVAC_MERCHANT_CF_MISSION_DEAL",
         "condition": {
           "and": [
-            { "u_has_items": { "item": "FMCNote", "count": 175 } },
+            { "u_has_items": { "item": "FMCNote", "count": 200 } },
             { "u_has_items": { "item": "CF_golden_scale", "count": 20 } }
           ]
         },
@@ -251,7 +243,7 @@
         "topic": "TALK_EVAC_MERCHANT_CF_MISSION_DEAL",
         "condition": {
           "and": [
-            { "not": { "u_has_items": { "item": "FMCNote", "count": 175 } } },
+            { "not": { "u_has_items": { "item": "FMCNote", "count": 200 } } },
             { "u_has_items": { "item": "CF_golden_scale", "count": 20 } }
           ]
         },
@@ -277,9 +269,25 @@
     ]
   },
   {
+    "id": "TALK_EVAC_MERCHANT_CF_MISSION_DEAL_VALUE",
+    "type": "talk_topic",
+    "dynamic_line": "You've got a point, if she couldn't make the trip herself then they could use the help.  Just this once, that's the best I can do.  That's 50 Merch worth of difference there, lot of literal blood, sweat, and tears to get enough supplies to spare for trade.",
+    "responses": [
+      {
+        "text": "Thank you.  I'll bring this back to her.",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "npc_add_effect": "cf_mission_receipt", "duration": "PERMANENT" },
+          { "u_add_effect": "cf_mission_receipt", "duration": "PERMANENT" },
+          { "u_spawn_item": "cf_rep_trade_receipt" }
+        ]
+      }
+    ]
+  },
+  {
     "id": "TALK_EVAC_MERCHANT_CF_MISSION_NODEAL",
     "type": "talk_topic",
-    "dynamic_line": "Sorry, 20 golden scales is as low as I can.  Gold's not as handy now that the world's ended. I'm already taking their offer just about at face value.",
+    "dynamic_line": "Sorry, 20 golden scales is as low as I can go.  Gold's not as handy now that the world's ended.  I'm already taking their offer just about at face value.",
     "responses": [
       {
         "text": "Okay, here you go.",
