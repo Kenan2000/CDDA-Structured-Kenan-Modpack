@@ -179,7 +179,7 @@
     "id": "cuirass_lightplate_surv",
     "copy-from": "cuirass_lightplate",
     "type": "ARMOR",
-    "name": { "str": "survivor cuirass" },
+    "name": { "str": "survivor cuirass", "str_pl": "survivor cuirasses" },
     "description": "A medieval steel breastplate, modified with kevlar and leather to better protect from the elements.",
     "weight": "4620 g",
     "price": "300 USD",
@@ -298,7 +298,22 @@
     "symbol": "[",
     "looks_like": "badge_cybercop",
     "color": "red",
-    "flags": [ "TRADER_AVOID" ]
+    "flags": [ "TRADER_AVOID", "NO_SALVAGE" ]
+  },
+  {
+    "id": "badge_bio_weapon_evy",
+    "type": "ARMOR",
+    "name": { "str": "RFID access badge" },
+    "description": "A round silver medallion with a RFID chip embedded in the front.  The markings seem to identify the wearer as a part of the Bio-Weapon project.",
+    "weight": "60 g",
+    "volume": "5 ml",
+    "price": "100 USD",
+    "phase": "solid",
+    "material": [ "silver" ],
+    "symbol": "[",
+    "looks_like": "badge_cybercop",
+    "color": "red",
+    "flags": [ "TRADER_AVOID", "NO_SALVAGE" ]
   },
   {
     "id": "c_stealth_cloak",
@@ -852,6 +867,7 @@
       "msg": "The carapace comes to life, spiracles dilating as environmental seals close.",
       "target": "c_mi_go_carapace_salvaged_on",
       "active": true,
+      "need_worn": true,
       "need_charges": 1,
       "need_charges_msg": "The carapace suit doesn't respond, evidently out of energy."
     },
@@ -886,7 +902,7 @@
     "id": "c_mi_go_carapace_salvaged_on",
     "copy-from": "c_mi_go_carapace_salvaged",
     "type": "TOOL_ARMOR",
-    "name": { "str": "salvaged carapace armor (on)" },
+    "name": { "str": "salvaged carapace armor (on)", "str_pl": "salvaged carapace armors (on)" },
     "description": "A vaguely human-shaped shell of alien sinew and steel support, covered in armor plates made of resin.  Salvaged using pre-cataclysm research into other living weaponry, it's been practically mutilated to fit a human (or mutant) wearer.  Activating it will reduce the suit's encumbrance, enhance strength and dexterity, protect the wearer from toxic gas, serve as a rebreather, enhance stamina and carry capacity, and provide some protection from outside temperature.  It seems to recharge from sunlight, and being active will also gradually fatigue the user and affect healthiness, plus render them more vulnerable to electric shocks.",
     "turns_per_charge": 150,
     "revert_to": "c_mi_go_carapace_salvaged",
@@ -895,7 +911,7 @@
       "msg": "The suit's sinews go slack, releasing you from its grasp.",
       "type": "transform"
     },
-    "extend": { "flags": [ "WATERPROOF", "RAINPROOF", "CLIMATE_CONTROL", "GAS_PROOF", "REBREATHER" ] },
+    "extend": { "flags": [ "WATERPROOF", "RAINPROOF", "CLIMATE_CONTROL", "GAS_PROOF", "REBREATHER", "NO_TAKEOFF" ] },
     "material": [ "alien_resin", "flesh", "steel" ],
     "material_thickness": 4,
     "environmental_protection": 15,
@@ -906,6 +922,56 @@
         "covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
       }
     ]
+  },
+  {
+    "id": "c_mi_go_wings_salvaged",
+    "type": "TOOL_ARMOR",
+    "symbol": "[",
+    "color": "green",
+    "name": { "str": "set of salvaged exo-wings", "str_pl": "sets of salvaged exo-wings" },
+    "description": "A set of thin, green iridescent wings, steel wires and joints meshed with thick alien nervous cords.  Salvaged using pre-cataclysm research into other living weaponry, it's been heavily altered to fit a human (or mutant) wearer.  Activating it will grant immunity to falling damage and vastly speed up movement.  It seems to recharge from sunlight, and being active will also gradually fatigue the user.",
+    "flags": [ "OVERSIZE", "STURDY", "BELTED" ],
+    "price_postapoc": "40 USD",
+    "material": [ "alien_resin", "flesh", "steel" ],
+    "weight": "2 kg",
+    "volume": "5 L",
+    "to_hit": -3,
+    "ammo": [ "battery" ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "battery": 100 } } ],
+    "use_action": {
+      "type": "transform",
+      "msg": "The exo-wings whir to life, becoming a fluttering blur of green and gray.",
+      "target": "c_mi_go_wings_salvaged_on",
+      "active": true,
+      "need_worn": true,
+      "need_charges": 1,
+      "need_charges_msg": "The exo-wings don't respond, evidently out of energy."
+    },
+    "relic_data": {
+      "charge_info": { "recharge_type": "solar_sunny", "time": "10 m", "regenerate_ammo": true },
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ACTIVE",
+          "values": [ { "value": "MOVE_COST", "multiply": -0.5 }, { "value": "BONUS_DODGE", "add": 5 } ],
+          "ench_effects": [ { "effect": "c_mi_go_wings_immunity", "intensity": 1 } ]
+        }
+      ]
+    },
+    "material_thickness": 2,
+    "armor": [ { "encumbrance": 10, "coverage": 40, "covers": [ "torso" ] } ]
+  },
+  {
+    "id": "c_mi_go_wings_salvaged_on",
+    "copy-from": "c_mi_go_wings_salvaged",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "set of salvaged exo-wings (on)", "str_pl": "sets of salvaged exo-wings (on)" },
+    "description": "A set of thin, green iridescent wings, steel wires and joints meshed with thick alien nervous cords.  They are currently buzzing with life, greatly speeding up movement and enhancing dodge as well as granting immunity to falling damage, in exchange for increased fatigue gain.",
+    "turns_per_charge": 75,
+    "revert_to": "c_mi_go_wings_salvaged",
+    "use_action": { "target": "c_mi_go_wings_salvaged", "msg": "The exo-wings go limp as they shut down.", "type": "transform" },
+    "extend": { "flags": [ "NO_TAKEOFF" ] },
+    "armor": [ { "encumbrance": 0, "coverage": 40, "covers": [ "torso" ] } ]
   },
   {
     "id": "cowboy_hat_surv",
@@ -1031,6 +1097,101 @@
         "coverage": 20,
         "covers": [ "leg_l", "leg_r" ],
         "specifically_covers": [ "leg_upper_r", "leg_upper_l" ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "C_MOVE_NOISE",
+    "name": { "str": "Makeshift Power Armor Noise" },
+    "points": 99,
+    "valid": false,
+    "description": "This is used to make the player a lot less stealthy, but also punch harder on top of the armor's strength bonus.",
+    "player_display": false,
+    "noise_modifier": 5.0,
+    "stealth_modifier": -10,
+    "scent_intensity": 1200,
+    "rand_bash_bonus": { "min": 3, "max": 6 }
+  },
+  {
+    "id": "c_power_armor_surv",
+    "type": "TOOL_ARMOR",
+    "category": "clothing",
+    "symbol": "[",
+    "color": "dark_gray",
+    "looks_like": "rm13_armor",
+    "name": { "str": "makeshift power armor" },
+    "description": "An incredibly heavy suit of steel plates covering a network of hydraulics, driven by pieces of a stripped-down diesel engine jury-rigged to assist the wearer's movements.  It's cumbersome but provides considerable protection aside from gaps in the joints and vision slits, and the servos offer quite a bit of power when active.",
+    "flags": [ "OVERSIZE", "STURDY", "OUTER", "ALLOWS_NATURAL_ATTACKS" ],
+    "price": "500 USD",
+    "price_postapoc": "50 USD",
+    "material": [ "steel" ],
+    "weight": "50 kg",
+    "volume": "40 L",
+    "to_hit": -3,
+    "ammo": [ "diesel", "lamp_oil", "motor_oil", "jp8" ],
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE",
+        "rigid": true,
+        "watertight": true,
+        "ammo_restriction": { "diesel": 2000, "lamp_oil": 2000, "motor_oil": 2000, "jp8": 2000 }
+      }
+    ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ACTIVE",
+          "values": [ { "value": "STRENGTH", "add": 4 }, { "value": "CARRY_WEIGHT", "multiply": 1.5 } ],
+          "mutations": [ "C_MOVE_NOISE" ]
+        }
+      ]
+    },
+    "use_action": {
+      "type": "transform",
+      "msg": "Your makeshift power armor roars to life, servos kicking into gear!",
+      "target": "c_power_armor_surv_on",
+      "need_worn": true,
+      "active": true,
+      "need_charges": 1,
+      "need_charges_msg": "There's no fuel in the makeshift power armor's tank."
+    },
+    "warmth": 15,
+    "environmental_protection": 5,
+    "material_thickness": 8,
+    "armor": [
+      {
+        "encumbrance": 45,
+        "coverage": 90,
+        "covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+      }
+    ]
+  },
+  {
+    "id": "c_power_armor_surv_on",
+    "copy-from": "c_power_armor_surv",
+    "repairs_like": "c_power_armor_surv",
+    "type": "TOOL_ARMOR",
+    "name": { "str": "makeshift power armor (on)", "str_pl": "makeshift power armors (on)" },
+    "description": "An incredibly heavy suit of steel plates covering a network of hydraulics, driven by pieces of a stripped-down diesel engine jury-rigged to assist the wearer's movements.  It's currently active, strengthening the wearer and making the armor less encumbering, but also being warmer and making stealth more difficult.",
+    "extend": { "effects": [ "TRADER_AVOID" ] },
+    "//": "power_draw does not actually work sanely for non-battery items, so value fits for roughly how many turns one unit of the weakest allowed fuel would last at twice the power draw of vanilla power armor, rounded down.",
+    "turns_per_charge": 3,
+    "revert_to": "c_power_armor_surv",
+    "revert_msg": "Your makeshift power armor sputters and dies!",
+    "use_action": {
+      "target": "c_power_armor_surv",
+      "msg": "You shut the makeshift power armor off.",
+      "menu_text": "Turn off",
+      "type": "transform"
+    },
+    "warmth": 45,
+    "armor": [
+      {
+        "encumbrance": 15,
+        "coverage": 90,
+        "covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
       }
     ]
   }

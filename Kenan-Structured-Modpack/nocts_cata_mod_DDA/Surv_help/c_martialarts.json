@@ -22,7 +22,7 @@
         "melee_allowed": true,
         "throw_immune": true,
         "buff_duration": 3,
-        "max_stacks": 2,
+        "max_stacks": 3,
         "bonus_dodges": 1,
         "flat_bonuses": [ { "stat": "dodge", "scaling-stat": "int", "scale": 0.25 } ]
       }
@@ -36,7 +36,7 @@
         "unarmed_allowed": true,
         "melee_allowed": true,
         "buff_duration": 2,
-        "max_stacks": 2,
+        "max_stacks": 3,
         "bonus_blocks": 1,
         "flat_bonuses": [ { "stat": "block", "scaling-stat": "int", "scale": 1.0 } ]
       }
@@ -45,15 +45,15 @@
       {
         "id": "buff_surv_com_onkill",
         "name": "Misdirection",
-        "description": "The shock and awe of combat gives you an opportunity to slip away.\n\n+2 Block attempts, +2 Dodge attempts, movement speed increased by 100% of Intelligence, moving generates 1/2 as much noise.\nLast 6 turns.",
+        "description": "The shock and awe of combat gives you an opportunity to slip away.\n\n+2 Block attempts, +2 Dodge attempts, Dodge skill increased by 50% of Intelligence, movement speed increased by 200% of Intelligence, moving generates 1/2 as much noise.\nLast 6 turns.",
         "skill_requirements": [ { "name": "melee", "level": 6 } ],
         "unarmed_allowed": true,
         "melee_allowed": true,
         "stealthy": true,
         "buff_duration": 6,
-        "bonus_dodges": 2,
+        "bonus_dodges": 3,
         "bonus_blocks": 2,
-        "flat_bonuses": [ { "stat": "speed", "scaling-stat": "int", "scale": 1.0 } ]
+        "flat_bonuses": [ { "stat": "dodge", "scaling-stat": "int", "scale": 0.5 }, { "stat": "speed", "scaling-stat": "int", "scale": 2.0 } ]
       }
     ],
     "techniques": [
@@ -76,31 +76,32 @@
       {
         "id": "buff_mut_com_static",
         "name": "Large And In Charge",
-        "description": "Your stance makes better use of your might to compensate for poor footwork.\nAccuracy increased by 15% of strength, -10 move cost.",
+        "description": "Your stance makes better use of your might to compensate for poor footwork.\nAccuracy increased by 15% of strength, -10% move cost.",
         "skill_requirements": [ { "name": "melee", "level": 6 } ],
         "unarmed_allowed": true,
         "melee_allowed": true,
-        "flat_bonuses": [ { "stat": "hit", "scaling-stat": "str", "scale": 0.15 }, { "stat": "movecost", "scale": -10.0 } ]
+        "flat_bonuses": [ { "stat": "hit", "scaling-stat": "str", "scale": 0.15 } ],
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 } ]
       }
     ],
     "onpause_buffs": [
       {
         "id": "buff_mut_com_onpause",
         "name": "Stored Potential",
-        "description": "Conserving your energy and focusing your mind will permit explosive bursts of action.\n\n-10 move cost.\nLasts 2 turns, stacks 3 times.",
+        "description": "Conserving your energy and focusing your mind will permit explosive bursts of action.\n\n-10% move cost.\nLasts 3 turns, stacks 3 times.",
         "skill_requirements": [ { "name": "melee", "level": 5 } ],
         "unarmed_allowed": true,
         "melee_allowed": true,
         "buff_duration": 3,
         "max_stacks": 3,
-        "flat_bonuses": [ { "stat": "movecost", "scale": -10.0 } ]
+        "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 } ]
       }
     ],
     "onmove_buffs": [
       {
         "id": "buff_mut_com_onmove",
         "name": "Bull Rush",
-        "description": "When you get enough momentum going, they're going to feel it.\n\nMovement speed increased by 45% of strength, bash damage increased by 15% of strength.  Enables \"Battering Ram\" technique.\nLasts 2 turns, stacks 3 times.",
+        "description": "When you get enough momentum going, they're going to feel it.\n\nMovement speed increased by 45% of strength, bash damage increased by 15% of strength.  Enables \"Battering Ram\" technique.\nLasts 3 turns, stacks 3 times.",
         "skill_requirements": [ { "name": "melee", "level": 4 } ],
         "unarmed_allowed": true,
         "melee_allowed": true,

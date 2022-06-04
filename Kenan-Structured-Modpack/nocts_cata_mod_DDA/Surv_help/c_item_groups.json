@@ -5,13 +5,14 @@
     "items": [ [ "manual_surv_com", 75 ], [ "manual_biojutsu", 20 ], [ "manual_mut_com", 5 ] ]
   },
   {
-    "id": "encylopedias_common",
+    "id": "encylopedias_rare",
     "type": "item_group",
     "items": [
       [ "encyclopedia_mechanics", 1 ],
       [ "encyclopedia_fabrication", 1 ],
       [ "encyclopedia_archery", 1 ],
       [ "encyclopedia_bashing", 1 ],
+      [ "encyclopedia_chemistry", 1 ],
       [ "encyclopedia_computer", 1 ],
       [ "encyclopedia_cooking", 1 ],
       [ "encyclopedia_cutting", 1 ],
@@ -37,35 +38,58 @@
     ]
   },
   {
-    "id": "encylopedias_rare",
+    "id": "encylopedias_military",
     "type": "item_group",
     "items": [
-      [ "encyclopedia_mechanics_advance", 1 ],
-      [ "encyclopedia_fabrication_advance", 1 ],
-      [ "encyclopedia_archery_advance", 1 ],
-      [ "encyclopedia_bashing_advance", 1 ],
-      [ "encyclopedia_computer_advance", 1 ],
-      [ "encyclopedia_cooking_advance", 1 ],
-      [ "encyclopedia_cutting_advance", 1 ],
-      [ "encyclopedia_dodge_advance", 1 ],
-      [ "encyclopedia_driving_advance", 1 ],
-      [ "encyclopedia_electronics_advance", 1 ],
-      [ "encyclopedia_firstaid_advance", 1 ],
-      [ "encyclopedia_gun_advance", 1 ],
-      [ "encyclopedia_launcher_advance", 1 ],
-      [ "encyclopedia_melee_advance", 1 ],
-      [ "encyclopedia_pistol_advance", 1 ],
-      [ "encyclopedia_rifle_advance", 1 ],
-      [ "encyclopedia_shotgun_advance", 1 ],
-      [ "encyclopedia_smg_advance", 1 ],
-      [ "encyclopedia_speech_advance", 1 ],
-      [ "encyclopedia_stabbing_advance", 1 ],
-      [ "encyclopedia_survival_advance", 1 ],
-      [ "encyclopedia_swimming_advance", 1 ],
-      [ "encyclopedia_tailor_advance", 1 ],
-      [ "encyclopedia_throw_advance", 1 ],
-      [ "encyclopedia_traps_advance", 1 ],
-      [ "encyclopedia_unarmed_advance", 1 ]
+      [ "encyclopedia_gun", 1 ],
+      [ "encyclopedia_launcher", 1 ],
+      [ "encyclopedia_pistol", 1 ],
+      [ "encyclopedia_rifle", 1 ],
+      [ "encyclopedia_shotgun", 1 ],
+      [ "encyclopedia_smg", 1 ]
+    ]
+  },
+  {
+    "id": "encylopedias_survalist",
+    "type": "item_group",
+    "items": [
+      [ "encyclopedia_archery", 1 ],
+      [ "encyclopedia_bashing", 1 ],
+      [ "encyclopedia_cooking", 1 ],
+      [ "encyclopedia_cutting", 1 ],
+      [ "encyclopedia_dodge", 1 ],
+      [ "encyclopedia_firstaid", 1 ],
+      [ "encyclopedia_melee", 1 ],
+      [ "encyclopedia_survival", 1 ],
+      [ "encyclopedia_stabbing", 1 ],
+      [ "encyclopedia_swimming", 1 ],
+      [ "encyclopedia_tailor", 1 ],
+      [ "encyclopedia_throw", 1 ],
+      [ "encyclopedia_traps", 1 ],
+      [ "encyclopedia_unarmed", 1 ]
+    ]
+  },
+  {
+    "id": "encylopedias_industrial",
+    "type": "item_group",
+    "items": [
+      [ "encyclopedia_speech", 1 ],
+      [ "encyclopedia_chemistry", 1 ],
+      [ "encyclopedia_mechanics", 1 ],
+      [ "encyclopedia_fabrication", 1 ]
+    ]
+  },
+  {
+    "id": "encylopedias_lab",
+    "type": "item_group",
+    "items": [
+      [ "encyclopedia_mechanics", 1 ],
+      [ "encyclopedia_fabrication", 1 ],
+      [ "encyclopedia_computer", 1 ],
+      [ "encyclopedia_chemistry", 1 ],
+      [ "encyclopedia_electronics", 1 ],
+      [ "encyclopedia_firstaid", 1 ],
+      [ "encyclopedia_speech", 1 ]
     ]
   },
   {
@@ -289,6 +313,7 @@
   {
     "id": "ammo_atomic_batteries",
     "type": "item_group",
+    "//": "This is vanilla in BN, added to DDA version so DDA will have a consistent experience.",
     "items": [
       { "item": "light_atomic_battery_cell", "prob": 4, "charges": [ 500, 1000 ] },
       { "item": "light_minus_atomic_battery_cell", "prob": 3, "charges": [ 250, 500 ] },
@@ -299,6 +324,7 @@
   {
     "id": "ammo_atomic_batteries_full",
     "type": "item_group",
+    "//": "This is vanilla in BN, added to DDA version so DDA will have a consistent experience.",
     "items": [
       { "item": "light_atomic_battery_cell", "prob": 4, "charges": 1000 },
       { "item": "light_minus_atomic_battery_cell", "prob": 3, "charges": 500 },
@@ -349,6 +375,24 @@
   },
   {
     "type": "item_group",
+    "id": "c_mi_go_advanced_dissection_worker",
+    "subtype": "distribution",
+    "items": [ [ "c_mi_go_extruder_broken", 1 ], [ "c_mi_go_wings_broken", 1 ] ]
+  },
+  {
+    "type": "item_group",
+    "id": "c_mi_go_advanced_dissection_slaver",
+    "subtype": "distribution",
+    "items": [ [ "c_mi_go_beam_broken", 3 ], [ "c_mi_go_wings_broken", 1 ] ]
+  },
+  {
+    "type": "item_group",
+    "id": "c_mi_go_advanced_dissection_surgeon",
+    "subtype": "distribution",
+    "items": [ [ "c_mi_go_claw_broken", 3 ], [ "c_mi_go_wings_broken", 1 ] ]
+  },
+  {
+    "type": "item_group",
     "id": "c_mi_go_advanced_dissection_guard",
     "subtype": "distribution",
     "items": [ [ "c_mi_go_carapace_broken", 2 ], [ "c_mi_go_beam_broken", 1 ] ]
@@ -358,5 +402,17 @@
     "id": "c_mi_go_advanced_dissection_myrmidon",
     "subtype": "distribution",
     "items": [ [ "c_mi_go_carapace_broken", 3 ], [ "c_mi_go_beam_broken", 1 ], [ "c_mi_go_claw_broken", 1 ] ]
+  },
+  {
+    "type": "item_group",
+    "id": "c_mi_go_advanced_dissection_scout",
+    "subtype": "distribution",
+    "items": [ [ "c_mi_go_rifle_broken", 3 ], [ "c_mi_go_wings_broken", 1 ] ]
+  },
+  {
+    "id": "bionic_power_storage_mil",
+    "type": "item_group",
+    "//": "This is vanilla in BN, added to DDA version so DDA will have a consistent experience.",
+    "items": [ [ "bio_power_storage", 50 ], [ "bio_power_storage_mkII", 50 ], [ "bio_power_storage_sentinel", 10 ] ]
   }
 ]

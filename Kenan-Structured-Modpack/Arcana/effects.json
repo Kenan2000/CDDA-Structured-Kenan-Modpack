@@ -409,6 +409,11 @@
   },
   {
     "type": "effect_type",
+    "id": "food_protect_dragonblood",
+    "blocks_effects": [ "tapeworm", "bloodworms", "brainworms", "paincysts", "foodpoison" ]
+  },
+  {
+    "type": "effect_type",
     "id": "blood_clarity",
     "name": [ "Clarity of Blood" ],
     "desc": [ "Protection against parasitic and corruptive threats, such as the Mycus." ],
@@ -681,16 +686,13 @@
     "type": "effect_type",
     "id": "dragonblood_clarity",
     "name": [ "Revenant Blood" ],
-    "desc": [
-      "Immunity to food poisoning, parasites, and fungus.  Increased hunger and thirst gain, with positive metabolic effects."
-    ],
-    "resist_effects": [ "talisman_warding" ],
+    "desc": [ "Immunity to poisons, radiation, and fungus." ],
     "remove_message": "The protective effect of your sanguine mark fades, leaving a momentary itch in your veins.",
+    "//": "Food poisoning and food parasites are already covered by Metabolic Adaptability.",
     "removes_effects": [
       "stung",
       "poison",
       "badpoison",
-      "foodpoison",
       "paralyzepoison",
       "teargas",
       "migo_atmosphere",
@@ -1146,6 +1148,27 @@
   },
   {
     "type": "effect_type",
+    "id": "arcana_divine_healing_effects",
+    "name": [ "Dimensional Mending" ],
+    "desc": [ "Steady recovery of stamina, pain, and radiation, immunity to bleeding, poison, and infections for the duration." ],
+    "max_duration": "30 m",
+    "max_intensity": 30,
+    "int_dur_factor": "1 m",
+    "removes_effects": [ "poison", "badpoison", "bite", "infected", "fungus", "bleed", "common_cold", "flu", "tetanus" ],
+    "base_mods": {
+      "stamina_min": [ 25 ],
+      "pain_min": [ -1 ],
+      "pain_tick": [ 10 ],
+      "rad_min": [ -1 ],
+      "rad_tick": [ 25 ],
+      "health_min": [ 1 ],
+      "health_tick": [ 25 ],
+      "h_mod_min": [ 1 ],
+      "h_mod_tick": [ 25 ]
+    }
+  },
+  {
+    "type": "effect_type",
     "id": "sent_to_hermit",
     "//": "This marks a player as having been led to The Hermit via a quest chain, no name or description since this one is player-side.  Intended to be permanent."
   },
@@ -1329,5 +1352,18 @@
     "desc": [
       "AI tag marking an NPC as having triggered their merchant restock effect recently.  Intended duration 1 week.  This is a bug if you have it."
     ]
+  },
+  {
+    "type": "effect_type",
+    "id": "cf_purifier_making_item",
+    "name": [ "Busy Making Something Special" ],
+    "desc": [
+      "AI tag marking Nicholas as busy tinkering with your quest reward.  Intended duration 3 days.  This is a bug if you have it."
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "cf_purifier_kairos",
+    "//": "This marks a player as having completed Nicholas' final mission and received the item made afterward, used mainly for achievement tracking.  Intended to be permanent."
   }
 ]

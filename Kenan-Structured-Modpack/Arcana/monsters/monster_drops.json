@@ -52,6 +52,12 @@
   },
   {
     "type": "item_group",
+    "id": "mon_worm_small_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "graboid_fang", "prob": 5 }, { "item": "essence_blood", "count": [ 2, 4 ], "prob": 10 } ]
+  },
+  {
+    "type": "item_group",
     "id": "mon_cockatrice_death_drops",
     "subtype": "collection",
     "entries": [ { "item": "monster_tear", "prob": 5 }, { "item": "essence_blood", "count": [ 2, 4 ], "prob": 5 } ]
@@ -133,9 +139,9 @@
             { "item": "inflorescent_root", "prob": 10 },
             { "item": "triffid_queen_flower", "prob": 80 }
           ],
-          "prob": 20
+          "prob": 25
         },
-        { "item": "essence_blood", "count": [ 2, 4 ], "prob": 25 }
+        { "item": "essence_blood", "count": [ 2, 4 ], "prob": 50 }
       ]
     }
   },
@@ -153,25 +159,65 @@
     "type": "item_group",
     "id": "mon_zombie_biter_death_drops",
     "subtype": "collection",
-    "entries": [ { "group": "default_zombie_death_drops" }, { "item": "monster_fang", "prob": 5 } ]
+    "entries": [
+      { "group": "default_zombie_death_drops" },
+      {
+        "distribution": [ { "item": "monster_fang", "prob": 75 }, { "item": "graboid_fang", "prob": 25 } ],
+        "prob": 10
+      },
+      { "item": "essence_blood", "count": [ 2, 4 ], "prob": 25 }
+    ]
   },
   {
     "type": "item_group",
     "id": "mon_zombie_hunter_death_drops",
     "subtype": "collection",
-    "entries": [ { "group": "default_zombie_death_drops" }, { "item": "monster_fang", "prob": 5 } ]
+    "entries": [
+      { "group": "default_zombie_death_drops" },
+      {
+        "distribution": [
+          { "item": "monster_fang", "prob": 75 },
+          { "item": "graboid_fang", "prob": 10 },
+          { "item": "gracken_knuckles", "prob": 15 }
+        ],
+        "prob": 10
+      },
+      { "item": "essence_blood", "count": [ 2, 4 ], "prob": 25 }
+    ]
   },
   {
     "type": "item_group",
     "id": "mon_zombie_predator_death_drops",
     "subtype": "collection",
-    "entries": [ { "group": "default_zombie_death_drops" }, { "item": "monster_fang", "prob": 10 } ]
+    "entries": [
+      { "group": "default_zombie_death_drops" },
+      {
+        "distribution": [
+          { "item": "monster_fang", "prob": 75 },
+          { "item": "graboid_fang", "prob": 10 },
+          { "item": "gracken_knuckles", "prob": 15 }
+        ],
+        "prob": 25
+      },
+      { "item": "essence_blood", "count": [ 2, 4 ], "prob": 50 }
+    ]
   },
   {
     "type": "item_group",
     "id": "mon_zombie_mancroc_death_drops",
     "subtype": "collection",
-    "entries": [ { "group": "mon_zombie_swimmer_death_drops" }, { "item": "monster_fang", "prob": 10 } ]
+    "entries": [
+      { "group": "mon_zombie_swimmer_death_drops" },
+      {
+        "distribution": [
+          { "item": "monster_fang", "prob": 50 },
+          { "item": "graboid_fang", "prob": 25 },
+          { "item": "monster_tear", "prob": 25 }
+        ],
+        "prob": 10
+      },
+      { "item": "essence_blood", "count": [ 2, 4 ], "prob": 25 }
+    ]
   },
   {
     "type": "item_group",
@@ -197,9 +243,33 @@
   },
   {
     "type": "item_group",
+    "id": "mon_zombie_medical_death_drops",
+    "copy-from": "mon_zombie_medical_death_drops",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        {
+          "distribution": [
+            { "item": "bone_twisted", "prob": 50 },
+            { "item": "iron_thorn", "prob": 25 },
+            { "item": "wyrmskin_piece", "prob": 25 }
+          ],
+          "prob": 20
+        }
+      ]
+    }
+  },
+  {
+    "type": "item_group",
     "id": "mon_zombie_smoker_death_drops",
     "subtype": "collection",
-    "entries": [ { "item": "iridescent_plate", "prob": 25 }, { "item": "essence_blood", "count": [ 2, 4 ], "prob": 25 } ]
+    "entries": [ { "item": "iridescent_plate", "prob": 10 }, { "item": "essence_blood", "count": [ 2, 4 ], "prob": 25 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_smoker_brute_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "iridescent_plate", "prob": 25 }, { "item": "essence_blood", "count": [ 2, 4 ], "prob": 50 } ]
   },
   {
     "type": "item_group",
@@ -408,6 +478,20 @@
   },
   {
     "type": "item_group",
+    "id": "mon_fungaloid_shambler_death_drops",
+    "subtype": "collection",
+    "entries": [
+      { "group": "wreckage", "prob": 5 },
+      { "group": "trash_forest", "prob": 5 },
+      {
+        "distribution": [ { "item": "inflorescent_root", "prob": 50 }, { "item": "iron_thorn", "prob": 50 } ],
+        "prob": 10
+      },
+      { "item": "essence", "prob": 25 }
+    ]
+  },
+  {
+    "type": "item_group",
     "id": "mon_blob_brain_death_drops",
     "subtype": "collection",
     "entries": [ { "item": "blob_gem" }, { "item": "essence", "count": [ 2, 5 ] } ]
@@ -509,9 +593,45 @@
   },
   {
     "type": "item_group",
+    "id": "mon_bee_mega_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "dermatik_sting", "prob": 10 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_wasp_small_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "dermatik_sting", "prob": 5 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_wasp_small_guard_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "dermatik_sting", "prob": 5 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_wasp_queen_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "dermatik_sting", "prob": 25 } ]
+  },
+  {
+    "type": "item_group",
     "id": "mon_wasp_death_drops",
     "subtype": "collection",
     "entries": [ { "item": "dermatik_sting", "prob": 10 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_wasp_guard_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "dermatik_sting", "prob": 10 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_wasp_mega_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "dermatik_sting", "prob": 25 } ]
   },
   {
     "type": "item_group",
@@ -524,6 +644,12 @@
     "id": "mon_dermatik_death_drops",
     "subtype": "collection",
     "entries": [ { "item": "dermatik_sting", "prob": 75 }, { "item": "essence_blood", "prob": 10, "count": [ 2, 4 ] } ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_dermatik_midwife_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "dermatik_sting" }, { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] } ]
   },
   {
     "type": "item_group",
@@ -727,8 +853,14 @@
     "entries": [
       { "group": "default_zombie_death_drops" },
       { "item": "essence_blood", "prob": 50, "count": [ 2, 4 ] },
-      { "group": "magic_tools", "prob": 1, "damage": [ 1, 4 ] },
-      { "group": "magic_items", "prob": 2, "damage": [ 1, 4 ] },
+      { "group": "arcana_hunt_random", "prob": 10 },
+      {
+        "distribution": [
+          { "group": "magic_tools", "prob": 50, "damage": [ 1, 4 ] },
+          { "group": "magic_items", "prob": 50, "damage": [ 1, 4 ] }
+        ],
+        "prob": 2
+      },
       { "group": "magic_consumables", "prob": 3 },
       { "group": "magic_books", "prob": 25 }
     ]
@@ -896,7 +1028,7 @@
           { "item": "bone_twisted", "prob": 40 },
           { "item": "iridescent_plate", "prob": 10 }
         ],
-        "prob": 10
+        "prob": 25
       },
       { "item": "essence_blood", "prob": 50, "count": [ 2, 4 ] }
     ]
@@ -907,10 +1039,15 @@
     "subtype": "collection",
     "entries": [
       { "group": "mon_zombie_hulk_death_drops" },
-      { "item": "gracken_knuckles", "prob": 75 },
-      { "item": "bone_twisted", "prob": 50 },
-      { "item": "iridescent_plate", "prob": 25 },
-      { "item": "essence_blood", "prob": 50, "count": [ 2, 4 ] }
+      {
+        "distribution": [
+          { "item": "gracken_knuckles", "prob": 50 },
+          { "item": "bone_twisted", "prob": 40 },
+          { "item": "iridescent_plate", "prob": 10 }
+        ],
+        "prob": 50
+      },
+      { "item": "essence_blood", "count": [ 2, 4 ] }
     ]
   },
   {
@@ -1033,11 +1170,378 @@
     "subtype": "collection",
     "entries": [
       { "item": "essence_blood", "count": [ 2, 4 ] },
-      { "item": "shadow_gem", "prob": 25 },
-      { "group": "magic_tools", "prob": 5, "damage": [ 1, 4 ] },
-      { "group": "magic_items", "prob": 10, "damage": [ 1, 4 ] },
+      {
+        "distribution": [ { "item": "shadow_gem", "prob": 25 }, { "group": "arcana_hunt_random", "prob": 75 } ],
+        "prob": 25
+      },
+      {
+        "distribution": [
+          { "group": "magic_tools", "prob": 50, "damage": [ 1, 4 ] },
+          { "group": "magic_items", "prob": 50, "damage": [ 1, 4 ] }
+        ],
+        "prob": 10
+      },
       { "group": "magic_consumables", "prob": 20 },
       { "group": "magic_books_postapoc", "prob": 80 }
+    ]
+  },
+  {
+    "id": "feral_humans_death_drops_axe",
+    "copy-from": "feral_humans_death_drops_axe",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 10, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 3 }
+      ]
+    }
+  },
+  {
+    "id": "feral_humans_death_drops_pipe",
+    "copy-from": "feral_humans_death_drops_pipe",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 10, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 3 }
+      ]
+    }
+  },
+  {
+    "id": "feral_humans_death_drops_crowbar",
+    "copy-from": "feral_humans_death_drops_crowbar",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 10, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 3 }
+      ]
+    }
+  },
+  {
+    "id": "feral_humans_death_drops_tool",
+    "copy-from": "feral_humans_death_drops_tool",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 10, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 3 }
+      ]
+    }
+  },
+  {
+    "id": "feral_scientists_death_drops_scalpel",
+    "copy-from": "feral_scientists_death_drops_scalpel",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        { "group": "magic_books_postapoc", "prob": 5 }
+      ]
+    }
+  },
+  {
+    "id": "feral_security_death_drops_9mm",
+    "copy-from": "feral_security_death_drops_9mm",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        { "group": "magic_books_postapoc", "prob": 5 }
+      ]
+    }
+  },
+  {
+    "id": "feral_security_death_drops_flashlight",
+    "copy-from": "feral_security_death_drops_flashlight",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        { "group": "magic_books_postapoc", "prob": 5 }
+      ]
+    }
+  },
+  {
+    "id": "feral_maids_death_drops_broom",
+    "copy-from": "feral_maids_death_drops_broom",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 10 }
+      ]
+    }
+  },
+  {
+    "id": "feral_maids_death_drops_candlestick",
+    "copy-from": "feral_maids_death_drops_candlestick",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 10 }
+      ]
+    }
+  },
+  {
+    "id": "feral_maids_death_drops_knife",
+    "copy-from": "feral_maids_death_drops_knife",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 10 }
+      ]
+    }
+  },
+  {
+    "id": "feral_fancy_death_drops_rapier",
+    "copy-from": "feral_fancy_death_drops_rapier",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 10 }
+      ]
+    }
+  },
+  {
+    "id": "feral_fancy_death_drops_rapier_fake",
+    "copy-from": "feral_fancy_death_drops_rapier_fake",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 10 }
+      ]
+    }
+  },
+  {
+    "id": "feral_fancy_death_drops_crossbow",
+    "copy-from": "feral_fancy_death_drops_crossbow",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 10 }
+      ]
+    }
+  },
+  {
+    "id": "feral_armored_death_drops_mace",
+    "copy-from": "feral_armored_death_drops_mace",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 10 }
+      ]
+    }
+  },
+  {
+    "id": "feral_armored_death_drops_battleaxe",
+    "copy-from": "feral_armored_death_drops_battleaxe",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 10 }
+      ]
+    }
+  },
+  {
+    "id": "mon_feral_prepper_death_drops",
+    "copy-from": "mon_feral_prepper_death_drops",
+    "type": "item_group",
+    "//": "Only need to add items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 50, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        {
+          "distribution": [
+            { "group": "magic_tools", "prob": 50, "damage": [ 1, 4 ] },
+            { "group": "magic_items", "prob": 50, "damage": [ 1, 4 ] }
+          ],
+          "prob": 3
+        },
+        { "group": "magic_consumables", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 15 }
+      ]
+    }
+  },
+  {
+    "id": "mon_feral_survivalist_death_drops",
+    "copy-from": "mon_feral_survivalist_death_drops",
+    "type": "item_group",
+    "//": "Only need to add items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 50, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        {
+          "distribution": [
+            { "group": "magic_tools", "prob": 50, "damage": [ 1, 4 ] },
+            { "group": "magic_items", "prob": 50, "damage": [ 1, 4 ] }
+          ],
+          "prob": 3
+        },
+        { "group": "magic_consumables", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 15 }
+      ]
+    }
+  },
+  {
+    "id": "mon_feral_militia_death_drops",
+    "copy-from": "mon_feral_militia_death_drops",
+    "type": "item_group",
+    "//": "Only need to add items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 50, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        {
+          "distribution": [
+            { "group": "magic_tools", "prob": 50, "damage": [ 1, 4 ] },
+            { "group": "magic_items", "prob": 50, "damage": [ 1, 4 ] }
+          ],
+          "prob": 3
+        },
+        { "group": "magic_consumables", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 15 }
+      ]
+    }
+  },
+  {
+    "id": "mon_feral_soldier_death_drops",
+    "copy-from": "mon_feral_soldier_death_drops",
+    "type": "item_group",
+    "//": "Only need to add items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 50, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        {
+          "distribution": [
+            { "group": "magic_tools", "prob": 50, "damage": [ 1, 4 ] },
+            { "group": "magic_items", "prob": 50, "damage": [ 1, 4 ] }
+          ],
+          "prob": 3
+        },
+        { "group": "magic_consumables", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 15 }
+      ]
+    }
+  },
+  {
+    "id": "mon_feral_jackboot_death_drops",
+    "copy-from": "mon_feral_jackboot_death_drops",
+    "type": "item_group",
+    "//": "Only need to add items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 50, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        {
+          "distribution": [
+            { "group": "magic_tools", "prob": 50, "damage": [ 1, 4 ] },
+            { "group": "magic_items", "prob": 50, "damage": [ 1, 4 ] }
+          ],
+          "prob": 3
+        },
+        { "group": "magic_consumables", "prob": 5 },
+        { "group": "magic_books_postapoc", "prob": 15 }
+      ]
+    }
+  },
+  {
+    "id": "feral_swimmer_death_drops_kickboard",
+    "copy-from": "feral_swimmer_death_drops_kickboard",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        { "group": "magic_books_postapoc", "prob": 5 }
+      ]
+    }
+  },
+  {
+    "id": "feral_diver_death_drops_knife",
+    "copy-from": "feral_diver_death_drops_knife",
+    "type": "item_group",
+    "//": "Adds items since we're referencing an existing itemgroup.",
+    "subtype": "collection",
+    "extend": {
+      "entries": [
+        { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        { "group": "magic_books_postapoc", "prob": 5 }
+      ]
+    }
+  },
+  {
+    "id": "mon_chud_death_drops",
+    "type": "item_group",
+    "subtype": "collection",
+    "entries": [
+      { "group": "default_zombie_death_drops" },
+      { "item": "essence_blood", "prob": 25, "count": [ 2, 4 ] },
+      { "group": "arcana_hunt_random", "prob": 10 },
+      { "group": "magic_books_postapoc", "prob": 5 }
     ]
   },
   {
@@ -1049,9 +1553,15 @@
     "extend": {
       "entries": [
         { "item": "essence_blood", "prob": 50, "count": [ 2, 4 ] },
-        { "group": "magic_items", "prob": 3, "damage": [ 1, 4 ] },
+        { "group": "arcana_hunt_random", "prob": 10 },
+        {
+          "distribution": [
+            { "group": "magic_tools", "prob": 50, "damage": [ 1, 4 ] },
+            { "group": "magic_items", "prob": 50, "damage": [ 1, 4 ] }
+          ],
+          "prob": 3
+        },
         { "group": "magic_consumables", "prob": 5 },
-        { "group": "magic_tools", "prob": 1, "damage": [ 1, 4 ] },
         { "group": "magic_books_postapoc", "prob": 15 }
       ]
     }
@@ -1548,6 +2058,50 @@
         { "group": "lab_magitech_general", "count": [ 1, 3 ], "prob": 10 }
       ]
     }
+  },
+  {
+    "type": "item_group",
+    "id": "mon_octupus_stalker_death_drops",
+    "subtype": "collection",
+    "entries": [
+      { "item": "essence_blood", "count": [ 2, 4 ], "prob": 25 },
+      {
+        "distribution": [
+          { "item": "monster_tear", "prob": 50 },
+          { "item": "shadow_gem", "prob": 25 },
+          { "item": "iridescent_plate", "prob": 25 }
+        ],
+        "prob": 10
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_kraken_guard_death_drops",
+    "subtype": "collection",
+    "entries": [
+      { "item": "essence_blood", "count": [ 2, 4 ], "prob": 50 },
+      {
+        "distribution": [ { "item": "monster_tear", "prob": 50 }, { "item": "iridescent_plate", "prob": 50 } ],
+        "prob": 25
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_kraken_queen_death_drops",
+    "subtype": "collection",
+    "entries": [
+      { "item": "essence_blood", "count": [ 7, 14 ] },
+      {
+        "distribution": [
+          { "item": "monster_tear", "prob": 50 },
+          { "item": "engraved_stone", "prob": 25 },
+          { "item": "iridescent_plate", "prob": 50 }
+        ],
+        "prob": 50
+      }
+    ]
   },
   {
     "type": "item_group",

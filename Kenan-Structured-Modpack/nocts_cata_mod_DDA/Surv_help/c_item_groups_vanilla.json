@@ -160,6 +160,7 @@
         [ "xarm_laser_shotgun", 2 ],
         [ "br_bolt_rifle_elec", 2 ],
         [ "mk_ionic_cannon", 2 ],
+        [ "omnitech_plasma_pistol", 1 ],
         [ "megamap", 5 ],
         [ "stim", 5 ],
         [ "boots_stealth", 3 ],
@@ -206,78 +207,86 @@
     "extend": { "groups": [ [ "encylopedias_rare", 5 ] ] }
   },
   {
+    "type": "item_group",
+    "id": "book_gunref",
+    "copy-from": "book_gunref",
+    "//": "Reference books about guns",
+    "subtype": "distribution",
+    "extend": { "entries": [ { "group": "encylopedias_military", "prob": 5 } ] }
+  },
+  {
+    "type": "item_group",
+    "id": "book_survival",
+    "copy-from": "book_survival",
+    "//": "Survival skill books weighted according to level",
+    "subtype": "distribution",
+    "extend": { "entries": [ { "group": "encylopedias_survalist", "prob": 5 } ] }
+  },
+  {
+    "type": "item_group",
+    "id": "hardware_books",
+    "copy-from": "hardware_books",
+    "//": "texts and magazines likely to be found in hardware stores and other blue collar places.",
+    "subtype": "distribution",
+    "extend": { "entries": [ { "group": "encylopedias_industrial", "prob": 5 } ] }
+  },
+  {
+    "id": "lab_bookshelves",
+    "copy-from": "lab_bookshelves",
+    "type": "item_group",
+    "//": "Books you might find on personal or library bookshelves in a secret lab.",
+    "subtype": "distribution",
+    "extend": { "entries": [ { "group": "encylopedias_lab", "prob": 10 } ] }
+  },
+  {
+    "id": "doctors_books",
+    "copy-from": "doctors_books",
+    "type": "item_group",
+    "subtype": "distribution",
+    "extend": { "entries": [ { "item": "encyclopedia_firstaid", "prob": 5 } ] }
+  },
+  {
+    "id": "tailorbooks",
+    "copy-from": "tailorbooks",
+    "type": "item_group",
+    "subtype": "distribution",
+    "extend": { "entries": [ { "item": "encyclopedia_tailor", "prob": 5 } ] }
+  },
+  {
     "id": "homebooks",
     "copy-from": "homebooks",
     "type": "item_group",
-    "extend": {
-      "items": [
-        [ "recipe_surv", 1 ],
-        { "group": "survivor_combative_books", "prob": 1 },
-        { "group": "encylopedias_common", "prob": 1 }
-      ]
-    }
+    "extend": { "items": [ [ "recipe_surv", 1 ], { "group": "survivor_combative_books", "prob": 1 } ] }
   },
   {
     "id": "manuals",
     "copy-from": "manuals",
     "type": "item_group",
-    "extend": {
-      "items": [
-        [ "recipe_surv", 1 ],
-        { "group": "survivor_combative_books", "prob": 1 },
-        { "group": "encylopedias_common", "prob": 1 }
-      ]
-    }
+    "extend": { "items": [ [ "recipe_surv", 1 ], { "group": "survivor_combative_books", "prob": 1 } ] }
   },
   {
     "id": "mansion_books",
     "copy-from": "mansion_books",
     "type": "item_group",
-    "extend": {
-      "items": [
-        [ "recipe_surv", 2 ],
-        { "group": "survivor_combative_books", "prob": 3 },
-        { "group": "encylopedias_common", "prob": 5 }
-      ]
-    }
+    "extend": { "items": [ [ "recipe_surv", 2 ], { "group": "survivor_combative_books", "prob": 3 } ] }
   },
   {
     "id": "shelter",
     "copy-from": "shelter",
     "type": "item_group",
-    "extend": {
-      "items": [
-        [ "recipe_surv", 1 ],
-        { "group": "survivor_combative_books", "prob": 1 },
-        { "group": "encylopedias_common", "prob": 1 },
-        [ "biomap", 1 ]
-      ]
-    }
+    "extend": { "items": [ [ "recipe_surv", 1 ], { "group": "survivor_combative_books", "prob": 1 }, [ "biomap", 1 ] ] }
   },
   {
     "id": "textbooks",
     "copy-from": "textbooks",
     "type": "item_group",
-    "extend": {
-      "items": [
-        [ "recipe_surv", 2 ],
-        { "group": "survivor_combative_books", "prob": 1 },
-        { "group": "encylopedias_common", "prob": 1 }
-      ]
-    }
+    "extend": { "items": [ [ "recipe_surv", 2 ], { "group": "survivor_combative_books", "prob": 1 } ] }
   },
   {
     "id": "gear_survival",
     "copy-from": "gear_survival",
     "type": "item_group",
-    "extend": {
-      "items": [
-        { "group": "encylopedias_common", "prob": 10 },
-        { "group": "encylopedias_rare", "prob": 5 },
-        [ "biomap", 1 ],
-        [ "auto_case", 10 ]
-      ]
-    }
+    "extend": { "items": [ { "group": "encylopedias_rare", "prob": 5 }, [ "biomap", 1 ], [ "auto_case", 10 ] ] }
   },
   {
     "id": "helicopter",
@@ -293,6 +302,7 @@
         [ "xarm_laser_shotgun", 2 ],
         [ "br_bolt_rifle_elec", 2 ],
         [ "mk_ionic_cannon", 2 ],
+        [ "omnitech_plasma_pistol", 1 ],
         [ "cbm_rtg_inductor", 1 ]
       ]
     }
@@ -303,27 +313,33 @@
     "type": "item_group",
     "extend": {
       "items": [
-      {
-        "distribution": [ { "item": "neo_laser_pistol", "prob": 50 }, { "item": "neo_laser_pistol_ups", "prob": 50 } ], "prob": 2
-      },
-      {
-        "distribution": [ { "item": "akro_laser_smg", "prob": 50 }, { "item": "akro_laser_smg_ups", "prob": 50 } ], "prob": 2
-      },
-      {
-        "distribution": [ { "item": "arc_laser_rifle", "prob": 50 }, { "item": "arc_laser_rifle_ups", "prob": 50 } ], "prob": 2
-      },
-      {
-        "distribution": [ { "item": "krx_laser_lmg", "prob": 50 }, { "item": "krx_laser_lmg_ups", "prob": 50 } ], "prob": 2
-      },
-      {
-        "distribution": [ { "item": "mx_laser_sniper", "prob": 50 }, { "item": "mx_laser_sniper_ups", "prob": 50 } ], "prob": 2
-      },
-      {
-        "distribution": [ { "item": "xarm_laser_shotgun", "prob": 50 }, { "item": "xarm_laser_shotgun_ups", "prob": 50 } ], "prob": 2
-      },
-
+        {
+          "distribution": [ { "item": "neo_laser_pistol", "prob": 50 }, { "item": "neo_laser_pistol_ups", "prob": 50 } ],
+          "prob": 2
+        },
+        {
+          "distribution": [ { "item": "akro_laser_smg", "prob": 50 }, { "item": "akro_laser_smg_ups", "prob": 50 } ],
+          "prob": 2
+        },
+        {
+          "distribution": [ { "item": "arc_laser_rifle", "prob": 50 }, { "item": "arc_laser_rifle_ups", "prob": 50 } ],
+          "prob": 2
+        },
+        {
+          "distribution": [ { "item": "krx_laser_lmg", "prob": 50 }, { "item": "krx_laser_lmg_ups", "prob": 50 } ],
+          "prob": 2
+        },
+        {
+          "distribution": [ { "item": "mx_laser_sniper", "prob": 50 }, { "item": "mx_laser_sniper_ups", "prob": 50 } ],
+          "prob": 2
+        },
+        {
+          "distribution": [ { "item": "xarm_laser_shotgun", "prob": 50 }, { "item": "xarm_laser_shotgun_ups", "prob": 50 } ],
+          "prob": 2
+        },
         [ "br_bolt_rifle_elec", 2 ],
         [ "mk_ionic_cannon", 2 ],
+        [ "omnitech_plasma_pistol", 1 ],
         [ "megamap", 2 ],
         [ "stim", 5 ],
         [ "boots_stealth", 2 ],
@@ -349,26 +365,33 @@
     "type": "item_group",
     "extend": {
       "items": [
-      {
-        "distribution": [ { "item": "neo_laser_pistol", "prob": 50 }, { "item": "neo_laser_pistol_ups", "prob": 50 } ], "prob": 2
-      },
-      {
-        "distribution": [ { "item": "akro_laser_smg", "prob": 50 }, { "item": "akro_laser_smg_ups", "prob": 50 } ], "prob": 2
-      },
-      {
-        "distribution": [ { "item": "arc_laser_rifle", "prob": 50 }, { "item": "arc_laser_rifle_ups", "prob": 50 } ], "prob": 2
-      },
-      {
-        "distribution": [ { "item": "krx_laser_lmg", "prob": 50 }, { "item": "krx_laser_lmg_ups", "prob": 50 } ], "prob": 2
-      },
-      {
-        "distribution": [ { "item": "mx_laser_sniper", "prob": 50 }, { "item": "mx_laser_sniper_ups", "prob": 50 } ], "prob": 2
-      },
-      {
-        "distribution": [ { "item": "xarm_laser_shotgun", "prob": 50 }, { "item": "xarm_laser_shotgun_ups", "prob": 50 } ], "prob": 2
-      },
+        {
+          "distribution": [ { "item": "neo_laser_pistol", "prob": 50 }, { "item": "neo_laser_pistol_ups", "prob": 50 } ],
+          "prob": 2
+        },
+        {
+          "distribution": [ { "item": "akro_laser_smg", "prob": 50 }, { "item": "akro_laser_smg_ups", "prob": 50 } ],
+          "prob": 2
+        },
+        {
+          "distribution": [ { "item": "arc_laser_rifle", "prob": 50 }, { "item": "arc_laser_rifle_ups", "prob": 50 } ],
+          "prob": 2
+        },
+        {
+          "distribution": [ { "item": "krx_laser_lmg", "prob": 50 }, { "item": "krx_laser_lmg_ups", "prob": 50 } ],
+          "prob": 2
+        },
+        {
+          "distribution": [ { "item": "mx_laser_sniper", "prob": 50 }, { "item": "mx_laser_sniper_ups", "prob": 50 } ],
+          "prob": 2
+        },
+        {
+          "distribution": [ { "item": "xarm_laser_shotgun", "prob": 50 }, { "item": "xarm_laser_shotgun_ups", "prob": 50 } ],
+          "prob": 2
+        },
         [ "br_bolt_rifle_elec", 2 ],
         [ "mk_ionic_cannon", 2 ],
+        [ "omnitech_plasma_pistol", 1 ],
         [ "megamap", 2 ],
         [ "stim", 2 ],
         [ "boots_stealth", 2 ],
@@ -640,24 +663,34 @@
     "extend": {
       "items": [
         [ "mk_ionic_cannon", 1 ],
-      {
-        "distribution": [ { "item": "neo_laser_pistol", "prob": 50, "charges": [ 0, 500 ] }, { "item": "neo_laser_pistol_ups", "prob": 50 } ], "prob": 1
-      },
-      {
-        "distribution": [ { "item": "akro_laser_smg", "prob": 50, "charges": [ 0, 1000 ] }, { "item": "akro_laser_smg_ups", "prob": 50 } ], "prob": 1
-      },
-      {
-        "distribution": [ { "item": "arc_laser_rifle", "prob": 50, "charges": [ 0, 5000 ] }, { "item": "arc_laser_rifle_ups", "prob": 50 } ], "prob": 1
-      },
-      {
-        "distribution": [ { "item": "krx_laser_lmg", "prob": 50, "charges": [ 0, 10000 ] }, { "item": "krx_laser_lmg_ups", "prob": 50 } ], "prob": 1
-      },
-      {
-        "distribution": [ { "item": "mx_laser_sniper", "prob": 50, "charges": [ 0, 5000 ] }, { "item": "mx_laser_sniper_ups", "prob": 50 } ], "prob": 1
-      },
-      {
-        "distribution": [ { "item": "xarm_laser_shotgun", "prob": 50, "charges": [ 0, 5000 ] }, { "item": "xarm_laser_shotgun_ups", "prob": 50 } ], "prob": 1
-      }
+        [ "omnitech_plasma_pistol", 1 ],
+        {
+          "distribution": [ { "item": "neo_laser_pistol", "prob": 50, "charges": [ 0, 500 ] }, { "item": "neo_laser_pistol_ups", "prob": 50 } ],
+          "prob": 1
+        },
+        {
+          "distribution": [ { "item": "akro_laser_smg", "prob": 50, "charges": [ 0, 1000 ] }, { "item": "akro_laser_smg_ups", "prob": 50 } ],
+          "prob": 1
+        },
+        {
+          "distribution": [ { "item": "arc_laser_rifle", "prob": 50, "charges": [ 0, 5000 ] }, { "item": "arc_laser_rifle_ups", "prob": 50 } ],
+          "prob": 1
+        },
+        {
+          "distribution": [ { "item": "krx_laser_lmg", "prob": 50, "charges": [ 0, 10000 ] }, { "item": "krx_laser_lmg_ups", "prob": 50 } ],
+          "prob": 1
+        },
+        {
+          "distribution": [ { "item": "mx_laser_sniper", "prob": 50, "charges": [ 0, 5000 ] }, { "item": "mx_laser_sniper_ups", "prob": 50 } ],
+          "prob": 1
+        },
+        {
+          "distribution": [
+            { "item": "xarm_laser_shotgun", "prob": 50, "charges": [ 0, 5000 ] },
+            { "item": "xarm_laser_shotgun_ups", "prob": 50 }
+          ],
+          "prob": 1
+        }
       ]
     }
   },
@@ -735,12 +768,18 @@
     "id": "book_military",
     "copy-from": "book_military",
     "type": "item_group",
-    "extend": { "items": [ { "group": "survivor_combative_books", "prob": 10 } ] }
+    "extend": { "items": [ { "group": "survivor_combative_books", "prob": 10 }, { "group": "encylopedias_military", "prob": 10 } ] }
   },
   {
     "id": "rare_martial_arts_books",
     "copy-from": "rare_martial_arts_books",
     "type": "item_group",
     "extend": { "items": [ { "group": "survivor_combative_books", "prob": 1 } ] }
+  },
+  {
+    "type": "item_group",
+    "id": "gunmod_energy",
+    "copy-from": "gunmod_energy",
+    "extend": { "items": [ [ "hydrogen_convertor", 40 ] ] }
   }
 ]

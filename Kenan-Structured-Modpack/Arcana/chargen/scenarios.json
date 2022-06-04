@@ -14,7 +14,13 @@
       "arcanist_bloodmage",
       "arcanist_magehunter",
       "arcanist_dark_priest",
-      "arcanist_summoner"
+      "arcanist_summoner",
+      "arcanist_scholar",
+      "arcanist_dragonblood_aspirant",
+      "arcanist_shrike",
+      "arcanist_purifier",
+      "arcanist_operator",
+      "arcanist_mendicant"
     ],
     "traits": [
       "ARCANA_SCALYPATCHES",
@@ -59,6 +65,7 @@
       "arcanist_scholar",
       "arcanist_alchemist",
       "arcanist_scribe",
+      "arcanist_dragonblood_aspirant",
       "arcanist_shrike",
       "arcanist_purifier",
       "arcanist_operator",
@@ -89,6 +96,7 @@
       "professions": [
         "arcanist_alchemist",
         "arcanist_scribe",
+        "arcanist_dragonblood_aspirant",
         "arcanist_shrike",
         "arcanist_purifier",
         "arcanist_operator",
@@ -124,7 +132,7 @@
     "type": "scenario",
     "id": "mutant",
     "copy-from": "mutant",
-    "extend": { "traits": [ "ARCANA_SCALYPATCHES", "ARCANA_INNERHEAT" ] }
+    "extend": { "professions": [ "arcanist_dragonblood_aspirant" ], "traits": [ "ARCANA_SCALYPATCHES", "ARCANA_INNERHEAT" ] }
   },
   {
     "type": "scenario",
@@ -135,6 +143,7 @@
         "arcanist_bloodmage",
         "arcanist_magehunter",
         "arcanist_dark_priest",
+        "arcanist_dragonblood_aspirant",
         "arcanist_shrike",
         "arcanist_purifier",
         "arcanist_operator",
@@ -152,6 +161,7 @@
         "arcanist_bloodmage",
         "arcanist_magehunter",
         "arcanist_dark_priest",
+        "arcanist_dragonblood_aspirant",
         "arcanist_shrike",
         "arcanist_purifier",
         "arcanist_operator",
@@ -198,6 +208,50 @@
     "id": "portal_dependent",
     "copy-from": "portal_dependent",
     "add_professions": true,
-    "extend": { "professions": [ "arcanist_bloodmage", "arcanist_shrike", "arcanist_summoner" ] }
+    "extend": { "professions": [ "arcanist_bloodmage", "arcanist_dragonblood_aspirant", "arcanist_shrike", "arcanist_summoner" ] }
+  },
+  {
+    "type": "scenario",
+    "id": "Mine_bottom",
+    "copy-from": "Mine_bottom",
+    "extend": { "professions": [ "arcanist_purifier", "arcanist_operator" ] }
+  },
+  {
+    "type": "scenario",
+    "id": "migo_prisoner",
+    "copy-from": "migo_prisoner",
+    "extend": {
+      "professions": [
+        "arcanist_bloodmage",
+        "arcanist_magehunter",
+        "arcanist_dark_priest",
+        "arcanist_dragonblood_aspirant",
+        "arcanist_shrike",
+        "arcanist_purifier",
+        "arcanist_operator",
+        "arcanist_mendicant"
+      ],
+      "traits": [ "MARTIAL_ARTS_SANGUINE", "MARTIAL_ARTS_CF" ]
+    }
+  },
+  {
+    "type": "scenario",
+    "id": "Mansion",
+    "copy-from": "Mansion",
+    "extend": {
+      "professions": [
+        "arcanist_bloodmage",
+        "arcanist_magehunter",
+        "arcanist_dark_priest",
+        "arcanist_summoner",
+        "arcanist_scholar",
+        "arcanist_dragonblood_aspirant",
+        "arcanist_shrike",
+        "arcanist_purifier",
+        "arcanist_operator",
+        "arcanist_mendicant"
+      ],
+      "traits": [ "MARTIAL_ARTS_SANGUINE", "MARTIAL_ARTS_CF" ]
+    }
   }
 ]

@@ -2,11 +2,12 @@
   {
     "id": "MISSION_LOOT_BIO_LAB",
     "type": "mission_definition",
-    "name": "Find A Bio-Weapon Badge",
-    "goal": "MGOAL_FIND_ITEM",
+    "name": "Investigate Bio-Weapon Lab",
+    "description": "Explore a Bio-Weapon Lab that suffered a recent security breach.  Either find whoever accessed the location and speak with them, or retrieve the RFID access badge that was used and bring it back to Router.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": { "or": [ { "u_has_item": "badge_bio_weapon_evy" }, { "u_has_var": "searching_for_msci", "type": "dialogue", "context": "evelynn", "value": "yes" } ] },
     "difficulty": 6,
     "value": 60000,
-    "item": "badge_bio_weapon",
     "start": { "assign_mission_target": { "om_terrain": "Bio_Weapon_Lab_2", "om_special": "Bio_Weapon_Lab_s", "reveal_radius": 3, "z": 0 } },
     "end": { "effect": { "u_add_var": "proven_worthy", "type": "dialogue", "context": "router", "value": "yes" } },
     "count": 1,
@@ -18,7 +19,7 @@
       "rejected": "Oi, cease with these shenanigans, ye debuggers!",
       "advice": "In fact most of this dialogue is a bug if you run into it, as this mission is started purely through dialogue.",
       "inquire": "Any luck so far?",
-      "success": "Good.  I hope that it wasn't too harrowing an experience, but we're dealing with some extremely dangerous threats, and it's only going to get worse from there.  Come see me when you're ready, I've got more important tasks that need taking care of.",
+      "success": "So this confirms that the Super Soldier project isn't quite dead yet.  I hope that it wasn't too harrowing an experience, but we're dealing with some extremely dangerous threats, and it's only going to get worse from there.  Keep whatever you found there, it might be useful.  Come see me when you're ready.",
       "success_lie": "Somehow I doubt that… in fact seeing this is probably another bug, given you can't really bluff your way out of this mission.",
       "failure": "Pretty certain seeing this is a bug too, since you'd have to die to fail this."
     }

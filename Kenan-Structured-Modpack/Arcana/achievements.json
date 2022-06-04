@@ -128,6 +128,27 @@
     "drop_fields": [ "effect" ]
   },
   {
+    "id": "achievement_arcana_divine_sealing_charm",
+    "type": "achievement",
+    "name": { "str": "<color_cyan>(Arcana)</color> Blood, Oath, and Flame" },
+    "description": "Help the Cleansing Flame put the combined research of the other arcanist orders to good use.",
+    "hidden_by": [ "achievement_arcana_npc_nicholas" ],
+    "requirements": [ { "event_statistic": "num_avatar_arcana_divine_sealing_charm", "is": ">=", "target": 1, "visible": "never" } ]
+  },
+  {
+    "id": "num_avatar_arcana_divine_sealing_charm",
+    "type": "event_statistic",
+    "stat_type": "count",
+    "event_transformation": "avatar_arcana_divine_sealing_charm"
+  },
+  {
+    "id": "avatar_arcana_divine_sealing_charm",
+    "type": "event_transformation",
+    "event_type": "character_gains_effect",
+    "value_constraints": { "effect": { "equals": [ "efftype_id", "cf_purifier_kairos" ] } },
+    "drop_fields": [ "effect" ]
+  },
+  {
     "id": "achievement_arcana_mission_sword",
     "type": "achievement",
     "name": { "str": "<color_cyan>(Arcana)</color> A Lost Dream, Rekindled" },

@@ -120,15 +120,29 @@
     "type": "bionic",
     "name": { "str": "Plasma Pulse Cell" },
     "//": "Spikes of power at low efficiency because the available fuels have much smaller stack sizes than most fuels.  Since hydrogen is energy-dense, power per unit is massive.",
-    "description": "Implanted in your chest is a small, advanced form of hydrogen fuel cell.  Designed to produce a spike of power production for cutting-edge military cybernetics, it is significantly less efficient than a traditional hydrogen fuel cell, but each pulse still puts out a lot of power.  Each pulse vents a jet of intense heat, making it dangerous in confined spaces.  It can store either hydrogen gas, or it can use denser military-grade hydrogen canisters.",
+    "description": "Implanted in your chest is a small, advanced form of hydrogen fuel cell.  Designed to produce a spike of power production for cutting-edge military cybernetics, it is significantly less efficient than a traditional hydrogen fuel cell, but each pulse still puts out a lot of power.  Each pulse vents a jet of intense heat, making it dangerous in confined spaces.  It has two chambers, this one is configured for military-grade hydrogen canisters.",
     "occupied_bodyparts": [ [ "torso", 15 ] ],
     "encumbrance": [ [ "torso", 5 ] ],
-    "fuel_options": [ "c_hydrogen_gas", "hydrogen_cell" ],
+    "fuel_options": [ "hydrogen_cell" ],
+    "fuel_capacity": 5,
+    "fuel_efficiency": 0.25,
+    "exothermic_power_gen": true,
+    "time": 1,
+    "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
+    "included_bionics": [ "bio_plasma_cell_hydrogen" ]
+  },
+  {
+    "id": "bio_plasma_cell_hydrogen",
+    "type": "bionic",
+    "name": { "str": "Hydrogen Pulse Cell" },
+    "description": "A small, advanced form of hydrogen fuel cell, designed to produce a spike of power production for cutting-edge military cybernetics.  This is the separate chamber for burning lower-pressure hydrogen, for less intense bursts of bionic energy.",
+    "fuel_options": [ "c_hydrogen_gas" ],
     "fuel_capacity": 8,
     "fuel_efficiency": 0.25,
     "exothermic_power_gen": true,
     "time": 1,
-    "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ]
+    "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
+    "included": true
   },
   {
     "id": "bio_plasma_cell",
@@ -136,7 +150,7 @@
     "type": "BIONIC_ITEM",
     "name": { "str": "Plasma Pulse Cell CBM" },
     "looks_like": "bio_fuel_cell_gasoline",
-    "description": "This implant provides an experimental military hydrogen cell, able to produce large spikes of power for intense usage.  Its network of pressurized storage can hold 500 ml of hydrogen gas, or denser hydrogen canisters used in plasma weaponry.  The label advises not to use it in confined spaces, and to keep moving if used during a military operation, due to hazardous levels of waste heat.",
+    "description": "This implant provides an experimental military hydrogen cell, able to produce large spikes of power for intense usage.  Its network of pressurized storage has two chambers, one can hold 500 ml of hydrogen gas, the other 5 rounds of denser hydrogen canisters used in plasma weaponry.  The label advises not to use it in confined spaces, and to keep moving if used during a military operation, due to hazardous levels of waste heat.",
     "price": "4500 USD",
     "weight": "600 g",
     "difficulty": 7

@@ -61,6 +61,12 @@
         "topic": "TALK_CF_PURIFIER_INTERLUDE_MISSION"
       },
       {
+        "text": "How's your research going?",
+        "condition": { "npc_has_var": "nicholas_final_completed", "type": "mission", "context": "rural_church", "value": "yes" },
+        "switch": true,
+        "topic": "TALK_CF_PURIFIER_MISSION_FINAL"
+      },
+      {
         "text": "So now what?",
         "condition": { "npc_has_var": "nicholas_mission_3_end", "type": "mission", "context": "rural_church", "value": "yes" },
         "switch": true,
@@ -196,31 +202,84 @@
     ]
   },
   {
-    "id": "TALK_CF_PURIFIER_MISSION_END_3_1",
+    "id": "TALK_CF_PURIFIER_MISSION_END_3",
     "type": "talk_topic",
-    "dynamic_line": "It's a very rare assembly of rare components, and it's been heavily used.  It's marked, in a sense, by its repeated use in breaching the Veil.  Together with the research obtained for Sofia, we can put it to good use.",
+    "dynamic_line": {
+      "npc_has_effect": "cf_purifier_making_item",
+      "yes": "That device was a very rare assembly of one-of-a-kind components, and it's been heavily used.  It's marked, in a sense, by its repeated use in breaching the Veil.  Together with the research obtained for Sofia, we can put it to good use.  It's not ready yet, but we're making good progress.",
+      "no": "We've made a lot of breakthroughs in salvaging the device, getting it both functional and stable again.  Thanks to all the research you helped gather and those vital components, we have something we can put to good use."
+    },
     "responses": [
-      { "text": "From the hermit, and the shrikes?", "topic": "TALK_CF_PURIFIER_MISSION_END_3_2" },
+      {
+        "text": "Anything else to be done then?",
+        "condition": { "not": { "npc_has_effect": "cf_purifier_making_item" } },
+        "topic": "TALK_CF_PURIFIER_MISSION_END_3_FINAL"
+      },
+      { "text": "Research from the hermit, and the shrikes?", "topic": "TALK_CF_PURIFIER_MISSION_END_3_2" },
       { "text": "What use would that be?", "topic": "TALK_CF_PURIFIER_MISSION_END_3_3" },
       { "text": "I'll check back later.", "topic": "TALK_CF_PURIFIER" }
     ]
   },
   {
+    "id": "TALK_CF_PURIFIER_MISSION_END_3_FINAL",
+    "type": "talk_topic",
+    "dynamic_line": "If we're going to get any real use out of it, it needs to be actually used in the field.  I've documented everything I can about the components that went into this, and some day we might be able to replicate the results without bespoke anomalous materials from facilities that don't exist anymore.  I'd like you to make use of it, it's risky having our only working example out there but I'm willing to take that risk if it'll do some good.",
+    "responses": [
+      {
+        "text": "I'll give it a try then.",
+        "effect": [
+          { "u_add_effect": "cf_purifier_kairos", "duration": "PERMANENT" },
+          { "npc_add_var": "nicholas_final_completed", "type": "mission", "context": "rural_church", "value": "yes" },
+          { "u_spawn_item": "essence_pure", "count": 0, "container": "divine_sealing_charm" }
+        ],
+        "topic": "TALK_CF_PURIFIER_MISSION_END_3_ACCEPT"
+      },
+      { "text": "Keep it for now, maybe another time.", "topic": "TALK_CF_PURIFIER" }
+    ]
+  },
+  {
+    "id": "TALK_CF_PURIFIER_MISSION_END_3_ACCEPT",
+    "type": "talk_topic",
+    "dynamic_line": "Here you go then.  It works much like the Keepers' relics, if you're close to a portal for long enough it should collapse, and that can be used to power it up.  That much energy would be very dangerous if released in the wrong way, or it was used for destructive purposes, but I figured out a way to make it convert that energy into life force.  A foil to the Sanguine Order's well-established practice of drawing power from life energy, a further side benefit to securing their research I guess.  You'll see for yourself what it does, but it's quite fitting for something meant to mend old wounds.",
+    "responses": [
+      { "text": "Thanks, one more thing before I go…", "topic": "TALK_CF_PURIFIER" },
+      { "text": "Thank you, I'll see you later then.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
     "id": "TALK_CF_PURIFIER_MISSION_END_3_2",
     "type": "talk_topic",
-    "dynamic_line": "Yes, all the information that was brought from Sofia.  The Keepers provided a valuable understanding of the principles their dimension-sealing relics operated on.  And the remnants of the Sanguine Order, despite all the evils they've done, have learned many lessons on manipulating energies of the Beyond, mostly the hard way.  Together with this component, we can hopefully manufacture a dimension-sealing device of our own.",
+    "dynamic_line": {
+      "npc_has_effect": "cf_purifier_making_item",
+      "yes": "Yes, all the information that was brought from Sofia.  The Keepers provided a valuable understanding of the principles their dimension-sealing relics operated on.  And the remnants of the Sanguine Order, despite all the evils they've done, have learned many lessons on manipulating energies of the Beyond, mostly the hard way.  Together with this component, we can hopefully manufacture a dimension-sealing device of our own.",
+      "no": "Yes, all the information that was brought from Sofia.  The Keepers provided a valuable understanding of the principles their dimension-sealing relics operated on.  And the remnants of the Sanguine Order, despite all the evils they've done, have learned many lessons on manipulating energies of the Beyond, mostly the hard way.  Now we have a dimension-sealing device of our own."
+    },
     "responses": [
-      { "text": "What can you tell me about that component?", "topic": "TALK_CF_PURIFIER_MISSION_END_3_1" },
-      { "text": "What use would that be?", "topic": "TALK_CF_PURIFIER_MISSION_END_3_3" },
+      {
+        "text": "And what do you plan to do with it?",
+        "condition": { "not": { "npc_has_effect": "cf_purifier_making_item" } },
+        "topic": "TALK_CF_PURIFIER_MISSION_END_3_FINAL"
+      },
+      { "text": "What can you tell me about that component?", "topic": "TALK_CF_PURIFIER_MISSION_END_3" },
+      { "text": "What what does it do?", "topic": "TALK_CF_PURIFIER_MISSION_END_3_3" },
       { "text": "I'll check back later.", "topic": "TALK_CF_PURIFIER" }
     ]
   },
   {
     "id": "TALK_CF_PURIFIER_MISSION_END_3_3",
     "type": "talk_topic",
-    "dynamic_line": "I'm working on a device that can use the same basic concept of manipulating and containing a rift that Project Kairos was involved in, together with Keeper and Sanguinist knowledge of how to manipulate the Veil.  Once it's ready, we'll have a device that can seal breaches and stabilize the fabric of the Veil, one area at a time.  It's not much, but it'll help.",
+    "dynamic_line": {
+      "npc_has_effect": "cf_purifier_making_item",
+      "yes": "I'm working on a device that can use the same basic concept of manipulating and containing a rift that Project Kairos was involved in, together with Keeper and Sanguinist knowledge of how to manipulate the Veil.  Once it's ready, we'll have a device that can seal breaches and stabilize the fabric of the Veil, one area at a time.  It's not much, but it'll help.",
+      "no": "It uses the same basic concept of manipulating and containing a rift used by Project Kairos, together with Keeper and Sanguinist knowledge of how to manipulate the Veil.  What it does is seal nearby breaches, helping stabilize the fabric of the Veil.  After all that's happened, it's not going to solve everything but it's an improvement."
+    },
     "responses": [
-      { "text": "What can you tell me about that component?", "topic": "TALK_CF_PURIFIER_MISSION_END_3_1" },
+      {
+        "text": "Do you need me to do anything now that it's ready?",
+        "condition": { "not": { "npc_has_effect": "cf_purifier_making_item" } },
+        "topic": "TALK_CF_PURIFIER_MISSION_END_3_FINAL"
+      },
+      { "text": "What can you tell me about that component?", "topic": "TALK_CF_PURIFIER_MISSION_END_3" },
       { "text": "How did the Keepers and Sanguine Order contribute?", "topic": "TALK_CF_PURIFIER_MISSION_END_3_2" },
       { "text": "I'll check back later.", "topic": "TALK_CF_PURIFIER" }
     ]
@@ -239,7 +298,7 @@
   {
     "id": "TALK_CF_PURIFIER_MISSION_END_2_1",
     "type": "talk_topic",
-    "dynamic_line": "They were constructing a facility of some sort to test portal manipulation.  All these materials are going towards devising a way to seal portals remotely and increase dimensional stability.  I don't know if they succeeded or not, but we might be able to use their progress together with our own research.",
+    "dynamic_line": "They were constructing a facility of some sort to test portal manipulation.  All these materials were going towards devising a way to seal portals remotely and increase dimensional stability.  I don't know if they succeeded or not, but we might be able to use their progress together with our own research.",
     "responses": [
       { "text": "What research would that be?", "topic": "TALK_CF_PURIFIER_MISSION_END_2_4" },
       { "text": "What are we looking for?", "topic": "TALK_CF_PURIFIER_MISSION_END_2_3" },
@@ -301,7 +360,7 @@
   {
     "id": "TALK_CF_PURIFIER_MISSION_END_1_2",
     "type": "talk_topic",
-    "dynamic_line": "That's what I'm thinking you could help with.  There has to be someone who knows more about this, or failing that, where we could find more information.",
+    "dynamic_line": "That's what I'm hoping you could help with.  There has to be someone who knows more about this, or failing that, where we could find more information.",
     "responses": [
       { "text": "Worth a shot.", "topic": "TALK_CF_PURIFIER_MISSION_END_1_3" },
       { "text": "Maybe later.", "topic": "TALK_CF_PURIFIER" }
@@ -310,12 +369,21 @@
   {
     "id": "TALK_CF_PURIFIER_MISSION_END_1_3",
     "type": "talk_topic",
-    "dynamic_line": "I'm just about then getting a summary of the project, known locations of supply shipments, and what little else we know copied.  Talk to me when you're ready and I just might have an idea for how we can get what we need.",
+    "dynamic_line": "I'm just about done getting a summary of the project, known locations of supply shipments, and what little else we know copied.  Talk to me when you're ready and I just might have an idea for how we can get what we need.",
     "speaker_effect": [
       {
         "effect": [ { "npc_add_var": "nicholas_mission_2_ready", "type": "mission", "context": "rural_church", "value": "yes" } ]
       }
     ],
     "responses": [ { "text": "We'll see then.", "topic": "TALK_CF_PURIFIER" } ]
+  },
+  {
+    "id": "TALK_CF_PURIFIER_MISSION_FINAL",
+    "type": "talk_topic",
+    "dynamic_line": "Slowly but surely, things are coming together.  We'll manage, I think.  Just keep an eye out for any threats to humanity, do what can be done to help other communities, and there may be hope for the next generation yet.",
+    "responses": [
+      { "text": "Aright.  Before I go…", "topic": "TALK_CF_PURIFIER" },
+      { "text": "I'll be back later.", "topic": "TALK_DONE" }
+    ]
   }
 ]

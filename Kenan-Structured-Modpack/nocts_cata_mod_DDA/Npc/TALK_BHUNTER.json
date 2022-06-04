@@ -9,32 +9,67 @@
     },
     "responses": [
       {
-        "text": "Yeah, I am one of them.",
-        "topic": "TALK_BHUNTER_IAM_BIO",
+        "text": "[MISSION] Are you the one who triggered the security here?",
+        "topic": "TALK_BHUNTER_MISSION",
+        "switch": true,
         "condition": {
-          "u_has_any_trait": [
-            "BIO_WEAPON_ALPHA",
-            "BIO_WEAPON_BETA",
-            "BIO_WEAPON_GAMMA",
-            "BIO_WEAPON_DELTA",
-            "BIO_WEAPON_FAILED"
+          "and": [
+            { "not": { "u_has_var": "searching_for_msci", "type": "dialogue", "context": "evelynn", "value": "yes" } },
+            { "u_has_mission": "MISSION_LOOT_BIO_LAB" }
           ]
         }
       },
       {
+        "text": "Yeah, I am one of them.",
+        "topic": "TALK_BHUNTER_IAM_BIO",
+        "condition": { "u_has_flag": "BIO_WEAPON_ANY" }
+      },
+      {
         "text": "Part of the Super Soldier project, actually.",
         "topic": "TALK_BHUNTER_IAM_SOLDAT",
-        "condition": {
-          "u_has_trait": "SUPER_SOLDIER_MARKER"
-        }
+        "condition": { "u_has_trait": "SUPER_SOLDIER_MARKER" }
       },
       { "text": "Bio-Weapon?", "topic": "TALK_BHUNTER_ASK_BIO" },
       { "text": "What's going on out here?", "topic": "TALK_BHUNTER_ASK_SITUATION" },
-      { "text": "What are you doing here?", "topic": "TALK_BHUNTER_ASK_DOING" },
+      {
+        "text": "What are you doing here?",
+        "topic": "TALK_BHUNTER_ASK_DOING",
+        "condition": { "not": { "u_has_var": "searching_for_msci", "type": "dialogue", "context": "evelynn", "value": "yes" } }
+      },
       { "text": "What should we do?", "topic": "TALK_BHUNTER_ASK_DO" },
-      { "text": "Anything I can do for you?", "topic": "TALK_MISSION_LIST" },
+      { "text": "Anything I can do for you?", "switch": true, "default": true, "topic": "TALK_MISSION_LIST" },
       { "text": "Well, bye.", "topic": "TALK_DONE" }
     ]
+  },
+  {
+    "id": "TALK_BHUNTER_MISSION",
+    "type": "talk_topic",
+    "dynamic_line": "My friends and I were investigating this place to try and find some answers, that could've done it I suppose.  Either that or those things outside that attacked a while after we showed up.  Who sent you?",
+    "responses": [
+      {
+        "text": "I was asked to investigate a security breach by a scientist involved in this.",
+        "topic": "TALK_BHUNTER_MISSION_2"
+      }
+    ]
+  },
+  {
+    "id": "TALK_BHUNTER_MISSION_2",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_is_wearing": "badge_bio_weapon",
+      "yes": "Well there's a surprise.  I was searching for exactly that, to see if anyone was left that might know more about this project.  So they're not only still around but have some help, based on the badge you're wearing.  I'd be willing to assist them with intel if you'd let me tag along.",
+      "no": "I was searching for exactly that, to see if anyone was left that might know more about this project.  Glad to hear they're still alive out there.  I'd be willing to assist them with intel if you'd let me tag along."
+    },
+    "responses": [
+      { "text": "Alright, I'll lead the way.", "topic": "TALK_BHUNTER_MISSION_3", "effect": "assign_mission" },
+      { "text": "I'd like to ask you some other questions first.", "topic": "TALK_BHUNTER" }
+    ]
+  },
+  {
+    "id": "TALK_BHUNTER_MISSION_3",
+    "type": "talk_topic",
+    "dynamic_line": "Thank you.  I'll follow along and hopefully working together will help improve the situation.",
+    "responses": [ { "text": "Let's go.", "topic": "TALK_DONE" } ]
   },
   {
     "id": "TALK_BHUNTER_ASK_SITUATION",
@@ -46,25 +81,25 @@
     "id": "TALK_BHUNTER_THINGS",
     "type": "talk_topic",
     "dynamic_line": {
-      "u_has_any_trait": [ "BIO_WEAPON_FAILED" ],
+      "u_has_any_trait": [ "BIO_WEAPON_FAILED", "BIO_WEAPON_FAILED_SCEN" ],
       "yes": "Those augmented abominations, the notes I found tied them to a thing called the Bio-Weapon Project.  You look like you're in the same shape as them, though you're not trying to kill me at least.  Can I trust you?",
       "no": "Bio-Weapons, that's what the notes in this lab called those things outside.  At least they were supposed to be.  I don't know what went wrong or who's ordering them around, but they seem hell-bent on destroying everything connected to the project."
     },
     "responses": [
       {
         "text": "I'm not one of them.  You can trust me.",
-        "condition": { "u_has_any_trait": [ "BIO_WEAPON_FAILED" ] },
+        "condition": { "u_has_any_trait": [ "BIO_WEAPON_FAILED", "BIO_WEAPON_FAILED_SCEN" ] },
         "topic": "TALK_BHUNTER"
       },
       {
         "text": "I don't want to end up like those things.  I don't want to become a monster, please…",
         "trial": { "type": "NONE" },
         "success": { "opinion": { "fear": -1, "trust": 1 }, "topic": "TALK_BHUNTER_THINGS_FAILED" },
-        "condition": { "u_has_any_trait": [ "BIO_WEAPON_FAILED" ] }
+        "condition": { "u_has_any_trait": [ "BIO_WEAPON_FAILED", "BIO_WEAPON_FAILED_SCEN" ] }
       },
       {
         "text": "I see.",
-        "condition": { "not": { "u_has_any_trait": [ "BIO_WEAPON_FAILED" ] } },
+        "condition": { "not": { "u_has_any_trait": [ "BIO_WEAPON_FAILED", "BIO_WEAPON_FAILED_SCEN" ] } },
         "topic": "TALK_BHUNTER"
       }
     ]
@@ -87,11 +122,11 @@
       {
         "text": "I can prove it.  If I can recall… Project Mesektet, First Series, external designation RD-Z-01.",
         "topic": "TALK_BHUNTER_CONFIRM_BIO",
-        "condition": { "u_has_any_trait": [ "BIO_WEAPON_ALPHA", "BIO_WEAPON_BETA", "BIO_WEAPON_GAMMA", "BIO_WEAPON_DELTA" ] }
+        "condition": { "u_has_flag": "BIO_WEAPON_SERIES_1" }
       },
       {
         "text": "Look at me again, and tell me I'm lying.",
-        "condition": { "u_has_any_trait": [ "BIO_WEAPON_FAILED" ] },
+        "condition": { "u_has_any_trait": [ "BIO_WEAPON_FAILED", "BIO_WEAPON_FAILED_SCEN" ] },
         "trial": { "type": "NONE" },
         "success": { "opinion": { "fear": 1 }, "topic": "TALK_BHUNTER_CONFIRM_FAILED" }
       },
@@ -270,19 +305,33 @@
     "dynamic_line": "I came here to see if I could find anything on the research they were doing here.  How about yourself?",
     "responses": [
       {
+        "text": "I was asked to investigate a security breach by a scientist involved in this.",
+        "topic": "TALK_BHUNTER_MISSION_2",
+        "switch": true,
+        "condition": {
+          "and": [
+            { "not": { "u_has_var": "searching_for_msci", "type": "dialogue", "context": "evelynn", "value": "yes" } },
+            { "u_has_mission": "MISSION_LOOT_BIO_LAB" }
+          ]
+        }
+      },
+      {
         "text": "I don't have any orders, and don't remember much from before I woke up.  Had anything in mind?",
         "topic": "TALK_MISSION_LIST",
-        "condition": { "u_has_any_trait": [ "BIO_WEAPON_ALPHA", "BIO_WEAPON_BETA", "BIO_WEAPON_GAMMA", "BIO_WEAPON_DELTA" ] }
+        "switch": true,
+        "condition": { "u_has_flag": "BIO_WEAPON_SERIES_1" }
       },
       {
         "text": "Sounds like a good start, don't have any other standing orders to follow.  What have you got for me?",
         "topic": "TALK_MISSION_LIST",
+        "switch": true,
         "condition": { "u_has_any_trait": [ "SUPER_SOLDIER_MARKER" ] }
       },
       {
         "text": "I don't know what to do with myself.  What do you need done?",
         "topic": "TALK_MISSION_LIST",
-        "condition": { "u_has_any_trait": [ "BIO_WEAPON_FAILED" ] }
+        "switch": true,
+        "condition": { "u_has_any_trait": [ "BIO_WEAPON_FAILED", "BIO_WEAPON_FAILED_SCEN" ] }
       },
       { "text": "I have no idea.", "topic": "TALK_BHUNTER" }
     ]
@@ -290,7 +339,14 @@
   {
     "id": "TALK_BHUNTER_ASK_DO",
     "type": "talk_topic",
-    "dynamic_line": "I'm trying to reach a hideout built by former scientists who worked on the Bio-Weapon Project.  Rumor has it they live somewhere in the woods.  Maybe you could help me find it…",
-    "responses": [ { "text": "I'll think about it.", "topic": "TALK_BHUNTER" } ]
+    "dynamic_line": {
+      "u_has_var": "searching_for_msci",
+      "type": "dialogue",
+      "context": "evelynn",
+      "value": "yes",
+      "yes": "Now that you've told me where to look, we should probably get out of this place and get going soon.  Search the area if you need any supplies or gear, but be careful.  Might still be some of the things that attacked us nearby.",
+      "no": "I'm trying to reach a hideout built by former scientists who worked on the Bio-Weapon Project.  Rumor has it they live somewhere in the woods.  Maybe you could help me find it…"
+    },
+    "responses": [ { "text": "We'll see then.", "topic": "TALK_BHUNTER" } ]
   }
 ]

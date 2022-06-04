@@ -99,108 +99,7 @@
   {
     "id": "TALK_MSCI_PROOF",
     "type": "talk_topic",
-    "dynamic_line": {
-      "u_is_wearing": "badge_bio_weapon",
-      "yes": "Well, you know that badge you're wearing?  They're linked to those augmented abominations, the old lab sites called it the Bio-Weapon Project, or Project Mesektet.  I'd like to ask first, how you got your hands on it.  I have some rather dangerous work that needs to be done, but I need confirmation that you can handle it.",
-      "no": "I have some important work that needs to be done, but I'm not sure if you're cut out for it.  Have you ever run into a bio-weapon before?  That's what the lab techs called those augmented abominations adding to the already massive loss of life out there.  Rather dangerous, heavily augmented and mutated.  I don't want to put someone inexperienced in unnecessary danger."
-    },
-    "responses": [
-      {
-        "text": "I'm part of the Bio-Weapon Project, actually.",
-        "condition": {
-          "and": [
-            {
-              "u_has_any_trait": [ "BIO_WEAPON_ALPHA", "BIO_WEAPON_BETA", "BIO_WEAPON_DELTA", "BIO_WEAPON_GAMMA", "BIO_WEAPON_FAILED" ]
-            },
-            { "u_is_wearing": "badge_bio_weapon" }
-          ]
-        },
-        "switch": true,
-        "topic": "TALK_MSCI_PROOF_BIO"
-      },
-      {
-        "text": "I'm one of them, I wasn't wearing the badge.",
-        "condition": {
-          "u_has_any_trait": [ "BIO_WEAPON_ALPHA", "BIO_WEAPON_BETA", "BIO_WEAPON_DELTA", "BIO_WEAPON_GAMMA", "BIO_WEAPON_FAILED" ]
-        },
-        "switch": true,
-        "topic": "TALK_MSCI_PROOF_BIO"
-      },
-      {
-        "text": "I'm a member of the Super Soldier Project, I can handle it.",
-        "condition": { "u_has_trait": "SUPER_SOLDIER_MARKER" },
-        "switch": true,
-        "topic": "TALK_MSCI_PROOF_SOLDIER"
-      },
-      {
-        "text": "I found it along the way.  What needs to be done?",
-        "condition": { "u_is_wearing": "badge_bio_weapon" },
-        "switch": true,
-        "topic": "TALK_MSCI_PROOF_LOOTER"
-      },
-      {
-        "text": "I have one of those emblems they wear actually, right here.",
-        "condition": { "u_has_item": "badge_bio_weapon" },
-        "switch": true,
-        "topic": "TALK_MSCI_PROOF_LOOTER"
-      },
-      {
-        "text": "I'm willing to try, what can I do?",
-        "switch": true,
-        "default": true,
-        "topic": "TALK_MSCI_PROOF_TRY"
-      },
-      { "text": "Er, nevermind then.", "topic": "TALK_MSCI" }
-    ]
-  },
-  {
-    "id": "TALK_MSCI_PROOF_BIO",
-    "type": "talk_topic",
-    "dynamic_line": {
-      "u_is_wearing": "badge_bio_weapon",
-      "yes": "That would explain it then.  That you're here and not hostile at least confirms you're still on humanity's side.  We're here because of Apophis.  He was built to exterminate the Bio-Weapon Project, along with every person involved in your creation.  He's attracted several failed experiments to his cause as well.  They shouldn't have rushed so many victims through those procedures… we need to gather intel and make allies, more people like you.  I'm willing to trust you with this, if you're prepared for some hard fights ahead.",
-      "no": "Huh.  Looking at you, I'm willing to give you the benefit of the doubt.  Plenty of reasons to want to be more discreet.  Then you should know that the project left a lot of unfinished business, a lot of problems for you and I to clean up.  A lot of unwilling test subjects discarded, and now taking it out on what's left of the human race.  If you think you're ready, I should have something for you."
-    },
-    "responses": [
-      {
-        "text": "We'll see what I can do.",
-        "topic": "TALK_MSCI",
-        "effect": { "u_add_var": "proven_worthy", "type": "dialogue", "context": "router", "value": "yes" }
-      }
-    ]
-  },
-  {
-    "id": "TALK_MSCI_PROOF_SOLDIER",
-    "type": "talk_topic",
-    "dynamic_line": "I'm willing to take your word for it.  We'll need all the help we can get.  We've been gathering information on a renegade part of the Bio-Weapon Project, codenamed Apophis.  I have a few leads on intel that may give us a shot at taking it down.  Come talk to me when you're ready.",
-    "responses": [
-      {
-        "text": "Okay.",
-        "topic": "TALK_MSCI",
-        "effect": { "u_add_var": "proven_worthy", "type": "dialogue", "context": "router", "value": "yes" }
-      }
-    ]
-  },
-  {
-    "id": "TALK_MSCI_PROOF_LOOTER",
-    "type": "talk_topic",
-    "dynamic_line": {
-      "u_is_wearing": "badge_bio_weapon",
-      "yes": "Well, you've most likely learned by now how dangerous those things can be.  If you're able to handle yourself well enough out there to get your hands on something like that, then hopefully you can be trusted with more dangerous work.  I have something I'd like to ask of you, when you get the chance.",
-      "no": "Ah, I see.  Well then, you should likely be familiar with how dangerous these things are.  You'll likely run into a lot more of these things, but the work I need done will be a major help for those surviving out there in the region.  Come see me when you're ready."
-    },
-    "responses": [
-      {
-        "text": "We'll see.",
-        "topic": "TALK_MSCI",
-        "effect": { "u_add_var": "proven_worthy", "type": "dialogue", "context": "router", "value": "yes" }
-      }
-    ]
-  },
-  {
-    "id": "TALK_MSCI_PROOF_TRY",
-    "type": "talk_topic",
-    "dynamic_line": "I'd like for you to go scout out a small lab installation, associated what they called the Bio-Weapon Project.  Recently there was a security breach logged on what's left of the laboratory network, and I have reason to believe that a number of renegade former experiments, what locals have come to label augmented abominations, might be responsible.  If you can reach that place and bring back one of the badges those things wear, I'll be willing to trust you with more complicated missions.",
+    "dynamic_line": "There's a lot to deal with, first I'd like for you to go scout out a small lab installation, associated what they called the Bio-Weapon Project.  Recently there was a security breach logged on what's left of the laboratory network, and I have reason to believe that a number of renegade former experiments, what locals have come to label augmented abominations, might be responsible.  I'd like to ask you to investigate.",
     "responses": [
       {
         "text": "Security breach at a Bio-Weapon lab… that might've been Evelynn actually, not just the creatures that were there.",
@@ -209,7 +108,20 @@
         "topic": "TALK_MSCI_PROOF_EVY"
       },
       {
-        "text": "Okay, I'll do it.",
+        "text": "Like the place I woke up in?  Some members of the Super Soldier project had been there, then the place came under attack by the renegades you mentioned.",
+        "switch": true,
+        "condition": { "u_has_flag": "BIO_WEAPON_SCEN" },
+        "topic": "TALK_MSCI_PROOF_SCEN"
+      },
+      {
+        "text": "I found an item like that already, is this what you're talking about?",
+        "switch": true,
+        "condition": { "u_has_item": "badge_bio_weapon_evy" },
+        "effect": { "u_sell_item": "badge_bio_weapon_evy" },
+        "topic": "TALK_MSCI_PROOF_ITEM"
+      },
+      {
+        "text": "I'll do it.  What am I looking for?",
         "switch": true,
         "default": true,
         "effect": { "add_mission": "MISSION_LOOT_BIO_LAB" },
@@ -223,7 +135,35 @@
     "id": "TALK_MSCI_PROOF_EVY",
     "type": "talk_topic",
     "//": "Sadly the wild goose chase will still be needed for players who started Evy's mission in saves predating the addition of this dialogue, but this idiotproofs it as best as I can.",
-    "dynamic_line": "Huh?  Oh, so you have been there already, I'm guessing.  I guess that's adequate, no sense in wasting time we don't have on a wild goose chase.  If you think you can handle yourself, I still have other missions for you.",
+    "dynamic_line": "I see, so that means you already confirmed what I suspected, and made an attempt to lead her here.  Hope things turned out alright.  If you think you can handle yourself, I still have other missions for you.",
+    "responses": [
+      {
+        "text": "We'll see.",
+        "topic": "TALK_MSCI",
+        "effect": { "u_add_var": "proven_worthy", "type": "dialogue", "context": "router", "value": "yes" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_MSCI_PROOF_SCEN",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_is_wearing": "badge_bio_weapon",
+      "yes": "So that explains a lot, triggering the alarms probably caused a power failure in the systems keeping you locked up there.  I'm glad you made it out of there in one piece.  Come see me when you're ready.",
+      "no": "I see, hadn't expected that since you weren't wearing the badge.  Triggering the alarms probably caused a power failure in the systems keeping you locked up there.  I'm glad you made it out of there in one piece.  Come see me when you're ready."
+    },
+    "responses": [
+      {
+        "text": "Alright then.",
+        "topic": "TALK_MSCI",
+        "effect": { "u_add_var": "proven_worthy", "type": "dialogue", "context": "router", "value": "yes" }
+      }
+    ]
+  },
+  {
+    "id": "TALK_MSCI_PROOF_ITEM",
+    "type": "talk_topic",
+    "dynamic_line": "How the hell… well that's good luck on our part I suppose.  You survived whatever was there at least, let me see.  So I was right, the Super Soldier project made it at least past Zero Day.  I hope there were other survivors there.  In any case, come see me when you're ready, there's much to be done.",
     "responses": [
       {
         "text": "We'll see.",
@@ -235,8 +175,21 @@
   {
     "id": "TALK_MSCI_PROOF_TRY_ACCEPT",
     "type": "talk_topic",
-    "dynamic_line": "Alright, I'll mark the location on your map.  I want you to exercise extreme caution.  Those things are likely to still be in the area, and they're not easy to take down.  If things look too hectic there, break contact and try not to get in over your head.  I feel bad enough sending you off on a mission like this as it is, but we'll need people who can handle far bigger threats.  So please, don't get yourself killed.",
-    "responses": [ { "text": "…", "topic": "TALK_MSCI" } ]
+    "dynamic_line": "Someone was logged by security having used an RFID access badge.  It looks similar to the silver bio-weapon badges the creatures wear.  If you find any survivors then talk to them, otherwise bring the access badge back with you.  I'll mark the location on your map, but be careful.  Those things might be present, and they're not easy to take down.  If things get too hectic, break contact and try not to get in over your head.",
+    "responses": [
+      { "text": "Not a problem.", "topic": "TALK_MSCI" },
+      { "text": "Got any advice?", "topic": "TALK_MSCI_PROOF_TRY_ADVICE" },
+      { "text": "I'll be back soon!", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_MSCI_PROOF_TRY_ADVICE",
+    "type": "talk_topic",
+    "dynamic_line": "If whoever opened that place up is non-hostile, they might be looking for us, and we could use all the help we can get.  Be ready for anything though, there might be augmented abominations or undead present.  I feel bad enough sending you off on a mission like this as it is, but we'll need people who can handle far bigger threats.  So please, don't get yourself killed.",
+    "responses": [
+      { "text": "Alright, before I go though…", "topic": "TALK_MSCI" },
+      { "text": "I'll be back soon then.", "topic": "TALK_DONE" }
+    ]
   },
   {
     "id": "TALK_MSCI_CC_EXPLAIN",

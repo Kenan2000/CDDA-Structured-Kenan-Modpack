@@ -690,6 +690,34 @@
     "extend": { "flags": [ "TRADER_AVOID", "NO_TAKEOFF" ] }
   },
   {
+    "id": "divine_sealing_charm",
+    "looks_like": "small_relic",
+    "type": "TOOL_ARMOR",
+    "category": "tools",
+    "name": { "str": "divine sealing charm" },
+    "description": "A silver and gold relic encircling and framing a pitch-black gem.  All across the metal are holy symbols and engraved text mixing archaic Latin, Old Norse runes, and symbols that don't seem to match any writing humans have devised.  Combining dimensional fatigue research with the knowledge of multiple arcane orders, it was made to serve the same purpose as the Keepers' relics and Project Kairos.\n\nLinger near a portal to collapse it into a form you can harvest crystallized essence from, then fuel it with crystallized essence.  Channeling this energy will create a powerful healing effect affecting you and nearby allies, remove alien influence on your surroundings, as well as restore dead plant life nearby.  Note that essence loaded into it cannot be unloaded.",
+    "weight": "1200 g",
+    "volume": "750 ml",
+    "price_postapoc": "150 USD",
+    "material": [ "silver", "gold", "essencemat" ],
+    "symbol": "[",
+    "color": "yellow",
+    "charges_per_use": 1,
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_type": 10 } } ],
+    "ammo": "essence_pure_type",
+    "use_action": [ { "type": "cast_spell", "spell_id": "arcana_item_divine_seal", "no_fail": true, "need_worn": true, "level": 0 } ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "intermittent_activation": { "effects": [ { "frequency": "3 minutes", "spell_effects": [ { "id": "arcana_react_veilblade" } ] } ] }
+        }
+      ]
+    },
+    "flags": [ "NO_SALVAGE", "NO_UNLOAD", "DIMENSIONAL_ANCHOR", "PSYSHIELD_PARTIAL", "PORTAL_PROOF" ]
+  },
+  {
     "id": "cleric_ring",
     "type": "TOOL_ARMOR",
     "copy-from": "ruby_silver_ring",
