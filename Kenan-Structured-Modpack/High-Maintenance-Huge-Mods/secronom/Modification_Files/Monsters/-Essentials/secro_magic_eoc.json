@@ -1,6 +1,30 @@
 [
   {
     "type": "effect_on_condition",
+    "id": "eoc_secro_mon_zombie_tendrils_sprint_check",
+    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 11 } ] },
+    "effect": [
+      { "npc_add_effect": "secro_tendril_sprint", "duration": "14 seconds" },
+      { "u_message": "The tendril zombie's movement became erratic!", "type": "bad" }
+    ],
+    "false_effect": [
+      { "npc_add_effect": "secro_tendril_sprint", "duration": "5 seconds" },
+      { "u_message": "The tendril zombie's movement became erratic!", "type": "bad" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_zombie_bootlegsmoker_snatch_check",
+    "condition": { "compare_int": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
+    "effect": [ { "u_message": "You resist the snatcher zombie's tongue!", "type": "good" } ],
+    "false_effect": [
+      { "u_add_effect": "stunned", "duration": "2 seconds" },
+      { "u_add_effect": "eff_snatcher_snatch", "duration": "7 seconds" },
+      { "u_message": "The snatcher zombie constricted you!", "type": "bad" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_unify_bv_check",
     "effect": [ { "npc_spawn_monster": "mon_zombie_bloodvessel", "real_count": 1, "min_radius": 1, "max_radius": 2 } ]
   },
@@ -76,6 +100,46 @@
     "false_effect": [
       { "u_message": "A barrage of tentacles grasps at you!", "type": "bad" },
       { "u_add_effect": "stunned", "duration": "3 seconds" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_zombie_akin_sattach_check",
+    "//": "Can't check resistance values of target so use armor flag instead.",
+    "condition": { "and": [ { "u_has_worn_with_flag": "STURDY" }, { "not": { "one_in_chance": 4 } } ] },
+    "effect": [
+      { "u_message": "The akin's tendrils failed to impale you.", "type": "good" },
+      {
+        "run_eocs": [
+          {
+            "id": "eoc_secro_mon_zombie_akin_constrict_check1",
+            "condition": { "compare_int": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
+            "effect": [ { "u_message": "You resist the visceral tendril's constriction.", "type": "good" } ],
+            "false_effect": [
+              { "u_message": "You've been constricted by the tendrils!", "type": "bad" },
+              { "u_add_effect": "secro_akin_constrict", "duration": "30 seconds" }
+            ]
+          }
+        ]
+      }
+    ],
+    "false_effect": [
+      { "u_message": "The akin impaled you!", "type": "bad" },
+      { "u_add_effect": "secro_akin_siphon_foe", "duration": "30 seconds" },
+      { "npc_cast_spell": { "id": "mon_zombie_akin_lsattach_ally", "hit_self": true } },
+      {
+        "run_eocs": [
+          {
+            "id": "eoc_secro_mon_zombie_akin_constrict_check2",
+            "condition": { "compare_int": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
+            "effect": [ { "u_message": "You resist the visceral tendril's constriction.", "type": "good" } ],
+            "false_effect": [
+              { "u_message": "You've been constricted by the tendrils!", "type": "bad" },
+              { "u_add_effect": "secro_akin_constrict", "duration": "30 seconds" }
+            ]
+          }
+        ]
+      }
     ]
   },
   {

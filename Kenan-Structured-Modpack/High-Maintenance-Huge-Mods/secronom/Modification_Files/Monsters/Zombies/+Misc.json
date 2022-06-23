@@ -987,7 +987,7 @@
     ]
   },
   {
-    "//": "Support-type zed who weakens the target by applying debuffs that intensifies for as long as it acquire LOS, while randomly strengthens nearby allies. Feeble, yet a great nuisance behind its meat wall. One of the true end-game monsters.",
+    "//": "Support-type zed who weakens the target by applying debuffs that intensifies for as long as it acquire LOS, while empowering nearby allies. Feeble, yet a great nuisance behind its meat wall. One of the true end-game monsters.",
     "id": "mon_zombie_akin",
     "type": "MONSTER",
     "name": { "str": "akin" },
@@ -1012,19 +1012,35 @@
     "armor_bash": 3,
     "armor_cut": 1,
     "armor_bullet": 1,
-    "vision_day": 10,
-    "vision_night": 7,
+    "vision_day": 25,
+    "vision_night": 5,
     "harvest": "zombie",
+    "path_settings": { "max_dist": 9 },
+    "tracking_distance": 9,
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_akin_target" },
-        "cooldown": 5,
-        "monster_message": "<color_yellow>%1$s's visceral tendril undulates while it is attached to %3$s!</color>"
+        "spell_data": { "id": "mon_zombie_akin_sattach_check" },
+        "cooldown": 21,
+        "monster_message": "<color_yellow>%1$s's visceral tendrils swarm towards %3$s!</color>"
       }
     ],
     "death_drops": "default_zombie_death_drops",
-    "flags": [ "SEES", "SMELLS", "KEENNOSE", "HEARS", "STUMBLES", "WARM", "POISON", "NO_BREATHE", "REVIVES", "FILTHY" ]
+    "death_function": { "effect": { "id": "mon_zombie_akin_death", "hit_self": true } },
+    "flags": [
+      "SEES",
+      "SMELLS",
+      "KEENNOSE",
+      "HEARS",
+      "STUMBLES",
+      "WARM",
+      "POISON",
+      "NO_BREATHE",
+      "KEEP_DISTANCE",
+      "REVIVES",
+      "FILTHY",
+      "RANGED_ATTACKER"
+    ]
   },
   {
     "//": "Summoner-type monster that excels at quickly sending out agile minions. One of the true end-game monsters.",

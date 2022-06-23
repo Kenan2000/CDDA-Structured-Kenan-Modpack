@@ -469,54 +469,6 @@
     "max_range": 12
   },
   {
-    "id": "mon_zombie_akin_sattach_foe",
-    "type": "SPELL",
-    "name": { "str": "Siphoning Attachtment" },
-    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster's viceral tendril latches onto the target, applying debuffs that intensifies for as long as it is attached.'",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
-    "valid_targets": [ "hostile" ],
-    "effect": "attack",
-    "shape": "blast",
-    "effect_str": "secro_akin_siphon_foe",
-    "min_range": 7,
-    "max_range": 7,
-    "//": "Gains 2 intensity of debuff, halved to the buff.",
-    "min_duration": 1200,
-    "max_duration": 1200
-  },
-  {
-    "id": "mon_zombie_akin_lsattach_ally",
-    "type": "SPELL",
-    "name": { "str": "Life Siphoning Attachtment" },
-    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster's viceral tendril latches onto an ally target, applying buffs that intensifies for as long as it is attached. This is casted 2 times.'",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_TARGET" ],
-    "valid_targets": [ "ally", "self" ],
-    "effect": "attack",
-    "shape": "blast",
-    "effect_str": "secro_akin_siphon_ally",
-    "min_range": 7,
-    "max_range": 7,
-    "min_duration": 600,
-    "max_duration": 600
-  },
-  {
-    "type": "SPELL",
-    "id": "mon_zombie_akin_target",
-    "name": { "str": "a spell" },
-    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
-    "extra_effects": [
-      { "id": "mon_zombie_akin_sattach_foe" },
-      { "id": "mon_zombie_akin_lsattach_ally" },
-      { "id": "mon_zombie_akin_lsattach_ally" }
-    ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE" ],
-    "valid_targets": [ "none" ],
-    "effect": "attack",
-    "shape": "blast",
-    "min_range": 7,
-    "max_range": 7
-  },
-  {
     "id": "mon_insect_saddler_baby_potent_grow_null_note",
     "type": "SPELL",
     "name": { "str": "a note" },
@@ -2795,5 +2747,30 @@
     "shape": "blast",
     "min_range": 15,
     "max_range": 15
+  },
+  {
+    "id": "mon_fleshweaver_operate",
+    "type": "SPELL",
+    "name": { "str": "Operate" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Both caster and the target become unable to act.'",
+    "valid_targets": [ "self", "ally", "hostile" ],
+    "flags": [ "SILENT" ],
+    "min_damage": -18000,
+    "max_damage": -18000,
+    "shape": "blast",
+    "effect": "mod_moves"
+  },
+  {
+    "id": "mon_fleshweaver_operate_heal",
+    "type": "SPELL",
+    "name": { "str": "Operate Heal" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster heals the target.'",
+    "valid_targets": [ "self", "ally", "hostile" ],
+    "flags": [ "SILENT" ],
+    "min_damage": -25,
+    "max_damage": -25,
+    "shape": "blast",
+    "effect": "attack",
+    "damage_type": "biological"
   }
 ]

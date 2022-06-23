@@ -4,14 +4,14 @@
     "id": "mon_zombie_bootlegsmoker",
     "type": "MONSTER",
     "name": { "str": "snatcher zombie" },
-    "description": "A writhing corpse with a unnervingly sly and cautious nature. Its pair of menacingly black eyes greedily seek the living with a predominant set of four protruding fangs. These inhumane teeth furiously gnash away while idle, creating a maddening and repetitive \"clack\".",
+    "description": "A writhing corpse with an unnervingly sly and cautious nature. Its pair of menacingly black eyes greedily seek the living with a predominant set of four protruding fangs. These inhumane teeth furiously gnash away while idle, creating a maddening and repetitive \"clack\".",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_2" ],
     "volume": "62500 ml",
     "weight": "81500 g",
     "harvest": "zombie",
     "hp": 100,
-    "speed": 80,
+    "speed": 70,
     "material": [ "flesh" ],
     "symbol": "✑",
     "color": "light_red",
@@ -25,13 +25,13 @@
     "vision_day": 35,
     "vision_night": 10,
     "path_settings": { "max_dist": 8 },
-    "tracking_distance": 8,
+    "tracking_distance": 10,
     "special_attacks": [
       [ "SHRIEK_ALERT", 10 ],
       {
         "type": "gun",
         "cooldown": 150,
-        "move_cost": 1000,
+        "move_cost": 2000,
         "gun_type": "snatcher_mouth",
         "fake_skills": [ [ "gun", 10 ], [ "rifle", 10 ] ],
         "ranges": [ [ 0, 25, "DEFAULT" ] ],
@@ -40,12 +40,11 @@
         "require_targeting_monster": false,
         "description": "The snatcher zombie sends off its tongue!"
       },
-      [ "snatcher_tonguewrap", 65 ],
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_bootlegsmoker_snatch" },
-        "cooldown": 220,
-        "monster_message": "<color_yellow>%1$s launches its tongue at %3$s!</color>"
+        "spell_data": { "id": "mon_zombie_bootlegsmoker_snatch_check" },
+        "cooldown": 70,
+        "monster_message": "<color_yellow>The snatcher zombie launches its tongue at %3$s!</color>"
       }
     ],
     "upgrades": { "half_life": 14, "into": "mon_zombie_bootlegsmoker_mode" },
@@ -72,16 +71,16 @@
     "copy-from": "mon_zombie_bootlegsmoker",
     "type": "MONSTER",
     "name": { "str": "snatcher zombie" },
-    "description": "A writhing corpse with a unnervingly sly and cautious nature. Its pair of menacingly black eyes greedily seek the living with a predominant set of four protruding fangs. These inhumane teeth furiously gnash away while idle, creating a maddening and repetitive \"clack\".",
+    "description": "A writhing corpse with an unnervingly sly and cautious nature. Its pair of menacingly black eyes greedily seek the living with a predominant set of four protruding fangs. These inhumane teeth furiously gnash away while idle, creating a maddening and repetitive \"clack\".",
     "hp": 125,
-    "speed": 85,
+    "speed": 75,
     "color": "red",
     "special_attacks": [
       [ "SHRIEK_ALERT", 10 ],
       {
         "type": "gun",
         "cooldown": 110,
-        "move_cost": 1000,
+        "move_cost": 2000,
         "gun_type": "snatcher_mouth",
         "fake_skills": [ [ "gun", 10 ], [ "rifle", 10 ] ],
         "ranges": [ [ 0, 25, "DEFAULT" ] ],
@@ -90,12 +89,11 @@
         "require_targeting_monster": false,
         "description": "The snatcher zombie sends off its tongue!"
       },
-      [ "snatcher_tonguewrap", 50 ],
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_bootlegsmoker_snatch" },
-        "cooldown": 200,
-        "monster_message": "<color_yellow>%1$s launches its tongue at %3$s</color>"
+        "spell_data": { "id": "mon_zombie_bootlegsmoker_snatch_check" },
+        "cooldown": 66,
+        "monster_message": "<color_yellow>The snatcher zombie launches its tongue at %3$s</color>"
       }
     ],
     "upgrades": {  }
