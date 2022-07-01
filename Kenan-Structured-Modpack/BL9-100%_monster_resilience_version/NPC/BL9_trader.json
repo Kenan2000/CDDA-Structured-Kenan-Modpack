@@ -5,7 +5,9 @@
     "dynamic_line": "Welcome, stranger.",
     "responses": [
       { "text": "[BUY WEAPONS]", "topic": "TALK_BL9_TRADER_BUY1" },
-      { "text": "[MERCHANT GUIDE]", "topic": "TALK_BL9_TRADER_GUIDE1" },
+      { "text": "[BUY ARMOR]", "topic": "TALK_BL9_TRADER_BUY2" },
+      { "text": "[BUY MODIFIERS]", "topic": "TALK_BL9_TRADER_BUY3" },
+      { "text": "[ASK QUESTIONS]", "topic": "TALK_BL9_TRADER_GUIDE1" },
       { "text": "[GOODBYE]", "topic": "TALK_TRADER_GOODBYE" }
     ]
   },
@@ -539,9 +541,6 @@
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
-<<<<<<< HEAD:Kenan-Structured-Modpack/BL9-100%_monster_resilience_version/NPC/BL9_trader.json
-      { "text": "[BUY WEAPONS]", "topic": "TALK_BL9_TRADER_BUY1" },
-=======
       { "text": "[BUY MODIFIERS]", "topic": "TALK_BL9_TRADER_BUY3" },
       { "text": "[GOODBYE]", "topic": "TALK_DONE" }
     ]
@@ -1065,7 +1064,6 @@
         "failure": { "topic": "BL9_trader_nocash" }
       },
       { "text": "[BUY ARMOR]", "topic": "TALK_BL9_TRADER_BUY2" },
->>>>>>> upstream/master:Kenan-Structured-Modpack/High-Maintenance-Huge-Mods/BL9-100%_monster_resilience_version/NPC/BL9_trader.json
       { "text": "[GOODBYE]", "topic": "TALK_DONE" }
     ]
   },
@@ -1090,26 +1088,27 @@
   {
     "id": "TALK_BL9_TRADER_GUIDE1",
     "type": "talk_topic",
-    "dynamic_line": "I've got a selection of GOOD things on sale, stranger, BL9-infused handcrafted weapons AND quite precious durable armor - but it's the gold and platinum that I seek from you in return...",
+    "dynamic_line": "I've got a selection of GOOD things on sale, stranger, BL9-infused handcrafted weapons, quite precious durable armor AND ability modifiers - but it's the gold and platinum that I seek from you in return...",
     "responses": [
-      { "text": "How do I reload guns?", "topic": "TALK_BL9_TRADER_GUIDE2" },
+      { "text": "Are there any other sane people who are also involved with BL9 work?", "topic": "TALK_BL9_TRADER_GUIDE2" },
       { "text": "How do I buy items and new Tier gear from you?", "topic": "TALK_BL9_TRADER_GUIDE3" },
       { "text": "Where can I find gold and platinum?", "topic": "TALK_BL9_TRADER_GUIDE4" },
       { "text": "What's your role in ALL of this?", "topic": "TALK_BL9_TRADER_GUIDE5" },
-      { "text": "How do I repair BL9-infused items?", "topic": "TALK_BL9_TRADER_GUIDE6" },
+      { "text": "What can you elaborate about this scattered intel?", "topic": "TALK_BL9_TRADER_GUIDE6" },
+      { "text": "How do I repair BL9-infused items?", "topic": "TALK_BL9_TRADER_GUIDE7" },
       { "text": "Actually, I'll check what's on sale today...", "topic": "TALK_BL9_TRADER" }
     ]
   },
   {
     "id": "TALK_BL9_TRADER_GUIDE2",
     "type": "talk_topic",
-    "dynamic_line": "If you cannot reload BL9 guns with the BL9 mags - just drop both weapon AND the mag on the ground and either reload them on the ground OR drop 'em, pick 'em up and try reloading them again, this will solve such TRIVIAL issue of yours, stranger!",
-    "responses": [ { "text": "Thank you!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
+    "dynamic_line": "Hmm, stranger, there is this adventurer mate, always moving around, scattering some kind of intel, seeks for survivors that can help with some work that requires lots of combat skills. This mate told me about some secret benevolent type BL9 research organization, a GOOD kind of it, stranger, they want to restore civilization, help people survive, create medicine, build shelters, help people to procreate, they work discreetly yet they actually help with building, protecting communities of survivors",
+    "responses": [ { "text": "Interesting!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   },
   {
     "id": "TALK_BL9_TRADER_GUIDE3",
     "type": "talk_topic",
-    "dynamic_line": "With gold and platinum coin COMBINATIONs of course! Check your 'OTHER' recipes in your PDA or your Notebook or whatever. You need to collect gold and platinum coins, then craft these combinations - each combination of gold or platinum requires 100 pieces of the CORRESPONDING type - 100 gold is needed to craft 1 gold coin combination, 100 platinum is neede to craft 1 platinum coin combination, stranger! To buy Tier 2 gear you need to have the Tier 1 variant of the same gear in your inventory as well",
+    "dynamic_line": "With gold and platinum coin COMBINATIONs of course! Check your 'BL9' recipes in your PDA or your Notebook or whatever. You need to collect gold and platinum coins, then craft these combinations - each combination of gold or platinum requires 100 pieces of the CORRESPONDING type - 100 gold is needed to craft 1 gold coin combination, 100 platinum is needed to craft 1 platinum coin combination, stranger! To buy Tier 2 gear you need to have the Tier 1 variant of the same gear in your inventory as well",
     "responses": [ { "text": "Thank you!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   },
   {
@@ -1126,6 +1125,12 @@
   },
   {
     "id": "TALK_BL9_TRADER_GUIDE6",
+    "type": "talk_topic",
+    "dynamic_line": "Hmm, stranger, you think it's fiction? You see, cultists, armed to teeth military, strange alien mutants, advanced alien militia, you think these communities of survivors survive by themselves? This benevolent organization does it's best to use BL9 as a universal material to craft medicine, armor, weapons for survivors to use. They also salvage, restore any advanced alien tech that can be valuable for them along with survivors. Stranger, I've even heard of 'Alliance' members turning to rebels siding with this organization as well",
+    "responses": [ { "text": "Interesting!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
+  },
+  {
+    "id": "TALK_BL9_TRADER_GUIDE7",
     "type": "talk_topic",
     "dynamic_line": "GOOD QUESTION - for this you need to use the BL9-infused soldering iron - as a repairing tool, BL9 samples - as materials used for repairing, and you need to have sufficiently high fabrication skills, of course. In case you somehow break or loose your weapons, armor or soldering iron - DON'T WORRY - you can easily buy the said items again from me or acquire the soldering iron for free",
     "responses": [ { "text": "Thank you!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
