@@ -301,33 +301,55 @@
     "desc": [ "The visceral tendril's influence renders you weakened!" ],
     "show_in_info": true,
     "rating": "bad",
-    "apply_message": "A siphoning tendril latches onto you!",
     "miss_messages": [ [ "You feel dizzy...", 2 ] ],
     "remove_message": "The siphoning tendril falls off.",
     "int_add_val": 1,
-    "int_dur_factor": "5 seconds",
-    "max_intensity": 25,
-    "int_decay_step": -10,
-    "int_decay_tick": 6,
-    "max_duration": 125,
-    "base_mods": { "hurt_min": [ 1 ], "hurt_max": [ 1 ], "hurt_tick": [ 10 ], "speed_mod": [ -1 ] },
-    "scaling_mods": { "speed_mod": [ -1.5 ], "str_mod": [ -0.32 ], "dex_mod": [ -0.64 ], "per_mod": [ -0.16 ], "int_mod": [ -0.08 ] }
+    "int_dur_factor": "20 seconds",
+    "max_intensity": 5,
+    "int_decay_step": -5,
+    "int_decay_tick": 25,
+    "max_duration": "180 s",
+    "base_mods": { "hurt_min": [ 1 ], "hurt_tick": [ 15 ], "speed_mod": [ -1 ] },
+    "scaling_mods": { "speed_mod": [ -1 ], "str_mod": [ -0.99 ], "dex_mod": [ -0.66 ], "per_mod": [ -0.33 ], "int_mod": [ -0.33 ], "hurt_tick": [ -1 ] }
   },
   {
     "type": "effect_type",
     "id": "secro_akin_siphon_ally",
-    "name": [ "Life Siphoned" ],
+    "name": [ "Empowered by Akin" ],
     "desc": [ "The visceral tendril's influence strengthens you!" ],
     "show_in_info": true,
     "rating": "good",
     "int_add_val": 1,
-    "int_dur_factor": "5 seconds",
-    "max_intensity": 25,
-    "int_decay_step": -10,
-    "int_decay_tick": 6,
-    "max_duration": 125,
-    "base_mods": { "hurt_min": [ -2 ], "hurt_max": [ -2 ], "hurt_tick": [ 10 ], "speed_mod": [ 1 ] },
-    "scaling_mods": { "speed_mod": [ 2 ] }
+    "max_intensity": 5,
+    "int_dur_factor": "20 seconds",
+    "int_decay_step": -5,
+    "int_decay_tick": 25,
+    "max_duration": "180 s",
+    "base_mods": { "hurt_min": [ -2 ], "hurt_tick": [ 10 ], "speed_mod": [ 3 ] },
+    "scaling_mods": { "speed_mod": [ 3 ], "hurt_tick": [ -1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_akin_constrict",
+    "name": [ "Constricted" ],
+    "desc": [ "The visceral tendrils are holding you down!" ],
+    "remove_message": "You shrug off the visceral tendrils.",
+    "rating": "bad",
+    "max_duration": "180 s",
+    "max_intensity": 3,
+    "int_add_val": 1,
+    "int_dur_factor": "20 seconds",
+    "int_decay_step": -3,
+    "int_decay_tick": 25,
+    "base_mods": { "dex_mod": [ -0.2 ] },
+    "scaling_mods": { "speed_mod": [ -5 ], "dex_mod": [ -0.2 ] },
+    "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_akin_death",
+    "max_duration": 1,
+    "removes_effects": [ "secro_akin_constrict", "secro_akin_siphon_foe", "secro_akin_siphon_ally" ]
   },
   {
     "type": "effect_type",
@@ -545,6 +567,13 @@
     "max_duration": 1,
     "removes_effects": [ "secro_revenant_allure_induce" ],
     "blocks_effects": [ "secro_revenant_allure_induce" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_tendril_sprint",
+    "name": [ "Sprinting" ],
+    "show_in_info": true,
+    "base_mods": { "speed_mod": [ 90 ] }
   },
   {
     "type": "effect_type",
@@ -1113,7 +1142,18 @@
     "scaling_mods": { "speed_mod": [ -20 ] }
   },
   {
-    "//": "Effects for notifying the player. This method is a bit unstable...",
+    "type": "effect_type",
+    "id": "eff_fleshweaver_healing",
+    "base_mods": { "pain_min": [ 1 ], "pain_chance": [ 2 ], "pain_tick": [ 8 ] },
+    "rating": "bad",
+    "remove_message": "The flesh weaver finishes its operation."
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_fleshweaver_justhealed"
+  },
+  {
+    "//": "Effects for notifying the player. These can slow down the game and will use EOC instead for better performance at later updates.",
     "type": "effect_type",
     "id": "mon_zombie_swarmer_evo_savage_tension_target_random_YES",
     "apply_message": "Then its muscles suddenly mutates!",
@@ -1124,12 +1164,6 @@
     "id": "secro_flesh_transmit_attack",
     "removes_effects": [ "docile" ],
     "blocks_effects": [ "docile" ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombie_tentawraith_stunmore_YES",
-    "apply_message": "You've been constricted!",
-    "rating": "bad"
   },
   {
     "type": "effect_type",

@@ -1,0 +1,56 @@
+[
+  {
+    "type": "talk_topic",
+    "id": [ "TALK_SECRO_FWEAVER_main", "TALK_SECRO_FWEAVER_justhealed" ],
+    "dynamic_line": "*doesn't seem like it can talk, but somehow is able to understand you.",
+    "responses": [
+      {
+        "text": "Fix my wounds.",
+        "topic": "TALK_SECRO_FWEAVER_heal",
+        "condition": { "not": { "npc_has_effect": "eff_fleshweaver_justhealed" } }
+      },
+      {
+        "text": "Fix my wounds.",
+        "topic": "TALK_SECRO_FWEAVER_justhealed",
+        "condition": { "npc_has_effect": "eff_fleshweaver_justhealed" }
+      },
+      { "text": "Bye.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_FWEAVER_heal",
+    "dynamic_line": "*readies its appendages and weavers. Are you sure about this?",
+    "responses": [
+      { "text": "No.", "topic": "TALK_SECRO_FWEAVER_main" },
+      {
+        "text": "Yes.",
+        "topic": "TALK_DONE",
+        "effect": [
+          { "u_message": "The flesh weaver injects you with a numbing substance!", "type": "warning" },
+          { "npc_cast_spell": { "id": "mon_fleshweaver_operate", "hit_self": true } },
+          { "u_cast_spell": { "id": "mon_fleshweaver_operate", "hit_self": true } },
+          {
+            "queue_eocs": [
+              {
+                "id": "eoc_secro_TALK_SECRO_FWEAVER_healed",
+                "effect": [ { "u_cast_spell": { "id": "mon_fleshweaver_operate_heal", "hit_self": true } } ]
+              }
+            ],
+            "time_in_future": [ "180 turns", "180 turns" ]
+          },
+          { "u_add_effect": "blind", "duration": "180 turns", "force": true },
+          { "u_add_effect": "downed", "duration": "180 turns", "force": true },
+          { "u_add_effect": "eff_fleshweaver_healing", "duration": "180 turns" },
+          { "npc_add_effect": "eff_fleshweaver_justhealed", "duration": "16 hours" }
+        ]
+      },
+      { "text": "Back away.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_SECRO_FWEAVER_justhealed",
+    "dynamic_line": "*recently performed an operation on you."
+  }
+]

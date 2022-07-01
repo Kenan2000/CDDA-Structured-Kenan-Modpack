@@ -1,5 +1,18 @@
 [
   {
+    "id": "mon_zombie_tendrils_sprint_check",
+    "type": "SPELL",
+    "name": { "str": "Tendril Zombie - Sprint" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster gains massive movement speed temporarily. Duration is increased if the target is further away.'",
+    "valid_targets": [ "hostile" ],
+    "flags": [ "SILENT" ],
+    "min_range": 28,
+    "max_range": 28,
+    "shape": "line",
+    "effect": "effect_on_condition",
+    "effect_str": "eoc_secro_mon_zombie_tendrils_sprint_check"
+  },
+  {
     "id": "mon_zombie_leptiosa_ngas_check",
     "type": "SPELL",
     "name": { "str": "Lepotitsa - Noxious Gas" },
@@ -1394,22 +1407,52 @@
     "max_range": 3
   },
   {
-    "id": "mon_zombie_bootlegsmoker_snatch",
+    "id": "mon_zombie_bootlegsmoker_snatch_cost",
     "type": "SPELL",
-    "name": { "str": "Snatch" },
-    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster pulls in the target.'",
+    "name": { "str": "Snatch Movecost" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster cannot act for set period of time.'",
+    "valid_targets": [ "self" ],
     "flags": [ "SILENT" ],
-    "valid_targets": [ "hostile" ],
-    "effect": "pull_target",
+    "min_damage": -800,
+    "max_damage": -800,
+    "shape": "blast",
+    "effect": "mod_moves"
+  },
+  {
+    "id": "mon_zombie_bootlegsmoker_snatchtrail",
+    "type": "SPELL",
+    "name": { "str": "Snatch Trail" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Visual effect for snatch monsterspell.'",
+    "flags": [ "SILENT" ],
+    "valid_targets": [ "hostile", "ground" ],
+    "effect": "attack",
     "shape": "line",
-    "min_range": 10,
-    "max_range": 10
+    "min_range": 12,
+    "max_range": 12,
+    "field_id": "fd_snatcher_snatch_trail",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 2
+  },
+  {
+    "id": "mon_zombie_bootlegsmoker_snatch_check",
+    "type": "SPELL",
+    "name": { "str": "Snatcher Zombie - Snatch" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster constricts the target. If condition fails, target is afflicted with slowness and stun.'",
+    "valid_targets": [ "hostile" ],
+    "flags": [ "SILENT" ],
+    "extra_effects": [ { "id": "mon_zombie_bootlegsmoker_snatchtrail" }, { "id": "mon_zombie_bootlegsmoker_snatch_cost", "hit_self": true } ],
+    "min_range": 12,
+    "max_range": 12,
+    "shape": "line",
+    "effect": "effect_on_condition",
+    "effect_str": "eoc_secro_mon_zombie_bootlegsmoker_snatch_check"
   },
   {
     "id": "mon_zombie_nautilus_disturbance_check",
     "type": "SPELL",
     "name": { "str": "Nautilus - Disturbance" },
-    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster submerges then creates a disturbance around its area, enslowing nearby creatures except itself.'",
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster submerges then creates a disturbance around its area, enslowing nearby creatures except for itself.'",
     "valid_targets": [ "hostile" ],
     "flags": [ "SILENT" ],
     "message": "",
@@ -1739,5 +1782,33 @@
     "shape": "line",
     "effect": "effect_on_condition",
     "effect_str": "eoc_secro_mon_vector_rize_big_check"
+  },
+  {
+    "id": "mon_zombie_akin_lsattach_ally",
+    "type": "SPELL",
+    "name": { "str": "Empowering Attachtment" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster's visceral tendril latches onto its surrounding allies, applying buffs that intensifies for as long as it is attached.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [ "ally" ],
+    "effect": "attack",
+    "shape": "blast",
+    "effect_str": "secro_akin_siphon_ally",
+    "min_aoe": 6,
+    "max_aoe": 6,
+    "min_duration": 3000,
+    "max_duration": 3000
+  },
+  {
+    "id": "mon_zombie_akin_sattach_check",
+    "type": "SPELL",
+    "name": { "str": "Akin - Siphon" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster attaches its visceral tendrils to the target. If condition fails, the target is afflicted with debuffs and its nearby allies gain buffs.'",
+    "valid_targets": [ "hostile" ],
+    "flags": [ "SILENT" ],
+    "min_range": 9,
+    "max_range": 9,
+    "shape": "line",
+    "effect": "effect_on_condition",
+    "effect_str": "eoc_secro_mon_zombie_akin_sattach_check"
   }
 ]

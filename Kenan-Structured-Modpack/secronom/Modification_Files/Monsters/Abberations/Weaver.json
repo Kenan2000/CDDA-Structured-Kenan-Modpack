@@ -4,13 +4,13 @@
     "looks_like": "mon_kreck",
     "type": "MONSTER",
     "name": { "str": "flesh weaver" },
-    "description": "A large, sentient, beetle-like creature with broad set of claws and appendages, odd to its vile yet pacifistic nature. Merely a lonesome wanderer, and without demise, seeks to tend on an organism's flesh.",
+    "description": "A large, beetle-like creature with broad set of claws and appendages, odd to its vile yet pacifistic nature.",
     "default_faction": "fleshweaver",
     "species": [ "ABERRATION", "SECROSPEC" ],
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 160,
-    "speed": 95,
+    "speed": 85,
     "material": [ "flesh", "bone" ],
     "symbol": "⨣",
     "color": "light_blue",
@@ -31,7 +31,12 @@
     "armor_fire": 1,
     "vision_day": 24,
     "vision_night": 8,
-    "//": "As the description says, it helps... But with ASSIST and CHECK_UP special attack, it parrots with robotic voice, so not for now.",
+    "petfood": {
+      "food": [ "SECRO_FWEAVERFOOD" ],
+      "feed": "The %s consumes the \"petfood\".",
+      "pet": "The %s's antennae flicks rapidly."
+    },
+    "chat_topics": [ "TALK_SECRO_FWEAVER_main" ],
     "special_attacks": [
       [ "PARROT_AT_DANGER", 10 ],
       {
@@ -41,7 +46,8 @@
         "monster_message": "<color_yellow>%1$s injects %3$s with a volatile fluid!</color>"
       }
     ],
-    "placate_triggers": [ "STALK", "PLAYER_WEAK", "PLAYER_CLOSE" ],
-    "flags": [ "HEARS", "PATH_AVOID_DANGER_1", "SEES", "SMELLS", "WARM", "CAN_OPEN_DOORS", "CLIMBS" ]
+    "placate_triggers": [ "PLAYER_CLOSE" ],
+    "anger_triggers": [ "HURT", "HOSTILE_SEEN" ],
+    "flags": [ "HEARS", "SEES", "SMELLS", "WARM", "CAN_OPEN_DOORS", "CLIMBS", "PATH_AVOID_DANGER_1" ]
   }
 ]
