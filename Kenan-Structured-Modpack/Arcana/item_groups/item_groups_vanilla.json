@@ -127,6 +127,7 @@
     "extend": {
       "items": [
         { "group": "magic_books", "prob": 25 },
+        { "group": "autodoc_installation_magitech", "prob": 10 },
         [ "arcanemap", 10 ],
         [ "hexenhammer", 5 ],
         [ "offering_chalice", 5 ],
@@ -259,6 +260,7 @@
     "type": "item_group",
     "extend": {
       "items": [
+        { "group": "autodoc_installation_magitech", "prob": 5 },
         { "group": "lab_misc_anomalous_items", "prob": 5 },
         { "group": "arcana_hunt_random", "prob": 10 },
         [ "tindalos_whistle", 1 ],
@@ -411,5 +413,19 @@
     "copy-from": "ammo_shotgun_reloaded",
     "subtype": "distribution",
     "extend": { "entries": [ { "item": "reloaded_shot_00_arcana", "prob": 25 } ] }
+  },
+  {
+    "type": "item_group",
+    "id": "autodoc_installation_programs",
+    "copy-from": "autodoc_installation_programs",
+    "subtype": "distribution",
+    "extend": { "entries": [ { "group": "autodoc_installation_magitech" } ] }
+  },
+  {
+    "type": "item_group",
+    "id": "dissection",
+    "copy-from": "dissection",
+    "subtype": "distribution",
+    "extend": { "entries": [ { "group": "autodoc_installation_magitech", "prob": 5 } ] }
   }
 ]

@@ -222,18 +222,17 @@
   {
     "type": "effect_type",
     "id": "secro_fleshmonger_fleshed",
-    "name": [ "Fleshed" ],
-    "desc": [ "Your body mass has increased from the excess flesh injected to you!" ],
+    "name": [ "Reflesh" ],
     "rating": "good",
     "show_in_info": true,
-    "int_add_val": 1,
-    "int_dur_factor": "30 seconds",
-    "max_intensity": 5,
-    "int_decay_step": -1,
-    "int_decay_tick": 60,
-    "max_duration": 600,
-    "base_mods": { "size_mod": [ 0.2 ] },
-    "scaling_mods": { "size_mod": [ 0.2 ] }
+	"removes_effects": [ "bleed" ],
+    "blocks_effects": [ "bleed" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_fleshmonger_fleshed_immune",
+    "removes_effects": [ "secro_fleshmonger_fleshed" ],
+    "blocks_effects": [ "secro_fleshmonger_fleshed" ]
   },
   {
     "type": "effect_type",

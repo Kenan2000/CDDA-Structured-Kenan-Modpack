@@ -1,5 +1,25 @@
 [
   {
+    "//": "Negates uncomfortable effect while wearing the vessel.",
+    "type": "effect_type",
+    "id": "secro_power_armor_flesh_comfort",
+	"removes_effects": [ "chafing" ],
+    "blocks_effects": [ "chafing" ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_pafv_comfort",
+    "condition": {
+      "and": [
+        { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" },
+        { "u_has_effect": "chafing" }
+      ]
+    },
+    "effect": [
+      { "u_add_effect": "secro_power_armor_flesh_comfort", "duration": "5 minutes" }
+    ]
+  },
+  {
     "type": "effect_on_condition",
     "id": "eoc_secro_pafv_fleshconsumption",
     "recurrence": [ "4 hours", "5 hours 30 minutes" ],

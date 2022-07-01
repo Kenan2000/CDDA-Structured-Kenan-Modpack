@@ -1069,11 +1069,12 @@
   {
     "type": "effect_type",
     "id": "arcana_evil_mimic",
+    "resist_effects": [ "arcana_evil_mimic_active" ],
     "apply_message": "You feel an evil presence…",
     "rating": "bad",
     "max_duration": "100 h",
     "max_intensity": 25,
-    "int_dur_factor": "4 h",
+    "int_dur_factor": "1 h",
     "base_mods": {
       "str_mod": [ 2 ],
       "dex_mod": [ 1 ],
@@ -1083,13 +1084,18 @@
       "fatigue_chance": [ 6, 12 ]
     },
     "scaling_mods": {
-      "str_mod": [ -0.24 ],
-      "dex_mod": [ -0.2 ],
+      "str_mod": [ -0.24, 0.12 ],
+      "dex_mod": [ -0.2, 0.12 ],
       "int_mod": [ -0.24 ],
       "per_mod": [ -0.2 ],
       "stamina_min": [ 2.5 ],
       "fatigue_min": [ 0.25 ]
     }
+  },
+  {
+    "type": "effect_type",
+    "id": "arcana_evil_mimic_active",
+    "max_duration": "4 s"
   },
   {
     "type": "effect_type",

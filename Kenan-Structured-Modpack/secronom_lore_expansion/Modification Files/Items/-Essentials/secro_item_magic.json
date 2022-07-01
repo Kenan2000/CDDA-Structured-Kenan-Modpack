@@ -1352,5 +1352,350 @@
     "valid_targets": [ "self", "hostile" ],
     "min_aoe": 2,
     "max_aoe": 2
+  },
+  {
+    "id": "secro_pafv_morphed_cost",
+    "type": "SPELL",
+    "name": { "str": "Movecost" },
+    "description": "Movecost spell. Alternative to ACTIVITY.",
+    "valid_targets": [ "self" ],
+    "flags": [ "SILENT" ],
+    "min_damage": -100,
+    "max_damage": -100,
+    "shape": "blast",
+    "effect": "mod_moves"
+  },
+  {
+    "id": "secro_pafv_morphed_gun_spit_check",
+    "type": "SPELL",
+    "name": { "str": "Blood Acid Spit" },
+    "description": "Your spitter armament launches a glob of blood acid.",
+    "valid_targets": [ "self" ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "message": "",
+	"extra_effects": [ { "id": "secro_pafv_morphed_cost", "hit_self": true } ],
+    "shape": "blast",
+    "effect": "effect_on_condition",
+    "effect_str": "eoc_secro_pafv_morphed_gun_spit_check"
+  },
+  {
+    "id": "secro_pafv_morphed_gun_spit_1",
+    "type": "SPELL",
+    "name": { "str": "Blood Acid Spit" },
+    "description": "Spits blood acid at target.",
+    "message": "",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE" ],
+    "valid_targets": [ "hostile" ],
+    "effect": "attack",
+    "shape": "blast",
+    "skill": "secro_flesh_combat",
+    "min_damage": 7,
+    "max_damage": 9,
+    "min_range": 6,
+    "damage_type": "acid",
+    "field_id": "fd_blood_acid",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 20
+  },
+  {
+    "id": "secro_pafv_morphed_gun_spit_2",
+    "type": "SPELL",
+    "name": { "str": "Blood Acid Spit" },
+    "description": "Spits blood acid at target.",
+    "message": "",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE" ],
+    "valid_targets": [ "hostile" ],
+    "effect": "attack",
+    "shape": "blast",
+    "skill": "secro_flesh_combat",
+    "min_damage": 9,
+    "max_damage": 12,
+    "min_range": 8,
+    "damage_type": "acid",
+    "field_id": "fd_blood_acid",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 10
+  },
+  {
+    "id": "secro_pafv_morphed_gun_spit_3",
+    "type": "SPELL",
+    "name": { "str": "Blood Acid Spit" },
+    "description": "Spits blood acid at target.",
+    "message": "",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE" ],
+    "valid_targets": [ "hostile" ],
+    "effect": "attack",
+    "shape": "blast",
+    "skill": "secro_flesh_combat",
+    "min_damage": 12,
+    "max_damage": 16,
+    "min_range": 11,
+    "damage_type": "acid",
+    "field_id": "fd_blood_acid",
+    "min_field_intensity": 1,
+    "max_field_intensity": 2,
+    "field_chance": 5
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_pafv_morphed_gun_spit_1",
+    "condition": { "compare_int": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, "<=", { "const": 2 } ] },
+    "effect": [
+      {
+        "u_cast_spell": { "id": "secro_pafv_morphed_gun_spit_1", "message": "Your spitter armament launches a glob of blood acid!" },
+        "targeted": true
+      },
+      {
+        "u_cast_spell": { "id": "secro_pafv_morphed_gun_spit_1", "message": "Your spitter armament launches a glob of blood acid!" },
+        "targeted": true
+      },
+      { "u_cast_spell": { "id": "secro_pafv_morphed_cost", "message": "" } }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_pafv_morphed_gun_spit_2",
+    "condition": {
+      "and": [
+        { "compare_int": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, ">=", { "const": 3 } ] },
+        {
+          "not": { "compare_int": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, ">=", { "const": 6 } ] }
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": { "id": "secro_pafv_morphed_gun_spit_2", "message": "Your spitter armament launches a glob of blood acid!" },
+        "targeted": true
+      },
+      {
+        "u_cast_spell": { "id": "secro_pafv_morphed_gun_spit_2", "message": "Your spitter armament launches a glob of blood acid!" },
+        "targeted": true
+      },
+      { "u_cast_spell": { "id": "secro_pafv_morphed_cost", "message": "" } }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_pafv_morphed_gun_spit_3",
+    "condition": { "compare_int": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, ">=", { "const": 6 } ] },
+    "effect": [
+      {
+        "u_cast_spell": { "id": "secro_pafv_morphed_gun_spit_3", "message": "Your spitter armament launches a glob of blood acid!" },
+        "targeted": true
+      },
+      {
+        "u_cast_spell": { "id": "secro_pafv_morphed_gun_spit_3", "message": "Your spitter armament launches a glob of blood acid!" },
+        "targeted": true
+      },
+      { "u_cast_spell": { "id": "secro_pafv_morphed_cost", "message": "" } }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_pafv_morphed_gun_spit_check",
+    "condition": { "u_has_items": { "item": "secro_flesh", "count": 3 } },
+    "effect": [
+      { "u_consume_item": "secro_flesh", "count": 3 },
+      {
+        "queue_eocs": [ "eoc_secro_pafv_morphed_gun_spit_1", "eoc_secro_pafv_morphed_gun_spit_2", "eoc_secro_pafv_morphed_gun_spit_3" ]
+      }
+    ],
+    "false_effect": [ { "u_message": "You don't have enough flesh to fire your spitter armament.", "type": "bad" } ]
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_secro_pafv_morphed_gun_bonelance_shot_prepare",
+    "name": [ "Bone Burst" ],
+    "desc": [ "Your bone lancer armament is preparing to fire." ],
+    "base_mods": { "speed_mod": [ -5 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_secro_pafv_morphed_gun_bonelance_shot_prepared_1"
+  },
+  {
+    "type": "effect_type",
+    "id": "eff_secro_pafv_morphed_gun_bonelance_shot_prepared_2"
+  },
+  {
+    "id": "secro_pafv_morphed_gun_bonelance_shoot_check",
+    "type": "SPELL",
+    "name": { "str": "Bone Burst" },
+    "description": "Your bone lancer armament blasts bone spikes in a short, yet wide cone radius.",
+    "valid_targets": [ "self" ],
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS" ],
+    "message": "",
+	"extra_effects": [ { "id": "secro_pafv_morphed_cost", "hit_self": true } ],
+    "shape": "blast",
+    "effect": "effect_on_condition",
+    "effect_str": "eoc_secro_pafv_morphed_gun_bonelance_shoot_check"
+  },
+  {
+    "id": "secro_pafv_morphed_gun_bonelance_shot_1",
+    "type": "SPELL",
+    "name": { "str": "Bone Burst" },
+    "description": "Blasts bone spikes in a short, yet wide cone radius.",
+    "message": "",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE" ],
+    "valid_targets": [ "ground", "hostile" ],
+    "effect": "attack",
+    "effect_str": "stunned",
+    "shape": "cone",
+    "skill": "secro_flesh_combat",
+    "min_damage": 33,
+    "max_damage": 44,
+    "min_range": 4,
+    "min_aoe": 45,
+    "max_aoe": 45,
+    "min_duration": 250,
+    "max_duration": 250,
+    "damage_type": "stab"
+  },
+  {
+    "id": "secro_pafv_morphed_gun_bonelance_shot_2",
+    "type": "SPELL",
+    "name": { "str": "Bone Burst" },
+    "description": "Blasts bone spikes in a short, yet wide cone radius.",
+    "message": "",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "RANDOM_DAMAGE" ],
+    "valid_targets": [ "ground", "hostile" ],
+    "effect": "attack",
+    "effect_str": "stunned",
+    "shape": "cone",
+    "skill": "secro_flesh_combat",
+    "min_damage": 44,
+    "max_damage": 55,
+    "min_range": 4,
+    "min_aoe": 68,
+    "max_aoe": 68,
+    "min_duration": 300,
+    "max_duration": 300,
+    "damage_type": "stab"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_pafv_morphed_gun_bonelance_shot_check",
+    "condition": {
+      "and": [
+        { "u_has_items": { "item": "secro_flesh", "count": 15 } },
+        { "not": { "u_has_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepare" } }
+      ]
+    },
+    "effect": [
+      { "u_cast_spell": { "id": "secro_pafv_morphed_cost", "message": "" } },
+      { "u_consume_item": "secro_flesh", "count": 15 },
+      {
+        "queue_eocs": [
+          {
+            "id": "eoc_secro_pafv_morphed_gun_bonelance_shot_1",
+            "condition": { "compare_int": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, "<=", { "const": 4 } ] },
+            "effect": [
+              { "u_add_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepare", "duration": 8 },
+              {
+                "queue_eocs": [
+                  {
+                    "id": "eoc_secro_pafv_morphed_gun_bonelance_shot_1_ready",
+                    "effect": [
+                      { "u_add_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepared_1", "duration": "PERMANENT" },
+                      { "u_message": "Your bone lancer armament is ready to fire.", "type": "good" }
+                    ]
+                  }
+                ],
+                "time_in_future": 8
+              }
+            ]
+          },
+          {
+            "id": "eoc_secro_pafv_morphed_gun_bonelance_shot_2",
+            "condition": { "compare_int": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, ">=", { "const": 5 } ] },
+            "effect": [
+              { "u_add_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepare", "duration": 6 },
+              {
+                "queue_eocs": [
+                  {
+                    "id": "eoc_secro_pafv_morphed_gun_bonelance_shot_2_ready",
+                    "effect": [
+                      { "u_add_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepared_2", "duration": "PERMANENT" },
+                      { "u_message": "Your bone lancer armament is ready to fire.", "type": "good" }
+                    ]
+                  }
+                ],
+                "time_in_future": 6
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "false_effect": [
+      { "u_cast_spell": { "id": "secro_pafv_morphed_cost", "message": "" } },
+      {
+        "queue_eocs": [
+          {
+            "id": "eoc_secro_pafv_morphed_gun_bonelance_shot_check_fail",
+            "condition": { "u_has_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepare" },
+            "effect": [ { "u_message": "Your armament is already preparing its shot.", "type": "warning" } ],
+            "false_effect": [ { "u_message": "You don't have enough flesh to load your bone lancer armament.", "type": "bad" } ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_pafv_morphed_gun_bonelance_shoot_check",
+    "condition": {
+      "and": [
+        { "not": { "u_has_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepare" } },
+        {
+          "or": [
+            { "u_has_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepared_1" },
+            { "u_has_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepared_2" }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "queue_eocs": [
+          {
+            "id": "eoc_secro_pafv_morphed_gun_bonelance_shoot_power_check",
+            "condition": { "compare_int": [ { "u_val": "power" }, ">=", { "const": 100000 } ] },
+            "effect": [
+              { "arithmetic": [ { "u_val": "power" }, "-=", { "const": 100000 } ] },
+              {
+                "queue_eocs": [
+                  {
+                    "id": "eoc_secro_pafv_morphed_gun_bonelance_shoot",
+                    "condition": { "u_has_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepared_1" },
+                    "effect": [
+                      { "u_lose_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepared_1" },
+                      {
+                        "u_cast_spell": { "id": "secro_pafv_morphed_gun_bonelance_shot_1", "message": "Your bone lancer armament bursts out bone spikes!" },
+                        "targeted": true
+                      },
+                      { "u_cast_spell": { "id": "secro_pafv_morphed_cost", "message": "" } }
+                    ],
+                    "false_effect": [
+                      { "u_lose_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepared_2" },
+                      {
+                        "u_cast_spell": { "id": "secro_pafv_morphed_gun_bonelance_shot_2", "message": "Your bone lancer armament bursts out bone spikes!" },
+                        "targeted": true
+                      },
+                      { "u_cast_spell": { "id": "secro_pafv_morphed_cost", "message": "" } }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "false_effect": [ { "u_message": "You don't have enough energy to fire your bone lancer armament.", "type": "bad" } ]
+          }
+        ]
+      }
+    ],
+    "false_effect": [ { "queue_eocs": [ "eoc_secro_pafv_morphed_gun_bonelance_shot_check" ] } ]
   }
 ]
