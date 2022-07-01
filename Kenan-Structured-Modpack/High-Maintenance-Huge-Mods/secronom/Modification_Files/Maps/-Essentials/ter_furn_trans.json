@@ -1,0 +1,570 @@
+[
+  {
+    "type": "ter_furn_transform",
+    "id": "vectorize",
+    "terrain": [
+      { "result": "t_vector", "valid_flags": [ "DIGGABLE" ] },
+      { "result": "t_shrub_vector", "valid_flags": [ "SHRUB" ] },
+      { "result": "t_tree_vector_young", "valid_flags": [ "YOUNG" ] },
+      { "result": "t_tree_vector", "valid_flags": [ "TREE" ] }
+    ],
+    "furniture": [ { "result": "f_floral_vector", "valid_flags": [ "FLOWER" ] } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "vectorize_weak",
+    "terrain": [ { "result": "t_vector", "valid_terrain": [ "t_dirt" ] }, { "result": "t_shrub_vector", "valid_flags": [ "SHRUB" ] } ],
+    "furniture": [ { "result": "f_floral_vector", "valid_flags": [ "FLOWER" ] } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "vectocide",
+    "terrain": [ { "result": [ [ "t_dirt", 5 ], "t_grass" ], "valid_flags": [ "VECTOR" ] } ],
+    "furniture": [ { "result": "f_null", "valid_flags": [ "VECTOR" ] } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "gorepit_pit",
+    "terrain": [
+      {
+        "//": "Make every adjacent opaque terrains into dirt, so that we don't encounter bugs with gorepit's essential fields.",
+        "result": "t_dirt",
+        "valid_flags": [ "WALL", "CONNECT_TO_WALL", "MOUNTABLE", "THIN_OBSTACLE", "BURROWABLE" ]
+      },
+      { "//": "Flat, adjacent terrains become pits.", "result": "t_pit", "valid_flags": [ "ROAD", "DIGGABLE" ] }
+    ],
+    "furniture": [
+      {
+        "//": "Similar thing to prevent bugs.",
+        "result": "f_null",
+        "valid_flags": [ "MINEABLE", "MOUNTABLE", "BLOCKSDOOR", "TRANSPARENT", "FLAT_SURF" ]
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "flesilisk_destroy",
+    "terrain": [ { "result": "t_dirtmound", "valid_flags": [ "DIGGABLE", "MINEABLE" ] } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "flesilisk_revert",
+    "terrain": [ { "result": "t_dirt", "valid_terrain": [ "t_dirtmound" ] } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "veinhole_open",
+    "terrain": [
+      {
+        "//": "We use a spell to open the closed entrance once the veinhole dies.",
+        "result": "t_secro_flesh_entrance_open",
+        "valid_flags": [ "FF_ENTRANCE" ]
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_trap",
+    "furniture": [ { "result": "f_secro_flesh", "valid_furniture": [ "f_null" ] } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_biohazard_accurate",
+    "furniture": [
+      {
+        "result": [ [ "f_secro_flesh", 20 ], "f_secro_flesh_bones", "f_secro_flesh_tent" ],
+        "valid_furniture": [ "f_secro_flesh" ]
+      },
+      {
+        "result": [ [ "f_secro_flesh_wall_spawning", 40 ], "f_secro_flesh_wall" ],
+        "valid_furniture": [ "f_secro_flesh_wall" ]
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_biohazard",
+    "furniture": [
+      {
+        "result": [ [ "f_secro_flesh", 200 ], "f_secro_flesh_bones", "f_secro_flesh_tent" ],
+        "valid_furniture": [ "f_secro_flesh" ]
+      },
+      {
+        "result": [ [ "f_secro_flesh_wall_spawning", 400 ], "f_secro_flesh_wall" ],
+        "valid_furniture": [ "f_secro_flesh_wall" ]
+      }
+    ]
+  },
+  {
+    "//": "To prevent the abuse of traps and/or to keep some safe area.",
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_biohazard_remove_bone",
+    "furniture": [ { "result": [ [ "f_secro_flesh_bones", 10 ], "f_secro_flesh" ], "valid_furniture": [ "f_secro_flesh_bones" ] } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_biohazard_remove_tent",
+    "furniture": [ { "result": [ [ "f_secro_flesh_tent", 10 ], "f_secro_flesh" ], "valid_furniture": [ "f_secro_flesh_tent" ] } ]
+  },
+  {
+    "//": "The lair will become safe after the flesh's death.",
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_biohazard_dead",
+    "terrain": [
+      {
+        "//": "The exit opens once you beat the flesh.",
+        "result": "t_secro_flesh_inside_up",
+        "valid_terrain": [ "t_secro_flesh_inside_up_close" ]
+      },
+      { "result": "t_secro_flesh_inside_down", "valid_terrain": [ "t_secro_flesh_exit_closed" ] },
+      { "result": "t_secro_flesh", "valid_flags": [ "FF_BIOHAZARD" ] }
+    ],
+    "furniture": [ { "result": "f_null", "valid_flags": [ "FF_BIOHAZARD" ] } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "sflesh_flesh_wall",
+    "terrain": [ { "result": "t_secro_flesh_wall_weak", "valid_flags": [ "S_FLESH" ] } ],
+    "furniture": [ { "result": "f_secro_flesh_wall", "valid_flags": [ "S_FLESH" ] } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "secro_wormonger_destroy",
+    "terrain": [
+      { "result": [ [ "t_dirt", 2 ], "t_dirtmound" ], "valid_flags": [ "FLAT" ] },
+      { "result": [ [ "t_dirt", 5 ], "t_dirtmound" ], "valid_flags": [ "ROAD" ] }
+    ]
+  },
+  {
+    "//": "Flesh spreading alternative for now.",
+    "type": "ter_furn_transform",
+    "id": "flesh_spread",
+    "terrain": [
+      {
+        "result": [ [ "t_secro_dirt_flesh", 5 ], [ "t_secro_grass_flesh", 3 ], "t_secro_grass_long_flesh", [ "t_dirt", 10 ] ],
+        "valid_flags": [ "DIGGABLE" ]
+      },
+      { "result": [ "t_secro_shrub_flesh", [ "t_shrub", 2 ] ], "valid_flags": [ "SHRUB" ] },
+      { "result": [ "t_secro_tree_young_flesh", [ "t_tree_young", 2 ] ], "valid_flags": [ "YOUNG" ] },
+      {
+        "result": [ "t_secro_tree_flesh", [ "t_tree_dead", 2 ] ],
+        "//": "No grabbing trees!",
+        "valid_flags": [ "TREE" ]
+      },
+      {
+        "result": [ [ "t_concrete", 5 ], "t_secro_concrete_flesh" ],
+        "//": "Spreading on non-organic (or any building) terrains are harder (which has a 1/5 flat chance).",
+        "valid_terrain": [ "t_concrete" ]
+      },
+      { "result": [ [ "t_pavement", 5 ], "t_secro_pavement_flesh" ], "valid_terrain": [ "t_pavement" ] },
+      { "result": [ [ "t_pavement_y", 5 ], "t_secro_pavement_y_flesh" ], "valid_terrain": [ "t_pavement_y" ] },
+      { "result": [ [ "t_sidewalk", 5 ], "t_secro_sidewalk_flesh" ], "valid_terrain": [ "t_sidewalk" ] },
+      { "result": [ [ "t_thconc_floor", 5 ], "t_secro_thconc_floor_flesh" ], "valid_terrain": [ "t_thconc_floor" ] },
+      { "result": [ [ "t_flat_roof", 5 ], "t_secro_flat_roof_flesh" ], "valid_terrain": [ "t_flat_roof" ] },
+      { "result": [ [ "t_wall", 5 ], "t_secro_wall_flesh" ], "valid_terrain": [ "t_wall" ] },
+      { "result": [ [ "t_window", 5 ], "t_secro_window_flesh" ], "valid_terrain": [ "t_window" ] },
+      { "result": [ [ "t_window_frame", 5 ], "t_secro_window_frame_flesh" ], "valid_terrain": [ "t_window_frame" ] },
+      { "result": [ [ "t_door_c", 5 ], "t_secro_door_flesh" ], "valid_terrain": [ "t_door_c" ] },
+      { "result": [ [ "t_door_o", 5 ], "t_secro_door_flesh" ], "valid_terrain": [ "t_door_o" ] },
+      { "result": [ [ "t_door_locked", 5 ], "t_secro_door_flesh" ], "valid_terrain": [ "t_door_locked" ] },
+      { "result": [ [ "t_floor", 5 ], "t_secro_floor_flesh" ], "valid_terrain": [ "t_floor" ] },
+      { "result": [ [ "t_rock_floor", 5 ], "t_secro_rock_floor_flesh" ], "valid_terrain": [ "t_rock_floor" ] },
+      { "result": [ [ "t_stairs_down", 5 ], "t_secro_stairs_down_flesh" ], "valid_terrain": [ "t_stairs_down" ] },
+      { "result": [ [ "t_stairs_up", 5 ], "t_secro_stairs_up_flesh" ], "valid_terrain": [ "t_stairs_up" ] },
+      { "result": [ [ "t_wall_w", 5 ], "t_secro_wall_w_flesh" ], "valid_terrain": [ "t_wall_w" ] },
+      { "result": [ [ "t_wall_g", 5 ], "t_secro_wall_g_flesh" ], "valid_terrain": [ "t_wall_g" ] },
+      { "result": [ [ "t_wall_r", 5 ], "t_secro_wall_r_flesh" ], "valid_terrain": [ "t_wall_r" ] },
+      { "result": [ [ "t_wall_b", 5 ], "t_secro_wall_b_flesh" ], "valid_terrain": [ "t_wall_b" ] },
+      { "result": [ [ "t_rock_wall", 5 ], "t_secro_rock_wall_flesh" ], "valid_terrain": [ "t_rock_wall" ] },
+      { "result": [ [ "t_bars", 5 ], "t_secro_bars_flesh" ], "valid_terrain": [ "t_bars" ] },
+      { "result": [ [ "t_wall_glass", 5 ], "t_secro_wall_glass_flesh" ], "valid_terrain": [ "t_wall_glass" ] },
+      { "result": [ [ "t_door_glass_c", 5 ], "t_secro_door_glass_flesh" ], "valid_terrain": [ "t_door_glass_c" ] },
+      { "result": [ [ "t_door_glass_o", 5 ], "t_secro_door_glass_flesh" ], "valid_terrain": [ "t_door_glass_o" ] },
+      { "result": [ [ "t_ladder_up", 5 ], "t_secro_ladder_broken_flesh" ], "valid_terrain": [ "t_ladder_up" ] },
+      {
+        "result": [ [ "t_gutter_downspout", 5 ], "t_secro_gutter_downspout_flesh" ],
+        "valid_terrain": [ "t_gutter_downspout" ]
+      },
+      { "result": [ [ "t_railing", 5 ], "t_secro_railing_flesh" ], "valid_terrain": [ "t_railing" ] },
+      { "result": [ [ "t_door_metal_c", 5 ], "t_secro_door_metal_flesh" ], "valid_terrain": [ "t_door_metal_c" ] },
+      { "result": [ [ "t_door_metal_o", 5 ], "t_secro_door_metal_flesh" ], "valid_terrain": [ "t_door_metal_o" ] },
+      {
+        "result": [ [ "t_door_metal_locked", 5 ], "t_secro_door_metal_locked_flesh" ],
+        "valid_terrain": [ "t_door_metal_locked" ]
+      },
+      { "result": [ [ "t_carpet_red", 5 ], "t_secro_carpet_red_flesh" ], "valid_terrain": [ "t_carpet_red" ] },
+      {
+        "result": [ [ "t_carpet_yellow", 5 ], "t_secro_carpet_yellow_flesh" ],
+        "valid_terrain": [ "t_carpet_yellow" ]
+      },
+      { "result": [ [ "t_carpet_green", 5 ], "t_secro_carpet_green_flesh" ], "valid_terrain": [ "t_carpet_green" ] },
+      {
+        "result": [ [ "t_carpet_purple", 5 ], "t_secro_carpet_purple_flesh" ],
+        "valid_terrain": [ "t_carpet_purple" ]
+      },
+      {
+        "result": [ [ "t_linoleum_white", 5 ], "t_secro_linoleum_white_flesh" ],
+        "valid_terrain": [ "t_linoleum_white" ]
+      },
+      {
+        "result": [ [ "t_linoleum_gray", 5 ], "t_secro_linoleum_gray_flesh" ],
+        "valid_terrain": [ "t_linoleum_gray" ]
+      },
+      { "result": [ [ "t_fence", 5 ], "t_secro_fence_flesh" ], "valid_terrain": [ "t_fence" ] },
+      { "result": [ [ "t_column", 5 ], "t_secro_column_flesh" ], "valid_terrain": [ "t_column" ] },
+      {
+        "result": [ [ "t_console_broken", 5 ], "t_secro_console_broken_flesh" ],
+        "valid_terrain": [ "t_console_broken" ]
+      },
+      { "result": [ [ "t_console", 5 ], "t_secro_console_flesh" ], "valid_terrain": [ "t_console" ] },
+      {
+        "result": [ [ "t_gates_mech_control", 5 ], "t_secro_gates_mech_control_flesh" ],
+        "valid_terrain": [ "t_gates_mech_control" ]
+      },
+      {
+        "result": [ [ "t_gates_control_concrete", 5 ], "t_secro_gates_control_concrete_flesh" ],
+        "valid_terrain": [ "t_gates_control_concrete" ]
+      },
+      { "result": [ [ "t_atm", 5 ], "t_secro_atm_flesh" ], "valid_terrain": [ "t_atm" ] },
+      {
+        "result": [ [ "t_window_stained_green", 5 ], "t_secro_window_stained_green_flesh" ],
+        "valid_terrain": [ "t_window_stained_green" ]
+      },
+      {
+        "result": [ [ "t_window_stained_red", 5 ], "t_secro_window_stained_red_flesh" ],
+        "valid_terrain": [ "t_window_stained_red" ]
+      },
+      {
+        "result": [ [ "t_window_stained_blue", 5 ], "t_secro_window_stained_blue_flesh" ],
+        "valid_terrain": [ "t_window_stained_blue" ]
+      },
+      { "result": [ [ "t_window_bars", 5 ], "t_secro_window_bars_flesh" ], "valid_terrain": [ "t_window_bars" ] },
+      { "result": [ [ "t_chainfence", 5 ], "t_secro_chainfence_flesh" ], "valid_terrain": [ "t_chainfence" ] },
+      { "result": [ [ "t_chaingate_l", 5 ], "t_secro_chaingate_l_flesh" ], "valid_terrain": [ "t_chaingate_l" ] },
+      { "result": [ [ "t_chaingate_c", 5 ], "t_secro_chaingate_c_flesh" ], "valid_terrain": [ "t_chaingate_c" ] },
+      { "result": [ [ "t_chaingate_o", 5 ], "t_secro_chaingate_c_flesh" ], "valid_terrain": [ "t_chaingate_o" ] },
+      { "result": [ [ "t_wall_p", 5 ], "t_secro_wall_p_flesh" ], "valid_terrain": [ "t_wall_p" ] },
+      {
+        "result": [ [ "t_reinforced_door_glass_c", 5 ], "t_secro_reinforced_door_glass_flesh" ],
+        "valid_terrain": [ "t_reinforced_door_glass_c" ]
+      },
+      {
+        "result": [ [ "t_reinforced_door_glass_o", 5 ], "t_secro_reinforced_door_glass_flesh" ],
+        "valid_terrain": [ "t_reinforced_door_glass_o" ]
+      },
+      { "result": [ [ "t_brick_wall", 5 ], "t_secro_brick_wall_flesh" ], "valid_terrain": [ "t_brick_wall" ] }
+    ],
+    "furniture": [
+      { "result": "f_secro_flower_flesh", "valid_flags": [ "FLOWER" ] },
+      { "result": "f_secro_boulder_small_flesh", "valid_furniture": [ "f_boulder_small" ] },
+      { "result": "f_secro_boulder_medium_flesh", "valid_furniture": [ "f_boulder_medium" ] },
+      { "result": "f_secro_boulder_large_flesh", "valid_furniture": [ "f_boulder_large" ] },
+      { "result": [ [ "f_secro_veinstalk", 20 ], "f_null" ], "valid_furniture": [ "f_secro_veinstalk" ] },
+      { "result": [ [ "f_null", 2000 ], "f_secro_veinstalk" ], "valid_furniture": [ "f_null" ] }
+    ]
+  },
+  {
+    "//": "Flesh spreading for buildings. No veinstalks.",
+    "type": "ter_furn_transform",
+    "id": "building_flesh_spread",
+    "terrain": [
+      {
+        "result": [ [ "t_secro_dirt_flesh", 5 ], [ "t_secro_grass_flesh", 3 ], "t_secro_grass_long_flesh", [ "t_dirt", 10 ] ],
+        "valid_flags": [ "DIGGABLE" ]
+      },
+      { "result": [ "t_secro_shrub_flesh", [ "t_shrub", 2 ] ], "valid_flags": [ "SHRUB" ] },
+      { "result": [ "t_secro_tree_young_flesh", [ "t_tree_young", 2 ] ], "valid_flags": [ "YOUNG" ] },
+      {
+        "result": [ "t_secro_tree_flesh", [ "t_tree_dead", 2 ] ],
+        "//": "No grabbing trees!",
+        "valid_flags": [ "TREE" ]
+      },
+      {
+        "result": [ "t_concrete", "t_secro_concrete_flesh" ],
+        "//": "Spreading on non-organic (or any building) terrains are harder (which has a 1/5 flat chance).",
+        "valid_terrain": [ "t_concrete" ]
+      },
+      { "result": [ "t_pavement", "t_secro_pavement_flesh" ], "valid_terrain": [ "t_pavement" ] },
+      { "result": [ "t_pavement_y", "t_secro_pavement_y_flesh" ], "valid_terrain": [ "t_pavement_y" ] },
+      { "result": [ "t_sidewalk", "t_secro_sidewalk_flesh" ], "valid_terrain": [ "t_sidewalk" ] },
+      { "result": [ "t_thconc_floor", "t_secro_thconc_floor_flesh" ], "valid_terrain": [ "t_thconc_floor" ] },
+      { "result": [ "t_flat_roof", "t_secro_flat_roof_flesh" ], "valid_terrain": [ "t_flat_roof" ] },
+      { "result": [ "t_wall", "t_secro_wall_flesh" ], "valid_terrain": [ "t_wall" ] },
+      { "result": [ "t_window", "t_secro_window_flesh" ], "valid_terrain": [ "t_window" ] },
+      { "result": [ "t_window_frame", "t_secro_window_frame_flesh" ], "valid_terrain": [ "t_window_frame" ] },
+      { "result": [ "t_door_c", "t_secro_door_flesh" ], "valid_terrain": [ "t_door_c" ] },
+      { "result": [ "t_door_o", "t_secro_door_flesh" ], "valid_terrain": [ "t_door_o" ] },
+      { "result": [ "t_door_locked", "t_secro_door_flesh" ], "valid_terrain": [ "t_door_locked" ] },
+      { "result": [ "t_floor", "t_secro_floor_flesh" ], "valid_terrain": [ "t_floor" ] },
+      { "result": [ "t_rock_floor", "t_secro_rock_floor_flesh" ], "valid_terrain": [ "t_rock_floor" ] },
+      { "result": [ "t_stairs_down", "t_secro_stairs_down_flesh" ], "valid_terrain": [ "t_stairs_down" ] },
+      { "result": [ "t_stairs_up", "t_secro_stairs_up_flesh" ], "valid_terrain": [ "t_stairs_up" ] },
+      { "result": [ "t_wall_w", "t_secro_wall_w_flesh" ], "valid_terrain": [ "t_wall_w" ] },
+      { "result": [ "t_wall_g", "t_secro_wall_g_flesh" ], "valid_terrain": [ "t_wall_g" ] },
+      { "result": [ "t_wall_r", "t_secro_wall_r_flesh" ], "valid_terrain": [ "t_wall_r" ] },
+      { "result": [ "t_wall_b", "t_secro_wall_b_flesh" ], "valid_terrain": [ "t_wall_b" ] },
+      { "result": [ "t_rock_wall", "t_secro_rock_wall_flesh" ], "valid_terrain": [ "t_rock_wall" ] },
+      { "result": [ "t_bars", "t_secro_bars_flesh" ], "valid_terrain": [ "t_bars" ] },
+      { "result": [ "t_wall_glass", "t_secro_wall_glass_flesh" ], "valid_terrain": [ "t_wall_glass" ] },
+      { "result": [ "t_door_glass_c", "t_secro_door_glass_flesh" ], "valid_terrain": [ "t_door_glass_c" ] },
+      { "result": [ "t_door_glass_o", "t_secro_door_glass_flesh" ], "valid_terrain": [ "t_door_glass_o" ] },
+      { "result": [ "t_ladder_up", "t_secro_ladder_broken_flesh" ], "valid_terrain": [ "t_ladder_up" ] },
+      {
+        "result": [ "t_gutter_downspout", "t_secro_gutter_downspout_flesh" ],
+        "valid_terrain": [ "t_gutter_downspout" ]
+      },
+      { "result": [ "t_railing", "t_secro_railing_flesh" ], "valid_terrain": [ "t_railing" ] },
+      { "result": [ "t_door_metal_c", "t_secro_door_metal_flesh" ], "valid_terrain": [ "t_door_metal_c" ] },
+      { "result": [ "t_door_metal_o", "t_secro_door_metal_flesh" ], "valid_terrain": [ "t_door_metal_o" ] },
+      {
+        "result": [ "t_door_metal_locked", "t_secro_door_metal_locked_flesh" ],
+        "valid_terrain": [ "t_door_metal_locked" ]
+      },
+      { "result": [ "t_carpet_red", "t_secro_carpet_red_flesh" ], "valid_terrain": [ "t_carpet_red" ] },
+      { "result": [ "t_carpet_yellow", "t_secro_carpet_yellow_flesh" ], "valid_terrain": [ "t_carpet_yellow" ] },
+      { "result": [ "t_carpet_green", "t_secro_carpet_green_flesh" ], "valid_terrain": [ "t_carpet_green" ] },
+      { "result": [ "t_carpet_purple", "t_secro_carpet_purple_flesh" ], "valid_terrain": [ "t_carpet_purple" ] },
+      { "result": [ "t_linoleum_white", "t_secro_linoleum_white_flesh" ], "valid_terrain": [ "t_linoleum_white" ] },
+      { "result": [ "t_linoleum_gray", "t_secro_linoleum_gray_flesh" ], "valid_terrain": [ "t_linoleum_gray" ] },
+      { "result": [ "t_fence", "t_secro_fence_flesh" ], "valid_terrain": [ "t_fence" ] },
+      { "result": [ "t_column", "t_secro_column_flesh" ], "valid_terrain": [ "t_column" ] },
+      { "result": [ "t_console_broken", "t_secro_console_broken_flesh" ], "valid_terrain": [ "t_console_broken" ] },
+      { "result": [ "t_console", "t_secro_console_flesh" ], "valid_terrain": [ "t_console" ] },
+      {
+        "result": [ "t_gates_mech_control", "t_secro_gates_mech_control_flesh" ],
+        "valid_terrain": [ "t_gates_mech_control" ]
+      },
+      {
+        "result": [ "t_gates_control_concrete", "t_secro_gates_control_concrete_flesh" ],
+        "valid_terrain": [ "t_gates_control_concrete" ]
+      },
+      { "result": [ "t_atm", "t_secro_atm_flesh" ], "valid_terrain": [ "t_atm" ] },
+      {
+        "result": [ "t_window_stained_green", "t_secro_window_stained_green_flesh" ],
+        "valid_terrain": [ "t_window_stained_green" ]
+      },
+      {
+        "result": [ "t_window_stained_red", "t_secro_window_stained_red_flesh" ],
+        "valid_terrain": [ "t_window_stained_red" ]
+      },
+      {
+        "result": [ "t_window_stained_blue", "t_secro_window_stained_blue_flesh" ],
+        "valid_terrain": [ "t_window_stained_blue" ]
+      },
+      { "result": [ "t_window_bars", "t_secro_window_bars_flesh" ], "valid_terrain": [ "t_window_bars" ] },
+      { "result": [ "t_chainfence", "t_secro_chainfence_flesh" ], "valid_terrain": [ "t_chainfence" ] },
+      { "result": [ "t_chaingate_l", "t_secro_chaingate_l_flesh" ], "valid_terrain": [ "t_chaingate_l" ] },
+      { "result": [ "t_chaingate_c", "t_secro_chaingate_c_flesh" ], "valid_terrain": [ "t_chaingate_c" ] },
+      { "result": [ "t_chaingate_o", "t_secro_chaingate_c_flesh" ], "valid_terrain": [ "t_chaingate_o" ] },
+      { "result": [ "t_wall_p", "t_secro_wall_p_flesh" ], "valid_terrain": [ "t_wall_p" ] },
+      {
+        "result": [ "t_reinforced_door_glass_c", "t_secro_reinforced_door_glass_flesh" ],
+        "valid_terrain": [ "t_reinforced_door_glass_c" ]
+      },
+      {
+        "result": [ "t_reinforced_door_glass_o", "t_secro_reinforced_door_glass_flesh" ],
+        "valid_terrain": [ "t_reinforced_door_glass_o" ]
+      },
+      { "result": [ "t_brick_wall", "t_secro_brick_wall_flesh" ], "valid_terrain": [ "t_brick_wall" ] },
+      {
+        "result": [ "t_reinforced_glass", "t_secro_reinforced_glass_flesh" ],
+        "valid_terrain": [ "t_reinforced_glass" ]
+      },
+      { "result": [ "t_metal_floor", "t_secro_metal_floor_flesh" ], "valid_terrain": [ "t_metal_floor" ] },
+      { "result": [ "t_wall_metal", "t_secro_wall_metal_flesh" ], "valid_terrain": [ "t_wall_metal" ] }
+    ],
+    "furniture": [
+      { "result": "f_secro_flower_flesh", "valid_flags": [ "FLOWER" ] },
+      { "result": "f_secro_boulder_small_flesh", "valid_furniture": [ "f_boulder_small" ] },
+      { "result": "f_secro_boulder_medium_flesh", "valid_furniture": [ "f_boulder_medium" ] },
+      { "result": "f_secro_boulder_large_flesh", "valid_furniture": [ "f_boulder_large" ] }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "fleshknot_spread",
+    "terrain": [
+      { "result": "t_secro_flesh_wall", "valid_flags": [ "WALL", "CONNECT_TO_WALL" ] },
+      { "result": "t_secro_flesh", "valid_flags": [ "ROAD" ] }
+    ]
+  },
+  {
+    "//": "Same conversion as above, but for flesh bases.",
+    "type": "ter_furn_transform",
+    "id": "fv_flesh_spread",
+    "terrain": [
+      {
+        "result": [
+          [ "t_secro_dirt_flesh_camp", 5 ],
+          [ "t_secro_grass_flesh_camp", 3 ],
+          "t_secro_grass_long_flesh_camp",
+          [ "t_dirt", 10 ]
+        ],
+        "valid_flags": [ "DIGGABLE" ]
+      },
+      { "result": [ "t_secro_shrub_flesh_camp", [ "t_shrub", 2 ] ], "valid_flags": [ "SHRUB" ] },
+      { "result": [ "t_secro_tree_young_flesh_camp", [ "t_tree_young", 2 ] ], "valid_flags": [ "YOUNG" ] },
+      {
+        "result": [ "t_secro_tree_flesh_camp", [ "t_tree_dead", 2 ] ],
+        "//": "No grabbing trees!",
+        "valid_flags": [ "TREE" ]
+      },
+      {
+        "result": [ [ "t_concrete", 5 ], "t_secro_concrete_flesh" ],
+        "//": "Spreading on non-organic (or any building) terrains are harder (which has a 1/5 flat chance).",
+        "valid_terrain": [ "t_concrete" ]
+      },
+      { "result": [ [ "t_pavement", 5 ], "t_secro_pavement_flesh" ], "valid_terrain": [ "t_pavement" ] },
+      { "result": [ [ "t_pavement_y", 5 ], "t_secro_pavement_y_flesh" ], "valid_terrain": [ "t_pavement_y" ] },
+      { "result": [ [ "t_sidewalk", 5 ], "t_secro_sidewalk_flesh" ], "valid_terrain": [ "t_sidewalk" ] },
+      { "result": [ [ "t_thconc_floor", 5 ], "t_secro_thconc_floor_flesh" ], "valid_terrain": [ "t_thconc_floor" ] },
+      { "result": [ [ "t_flat_roof", 5 ], "t_secro_flat_roof_flesh" ], "valid_terrain": [ "t_flat_roof" ] },
+      { "result": [ [ "t_wall", 5 ], "t_secro_wall_flesh" ], "valid_terrain": [ "t_wall" ] },
+      { "result": [ [ "t_window", 5 ], "t_secro_window_flesh" ], "valid_terrain": [ "t_window" ] },
+      { "result": [ [ "t_window_frame", 5 ], "t_secro_window_frame_flesh" ], "valid_terrain": [ "t_window_frame" ] },
+      { "result": [ [ "t_door_c", 5 ], "t_secro_door_flesh" ], "valid_terrain": [ "t_door_c" ] },
+      { "result": [ [ "t_door_o", 5 ], "t_secro_door_flesh" ], "valid_terrain": [ "t_door_o" ] },
+      { "result": [ [ "t_door_locked", 5 ], "t_secro_door_flesh" ], "valid_terrain": [ "t_door_locked" ] },
+      { "result": [ [ "t_floor", 5 ], "t_secro_floor_flesh" ], "valid_terrain": [ "t_floor" ] },
+      { "result": [ [ "t_rock_floor", 5 ], "t_secro_rock_floor_flesh" ], "valid_terrain": [ "t_rock_floor" ] },
+      { "result": [ [ "t_stairs_down", 5 ], "t_secro_stairs_down_flesh" ], "valid_terrain": [ "t_stairs_down" ] },
+      { "result": [ [ "t_stairs_up", 5 ], "t_secro_stairs_up_flesh" ], "valid_terrain": [ "t_stairs_up" ] },
+      { "result": [ [ "t_wall_w", 5 ], "t_secro_wall_w_flesh" ], "valid_terrain": [ "t_wall_w" ] },
+      { "result": [ [ "t_wall_g", 5 ], "t_secro_wall_g_flesh" ], "valid_terrain": [ "t_wall_g" ] },
+      { "result": [ [ "t_wall_r", 5 ], "t_secro_wall_r_flesh" ], "valid_terrain": [ "t_wall_r" ] },
+      { "result": [ [ "t_wall_b", 5 ], "t_secro_wall_b_flesh" ], "valid_terrain": [ "t_wall_b" ] },
+      { "result": [ [ "t_rock_wall", 5 ], "t_secro_rock_wall_flesh" ], "valid_terrain": [ "t_rock_wall" ] },
+      { "result": [ [ "t_bars", 5 ], "t_secro_bars_flesh" ], "valid_terrain": [ "t_bars" ] },
+      { "result": [ [ "t_wall_glass", 5 ], "t_secro_wall_glass_flesh" ], "valid_terrain": [ "t_wall_glass" ] },
+      { "result": [ [ "t_door_glass_c", 5 ], "t_secro_door_glass_flesh" ], "valid_terrain": [ "t_door_glass_c" ] },
+      { "result": [ [ "t_door_glass_o", 5 ], "t_secro_door_glass_flesh" ], "valid_terrain": [ "t_door_glass_o" ] },
+      { "result": [ [ "t_ladder_up", 5 ], "t_secro_ladder_broken_flesh" ], "valid_terrain": [ "t_ladder_up" ] },
+      {
+        "result": [ [ "t_gutter_downspout", 5 ], "t_secro_gutter_downspout_flesh" ],
+        "valid_terrain": [ "t_gutter_downspout" ]
+      },
+      { "result": [ [ "t_railing", 5 ], "t_secro_railing_flesh" ], "valid_terrain": [ "t_railing" ] },
+      { "result": [ [ "t_door_metal_c", 5 ], "t_secro_door_metal_flesh" ], "valid_terrain": [ "t_door_metal_c" ] },
+      { "result": [ [ "t_door_metal_o", 5 ], "t_secro_door_metal_flesh" ], "valid_terrain": [ "t_door_metal_o" ] },
+      {
+        "result": [ [ "t_door_metal_locked", 5 ], "t_secro_door_metal_locked_flesh" ],
+        "valid_terrain": [ "t_door_metal_locked" ]
+      },
+      { "result": [ [ "t_carpet_red", 5 ], "t_secro_carpet_red_flesh" ], "valid_terrain": [ "t_carpet_red" ] },
+      {
+        "result": [ [ "t_carpet_yellow", 5 ], "t_secro_carpet_yellow_flesh" ],
+        "valid_terrain": [ "t_carpet_yellow" ]
+      },
+      { "result": [ [ "t_carpet_green", 5 ], "t_secro_carpet_green_flesh" ], "valid_terrain": [ "t_carpet_green" ] },
+      {
+        "result": [ [ "t_carpet_purple", 5 ], "t_secro_carpet_purple_flesh" ],
+        "valid_terrain": [ "t_carpet_purple" ]
+      },
+      {
+        "result": [ [ "t_linoleum_white", 5 ], "t_secro_linoleum_white_flesh" ],
+        "valid_terrain": [ "t_linoleum_white" ]
+      },
+      {
+        "result": [ [ "t_linoleum_gray", 5 ], "t_secro_linoleum_gray_flesh" ],
+        "valid_terrain": [ "t_linoleum_gray" ]
+      },
+      { "result": [ [ "t_fence", 5 ], "t_secro_fence_flesh" ], "valid_terrain": [ "t_fence" ] },
+      { "result": [ [ "t_column", 5 ], "t_secro_column_flesh" ], "valid_terrain": [ "t_column" ] },
+      {
+        "result": [ [ "t_console_broken", 5 ], "t_secro_console_broken_flesh" ],
+        "valid_terrain": [ "t_console_broken" ]
+      },
+      { "result": [ [ "t_console", 5 ], "t_secro_console_flesh" ], "valid_terrain": [ "t_console" ] },
+      {
+        "result": [ [ "t_gates_mech_control", 5 ], "t_secro_gates_mech_control_flesh" ],
+        "valid_terrain": [ "t_gates_mech_control" ]
+      },
+      {
+        "result": [ [ "t_gates_control_concrete", 5 ], "t_secro_gates_control_concrete_flesh" ],
+        "valid_terrain": [ "t_gates_control_concrete" ]
+      },
+      { "result": [ [ "t_atm", 5 ], "t_secro_atm_flesh" ], "valid_terrain": [ "t_atm" ] },
+      {
+        "result": [ [ "t_window_stained_green", 5 ], "t_secro_window_stained_green_flesh" ],
+        "valid_terrain": [ "t_window_stained_green" ]
+      },
+      {
+        "result": [ [ "t_window_stained_red", 5 ], "t_secro_window_stained_red_flesh" ],
+        "valid_terrain": [ "t_window_stained_red" ]
+      },
+      {
+        "result": [ [ "t_window_stained_blue", 5 ], "t_secro_window_stained_blue_flesh" ],
+        "valid_terrain": [ "t_window_stained_blue" ]
+      },
+      { "result": [ [ "t_window_bars", 5 ], "t_secro_window_bars_flesh" ], "valid_terrain": [ "t_window_bars" ] },
+      { "result": [ [ "t_chainfence", 5 ], "t_secro_chainfence_flesh" ], "valid_terrain": [ "t_chainfence" ] },
+      { "result": [ [ "t_chaingate_l", 5 ], "t_secro_chaingate_l_flesh" ], "valid_terrain": [ "t_chaingate_l" ] },
+      { "result": [ [ "t_chaingate_c", 5 ], "t_secro_chaingate_c_flesh" ], "valid_terrain": [ "t_chaingate_c" ] },
+      { "result": [ [ "t_chaingate_o", 5 ], "t_secro_chaingate_c_flesh" ], "valid_terrain": [ "t_chaingate_o" ] },
+      { "result": [ [ "t_wall_p", 5 ], "t_secro_wall_p_flesh" ], "valid_terrain": [ "t_wall_p" ] },
+      {
+        "result": [ [ "t_reinforced_door_glass_c", 5 ], "t_secro_reinforced_door_glass_flesh" ],
+        "valid_terrain": [ "t_reinforced_door_glass_c" ]
+      },
+      {
+        "result": [ [ "t_reinforced_door_glass_o", 5 ], "t_secro_reinforced_door_glass_flesh" ],
+        "valid_terrain": [ "t_reinforced_door_glass_o" ]
+      },
+      { "result": [ [ "t_brick_wall", 5 ], "t_secro_brick_wall_flesh" ], "valid_terrain": [ "t_brick_wall" ] },
+      {
+        "result": [ [ "t_secro_flesh_camp_wall_veins_smoot", 3 ], "t_secro_flesh_camp_wall_veins" ],
+        "valid_terrain": [ "t_secro_flesh_camp_wall_veins_smoot" ]
+      },
+      {
+        "result": [ [ "t_secro_flesh_camp_smoot", 3 ], "t_secro_flesh_camp" ],
+        "valid_terrain": [ "t_secro_flesh_camp_smoot" ]
+      }
+    ],
+    "furniture": [
+      { "result": "f_secro_flower_flesh", "valid_flags": [ "FLOWER" ] },
+      { "result": "f_secro_boulder_small_flesh_camp", "valid_furniture": [ "f_boulder_small" ] },
+      { "result": "f_secro_boulder_medium_flesh_camp", "valid_furniture": [ "f_boulder_medium" ] },
+      { "result": "f_secro_boulder_large_flesh_camp", "valid_furniture": [ "f_boulder_large" ] }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "secro_flesh_traverse",
+    "terrain": [
+      { "result": "t_dirt", "valid_terrain": [ "t_secro_dirt_flesh_camp" ] },
+      { "result": "t_grass", "valid_terrain": [ "t_secro_grass_flesh_camp" ] },
+      { "result": "t_grass_long", "valid_terrain": [ "t_secro_grass_long_flesh_camp" ] },
+      { "result": "t_grass_tall", "valid_terrain": [ "t_secro_grass_tall_flesh_camp" ] },
+      { "result": "t_shrub", "valid_terrain": [ "t_secro_shrub_flesh_camp" ] },
+      { "result": "t_tree_young", "valid_terrain": [ "t_secro_tree_young_flesh_camp" ] },
+      { "result": "t_tree_dead", "valid_terrain": [ "t_secro_tree_flesh_camp" ] },
+      { "result": "t_secro_flesh_camp_smoot", "valid_terrain": [ "t_secro_flesh_camp" ] },
+      { "result": "t_secro_flesh_camp_wall_veins_smoot", "valid_terrain": [ "t_secro_flesh_camp_wall_veins" ] }
+    ],
+    "furniture": [
+      { "result": "f_boulder_small", "valid_furniture": [ "f_secro_boulder_small_flesh_camp" ] },
+      { "result": "f_boulder_medium", "valid_furniture": [ "f_secro_boulder_medium_flesh_camp" ] },
+      { "result": "f_boulder_large", "valid_furniture": [ "f_secro_boulder_large_flesh_camp" ] }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "secro_furn_removal",
+    "furniture": [ { "result": "f_null", "valid_flags": [ "FLOWER", "RUBBLE" ] } ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "secro_furn_build",
+    "furniture": [
+      { "result": "f_secro_flesh_camp_bed", "valid_furniture": [ "f_secro_flesh_camp_bed_mark" ] },
+      { "result": "f_secro_flesh_camp_floorstorage", "valid_furniture": [ "f_secro_flesh_camp_floorstorage_mark" ] },
+      { "result": "f_secro_flesh_camp_storage", "valid_furniture": [ "f_secro_flesh_camp_storage_mark" ] },
+      {
+        "result": "f_secro_flesh_camp_displaystorage",
+        "valid_furniture": [ "f_secro_flesh_camp_displaystorage_mark" ]
+      },
+      { "result": "f_secro_flesh_camp_liquidstorage", "valid_furniture": [ "f_secro_flesh_camp_liquidstorage_mark" ] },
+      { "result": "f_secro_flesh_camp_light", "valid_furniture": [ "f_secro_flesh_camp_light_mark" ] }
+    ]
+  }
+]
