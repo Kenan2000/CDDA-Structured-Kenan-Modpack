@@ -11,7 +11,9 @@
     "faction": "forest_snakes"
   },
   {
-    "id": [ "TALK_bandit_fs_trapper" ],
+    "id": [
+      "TALK_bandit_fs_trapper"
+    ],
     "type": "talk_topic",
     "dynamic_line": {
       "u_has_var": "bandit_camp_unlocked",
@@ -25,8 +27,15 @@
       {
         "text": "Hi.",
         "topic": "TALK_bandit_fs_trapper1",
-        "condition": { "u_has_var": "bandit_camp_unlocked", "type": "flag", "context": "missions_fs", "value": "yes" },
-        "effect": { "npc_first_topic": "TALK_bandit_fs_trapper1" }
+        "condition": {
+          "u_has_var": "bandit_camp_unlocked",
+          "type": "flag",
+          "context": "missions_fs",
+          "value": "yes"
+        },
+        "effect": {
+          "npc_first_topic": "TALK_bandit_fs_trapper1"
+        }
       }
     ]
   },
@@ -42,32 +51,78 @@
     "responses": [
       {
         "text": "About that job\u2026",
-        "condition": { "and": [ "has_assigned_mission", "mission_complete" ] },
+        "condition": {
+          "and": [
+            "has_assigned_mission",
+            "mission_complete"
+          ]
+        },
         "topic": "TALK_MISSION_INQUIRE"
       },
-      { "text": "<BGSS_intro_question>", "topic": "TALK_bandit_fs_trapper_Background" },
+      {
+        "text": "<BGSS_intro_question>",
+        "topic": "TALK_bandit_fs_trapper_Background"
+      },
       {
         "text": "Do you need any help?",
         "trial": {
           "type": "CONDITION",
-          "condition": { "not": { "npc_compare_time_since_var": "hunting", "type": "time", "context": "wait", "op": "<", "time": "7 days" } }
+          "condition": {
+            "not": {
+              "npc_compare_time_since_var": "hunting",
+              "type": "time",
+              "context": "wait",
+              "op": "<",
+              "time": "7 days"
+            }
+          }
         },
-        "success": { "effect": [ { "npc_lose_var": "hunting", "type": "time", "context": "wait" } ], "topic": "TALK_MISSION_LIST" },
-        "failure": { "topic": "TALK_bandit_fs_trapper_busy" }
+        "success": {
+          "effect": [
+            {
+              "npc_lose_var": "hunting",
+              "type": "time",
+              "context": "wait"
+            }
+          ],
+          "topic": "TALK_MISSION_LIST"
+        },
+        "failure": {
+          "topic": "TALK_bandit_fs_trapper_busy"
+        }
       },
       {
         "text": "Let's trade.",
-        "condition": { "npc_has_var": "trade", "type": "flag", "context": "open_trade", "value": "yes" },
+        "condition": {
+          "npc_has_var": "trade",
+          "type": "flag",
+          "context": "open_trade",
+          "value": "yes"
+        },
         "topic": "TALK_bandit_fs_trapper1",
         "effect": "start_trade"
       },
       {
         "text": "What about that reward?",
-        "condition": { "npc_compare_var": "reward", "type": "count", "context": "missions_rewards", "op": ">", "value": 0 },
-        "effect": { "npc_adjust_var": "reward", "type": "count", "context": "missions_rewards", "adjustment": -1 },
+        "condition": {
+          "npc_compare_var": "reward",
+          "type": "count",
+          "context": "missions_rewards",
+          "op": ">",
+          "value": 0
+        },
+        "effect": {
+          "npc_adjust_var": "reward",
+          "type": "count",
+          "context": "missions_rewards",
+          "adjustment": -1
+        },
         "topic": "TALK_bandit_fs_trapper_reward"
       },
-      { "text": "Goodbye.", "topic": "TALK_DONE" }
+      {
+        "text": "Goodbye.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
@@ -77,27 +132,42 @@
     "responses": [
       {
         "text": "Arrows.",
-        "effect": { "u_spawn_item": "arrow_cf", "count": 8 },
+        "effect": {
+          "u_spawn_item": "arrow_cf",
+          "count": 8
+        },
         "topic": "TALK_bandit_fs_trapper_got_reward"
       },
       {
         "text": "Bolts.",
-        "effect": { "u_spawn_item": "bolt_cf", "count": 8 },
+        "effect": {
+          "u_spawn_item": "bolt_cf",
+          "count": 8
+        },
         "topic": "TALK_bandit_fs_trapper_got_reward"
       },
       {
         "text": "Rifle ammo.",
-        "effect": { "u_spawn_item": "270win_jsp", "count": 20 },
+        "effect": {
+          "u_spawn_item": "270win_jsp",
+          "count": 20
+        },
         "topic": "TALK_bandit_fs_trapper_got_reward"
       },
       {
         "text": "Shotgun ammo.",
-        "effect": { "u_spawn_item": "shot_00", "count": 20 },
+        "effect": {
+          "u_spawn_item": "shot_00",
+          "count": 20
+        },
         "topic": "TALK_bandit_fs_trapper_got_reward"
       },
       {
         "text": "Bear traps.",
-        "effect": { "u_spawn_item": "beartrap", "count": 5 },
+        "effect": {
+          "u_spawn_item": "beartrap",
+          "count": 5
+        },
         "topic": "TALK_bandit_fs_trapper_got_reward"
       }
     ]
@@ -120,7 +190,9 @@
   {
     "id": "MISSION_bandit_fs_trapper_1",
     "type": "mission_definition",
-    "name": { "str": "Wild hunting" },
+    "name": {
+      "str": "Wild hunting"
+    },
     "description": "Kill 25 wild animals and report back to Forest Snakes trapper.",
     "goal": "MGOAL_KILL_MONSTER_SPEC",
     "monster_species": "MAMMAL",
@@ -129,11 +201,23 @@
     "value": 5000,
     "end": {
       "effect": [
-        { "npc_add_var": "trade", "type": "flag", "context": "open_trade", "value": "yes" },
-        { "npc_adjust_var": "reward", "type": "count", "context": "missions_rewards", "adjustment": 1 }
+        {
+          "npc_add_var": "trade",
+          "type": "flag",
+          "context": "open_trade",
+          "value": "yes"
+        },
+        {
+          "npc_adjust_var": "reward",
+          "type": "count",
+          "context": "missions_rewards",
+          "adjustment": 1
+        }
       ]
     },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_bandit_fs_trapper_2",
     "dialogue": {
       "describe": "-",
@@ -150,15 +234,28 @@
   {
     "id": "MISSION_bandit_fs_trapper_2",
     "type": "mission_definition",
-    "name": { "str": "\u0417\u0438\u043c\u043d\u0438\u0435 \u0437\u0430\u043f\u0430\u0441\u044b" },
+    "name": {
+      "str": "\u0417\u0438\u043c\u043d\u0438\u0435 \u0437\u0430\u043f\u0430\u0441\u044b"
+    },
     "description": "Deliver 100 chunks of meat to Forest Snakes trapper.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 0,
     "value": 7500,
     "item": "meat",
     "count": 100,
-    "end": { "effect": [ { "npc_adjust_var": "reward", "type": "count", "context": "missions_rewards", "adjustment": 1 } ] },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "end": {
+      "effect": [
+        {
+          "npc_adjust_var": "reward",
+          "type": "count",
+          "context": "missions_rewards",
+          "adjustment": 1
+        }
+      ]
+    },
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_bandit_fs_trapper_3",
     "dialogue": {
       "describe": "-",
@@ -175,25 +272,61 @@
   {
     "id": "MISSION_bandit_fs_trapper_3",
     "type": "mission_definition",
-    "name": { "str": "Shakalaka" },
+    "name": {
+      "str": "Shakalaka"
+    },
     "description": "Track down and kill the legendary Shakalaka.",
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 0,
     "value": 10000,
     "has_generic_rewards": false,
     "start": {
-      "assign_mission_target": { "om_terrain": "cave", "om_special": "Cave", "om_terrain_replace": "forest", "search_range": 150, "min_distance": 50, "random": true },
-      "update_mapgen": { "place_monster": [ { "monster": "mon_bear_mutant_3headed", "name": "Shakalaka", "x": 12, "y": 12, "target": true } ] }
+      "assign_mission_target": {
+        "om_terrain": "cave",
+        "om_special": "Cave",
+        "om_terrain_replace": "forest",
+        "search_range": 150,
+        "min_distance": 50,
+        "random": true
+      },
+      "update_mapgen": {
+        "place_monster": [
+          {
+            "monster": "mon_bear_mutant_3headed",
+            "name": "Shakalaka",
+            "x": 12,
+            "y": 12,
+            "target": true
+          }
+        ]
+      }
     },
     "end": {
       "effect": [
-        { "npc_add_var": "hunting", "type": "time", "context": "wait", "time": true },
-        { "npc_adjust_var": "reward", "type": "count", "context": "missions_rewards", "adjustment": 2 },
-        { "u_spawn_item": "remington700_270" },
-        { "u_spawn_item": "270win_jsp", "count": 30 }
+        {
+          "npc_add_var": "hunting",
+          "type": "time",
+          "context": "wait",
+          "time": true
+        },
+        {
+          "npc_adjust_var": "reward",
+          "type": "count",
+          "context": "missions_rewards",
+          "adjustment": 2
+        },
+        {
+          "u_spawn_item": "remington700_270"
+        },
+        {
+          "u_spawn_item": "270win_jsp",
+          "count": 30
+        }
       ]
     },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_bandit_fs_trapper_4",
     "dialogue": {
       "describe": "-",
@@ -210,23 +343,53 @@
   {
     "id": "MISSION_bandit_fs_trapper_4",
     "type": "mission_definition",
-    "name": { "str": "Rare Beast" },
+    "name": {
+      "str": "Rare Beast"
+    },
     "description": "Track down and kill a rare beast.",
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 0,
     "value": 0,
     "has_generic_rewards": false,
     "start": {
-      "assign_mission_target": { "om_terrain": "cave", "om_special": "Cave", "om_terrain_replace": "forest", "min_distance": 35, "cant_see": true },
-      "update_mapgen": { "place_monster": [ { "group": "GROUP_RARE_BEASTS", "name": "Rare Beast", "x": 12, "y": 12, "target": true } ] }
+      "assign_mission_target": {
+        "om_terrain": "cave",
+        "om_special": "Cave",
+        "om_terrain_replace": "forest",
+        "min_distance": 35,
+        "cant_see": true
+      },
+      "update_mapgen": {
+        "place_monster": [
+          {
+            "group": "GROUP_RARE_BEASTS",
+            "name": "Rare Beast",
+            "x": 12,
+            "y": 12,
+            "target": true
+          }
+        ]
+      }
     },
     "end": {
       "effect": [
-        { "npc_add_var": "hunting", "type": "time", "context": "wait", "time": true },
-        { "npc_adjust_var": "reward", "type": "count", "context": "missions_rewards", "adjustment": 1 }
+        {
+          "npc_add_var": "hunting",
+          "type": "time",
+          "context": "wait",
+          "time": true
+        },
+        {
+          "npc_adjust_var": "reward",
+          "type": "count",
+          "context": "missions_rewards",
+          "adjustment": 1
+        }
       ]
     },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_bandit_fs_trapper_4",
     "dialogue": {
       "describe": "-",

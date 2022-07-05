@@ -2,7 +2,9 @@
   {
     "type": "mapgen",
     "method": "json",
-    "om_terrain": [ "BL9_library" ],
+    "om_terrain": [
+      "BL9_library"
+    ],
     "weight": 1000,
     "object": {
       "fill_ter": "t_floor",
@@ -32,10 +34,38 @@
         "...........#y CC  + t#..",
         "...........###########.."
       ],
-      "palettes": [ "standard_building_palette", "library_palette" ],
-      "nested": { "G": { "chunks": [ "roof_6x6_garden_1" ] } },
-      "terrain": { "G": "t_grass" },
-      "place_monsters": [ { "monster": "GROUP_ZOMBIE", "x": [ 0, 0 ], "y": [ 23, 23 ], "chance": 2, "repeat": [ 2, 3 ] } ]
+      "palettes": [
+        "standard_building_palette",
+        "library_palette"
+      ],
+      "nested": {
+        "G": {
+          "chunks": [
+            "roof_6x6_garden_1"
+          ]
+        }
+      },
+      "terrain": {
+        "G": "t_grass"
+      },
+      "place_monsters": [
+        {
+          "monster": "GROUP_ZOMBIE",
+          "x": [
+            0,
+            0
+          ],
+          "y": [
+            23,
+            23
+          ],
+          "chance": 2,
+          "repeat": [
+            2,
+            3
+          ]
+        }
+      ]
     }
   },
   {
@@ -70,28 +100,82 @@
         "           |.........3  ",
         "           |---------3  "
       ],
-      "palettes": [ "roof_palette" ],
+      "palettes": [
+        "roof_palette"
+      ],
       "nested": {
-        "U": { "chunks": [ "roof_2x2_infrastructure" ] },
-        "R": { "chunks": [ "roof_2x2_infrastructure_1" ] },
-        "Z": { "chunks": [ "roof_2x2_infrastructure_2" ] }
+        "U": {
+          "chunks": [
+            "roof_2x2_infrastructure"
+          ]
+        },
+        "R": {
+          "chunks": [
+            "roof_2x2_infrastructure_1"
+          ]
+        },
+        "Z": {
+          "chunks": [
+            "roof_2x2_infrastructure_2"
+          ]
+        }
       },
       "place_nested": [
         {
           "chunks": [
-            [ "null", 20 ],
-            [ "roof_2x2_utilities_b", 15 ],
-            [ "roof_2x2_utilities_c", 5 ],
-            [ "roof_2x2_utilities_d", 40 ],
-            [ "roof_2x2_utilities", 50 ]
+            [
+              "null",
+              20
+            ],
+            [
+              "roof_2x2_utilities_b",
+              15
+            ],
+            [
+              "roof_2x2_utilities_c",
+              5
+            ],
+            [
+              "roof_2x2_utilities_d",
+              40
+            ],
+            [
+              "roof_2x2_utilities",
+              50
+            ]
           ],
-          "x": [ 5, 15 ],
-          "y": [ 13, 14 ]
+          "x": [
+            5,
+            15
+          ],
+          "y": [
+            13,
+            14
+          ]
         },
         {
-          "chunks": [ [ "null", 20 ], [ "roof_4x4_utility", 40 ], [ "roof_6x6_utility", 20 ] ],
-          "x": [ 4, 10 ],
-          "y": [ 4, 6 ]
+          "chunks": [
+            [
+              "null",
+              20
+            ],
+            [
+              "roof_4x4_utility",
+              40
+            ],
+            [
+              "roof_6x6_utility",
+              20
+            ]
+          ],
+          "x": [
+            4,
+            10
+          ],
+          "y": [
+            4,
+            6
+          ]
         }
       ]
     }
@@ -99,7 +183,9 @@
   {
     "type": "mapgen",
     "method": "json",
-    "om_terrain": [ "BL9_bookstore" ],
+    "om_terrain": [
+      "BL9_bookstore"
+    ],
     "weight": 3000,
     "object": {
       "fill_ter": "t_floor",
@@ -156,26 +242,194 @@
         "q": "f_bluebell",
         "s": "f_sink"
       },
-      "toilets": { "t": {  } },
+      "toilets": {
+        "t": {}
+      },
       "place_items": [
-        { "item": "magazines", "x": [ 3, 20 ], "y": 20, "chance": 80, "repeat": [ 6, 20 ] },
-        { "item": "novels", "x": [ 3, 9 ], "y": [ 16, 17 ], "chance": 90, "repeat": [ 8, 16 ] },
-        { "item": "novels", "x": [ 12, 17 ], "y": [ 16, 17 ], "chance": 90, "repeat": [ 8, 16 ] },
-        { "item": "bookstore_misc", "x": [ 13, 17 ], "y": 8, "chance": 50, "repeat": [ 5, 10 ] },
-        { "item": "homebooks", "x": [ 16, 17 ], "y": [ 11, 12 ], "chance": 90, "repeat": [ 4, 16 ] },
-        { "item": "manuals", "x": 20, "y": [ 8, 17 ], "chance": 60, "repeat": [ 2, 5 ] },
-        { "item": "textbooks", "x": 20, "y": [ 8, 17 ], "chance": 60, "repeat": [ 2, 5 ] },
-        { "item": "coffee_display", "x": 7, "y": [ 7, 12 ], "chance": 50, "repeat": [ 3, 4 ] },
-        { "item": "coffee_fridge", "x": 3, "y": 8, "chance": 50, "repeat": 2 },
-        { "item": "coffee_display", "x": 6, "y": [ 9, 10 ], "chance": 50, "repeat": [ 2, 3 ] },
-        { "item": "coffee_table", "x": 4, "y": 4, "chance": 20 },
-        { "item": "coffee_table", "x": 8, "y": 4, "chance": 20 },
-        { "item": "coffee_table", "x": 9, "y": 8, "chance": 20 },
-        { "item": "coffee_table", "x": 9, "y": 12, "chance": 20 },
-        { "item": "coffee_table", "x": 4, "y": 13, "chance": 20 },
-        { "item": "coffee_table", "x": 8, "y": 13, "chance": 20 }
+        {
+          "item": "magazines",
+          "x": [
+            3,
+            20
+          ],
+          "y": 20,
+          "chance": 80,
+          "repeat": [
+            6,
+            20
+          ]
+        },
+        {
+          "item": "novels",
+          "x": [
+            3,
+            9
+          ],
+          "y": [
+            16,
+            17
+          ],
+          "chance": 90,
+          "repeat": [
+            8,
+            16
+          ]
+        },
+        {
+          "item": "novels",
+          "x": [
+            12,
+            17
+          ],
+          "y": [
+            16,
+            17
+          ],
+          "chance": 90,
+          "repeat": [
+            8,
+            16
+          ]
+        },
+        {
+          "item": "bookstore_misc",
+          "x": [
+            13,
+            17
+          ],
+          "y": 8,
+          "chance": 50,
+          "repeat": [
+            5,
+            10
+          ]
+        },
+        {
+          "item": "homebooks",
+          "x": [
+            16,
+            17
+          ],
+          "y": [
+            11,
+            12
+          ],
+          "chance": 90,
+          "repeat": [
+            4,
+            16
+          ]
+        },
+        {
+          "item": "manuals",
+          "x": 20,
+          "y": [
+            8,
+            17
+          ],
+          "chance": 60,
+          "repeat": [
+            2,
+            5
+          ]
+        },
+        {
+          "item": "textbooks",
+          "x": 20,
+          "y": [
+            8,
+            17
+          ],
+          "chance": 60,
+          "repeat": [
+            2,
+            5
+          ]
+        },
+        {
+          "item": "coffee_display",
+          "x": 7,
+          "y": [
+            7,
+            12
+          ],
+          "chance": 50,
+          "repeat": [
+            3,
+            4
+          ]
+        },
+        {
+          "item": "coffee_fridge",
+          "x": 3,
+          "y": 8,
+          "chance": 50,
+          "repeat": 2
+        },
+        {
+          "item": "coffee_display",
+          "x": 6,
+          "y": [
+            9,
+            10
+          ],
+          "chance": 50,
+          "repeat": [
+            2,
+            3
+          ]
+        },
+        {
+          "item": "coffee_table",
+          "x": 4,
+          "y": 4,
+          "chance": 20
+        },
+        {
+          "item": "coffee_table",
+          "x": 8,
+          "y": 4,
+          "chance": 20
+        },
+        {
+          "item": "coffee_table",
+          "x": 9,
+          "y": 8,
+          "chance": 20
+        },
+        {
+          "item": "coffee_table",
+          "x": 9,
+          "y": 12,
+          "chance": 20
+        },
+        {
+          "item": "coffee_table",
+          "x": 4,
+          "y": 13,
+          "chance": 20
+        },
+        {
+          "item": "coffee_table",
+          "x": 8,
+          "y": 13,
+          "chance": 20
+        }
       ],
-      "place_item": [ { "item": "coffeemaker", "x": 4, "y": 7, "chance": 30 }, { "item": "coffeemaker", "x": 4, "y": 12, "chance": 30 } ]
+      "place_item": [
+        {
+          "item": "coffeemaker",
+          "x": 4,
+          "y": 7,
+          "chance": 30
+        },
+        {
+          "item": "coffeemaker",
+          "x": 4,
+          "y": 12,
+          "chance": 30
+        }
+      ]
     }
   },
   {
@@ -242,20 +496,56 @@
       },
       "items": {
         "P": [
-          { "item": "coffee_condiments", "chance": 20 },
-          { "item": "baked_goods", "chance": 30 },
-          { "item": "coffee_counter", "chance": 20 }
+          {
+            "item": "coffee_condiments",
+            "chance": 20
+          },
+          {
+            "item": "baked_goods",
+            "chance": 30
+          },
+          {
+            "item": "coffee_counter",
+            "chance": 20
+          }
         ],
         "t": [
-          { "item": "coffee_dishes", "chance": 20 },
-          { "item": "coffee_condiments", "chance": 20 },
-          { "item": "coffee_counter", "chance": 20 }
+          {
+            "item": "coffee_dishes",
+            "chance": 20
+          },
+          {
+            "item": "coffee_condiments",
+            "chance": 20
+          },
+          {
+            "item": "coffee_counter",
+            "chance": 20
+          }
         ],
-        "f": [ { "item": "coffee_freezer", "chance": 20 }, { "item": "coffee_counter", "chance": 20 } ],
+        "f": [
+          {
+            "item": "coffee_freezer",
+            "chance": 20
+          },
+          {
+            "item": "coffee_counter",
+            "chance": 20
+          }
+        ],
         "c": [
-          { "item": "coffee_condiments", "chance": 20 },
-          { "item": "baked_goods", "chance": 30 },
-          { "item": "coffee_counter", "chance": 20 }
+          {
+            "item": "coffee_condiments",
+            "chance": 20
+          },
+          {
+            "item": "baked_goods",
+            "chance": 30
+          },
+          {
+            "item": "coffee_counter",
+            "chance": 20
+          }
         ]
       }
     }

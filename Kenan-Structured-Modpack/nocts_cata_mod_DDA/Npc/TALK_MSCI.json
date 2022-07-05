@@ -8,15 +8,34 @@
       "no": "Hey there!  Welcome to the Command Center."
     },
     "responses": [
-      { "text": "What is this place?", "topic": "TALK_MSCI_CC_EXPLAIN" },
-      { "text": "Who are you?", "topic": "TALK_MSCI_I_AM" },
-      { "text": "What are you doing here?", "topic": "TALK_MSCI_ASK_DOING" },
+      {
+        "text": "What is this place?",
+        "topic": "TALK_MSCI_CC_EXPLAIN"
+      },
+      {
+        "text": "Who are you?",
+        "topic": "TALK_MSCI_I_AM"
+      },
+      {
+        "text": "What are you doing here?",
+        "topic": "TALK_MSCI_ASK_DOING"
+      },
       {
         "text": "So now what are you going to do?",
         "condition": {
           "and": [
-            { "npc_has_var": "apophis_dead", "type": "dialogue", "context": "router", "value": "yes" },
-            { "u_has_var": "apophis_dead", "type": "dialogue", "context": "router", "value": "yes" }
+            {
+              "npc_has_var": "apophis_dead",
+              "type": "dialogue",
+              "context": "router",
+              "value": "yes"
+            },
+            {
+              "u_has_var": "apophis_dead",
+              "type": "dialogue",
+              "context": "router",
+              "value": "yes"
+            }
           ]
         },
         "switch": true,
@@ -24,19 +43,31 @@
       },
       {
         "text": "Anything I can help with?",
-        "condition": { "npc_has_var": "apophis_dead", "type": "dialogue", "context": "router", "value": "yes" },
+        "condition": {
+          "npc_has_var": "apophis_dead",
+          "type": "dialogue",
+          "context": "router",
+          "value": "yes"
+        },
         "switch": true,
         "topic": "TALK_MSCI_NOWWHAT_NEW"
       },
       {
         "text": "So, what can I help you with?",
-        "condition": { "u_has_var": "proven_worthy", "type": "dialogue", "context": "router", "value": "yes" },
+        "condition": {
+          "u_has_var": "proven_worthy",
+          "type": "dialogue",
+          "context": "router",
+          "value": "yes"
+        },
         "switch": true,
         "topic": "TALK_MISSION_LIST"
       },
       {
         "text": "Any advice for dealing with a bio-weapon?",
-        "condition": { "u_has_mission": "MISSION_LOOT_BIO_LAB" },
+        "condition": {
+          "u_has_mission": "MISSION_LOOT_BIO_LAB"
+        },
         "switch": true,
         "topic": "TALK_MSCI_TIPS"
       },
@@ -46,22 +77,34 @@
         "default": true,
         "topic": "TALK_MSCI_PROOF"
       },
-      { "text": "Can I stay here?", "topic": "TALK_MSCI_ASK_STAY" },
-      { "text": "Farewell.", "topic": "TALK_DONE" }
+      {
+        "text": "Can I stay here?",
+        "topic": "TALK_MSCI_ASK_STAY"
+      },
+      {
+        "text": "Farewell.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
     "id": "TALK_MSCI_NOWWHAT",
     "type": "talk_topic",
     "//": "This line will now only show up if you've actually turned in the mission, so Router can be fairly certain you haven't somehow beefed it.",
-    "dynamic_line": "Survival, and eventually research.  We'll manage given time.  Keep an eye on Sigma and Lambda while you're at it… talk to them maybe?  I've been busy working on repairs almost constantly, and they're both likely to go stir-crazy if they have nothing to do but sit around all day.  Might help them figure out for themselves what to do.",
+    "dynamic_line": "Survival, and eventually research.  We'll manage given time.  Keep an eye on Sigma and Lambda while you're at it\u2026 talk to them maybe?  I've been busy working on repairs almost constantly, and they're both likely to go stir-crazy if they have nothing to do but sit around all day.  Might help them figure out for themselves what to do.",
     "responses": [
       {
         "text": "We'll see what I can do.",
         "topic": "TALK_MSCI",
         "effect": [
-          { "u_add_effect": "router_suggestion", "duration": "PERMANENT" },
-          { "npc_add_effect": "router_suggestion", "duration": "PERMANENT" }
+          {
+            "u_add_effect": "router_suggestion",
+            "duration": "PERMANENT"
+          },
+          {
+            "npc_add_effect": "router_suggestion",
+            "duration": "PERMANENT"
+          }
         ]
       }
     ]
@@ -76,8 +119,14 @@
         "text": "Oh, okay.",
         "topic": "TALK_MSCI",
         "effect": [
-          { "u_add_effect": "router_suggestion", "duration": "PERMANENT" },
-          { "npc_add_effect": "router_suggestion", "duration": "PERMANENT" }
+          {
+            "u_add_effect": "router_suggestion",
+            "duration": "PERMANENT"
+          },
+          {
+            "npc_add_effect": "router_suggestion",
+            "duration": "PERMANENT"
+          }
         ]
       }
     ]
@@ -94,7 +143,12 @@
       "It's a bit like fighting some of the nastier undead out there, if you get caught in close combat with more than one of them, you're not going to last long.  Be careful too, even with all those bionic malfunctions they might outpace you.",
       "I'm sure they can tell the living apart from the dead, but that doesn't make them any friend of the zombies.  The undead seem to regard them with the same hostility as any other living human."
     ],
-    "responses": [ { "text": "…", "topic": "TALK_MSCI" } ]
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_MSCI"
+      }
+    ]
   },
   {
     "id": "TALK_MSCI_PROOF",
@@ -102,33 +156,52 @@
     "dynamic_line": "There's a lot to deal with, first I'd like for you to go scout out a small lab installation, associated what they called the Bio-Weapon Project.  Recently there was a security breach logged on what's left of the laboratory network, and I have reason to believe that a number of renegade former experiments, what locals have come to label augmented abominations, might be responsible.  I'd like to ask you to investigate.",
     "responses": [
       {
-        "text": "Security breach at a Bio-Weapon lab… that might've been Evelynn actually, not just the creatures that were there.",
+        "text": "Security breach at a Bio-Weapon lab\u2026 that might've been Evelynn actually, not just the creatures that were there.",
         "switch": true,
-        "condition": { "u_has_var": "searching_for_msci", "type": "dialogue", "context": "evelynn", "value": "yes" },
+        "condition": {
+          "u_has_var": "searching_for_msci",
+          "type": "dialogue",
+          "context": "evelynn",
+          "value": "yes"
+        },
         "topic": "TALK_MSCI_PROOF_EVY"
       },
       {
         "text": "Like the place I woke up in?  Some members of the Super Soldier project had been there, then the place came under attack by the renegades you mentioned.",
         "switch": true,
-        "condition": { "u_has_flag": "BIO_WEAPON_SCEN" },
+        "condition": {
+          "u_has_flag": "BIO_WEAPON_SCEN"
+        },
         "topic": "TALK_MSCI_PROOF_SCEN"
       },
       {
         "text": "I found an item like that already, is this what you're talking about?",
         "switch": true,
-        "condition": { "u_has_item": "badge_bio_weapon_evy" },
-        "effect": { "u_sell_item": "badge_bio_weapon_evy" },
+        "condition": {
+          "u_has_item": "badge_bio_weapon_evy"
+        },
+        "effect": {
+          "u_sell_item": "badge_bio_weapon_evy"
+        },
         "topic": "TALK_MSCI_PROOF_ITEM"
       },
       {
         "text": "I'll do it.  What am I looking for?",
         "switch": true,
         "default": true,
-        "effect": { "add_mission": "MISSION_LOOT_BIO_LAB" },
+        "effect": {
+          "add_mission": "MISSION_LOOT_BIO_LAB"
+        },
         "topic": "TALK_MSCI_PROOF_TRY_ACCEPT"
       },
-      { "text": "Er, maybe another time.", "topic": "TALK_MSCI" },
-      { "text": "Maybe another time.  Bye.", "topic": "TALK_DONE" }
+      {
+        "text": "Er, maybe another time.",
+        "topic": "TALK_MSCI"
+      },
+      {
+        "text": "Maybe another time.  Bye.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
@@ -140,7 +213,12 @@
       {
         "text": "We'll see.",
         "topic": "TALK_MSCI",
-        "effect": { "u_add_var": "proven_worthy", "type": "dialogue", "context": "router", "value": "yes" }
+        "effect": {
+          "u_add_var": "proven_worthy",
+          "type": "dialogue",
+          "context": "router",
+          "value": "yes"
+        }
       }
     ]
   },
@@ -156,19 +234,29 @@
       {
         "text": "Alright then.",
         "topic": "TALK_MSCI",
-        "effect": { "u_add_var": "proven_worthy", "type": "dialogue", "context": "router", "value": "yes" }
+        "effect": {
+          "u_add_var": "proven_worthy",
+          "type": "dialogue",
+          "context": "router",
+          "value": "yes"
+        }
       }
     ]
   },
   {
     "id": "TALK_MSCI_PROOF_ITEM",
     "type": "talk_topic",
-    "dynamic_line": "How the hell… well that's good luck on our part I suppose.  You survived whatever was there at least, let me see.  So I was right, the Super Soldier project made it at least past Zero Day.  I hope there were other survivors there.  In any case, come see me when you're ready, there's much to be done.",
+    "dynamic_line": "How the hell\u2026 well that's good luck on our part I suppose.  You survived whatever was there at least, let me see.  So I was right, the Super Soldier project made it at least past Zero Day.  I hope there were other survivors there.  In any case, come see me when you're ready, there's much to be done.",
     "responses": [
       {
         "text": "We'll see.",
         "topic": "TALK_MSCI",
-        "effect": { "u_add_var": "proven_worthy", "type": "dialogue", "context": "router", "value": "yes" }
+        "effect": {
+          "u_add_var": "proven_worthy",
+          "type": "dialogue",
+          "context": "router",
+          "value": "yes"
+        }
       }
     ]
   },
@@ -177,9 +265,18 @@
     "type": "talk_topic",
     "dynamic_line": "Someone was logged by security having used an RFID access badge.  It looks similar to the silver bio-weapon badges the creatures wear.  If you find any survivors then talk to them, otherwise bring the access badge back with you.  I'll mark the location on your map, but be careful.  Those things might be present, and they're not easy to take down.  If things get too hectic, break contact and try not to get in over your head.",
     "responses": [
-      { "text": "Not a problem.", "topic": "TALK_MSCI" },
-      { "text": "Got any advice?", "topic": "TALK_MSCI_PROOF_TRY_ADVICE" },
-      { "text": "I'll be back soon!", "topic": "TALK_DONE" }
+      {
+        "text": "Not a problem.",
+        "topic": "TALK_MSCI"
+      },
+      {
+        "text": "Got any advice?",
+        "topic": "TALK_MSCI_PROOF_TRY_ADVICE"
+      },
+      {
+        "text": "I'll be back soon!",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
@@ -187,8 +284,14 @@
     "type": "talk_topic",
     "dynamic_line": "If whoever opened that place up is non-hostile, they might be looking for us, and we could use all the help we can get.  Be ready for anything though, there might be augmented abominations or undead present.  I feel bad enough sending you off on a mission like this as it is, but we'll need people who can handle far bigger threats.  So please, don't get yourself killed.",
     "responses": [
-      { "text": "Alright, before I go though…", "topic": "TALK_MSCI" },
-      { "text": "I'll be back soon then.", "topic": "TALK_DONE" }
+      {
+        "text": "Alright, before I go though\u2026",
+        "topic": "TALK_MSCI"
+      },
+      {
+        "text": "I'll be back soon then.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
@@ -196,21 +299,37 @@
     "type": "talk_topic",
     "dynamic_line": "This a refuge for the former scientists of the Bio-Weapon Project.  We settled here in the woods and tried to make a living.  We allow people to stay here, as long as they contribute something.  We even managed to find a couple of stray Bio-Weapons!",
     "responses": [
-      { "text": "Seems like you got it good here.", "topic": "TALK_MSCI" },
-      { "text": "Who are these Bio-Weapons here?", "topic": "TALK_MSCI_BIO_WHO" }
+      {
+        "text": "Seems like you got it good here.",
+        "topic": "TALK_MSCI"
+      },
+      {
+        "text": "Who are these Bio-Weapons here?",
+        "topic": "TALK_MSCI_BIO_WHO"
+      }
     ]
   },
   {
     "id": "TALK_MSCI_BIO_WHO",
     "type": "talk_topic",
-    "dynamic_line": "That would be Sigma and Lambda.  They are very confused.  They awoke with their memory gone and only knew they were 'different'.  I found them and they helped to scavenge and build this place.  They were built for combat, I can tell they're bored out of their minds…",
-    "responses": [ { "text": "I'll keep on eye out for them.", "topic": "TALK_MSCI" } ]
+    "dynamic_line": "That would be Sigma and Lambda.  They are very confused.  They awoke with their memory gone and only knew they were 'different'.  I found them and they helped to scavenge and build this place.  They were built for combat, I can tell they're bored out of their minds\u2026",
+    "responses": [
+      {
+        "text": "I'll keep on eye out for them.",
+        "topic": "TALK_MSCI"
+      }
+    ]
   },
   {
     "id": "TALK_MSCI_I_AM",
     "type": "talk_topic",
     "dynamic_line": "I am the leader of this place.  I go by Router.  Before the cataclysm I used to be the second lead scientist in the Bio-Weapon Project.  I designed Sigma and Lambda and saw them being stored away.  I now dedicate myself to upgrading this place, basic survival and finding more info on the project I worked on.",
-    "responses": [ { "text": "Seems like you've got a lot on your plate.", "topic": "TALK_MSCI" } ]
+    "responses": [
+      {
+        "text": "Seems like you've got a lot on your plate.",
+        "topic": "TALK_MSCI"
+      }
+    ]
   },
   {
     "id": "TALK_MSCI_ASK_DOING",
@@ -218,14 +337,21 @@
     "//": "Infinitely more idiotproof than the last way I had it rigged, but still has its flaws.",
     "dynamic_line": {
       "npc_has_effect": "router_suggest",
-      "yes": "Well, the main reason we were hiding here was Apophis…  It was a Bio-Weapon specifically designed to eliminate every other Bio-Weapon and Bio-Weapon scientist.  Now we can try to get things fixed up eventually, and work on research that might benefit others out there.",
-      "no": "Well, the main reason we are hiding here is Apophis…  It is a Bio-Weapon specifically designed to eliminate every other Bio-Weapon and Bio-Weapon scientist.  Currently we don't have anything that could stand a decent chance against it, so we're trying to create our own Bio-Weapon to counter Apophis. Sigma and Lambda have expressed interest in going after it, but they won't be able to take it out on their own."
+      "yes": "Well, the main reason we were hiding here was Apophis\u2026  It was a Bio-Weapon specifically designed to eliminate every other Bio-Weapon and Bio-Weapon scientist.  Now we can try to get things fixed up eventually, and work on research that might benefit others out there.",
+      "no": "Well, the main reason we are hiding here is Apophis\u2026  It is a Bio-Weapon specifically designed to eliminate every other Bio-Weapon and Bio-Weapon scientist.  Currently we don't have anything that could stand a decent chance against it, so we're trying to create our own Bio-Weapon to counter Apophis. Sigma and Lambda have expressed interest in going after it, but they won't be able to take it out on their own."
     },
     "responses": [
-      { "text": "Oh, good luck, I suppose.", "topic": "TALK_MSCI" },
+      {
+        "text": "Oh, good luck, I suppose.",
+        "topic": "TALK_MSCI"
+      },
       {
         "text": "What exactly is Apophis and is it really that dangerous?",
-        "condition": { "not": { "npc_has_effect": "router_suggestion" } },
+        "condition": {
+          "not": {
+            "npc_has_effect": "router_suggestion"
+          }
+        },
         "topic": "TALK_MSCI_APOPHIS"
       }
     ]
@@ -242,19 +368,37 @@
       {
         "text": "I'm one of the originals it seems.  It's going to come after me anyway, so why not fight it?",
         "topic": "TALK_MSCI_APOPHIS_ORIGINAL",
-        "condition": { "u_has_any_trait": [ "BIO_WEAPON_ALPHA", "BIO_WEAPON_BETA", "BIO_WEAPON_GAMMA", "BIO_WEAPON_DELTA" ] }
+        "condition": {
+          "u_has_any_trait": [
+            "BIO_WEAPON_ALPHA",
+            "BIO_WEAPON_BETA",
+            "BIO_WEAPON_GAMMA",
+            "BIO_WEAPON_DELTA"
+          ]
+        }
       },
       {
         "text": "I'm not one of those monsters.  There has to be something I can do.",
         "topic": "TALK_MSCI_APOPHIS_FAILED",
-        "condition": { "u_has_any_trait": [ "BIO_WEAPON_FAILED" ] }
+        "condition": {
+          "u_has_any_trait": [
+            "BIO_WEAPON_FAILED"
+          ]
+        }
       },
       {
         "text": "Dealing with this mess is what I was created for.",
         "topic": "TALK_MSCI_APOPHIS_SOLDIER",
-        "condition": { "u_has_any_trait": [ "SUPER_SOLDIER_MARKER" ] }
+        "condition": {
+          "u_has_any_trait": [
+            "SUPER_SOLDIER_MARKER"
+          ]
+        }
       },
-      { "text": "…", "topic": "TALK_MSCI" }
+      {
+        "text": "\u2026",
+        "topic": "TALK_MSCI"
+      }
     ]
   },
   {
@@ -265,7 +409,12 @@
       "yes": "That you may be, but while you've been stuck in stasis, the other research teams had been poring over every last scrap of data they could get out of your production.  Even if it was two steps forward, one step back, Apophis is the culmination of all that research.  I know you might be eager to fight, but we need to prepare ourselves.",
       "no": "Maybe I was wrong about judging you based on your lack of a badge.  If you are who you claim to be, then know this.  Apophis is the culmination of all the research that came from your creation.  I know you might be eager to fight, but we need to be ready."
     },
-    "responses": [ { "text": "…", "topic": "TALK_MSCI" } ]
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_MSCI"
+      }
+    ]
   },
   {
     "id": "TALK_MSCI_APOPHIS_FAILED",
@@ -275,18 +424,33 @@
       "yes": "I know you're eager to prove yourself, but that doesn't require throwing your life away.  That thing is tailor-made to kill Bio-Weapons and anyone else that gets in his way.  You don't have to prove yourself just because others have joined him.  I know I can trust you.",
       "no": "Huh.  Maybe that's why you're not wearing the badge.  I think I can trust you.  I wish the others had been given the same chance you have now, and that Apophis hadn't gotten to them first.  But if you take him on unprepared, you'll just be throwing your life away needlessly."
     },
-    "responses": [ { "text": "…", "topic": "TALK_MSCI" } ]
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_MSCI"
+      }
+    ]
   },
   {
     "id": "TALK_MSCI_APOPHIS_SOLDIER",
     "type": "talk_topic",
     "dynamic_line": "And that thing was created to kill you, the original Bio-Weapons, and anything else that gets in the way.  That's why it got the designation Apophis, pretty much opened ourselves up for that when we went with Project Mesektet for the codename.",
-    "responses": [ { "text": "…", "topic": "TALK_MSCI" } ]
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_MSCI"
+      }
+    ]
   },
   {
     "id": "TALK_MSCI_ASK_STAY",
     "type": "talk_topic",
     "dynamic_line": "Sure, just clean up after yourself and try to not piss anyone off.  Help is appreciated, if you have the time.",
-    "responses": [ { "text": "Thanks.", "topic": "TALK_MSCI" } ]
+    "responses": [
+      {
+        "text": "Thanks.",
+        "topic": "TALK_MSCI"
+      }
+    ]
   }
 ]

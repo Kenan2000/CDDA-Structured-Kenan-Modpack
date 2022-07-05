@@ -2,57 +2,153 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_tendrils_sprint_check",
-    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 11 } ] },
+    "condition": {
+      "compare_int": [
+        {
+          "distance": [
+            "u",
+            "npc"
+          ]
+        },
+        ">=",
+        {
+          "const": 11
+        }
+      ]
+    },
     "effect": [
-      { "npc_add_effect": "secro_tendril_sprint", "duration": "14 seconds" },
-      { "u_message": "The tendril zombie's movement became erratic!", "type": "bad" }
+      {
+        "npc_add_effect": "secro_tendril_sprint",
+        "duration": "14 seconds"
+      },
+      {
+        "u_message": "The tendril zombie's movement became erratic!",
+        "type": "bad"
+      }
     ],
     "false_effect": [
-      { "npc_add_effect": "secro_tendril_sprint", "duration": "5 seconds" },
-      { "u_message": "The tendril zombie's movement became erratic!", "type": "bad" }
+      {
+        "npc_add_effect": "secro_tendril_sprint",
+        "duration": "5 seconds"
+      },
+      {
+        "u_message": "The tendril zombie's movement became erratic!",
+        "type": "bad"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_bootlegsmoker_snatch_check",
-    "condition": { "compare_int": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
-    "effect": [ { "u_message": "You resist the snatcher zombie's tongue!", "type": "good" } ],
+    "condition": {
+      "compare_int": [
+        {
+          "u_val": "strength"
+        },
+        ">=",
+        {
+          "const": 10
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_message": "You resist the snatcher zombie's tongue!",
+        "type": "good"
+      }
+    ],
     "false_effect": [
-      { "u_add_effect": "stunned", "duration": "2 seconds" },
-      { "u_add_effect": "eff_snatcher_snatch", "duration": "7 seconds" },
-      { "u_message": "The snatcher zombie constricted you!", "type": "bad" }
+      {
+        "u_add_effect": "stunned",
+        "duration": "2 seconds"
+      },
+      {
+        "u_add_effect": "eff_snatcher_snatch",
+        "duration": "7 seconds"
+      },
+      {
+        "u_message": "The snatcher zombie constricted you!",
+        "type": "bad"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_unify_bv_check",
-    "effect": [ { "npc_spawn_monster": "mon_zombie_bloodvessel", "real_count": 1, "min_radius": 1, "max_radius": 2 } ]
+    "effect": [
+      {
+        "npc_spawn_monster": "mon_zombie_bloodvessel",
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 2
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_unity_bv_check",
-    "effect": [ { "npc_spawn_monster": "mon_zombie_bloodvessel", "real_count": 2, "min_radius": 1, "max_radius": 2 } ]
+    "effect": [
+      {
+        "npc_spawn_monster": "mon_zombie_bloodvessel",
+        "real_count": 2,
+        "min_radius": 1,
+        "max_radius": 2
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_hemo_bf_check",
-    "effect": [ { "npc_spawn_monster": "mon_zombie_bloodfiend", "real_count": 1, "min_radius": 1, "max_radius": 2 } ]
+    "effect": [
+      {
+        "npc_spawn_monster": "mon_zombie_bloodfiend",
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 2
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_hemo_bcurl_check",
-    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 4 } ] },
+    "condition": {
+      "compare_int": [
+        {
+          "distance": [
+            "u",
+            "npc"
+          ]
+        },
+        "<=",
+        {
+          "const": 4
+        }
+      ]
+    },
     "effect": [
-      { "u_message": "Blood accumulates around you!", "type": "bad" },
-      { "u_add_effect": "unity_bloodslow", "duration": "25 seconds" }
+      {
+        "u_message": "Blood accumulates around you!",
+        "type": "bad"
+      },
+      {
+        "u_add_effect": "unity_bloodslow",
+        "duration": "25 seconds"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_leptiosa_ngas_check",
     "effect": [
-      { "npc_add_effect": "controlled", "duration": "8 seconds" },
-      { "npc_location_variable": { "global_val": "secro_leptiosa_noxiousgas" } },
+      {
+        "npc_add_effect": "controlled",
+        "duration": "8 seconds"
+      },
+      {
+        "npc_location_variable": {
+          "global_val": "secro_leptiosa_noxiousgas"
+        }
+      },
       {
         "queue_eocs": [
           {
@@ -60,30 +156,45 @@
             "effect": [
               {
                 "u_set_field": "fd_secro_lepotiosa_ngas",
-                "target_var": { "global_val": "secro_leptiosa_noxiousgas" },
+                "target_var": {
+                  "global_val": "secro_leptiosa_noxiousgas"
+                },
                 "radius": 3,
                 "intensity": 3
               }
             ]
           }
         ],
-        "time_in_future": [ "6 seconds", "6 seconds" ]
+        "time_in_future": [
+          "6 seconds",
+          "6 seconds"
+        ]
       }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_tentawraith_summon_check",
-    "condition": { "not": { "one_in_chance": 3 } },
+    "condition": {
+      "not": {
+        "one_in_chance": 3
+      }
+    },
     "effect": [
-      { "u_message": "A tentacle bursts out of the ground!", "type": "bad" },
+      {
+        "u_message": "A tentacle bursts out of the ground!",
+        "type": "bad"
+      },
       {
         "u_spawn_monster": "mon_zombie_tentawraith_tent",
         "real_count": 1,
         "min_radius": 1,
         "max_radius": 3,
         "outdoor_only": true,
-        "lifespan": [ "20 seconds", "40 seconds" ]
+        "lifespan": [
+          "20 seconds",
+          "40 seconds"
+        ]
       }
     ]
   },
@@ -92,50 +203,149 @@
     "id": "eoc_secro_mon_zombie_tentawraith_tentgrasp_check",
     "condition": {
       "and": [
-        { "compare_int": [ { "u_val": "skill_level", "skill": "dodge" }, ">=", { "const": 4 } ] },
-        { "compare_int": [ { "u_val": "dexterity" }, ">=", { "const": 8 } ] }
+        {
+          "compare_int": [
+            {
+              "u_val": "skill_level",
+              "skill": "dodge"
+            },
+            ">=",
+            {
+              "const": 4
+            }
+          ]
+        },
+        {
+          "compare_int": [
+            {
+              "u_val": "dexterity"
+            },
+            ">=",
+            {
+              "const": 8
+            }
+          ]
+        }
       ]
     },
-    "effect": [ { "u_message": "A barrage of tentacles tried to grasp at you, but you dodge!", "type": "good" } ],
+    "effect": [
+      {
+        "u_message": "A barrage of tentacles tried to grasp at you, but you dodge!",
+        "type": "good"
+      }
+    ],
     "false_effect": [
-      { "u_message": "A barrage of tentacles grasps at you!", "type": "bad" },
-      { "u_add_effect": "stunned", "duration": "3 seconds" }
+      {
+        "u_message": "A barrage of tentacles grasps at you!",
+        "type": "bad"
+      },
+      {
+        "u_add_effect": "stunned",
+        "duration": "3 seconds"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_akin_sattach_check",
     "//": "Can't check resistance values of target so use armor flag instead.",
-    "condition": { "and": [ { "u_has_worn_with_flag": "STURDY" }, { "not": { "one_in_chance": 4 } } ] },
+    "condition": {
+      "and": [
+        {
+          "u_has_worn_with_flag": "STURDY"
+        },
+        {
+          "not": {
+            "one_in_chance": 4
+          }
+        }
+      ]
+    },
     "effect": [
-      { "u_message": "The akin's tendrils failed to impale you.", "type": "good" },
+      {
+        "u_message": "The akin's tendrils failed to impale you.",
+        "type": "good"
+      },
       {
         "run_eocs": [
           {
             "id": "eoc_secro_mon_zombie_akin_constrict_check1",
-            "condition": { "compare_int": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
-            "effect": [ { "u_message": "You resist the visceral tendril's constriction.", "type": "good" } ],
+            "condition": {
+              "compare_int": [
+                {
+                  "u_val": "strength"
+                },
+                ">=",
+                {
+                  "const": 10
+                }
+              ]
+            },
+            "effect": [
+              {
+                "u_message": "You resist the visceral tendril's constriction.",
+                "type": "good"
+              }
+            ],
             "false_effect": [
-              { "u_message": "You've been constricted by the tendrils!", "type": "bad" },
-              { "u_add_effect": "secro_akin_constrict", "duration": "30 seconds" }
+              {
+                "u_message": "You've been constricted by the tendrils!",
+                "type": "bad"
+              },
+              {
+                "u_add_effect": "secro_akin_constrict",
+                "duration": "30 seconds"
+              }
             ]
           }
         ]
       }
     ],
     "false_effect": [
-      { "u_message": "The akin impaled you!", "type": "bad" },
-      { "u_add_effect": "secro_akin_siphon_foe", "duration": "30 seconds" },
-      { "npc_cast_spell": { "id": "mon_zombie_akin_lsattach_ally", "hit_self": true } },
+      {
+        "u_message": "The akin impaled you!",
+        "type": "bad"
+      },
+      {
+        "u_add_effect": "secro_akin_siphon_foe",
+        "duration": "30 seconds"
+      },
+      {
+        "npc_cast_spell": {
+          "id": "mon_zombie_akin_lsattach_ally",
+          "hit_self": true
+        }
+      },
       {
         "run_eocs": [
           {
             "id": "eoc_secro_mon_zombie_akin_constrict_check2",
-            "condition": { "compare_int": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
-            "effect": [ { "u_message": "You resist the visceral tendril's constriction.", "type": "good" } ],
+            "condition": {
+              "compare_int": [
+                {
+                  "u_val": "strength"
+                },
+                ">=",
+                {
+                  "const": 10
+                }
+              ]
+            },
+            "effect": [
+              {
+                "u_message": "You resist the visceral tendril's constriction.",
+                "type": "good"
+              }
+            ],
             "false_effect": [
-              { "u_message": "You've been constricted by the tendrils!", "type": "bad" },
-              { "u_add_effect": "secro_akin_constrict", "duration": "30 seconds" }
+              {
+                "u_message": "You've been constricted by the tendrils!",
+                "type": "bad"
+              },
+              {
+                "u_add_effect": "secro_akin_constrict",
+                "duration": "30 seconds"
+              }
             ]
           }
         ]
@@ -146,7 +356,10 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_gorepit_spawnmore_check",
     "effect": [
-      { "u_message": "The ground trembles underneath you!", "type": "bad" },
+      {
+        "u_message": "The ground trembles underneath you!",
+        "type": "bad"
+      },
       {
         "u_spawn_monster": "mon_zombie_gorepit_tent",
         "real_count": 2,
@@ -161,16 +374,26 @@
         "max_radius": 3,
         "outdoor_only": true
       },
-      { "u_location_variable": { "global_val": "secro_gorepit_spawn" } },
+      {
+        "u_location_variable": {
+          "global_val": "secro_gorepit_spawn"
+        }
+      },
       {
         "queue_eocs": [
           {
             "id": "eoc_secro_mon_zombie_gorepit_spawnfurther_check",
-            "condition": { "not": { "u_has_effect": "eff_zombie_gorepit_spawnmore_stop" } },
+            "condition": {
+              "not": {
+                "u_has_effect": "eff_zombie_gorepit_spawnmore_stop"
+              }
+            },
             "effect": [
               {
                 "u_spawn_monster": "mon_zombie_gorepit_tent",
-                "target_var": { "global_val": "secro_gorepit_spawn" },
+                "target_var": {
+                  "global_val": "secro_gorepit_spawn"
+                },
                 "real_count": 1,
                 "min_radius": 2,
                 "max_radius": 4,
@@ -179,16 +402,31 @@
             ]
           }
         ],
-        "time_in_future": [ "6 seconds", "12 seconds" ]
+        "time_in_future": [
+          "6 seconds",
+          "12 seconds"
+        ]
       }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_gorepit_spawnmorer_check",
-    "condition": { "or": [ { "one_in_chance": 2 }, { "npc_has_effect": "secro_gorepit_absorb" } ] },
+    "condition": {
+      "or": [
+        {
+          "one_in_chance": 2
+        },
+        {
+          "npc_has_effect": "secro_gorepit_absorb"
+        }
+      ]
+    },
     "effect": [
-      { "u_message": "The ground trembles underneath you!", "type": "bad" },
+      {
+        "u_message": "The ground trembles underneath you!",
+        "type": "bad"
+      },
       {
         "u_spawn_monster": "mon_zombie_gorepit_tent",
         "real_count": 1,
@@ -200,11 +438,17 @@
         "queue_eocs": [
           {
             "id": "eoc_secro_mon_zombie_gorepit_spawnfurthermore_check",
-            "condition": { "not": { "u_has_effect": "eff_zombie_gorepit_spawnmore_stop" } },
+            "condition": {
+              "not": {
+                "u_has_effect": "eff_zombie_gorepit_spawnmore_stop"
+              }
+            },
             "effect": [
               {
                 "u_spawn_monster": "mon_zombie_gorepit_tent",
-                "target_var": { "global_val": "secro_gorepit_spawn" },
+                "target_var": {
+                  "global_val": "secro_gorepit_spawn"
+                },
                 "real_count": 1,
                 "min_radius": 2,
                 "max_radius": 4,
@@ -213,7 +457,10 @@
             ]
           }
         ],
-        "time_in_future": [ "9 seconds", "12 seconds" ]
+        "time_in_future": [
+          "9 seconds",
+          "12 seconds"
+        ]
       }
     ]
   },
@@ -221,15 +468,36 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_gorepit_tent_massive_check",
     "condition": {
-      "and": [ { "npc_has_effect": "secro_gorepit_absorb" }, { "not": { "npc_has_effect": "eff_zombie_gorepit_tent_massive_cd" } } ]
+      "and": [
+        {
+          "npc_has_effect": "secro_gorepit_absorb"
+        },
+        {
+          "not": {
+            "npc_has_effect": "eff_zombie_gorepit_tent_massive_cd"
+          }
+        }
+      ]
     },
     "effect": [
       {
         "u_message": "A massive tendril emerges from the gorepit, swaying erractically around its vicinity!",
         "type": "mixed"
       },
-      { "npc_cast_spell": { "id": "mon_zombie_gorepit_rage", "hit_self": true, "npc_message": "" } },
-      { "npc_cast_spell": { "id": "mon_zombie_gorepit_rage", "hit_self": true, "npc_message": "" } },
+      {
+        "npc_cast_spell": {
+          "id": "mon_zombie_gorepit_rage",
+          "hit_self": true,
+          "npc_message": ""
+        }
+      },
+      {
+        "npc_cast_spell": {
+          "id": "mon_zombie_gorepit_rage",
+          "hit_self": true,
+          "npc_message": ""
+        }
+      },
       {
         "npc_spawn_monster": "mon_zombie_gorepit_tent_massive",
         "real_count": 1,
@@ -237,15 +505,25 @@
         "max_radius": 2,
         "outdoor_only": false
       },
-      { "npc_add_effect": "eff_zombie_gorepit_tent_massive_cd", "duration": "3 minutes" },
-      { "u_add_effect": "eff_zombie_gorepit_spawnmore_rage", "duration": "30 seconds" }
+      {
+        "npc_add_effect": "eff_zombie_gorepit_tent_massive_cd",
+        "duration": "3 minutes"
+      },
+      {
+        "u_add_effect": "eff_zombie_gorepit_spawnmore_rage",
+        "duration": "30 seconds"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_equinox_summon_check",
     "effect": [
-      { "npc_location_variable": { "global_val": "secro_equinox_spawn" } },
+      {
+        "npc_location_variable": {
+          "global_val": "secro_equinox_spawn"
+        }
+      },
       {
         "weighted_list_eocs": [
           [
@@ -254,14 +532,18 @@
               "effect": [
                 {
                   "u_spawn_monster": "mon_zombie_equinox_necros",
-                  "target_var": { "global_val": "secro_equinox_spawn" },
+                  "target_var": {
+                    "global_val": "secro_equinox_spawn"
+                  },
                   "real_count": 1,
                   "min_radius": 1,
                   "max_radius": 2
                 }
               ]
             },
-            { "const": 5 }
+            {
+              "const": 5
+            }
           ],
           [
             {
@@ -269,14 +551,18 @@
               "effect": [
                 {
                   "u_spawn_monster": "mon_zombie_equinox_necros_stab",
-                  "target_var": { "global_val": "secro_equinox_spawn" },
+                  "target_var": {
+                    "global_val": "secro_equinox_spawn"
+                  },
                   "real_count": 1,
                   "min_radius": 1,
                   "max_radius": 2
                 }
               ]
             },
-            { "const": 2 }
+            {
+              "const": 2
+            }
           ],
           [
             {
@@ -284,14 +570,18 @@
               "effect": [
                 {
                   "u_spawn_monster": "mon_zombie_equinox_necros_cut",
-                  "target_var": { "global_val": "secro_equinox_spawn" },
+                  "target_var": {
+                    "global_val": "secro_equinox_spawn"
+                  },
                   "real_count": 1,
                   "min_radius": 1,
                   "max_radius": 2
                 }
               ]
             },
-            { "const": 2 }
+            {
+              "const": 2
+            }
           ],
           [
             {
@@ -299,14 +589,18 @@
               "effect": [
                 {
                   "u_spawn_monster": "mon_zombie_equinox_necros_emit",
-                  "target_var": { "global_val": "secro_equinox_spawn" },
+                  "target_var": {
+                    "global_val": "secro_equinox_spawn"
+                  },
                   "real_count": 1,
                   "min_radius": 1,
                   "max_radius": 2
                 }
               ]
             },
-            { "const": 1 }
+            {
+              "const": 1
+            }
           ]
         ]
       }
@@ -316,11 +610,30 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_fleshysnaky_devastate_check",
     "effect": [
-      { "u_message": "You were caught at its impact!", "type": "bad" },
-      { "u_cast_spell": { "id": "mon_zombie_fleshysnaky_devastate", "hit_self": true } },
-      { "u_make_sound": "an intense rumbling of the ground.", "volume": 150, "type": "combat" },
-      { "u_transform_radius": 2, "ter_furn_transform": "flesilisk_destroy" },
-      { "u_location_variable": { "global_val": "secro_fleshysnaky_devcent" } },
+      {
+        "u_message": "You were caught at its impact!",
+        "type": "bad"
+      },
+      {
+        "u_cast_spell": {
+          "id": "mon_zombie_fleshysnaky_devastate",
+          "hit_self": true
+        }
+      },
+      {
+        "u_make_sound": "an intense rumbling of the ground.",
+        "volume": 150,
+        "type": "combat"
+      },
+      {
+        "u_transform_radius": 2,
+        "ter_furn_transform": "flesilisk_destroy"
+      },
+      {
+        "u_location_variable": {
+          "global_val": "secro_fleshysnaky_devcent"
+        }
+      },
       {
         "queue_eocs": [
           {
@@ -329,34 +642,66 @@
               {
                 "u_transform_radius": 2,
                 "ter_furn_transform": "flesilisk_revert",
-                "target_var": { "global_val": "secro_fleshysnaky_devcent" }
+                "target_var": {
+                  "global_val": "secro_fleshysnaky_devcent"
+                }
               }
             ]
           }
         ],
-        "time_in_future": [ "2 seconds", "2 seconds" ]
+        "time_in_future": [
+          "2 seconds",
+          "2 seconds"
+        ]
       }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombieworm_destroy_check",
-    "effect": [ { "npc_transform_radius": 1, "ter_furn_transform": "secro_wormonger_destroy" } ]
+    "effect": [
+      {
+        "npc_transform_radius": 1,
+        "ter_furn_transform": "secro_wormonger_destroy"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombieworm_onger_destroy_check",
-    "effect": [ { "npc_transform_radius": 2, "ter_furn_transform": "secro_wormonger_destroy" } ]
+    "effect": [
+      {
+        "npc_transform_radius": 2,
+        "ter_furn_transform": "secro_wormonger_destroy"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_nautilus_disturbance_check",
     "condition": {
-      "or": [ { "u_is_on_terrain": "t_sewage" }, { "u_is_on_terrain": "t_water_sh" }, { "u_is_on_terrain": "t_water_dp" } ]
+      "or": [
+        {
+          "u_is_on_terrain": "t_sewage"
+        },
+        {
+          "u_is_on_terrain": "t_water_sh"
+        },
+        {
+          "u_is_on_terrain": "t_water_dp"
+        }
+      ]
     },
     "effect": [
-      { "npc_add_effect": "controlled", "duration": "4 seconds" },
-      { "npc_location_variable": { "global_val": "secro_nautilus_discent" } },
+      {
+        "npc_add_effect": "controlled",
+        "duration": "4 seconds"
+      },
+      {
+        "npc_location_variable": {
+          "global_val": "secro_nautilus_discent"
+        }
+      },
       {
         "queue_eocs": [
           {
@@ -366,111 +711,170 @@
                 "u_make_sound": "a rumbling.",
                 "volume": 100,
                 "type": "combat",
-                "target_var": { "global_val": "secro_nautilus_discent" }
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                }
               },
               {
                 "u_set_field": "fd_nautilus_disturbance",
-                "target_var": { "global_val": "secro_nautilus_discent" },
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                },
                 "radius": 1
               },
               {
                 "u_set_field": "fd_nautilus_disturbance",
-                "target_var": { "global_val": "secro_nautilus_discent" },
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                },
                 "radius": 2
               },
               {
                 "u_set_field": "fd_nautilus_disturbance",
-                "target_var": { "global_val": "secro_nautilus_discent" },
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                },
                 "radius": 5
               }
             ]
           },
           {
             "id": "eoc_secro_mon_zombie_nautilus_pedo1_check",
-            "condition": { "not": { "one_in_chance": 3 } },
+            "condition": {
+              "not": {
+                "one_in_chance": 3
+              }
+            },
             "effect": [
               {
                 "u_make_sound": "a sploosh.",
                 "volume": 80,
                 "type": "alert",
-                "target_var": { "global_val": "secro_nautilus_discent" }
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                }
               },
               {
                 "u_spawn_monster": "mon_zombie_nautilus_pedo",
-                "target_var": { "global_val": "secro_nautilus_discent" },
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                },
                 "real_count": 1,
                 "min_radius": 1,
                 "max_radius": 2,
-                "lifespan": [ "18 seconds", "36 seconds" ]
+                "lifespan": [
+                  "18 seconds",
+                  "36 seconds"
+                ]
               }
             ]
           },
           {
             "id": "eoc_secro_mon_zombie_nautilus_pedo2_check",
-            "condition": { "not": { "one_in_chance": 3 } },
+            "condition": {
+              "not": {
+                "one_in_chance": 3
+              }
+            },
             "effect": [
               {
                 "u_make_sound": "a sploosh.",
                 "volume": 80,
                 "type": "alert",
-                "target_var": { "global_val": "secro_nautilus_discent" }
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                }
               },
               {
                 "u_spawn_monster": "mon_zombie_nautilus_pedo",
-                "target_var": { "global_val": "secro_nautilus_discent" },
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                },
                 "real_count": 1,
                 "min_radius": 1,
                 "max_radius": 2,
-                "lifespan": [ "18 seconds", "36 seconds" ]
+                "lifespan": [
+                  "18 seconds",
+                  "36 seconds"
+                ]
               }
             ]
           },
           {
             "id": "eoc_secro_mon_zombie_nautilus_pedo3_check",
-            "condition": { "not": { "one_in_chance": 3 } },
+            "condition": {
+              "not": {
+                "one_in_chance": 3
+              }
+            },
             "effect": [
               {
                 "u_make_sound": "a sploosh.",
                 "volume": 80,
                 "type": "alert",
-                "target_var": { "global_val": "secro_nautilus_discent" }
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                }
               },
               {
                 "u_spawn_monster": "mon_zombie_nautilus_pedo",
-                "target_var": { "global_val": "secro_nautilus_discent" },
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                },
                 "real_count": 1,
                 "min_radius": 1,
                 "max_radius": 2,
-                "lifespan": [ "18 seconds", "36 seconds" ]
+                "lifespan": [
+                  "18 seconds",
+                  "36 seconds"
+                ]
               }
             ]
           },
           {
             "id": "eoc_secro_mon_zombie_nautilus_pedo4_check",
-            "condition": { "not": { "one_in_chance": 3 } },
+            "condition": {
+              "not": {
+                "one_in_chance": 3
+              }
+            },
             "effect": [
               {
                 "u_make_sound": "a sploosh.",
                 "volume": 80,
                 "type": "alert",
-                "target_var": { "global_val": "secro_nautilus_discent" }
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                }
               },
               {
                 "u_spawn_monster": "mon_zombie_nautilus_pedo",
-                "target_var": { "global_val": "secro_nautilus_discent" },
+                "target_var": {
+                  "global_val": "secro_nautilus_discent"
+                },
                 "real_count": 1,
                 "min_radius": 1,
                 "max_radius": 2,
-                "lifespan": [ "18 seconds", "36 seconds" ]
+                "lifespan": [
+                  "18 seconds",
+                  "36 seconds"
+                ]
               }
             ]
           }
         ],
-        "time_in_future": [ "3 seconds", "3 seconds" ]
+        "time_in_future": [
+          "3 seconds",
+          "3 seconds"
+        ]
       }
     ],
     "false_effect": [
-      { "npc_location_variable": { "global_val": "secro_nautilus_discent" } },
+      {
+        "npc_location_variable": {
+          "global_val": "secro_nautilus_discent"
+        }
+      },
       {
         "queue_eocs": [
           "eoc_secro_mon_zombie_nautilus_pedo1_check",
@@ -485,44 +889,96 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_nautilus_pedo_restraint_check",
     "effect": [
-      { "u_add_effect": "pedo_restraint", "duration": "40 seconds" },
-      { "npc_add_effect": "secro_sacrifice_effect", "duration": "1 seconds" }
+      {
+        "u_add_effect": "pedo_restraint",
+        "duration": "40 seconds"
+      },
+      {
+        "npc_add_effect": "secro_sacrifice_effect",
+        "duration": "1 seconds"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_ayenel_lockon_check",
-    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 5 } ] },
-    "effect": [ { "u_add_effect": "blind", "duration": "6 seconds" }, { "u_add_effect": "glowing", "duration": "60 seconds" } ]
+    "condition": {
+      "compare_int": [
+        {
+          "distance": [
+            "u",
+            "npc"
+          ]
+        },
+        ">=",
+        {
+          "const": 5
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_add_effect": "blind",
+        "duration": "6 seconds"
+      },
+      {
+        "u_add_effect": "glowing",
+        "duration": "60 seconds"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_sack_birth_check",
     "effect": [
-      { "u_message": "A parasyte pops out of the flesh sack!", "type": "warning" },
-      { "npc_spawn_monster": "mon_sflesh_parasyte", "real_count": 3, "min_radius": 1, "max_radius": 2 }
+      {
+        "u_message": "A parasyte pops out of the flesh sack!",
+        "type": "warning"
+      },
+      {
+        "npc_spawn_monster": "mon_sflesh_parasyte",
+        "real_count": 3,
+        "min_radius": 1,
+        "max_radius": 2
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_sack_birthmore_check",
-    "condition": { "one_in_chance": 2 },
+    "condition": {
+      "one_in_chance": 2
+    },
     "effect": [
-      { "u_message": "A parasyte pops out of the flesh sack!", "type": "warning" },
-      { "npc_spawn_monster": "mon_sflesh_parasyte", "real_count": 1, "min_radius": 1, "max_radius": 2 }
+      {
+        "u_message": "A parasyte pops out of the flesh sack!",
+        "type": "warning"
+      },
+      {
+        "npc_spawn_monster": "mon_sflesh_parasyte",
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 2
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_surface_spawner_jaw_check",
     "effect": [
-      { "u_message": "A jaw emerges from the flesh!", "type": "warning" },
+      {
+        "u_message": "A jaw emerges from the flesh!",
+        "type": "warning"
+      },
       {
         "npc_spawn_monster": "fd_sflesh_spawn_jaw",
         "real_count": 1,
         "min_radius": 2,
         "max_radius": 4,
-        "lifespan": [ "150 seconds", "250 seconds" ]
+        "lifespan": [
+          "150 seconds",
+          "250 seconds"
+        ]
       }
     ]
   },
@@ -530,100 +986,217 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_surface_spawner_tent_check",
     "effect": [
-      { "u_message": "A tendril emerges from the flesh!", "type": "warning" },
+      {
+        "u_message": "A tendril emerges from the flesh!",
+        "type": "warning"
+      },
       {
         "npc_spawn_monster": "fd_sflesh_spawn_tent",
         "real_count": 1,
         "min_radius": 2,
         "max_radius": 4,
-        "lifespan": [ "150 seconds", "250 seconds" ]
+        "lifespan": [
+          "150 seconds",
+          "250 seconds"
+        ]
       }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_flesh_taken_check",
-    "condition": { "one_in_chance": 2 },
+    "condition": {
+      "one_in_chance": 2
+    },
     "effect": [
-      { "u_message": "A membranous pod emerges from the flesh underneath!", "type": "bad" },
-      { "u_spawn_monster": "mon_sflesh_taken_potent", "real_count": 1, "min_radius": 4, "max_radius": 6 }
+      {
+        "u_message": "A membranous pod emerges from the flesh underneath!",
+        "type": "bad"
+      },
+      {
+        "u_spawn_monster": "mon_sflesh_taken_potent",
+        "real_count": 1,
+        "min_radius": 4,
+        "max_radius": 6
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_flesh_trap_check",
     "effect": [
-      { "u_transform_radius": 1, "ter_furn_transform": "sflesh_flesh_trap" },
-      { "npc_transform_radius": 60, "ter_furn_transform": "sflesh_flesh_biohazard_remove_tent" },
-      { "npc_transform_radius": 60, "ter_furn_transform": "sflesh_flesh_biohazard_remove_bone" },
-      { "u_transform_radius": 10, "ter_furn_transform": "sflesh_flesh_biohazard" },
-      { "u_transform_radius": 3, "ter_furn_transform": "sflesh_flesh_biohazard_accurate" }
+      {
+        "u_transform_radius": 1,
+        "ter_furn_transform": "sflesh_flesh_trap"
+      },
+      {
+        "npc_transform_radius": 60,
+        "ter_furn_transform": "sflesh_flesh_biohazard_remove_tent"
+      },
+      {
+        "npc_transform_radius": 60,
+        "ter_furn_transform": "sflesh_flesh_biohazard_remove_bone"
+      },
+      {
+        "u_transform_radius": 10,
+        "ter_furn_transform": "sflesh_flesh_biohazard"
+      },
+      {
+        "u_transform_radius": 3,
+        "ter_furn_transform": "sflesh_flesh_biohazard_accurate"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_flesh_city_wallmore_check",
-    "condition": { "one_in_chance": 2 },
+    "condition": {
+      "one_in_chance": 2
+    },
     "effect": [
-      { "u_message": "The flesh undulates!", "type": "mixed" },
-      { "u_spawn_monster": "mon_sflesh_flesh_wall_city", "real_count": 1, "min_radius": 1, "max_radius": 1 }
+      {
+        "u_message": "The flesh undulates!",
+        "type": "mixed"
+      },
+      {
+        "u_spawn_monster": "mon_sflesh_flesh_wall_city",
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 1
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_flesh_city_wall_check",
     "effect": [
-      { "u_message": "The flesh undulates!", "type": "mixed" },
-      { "u_spawn_monster": "mon_sflesh_flesh_wall_city", "real_count": 1, "min_radius": 1, "max_radius": 1 }
+      {
+        "u_message": "The flesh undulates!",
+        "type": "mixed"
+      },
+      {
+        "u_spawn_monster": "mon_sflesh_flesh_wall_city",
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 1
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_veinstalk_spread_check",
-    "effect": [ { "npc_transform_radius": 4, "ter_furn_transform": "flesh_spread" } ]
+    "effect": [
+      {
+        "npc_transform_radius": 4,
+        "ter_furn_transform": "flesh_spread"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_vector_rize_smol_check",
     "effect": [
-      { "npc_set_field": "fd_vector_haze", "radius": 1 },
-      { "npc_set_field": "fd_vector_haze", "radius": 2 },
-      { "npc_transform_radius": 2, "ter_furn_transform": "vectorize" }
+      {
+        "npc_set_field": "fd_vector_haze",
+        "radius": 1
+      },
+      {
+        "npc_set_field": "fd_vector_haze",
+        "radius": 2
+      },
+      {
+        "npc_transform_radius": 2,
+        "ter_furn_transform": "vectorize"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_vector_rize_big_check",
     "effect": [
-      { "npc_set_field": "fd_vector_haze", "radius": 1 },
-      { "npc_set_field": "fd_vector_haze", "radius": 2 },
-      { "npc_set_field": "fd_vector_haze", "radius": 4 },
-      { "npc_transform_radius": 4, "ter_furn_transform": "vectorize" }
+      {
+        "npc_set_field": "fd_vector_haze",
+        "radius": 1
+      },
+      {
+        "npc_set_field": "fd_vector_haze",
+        "radius": 2
+      },
+      {
+        "npc_set_field": "fd_vector_haze",
+        "radius": 4
+      },
+      {
+        "npc_transform_radius": 4,
+        "ter_furn_transform": "vectorize"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_secrodragon_woke_barrier_check",
     "effect": [
-      { "u_message": "The secronom dragon generates a forcefield, pushing you!", "type": "mixed" },
-      { "npc_cast_spell": { "id": "mon_secrodragon_barrier_target_random", "hit_self": true } },
-      { "npc_make_sound": "Bzzt.", "volume": 90, "type": "combat" }
+      {
+        "u_message": "The secronom dragon generates a forcefield, pushing you!",
+        "type": "mixed"
+      },
+      {
+        "npc_cast_spell": {
+          "id": "mon_secrodragon_barrier_target_random",
+          "hit_self": true
+        }
+      },
+      {
+        "npc_make_sound": "Bzzt.",
+        "volume": 90,
+        "type": "combat"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_secrodragon_woke_ranged_check",
-    "condition": { "not": { "one_in_chance": 3 } },
+    "condition": {
+      "not": {
+        "one_in_chance": 3
+      }
+    },
     "effect": [
-      { "u_message": "Electric discharges arc from the secronom dragon!", "type": "warning" },
-      { "npc_cast_spell": { "id": "mon_secrodragon_edischarge_target_random", "hit_self": true } },
-      { "npc_make_sound": "Fzzzztt.", "volume": 125, "type": "combat" }
+      {
+        "u_message": "Electric discharges arc from the secronom dragon!",
+        "type": "warning"
+      },
+      {
+        "npc_cast_spell": {
+          "id": "mon_secrodragon_edischarge_target_random",
+          "hit_self": true
+        }
+      },
+      {
+        "npc_make_sound": "Fzzzztt.",
+        "volume": 125,
+        "type": "combat"
+      }
     ],
     "false_effect": [
-      { "u_message": "The secronom dragon accumulates electricity.", "type": "warning" },
-      { "npc_make_sound": "hummm.", "volume": 40, "type": "alert" },
-      { "npc_add_effect": "controlled", "duration": "7 seconds" },
-      { "u_location_variable": { "global_val": "secro_cyberdragon_dirsho" } },
+      {
+        "u_message": "The secronom dragon accumulates electricity.",
+        "type": "warning"
+      },
+      {
+        "npc_make_sound": "hummm.",
+        "volume": 40,
+        "type": "alert"
+      },
+      {
+        "npc_add_effect": "controlled",
+        "duration": "7 seconds"
+      },
+      {
+        "u_location_variable": {
+          "global_val": "secro_cyberdragon_dirsho"
+        }
+      },
       {
         "queue_eocs": [
           {
@@ -633,32 +1206,66 @@
                 "u_make_sound": "Brrrrzzt.",
                 "volume": 150,
                 "type": "combat",
-                "target_var": { "global_val": "secro_cyberdragon_dirsho" }
+                "target_var": {
+                  "global_val": "secro_cyberdragon_dirsho"
+                }
               },
               {
                 "u_set_field": "fd_electricity",
-                "target_var": { "global_val": "secro_cyberdragon_dirsho" },
+                "target_var": {
+                  "global_val": "secro_cyberdragon_dirsho"
+                },
                 "radius": 1,
                 "intensity": 2
               },
               {
                 "u_set_field": "fd_electricity",
-                "target_var": { "global_val": "secro_cyberdragon_dirsho" },
+                "target_var": {
+                  "global_val": "secro_cyberdragon_dirsho"
+                },
                 "radius": 3,
                 "intensity": 1
               }
             ]
           }
         ],
-        "time_in_future": [ "5 seconds", "5 seconds" ]
+        "time_in_future": [
+          "5 seconds",
+          "5 seconds"
+        ]
       }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_secrodragon_woke_check",
-    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 2 } ] },
-    "effect": [ { "queue_eocs": [ "eoc_secro_mon_secrodragon_woke_barrier_check" ] } ],
-    "false_effect": [ { "queue_eocs": [ "eoc_secro_mon_secrodragon_woke_ranged_check" ] } ]
+    "condition": {
+      "compare_int": [
+        {
+          "distance": [
+            "u",
+            "npc"
+          ]
+        },
+        "<=",
+        {
+          "const": 2
+        }
+      ]
+    },
+    "effect": [
+      {
+        "queue_eocs": [
+          "eoc_secro_mon_secrodragon_woke_barrier_check"
+        ]
+      }
+    ],
+    "false_effect": [
+      {
+        "queue_eocs": [
+          "eoc_secro_mon_secrodragon_woke_ranged_check"
+        ]
+      }
+    ]
   }
 ]

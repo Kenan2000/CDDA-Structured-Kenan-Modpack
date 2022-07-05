@@ -2,12 +2,21 @@
   {
     "id": "jolt",
     "type": "SPELL",
-    "name": { "str": "Jolt" },
+    "name": {
+      "str": "Jolt"
+    },
     "description": "A short-ranged fan of electricity shoots from your fingers.",
     "effect": "attack",
     "shape": "cone",
-    "valid_targets": [ "ally", "hostile", "ground" ],
-    "flags": [ "LOUD", "SOMATIC" ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "LOUD",
+      "SOMATIC"
+    ],
     "max_level": 30,
     "min_damage": 8,
     "max_damage": 95,
@@ -33,8 +42,13 @@
     "description": "Reference spell definition used for Shocking Lash and Shocking Lash Jump",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "SOMATIC", "NO_LEGS" ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SOMATIC",
+      "NO_LEGS"
+    ],
     "max_level": 30,
     "min_damage": 2,
     "max_damage": 36,
@@ -57,7 +71,11 @@
     "description": "A quick burst of electricity strikes a target and possibly one other nearby.",
     "copy-from": "shocking_lash_base",
     "field_id": "none",
-    "extra_effects": [ { "id": "shocking_lash_2" } ]
+    "extra_effects": [
+      {
+        "id": "shocking_lash_2"
+      }
+    ]
   },
   {
     "id": "shocking_lash_2",
@@ -66,7 +84,9 @@
     "description": "The secondary jump from Shocking Lash.",
     "copy-from": "shocking_lash_base",
     "field_id": "none",
-    "flags": [ "RANDOM_TARGET" ],
+    "flags": [
+      "RANDOM_TARGET"
+    ],
     "min_range": 1,
     "max_range": 2,
     "range_increment": 0.07
@@ -74,12 +94,22 @@
   {
     "id": "lightning_bolt",
     "type": "SPELL",
-    "name": { "str": "Lightning Bolt" },
+    "name": {
+      "str": "Lightning Bolt"
+    },
     "description": "The goto spell for many Stormshapers, this iconic spell does just what you expect: you shoot lightning from your fingertips.  However, this lightning is more directed than most lightning, and travels in a line through most non-solid targets.",
     "effect": "attack",
     "shape": "line",
-    "valid_targets": [ "ally", "hostile", "ground" ],
-    "flags": [ "LOUD", "SOMATIC", "NO_LEGS" ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "LOUD",
+      "SOMATIC",
+      "NO_LEGS"
+    ],
     "max_level": 50,
     "min_damage": 8,
     "max_damage": 300,
@@ -106,14 +136,26 @@
   {
     "id": "windstrike",
     "type": "SPELL",
-    "name": { "str": "Windstrike" },
+    "name": {
+      "str": "Windstrike"
+    },
     "description": "A powerful blast of wind slams into anything in front of your outstretched hand.",
     "effect": "attack",
     "effect_str": "downed",
     "shape": "cone",
-    "affected_body_parts": [ "leg_l", "leg_r" ],
-    "valid_targets": [ "ally", "hostile", "ground" ],
-    "flags": [ "SOMATIC", "NO_LEGS" ],
+    "affected_body_parts": [
+      "leg_l",
+      "leg_r"
+    ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "SOMATIC",
+      "NO_LEGS"
+    ],
     "max_level": 30,
     "min_damage": 24,
     "max_damage": 136,
@@ -138,7 +180,9 @@
   {
     "id": "windrun",
     "type": "SPELL",
-    "name": { "str": "Windrunning" },
+    "name": {
+      "str": "Windrunning"
+    },
     "description": "A magical wind pushes you forward as you move, easing your movements and increasing speed.",
     "base_casting_time": 125,
     "base_energy_cost": 100,
@@ -148,9 +192,20 @@
     "effect": "attack",
     "effect_str": "enchant_windrun",
     "shape": "blast",
-    "affected_body_parts": [ "torso" ],
-    "valid_targets": [ "ally", "self" ],
-    "flags": [ "CONCENTRATE", "SILENT", "VERBAL", "NO_HANDS", "NO_PROJECTILE" ],
+    "affected_body_parts": [
+      "torso"
+    ],
+    "valid_targets": [
+      "ally",
+      "self"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "SILENT",
+      "VERBAL",
+      "NO_HANDS",
+      "NO_PROJECTILE"
+    ],
     "max_level": 15,
     "min_duration": 2000,
     "max_duration": 15000,
@@ -162,10 +217,19 @@
   {
     "id": "storm_hammer",
     "type": "SPELL",
-    "name": { "str": "Call Stormhammer" },
+    "name": {
+      "str": "Call Stormhammer"
+    },
     "description": "Creates a crackling magical warhammer full of lightning to smite your foes with, and of course, smash things to bits!",
-    "valid_targets": [ "self" ],
-    "flags": [ "CONCENTRATE", "LOUD", "VERBAL", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "LOUD",
+      "VERBAL",
+      "NO_LEGS"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -184,9 +248,13 @@
   {
     "id": "create_rune_stormshaper",
     "type": "SPELL",
-    "name": { "str": "Stormshaper Rune" },
+    "name": {
+      "str": "Stormshaper Rune"
+    },
     "description": "This ritual creates a small pebble attuned to Stormshapers.  You can use the rune as a catalyst for recipes.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -201,15 +269,30 @@
     "max_level": 0,
     "spell_class": "STORMSHAPER",
     "energy_source": "MANA",
-    "flags": [ "PERMANENT", "NO_LEGS", "CONCENTRATE" ]
+    "flags": [
+      "PERMANENT",
+      "NO_LEGS",
+      "CONCENTRATE"
+    ]
   },
   {
     "id": "lightning_blast",
     "type": "SPELL",
-    "name": { "str": "Lightning Blast" },
+    "name": {
+      "str": "Lightning Blast"
+    },
     "description": "You fire a small concentrated ball of lightning at the target.  The electricity diffuses quickly, so it doesn't do much damage, but you're able to fire off several quick ones in a row.",
-    "valid_targets": [ "hostile", "ground", "self", "ally" ],
-    "flags": [ "LOUD", "SOMATIC", "NO_LEGS" ],
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "LOUD",
+      "SOMATIC",
+      "NO_LEGS"
+    ],
     "min_aoe": 1,
     "max_aoe": 3,
     "aoe_increment": 0.05,
@@ -235,10 +318,23 @@
   {
     "id": "lightning_storm",
     "type": "SPELL",
-    "name": { "str": "Lightning Storm" },
+    "name": {
+      "str": "Lightning Storm"
+    },
     "description": "You call the power of the sky to strike the earth.  Several lightning blasts fire from your finger tips to strike the target.",
-    "valid_targets": [ "hostile", "ground", "self", "ally" ],
-    "flags": [ "CONCENTRATE", "LOUD", "VERBAL", "SOMATIC", "NO_LEGS" ],
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "CONCENTRATE",
+      "LOUD",
+      "VERBAL",
+      "SOMATIC",
+      "NO_LEGS"
+    ],
     "min_aoe": 1,
     "max_aoe": 3,
     "aoe_increment": 0.05,
@@ -257,18 +353,43 @@
     "damage_type": "electric",
     "effect": "attack",
     "shape": "blast",
-    "extra_effects": [ { "id": "lightning_blast" }, { "id": "lightning_blast" }, { "id": "lightning_blast" } ]
+    "extra_effects": [
+      {
+        "id": "lightning_blast"
+      },
+      {
+        "id": "lightning_blast"
+      },
+      {
+        "id": "lightning_blast"
+      }
+    ]
   },
   {
     "id": "stormshaper_ionization",
     "type": "SPELL",
-    "name": { "str": "Ionization" },
+    "name": {
+      "str": "Ionization"
+    },
     "description": "By manipulating the charge in the air, you can conjure a sharp snap of lightning over a wide area.  While its destructive potential is a far cry from natural lightning, the light and thunderclap produced will leave your foes reeling.",
-    "valid_targets": [ "hostile", "ground", "self", "ally" ],
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "self",
+      "ally"
+    ],
     "effect": "attack",
     "shape": "blast",
-    "extra_effects": [ { "id": "stormshaper_ionization_thunderclap" } ],
-    "flags": [ "SOMATIC", "NO_LEGS", "NO_PROJECTILE" ],
+    "extra_effects": [
+      {
+        "id": "stormshaper_ionization_thunderclap"
+      }
+    ],
+    "flags": [
+      "SOMATIC",
+      "NO_LEGS",
+      "NO_PROJECTILE"
+    ],
     "energy_source": "MANA",
     "spell_class": "STORMSHAPER",
     "difficulty": 8,
@@ -296,12 +417,21 @@
   {
     "type": "SPELL",
     "id": "stormshaper_ionization_thunderclap",
-    "name": { "str": "Ionization Thunderclap" },
+    "name": {
+      "str": "Ionization Thunderclap"
+    },
     "description": "Adds the actual flashbang effect.",
-    "valid_targets": [ "hostile", "ground", "self", "ally" ],
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "self",
+      "ally"
+    ],
     "effect": "flashbang",
     "shape": "blast",
-    "flags": [ "LOUD" ],
+    "flags": [
+      "LOUD"
+    ],
     "max_level": 45,
     "min_range": 12,
     "max_range": 36,
@@ -310,13 +440,22 @@
   {
     "id": "stormshaper_wall_of_fog",
     "type": "SPELL",
-    "name": { "str": "Wall of Fog" },
+    "name": {
+      "str": "Wall of Fog"
+    },
     "description": "Draws forth a broad wall of thick fog.  While the sudden force of air pressure will floor any enemies caught in it, the conjuration is otherwise harmless.",
-    "valid_targets": [ "hostile", "ground", "ally" ],
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally"
+    ],
     "effect": "attack",
     "effect_str": "downed",
     "shape": "line",
-    "flags": [ "SOMATIC", "NO_LEGS" ],
+    "flags": [
+      "SOMATIC",
+      "NO_LEGS"
+    ],
     "energy_source": "MANA",
     "spell_class": "STORMSHAPER",
     "difficulty": 2,
@@ -341,15 +480,22 @@
   {
     "id": "thorns_zap",
     "type": "SPELL",
-    "name": { "str": "Repelling Arc Aura" },
+    "name": {
+      "str": "Repelling Arc Aura"
+    },
     "description": "This is a sub-spell of the Repelling Arc spell.",
-    "valid_targets": [ "hostile" ],
+    "valid_targets": [
+      "hostile"
+    ],
     "effect": "attack",
     "shape": "blast",
     "damage_type": "electric",
     "min_damage": 15,
     "max_damage": 15,
-    "flags": [ "LOUD", "NO_PROJECTILE" ],
+    "flags": [
+      "LOUD",
+      "NO_PROJECTILE"
+    ],
     "sound_type": "combat",
     "sound_description": "arcing electricity!",
     "min_range": 5,
@@ -358,13 +504,21 @@
   {
     "id": "stormshaper_repelling_arc",
     "type": "SPELL",
-    "name": { "str": "Repelling Arc" },
+    "name": {
+      "str": "Repelling Arc"
+    },
     "description": "Manifests an aura of crackling electricity around you to strike attackers with baleful lightning.",
-    "valid_targets": [ "none" ],
+    "valid_targets": [
+      "none"
+    ],
     "effect": "spawn_item",
     "effect_str": "thorns_electric",
     "shape": "blast",
-    "flags": [ "SOMATIC", "NO_LEGS", "CONCENTRATE" ],
+    "flags": [
+      "SOMATIC",
+      "NO_LEGS",
+      "CONCENTRATE"
+    ],
     "energy_source": "MANA",
     "spell_class": "STORMSHAPER",
     "difficulty": 4,

@@ -8,15 +8,27 @@
         "topic": "TALK_EVAC_MERCHANT_Hartley_family",
         "condition": {
           "and": [
-            { "u_has_var": "merchant_center_Barrett_Hartley", "type": "ask", "context": "stay", "value": "0" },
-            { "u_has_mission": "MISSION_Barrett_Hartley_3" }
+            {
+              "u_has_var": "merchant_center_Barrett_Hartley",
+              "type": "ask",
+              "context": "stay",
+              "value": "0"
+            },
+            {
+              "u_has_mission": "MISSION_Barrett_Hartley_3"
+            }
           ]
         }
       },
       {
         "text": "Is there any way you can accept the girl over there?",
         "topic": "TALK_EVAC_MERCHANT_Rosalyn_Hartley",
-        "condition": { "u_has_var": "Rosalyn_Hartley_alone", "type": "flag", "context": "alone", "value": "yes" }
+        "condition": {
+          "u_has_var": "Rosalyn_Hartley_alone",
+          "type": "flag",
+          "context": "alone",
+          "value": "yes"
+        }
       }
     ]
   },
@@ -28,9 +40,16 @@
     "responses": [
       {
         "text": "Maybe you reconsider?",
-        "trial": { "type": "PERSUADE", "difficulty": 15 },
-        "success": { "topic": "TALK_EVAC_MERCHANT_Hartley_family_nope" },
-        "failure": { "topic": "TALK_EVAC_MERCHANT_Hartley_family_nope" }
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 15
+        },
+        "success": {
+          "topic": "TALK_EVAC_MERCHANT_Hartley_family_nope"
+        },
+        "failure": {
+          "topic": "TALK_EVAC_MERCHANT_Hartley_family_nope"
+        }
       }
     ]
   },
@@ -42,7 +61,12 @@
       {
         "text": "\u2026",
         "topic": "TALK_DONE",
-        "effect": { "u_add_var": "merchant_center_Barrett_Hartley", "type": "ask", "context": "stay", "value": "no" }
+        "effect": {
+          "u_add_var": "merchant_center_Barrett_Hartley",
+          "type": "ask",
+          "context": "stay",
+          "value": "no"
+        }
       }
     ]
   },
@@ -50,6 +74,11 @@
     "type": "talk_topic",
     "id": "TALK_EVAC_MERCHANT_Rosalyn_Hartley",
     "dynamic_line": "Hmm, we are full, but\u2026 if someone wants to share their ration, you can ask around.",
-    "responses": [ { "text": "\u2026", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_DONE"
+      }
+    ]
   }
 ]

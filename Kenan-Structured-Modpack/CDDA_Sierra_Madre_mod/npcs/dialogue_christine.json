@@ -4,11 +4,26 @@
     "type": "talk_topic",
     "dynamic_line": "Wait! Who the hell are you? What the hell are you even doing here?! How... How... Nobody, since the Courier, (God/Dog) and Dean left... Nobody...",
     "responses": [
-      { "text": "No, who the hell are YOU! What the hell are YOU even doing here?!", "topic": "WHAT" },
-      { "text": "Step aside... Madre's mine mine mine!!!!!!!!!", "topic": "GREED_CONFRONT" },
-      { "text": "You speak like Vera Keyes...", "topic": "VOICE" },
-      { "text": "Alright, calm down and let's talk this over", "topic": "DISCUSS" },
-      { "text": "What the hell is going here? Why are you standing here?", "topic": "WHAT" }
+      {
+        "text": "No, who the hell are YOU! What the hell are YOU even doing here?!",
+        "topic": "WHAT"
+      },
+      {
+        "text": "Step aside... Madre's mine mine mine!!!!!!!!!",
+        "topic": "GREED_CONFRONT"
+      },
+      {
+        "text": "You speak like Vera Keyes...",
+        "topic": "VOICE"
+      },
+      {
+        "text": "Alright, calm down and let's talk this over",
+        "topic": "DISCUSS"
+      },
+      {
+        "text": "What the hell is going here? Why are you standing here?",
+        "topic": "WHAT"
+      }
     ]
   },
   {
@@ -32,16 +47,30 @@
     "type": "talk_topic",
     "dynamic_line": "I... I'm guarding the Sierra Madre. To protect the world from it. I was trapped. Together with Dean, (Dog/God) and the Courier. The four of us... All enslaved... Father Elijah forced us to work for him to break into the vault, then told the Courier to kill us all... But Courier was a human, not a monster. The Courier saved us all.",
     "responses": [
-      { "text": "Did... Did he use collars to force obedience?", "topic": "SLAVE" },
-      { "text": "What can you tell me about the Courier, (Dog/God) and Dean Domino?", "topic": "CREW" },
-      { "text": "What happened to the Father Elijah?", "topic": "FATHER" }
+      {
+        "text": "Did... Did he use collars to force obedience?",
+        "topic": "SLAVE"
+      },
+      {
+        "text": "What can you tell me about the Courier, (Dog/God) and Dean Domino?",
+        "topic": "CREW"
+      },
+      {
+        "text": "What happened to the Father Elijah?",
+        "topic": "FATHER"
+      }
     ]
   },
   {
     "id": "VOICE",
     "type": "talk_topic",
     "dynamic_line": "Dean Domino was planning this heist himself, long before the rest of us saw the Sierra Madre walls... He forced me into one of the villa's clinic autodocs to operate my voice... So that, upon figuring out the password, he could use me to unlock the vault...",
-    "responses": [ { "text": "I'm sorry you had to go through this...", "topic": "DISCUSS" } ]
+    "responses": [
+      {
+        "text": "I'm sorry you had to go through this...",
+        "topic": "DISCUSS"
+      }
+    ]
   },
   {
     "id": "DISCUSS",
@@ -52,8 +81,14 @@
         "text": "Why not? I came so far. I went through so much. I can't leave. I'm not letting go. Not now.",
         "topic": "REASON"
       },
-      { "text": "What can you tell me about the Courier, (Dog/God) and Dean Domino?", "topic": "CREW" },
-      { "text": "You speak like Vera Keyes...", "topic": "VOICE" }
+      {
+        "text": "What can you tell me about the Courier, (Dog/God) and Dean Domino?",
+        "topic": "CREW"
+      },
+      {
+        "text": "You speak like Vera Keyes...",
+        "topic": "VOICE"
+      }
     ]
   },
   {
@@ -63,7 +98,9 @@
     "responses": [
       {
         "text": "That collar on my neck... I have to obey Father Elijah. One of the inscriptions on the villa wall says \"Try to leave and BOOM\"...",
-        "condition": { "u_has_trait": "SIERRA_HUNTER" },
+        "condition": {
+          "u_has_trait": "SIERRA_HUNTER"
+        },
         "topic": "SLAVE"
       },
       {
@@ -77,8 +114,14 @@
     "type": "talk_topic",
     "dynamic_line": "The Courier managed to enter the vault... And learned to let go. (Dog/God) was a savage mutant with double personality disorder... One was an ever-hungry monster, the other was a power-thirsty narcissist... But the Courier... The Courier had patience both for Dog and God, merging two personalities into one, gentle and peaceful... Dean Domino, that asshole... Even he finally let go and just left the Sierra Madre... And I... I stayed. I need to protect the outer world from the horrors of this doomed place... And Father Elijah...",
     "responses": [
-      { "text": "So, what happened to the Father Elijah?", "topic": "FATHER" },
-      { "text": "Alright, I have some more questions.", "topic": "DISCUSS" }
+      {
+        "text": "So, what happened to the Father Elijah?",
+        "topic": "FATHER"
+      },
+      {
+        "text": "Alright, I have some more questions.",
+        "topic": "DISCUSS"
+      }
     ]
   },
   {
@@ -88,10 +131,15 @@
     "responses": [
       {
         "text": "I'm afraid he's still alive. And on top of that able to communicate with me. And force me to do his dirty job...",
-        "condition": { "u_has_trait": "SIERRA_HUNTER" },
+        "condition": {
+          "u_has_trait": "SIERRA_HUNTER"
+        },
         "topic": "SLAVE"
       },
-      { "text": "Alright, I have some more questions.", "topic": "DISCUSS" }
+      {
+        "text": "Alright, I have some more questions.",
+        "topic": "DISCUSS"
+      }
     ]
   },
   {
@@ -117,7 +165,9 @@
       {
         "text": "Okay, I will... And I won't. Wish me luck. The vault of the Sierra Madre Casino, here I come...",
         "topic": "TALK_DONE",
-        "effect": { "npc_first_topic": "MID" }
+        "effect": {
+          "npc_first_topic": "MID"
+        }
       }
     ]
   },
@@ -126,10 +176,20 @@
     "type": "talk_topic",
     "dynamic_line": "Have you dealt with Father Elijah? Please, hurry!",
     "responses": [
-      { "text": "Still working to get inside...", "condition": { "not": { "u_has_trait": "win" } }, "topic": "TALK_DONE" },
+      {
+        "text": "Still working to get inside...",
+        "condition": {
+          "not": {
+            "u_has_trait": "win"
+          }
+        },
+        "topic": "TALK_DONE"
+      },
       {
         "text": "Yeah... I went down there, he gave me no choice...",
-        "condition": { "u_has_trait": "win" },
+        "condition": {
+          "u_has_trait": "win"
+        },
         "topic": "FINAL"
       }
     ]
@@ -138,12 +198,25 @@
     "id": "FINAL",
     "type": "talk_topic",
     "dynamic_line": "So that means that it's truly over now... But I'll continue my watch regardless. To warn those who'll come after you, to protect them from their own greed... Now the best thing you can do is to simply leave. Let go and begin again, beyond those walls...",
-    "responses": [ { "text": "...", "topic": "TALK_DONE", "effect": { "npc_first_topic": "FINAL2" } } ]
+    "responses": [
+      {
+        "text": "...",
+        "topic": "TALK_DONE",
+        "effect": {
+          "npc_first_topic": "FINAL2"
+        }
+      }
+    ]
   },
   {
     "id": "FINAL2",
     "type": "talk_topic",
     "dynamic_line": "Why are you still here? There's nothing for you in the Sierra Madre. Let go and begin again...",
-    "responses": [ { "text": "...", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "...",
+        "topic": "TALK_DONE"
+      }
+    ]
   }
 ]

@@ -11,7 +11,9 @@
   },
   {
     "//": "'condition': { 'u_has_var': 'bandit_dump_unlocked', 'type': 'flag', 'context': 'missions_sb', 'value': 'yes' },",
-    "id": [ "TALK_bandit_sb_mechanic" ],
+    "id": [
+      "TALK_bandit_sb_mechanic"
+    ],
     "type": "talk_topic",
     "dynamic_line": {
       "u_has_var": "biker_dump_unlocked",
@@ -21,17 +23,41 @@
       "yes": "Hello there.",
       "no": "I'm busy.  Talk to me later."
     },
-    "responses": [ { "text": "Hi.", "topic": "TALK_bandit_sb_mechanic1", "effect": { "npc_first_topic": "TALK_bandit_sb_mechanic1" } } ]
+    "responses": [
+      {
+        "text": "Hi.",
+        "topic": "TALK_bandit_sb_mechanic1",
+        "effect": {
+          "npc_first_topic": "TALK_bandit_sb_mechanic1"
+        }
+      }
+    ]
   },
   {
-    "id": [ "TALK_bandit_sb_mechanic1", "TALK_bandit_sb_mechanic_Background" ],
+    "id": [
+      "TALK_bandit_sb_mechanic1",
+      "TALK_bandit_sb_mechanic_Background"
+    ],
     "type": "talk_topic",
     "dynamic_line": "<greet>",
     "responses": [
-      { "text": "About that job\u2026", "condition": "has_assigned_mission", "topic": "TALK_MISSION_INQUIRE" },
-      { "text": "<BGSS_intro_question>", "topic": "TALK_bandit_sb_mechanic_Background" },
-      { "text": "Do you need any help?", "topic": "TALK_MISSION_LIST" },
-      { "text": "Goodbye.", "topic": "TALK_DONE" }
+      {
+        "text": "About that job\u2026",
+        "condition": "has_assigned_mission",
+        "topic": "TALK_MISSION_INQUIRE"
+      },
+      {
+        "text": "<BGSS_intro_question>",
+        "topic": "TALK_bandit_sb_mechanic_Background"
+      },
+      {
+        "text": "Do you need any help?",
+        "topic": "TALK_MISSION_LIST"
+      },
+      {
+        "text": "Goodbye.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {

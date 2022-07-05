@@ -14,19 +14,72 @@
   {
     "type": "npc_class",
     "id": "NC_scientist_22ch",
-    "name": { "str": "Scientist 22ch" },
+    "name": {
+      "str": "Scientist 22ch"
+    },
     "job_description": "Scientist 22ch.",
     "common": false,
-    "bonus_str": { "rng": [ 2, 4 ] },
-    "bonus_dex": { "rng": [ 2, 4 ] },
-    "bonus_int": { "rng": [ 1, 2 ] },
-    "bonus_per": { "rng": [ 1, 2 ] },
+    "bonus_str": {
+      "rng": [
+        2,
+        4
+      ]
+    },
+    "bonus_dex": {
+      "rng": [
+        2,
+        4
+      ]
+    },
+    "bonus_int": {
+      "rng": [
+        1,
+        2
+      ]
+    },
+    "bonus_per": {
+      "rng": [
+        1,
+        2
+      ]
+    },
     "worn_override": "NC_lead_scientist_22ch_worn",
-    "traits": [ { "group": "Appearance_SouthAsian" }, { "trait": "PAINRESIST" } ],
+    "traits": [
+      {
+        "group": "Appearance_SouthAsian"
+      },
+      {
+        "trait": "PAINRESIST"
+      }
+    ],
     "skills": [
-      { "skill": "melee", "bonus": { "rng": [ 2, 6 ] } },
-      { "skill": "unarmed", "bonus": { "rng": [ 2, 6 ] } },
-      { "skill": "dodge", "bonus": { "rng": [ 2, 6 ] } }
+      {
+        "skill": "melee",
+        "bonus": {
+          "rng": [
+            2,
+            6
+          ]
+        }
+      },
+      {
+        "skill": "unarmed",
+        "bonus": {
+          "rng": [
+            2,
+            6
+          ]
+        }
+      },
+      {
+        "skill": "dodge",
+        "bonus": {
+          "rng": [
+            2,
+            6
+          ]
+        }
+      }
     ]
   },
   {
@@ -37,14 +90,34 @@
       {
         "text": "So, that guy sent me.",
         "topic": "TALK_MISSION_LIST",
-        "condition": { "u_has_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": {
+          "u_has_var": "lead_scientist_22ch_need_time",
+          "type": "general",
+          "context": "meeting",
+          "value": "yes"
+        },
         "effect": [
-          { "npc_add_var": "scientist_22ch_transmitter", "type": "general", "context": "meeting", "value": "0" },
-          { "u_add_var": "scientist_22ch_working", "type": "general", "context": "meeting", "value": "yes" },
-          { "npc_first_topic": "TALK_scientist_22ch_2" }
+          {
+            "npc_add_var": "scientist_22ch_transmitter",
+            "type": "general",
+            "context": "meeting",
+            "value": "0"
+          },
+          {
+            "u_add_var": "scientist_22ch_working",
+            "type": "general",
+            "context": "meeting",
+            "value": "yes"
+          },
+          {
+            "npc_first_topic": "TALK_scientist_22ch_2"
+          }
         ]
       },
-      { "text": "\u2026", "topic": "TALK_DONE" }
+      {
+        "text": "\u2026",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
@@ -58,41 +131,87 @@
         "condition": "mission_complete",
         "trial": {
           "type": "CONDITION",
-          "condition": { "not": { "npc_has_var": "scientist_22ch_transmitter", "type": "flag", "context": "meeting", "value": "4" } }
+          "condition": {
+            "not": {
+              "npc_has_var": "scientist_22ch_transmitter",
+              "type": "flag",
+              "context": "meeting",
+              "value": "4"
+            }
+          }
         },
         "success": {
           "topic": "TALK_scientist_22ch_good",
           "effect": [
-            { "mapgen_update": "22ch_transmitter", "origin_npc": true },
-            { "npc_adjust_var": "scientist_22ch_transmitter", "type": "flag", "context": "meeting", "adjustment": 1 }
+            {
+              "mapgen_update": "22ch_transmitter",
+              "origin_npc": true
+            },
+            {
+              "npc_adjust_var": "scientist_22ch_transmitter",
+              "type": "flag",
+              "context": "meeting",
+              "adjustment": 1
+            }
           ]
         },
-        "failure": { "topic": "TALK_scientist_22ch_done" }
+        "failure": {
+          "topic": "TALK_scientist_22ch_done"
+        }
       },
       {
         "text": "We're home.",
         "topic": "TALK_scientist_22ch_home",
         "condition": {
           "and": [
-            { "npc_at_om_location": "cabin_basement_test" },
-            { "npc_has_var": "scientist_22ch_transmitter", "type": "flag", "context": "meeting", "value": "4" }
+            {
+              "npc_at_om_location": "cabin_basement_test"
+            },
+            {
+              "npc_has_var": "scientist_22ch_transmitter",
+              "type": "flag",
+              "context": "meeting",
+              "value": "4"
+            }
           ]
         }
       },
-      { "text": "Follow me.", "topic": "TALK_DONE", "effect": "follow_only" },
+      {
+        "text": "Follow me.",
+        "topic": "TALK_DONE",
+        "effect": "follow_only"
+      },
       {
         "text": "Wait for me here.",
         "topic": "TALK_DONE",
-        "effect": [ "assign_guard", { "npc_first_topic": "TALK_scientist_22ch_2" } ]
+        "effect": [
+          "assign_guard",
+          {
+            "npc_first_topic": "TALK_scientist_22ch_2"
+          }
+        ]
       },
-      { "text": "Nevermind.", "topic": "TALK_DONE" }
+      {
+        "text": "Nevermind.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_scientist_22ch_good",
     "dynamic_line": "I'm done here. Let's get going.",
-    "responses": [ { "text": "\u2026", "topic": "TALK_DONE", "effect": [ "mission_success", "clear_mission", "assign_mission" ] } ]
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_DONE",
+        "effect": [
+          "mission_success",
+          "clear_mission",
+          "assign_mission"
+        ]
+      }
+    ]
   },
   {
     "type": "talk_topic",
@@ -104,10 +223,23 @@
         "topic": "TALK_DONE",
         "effect": [
           "follow_only",
-          { "mapgen_update": "22ch_transmitter_done", "origin_npc": true, "offset_z": -7 },
+          {
+            "mapgen_update": "22ch_transmitter_done",
+            "origin_npc": true,
+            "offset_z": -7
+          },
           "mission_success",
-          { "u_lose_var": "lead_scientist_22ch_need_time", "type": "general", "context": "meeting" },
-          { "u_add_var": "lead_scientist_22ch_finished", "type": "general", "context": "meeting", "value": "yes" }
+          {
+            "u_lose_var": "lead_scientist_22ch_need_time",
+            "type": "general",
+            "context": "meeting"
+          },
+          {
+            "u_add_var": "lead_scientist_22ch_finished",
+            "type": "general",
+            "context": "meeting",
+            "value": "yes"
+          }
         ]
       }
     ]
@@ -116,13 +248,24 @@
     "type": "talk_topic",
     "id": "TALK_scientist_22ch_home",
     "dynamic_line": "Well, that was fun. Thanks for the ride.",
-    "responses": [ { "text": "I'm glad it's all over.", "topic": "TALK_DONE", "effect": [ "stop_following", "end_conversation" ] } ]
+    "responses": [
+      {
+        "text": "I'm glad it's all over.",
+        "topic": "TALK_DONE",
+        "effect": [
+          "stop_following",
+          "end_conversation"
+        ]
+      }
+    ]
   },
   {
     "id": "MISSION_scientist_22ch_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Place transmitter" },
+    "name": {
+      "str": "Place transmitter"
+    },
     "description": "Help scientist place transmitter",
     "goal": "MGOAL_GO_TO",
     "destination": "radio_tower_top",
@@ -139,7 +282,9 @@
         "offset_z": 6
       }
     },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_scientist_22ch_1",
     "dialogue": {
       "describe": "-",

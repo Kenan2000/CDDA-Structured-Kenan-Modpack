@@ -1,14 +1,25 @@
 [
   {
-    "id": [ "TALK_bandit_gs_slave4_follow" ],
+    "id": [
+      "TALK_bandit_gs_slave4_follow"
+    ],
     "type": "talk_topic",
     "dynamic_line": "So, are we, like, there?",
     "responses": [
       {
         "text": "We're here.",
         "topic": "TALK_DONE",
-        "condition": { "npc_at_om_location": "ws_biker_dump_2_2" },
-        "effect": [ "stop_following", { "npc_first_topic": "TALK_bandit_gs_slave4_at_sb" }, "mission_success", "clear_mission" ],
+        "condition": {
+          "npc_at_om_location": "ws_biker_dump_2_2"
+        },
+        "effect": [
+          "stop_following",
+          {
+            "npc_first_topic": "TALK_bandit_gs_slave4_at_sb"
+          },
+          "mission_success",
+          "clear_mission"
+        ],
         "switch": true
       },
       {
@@ -25,16 +36,26 @@
     ]
   },
   {
-    "id": [ "TALK_bandit_gs_slave4_at_sb" ],
+    "id": [
+      "TALK_bandit_gs_slave4_at_sb"
+    ],
     "type": "talk_topic",
     "dynamic_line": "Hello there, boss.",
     "responses": [
-      { "text": "Working hard, eh?", "topic": "TALK_bandit_gs_slave4_at_sb_work" },
-      { "text": "Yeah.", "topic": "TALK_DONE" }
+      {
+        "text": "Working hard, eh?",
+        "topic": "TALK_bandit_gs_slave4_at_sb_work"
+      },
+      {
+        "text": "Yeah.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
-    "id": [ "TALK_bandit_gs_slave4_at_sb_work" ],
+    "id": [
+      "TALK_bandit_gs_slave4_at_sb_work"
+    ],
     "type": "talk_topic",
     "dynamic_line": {
       "u_has_var": "sb_narc_farm",
@@ -49,7 +70,12 @@
         "truefalsetext": {
           "true": "Don't worry, they will find you a new task to work on.",
           "false": "Work hard, and some day, you'll earn your freedom. *chuckle*",
-          "condition": { "u_has_var": "sb_narc_farm", "type": "switch", "context": "farm_status", "value": "burned" }
+          "condition": {
+            "u_has_var": "sb_narc_farm",
+            "type": "switch",
+            "context": "farm_status",
+            "value": "burned"
+          }
         },
         "topic": "TALK_DONE"
       }

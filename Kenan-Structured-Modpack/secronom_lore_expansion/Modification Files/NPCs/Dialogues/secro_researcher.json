@@ -25,8 +25,14 @@
         "topic": "TALK_SECRO_RESEARCHER_mission1_progress",
         "condition": {
           "and": [
-            { "not": { "u_has_effect": "secro_researcher_mission1_help" } },
-            { "u_has_effect": "secro_scientist_mission1_progress" }
+            {
+              "not": {
+                "u_has_effect": "secro_researcher_mission1_help"
+              }
+            },
+            {
+              "u_has_effect": "secro_scientist_mission1_progress"
+            }
           ]
         }
       },
@@ -35,46 +41,88 @@
         "topic": "TALK_DONE",
         "condition": {
           "and": [
-            { "not": { "u_has_effect": "secro_researcher_mission1_help_done" } },
-            { "u_has_effect": "secro_scientist_partake_mission1" }
+            {
+              "not": {
+                "u_has_effect": "secro_researcher_mission1_help_done"
+              }
+            },
+            {
+              "u_has_effect": "secro_scientist_partake_mission1"
+            }
           ]
         },
-        "effect": [ { "duration": "PERMANENT", "u_add_effect": "secro_researcher_mission1_help_done" }, "stop_following" ]
+        "effect": [
+          {
+            "duration": "PERMANENT",
+            "u_add_effect": "secro_researcher_mission1_help_done"
+          },
+          "stop_following"
+        ]
       },
       {
         "truefalsetext": {
-          "condition": { "u_has_effect": "secro_guard_mission1_gonnastart" },
+          "condition": {
+            "u_has_effect": "secro_guard_mission1_gonnastart"
+          },
           "true": "The guard told me you need assistance.",
           "false": "What's your plan?"
         },
         "topic": "TALK_SECRO_RESEARCHER_guard_mission1_gonnastart",
         "condition": {
           "and": [
-            { "not": { "u_has_effect": "secro_guard_mission1_startnow" } },
-            { "u_has_effect": "secro_researcher_mission1_help_done" }
+            {
+              "not": {
+                "u_has_effect": "secro_guard_mission1_startnow"
+              }
+            },
+            {
+              "u_has_effect": "secro_researcher_mission1_help_done"
+            }
           ]
         },
-        "effect": { "duration": 2880, "npc_add_effect": "secro_researcher_searching_shapeshifter" }
+        "effect": {
+          "duration": 2880,
+          "npc_add_effect": "secro_researcher_searching_shapeshifter"
+        }
       },
       {
         "text": "We've clear the enigma chamber.",
         "topic": "TALK_SECRO_RESEARCHER_guard_mission1_done",
         "condition": {
           "and": [
-            { "not": { "u_has_effect": "secro_researcher_guard_mission1_done" } },
-            { "u_has_effect": "secro_guard_backfrom_mission1" }
+            {
+              "not": {
+                "u_has_effect": "secro_researcher_guard_mission1_done"
+              }
+            },
+            {
+              "u_has_effect": "secro_guard_backfrom_mission1"
+            }
           ]
         },
-        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_researcher_guard_mission1_done" }
+        "effect": {
+          "duration": "PERMANENT",
+          "u_add_effect": "secro_researcher_guard_mission1_done"
+        }
       },
       {
         "text": "Anything else I can do?",
         "topic": "TALK_SECRO_RESEARCHER_mission1",
         "condition": {
           "and": [
-            { "not": { "u_has_effect": "secro_researcher_mission1_gonnastart" } },
-            { "u_has_effect": "secro_researcher_guard_mission1_done" },
-            { "not": { "u_has_effect": "secro_researcher_mission1_progress" } }
+            {
+              "not": {
+                "u_has_effect": "secro_researcher_mission1_gonnastart"
+              }
+            },
+            {
+              "u_has_effect": "secro_researcher_guard_mission1_done"
+            },
+            {
+              "not": {
+                "u_has_effect": "secro_researcher_mission1_progress"
+              }
+            }
           ]
         }
       },
@@ -83,9 +131,17 @@
         "topic": "TALK_SECRO_RESEARCHER_mission1_notyet",
         "condition": {
           "and": [
-            { "u_has_effect": "secro_researcher_searching_shapeshifter" },
-            { "u_has_effect": "secro_researcher_mission1_gonnastart" },
-            { "not": { "u_has_effect": "secro_researcher_mission1_progress" } }
+            {
+              "u_has_effect": "secro_researcher_searching_shapeshifter"
+            },
+            {
+              "u_has_effect": "secro_researcher_mission1_gonnastart"
+            },
+            {
+              "not": {
+                "u_has_effect": "secro_researcher_mission1_progress"
+              }
+            }
           ]
         }
       },
@@ -94,30 +150,54 @@
         "topic": "TALK_SECRO_RESEARCHER_mission1_start",
         "condition": {
           "and": [
-            { "not": { "u_has_effect": "secro_researcher_searching_shapeshifter" } },
-            { "u_has_effect": "secro_researcher_mission1_gonnastart" }
+            {
+              "not": {
+                "u_has_effect": "secro_researcher_searching_shapeshifter"
+              }
+            },
+            {
+              "u_has_effect": "secro_researcher_mission1_gonnastart"
+            }
           ]
         }
       },
       {
-        "truefalsetext": { "condition": { "u_has_effect": "secro_scientist_mission1_progress" }, "true": "Nothing.", "false": "Bye then..." },
+        "truefalsetext": {
+          "condition": {
+            "u_has_effect": "secro_scientist_mission1_progress"
+          },
+          "true": "Nothing.",
+          "false": "Bye then..."
+        },
         "topic": "TALK_DONE",
-        "condition": { "not": { "u_has_effect": "secro_researcher_mission1_help" } }
+        "condition": {
+          "not": {
+            "u_has_effect": "secro_researcher_mission1_help"
+          }
+        }
       },
       {
         "text": "I am.",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
-            { "not": { "u_has_effect": "secro_scientist_partake_mission1" } },
-            { "u_has_effect": "secro_researcher_mission1_help" }
+            {
+              "not": {
+                "u_has_effect": "secro_scientist_partake_mission1"
+              }
+            },
+            {
+              "u_has_effect": "secro_researcher_mission1_help"
+            }
           ]
         }
       },
       {
         "text": "Nothing.",
         "topic": "TALK_DONE",
-        "condition": { "u_has_effect": "secro_researcher_mission1_help_done" }
+        "condition": {
+          "u_has_effect": "secro_researcher_mission1_help_done"
+        }
       }
     ]
   },
@@ -129,7 +209,13 @@
       {
         "text": "Okay.",
         "topic": "TALK_DONE",
-        "effect": [ { "duration": "PERMANENT", "u_add_effect": "secro_researcher_mission1_help" }, "follow_only" ]
+        "effect": [
+          {
+            "duration": "PERMANENT",
+            "u_add_effect": "secro_researcher_mission1_help"
+          },
+          "follow_only"
+        ]
       }
     ]
   },
@@ -145,7 +231,10 @@
       {
         "text": "Tell me.",
         "topic": "TALK_SECRO_RESEARCHER_guard_mission1_start",
-        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_guard_mission1_start" }
+        "effect": {
+          "duration": "PERMANENT",
+          "u_add_effect": "secro_guard_mission1_start"
+        }
       }
     ]
   },
@@ -154,15 +243,26 @@
     "id": "TALK_SECRO_RESEARCHER_guard_mission1_start",
     "dynamic_line": "But first, let me tell you a subtle understanding on our facility. There are a total of 3 specimen variants: the failed, BOW and enigma, each in their respective rooms.",
     "responses": [
-      { "text": "Failed? BOW? Enigma? What are those?", "topic": "TALK_SECRO_RESEARCHER_guard_mission1_start_info" },
-      { "text": "Just describe what needs to be done.", "topic": "TALK_SECRO_RESEARCHER_guard_mission1_start_now" }
+      {
+        "text": "Failed? BOW? Enigma? What are those?",
+        "topic": "TALK_SECRO_RESEARCHER_guard_mission1_start_info"
+      },
+      {
+        "text": "Just describe what needs to be done.",
+        "topic": "TALK_SECRO_RESEARCHER_guard_mission1_start_now"
+      }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_SECRO_RESEARCHER_guard_mission1_start_info",
     "dynamic_line": "Failed specimens are the results of unsuccessful mutations, otherwise they are called BOWs. Enigmas, on the other hand, were formed using potent mutagens.",
-    "responses": [ { "text": "So what should I do?", "topic": "TALK_SECRO_RESEARCHER_guard_mission1_start_now" } ]
+    "responses": [
+      {
+        "text": "So what should I do?",
+        "topic": "TALK_SECRO_RESEARCHER_guard_mission1_start_now"
+      }
+    ]
   },
   {
     "type": "talk_topic",
@@ -172,7 +272,10 @@
       {
         "text": "Okay. I will go now",
         "topic": "TALK_DONE",
-        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_guard_mission1_startnow" }
+        "effect": {
+          "duration": "PERMANENT",
+          "u_add_effect": "secro_guard_mission1_startnow"
+        }
       }
     ]
   },
@@ -180,25 +283,49 @@
     "type": "talk_topic",
     "id": "TALK_SECRO_RESEARCHER_guard_mission1_done",
     "dynamic_line": "Excellent. Have you found anything of interest?",
-    "responses": [ { "text": "Nope.", "topic": "TALK_SECRO_RESEARCHER_enigma_none" } ]
+    "responses": [
+      {
+        "text": "Nope.",
+        "topic": "TALK_SECRO_RESEARCHER_enigma_none"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_SECRO_RESEARCHER_enigma_none",
     "dynamic_line": "If you notice anything strange, just ask me and I'll tell everything I know about that.",
-    "responses": [ { "text": "Okay.", "topic": "TALK_SECRO_RESEARCHER_main" }, { "text": "Okay. Bye.", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "Okay.",
+        "topic": "TALK_SECRO_RESEARCHER_main"
+      },
+      {
+        "text": "Okay. Bye.",
+        "topic": "TALK_DONE"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_SECRO_RESEARCHER_mission1",
     "dynamic_line": "Well, I'm curious about a mysterious, wandering specimen. Its the result of our recent experiment using a highly unstable mutagen who, I believe, takes form of a human.",
-    "responses": [ { "text": "What do you from it?", "topic": "TALK_SECRO_RESEARCHER_mission1_info" } ]
+    "responses": [
+      {
+        "text": "What do you from it?",
+        "topic": "TALK_SECRO_RESEARCHER_mission1_info"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_SECRO_RESEARCHER_mission1_info",
     "dynamic_line": "Unlike other enigmas, its genetic structure is of unknown form, and I need a sample from it for deeper understanding of this otherworldly creature.",
-    "responses": [ { "text": "So where can I find it?", "topic": "TALK_SECRO_RESEARCHER_mission1_where" } ]
+    "responses": [
+      {
+        "text": "So where can I find it?",
+        "topic": "TALK_SECRO_RESEARCHER_mission1_where"
+      }
+    ]
   },
   {
     "type": "talk_topic",
@@ -208,7 +335,10 @@
       {
         "text": "Okay... I'll wait for it.",
         "topic": "TALK_SECRO_RESEARCHER_main",
-        "effect": { "duration": "PERMANENT", "u_add_effect": "secro_researcher_mission1_gonnastart" }
+        "effect": {
+          "duration": "PERMANENT",
+          "u_add_effect": "secro_researcher_mission1_gonnastart"
+        }
       }
     ]
   },
@@ -216,12 +346,22 @@
     "type": "talk_topic",
     "id": "TALK_SECRO_RESEARCHER_mission1_notyet",
     "dynamic_line": "The drone's still on the search...",
-    "responses": [ { "text": "Okay...", "topic": "TALK_SECRO_RESEARCHER_main" } ]
+    "responses": [
+      {
+        "text": "Okay...",
+        "topic": "TALK_SECRO_RESEARCHER_main"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_SECRO_RESEARCHER_mission1_start",
     "dynamic_line": "The drone has revealed the location of our target.",
-    "responses": [ { "text": "Okay, what should I do?", "topic": "TALK_MISSION_OFFER" } ]
+    "responses": [
+      {
+        "text": "Okay, what should I do?",
+        "topic": "TALK_MISSION_OFFER"
+      }
+    ]
   }
 ]

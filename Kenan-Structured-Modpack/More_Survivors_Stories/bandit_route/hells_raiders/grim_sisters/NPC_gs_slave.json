@@ -10,47 +10,97 @@
     "faction": "hells_raiders_slaves"
   },
   {
-    "id": [ "TALK_bandit_gs_slave" ],
+    "id": [
+      "TALK_bandit_gs_slave"
+    ],
     "type": "talk_topic",
     "dynamic_line": "Hi.",
     "responses": [
       {
         "text": "Pack your stuff, we're going to your new home.",
-        "condition": { "u_has_var": "gs_take_slaves", "type": "count", "context": "take_slaves", "value": "4" },
+        "condition": {
+          "u_has_var": "gs_take_slaves",
+          "type": "count",
+          "context": "take_slaves",
+          "value": "4"
+        },
         "effect": [
           "follow_only",
-          { "u_adjust_var": "gs_take_slaves", "type": "count", "context": "take_slaves", "adjustment": -1 },
-          { "npc_first_topic": "TALK_bandit_gs_slave1_follow" }
+          {
+            "u_adjust_var": "gs_take_slaves",
+            "type": "count",
+            "context": "take_slaves",
+            "adjustment": -1
+          },
+          {
+            "npc_first_topic": "TALK_bandit_gs_slave1_follow"
+          }
         ],
         "topic": "TALK_bandit_gs_slave_2"
       },
       {
         "text": "Pack your stuff, we're going to your new home.",
-        "condition": { "u_has_var": "gs_take_slaves", "type": "count", "context": "take_slaves", "value": "3" },
+        "condition": {
+          "u_has_var": "gs_take_slaves",
+          "type": "count",
+          "context": "take_slaves",
+          "value": "3"
+        },
         "effect": [
           "follow_only",
-          { "u_adjust_var": "gs_take_slaves", "type": "count", "context": "take_slaves", "adjustment": -1 },
-          { "npc_first_topic": "TALK_bandit_gs_slave2_follow" }
+          {
+            "u_adjust_var": "gs_take_slaves",
+            "type": "count",
+            "context": "take_slaves",
+            "adjustment": -1
+          },
+          {
+            "npc_first_topic": "TALK_bandit_gs_slave2_follow"
+          }
         ],
         "topic": "TALK_bandit_gs_slave_2"
       },
       {
         "text": "Pack your stuff, we're going to your new home.",
-        "condition": { "u_has_var": "gs_take_slaves", "type": "count", "context": "take_slaves", "value": "2" },
+        "condition": {
+          "u_has_var": "gs_take_slaves",
+          "type": "count",
+          "context": "take_slaves",
+          "value": "2"
+        },
         "effect": [
           "follow_only",
-          { "u_adjust_var": "gs_take_slaves", "type": "count", "context": "take_slaves", "adjustment": -1 },
-          { "npc_first_topic": "TALK_bandit_gs_slave3_follow" }
+          {
+            "u_adjust_var": "gs_take_slaves",
+            "type": "count",
+            "context": "take_slaves",
+            "adjustment": -1
+          },
+          {
+            "npc_first_topic": "TALK_bandit_gs_slave3_follow"
+          }
         ],
         "topic": "TALK_bandit_gs_slave_2"
       },
       {
         "text": "Pack your stuff, we're going to your new home.",
-        "condition": { "u_has_var": "gs_take_slaves", "type": "count", "context": "take_slaves", "value": "1" },
+        "condition": {
+          "u_has_var": "gs_take_slaves",
+          "type": "count",
+          "context": "take_slaves",
+          "value": "1"
+        },
         "effect": [
           "follow_only",
-          { "u_adjust_var": "gs_take_slaves", "type": "count", "context": "take_slaves", "adjustment": -1 },
-          { "npc_first_topic": "TALK_bandit_gs_slave4_follow" }
+          {
+            "u_adjust_var": "gs_take_slaves",
+            "type": "count",
+            "context": "take_slaves",
+            "adjustment": -1
+          },
+          {
+            "npc_first_topic": "TALK_bandit_gs_slave4_follow"
+          }
         ],
         "topic": "TALK_bandit_gs_slave_2"
       },
@@ -58,40 +108,75 @@
         "text": "Show me what you've got!",
         "topic": "TALK_bandit_gs_slave",
         "effect": "reveal_stats",
-        "condition": { "u_compare_var": "gs_take_slaves", "type": "count", "context": "take_slaves", "op": ">", "value": 0 }
+        "condition": {
+          "u_compare_var": "gs_take_slaves",
+          "type": "count",
+          "context": "take_slaves",
+          "op": ">",
+          "value": 0
+        }
       }
     ]
   },
   {
-    "id": [ "TALK_bandit_gs_slave_2" ],
+    "id": [
+      "TALK_bandit_gs_slave_2"
+    ],
     "type": "talk_topic",
     "dynamic_line": "That's sad.",
-    "responses": [ { "text": "Yeah.", "topic": "TALK_DONE", "effect": { "add_mission": "MISSION_bandit_gs_slaves" } } ]
+    "responses": [
+      {
+        "text": "Yeah.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "add_mission": "MISSION_bandit_gs_slaves"
+        }
+      }
+    ]
   },
   {
-    "id": [ "TALK_bandit_gs_slave_follow" ],
+    "id": [
+      "TALK_bandit_gs_slave_follow"
+    ],
     "type": "talk_topic",
     "dynamic_line": "So, are we, like, there?",
     "responses": [
       {
         "text": "We're here.",
         "topic": "TALK_DONE",
-        "condition": { "npc_at_om_location": "ws_biker_dump_2_2" },
-        "effect": [ "stop_following", { "npc_first_topic": "TALK_bandit_gs_slave_at_sb" } ]
+        "condition": {
+          "npc_at_om_location": "ws_biker_dump_2_2"
+        },
+        "effect": [
+          "stop_following",
+          {
+            "npc_first_topic": "TALK_bandit_gs_slave_at_sb"
+          }
+        ]
       }
     ]
   },
   {
-    "id": [ "TALK_bandit_gs_slave_at_sb" ],
+    "id": [
+      "TALK_bandit_gs_slave_at_sb"
+    ],
     "type": "talk_topic",
     "dynamic_line": "Hello there, boss.",
     "responses": [
-      { "text": "Working hard, eh?", "topic": "TALK_bandit_gs_slave_at_sb_work" },
-      { "text": "Yeah.", "topic": "TALK_DONE" }
+      {
+        "text": "Working hard, eh?",
+        "topic": "TALK_bandit_gs_slave_at_sb_work"
+      },
+      {
+        "text": "Yeah.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
-    "id": [ "TALK_bandit_gs_slave_at_sb_work" ],
+    "id": [
+      "TALK_bandit_gs_slave_at_sb_work"
+    ],
     "type": "talk_topic",
     "dynamic_line": {
       "u_has_var": "sb_narc_farm",
@@ -106,7 +191,12 @@
         "truefalsetext": {
           "true": "Work hard, and some day, you'll earn your freedom. *chuckle*",
           "false": "Don't worry, they will find you a new task to work on.",
-          "condition": { "u_has_var": "sb_narc_farm", "type": "switch", "context": "farm_status", "value": "burned" }
+          "condition": {
+            "u_has_var": "sb_narc_farm",
+            "type": "switch",
+            "context": "farm_status",
+            "value": "burned"
+          }
         },
         "topic": "TALK_DONE"
       }
@@ -116,7 +206,9 @@
     "id": "MISSION_bandit_gs_slaves",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Protect slave" },
+    "name": {
+      "str": "Protect slave"
+    },
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "npc_compare_time_since_var": "annoy_player",
@@ -135,9 +227,25 @@
         "time": true
       }
     },
-    "end": { "effect": { "u_adjust_var": "slaves_for_sb", "type": "count", "context": "alive", "adjustment": 1 } },
-    "fail": { "effect": { "u_adjust_var": "slaves_for_sb", "type": "count", "context": "dead", "adjustment": 1 } },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "end": {
+      "effect": {
+        "u_adjust_var": "slaves_for_sb",
+        "type": "count",
+        "context": "alive",
+        "adjustment": 1
+      }
+    },
+    "fail": {
+      "effect": {
+        "u_adjust_var": "slaves_for_sb",
+        "type": "count",
+        "context": "dead",
+        "adjustment": 1
+      }
+    },
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "dialogue": {
       "describe": "-",
       "offer": "-",

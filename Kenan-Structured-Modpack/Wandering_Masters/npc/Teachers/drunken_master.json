@@ -15,17 +15,68 @@
   {
     "type": "npc_class",
     "id": "NC_drunken_master",
-    "name": { "str": "Drunken master" },
+    "name": {
+      "str": "Drunken master"
+    },
     "job_description": "Drunken master.",
     "common": false,
-    "bonus_str": { "rng": [ 0, 6 ] },
-    "bonus_dex": { "rng": [ 2, 6 ] },
-    "bonus_int": { "rng": [ 4, 6 ] },
-    "bonus_per": { "rng": [ 0, 4 ] },
+    "bonus_str": {
+      "rng": [
+        0,
+        6
+      ]
+    },
+    "bonus_dex": {
+      "rng": [
+        2,
+        6
+      ]
+    },
+    "bonus_int": {
+      "rng": [
+        4,
+        6
+      ]
+    },
+    "bonus_per": {
+      "rng": [
+        0,
+        4
+      ]
+    },
     "weapon_override": "EMPTY_GROUP",
     "carry_override": "EMPTY_GROUP",
-    "traits": [ { "group": "Appearance_demographics" }, { "group": "NPC_starting_traits" }, { "trait": "BGSS_drunken_master" } ],
-    "skills": [ { "skill": "unarmed", "bonus": { "rng": [ 4, 8 ] } }, { "skill": "dodge", "bonus": { "rng": [ 4, 8 ] } } ]
+    "traits": [
+      {
+        "group": "Appearance_demographics"
+      },
+      {
+        "group": "NPC_starting_traits"
+      },
+      {
+        "trait": "BGSS_drunken_master"
+      }
+    ],
+    "skills": [
+      {
+        "skill": "unarmed",
+        "bonus": {
+          "rng": [
+            4,
+            8
+          ]
+        }
+      },
+      {
+        "skill": "dodge",
+        "bonus": {
+          "rng": [
+            4,
+            8
+          ]
+        }
+      }
+    ]
   },
   {
     "type": "talk_topic",
@@ -38,33 +89,77 @@
     "dynamic_line": "<greet>",
     "speaker_effect": {
       "effect": [
-        { "set_npc_engagement_rule": "ENGAGE_ALL" },
-        { "toggle_npc_rule": "follow_distance_2" },
-        { "toggle_npc_rule": "allow_pulp" }
+        {
+          "set_npc_engagement_rule": "ENGAGE_ALL"
+        },
+        {
+          "toggle_npc_rule": "follow_distance_2"
+        },
+        {
+          "toggle_npc_rule": "allow_pulp"
+        }
       ]
     },
     "responses": [
-      { "text": "About that job\u2026", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "<BGSS_intro_question>", "topic": "TALK_drunken_master_Background" },
+      {
+        "text": "About that job\u2026",
+        "topic": "TALK_MISSION_INQUIRE",
+        "condition": "has_assigned_mission"
+      },
+      {
+        "text": "<BGSS_intro_question>",
+        "topic": "TALK_drunken_master_Background"
+      },
       {
         "text": "Is your potion ready?",
-        "condition": { "npc_has_var": "wait", "type": "general", "context": "brew", "value": "yes" },
+        "condition": {
+          "npc_has_var": "wait",
+          "type": "general",
+          "context": "brew",
+          "value": "yes"
+        },
         "trial": {
           "type": "CONDITION",
           "condition": {
-            "not": { "npc_compare_time_since_var": "wait_time", "type": "general", "context": "brew", "op": "<", "time": "1 day" }
+            "not": {
+              "npc_compare_time_since_var": "wait_time",
+              "type": "general",
+              "context": "brew",
+              "op": "<",
+              "time": "1 day"
+            }
           }
         },
-        "success": { "topic": "TALK_drunken_master_brew_ready" },
-        "failure": { "topic": "TALK_drunken_master_brew_nope" },
+        "success": {
+          "topic": "TALK_drunken_master_brew_ready"
+        },
+        "failure": {
+          "topic": "TALK_drunken_master_brew_nope"
+        },
         "switch": true
       },
       {
         "text": "Do you need any help?",
-        "condition": { "npc_has_var": "master_mission", "type": "flag", "context": "mission", "value": "yes" },
-        "trial": { "type": "CONDITION", "condition": { "not": { "npc_has_effect": "dm_brew" } } },
-        "success": { "topic": "TALK_MISSION_LIST" },
-        "failure": { "topic": "TALK_drunken_master_rest" },
+        "condition": {
+          "npc_has_var": "master_mission",
+          "type": "flag",
+          "context": "mission",
+          "value": "yes"
+        },
+        "trial": {
+          "type": "CONDITION",
+          "condition": {
+            "not": {
+              "npc_has_effect": "dm_brew"
+            }
+          }
+        },
+        "success": {
+          "topic": "TALK_MISSION_LIST"
+        },
+        "failure": {
+          "topic": "TALK_drunken_master_rest"
+        },
         "switch": true
       },
       {
@@ -72,9 +167,19 @@
         "topic": "TALK_DONE",
         "condition": {
           "and": [
-            { "npc_has_var": "u_helped_drunken_master", "type": "general", "context": "meeting", "value": "yes" },
             {
-              "not": { "npc_has_var": "drunken_master_teach", "type": "general", "context": "meeting", "value": "yes" }
+              "npc_has_var": "u_helped_drunken_master",
+              "type": "general",
+              "context": "meeting",
+              "value": "yes"
+            },
+            {
+              "not": {
+                "npc_has_var": "drunken_master_teach",
+                "type": "general",
+                "context": "meeting",
+                "value": "yes"
+              }
             }
           ]
         },
@@ -82,10 +187,18 @@
       },
       {
         "text": "Can you teach me something?",
-        "condition": { "npc_has_var": "master_mission", "type": "flag", "context": "mission", "value": "yes" },
+        "condition": {
+          "npc_has_var": "master_mission",
+          "type": "flag",
+          "context": "mission",
+          "value": "yes"
+        },
         "topic": "TALK_drunken_master_teach_check"
       },
-      { "text": "Goodbye.", "topic": "TALK_DONE" }
+      {
+        "text": "Goodbye.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
@@ -96,10 +209,25 @@
       {
         "text": "Can you teach me your fighting style?",
         "topic": "TALK_drunken_master_Background_style",
-        "condition": { "not": { "npc_has_var": "master_mission", "type": "flag", "context": "mission", "value": "yes" } },
-        "effect": { "npc_add_var": "master_mission", "type": "flag", "context": "mission", "value": "yes" }
+        "condition": {
+          "not": {
+            "npc_has_var": "master_mission",
+            "type": "flag",
+            "context": "mission",
+            "value": "yes"
+          }
+        },
+        "effect": {
+          "npc_add_var": "master_mission",
+          "type": "flag",
+          "context": "mission",
+          "value": "yes"
+        }
       },
-      { "text": "<done_conversation_section>", "topic": "TALK_NONE" }
+      {
+        "text": "<done_conversation_section>",
+        "topic": "TALK_NONE"
+      }
     ]
   },
   {
@@ -125,16 +253,25 @@
       {
         "text": "Let's do it!",
         "topic": "TALK_drunken_master_brew_drink",
-        "effect": [ { "npc_lose_var": "wait", "type": "general", "context": "brew" } ]
+        "effect": [
+          {
+            "npc_lose_var": "wait",
+            "type": "general",
+            "context": "brew"
+          }
+        ]
       },
-      { "text": "Maybe later.", "topic": "TALK_NONE" }
+      {
+        "text": "Maybe later.",
+        "topic": "TALK_NONE"
+      }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_drunken_master_brew_drink",
     "dynamic_line": {
-      "and": [
+      "concatenate": [
         "*staggered a little, exhaled poisonous vapor from his mouth, due to which the flies flying nearby fell dead, and said: \"UHH, IT'S GOOD!  I FEEL SUCH A Rush of STRENGTH AND ENERGY, THAT I AM READY TO RIP EVERYONE AND EVERYTHING!  Let's bet I can kill more <zombies> than you can until we sober up?",
         {
           "npc_has_var": "master_mission",
@@ -157,9 +294,18 @@
       {
         "text": "Okay, let's try!",
         "topic": "TALK_DONE",
-        "effect": [ "assign_mission", { "npc_first_topic": "TALK_drunken_master_mayhem" }, "follow_only" ]
+        "effect": [
+          "assign_mission",
+          {
+            "npc_first_topic": "TALK_drunken_master_mayhem"
+          },
+          "follow_only"
+        ]
       },
-      { "text": "<no>, I don't want to.", "topic": "TALK_drunken_master_refuse" }
+      {
+        "text": "<no>, I don't want to.",
+        "topic": "TALK_drunken_master_refuse"
+      }
     ]
   },
   {
@@ -167,8 +313,18 @@
     "id": "TALK_drunken_master_refuse",
     "dynamic_line": "Afraid of losing?  I'll go look for a worthy opponent somewhere else.",
     "responses": [
-      { "text": "Let me think again.", "topic": "TALK_NONE" },
-      { "text": "Get lost, you drunkard.", "topic": "TALK_DONE", "effect": [ "leave", "end_conversation" ] }
+      {
+        "text": "Let me think again.",
+        "topic": "TALK_NONE"
+      },
+      {
+        "text": "Get lost, you drunkard.",
+        "topic": "TALK_DONE",
+        "effect": [
+          "leave",
+          "end_conversation"
+        ]
+      }
     ]
   },
   {
@@ -183,9 +339,20 @@
       {
         "text": "Let's count the points.",
         "condition": "mission_complete",
-        "trial": { "type": "CONDITION", "condition": { "u_has_effect": "dm_brew" } },
-        "success": { "effect": "mission_success", "topic": "TALK_MISSION_SUCCESS" },
-        "failure": { "effect": "mission_failure", "topic": "TALK_MISSION_FAILURE" }
+        "trial": {
+          "type": "CONDITION",
+          "condition": {
+            "u_has_effect": "dm_brew"
+          }
+        },
+        "success": {
+          "effect": "mission_success",
+          "topic": "TALK_MISSION_SUCCESS"
+        },
+        "failure": {
+          "effect": "mission_failure",
+          "topic": "TALK_MISSION_FAILURE"
+        }
       }
     ]
   },
@@ -196,63 +363,140 @@
     "responses": [
       {
         "text": "Yes, master.",
-        "condition": { "npc_has_var": "u_helped_drunken_master", "type": "general", "context": "meeting", "value": "yes" },
+        "condition": {
+          "npc_has_var": "u_helped_drunken_master",
+          "type": "general",
+          "context": "meeting",
+          "value": "yes"
+        },
         "trial": {
           "type": "CONDITION",
-          "condition": { "npc_has_var": "drunken_master_teach", "type": "general", "context": "meeting", "value": "yes" }
+          "condition": {
+            "npc_has_var": "drunken_master_teach",
+            "type": "general",
+            "context": "meeting",
+            "value": "yes"
+          }
         },
         "success": {
           "effect": [
-            { "u_spawn_item": "manual_zui_quan" },
-            { "npc_lose_var": "drunken_master_teach", "type": "general", "context": "meeting" }
+            {
+              "u_spawn_item": "manual_zui_quan"
+            },
+            {
+              "npc_lose_var": "drunken_master_teach",
+              "type": "general",
+              "context": "meeting"
+            }
           ],
           "topic": "TALK_drunken_master_teach"
         },
-        "failure": { "topic": "TALK_drunken_master_teach_done" }
+        "failure": {
+          "topic": "TALK_drunken_master_teach_done"
+        }
       },
-      { "text": "Maybe later.", "topic": "TALK_NONE" }
+      {
+        "text": "Maybe later.",
+        "topic": "TALK_NONE"
+      }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_drunken_master_teach",
     "dynamic_line": "I learned all from this book. You can take it.",
-    "responses": [ { "text": "Thank you, master.", "topic": "TALK_drunken_master_1" } ]
+    "responses": [
+      {
+        "text": "Thank you, master.",
+        "topic": "TALK_drunken_master_1"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_drunken_master_teach_done",
     "dynamic_line": "I already taught you all I knew.",
-    "responses": [ { "text": "Thank you again, master", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "Thank you again, master",
+        "topic": "TALK_DONE"
+      }
+    ]
   },
   {
     "id": "MISSION_drunken_master_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Ingredients for liquor" },
+    "name": {
+      "str": "Ingredients for liquor"
+    },
     "description": "Gather:\n <color_light_blue>12 pinecones</color>\n <color_light_blue>8 birchbarks</color>\n <color_light_blue>4 cattail stalks</color>\n <color_light_blue>2 lotus flowers</color>",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "and": [
-        { "u_has_items": { "item": "pinecone", "count": 12 } },
-        { "u_has_items": { "item": "birchbark", "count": 8 } },
-        { "u_has_items": { "item": "cattail_stalk", "count": 4 } },
-        { "u_has_items": { "item": "lotus", "count": 2 } }
+        {
+          "u_has_items": {
+            "item": "pinecone",
+            "count": 12
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "birchbark",
+            "count": 8
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "cattail_stalk",
+            "count": 4
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "lotus",
+            "count": 2
+          }
+        }
       ]
     },
     "difficulty": 0,
     "value": 0,
     "end": {
       "effect": [
-        { "u_consume_item": "pinecone", "count": 12 },
-        { "u_consume_item": "birchbark", "count": 8 },
-        { "u_consume_item": "cattail_stalk", "count": 4 },
-        { "u_consume_item": "lotus", "count": 2 },
-        { "npc_add_var": "wait_time", "type": "general", "context": "brew", "time": true },
-        { "npc_add_var": "wait", "type": "general", "context": "brew", "value": "yes" }
+        {
+          "u_consume_item": "pinecone",
+          "count": 12
+        },
+        {
+          "u_consume_item": "birchbark",
+          "count": 8
+        },
+        {
+          "u_consume_item": "cattail_stalk",
+          "count": 4
+        },
+        {
+          "u_consume_item": "lotus",
+          "count": 2
+        },
+        {
+          "npc_add_var": "wait_time",
+          "type": "general",
+          "context": "brew",
+          "time": true
+        },
+        {
+          "npc_add_var": "wait",
+          "type": "general",
+          "context": "brew",
+          "value": "yes"
+        }
       ]
     },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_drunken_master_2",
     "dialogue": {
       "describe": "-",
@@ -270,7 +514,9 @@
     "id": "MISSION_drunken_master_2",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Drunken competition" },
+    "name": {
+      "str": "Drunken competition"
+    },
     "description": "Kill 100 zombies before you get sober.",
     "goal": "MGOAL_KILL_MONSTER_SPEC",
     "monster_species": "ZOMBIE",
@@ -278,17 +524,40 @@
     "difficulty": 0,
     "value": 0,
     "start": {
-      "effect": [ { "npc_add_effect": "dm_brew", "duration": "3600 s" }, { "u_add_effect": "dm_brew", "duration": "3600 s" } ]
+      "effect": [
+        {
+          "npc_add_effect": "dm_brew",
+          "duration": "3600 s"
+        },
+        {
+          "u_add_effect": "dm_brew",
+          "duration": "3600 s"
+        }
+      ]
     },
     "end": {
       "effect": [
         "stop_following",
-        { "npc_add_var": "master_mission", "type": "count", "context": "mission", "value": "1" },
-        { "npc_first_topic": "TALK_drunken_master_1" }
+        {
+          "npc_add_var": "master_mission",
+          "type": "count",
+          "context": "mission",
+          "value": "1"
+        },
+        {
+          "npc_first_topic": "TALK_drunken_master_1"
+        }
       ]
     },
-    "fail": { "effect": [ "end_conversation", "leave" ] },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "fail": {
+      "effect": [
+        "end_conversation",
+        "leave"
+      ]
+    },
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_drunken_master_3",
     "dialogue": {
       "describe": "-",
@@ -306,31 +575,82 @@
     "id": "MISSION_drunken_master_3",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Ingredients for liquor" },
+    "name": {
+      "str": "Ingredients for liquor"
+    },
     "description": "Gather:\n <color_light_blue>20 tobacco leaves</color>,\n <color_light_blue>40 coffee beans</color>,\n <color_light_blue>0.75L of whiskey</color>,\n <color_light_blue>12 chunks of mutant meat</color>.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "and": [
-        { "u_has_items": { "item": "tobacco", "count": 20 } },
-        { "u_has_items": { "item": "coffee_bean", "count": 40 } },
-        { "u_has_items": { "item": "whiskey", "count": 21 } },
-        { "u_has_items": { "item": "mutant_meat", "count": 12 } }
+        {
+          "u_has_items": {
+            "item": "tobacco",
+            "count": 20
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "coffee_bean",
+            "count": 40
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "whiskey",
+            "count": 21
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "mutant_meat",
+            "count": 12
+          }
+        }
       ]
     },
     "difficulty": 0,
     "value": 0,
     "end": {
       "effect": [
-        { "u_consume_item": "tobacco", "count": 20 },
-        { "u_consume_item": "coffee_bean", "count": 40 },
-        { "u_consume_item": "whiskey", "count": 4 },
-        { "u_consume_item": "mutant_meat", "count": 12 },
-        { "npc_add_var": "master_mission", "type": "count", "context": "mission", "value": "1" },
-        { "npc_add_var": "wait_time", "type": "general", "context": "brew", "time": true },
-        { "npc_add_var": "wait", "type": "general", "context": "brew", "value": "yes" }
+        {
+          "u_consume_item": "tobacco",
+          "count": 20
+        },
+        {
+          "u_consume_item": "coffee_bean",
+          "count": 40
+        },
+        {
+          "u_consume_item": "whiskey",
+          "count": 4
+        },
+        {
+          "u_consume_item": "mutant_meat",
+          "count": 12
+        },
+        {
+          "npc_add_var": "master_mission",
+          "type": "count",
+          "context": "mission",
+          "value": "1"
+        },
+        {
+          "npc_add_var": "wait_time",
+          "type": "general",
+          "context": "brew",
+          "time": true
+        },
+        {
+          "npc_add_var": "wait",
+          "type": "general",
+          "context": "brew",
+          "value": "yes"
+        }
       ]
     },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_drunken_master_4",
     "dialogue": {
       "describe": "-",
@@ -348,7 +668,9 @@
     "id": "MISSION_drunken_master_4",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Drunken competition" },
+    "name": {
+      "str": "Drunken competition"
+    },
     "description": "Kill 200 zombies before you get sober.",
     "goal": "MGOAL_KILL_MONSTER_SPEC",
     "monster_species": "ZOMBIE",
@@ -356,17 +678,40 @@
     "difficulty": 0,
     "value": 0,
     "start": {
-      "effect": [ { "npc_add_effect": "dm_brew", "duration": "7200 s" }, { "u_add_effect": "dm_brew", "duration": "7200 s" } ]
+      "effect": [
+        {
+          "npc_add_effect": "dm_brew",
+          "duration": "7200 s"
+        },
+        {
+          "u_add_effect": "dm_brew",
+          "duration": "7200 s"
+        }
+      ]
     },
     "end": {
       "effect": [
         "stop_following",
-        { "npc_add_var": "master_mission", "type": "count", "context": "mission", "value": "2" },
-        { "npc_first_topic": "TALK_drunken_master_1" }
+        {
+          "npc_add_var": "master_mission",
+          "type": "count",
+          "context": "mission",
+          "value": "2"
+        },
+        {
+          "npc_first_topic": "TALK_drunken_master_1"
+        }
       ]
     },
-    "fail": { "effect": [ "end_conversation", "leave" ] },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "fail": {
+      "effect": [
+        "end_conversation",
+        "leave"
+      ]
+    },
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_drunken_master_5",
     "dialogue": {
       "describe": "-",
@@ -384,29 +729,72 @@
     "id": "MISSION_drunken_master_5",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Ingredients for liquor" },
+    "name": {
+      "str": "Ingredients for liquor"
+    },
     "description": "Gather <color_light_blue>20 ammonium nitrate</color>, <color_light_blue>0.3L gasoline</color>, <color_light_blue>15 hops</color>.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "and": [
-        { "u_has_items": { "item": "chem_ammonium_nitrate", "count": 20 } },
-        { "u_has_items": { "item": "gasoline", "count": 300 } },
-        { "u_has_items": { "item": "hops", "count": 15 } }
+        {
+          "u_has_items": {
+            "item": "chem_ammonium_nitrate",
+            "count": 20
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "gasoline",
+            "count": 300
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "hops",
+            "count": 15
+          }
+        }
       ]
     },
     "difficulty": 0,
     "value": 0,
     "end": {
       "effect": [
-        { "u_consume_item": "chem_ammonium_nitrate", "count": 20 },
-        { "u_consume_item": "gasoline", "count": 300 },
-        { "u_consume_item": "hops", "count": 15 },
-        { "npc_add_var": "master_mission", "type": "count", "context": "mission", "value": "2" },
-        { "npc_add_var": "wait_time", "type": "general", "context": "brew", "time": true },
-        { "npc_add_var": "wait", "type": "general", "context": "brew", "value": "yes" }
+        {
+          "u_consume_item": "chem_ammonium_nitrate",
+          "count": 20
+        },
+        {
+          "u_consume_item": "gasoline",
+          "count": 300
+        },
+        {
+          "u_consume_item": "hops",
+          "count": 15
+        },
+        {
+          "npc_add_var": "master_mission",
+          "type": "count",
+          "context": "mission",
+          "value": "2"
+        },
+        {
+          "npc_add_var": "wait_time",
+          "type": "general",
+          "context": "brew",
+          "time": true
+        },
+        {
+          "npc_add_var": "wait",
+          "type": "general",
+          "context": "brew",
+          "value": "yes"
+        }
       ]
     },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_drunken_master_6",
     "dialogue": {
       "describe": "-",
@@ -424,7 +812,9 @@
     "id": "MISSION_drunken_master_6",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Drunken competition" },
+    "name": {
+      "str": "Drunken competition"
+    },
     "description": "Kill 35 zombie brutes before you get sober.",
     "goal": "MGOAL_KILL_MONSTER_TYPE",
     "monster_type": "mon_zombie_brute",
@@ -432,18 +822,46 @@
     "difficulty": 0,
     "value": 0,
     "start": {
-      "effect": [ { "npc_add_effect": "dm_brew", "duration": "14400 s" }, { "u_add_effect": "dm_brew", "duration": "14400 s" } ]
+      "effect": [
+        {
+          "npc_add_effect": "dm_brew",
+          "duration": "14400 s"
+        },
+        {
+          "u_add_effect": "dm_brew",
+          "duration": "14400 s"
+        }
+      ]
     },
     "end": {
       "effect": [
         "stop_following",
-        { "npc_add_var": "u_helped_drunken_master", "type": "general", "context": "meeting", "value": "yes" },
-        { "npc_add_var": "drunken_master_teach", "type": "general", "context": "meeting", "value": "yes" },
-        { "npc_first_topic": "TALK_drunken_master_1" }
+        {
+          "npc_add_var": "u_helped_drunken_master",
+          "type": "general",
+          "context": "meeting",
+          "value": "yes"
+        },
+        {
+          "npc_add_var": "drunken_master_teach",
+          "type": "general",
+          "context": "meeting",
+          "value": "yes"
+        },
+        {
+          "npc_first_topic": "TALK_drunken_master_1"
+        }
       ]
     },
-    "fail": { "effect": [ "end_conversation", "leave" ] },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "fail": {
+      "effect": [
+        "end_conversation",
+        "leave"
+      ]
+    },
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "dialogue": {
       "describe": "-",
       "offer": "-",

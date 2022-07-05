@@ -14,29 +14,63 @@
     "mission_offered": "MISSION_BerryButton_1"
   },
   {
-    "id": [ "TALK_REFUGEE_Berry_1" ],
+    "id": [
+      "TALK_REFUGEE_Berry_1"
+    ],
     "type": "talk_topic",
     "dynamic_line": "Hello there, pal.",
     "responses": [
-      { "text": "About that job\u2026", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "Can I help you with something?", "topic": "TALK_MISSION_LIST" },
-      { "text": "<BGSS_intro_question>", "topic": "TALK_Berry_Background" },
+      {
+        "text": "About that job\u2026",
+        "topic": "TALK_MISSION_INQUIRE",
+        "condition": "has_assigned_mission"
+      },
+      {
+        "text": "Can I help you with something?",
+        "topic": "TALK_MISSION_LIST"
+      },
+      {
+        "text": "<BGSS_intro_question>",
+        "topic": "TALK_Berry_Background"
+      },
       {
         "text": "You do realize that you paid me with worthless green paper, right?",
-        "effect": { "npc_add_var": "u_angry_mis1_rew_Berry", "type": "general", "context": "meeting", "value": "yes" },
+        "effect": {
+          "npc_add_var": "u_angry_mis1_rew_Berry",
+          "type": "general",
+          "context": "meeting",
+          "value": "yes"
+        },
         "condition": {
           "and": [
-            { "not": { "npc_has_var": "u_angry_mis1_rew_Berry", "type": "general", "context": "meeting", "value": "yes" } },
-            { "npc_has_var": "MISSION_BerryButton_1", "type": "mission", "context": "flag", "value": "yes" }
+            {
+              "not": {
+                "npc_has_var": "u_angry_mis1_rew_Berry",
+                "type": "general",
+                "context": "meeting",
+                "value": "yes"
+              }
+            },
+            {
+              "npc_has_var": "MISSION_BerryButton_1",
+              "type": "mission",
+              "context": "flag",
+              "value": "yes"
+            }
           ]
         },
         "topic": "TALK_REFUGEE_Berry_angry1"
       },
-      { "text": "Well, bye.", "topic": "TALK_DONE" },
+      {
+        "text": "Well, bye.",
+        "topic": "TALK_DONE"
+      },
       {
         "text": "You know, I tried that moonshine. It tastes like HELL!",
         "topic": "BerryB_tried_ub_moonshine",
-        "condition": { "u_has_effect": "took_ub_mustang" }
+        "condition": {
+          "u_has_effect": "took_ub_mustang"
+        }
       }
     ]
   },
@@ -45,7 +79,12 @@
     "type": "talk_topic",
     "id": "TALK_Berry_Background",
     "dynamic_line": "I'm just a guy.  Nothing more, nothing else.",
-    "responses": [ { "text": "<done_conversation_section>", "topic": "TALK_NONE" } ]
+    "responses": [
+      {
+        "text": "<done_conversation_section>",
+        "topic": "TALK_NONE"
+      }
+    ]
   },
   {
     "type": "talk_topic",
@@ -63,12 +102,22 @@
     "id": "TALK_REFUGEE_Berry_angry2",
     "dynamic_line": "Oh, that's why that merchant guy gave me a weird look when I offered him\u2026 Sorry, pal, I didn\u2019t think about that until now, he-he.  *he smiled*  Next time, I'll give you something of worth.  You have my word!",
     "responses": [
-      { "text": "I hope so!", "topic": "TALK_DONE" },
+      {
+        "text": "I hope so!",
+        "topic": "TALK_DONE"
+      },
       {
         "text": "Hey, 'pal', maybe you want to compensate my time with something of worth NOW?",
-        "trial": { "type": "PERSUADE", "difficulty": 5 },
-        "success": { "topic": "TALK_BerryB_Agree" },
-        "failure": { "topic": "TALK_BerryB_Disagree" }
+        "trial": {
+          "type": "PERSUADE",
+          "difficulty": 5
+        },
+        "success": {
+          "topic": "TALK_BerryB_Agree"
+        },
+        "failure": {
+          "topic": "TALK_BerryB_Disagree"
+        }
       }
     ]
   },
@@ -77,13 +126,26 @@
     "type": "talk_topic",
     "id": "TALK_BerryB_Agree",
     "dynamic_line": "Yeah, sure, pal.  Sorry.  You can have my old ring, if it helps.",
-    "responses": [ { "text": "That's more like it.", "topic": "TALK_DONE", "effect": { "u_spawn_item": "silver_ring" } } ]
+    "responses": [
+      {
+        "text": "That's more like it.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "u_spawn_item": "silver_ring"
+        }
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BerryB_Disagree",
     "dynamic_line": "Hey, pal, I said I'm sorry!",
-    "responses": [ { "text": "\u2026", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_DONE"
+      }
+    ]
   },
   {
     "type": "talk_topic",
@@ -93,7 +155,11 @@
       {
         "text": "Berry, I swear to god, if you don't stop with your jokes\u2026",
         "topic": "BerryB_tried_ub_moonshine1",
-        "effect": [ { "u_lose_effect": "took_ub_mustang" } ]
+        "effect": [
+          {
+            "u_lose_effect": "took_ub_mustang"
+          }
+        ]
       }
     ]
   },
@@ -101,7 +167,18 @@
     "type": "talk_topic",
     "id": "BerryB_tried_ub_moonshine1",
     "dynamic_line": "Umm, why do you have so angry face?  You didn't like it?  Maybe you drank too much?  Here, take this, it can help!",
-    "responses": [ { "text": "Unbelievable\u2026", "topic": "TALK_DONE", "effect": [ { "u_spawn_item": "aspirin", "count": 2 } ] } ]
+    "responses": [
+      {
+        "text": "Unbelievable\u2026",
+        "topic": "TALK_DONE",
+        "effect": [
+          {
+            "u_spawn_item": "aspirin",
+            "count": 2
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "talk_topic",
@@ -113,19 +190,48 @@
         "topic": "TALK_MISSION_SUCCESS",
         "condition": {
           "and": [
-            { "not": "mission_complete" },
-            { "u_has_var": "BarryB_safe", "type": "general", "context": "meeting", "value": "yes" }
+            {
+              "not": "mission_complete"
+            },
+            {
+              "u_has_var": "BarryB_safe",
+              "type": "general",
+              "context": "meeting",
+              "value": "yes"
+            }
           ]
         },
-        "effect": [ { "u_spawn_item": "FMCNote", "count": 23 }, { "npc_first_topic": "TALK_REFUGEE_Berry_1" }, "mission_success" ]
+        "effect": [
+          {
+            "u_spawn_item": "FMCNote",
+            "count": 23
+          },
+          {
+            "npc_first_topic": "TALK_REFUGEE_Berry_1"
+          },
+          "mission_success"
+        ]
       },
       {
         "text": "He was alive, but I couldn't get him here in one peace.  I'm sorry.",
         "topic": "TALK_MISSION_FAILURE",
         "condition": {
-          "and": [ "mission_complete", { "u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes" } ]
+          "and": [
+            "mission_complete",
+            {
+              "u_has_var": "BarryB_met",
+              "type": "general",
+              "context": "meeting",
+              "value": "yes"
+            }
+          ]
         },
-        "effect": [ { "npc_first_topic": "BerryB_sad" }, "mission_failure" ]
+        "effect": [
+          {
+            "npc_first_topic": "BerryB_sad"
+          },
+          "mission_failure"
+        ]
       },
       {
         "text": "He was dead, I couldn't do anything.  I'm sorry.",
@@ -133,25 +239,47 @@
         "condition": {
           "and": [
             "mission_complete",
-            { "not": { "u_has_var": "BarryB_met", "type": "general", "context": "meeting", "value": "yes" } }
+            {
+              "not": {
+                "u_has_var": "BarryB_met",
+                "type": "general",
+                "context": "meeting",
+                "value": "yes"
+              }
+            }
           ]
         },
-        "effect": [ { "npc_first_topic": "BerryB_sad" }, "mission_failure" ]
+        "effect": [
+          {
+            "npc_first_topic": "BerryB_sad"
+          },
+          "mission_failure"
+        ]
       },
-      { "text": "Nothing, really.", "topic": "TALK_DONE" }
+      {
+        "text": "Nothing, really.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
     "type": "talk_topic",
     "id": "BerryB_sad",
     "dynamic_line": "Sorry, pal, I'm not in the mood right now.",
-    "responses": [ { "text": "\u2026", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "\u2026",
+        "topic": "TALK_DONE"
+      }
+    ]
   },
   {
     "id": "MISSION_BerryButton_1",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Bring vodka to Berry" },
+    "name": {
+      "str": "Bring vodka to Berry"
+    },
     "description": "Berry want some vodka for his sore throat. Bring him a bottle.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 0,
@@ -160,11 +288,21 @@
     "value": 500,
     "end": {
       "effect": [
-        { "u_spawn_item": "money_bundle_twenty", "count": 1 },
-        { "npc_add_var": "MISSION_BerryButton_1", "type": "mission", "context": "flag", "value": "yes" }
+        {
+          "u_spawn_item": "money_bundle_twenty",
+          "count": 1
+        },
+        {
+          "npc_add_var": "MISSION_BerryButton_1",
+          "type": "mission",
+          "context": "flag",
+          "value": "yes"
+        }
       ]
     },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_BerryButton_2",
     "dialogue": {
       "describe": "-",
@@ -182,7 +320,9 @@
     "id": "MISSION_BerryButton_2",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Bring nice moonshine" },
+    "name": {
+      "str": "Bring nice moonshine"
+    },
     "description": "Berry asked you to bring him a bottle of nice moonshine called 'Uncle Ben's Mustang'.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 3,
@@ -198,12 +338,33 @@
         "search_range": 50
       },
       "update_mapgen": {
-        "place_item": [ { "item": "uncle_bens_mustang", "x": 13, "y": 12 } ],
-        "place_monster": [ { "monster": "mon_zombie_brute", "x": 13, "y": 12 } ]
+        "place_item": [
+          {
+            "item": "uncle_bens_mustang",
+            "x": 13,
+            "y": 12
+          }
+        ],
+        "place_monster": [
+          {
+            "monster": "mon_zombie_brute",
+            "x": 13,
+            "y": 12
+          }
+        ]
       }
     },
-    "end": { "effect": [ { "u_spawn_item": "FMCNote", "count": 8 } ] },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "end": {
+      "effect": [
+        {
+          "u_spawn_item": "FMCNote",
+          "count": 8
+        }
+      ]
+    },
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_BerryButton_3",
     "dialogue": {
       "describe": "-",
@@ -221,13 +382,19 @@
     "id": "MISSION_BerryButton_3",
     "type": "mission_definition",
     "has_generic_rewards": false,
-    "name": { "str": "Find Berry's brother" },
+    "name": {
+      "str": "Find Berry's brother"
+    },
     "description": "Berry asked you to find his brother.  According to him, his brother got caught by some bandits.",
     "goal": "MGOAL_ASSASSINATE",
     "difficulty": 0,
     "value": 4000,
     "start": {
-      "effect": [ { "npc_first_topic": "Berry_wait" } ],
+      "effect": [
+        {
+          "npc_first_topic": "Berry_wait"
+        }
+      ],
       "assign_mission_target": {
         "om_terrain": "cabin",
         "om_special": "Cabin",
@@ -238,20 +405,66 @@
       },
       "update_mapgen": {
         "place_npcs": [
-          { "class": "NPC_Barry_Button", "x": 7, "y": 5, "target": true },
-          { "class": "bandit", "x": 6, "y": 14 },
-          { "class": "bandit", "x": 10, "y": 15 },
-          { "class": "bandit", "x": 13, "y": 15 },
-          { "class": "bandit", "x": 6, "y": 16 },
-          { "class": "bandit", "x": 10, "y": 16 },
-          { "class": "bandit", "x": 13, "y": 16 },
-          { "class": "bandit", "x": 11, "y": 21 },
-          { "class": "bandit", "x": 13, "y": 21 }
+          {
+            "class": "NPC_Barry_Button",
+            "x": 7,
+            "y": 5,
+            "target": true
+          },
+          {
+            "class": "bandit",
+            "x": 6,
+            "y": 14
+          },
+          {
+            "class": "bandit",
+            "x": 10,
+            "y": 15
+          },
+          {
+            "class": "bandit",
+            "x": 13,
+            "y": 15
+          },
+          {
+            "class": "bandit",
+            "x": 6,
+            "y": 16
+          },
+          {
+            "class": "bandit",
+            "x": 10,
+            "y": 16
+          },
+          {
+            "class": "bandit",
+            "x": 13,
+            "y": 16
+          },
+          {
+            "class": "bandit",
+            "x": 11,
+            "y": 21
+          },
+          {
+            "class": "bandit",
+            "x": 13,
+            "y": 21
+          }
         ]
       }
     },
-    "end": { "effect": [ { "u_spawn_item": "FMCNote", "count": 23 } ] },
-    "origins": [ "ORIGIN_SECONDARY" ],
+    "end": {
+      "effect": [
+        {
+          "u_spawn_item": "FMCNote",
+          "count": 23
+        }
+      ]
+    },
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
     "followup": "MISSION_BerryButton_4",
     "dialogue": {
       "describe": "-",
