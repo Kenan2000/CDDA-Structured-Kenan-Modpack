@@ -15,12 +15,14 @@
       "WBLOCK_2",
       "tec_secro_morph_blades_slash",
       "tec_secro_morph_blades_slash_arc",
-      "tec_secro_morph_blades_slash_precise"
+      "tec_secro_morph_blades_slash_precise",
+      "tec_secro_morph_blades_ravage"
     ],
     "volume": "2000 ml",
     "longest_side": "30 cm",
     "cutting": 31,
     "flags": [ "NO_UNWIELD", "NO_DROP", "UNBREAKABLE_MELEE", "TRADER_AVOID" ],
+    "weapon_category": [ "SECRO_BOW", "SECRO_BOW_MELEE_BB" ],
     "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 22 ] ]
   },
   {
@@ -39,12 +41,14 @@
       "WBLOCK_1",
       "tec_secro_morph_tents_strike",
       "tec_secro_morph_tents_strike_quick",
-      "tec_secro_morph_tents_compact_swing"
+      "tec_secro_morph_tents_compact_swing",
+      "tec_secro_morph_tents_barrage"
     ],
     "volume": "1700 ml",
     "longest_side": "100 cm",
     "bashing": 16,
-    "flags": [ "NO_UNWIELD", "NO_DROP", "UNBREAKABLE_MELEE", "TRADER_AVOID" ]
+    "flags": [ "NO_UNWIELD", "NO_DROP", "UNBREAKABLE_MELEE", "TRADER_AVOID" ],
+    "weapon_category": [ "SECRO_BOW", "SECRO_BOW_MELEE_TV" ]
   },
   {
     "type": "GENERIC",
@@ -59,12 +63,14 @@
       "WBLOCK_2",
       "tec_secro_morph_fleshpound_slam",
       "tec_secro_morph_fleshpound_pound",
-      "tec_secro_morph_fleshpound_swing_heavy"
+      "tec_secro_morph_fleshpound_swing_heavy",
+      "tec_secro_morph_fleshpound_quake"
     ],
     "volume": "5000 ml",
     "longest_side": "50 cm",
     "bashing": 44,
-    "flags": [ "NO_UNWIELD", "NO_DROP", "UNBREAKABLE_MELEE", "TRADER_AVOID" ]
+    "flags": [ "NO_UNWIELD", "NO_DROP", "UNBREAKABLE_MELEE", "TRADER_AVOID" ],
+    "weapon_category": [ "SECRO_BOW", "SECRO_BOW_MELEE_FP" ]
   },
   {
     "type": "GENERIC",
@@ -83,7 +89,8 @@
     "longest_side": "40 cm",
     "bashing": 17,
     "cutting": 23,
-    "flags": [ "NO_UNWIELD", "NO_DROP", "UNBREAKABLE_MELEE", "TRADER_AVOID" ]
+    "flags": [ "NO_UNWIELD", "NO_DROP", "UNBREAKABLE_MELEE", "TRADER_AVOID" ],
+    "weapon_category": [ "SECRO_BOW", "SECRO_BOW_MELEE_JB" ]
   },
   {
     "type": "GENERIC",
@@ -92,7 +99,7 @@
       "str": "<color_yellow>juggernaut armament</color> - meat shield",
       "str_pl": "<color_yellow>juggernaut armament</color> - meat shield"
     },
-    "description": "Your hands have fused together to form a meaty shield. It significantly hampers your movement, but has great blocking ability.\n\n<color_yellow>Juggernaut armament</color> - meat shield provides:\n<color_white>Speed: <color_red>-50%</color>\n<color_white>Damage Reduction (physical): <color_light_green>-5</color></color>",
+    "description": "Your hands have fused together to form a meaty shield. It significantly hampers your movement, but has great blocking ability.",
     "weight": "3000 g",
     "color": "red",
     "symbol": "U",
@@ -108,52 +115,14 @@
           "condition": "ALWAYS",
           "values": [
             { "value": "SPEED", "multiply": -0.5 },
-            { "value": "ARMOR_BASH", "add": -5 },
-            { "value": "ARMOR_CUT", "add": -5 },
-            { "value": "ARMOR_STAB", "add": -5 },
-            { "value": "ARMOR_BULLET", "add": -5 }
+            { "value": "ARMOR_BASH", "add": -10 },
+            { "value": "ARMOR_CUT", "add": -10 },
+            { "value": "ARMOR_STAB", "add": -10 },
+            { "value": "ARMOR_BULLET", "add": -10 }
           ]
         }
       ]
     },
     "flags": [ "NO_UNWIELD", "NO_DROP", "UNBREAKABLE_MELEE", "TRADER_AVOID" ]
-  },
-  {
-    "type": "GENERIC",
-    "id": "secro_power_armor_flesh_morphed_gun_spit",
-    "name": { "str": "<color_light_blue>gunner armament</color> - spitter" },
-    "description": "An acid-spitting elongated proboscis-like limb that morphs and protrudes from one's shoulder. Consumes flesh to produce globs of blood acid. Activate to fire.",
-    "color": "light_red",
-    "symbol": "(",
-    "material": [ "secro_flesh_reinforced" ],
-    "volume": "11 ml",
-    "flags": [ "BIONIC_WEAPON", "UNBREAKABLE_MELEE", "TRADER_AVOID", "ZERO_WEIGHT" ],
-    "use_action": { "type": "cast_spell", "spell_id": "secro_pafv_morphed_gun_spit_check", "no_fail": true, "level": 0 }
-  },
-  {
-    "type": "GENERIC",
-    "id": "secro_power_armor_flesh_morphed_gun_bonelance",
-    "name": { "str": "<color_light_blue>gunner armament</color> - bone lancer" },
-    "description": "One of your arms have swollen into a mass of flesh, with half of its proportion imitates that of a gun barrel. If fed, lines of strangely-shaped teeth quickly grows from it. Consumes a large amount of flesh to prepare a shot and some bionic power to fire.",
-    "color": "red",
-    "symbol": "(",
-    "material": [ "secro_flesh_reinforced" ],
-    "volume": "1111 ml",
-    "flags": [ "BIONIC_WEAPON", "UNBREAKABLE_MELEE", "TRADER_AVOID", "ZERO_WEIGHT" ],
-    "use_action": { "type": "cast_spell", "spell_id": "secro_pafv_morphed_gun_bonelance_shoot_check", "no_fail": true, "level": 0 }
-  },
-  {
-    "id": "secro_power_armor_flesh_biolight",
-    "type": "ARMOR",
-    "category": "tools",
-    "name": { "str": "bioluminescent frond" },
-    "description": "Protruding from your shoulders are small, oddly-shaped and short-lived frond emitting strong light. Can be detached.",
-    "weight": "20 g",
-    "volume": "100 ml",
-    "material": [ "secro_flesh_reinforced" ],
-    "symbol": "i",
-    "color": "white",
-    "flags": [ "PERSONAL", "OVERSIZE", "TRADER_AVOID", "LIGHT_50", "SEMITANGIBLE" ],
-    "armor": [ { "covers": [ "torso" ] } ]
   }
 ]
