@@ -2,44 +2,23 @@
   {
     "type": "ter_furn_transform",
     "id": "secro_fvvault",
-    "terrain": [
-      {
-        "result": "t_door_metal_c",
-        "valid_terrain": [
-          "t_secro_door_metal_secrofv"
-        ],
-        "message": "The door has opened."
-      }
-    ]
+    "terrain": [ { "result": "t_door_metal_c", "valid_terrain": [ "t_secro_door_metal_secrofv" ], "message": "The door has opened." } ]
   },
   {
     "type": "ter_furn_transform",
     "id": "secro_frroom",
     "terrain": [
-      {
-        "result": "t_door_metal_c",
-        "valid_terrain": [
-          "t_secro_door_metal_secrofrr"
-        ],
-        "message": "The door has opened."
-      }
+      { "result": "t_door_metal_c", "valid_terrain": [ "t_secro_door_metal_secrofrr" ], "message": "The door has opened." }
     ]
   },
   {
     "id": "secro_id_fvvault_open",
     "type": "SPELL",
-    "name": {
-      "str": "Identify"
-    },
+    "name": { "str": "Identify" },
     "description": "Item is swapped to the door's card reader. If successful, opens specific doors.",
-    "flags": [
-      "SILENT",
-      "NO_PROJECTILE"
-    ],
+    "flags": [ "SILENT", "NO_PROJECTILE" ],
     "message": "",
-    "valid_targets": [
-      "ground"
-    ],
+    "valid_targets": [ "ground" ],
     "effect": "ter_transform",
     "shape": "blast",
     "effect_str": "secro_fvvault",
@@ -50,18 +29,11 @@
   {
     "id": "secro_id_frroom_open",
     "type": "SPELL",
-    "name": {
-      "str": "Identify"
-    },
+    "name": { "str": "Identify" },
     "description": "Item is swapped to the door's card reader. If successful, opens specific doors.",
-    "flags": [
-      "SILENT",
-      "NO_PROJECTILE"
-    ],
+    "flags": [ "SILENT", "NO_PROJECTILE" ],
     "message": "",
-    "valid_targets": [
-      "ground"
-    ],
+    "valid_targets": [ "ground" ],
     "effect": "ter_transform",
     "shape": "blast",
     "effect_str": "secro_frroom",
@@ -75,24 +47,15 @@
     "looks_like": "id_science",
     "symbol": ",",
     "color": "red",
-    "name": {
-      "str": "Secronom ID card"
-    },
+    "name": { "str": "Secronom ID card" },
     "description": "This ID card once belonged to a secronom researcher. One side shows the information about the owner, the other describes the use for it. \"Level 2 clearance\".",
     "price": "180 USD",
     "price_postapoc": 10,
-    "material": [
-      "plastic"
-    ],
+    "material": [ "plastic" ],
     "weight": "6 g",
     "volume": "5 ml",
     "to_hit": -3,
-    "use_action": {
-      "type": "cast_spell",
-      "spell_id": "secro_id_fvvault_open",
-      "no_fail": true,
-      "level": 0
-    }
+    "use_action": { "type": "cast_spell", "spell_id": "secro_id_fvvault_open", "no_fail": true, "level": 0 }
   },
   {
     "type": "GENERIC",
@@ -100,23 +63,14 @@
     "looks_like": "id_science",
     "symbol": ",",
     "color": "red",
-    "name": {
-      "str": "Secronom ID card"
-    },
+    "name": { "str": "Secronom ID card" },
     "description": "This ID card once belonged to a secronom researcher. One side shows the information about the owner, the other describes the use for it. \"Level 1 clearance\".",
     "price": "90 USD",
     "price_postapoc": 10,
-    "material": [
-      "plastic"
-    ],
+    "material": [ "plastic" ],
     "weight": "6 g",
     "volume": "5 ml",
     "to_hit": -3,
-    "use_action": {
-      "type": "cast_spell",
-      "spell_id": "secro_id_frroom_open",
-      "no_fail": true,
-      "level": 0
-    }
+    "use_action": { "type": "cast_spell", "spell_id": "secro_id_frroom_open", "no_fail": true, "level": 0 }
   }
 ]
