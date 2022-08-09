@@ -7,3 +7,7 @@ Probably horribly imbalanced, and I've read that breeding in the game can get ou
 Included is the dinosaur json he made as an rtf file for anyone who wants to work on it and experiment.
 
 To install just copy the json files into the dinomod folder.
+
+edit by Malkeus
+Updated to Experimental August 5th 2022
+Somewhere along the way the rtf was lost. I'm not sure if that means it was added back into the mod or if the original version was lost. Ymmv. No load errors, but otherwise untested.
