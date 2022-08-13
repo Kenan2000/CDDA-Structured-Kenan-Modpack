@@ -97,13 +97,14 @@
     "copy-from": "charm_bone",
     "type": "TOOL",
     "name": { "str": "sanctified bone charm" },
-    "description": "A small talisman made out of some form of otherworldly bone or ivory, carved with equally unearthly iconography.  Elemental magic has been woven into its structure, converting it into a primitive magic item.  Using it will heavily damage and paralyze any creatures within 8 tiles, including allies if you're not careful.  It will take a long time to recharge after each use, and activating it also fatigues the user.  It can hold up to 6 uses, each use takes 25 charges.",
+    "description": "A small talisman made out of some form of otherworldly bone or ivory, carved with equally unearthly iconography.  Elemental magic has been woven into its structure, converting it into a primitive magic item.  Using it will heavily damage and paralyze any creatures within 8 tiles, including allies if you're not careful.  It will take a long time to recharge after each use, and activating it also fatigues the user.  It can hold up to 5 uses, each use takes 16 hours to charge.",
     "price_postapoc": "20 USD",
-    "charges_per_use": 25,
+    "charges_per_use": 16,
     "ammo": "primitive_magic_item_ammo_type",
-    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "primitive_magic_item_ammo_type": 150 } } ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "primitive_magic_item_ammo_type": 80 } } ],
     "flags": [ "MAGIC_FOCUS", "NO_RELOAD", "NO_UNLOAD", "TARDIS" ],
     "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "1 h", "regenerate_ammo": true } },
+    "//": "Flame talisman and earth talisman.  Each use has power equivalent to 160 mana.",
     "use_action": { "type": "cast_spell", "spell_id": "arcana_item_charm_bone_empowered", "no_fail": true, "level": 0 }
   },
   {
@@ -111,13 +112,14 @@
     "copy-from": "stinger_flute",
     "type": "TOOL",
     "name": { "str": "quickened stinger flute" },
-    "description": "A polished flute with five finger holes, carved from the stinger of some exotic monstrosity.  Elemental magic has been woven into its structure, converting it into a primitive magic item.  Using it will greatly reduce movecosts and enhance evasion.  Stamina and attack speed are unaffected, however.  It will take a long time to recharge after each use, and activating it also fatigues the user.  It can hold up to 6 uses, each use takes 25 charges.",
+    "description": "A polished flute with five finger holes, carved from the stinger of some exotic monstrosity.  Elemental magic has been woven into its structure, converting it into a primitive magic item.  Using it will greatly reduce movecosts and enhance evasion.  Stamina and attack speed are unaffected, however.  It will take a long time to recharge after each use, and activating it also fatigues the user.  It can hold up to 6 uses, each use takes 32 hours to charge.",
     "price_postapoc": "25 USD",
-    "charges_per_use": 25,
+    "charges_per_use": 32,
     "ammo": "primitive_magic_item_ammo_type",
-    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "primitive_magic_item_ammo_type": 150 } } ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "primitive_magic_item_ammo_type": 160 } } ],
     "flags": [ "MAGIC_FOCUS", "NO_RELOAD", "NO_UNLOAD", "TARDIS" ],
     "relic_data": { "charge_info": { "recharge_type": "periodic", "time": "1 h", "regenerate_ammo": true } },
+    "//": "Water talisman and air talisman.  Each use has power equivalent to 320 mana.",
     "use_action": { "type": "cast_spell", "spell_id": "arcana_item_stinger_flute_empowered", "no_fail": true, "level": 0 }
   },
   {
@@ -1643,9 +1645,10 @@
         "menu_text": "Extinguish candle of warding",
         "type": "transform"
       },
+	  { "type": "firestarter", "moves": 100 },
       { "type": "deploy_furn", "furn_type": "f_candle_barrier_playermade" }
     ],
-    "flags": [ "NO_SALVAGE", "LIGHT_12" ]
+    "flags": [ "NO_SALVAGE", "LIGHT_12", "FIRESTARTER" ]
   },
   {
     "id": "transmutation_crucible",

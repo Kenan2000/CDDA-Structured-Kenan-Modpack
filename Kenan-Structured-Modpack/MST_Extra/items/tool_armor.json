@@ -2,9 +2,7 @@
   {
     "type": "TOOL_ARMOR",
     "id": "side_drum_makeshift",
-    "name": {
-      "str": "side drum"
-    },
+    "name": { "str": "side drum" },
     "category": "tools",
     "weight": "1800 g",
     "color": "brown",
@@ -29,35 +27,17 @@
     "symbol": "-",
     "description": "A handmade side drum with a shoulder strap, allowing you to wear it while playing.",
     "price": 500,
-    "material": [
-      "wood",
-      "leather"
-    ],
+    "material": [ "wood", "leather" ],
     "volume": "2500 ml",
     "bashing": 4,
-    "flags": [
-      "BELTED"
-    ],
+    "flags": [ "BELTED" ],
     "material_thickness": 2,
-    "armor": [
-      {
-        "encumbrance": 10,
-        "coverage": 10,
-        "covers": [
-          "torso"
-        ],
-        "specifically_covers": [
-          "torso_waist"
-        ]
-      }
-    ]
+    "armor": [ { "encumbrance": 10, "coverage": 10, "covers": [ "torso" ], "specifically_covers": [ "torso_waist" ] } ]
   },
   {
     "id": "mask_gas_makeshift",
     "type": "TOOL_ARMOR",
-    "name": {
-      "str": "makeshift gas hood"
-    },
+    "name": { "str": "makeshift gas hood" },
     "looks_like": "balclava",
     "category": "clothing",
     "//": "Realistically it would be always on, but there's no way to make it only deplete charges in gas without the use action.",
@@ -66,42 +46,50 @@
     "volume": "1500 ml",
     "price": 4000,
     "to_hit": -1,
-    "material": [
-      "cotton",
-      "plastic"
-    ],
+    "material": [ "cotton", "plastic" ],
     "symbol": "[",
     "color": "light_gray",
     "warmth": 15,
     "material_thickness": 2,
     "environmental_protection": 1,
     "environmental_protection_with_filter": 15,
-    "pocket_data": [
-      {
-        "pocket_type": "MAGAZINE",
-        "rigid": true,
-        "ammo_restriction": {
-          "gasfilter_m": 100
-        }
-      }
-    ],
-    "ammo": [
-      "gasfilter_m"
-    ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "gasfilter_m": 100 } } ],
+    "ammo": [ "gasfilter_m" ],
     "use_action": "GASMASK",
-    "flags": [
-      "OUTER",
-      "HELMET_COMPAT"
-    ],
+    "flags": [ "OUTER" ],
+    "armor": [ { "encumbrance": 20, "coverage": 100, "covers": [ "head", "mouth", "eyes" ] } ]
+  },
+  {
+    "id": "straw_bed_rollmat",
+    "type": "TOOL_ARMOR",
+    "name": { "str_sp": "woven straw bedding" },
+    "description": "A thick mat of tightly-woven straw or pine boughs.  It could be worn as a thick blanket, or used to deploy it as a mat to sleep on.",
+    "weight": "1500 g",
+    "volume": "3 L",
+    "price": "15 USD",
+    "price_postapoc": "150 cent",
+    "to_hit": -1,
+    "material": [ "paper" ],
+    "symbol": "[",
+    "looks_like": "fiber_mat",
+    "color": "white",
+    "warmth": 30,
+    "material_thickness": 1,
+    "environmental_protection": 1,
+    "flags": [ "OVERSIZE", "OUTER", "ALLOWS_NATURAL_ATTACKS" ],
+    "use_action": {
+      "type": "place_trap",
+      "allow_under_player": true,
+      "trap": "tr_rollmat_straw",
+      "moves": 100,
+      "practice": 0,
+      "done_message": "You unroll the woven straw bedding and lay it on the ground."
+    },
     "armor": [
       {
-        "encumbrance": 20,
+        "encumbrance": 45,
         "coverage": 100,
-        "covers": [
-          "head",
-          "mouth",
-          "eyes"
-        ]
+        "covers": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
       }
     ]
   }

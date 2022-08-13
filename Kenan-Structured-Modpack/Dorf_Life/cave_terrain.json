@@ -1,29 +1,6 @@
 [
   {
     "type": "terrain",
-    "id": "t_cave_moss",
-    "name": "cave moss",
-    "description": "A sprawling bed of strange blueish moss, growing over a flat stone surface.  Digging it up will expose the rock enough to mine deeper, if need be.",
-    "looks_like": "t_grass",
-    "symbol": ".",
-    "color": "cyan",
-    "move_cost": 2,
-    "roof": "t_flat_roof",
-    "flags": [
-      "TRANSPARENT",
-      "INDOORS",
-      "FLAT"
-    ],
-    "bash": {
-      "ter_set": "t_null",
-      "str_min": 75,
-      "str_max": 400,
-      "str_min_supported": 100,
-      "bash_below": true
-    }
-  },
-  {
-    "type": "terrain",
     "id": "t_shrub_helmet_plump",
     "name": "patch of dark truffles",
     "description": "A patch of squat, dull purple mushrooms.",
@@ -31,24 +8,12 @@
     "symbol": "#",
     "color": "magenta_green",
     "move_cost": 2,
-    "flags": [
-      "TRANSPARENT",
-      "CONTAINER",
-      "FLAMMABLE_ASH",
-      "THIN_OBSTACLE",
-      "SHRUB",
-      "SHORT"
-    ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT" ],
     "transforms_into": "t_shrub_helmet_plump_harvested",
     "examine_action": "harvest_ter",
     "harvest_by_season": [
       {
-        "seasons": [
-          "spring",
-          "summer",
-          "autumn",
-          "winter"
-        ],
+        "seasons": [ "spring", "summer", "autumn", "winter" ],
         "id": "helmet_plump_harv"
       }
     ],
@@ -57,17 +22,8 @@
       "str_max": 60,
       "sound": "crunch.",
       "sound_fail": "brush.",
-      "ter_set": "t_cave_moss",
-      "items": [
-        {
-          "item": "withered",
-          "prob": 50,
-          "count": [
-            1,
-            2
-          ]
-        }
-      ]
+      "ter_set": "t_moss_underground",
+      "items": [ { "item": "withered", "prob": 50, "count": [ 1, 2 ] } ]
     }
   },
   {
@@ -79,15 +35,7 @@
     "symbol": "#",
     "color": "light_red_green",
     "move_cost": 2,
-    "flags": [
-      "TRANSPARENT",
-      "CONTAINER",
-      "FLAMMABLE_ASH",
-      "THIN_OBSTACLE",
-      "SHRUB",
-      "SHORT",
-      "HARVESTED"
-    ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "HARVESTED" ],
     "transforms_into": "t_shrub_helmet_plump",
     "examine_action": "harvested_plant",
     "bash": {
@@ -95,17 +43,8 @@
       "str_max": 60,
       "sound": "crunch.",
       "sound_fail": "brush.",
-      "ter_set": "t_cave_moss",
-      "items": [
-        {
-          "item": "withered",
-          "prob": 50,
-          "count": [
-            1,
-            2
-          ]
-        }
-      ]
+      "ter_set": "t_moss_underground",
+      "items": [ { "item": "withered", "prob": 50, "count": [ 1, 2 ] } ]
     }
   },
   {
@@ -115,29 +54,14 @@
     "description": "A patch of bright red plants resembling onions.",
     "looks_like": "t_underbrush",
     "symbol": "#",
-    "color": [
-      "red_green",
-      "red_green",
-      "brown_green",
-      "brown_green"
-    ],
+    "color": [ "red_green", "red_green", "brown_green", "brown_green" ],
     "move_cost": 2,
-    "flags": [
-      "TRANSPARENT",
-      "CONTAINER",
-      "FLAMMABLE_ASH",
-      "THIN_OBSTACLE",
-      "SHRUB",
-      "SHORT"
-    ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT" ],
     "transforms_into": "t_shrub_pod_sweet_harvested",
     "examine_action": "harvest_ter",
     "harvest_by_season": [
       {
-        "seasons": [
-          "spring",
-          "summer"
-        ],
+        "seasons": [ "spring", "summer" ],
         "id": "pod_sweet_harv"
       }
     ],
@@ -146,17 +70,8 @@
       "str_max": 60,
       "sound": "crunch.",
       "sound_fail": "brush.",
-      "ter_set": "t_cave_moss",
-      "items": [
-        {
-          "item": "withered",
-          "prob": 50,
-          "count": [
-            1,
-            2
-          ]
-        }
-      ]
+      "ter_set": "t_moss_underground",
+      "items": [ { "item": "withered", "prob": 50, "count": [ 1, 2 ] } ]
     }
   },
   {
@@ -168,15 +83,7 @@
     "symbol": "#",
     "color": "green",
     "move_cost": 2,
-    "flags": [
-      "TRANSPARENT",
-      "CONTAINER",
-      "FLAMMABLE_ASH",
-      "THIN_OBSTACLE",
-      "SHRUB",
-      "SHORT",
-      "HARVESTED"
-    ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "HARVESTED" ],
     "transforms_into": "t_shrub_pod_sweet",
     "examine_action": "harvested_plant",
     "bash": {
@@ -184,17 +91,8 @@
       "str_max": 60,
       "sound": "crunch.",
       "sound_fail": "brush.",
-      "ter_set": "t_cave_moss",
-      "items": [
-        {
-          "item": "withered",
-          "prob": 50,
-          "count": [
-            1,
-            2
-          ]
-        }
-      ]
+      "ter_set": "t_moss_underground",
+      "items": [ { "item": "withered", "prob": 50, "count": [ 1, 2 ] } ]
     }
   },
   {
@@ -204,29 +102,14 @@
     "description": "A patch of upright stalks covered in fluffy, cotton-like clumps.",
     "looks_like": "t_underbrush",
     "symbol": "#",
-    "color": [
-      "brown_green",
-      "white_green",
-      "white_green",
-      "brown_green"
-    ],
+    "color": [ "brown_green", "white_green", "white_green", "brown_green" ],
     "move_cost": 2,
-    "flags": [
-      "TRANSPARENT",
-      "CONTAINER",
-      "FLAMMABLE_ASH",
-      "THIN_OBSTACLE",
-      "SHRUB",
-      "SHORT"
-    ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT" ],
     "transforms_into": "t_shrub_wheat_cave_harvested",
     "examine_action": "harvest_ter",
     "harvest_by_season": [
       {
-        "seasons": [
-          "summer",
-          "autumn"
-        ],
+        "seasons": [ "summer", "autumn" ],
         "id": "wheat_cave_harv"
       }
     ],
@@ -235,16 +118,8 @@
       "str_max": 60,
       "sound": "crunch.",
       "sound_fail": "brush.",
-      "ter_set": "t_cave_moss",
-      "items": [
-        {
-          "item": "straw_pile",
-          "count": [
-            1,
-            2
-          ]
-        }
-      ]
+      "ter_set": "t_moss_underground",
+      "items": [ { "item": "straw_pile", "count": [ 1, 2 ] } ]
     }
   },
   {
@@ -256,15 +131,7 @@
     "symbol": "#",
     "color": "green",
     "move_cost": 2,
-    "flags": [
-      "TRANSPARENT",
-      "CONTAINER",
-      "FLAMMABLE_ASH",
-      "THIN_OBSTACLE",
-      "SHRUB",
-      "SHORT",
-      "HARVESTED"
-    ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "HARVESTED" ],
     "transforms_into": "t_shrub_wheat_cave",
     "examine_action": "harvested_plant",
     "bash": {
@@ -272,16 +139,8 @@
       "str_max": 60,
       "sound": "crunch.",
       "sound_fail": "brush.",
-      "ter_set": "t_cave_moss",
-      "items": [
-        {
-          "item": "straw_pile",
-          "count": [
-            1,
-            2
-          ]
-        }
-      ]
+      "ter_set": "t_moss_underground",
+      "items": [ { "item": "straw_pile", "count": [ 1, 2 ] } ]
     }
   },
   {
@@ -291,29 +150,14 @@
     "description": "A patch of twisting, greenish stalks with short leaves.",
     "looks_like": "t_underbrush",
     "symbol": "#",
-    "color": [
-      "green",
-      "light_green",
-      "light_green",
-      "green"
-    ],
+    "color": [ "green", "light_green", "light_green", "green" ],
     "move_cost": 2,
-    "flags": [
-      "TRANSPARENT",
-      "CONTAINER",
-      "FLAMMABLE_ASH",
-      "THIN_OBSTACLE",
-      "SHRUB",
-      "SHORT"
-    ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT" ],
     "transforms_into": "t_shrub_tails_pig_harvested",
     "examine_action": "harvest_ter",
     "harvest_by_season": [
       {
-        "seasons": [
-          "summer",
-          "autumn"
-        ],
+        "seasons": [ "summer", "autumn" ],
         "id": "tail_pig_harv"
       }
     ],
@@ -322,16 +166,8 @@
       "str_max": 60,
       "sound": "crunch.",
       "sound_fail": "brush.",
-      "ter_set": "t_cave_moss",
-      "items": [
-        {
-          "item": "plant_fibre",
-          "count": [
-            1,
-            4
-          ]
-        }
-      ]
+      "ter_set": "t_moss_underground",
+      "items": [ { "item": "plant_fibre", "count": [ 1, 4 ] } ]
     }
   },
   {
@@ -343,15 +179,7 @@
     "symbol": "#",
     "color": "green",
     "move_cost": 2,
-    "flags": [
-      "TRANSPARENT",
-      "CONTAINER",
-      "FLAMMABLE_ASH",
-      "THIN_OBSTACLE",
-      "SHRUB",
-      "SHORT",
-      "HARVESTED"
-    ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "HARVESTED" ],
     "transforms_into": "t_shrub_tails_pig",
     "examine_action": "harvested_plant",
     "bash": {
@@ -359,16 +187,8 @@
       "str_max": 60,
       "sound": "crunch.",
       "sound_fail": "brush.",
-      "ter_set": "t_cave_moss",
-      "items": [
-        {
-          "item": "plant_fibre",
-          "count": [
-            1,
-            4
-          ]
-        }
-      ]
+      "ter_set": "t_moss_underground",
+      "items": [ { "item": "plant_fibre", "count": [ 1, 4 ] } ]
     }
   },
   {
@@ -378,32 +198,14 @@
     "description": "A patch of tangled, woody bramble laden with small growths.",
     "looks_like": "t_underbrush",
     "symbol": "#",
-    "color": [
-      "green",
-      "green",
-      "green",
-      "brown"
-    ],
+    "color": [ "green", "green", "green", "brown" ],
     "move_cost": 2,
-    "flags": [
-      "TRANSPARENT",
-      "CONTAINER",
-      "FLAMMABLE_ASH",
-      "THIN_OBSTACLE",
-      "SHRUB",
-      "SHORT",
-      "SHARP"
-    ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "SHARP" ],
     "transforms_into": "t_shrub_bush_quarry_harvested",
     "examine_action": "harvest_ter",
     "harvest_by_season": [
       {
-        "seasons": [
-          "spring",
-          "summer",
-          "autumn",
-          "winter"
-        ],
+        "seasons": [ "spring", "summer", "autumn", "winter" ],
         "id": "bush_quarry_harv"
       }
     ],
@@ -412,23 +214,8 @@
       "str_max": 60,
       "sound": "crunch.",
       "sound_fail": "brush.",
-      "ter_set": "t_cave_moss",
-      "items": [
-        {
-          "item": "stick",
-          "count": [
-            0,
-            2
-          ]
-        },
-        {
-          "item": "splinter",
-          "count": [
-            1,
-            4
-          ]
-        }
-      ]
+      "ter_set": "t_moss_underground",
+      "items": [ { "item": "stick", "count": [ 0, 2 ] }, { "item": "splinter", "count": [ 1, 4 ] } ]
     }
   },
   {
@@ -440,16 +227,7 @@
     "symbol": "#",
     "color": "brown",
     "move_cost": 2,
-    "flags": [
-      "TRANSPARENT",
-      "CONTAINER",
-      "FLAMMABLE_ASH",
-      "THIN_OBSTACLE",
-      "SHRUB",
-      "SHORT",
-      "HARVESTED",
-      "SHARP"
-    ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "SHRUB", "SHORT", "HARVESTED", "SHARP" ],
     "transforms_into": "t_shrub_bush_quarry",
     "examine_action": "harvested_plant",
     "bash": {
@@ -457,23 +235,8 @@
       "str_max": 60,
       "sound": "crunch.",
       "sound_fail": "brush.",
-      "ter_set": "t_cave_moss",
-      "items": [
-        {
-          "item": "stick",
-          "count": [
-            0,
-            2
-          ]
-        },
-        {
-          "item": "splinter",
-          "count": [
-            1,
-            4
-          ]
-        }
-      ]
+      "ter_set": "t_moss_underground",
+      "items": [ { "item": "stick", "count": [ 0, 2 ] }, { "item": "splinter", "count": [ 1, 4 ] } ]
     }
   },
   {
@@ -485,15 +248,7 @@
     "looks_like": "t_rock_smooth",
     "color": "white",
     "move_cost": 0,
-    "flags": [
-      "NOITEM",
-      "SUPPORTS_ROOF",
-      "WALL",
-      "AUTO_WALL_SYMBOL",
-      "CONNECT_TO_WALL",
-      "MINEABLE",
-      "BLOCK_WIND"
-    ],
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL", "CONNECT_TO_WALL", "MINEABLE", "BLOCK_WIND" ],
     "roof": "t_rock_floor_no_roof",
     "connects_to": "WALL",
     "bash": {
@@ -502,23 +257,7 @@
       "sound": "crash!",
       "sound_fail": "a hollow-sounding whump!",
       "ter_set": "t_rock_floor",
-      "items": [
-        {
-          "item": "rock",
-          "count": [
-            6,
-            12
-          ]
-        },
-        {
-          "item": "material_rocksalt",
-          "count": [
-            0,
-            1
-          ],
-          "prob": 10
-        }
-      ]
+      "items": [ { "item": "rock", "count": [ 6, 12 ] }, { "item": "material_rocksalt", "count": [ 0, 1 ], "prob": 10 } ]
     }
   },
   {
@@ -531,37 +270,14 @@
     "color": "light_gray",
     "move_cost": 2,
     "roof": "t_flat_roof",
-    "flags": [
-      "TRANSPARENT",
-      "INDOORS",
-      "COLLAPSES",
-      "SUPPORTS_ROOF",
-      "FLAT",
-      "ROAD"
-    ],
+    "flags": [ "TRANSPARENT", "INDOORS", "COLLAPSES", "SUPPORTS_ROOF", "FLAT", "ROAD" ],
     "bash": {
       "str_min": 120,
       "str_max": 400,
       "sound": "crash!",
       "sound_fail": "whump!",
       "ter_set": "t_rock_floor",
-      "items": [
-        {
-          "item": "rock",
-          "count": [
-            6,
-            12
-          ]
-        },
-        {
-          "item": "material_rocksalt",
-          "count": [
-            0,
-            1
-          ],
-          "prob": 10
-        }
-      ]
+      "items": [ { "item": "rock", "count": [ 6, 12 ] }, { "item": "material_rocksalt", "count": [ 0, 1 ], "prob": 10 } ]
     }
   },
   {
@@ -573,11 +289,7 @@
     "symbol": "6",
     "color": "cyan_red",
     "move_cost": 0,
-    "flags": [
-      "NOITEM",
-      "INDOORS",
-      "PERMEABLE"
-    ],
+    "flags": [ "NOITEM", "INDOORS", "PERMEABLE" ],
     "examine_action": "controls_gate"
   },
   {
@@ -589,15 +301,7 @@
     "symbol": "LINE_OXOX",
     "color": "light_gray",
     "move_cost": 0,
-    "flags": [
-      "NOITEM",
-      "SUPPORTS_ROOF",
-      "DOOR",
-      "WALL",
-      "AUTO_WALL_SYMBOL",
-      "MINEABLE",
-      "BLOCK_WIND"
-    ],
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "DOOR", "WALL", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND" ],
     "open": "t_breach_concrete_fake_o",
     "connects_to": "WALL",
     "bash": {
@@ -606,15 +310,7 @@
       "sound": "scrrrash!",
       "sound_fail": "a hollow-sounding whump!",
       "ter_set": "t_reb_cage",
-      "items": [
-        {
-          "item": "rock",
-          "count": [
-            10,
-            22
-          ]
-        }
-      ]
+      "items": [ { "item": "rock", "count": [ 10, 22 ] } ]
     }
   },
   {
@@ -626,14 +322,7 @@
     "symbol": ".",
     "color": "cyan",
     "move_cost": 2,
-    "flags": [
-      "TRANSPARENT",
-      "SUPPORTS_ROOF",
-      "COLLAPSES",
-      "INDOORS",
-      "FLAT",
-      "ROAD"
-    ],
+    "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "ROAD" ],
     "close": "t_breach_concrete_fake_c",
     "bash": {
       "str_min": 120,
@@ -641,15 +330,7 @@
       "sound": "scrrrash!",
       "sound_fail": "whump!",
       "ter_set": "t_reb_cage",
-      "items": [
-        {
-          "item": "rock",
-          "count": [
-            10,
-            22
-          ]
-        }
-      ]
+      "items": [ { "item": "rock", "count": [ 10, 22 ] } ]
     }
   }
 ]

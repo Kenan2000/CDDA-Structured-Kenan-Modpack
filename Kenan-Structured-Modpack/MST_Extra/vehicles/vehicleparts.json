@@ -1,8 +1,9 @@
 [
   {
     "id": "makeshift_sled_frame_part",
+    "looks_like": "folding_wooden_frame",
     "type": "vehicle_part",
-    "name": "sled frame",
+    "name": "light woven sled frame",
     "item": "makeshift_sled_frame_item",
     "location": "structure",
     "symbol": "h",
@@ -10,66 +11,18 @@
     "broken_color": "brown",
     "durability": 15,
     "folded_volume": 15,
-    "breaks_into": [
-      {
-        "item": "splinter",
-        "count": [
-          0,
-          6
-        ]
-      }
-    ],
-    "flags": [
-      "MOUNTABLE",
-      "FOLDABLE"
-    ],
+    "breaks_into": [ { "item": "splinter", "count": [ 0, 6 ] } ],
+    "flags": [ "INITIAL_PART", "MOUNTABLE", "FOLDABLE" ],
     "requirements": {
-      "install": {
-        "skills": [
-          [
-            "survival",
-            0
-          ]
-        ],
-        "time": "15 m",
-        "using": [
-          [
-            "vehicle_sled",
-            1
-          ]
-        ]
-      },
-      "removal": {
-        "skills": [
-          [
-            "survival",
-            1
-          ]
-        ],
-        "time": "10 m"
-      },
-      "repair": {
-        "skills": [
-          [
-            "survival",
-            1
-          ]
-        ],
-        "time": "15 m",
-        "using": [
-          [
-            "vehicle_sled",
-            1
-          ]
-        ]
-      }
+      "install": { "skills": [ [ "survival", 0 ] ], "time": "15 m", "using": [ [ "vehicle_sled", 1 ] ] },
+      "removal": { "skills": [ [ "survival", 0 ] ], "time": "10 m" },
+      "repair": { "skills": [ [ "survival", 1 ] ], "time": "15 m", "using": [ [ "vehicle_sled", 1 ] ] }
     },
-    "damage_reduction": {
-      "all": 12
-    }
+    "damage_reduction": { "all": 6 }
   },
   {
     "id": "makeshift_sled_runner_part",
+    "looks_like": "wheel_wood",
     "type": "vehicle_part",
     "name": "sled runners",
     "item": "makeshift_sled_runners_item",
@@ -80,68 +33,19 @@
     "durability": 25,
     "damage_modifier": 50,
     "folded_volume": 10,
-    "flags": [
-      "WHEEL",
-      "STABLE",
-      "FOLDABLE"
-    ],
-    "breaks_into": [
-      {
-        "item": "splinter",
-        "count": [
-          3,
-          6
-        ]
-      }
-    ],
+    "flags": [ "WHEEL", "STABLE", "FOLDABLE" ],
+    "breaks_into": [ { "item": "splinter", "count": [ 3, 6 ] } ],
     "requirements": {
-      "install": {
-        "skills": [
-          [
-            "survival",
-            0
-          ]
-        ],
-        "time": "15 m",
-        "using": [
-          [
-            "vehicle_sled",
-            1
-          ]
-        ]
-      },
-      "removal": {
-        "skills": [
-          [
-            "survival",
-            1
-          ]
-        ],
-        "time": "10 m"
-      },
-      "repair": {
-        "skills": [
-          [
-            "survival",
-            1
-          ]
-        ],
-        "time": "15 m",
-        "using": [
-          [
-            "vehicle_sled",
-            1
-          ]
-        ]
-      }
+      "install": { "skills": [ [ "survival", 0 ] ], "time": "15 m", "using": [ [ "vehicle_sled", 1 ] ] },
+      "removal": { "skills": [ [ "survival", 0 ] ], "time": "10 m" },
+      "repair": { "skills": [ [ "survival", 1 ] ], "time": "15 m", "using": [ [ "vehicle_sled", 1 ] ] }
     },
-    "damage_reduction": {
-      "all": 8
-    }
+    "damage_reduction": { "all": 8 }
   },
   {
     "type": "vehicle_part",
     "id": "makeshift_sled_basket_part",
+    "looks_like": "wood box",
     "name": "woven storage basket",
     "symbol": "o",
     "color": "brown",
@@ -150,72 +54,87 @@
     "damage_modifier": 60,
     "durability": 40,
     "folded_volume": 20,
-    "size": 100,
+    "size": 150,
     "item": "makeshift_sled_basket_item",
     "location": "center",
-    "flags": [
-      "CARGO",
-      "BOARDABLE",
-      "COVERED",
-      "FOLDABLE",
-      "LOCKABLE_CARGO"
-    ],
-    "breaks_into": [
-      {
-        "item": "splinter",
-        "count": [
-          4,
-          9
-        ]
-      }
-    ],
+    "flags": [ "CARGO", "BOARDABLE", "COVERED", "FOLDABLE", "LOCKABLE_CARGO" ],
+    "breaks_into": [ { "item": "splinter", "count": [ 4, 9 ] } ],
     "requirements": {
-      "install": {
-        "skills": [
-          [
-            "survival",
-            0
-          ]
-        ],
-        "time": "15 m",
-        "using": [
-          [
-            "vehicle_sled",
-            1
-          ]
-        ]
-      },
-      "removal": {
-        "skills": [
-          [
-            "survival",
-            1
-          ]
-        ],
-        "time": "10 m"
-      },
-      "repair": {
-        "skills": [
-          [
-            "survival",
-            1
-          ]
-        ],
-        "time": "15 m",
-        "using": [
-          [
-            "vehicle_sled",
-            1
-          ]
-        ]
-      }
+      "install": { "skills": [ [ "survival", 1 ] ], "time": "15 m", "using": [ [ "vehicle_sled", 1 ] ] },
+      "removal": { "skills": [ [ "survival", 1 ] ], "time": "10 m" },
+      "repair": { "skills": [ [ "survival", 2 ] ], "time": "15 m", "using": [ [ "vehicle_sled", 1 ] ] }
     },
-    "damage_reduction": {
-      "all": 6
-    }
+    "damage_reduction": { "all": 6 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "boat_board_birchbark",
+    "name": { "str": "wbirchbark boat hull" },
+    "description": "A waterproofed board that keeps the water out of your boat.",
+    "symbol": "o",
+    "looks_like": "f_fiber_mat",
+    "color": "brown",
+    "broken_symbol": "x",
+    "broken_color": "light_gray",
+    "damage_modifier": 50,
+    "durability": 20,
+    "item": "birchbark_panel",
+    "location": "under",
+    "requirements": {
+      "install": { "skills": [ [ "survival", 2 ] ], "time": "20 m", "using": [ [ "vehicle_birchbark_boat", 1 ] ] },
+      "removal": { "skills": [ [ "survival", 2 ] ], "time": "10 m" },
+      "repair": { "skills": [ [ "survival", 3 ] ], "time": "20 m", "using": [ [ "adhesive", 1 ] ] }
+    },
+    "flags": [ "FLOATS" ],
+    "breaks_into": [ { "item": "birchbark", "count": [ 0, 6 ] } ],
+    "damage_reduction": { "all": 5 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "birchbark_aisle",
+    "name": { "str": "birchbark aisle" },
+    "symbol": "=",
+    "looks_like": "f_fiber_mat",
+    "color": "brown",
+    "broken_symbol": "#",
+    "broken_color": "brown",
+    "durability": 100,
+    "description": "An aisle made from a mat of tightly-woven birchbark.",
+    "item": "birchbark_panel",
+    "location": "center",
+    "requirements": {
+      "install": { "skills": [ [ "survival", 1 ] ], "time": "20 m", "using": [ [ "vehicle_sled", 1 ] ] },
+      "removal": { "skills": [ [ "survival", 1 ] ], "time": "10 m" },
+      "repair": { "skills": [ [ "survival", 2 ] ], "time": "20 m", "using": [ [ "adhesive", 1 ] ] }
+    },
+    "flags": [ "AISLE", "BOARDABLE" ],
+    "breaks_into": [ { "item": "birchbark", "count": [ 0, 6 ] } ],
+    "damage_reduction": { "all": 8 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "roof_birchbark",
+    "name": { "str": "birchbark roof" },
+    "symbol": "#",
+    "color": "light_gray",
+    "broken_symbol": "#",
+    "broken_color": "dark_gray",
+    "durability": 65,
+    "description": "A roof made from a mat of tightly-woven birchbark.  Good enough to keep the rain out at least.",
+    "item": "birchbark_panel",
+    "location": "roof",
+    "requirements": {
+      "install": { "skills": [ [ "survival", 1 ] ], "time": "20 m", "using": [ [ "vehicle_sled", 1 ] ] },
+      "removal": { "skills": [ [ "survival", 1 ] ], "time": "10 m" },
+      "repair": { "skills": [ [ "survival", 2 ] ], "time": "20 m", "using": [ [ "adhesive", 1 ] ] }
+    },
+    "flags": [ "ROOF" ],
+    "breaks_into": [ { "item": "birchbark", "count": [ 0, 6 ] } ],
+    "damage_reduction": { "all": 8 }
   },
   {
     "id": "log_frame_part",
+    "looks_like": "frame_wood_cover",
     "type": "vehicle_part",
     "name": "log frame",
     "item": "log_frame_item",
@@ -226,66 +145,86 @@
     "durability": 300,
     "description": "A heavy section of frame carved from a log, serving as a foundation or to keep a raft afloat.  Other vehicle components can be mounted on it.  If all the frames and components of a vehicle are foldable, the vehicle can be folded into a small package and picked up as a normal item.",
     "folded_volume": 35,
-    "breaks_into": [
-      {
-        "item": "splinter",
-        "count": [
-          20,
-          30
-        ]
-      }
-    ],
-    "flags": [
-      "INITIAL_PART",
-      "FLOATS",
-      "STABLE",
-      "MOUNTABLE",
-      "BOARDABLE",
-      "FOLDABLE"
-    ],
+    "breaks_into": [ { "item": "splinter", "count": [ 20, 30 ] } ],
+    "flags": [ "INITIAL_PART", "FLOATS", "STABLE", "MOUNTABLE", "BOARDABLE", "FOLDABLE" ],
     "requirements": {
-      "install": {
-        "skills": [
-          [
-            "survival",
-            1
-          ]
-        ],
-        "time": "30 m",
-        "using": [
-          [
-            "vehicle_log_frame",
-            1
-          ]
-        ]
-      },
-      "removal": {
-        "skills": [
-          [
-            "survival",
-            2
-          ]
-        ],
-        "time": "15 m"
-      },
-      "repair": {
-        "skills": [
-          [
-            "survival",
-            2
-          ]
-        ],
-        "time": "30 m",
-        "using": [
-          [
-            "adhesive",
-            1
-          ]
-        ]
-      }
+      "install": { "skills": [ [ "survival", 1 ] ], "time": "30 m", "using": [ [ "vehicle_log_frame", 1 ] ] },
+      "removal": { "skills": [ [ "survival", 1 ] ], "time": "15 m" },
+      "repair": { "skills": [ [ "survival", 2 ] ], "time": "30 m", "using": [ [ "adhesive", 1 ] ] }
     },
-    "damage_reduction": {
-      "all": 52
-    }
+    "damage_reduction": { "all": 52 }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "door_log_frame",
+    "name": { "str": "log frame door" },
+    "symbol": "+",
+    "looks_like": "door_wood",
+    "color": "brown",
+    "broken_symbol": "&",
+    "broken_color": "brown",
+    "damage_modifier": 75,
+    "durability": 340,
+    "description": "A heavy door made from a log frame.  Solid construction means you can't see through it when closed.",
+    "item": "log_frame_item",
+    "location": "center",
+    "requirements": {
+      "install": { "skills": [ [ "survival", 1 ] ], "time": "30 m", "using": [ [ "vehicle_log_frame", 1 ] ] },
+      "removal": { "skills": [ [ "survival", 1 ] ], "time": "15 m" },
+      "repair": { "skills": [ [ "survival", 3 ] ], "time": "30 m", "using": [ [ "adhesive", 1 ] ] }
+    },
+    "flags": [ "OBSTACLE", "OPENABLE", "BOARDABLE", "OPAQUE", "AISLE" ],
+    "breaks_into": [ { "item": "splinter", "count": [ 20, 30 ] } ],
+    "damage_reduction": { "all": 24 }
+  },
+  {
+    "abstract": "log_frame_board_abstract",
+    "type": "vehicle_part",
+    "copy-from": "base_board_abstract",
+    "item": "log_frame_item",
+    "color": "brown",
+    "broken_color": "brown",
+    "durability": 200,
+    "breaks_into": [ { "item": "splinter", "count": [ 20, 30 ] } ],
+    "requirements": {
+      "install": { "skills": [ [ "survival", 1 ] ], "time": "30 m", "using": [ [ "vehicle_log_frame", 1 ] ] },
+      "removal": { "skills": [ [ "survival", 1 ] ], "time": "15 m" },
+      "repair": { "skills": [ [ "survival", 3 ] ], "time": "30 m", "using": [ [ "adhesive", 1 ] ] }
+    },
+    "damage_reduction": { "all": 10 }
+  },
+  {
+    "id": "log_frame_board",
+    "type": "vehicle_part",
+    "copy-from": "log_frame_board_abstract",
+    "name": { "str": "log frame board" },
+    "description": "A wall made from a log frame.  Keeps zombies outside the vehicle and prevents people from seeing through it.",
+    "extend": { "flags": [ "OPAQUE", "FULL_BOARD" ] }
+  },
+  {
+    "type": "vehicle_part",
+    "id": "bed_straw_rollmat",
+    "name": { "str": "straw bedding" },
+    "symbol": "#",
+    "looks_like": "f_straw_bed",
+    "color": "magenta",
+    "broken_symbol": "*",
+    "broken_color": "magenta",
+    "damage_modifier": 60,
+    "durability": 60,
+    "description": "A small but comfortable bed made from a mat of tightly-woven straw.",
+    "size": 100,
+    "item": "straw_bed_rollmat",
+    "comfort": 3,
+    "floor_bedding_warmth": 200,
+    "location": "center",
+    "requirements": {
+      "install": { "skills": [ [ "survival", 1 ] ], "time": "40 m", "using": [ [ "cordage_short", 4 ] ] },
+      "removal": { "skills": [ [ "survival", 1 ] ], "time": "20 m" },
+      "repair": { "skills": [ [ "survival", 2 ] ], "time": "40 m", "using": [ [ "cordage_short", 1 ] ] }
+    },
+    "flags": [ "BED", "BOARDABLE", "CARGO", "MOUNTABLE" ],
+    "breaks_into": [ { "item": "straw_pile", "count": [ 7, 8 ] } ],
+    "damage_reduction": { "all": 2 }
   }
 ]

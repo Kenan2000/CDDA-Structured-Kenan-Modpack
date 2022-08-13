@@ -1,18 +1,12 @@
 [
   {
     "type": "charge_removal_blacklist",
-    "list": [
-      "lmil_helm",
-      "mil_helm",
-      "hmil_helm"
-    ]
+    "list": [ "lmil_helm", "mil_helm", "hmil_helm" ]
   },
   {
     "id": "survbowpack",
     "type": "ARMOR",
-    "name": {
-      "str": "survivor's archer backpack"
-    },
+    "name": { "str": "survivor's archer backpack" },
     "//": "This adds the quiver function.",
     "description": "A custom-built backpack modified further to be an archer's best friend.  Lots of storage, manageable encumbrance and a built in quiver.",
     "weight": "1200 g",
@@ -20,55 +14,24 @@
     "price": "360 USD",
     "price_postapoc": "36 USD",
     "phase": "solid",
-    "material": [
-      "leather",
-      "cotton"
-    ],
+    "material": [ "leather", "cotton" ],
     "symbol": "[",
     "looks_like": "survivor_pack",
     "color": "brown",
     "pocket_data": [
-      {
-        "ammo_restriction": {
-          "arrow": 50,
-          "bolt": 50
-        },
-        "moves": 20
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "16 L",
-        "max_contains_weight": "32 kg",
-        "moves": 300
-      }
+      { "ammo_restriction": { "arrow": 50, "bolt": 50 }, "moves": 20 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "16 L", "max_contains_weight": "32 kg", "moves": 300 }
     ],
     "warmth": 10,
     "material_thickness": 2,
-    "flags": [
-      "WATER_FRIENDLY",
-      "STURDY",
-      "BELTED"
-    ],
-    "armor": [
-      {
-        "encumbrance": [
-          4,
-          16
-        ],
-        "coverage": 35,
-        "covers": [
-          "torso"
-        ]
-      }
-    ]
+    "flags": [ "WATER_FRIENDLY", "STURDY", "BELTED" ],
+    "armor": [ { "encumbrance": [ 4, 16 ], "coverage": 35, "covers": [ "torso" ] } ]
   },
   {
     "id": "surv_suit",
     "type": "ARMOR",
     "category": "armor",
-    "name": {
-      "str": "survivor's scout suit"
-    },
+    "name": { "str": "survivor's scout suit" },
     "description": "A home-made suit built to live off the land.  Comes with ample storage, fur lining, environmental and physical protection, a built-in watch, and a makeshift sheath ring.  It requires a separate gas mask for full protection.",
     "weight": "12840 g",
     "volume": "12500 ml",
@@ -77,43 +40,23 @@
     "to_hit": -3,
     "bashing": 6,
     "phase": "solid",
-    "material": [
-      "leather",
-      "kevlar"
-    ],
+    "material": [ "leather", "kevlar" ],
     "symbol": "[",
     "looks_like": "anbc_suit",
     "color": "brown",
     "pocket_data": [
+      { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "6 kg", "moves": 80 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "6 kg", "moves": 80 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "8 L", "max_contains_weight": "16 kg", "moves": 150 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "4 L", "max_contains_weight": "8 kg", "moves": 80 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "4 L", "max_contains_weight": "8 kg", "moves": 80 },
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "2 L",
-        "max_contains_weight": "6 kg",
-        "moves": 80
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "2 L",
-        "max_contains_weight": "6 kg",
-        "moves": 80
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "8 L",
-        "max_contains_weight": "16 kg",
-        "moves": 150
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "4 L",
-        "max_contains_weight": "8 kg",
-        "moves": 80
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "4 L",
-        "max_contains_weight": "8 kg",
-        "moves": 80
+        "min_item_volume": "500 ml",
+        "max_contains_volume": "2500 ml",
+        "max_contains_weight": "4 kg",
+        "moves": 10,
+        "flag_restriction": [ "SHEATH_KNIFE", "SHEATH_SWORD" ]
       },
       {
         "pocket_type": "CONTAINER",
@@ -121,31 +64,13 @@
         "max_contains_volume": "2500 ml",
         "max_contains_weight": "4 kg",
         "moves": 10,
-        "flag_restriction": [
-          "SHEATH_KNIFE",
-          "SHEATH_SWORD"
-        ]
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "min_item_volume": "500 ml",
-        "max_contains_volume": "2500 ml",
-        "max_contains_weight": "4 kg",
-        "moves": 10,
-        "flag_restriction": [
-          "SHEATH_KNIFE",
-          "SHEATH_SWORD"
-        ]
+        "flag_restriction": [ "SHEATH_KNIFE", "SHEATH_SWORD" ]
       }
     ],
     "warmth": 25,
     "material_thickness": 4,
     "environmental_protection": 15,
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Sheath knife/sword",
-      "holster_msg": "You sheath your %s"
-    },
+    "use_action": { "type": "holster", "holster_prompt": "Sheath knife/sword", "holster_msg": "You sheath your %s" },
     "flags": [
       "VARSIZE",
       "OVERSIZE",
@@ -163,18 +88,7 @@
       {
         "encumbrance": 25,
         "coverage": 100,
-        "covers": [
-          "leg_l",
-          "leg_r",
-          "torso",
-          "arm_l",
-          "arm_r",
-          "hand_l",
-          "hand_r",
-          "foot_l",
-          "foot_r",
-          "head"
-        ]
+        "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r", "head" ]
       }
     ]
   },
@@ -182,9 +96,7 @@
     "id": "surv_armor_suit",
     "type": "ARMOR",
     "category": "armor",
-    "name": {
-      "str": "survivor's armored scout suit"
-    },
+    "name": { "str": "survivor's armored scout suit" },
     "//": "Harder to repair but more durable.",
     "description": "A home-made suit built to live off the land.  Comes with ample storage, warm fur lining, environmental and physical protection, a built in watch, and a makeshift sheath ring.  The suit is carefully crafted of Kevlar fabric and reinforced with metal.  It requires a separate gas mask for full protection.",
     "weight": "26360 g",
@@ -194,43 +106,23 @@
     "to_hit": -3,
     "bashing": 6,
     "phase": "solid",
-    "material": [
-      "kevlar",
-      "steel"
-    ],
+    "material": [ "kevlar", "steel" ],
     "symbol": "[",
     "looks_like": "anbc_suit",
     "color": "brown",
     "pocket_data": [
+      { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "6 kg", "moves": 80 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "2 L", "max_contains_weight": "6 kg", "moves": 80 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "8 L", "max_contains_weight": "16 kg", "moves": 150 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "4 L", "max_contains_weight": "8 kg", "moves": 80 },
+      { "pocket_type": "CONTAINER", "max_contains_volume": "4 L", "max_contains_weight": "8 kg", "moves": 80 },
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "2 L",
-        "max_contains_weight": "6 kg",
-        "moves": 80
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "2 L",
-        "max_contains_weight": "6 kg",
-        "moves": 80
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "8 L",
-        "max_contains_weight": "16 kg",
-        "moves": 150
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "4 L",
-        "max_contains_weight": "8 kg",
-        "moves": 80
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "4 L",
-        "max_contains_weight": "8 kg",
-        "moves": 80
+        "min_item_volume": "500 ml",
+        "max_contains_volume": "2500 ml",
+        "max_contains_weight": "4 kg",
+        "moves": 10,
+        "flag_restriction": [ "SHEATH_KNIFE", "SHEATH_SWORD" ]
       },
       {
         "pocket_type": "CONTAINER",
@@ -238,31 +130,13 @@
         "max_contains_volume": "2500 ml",
         "max_contains_weight": "4 kg",
         "moves": 10,
-        "flag_restriction": [
-          "SHEATH_KNIFE",
-          "SHEATH_SWORD"
-        ]
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "min_item_volume": "500 ml",
-        "max_contains_volume": "2500 ml",
-        "max_contains_weight": "4 kg",
-        "moves": 10,
-        "flag_restriction": [
-          "SHEATH_KNIFE",
-          "SHEATH_SWORD"
-        ]
+        "flag_restriction": [ "SHEATH_KNIFE", "SHEATH_SWORD" ]
       }
     ],
     "warmth": 25,
     "material_thickness": 5,
     "environmental_protection": 15,
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Sheath knife/sword",
-      "holster_msg": "You sheath your %s"
-    },
+    "use_action": { "type": "holster", "holster_prompt": "Sheath knife/sword", "holster_msg": "You sheath your %s" },
     "flags": [
       "VARSIZE",
       "OVERSIZE",
@@ -280,18 +154,7 @@
       {
         "encumbrance": 35,
         "coverage": 100,
-        "covers": [
-          "leg_l",
-          "leg_r",
-          "torso",
-          "arm_l",
-          "arm_r",
-          "hand_l",
-          "hand_r",
-          "foot_l",
-          "foot_r",
-          "head"
-        ]
+        "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r", "head" ]
       }
     ]
   },
@@ -300,266 +163,124 @@
     "copy-from": "armor_lightplate",
     "//": "No storage or other amenities, but a modest increase in protection relative to the added encumbrance.",
     "type": "ARMOR",
-    "name": {
-      "str": "survivor plate armor"
-    },
+    "name": { "str": "survivor plate armor" },
     "description": "A suit of Gothic plate armor modified with kevlar and leather, altered to better protect the gaps between plates and provide better protection from the elements.",
     "weight": "12100 g",
     "price": "900 USD",
     "price_postapoc": "130 USD",
-    "material": [
-      "steel",
-      "kevlar",
-      "leather"
-    ],
+    "material": [ "steel", "kevlar", "leather" ],
     "warmth": 30,
     "material_thickness": 5,
     "environmental_protection": 3,
-    "extend": {
-      "flags": [
-        "WATERPROOF"
-      ]
-    },
-    "armor": [
-      {
-        "encumbrance": 25,
-        "coverage": 100,
-        "covers": [
-          "leg_l",
-          "leg_r",
-          "torso",
-          "arm_l",
-          "arm_r"
-        ]
-      }
-    ]
+    "extend": { "flags": [ "WATERPROOF" ] },
+    "armor": [ { "encumbrance": 25, "coverage": 100, "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r" ] } ]
   },
   {
     "id": "cuirass_lightplate_surv",
     "copy-from": "cuirass_lightplate",
     "type": "ARMOR",
-    "name": {
-      "str": "survivor cuirass",
-      "str_pl": "survivor cuirasses"
-    },
+    "name": { "str": "survivor cuirass", "str_pl": "survivor cuirasses" },
     "description": "A medieval steel breastplate, modified with kevlar and leather to better protect from the elements.",
     "weight": "4620 g",
     "price": "300 USD",
     "price_postapoc": "45 USD",
-    "material": [
-      "steel",
-      "kevlar",
-      "leather"
-    ],
+    "material": [ "steel", "kevlar", "leather" ],
     "warmth": 30,
     "material_thickness": 5,
     "environmental_protection": 3,
-    "extend": {
-      "flags": [
-        "WATERPROOF"
-      ]
-    },
-    "armor": [
-      {
-        "encumbrance": 25,
-        "coverage": 100,
-        "covers": [
-          "torso"
-        ]
-      }
-    ]
+    "extend": { "flags": [ "WATERPROOF" ] },
+    "armor": [ { "encumbrance": 25, "coverage": 100, "covers": [ "torso" ] } ]
   },
   {
     "id": "armguard_lightplate_surv",
     "copy-from": "armguard_lightplate",
     "type": "ARMOR",
-    "name": {
-      "str": "survivor steel arm guards",
-      "str_pl": "survivor steel arm guards"
-    },
+    "name": { "str": "survivor steel arm guards", "str_pl": "survivor steel arm guards" },
     "description": "A full assembly of medieval arm protection.  Rerebraces, couters, and vambraces, subsequently modified with kevlar and leather to better protect the joints.",
     "weight": "2992 g",
     "price": "300 USD",
     "price_postapoc": "130 USD",
-    "material": [
-      "steel",
-      "kevlar",
-      "leather"
-    ],
+    "material": [ "steel", "kevlar", "leather" ],
     "warmth": 30,
     "material_thickness": 5,
     "environmental_protection": 3,
-    "extend": {
-      "flags": [
-        "WATERPROOF"
-      ]
-    },
-    "armor": [
-      {
-        "encumbrance": 25,
-        "coverage": 100,
-        "covers": [
-          "arm_l",
-          "arm_r"
-        ]
-      }
-    ]
+    "extend": { "flags": [ "WATERPROOF" ] },
+    "armor": [ { "encumbrance": 25, "coverage": 100, "covers": [ "arm_l", "arm_r" ] } ]
   },
   {
     "id": "legguard_lightplate_surv",
     "copy-from": "legguard_lightplate",
     "type": "ARMOR",
-    "name": {
-      "str": "survivor steel leg guards",
-      "str_pl": "survivor steel leg guards"
-    },
+    "name": { "str": "survivor steel leg guards", "str_pl": "survivor steel leg guards" },
     "description": "A full assembly of medieval leg protection.  Cuisses, poleyns, and greaves, subsequently modified with kevlar and leather to better protect the joints.",
     "weight": "4488 g",
     "price": "300 USD",
     "price_postapoc": "45 USD",
-    "material": [
-      "steel",
-      "kevlar",
-      "leather"
-    ],
+    "material": [ "steel", "kevlar", "leather" ],
     "warmth": 30,
     "material_thickness": 5,
     "environmental_protection": 3,
-    "extend": {
-      "flags": [
-        "WATERPROOF"
-      ]
-    },
-    "armor": [
-      {
-        "encumbrance": 25,
-        "coverage": 100,
-        "covers": [
-          "leg_l",
-          "leg_r"
-        ]
-      }
-    ]
+    "extend": { "flags": [ "WATERPROOF" ] },
+    "armor": [ { "encumbrance": 25, "coverage": 100, "covers": [ "leg_l", "leg_r" ] } ]
   },
   {
     "id": "helmet_plate_surv",
     "copy-from": "helmet_plate",
     "type": "ARMOR",
-    "name": {
-      "str": "survivor great helm"
-    },
+    "name": { "str": "survivor great helm" },
     "description": "A medieval helmet that has been heavily modified, widening the eye slits and breaths, with ballistic lenses and a kevlar aventail helping make up for the increased vulnerability.",
     "weight": "2395 g",
     "price": "500 USD",
     "price_postapoc": "50 USD",
-    "material": [
-      "steel",
-      "kevlar",
-      "leather"
-    ],
+    "material": [ "steel", "kevlar", "leather" ],
     "warmth": 20,
     "material_thickness": 6,
     "environmental_protection": 3,
-    "extend": {
-      "flags": [
-        "WATERPROOF",
-        "SUN_GLASSES"
-      ]
-    },
-    "armor": [
-      {
-        "encumbrance": 35,
-        "coverage": 100,
-        "covers": [
-          "head",
-          "eyes",
-          "mouth"
-        ]
-      }
-    ]
+    "extend": { "flags": [ "WATERPROOF", "SUN_GLASSES" ] },
+    "armor": [ { "encumbrance": 35, "coverage": 100, "covers": [ "head", "eyes", "mouth" ] } ]
   },
   {
     "id": "gloves_plate_surv",
     "copy-from": "gloves_plate",
     "type": "ARMOR",
-    "name": {
-      "str": "pair of survivor gauntlets",
-      "str_pl": "pairs of survivor gauntlets"
-    },
+    "name": { "str": "pair of survivor gauntlets", "str_pl": "pairs of survivor gauntlets" },
     "description": "A heavy set of medieval gauntlets, modified with kevlar reinforcements to increase protection from the elements.",
     "weight": "1080 g",
     "price": "500 USD",
     "price_postapoc": "50 USD",
-    "material": [
-      "iron",
-      "kevlar",
-      "leather"
-    ],
+    "material": [ "iron", "kevlar", "leather" ],
     "warmth": 25,
     "material_thickness": 5,
     "environmental_protection": 3,
-    "extend": {
-      "flags": [
-        "WATERPROOF"
-      ]
-    },
-    "armor": [
-      {
-        "encumbrance": 25,
-        "coverage": 100,
-        "covers": [
-          "hand_l",
-          "hand_r"
-        ]
-      }
-    ]
+    "extend": { "flags": [ "WATERPROOF" ] },
+    "armor": [ { "encumbrance": 25, "coverage": 100, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
     "id": "boots_plate_surv",
     "copy-from": "boots_plate",
     "type": "ARMOR",
-    "name": {
-      "str": "pair of survivor sabatons",
-      "str_pl": "pairs of survivor sabatons"
-    },
+    "name": { "str": "pair of survivor sabatons", "str_pl": "pairs of survivor sabatons" },
     "description": "A heavy set of armor plated boots, modified with kevlar to better protect from the elements.",
     "weight": "2080 g",
     "price": "600 USD",
     "price_postapoc": "60 USD",
-    "material": [
-      "iron",
-      "kevlar",
-      "leather"
-    ],
+    "material": [ "iron", "kevlar", "leather" ],
     "warmth": 25,
     "material_thickness": 5,
     "environmental_protection": 3,
-    "armor": [
-      {
-        "encumbrance": 30,
-        "coverage": 100,
-        "covers": [
-          "foot_l",
-          "foot_r"
-        ]
-      }
-    ]
+    "armor": [ { "encumbrance": 30, "coverage": 100, "covers": [ "foot_l", "foot_r" ] } ]
   },
   {
     "id": "badge_bio_weapon",
     "type": "ARMOR",
-    "name": {
-      "str": "Bio-Weapon badge"
-    },
+    "name": { "str": "Bio-Weapon badge" },
     "description": "A round silver medallion that identifies the wearer as a part of the Bio-Weapon project.",
     "weight": "60 g",
     "volume": "5 ml",
     "price": "50 USD",
     "price_postapoc": "5 USD",
     "phase": "solid",
-    "material": [
-      "silver"
-    ],
+    "material": [ "silver" ],
     "symbol": "[",
     "looks_like": "badge_cybercop",
     "color": "yellow"
@@ -567,46 +288,32 @@
   {
     "id": "badge_bio_weapon_apophis",
     "type": "ARMOR",
-    "name": {
-      "str": "Bio-Weapon Apophis badge"
-    },
+    "name": { "str": "Bio-Weapon Apophis badge" },
     "description": "A round silver medallion that identifies the wearer as a part of the Bio-Weapon project.  This one has the name 'Apophis' inscribed on the front.",
     "weight": "60 g",
     "volume": "5 ml",
     "price": "100 USD",
     "phase": "solid",
-    "material": [
-      "silver"
-    ],
+    "material": [ "silver" ],
     "symbol": "[",
     "looks_like": "badge_cybercop",
     "color": "red",
-    "flags": [
-      "TRADER_AVOID",
-      "NO_SALVAGE"
-    ]
+    "flags": [ "TRADER_AVOID", "NO_SALVAGE" ]
   },
   {
     "id": "badge_bio_weapon_evy",
     "type": "ARMOR",
-    "name": {
-      "str": "RFID access badge"
-    },
+    "name": { "str": "RFID access badge" },
     "description": "A round silver medallion with a RFID chip embedded in the front.  The markings seem to identify the wearer as a part of the Bio-Weapon project.",
     "weight": "60 g",
     "volume": "5 ml",
     "price": "100 USD",
     "phase": "solid",
-    "material": [
-      "silver"
-    ],
+    "material": [ "silver" ],
     "symbol": "[",
     "looks_like": "badge_cybercop",
     "color": "red",
-    "flags": [
-      "TRADER_AVOID",
-      "NO_SALVAGE"
-    ]
+    "flags": [ "TRADER_AVOID", "NO_SALVAGE" ]
   },
   {
     "id": "c_stealth_cloak",
@@ -614,33 +321,13 @@
     "type": "enchantment",
     "has": "WORN",
     "condition": "ALWAYS",
-    "values": [
-      {
-        "value": "SPEED",
-        "add": -20
-      },
-      {
-        "value": "STRENGTH",
-        "add": -4
-      },
-      {
-        "value": "DEXTERITY",
-        "add": -4
-      }
-    ],
-    "ench_effects": [
-      {
-        "effect": "invisibility",
-        "intensity": 1
-      }
-    ]
+    "values": [ { "value": "SPEED", "add": -20 }, { "value": "STRENGTH", "add": -4 }, { "value": "DEXTERITY", "add": -4 } ],
+    "ench_effects": [ { "effect": "invisibility", "intensity": 1 } ]
   },
   {
     "id": "acs_74_stealth_cloak_on",
     "type": "TOOL_ARMOR",
-    "name": {
-      "str": "ACS-74 stealth cloak"
-    },
+    "name": { "str": "ACS-74 stealth cloak" },
     "description": "An experimental cloak that uses a highly sophisticated network of cameras and LEDs to render the user fully invisible.  It is powered by built-in torsion ratchets.  Due to particularities of its construction, it is very difficult to move in, hampering wearer's strength, dexterity and movement speed.",
     "weight": "1556 g",
     "volume": "3 L",
@@ -648,51 +335,21 @@
     "price_postapoc": "84 USD",
     "to_hit": -1,
     "phase": "solid",
-    "material": [
-      "superalloy",
-      "plastic"
-    ],
+    "material": [ "superalloy", "plastic" ],
     "symbol": "[",
     "looks_like": "optical_cloak",
     "color": "light_gray",
     "warmth": 15,
     "material_thickness": 1,
     "environmental_protection": 4,
-    "relic_data": {
-      "passive_effects": [
-        {
-          "id": "c_stealth_cloak"
-        }
-      ]
-    },
-    "flags": [
-      "OVERSIZE",
-      "HOOD",
-      "WATERPROOF",
-      "OUTER",
-      "VARSIZE"
-    ],
-    "armor": [
-      {
-        "encumbrance": 15,
-        "coverage": 75,
-        "covers": [
-          "leg_l",
-          "leg_r",
-          "torso",
-          "arm_l",
-          "arm_r",
-          "head"
-        ]
-      }
-    ]
+    "relic_data": { "passive_effects": [ { "id": "c_stealth_cloak" } ] },
+    "flags": [ "OVERSIZE", "HOOD", "WATERPROOF", "OUTER", "VARSIZE", "PADDED" ],
+    "armor": [ { "encumbrance": 15, "coverage": 75, "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "head" ] } ]
   },
   {
     "type": "mutation",
     "id": "C_MUTE_BOOTS",
-    "name": {
-      "str": "Soundwave Disruption"
-    },
+    "name": { "str": "Soundwave Disruption" },
     "points": 99,
     "valid": false,
     "description": "Your equipment is actively eliminating the sounds of your footsteps.",
@@ -703,10 +360,7 @@
     "id": "boots_stealth",
     "type": "TOOL_ARMOR",
     "category": "armor",
-    "name": {
-      "str": "pair of mute boots",
-      "str_pl": "pairs of mute boots"
-    },
+    "name": { "str": "pair of mute boots", "str_pl": "pairs of mute boots" },
     "description": "Experimental reinforced boots that completely silence your steps, but also slow your movement.",
     "weight": "1280 g",
     "volume": "2500 ml",
@@ -715,114 +369,52 @@
     "to_hit": -1,
     "bashing": 1,
     "phase": "solid",
-    "material": [
-      "kevlar",
-      "leather"
-    ],
+    "material": [ "kevlar", "leather" ],
     "looks_like": "boots_combat",
     "symbol": "[",
     "color": "dark_gray",
     "warmth": 25,
     "material_thickness": 3,
     "environmental_protection": 2,
-    "relic_data": {
-      "passive_effects": [
-        {
-          "has": "WORN",
-          "condition": "ALWAYS",
-          "mutations": [
-            "C_MUTE_BOOTS"
-          ]
-        }
-      ]
-    },
-    "flags": [
-      "VARSIZE",
-      "WATERPROOF",
-      "STURDY"
-    ],
-    "armor": [
-      {
-        "encumbrance": 18,
-        "coverage": 100,
-        "covers": [
-          "foot_l",
-          "foot_r"
-        ]
-      }
-    ]
+    "relic_data": { "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "mutations": [ "C_MUTE_BOOTS" ] } ] },
+    "flags": [ "VARSIZE", "WATERPROOF", "STURDY" ],
+    "armor": [ { "encumbrance": 18, "coverage": 100, "covers": [ "foot_l", "foot_r" ] } ]
   },
   {
     "type": "mutation",
     "id": "C_RADIOGENIC_GOGGLES",
-    "name": {
-      "str": "Radiogenic Vision"
-    },
+    "name": { "str": "Radiogenic Vision" },
     "points": 99,
     "valid": false,
     "description": "You can currently see through walls.  The rads this thing is giving off probably isn't good for you, by the way.",
     "player_display": false,
-    "flags": [
-      "CLAIRVOYANCE"
-    ]
+    "flags": [ "CLAIRVOYANCE" ]
   },
   {
     "id": "goggles_nv_clairvoyance",
     "type": "TOOL_ARMOR",
-    "name": {
-      "str": "pair of radiogenic goggles",
-      "str_pl": "pairs of radiogenic goggles"
-    },
+    "name": { "str": "pair of radiogenic goggles", "str_pl": "pairs of radiogenic goggles" },
     "description": "Experimental goggles that use gamma radiation emitters, allowing the user to see through walls and in the dark.  Prolonged use is not recommended due to danger of radiation poisoning.",
     "weight": "158 g",
     "volume": "500 ml",
     "price": "260 USD",
     "to_hit": -3,
     "phase": "solid",
-    "material": [
-      "plastic",
-      "steel"
-    ],
+    "material": [ "plastic", "steel" ],
     "symbol": "[",
     "color": "dark_gray",
     "warmth": 10,
     "material_thickness": 4,
     "environmental_protection": 5,
-    "relic_data": {
-      "passive_effects": [
-        {
-          "has": "WORN",
-          "condition": "ALWAYS",
-          "mutations": [
-            "C_RADIOGENIC_GOGGLES"
-          ]
-        }
-      ]
-    },
-    "flags": [
-      "GNV_EFFECT",
-      "WATERPROOF",
-      "STURDY",
-      "RADIOACTIVE",
-      "LIGHT_25"
-    ],
-    "armor": [
-      {
-        "encumbrance": 30,
-        "coverage": 100,
-        "covers": [
-          "eyes"
-        ]
-      }
-    ]
+    "relic_data": { "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "mutations": [ "C_RADIOGENIC_GOGGLES" ] } ] },
+    "flags": [ "GNV_EFFECT", "WATERPROOF", "STURDY", "RADIOACTIVE", "LIGHT_25", "PADDED" ],
+    "armor": [ { "encumbrance": 30, "coverage": 100, "covers": [ "eyes" ] } ]
   },
   {
     "id": "lmil_armor",
     "type": "ARMOR",
     "category": "armor",
-    "name": {
-      "str_sp": "light military armor"
-    },
+    "name": { "str_sp": "light military armor" },
     "description": "A fairly light full-body suit of gray ballistic armor, one size fits most, with separate helmet.  Made from a fabric bodysuit with advanced composite plates, it is relatively easy to move in but protection is minimal, only rated for pistol-caliber rounds and fragmentation.  It also has two pouches for various sizes of small and medium magazines.",
     "weight": "9045 g",
     "volume": "10250 ml",
@@ -830,10 +422,7 @@
     "price_postapoc": "16 USD",
     "to_hit": -3,
     "bashing": 5,
-    "material": [
-      "c_superalloy_composite",
-      "cotton"
-    ],
+    "material": [ "c_superalloy_composite", "cotton" ],
     "symbol": "[",
     "color": "dark_gray",
     "looks_like": "power_armor_light",
@@ -848,13 +437,8 @@
         "max_contains_volume": "525 ml",
         "max_contains_weight": "5 kg",
         "holster": true,
-        "flag_restriction": [
-          "MAG_COMPACT"
-        ],
-        "item_restriction": [
-          "light_atomic_battery_cell",
-          "medium_atomic_battery_cell"
-        ]
+        "flag_restriction": [ "MAG_COMPACT" ],
+        "item_restriction": [ "light_atomic_battery_cell", "medium_atomic_battery_cell" ]
       },
       {
         "moves": 40,
@@ -862,39 +446,17 @@
         "max_contains_volume": "525 ml",
         "max_contains_weight": "5 kg",
         "holster": true,
-        "flag_restriction": [
-          "MAG_COMPACT"
-        ],
-        "item_restriction": [
-          "light_atomic_battery_cell",
-          "medium_atomic_battery_cell"
-        ]
+        "flag_restriction": [ "MAG_COMPACT" ],
+        "item_restriction": [ "light_atomic_battery_cell", "medium_atomic_battery_cell" ]
       }
     ],
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Stash magazine",
-      "holster_msg": "You stash your %s"
-    },
-    "flags": [
-      "STURDY",
-      "NO_SALVAGE"
-    ],
+    "use_action": { "type": "holster", "holster_prompt": "Stash magazine", "holster_msg": "You stash your %s" },
+    "flags": [ "STURDY", "NO_SALVAGE" ],
     "armor": [
       {
         "encumbrance": 12,
         "coverage": 100,
-        "covers": [
-          "leg_l",
-          "leg_r",
-          "torso",
-          "arm_l",
-          "arm_r",
-          "hand_l",
-          "hand_r",
-          "foot_l",
-          "foot_r"
-        ]
+        "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r" ]
       }
     ]
   },
@@ -902,9 +464,7 @@
     "id": "mil_armor",
     "type": "ARMOR",
     "category": "armor",
-    "name": {
-      "str_sp": "military armor"
-    },
+    "name": { "str_sp": "military armor" },
     "description": "A full-body suit of gray ballistic armor, one size fits most, with separate helmet.  Made with leather lining and advanced composite plates, it provides adequate protection against anything up to intermediate caliber ammunition, but may fail against full-power rifle rounds.  It also has two pouches for various sizes of small and medium magazines.",
     "weight": "11700 g",
     "volume": "11250 ml",
@@ -912,10 +472,7 @@
     "price_postapoc": "1750 cent",
     "to_hit": -3,
     "bashing": 5,
-    "material": [
-      "c_superalloy_composite_medium",
-      "leather"
-    ],
+    "material": [ "c_superalloy_composite_medium", "leather" ],
     "symbol": "[",
     "color": "dark_gray",
     "looks_like": "power_armor_basic",
@@ -930,13 +487,8 @@
         "max_contains_volume": "525 ml",
         "max_contains_weight": "5 kg",
         "holster": true,
-        "flag_restriction": [
-          "MAG_COMPACT"
-        ],
-        "item_restriction": [
-          "light_atomic_battery_cell",
-          "medium_atomic_battery_cell"
-        ]
+        "flag_restriction": [ "MAG_COMPACT" ],
+        "item_restriction": [ "light_atomic_battery_cell", "medium_atomic_battery_cell" ]
       },
       {
         "moves": 40,
@@ -944,39 +496,17 @@
         "max_contains_volume": "525 ml",
         "max_contains_weight": "5 kg",
         "holster": true,
-        "flag_restriction": [
-          "MAG_COMPACT"
-        ],
-        "item_restriction": [
-          "light_atomic_battery_cell",
-          "medium_atomic_battery_cell"
-        ]
+        "flag_restriction": [ "MAG_COMPACT" ],
+        "item_restriction": [ "light_atomic_battery_cell", "medium_atomic_battery_cell" ]
       }
     ],
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Stash magazine",
-      "holster_msg": "You stash your %s"
-    },
-    "flags": [
-      "STURDY",
-      "NO_SALVAGE"
-    ],
+    "use_action": { "type": "holster", "holster_prompt": "Stash magazine", "holster_msg": "You stash your %s" },
+    "flags": [ "STURDY", "NO_SALVAGE" ],
     "armor": [
       {
         "encumbrance": 24,
         "coverage": 100,
-        "covers": [
-          "leg_l",
-          "leg_r",
-          "torso",
-          "arm_l",
-          "arm_r",
-          "hand_l",
-          "hand_r",
-          "foot_l",
-          "foot_r"
-        ]
+        "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r" ]
       }
     ]
   },
@@ -984,9 +514,7 @@
     "id": "hmil_armor",
     "type": "ARMOR",
     "category": "armor",
-    "name": {
-      "str_sp": "heavy military armor"
-    },
+    "name": { "str_sp": "heavy military armor" },
     "description": "A heavy-duty full-body suit of gray ballistic armor, one size fits most, with separate helmet.  Made from heavy-duty lining with advanced plating, it protects the body rather well against most rifle rounds, but may be too cumbersome for most situations.  It also has two pouches for various sizes of medium and large magazines.",
     "weight": "20250 g",
     "volume": "13500 ml",
@@ -994,10 +522,7 @@
     "price_postapoc": "20 USD",
     "to_hit": -3,
     "bashing": 5,
-    "material": [
-      "c_superalloy_composite_heavy",
-      "steel"
-    ],
+    "material": [ "c_superalloy_composite_heavy", "steel" ],
     "symbol": "[",
     "color": "dark_gray",
     "looks_like": "power_armor_heavy",
@@ -1012,14 +537,8 @@
         "max_contains_volume": "1500 ml",
         "max_contains_weight": "5 kg",
         "holster": true,
-        "flag_restriction": [
-          "MAG_COMPACT",
-          "MAG_BULKY"
-        ],
-        "item_restriction": [
-          "medium_atomic_battery_cell",
-          "heavy_atomic_battery_cell"
-        ]
+        "flag_restriction": [ "MAG_COMPACT", "MAG_BULKY" ],
+        "item_restriction": [ "medium_atomic_battery_cell", "heavy_atomic_battery_cell" ]
       },
       {
         "moves": 40,
@@ -1027,41 +546,17 @@
         "max_contains_volume": "1500 ml",
         "max_contains_weight": "5 kg",
         "holster": true,
-        "flag_restriction": [
-          "MAG_COMPACT",
-          "MAG_BULKY"
-        ],
-        "item_restriction": [
-          "medium_atomic_battery_cell",
-          "heavy_atomic_battery_cell"
-        ]
+        "flag_restriction": [ "MAG_COMPACT", "MAG_BULKY" ],
+        "item_restriction": [ "medium_atomic_battery_cell", "heavy_atomic_battery_cell" ]
       }
     ],
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Stash magazine",
-      "holster_msg": "You stash your %s"
-    },
-    "flags": [
-      "STURDY",
-      "NONCONDUCTIVE",
-      "NO_SALVAGE"
-    ],
+    "use_action": { "type": "holster", "holster_prompt": "Stash magazine", "holster_msg": "You stash your %s" },
+    "flags": [ "STURDY", "NONCONDUCTIVE", "NO_SALVAGE" ],
     "armor": [
       {
         "encumbrance": 36,
         "coverage": 100,
-        "covers": [
-          "leg_l",
-          "leg_r",
-          "torso",
-          "arm_l",
-          "arm_r",
-          "hand_l",
-          "hand_r",
-          "foot_l",
-          "foot_r"
-        ]
+        "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "foot_l", "foot_r" ]
       }
     ]
   },
@@ -1069,9 +564,7 @@
     "id": "lmil_helm",
     "type": "ARMOR",
     "category": "armor",
-    "name": {
-      "str_sp": "light military helmet"
-    },
+    "name": { "str_sp": "light military helmet" },
     "description": "A fairly light full-face ballistic helmet, one size fits most.  Made from a fabric lining with advanced composite plates, it is only rated for pistol-caliber rounds and fragmentation.",
     "weight": "1005 g",
     "volume": "1 L",
@@ -1079,39 +572,21 @@
     "price_postapoc": "16 USD",
     "to_hit": -2,
     "bashing": 2,
-    "material": [
-      "c_superalloy_composite",
-      "cotton"
-    ],
+    "material": [ "c_superalloy_composite", "cotton" ],
     "symbol": "[",
     "color": "dark_gray",
     "looks_like": "power_armor_helmet_light",
     "warmth": 30,
     "material_thickness": 1,
     "environmental_protection": 5,
-    "flags": [
-      "STURDY",
-      "NO_SALVAGE"
-    ],
-    "armor": [
-      {
-        "encumbrance": 12,
-        "coverage": 100,
-        "covers": [
-          "head",
-          "eyes",
-          "mouth"
-        ]
-      }
-    ]
+    "flags": [ "STURDY", "NO_SALVAGE" ],
+    "armor": [ { "encumbrance": 12, "coverage": 100, "covers": [ "head", "eyes", "mouth" ] } ]
   },
   {
     "id": "mil_helm",
     "type": "ARMOR",
     "category": "armor",
-    "name": {
-      "str_sp": "military helmet"
-    },
+    "name": { "str_sp": "military helmet" },
     "description": "A full-face ballistic helmet, one size fits most.  Made with leather lining and advanced composite plates, it provides adequate protection against anything up to intermediate caliber ammunition.",
     "weight": "1300 g",
     "volume": "1250 ml",
@@ -1119,39 +594,21 @@
     "price_postapoc": "1750 cent",
     "to_hit": -2,
     "bashing": 2,
-    "material": [
-      "c_superalloy_composite_medium",
-      "leather"
-    ],
+    "material": [ "c_superalloy_composite_medium", "leather" ],
     "symbol": "[",
     "color": "dark_gray",
     "looks_like": "power_armor_helmet_basic",
     "warmth": 30,
     "material_thickness": 1,
     "environmental_protection": 5,
-    "flags": [
-      "STURDY",
-      "NO_SALVAGE"
-    ],
-    "armor": [
-      {
-        "encumbrance": 24,
-        "coverage": 100,
-        "covers": [
-          "head",
-          "eyes",
-          "mouth"
-        ]
-      }
-    ]
+    "flags": [ "STURDY", "NO_SALVAGE" ],
+    "armor": [ { "encumbrance": 24, "coverage": 100, "covers": [ "head", "eyes", "mouth" ] } ]
   },
   {
     "id": "hmil_helm",
     "type": "ARMOR",
     "category": "armor",
-    "name": {
-      "str_sp": "heavy military helmet"
-    },
+    "name": { "str_sp": "heavy military helmet" },
     "description": "A heavy-duty full-face ballistic helmet, one size fits most.  Made from heavy-duty lining with advanced plating, it protects the head rather well against most rifle rounds.",
     "weight": "2250 g",
     "volume": "1500 ml",
@@ -1159,93 +616,38 @@
     "price_postapoc": "20 USD",
     "to_hit": -2,
     "bashing": 2,
-    "material": [
-      "c_superalloy_composite_heavy",
-      "steel"
-    ],
+    "material": [ "c_superalloy_composite_heavy", "steel" ],
     "symbol": "[",
     "color": "dark_gray",
     "looks_like": "power_armor_helmet_heavy",
     "warmth": 30,
     "material_thickness": 1,
     "environmental_protection": 5,
-    "flags": [
-      "STURDY",
-      "NONCONDUCTIVE",
-      "NO_SALVAGE",
-      "SLEEP_IGNORE"
-    ],
-    "armor": [
-      {
-        "encumbrance": 36,
-        "coverage": 100,
-        "covers": [
-          "head",
-          "eyes",
-          "mouth"
-        ]
-      }
-    ]
+    "flags": [ "STURDY", "NONCONDUCTIVE", "NO_SALVAGE", "SLEEP_IGNORE" ],
+    "armor": [ { "encumbrance": 36, "coverage": 100, "covers": [ "head", "eyes", "mouth" ] } ]
   },
   {
     "id": "fancy_house_coat",
     "type": "ARMOR",
-    "name": {
-      "str": "designer bathrobe"
-    },
+    "name": { "str": "designer bathrobe" },
     "description": "An outer garment of absorbent, towel-like material traditionally worn to cover one's nakedness to and from the bath.  It makes you wish you had running water to bathe with.  This one has a golden logo of a now irrelevant fashion company sewn on.",
     "weight": "580 g",
     "volume": "2 L",
     "price": 2200,
     "price_postapoc": 50,
     "to_hit": -1,
-    "material": [
-      "cotton"
-    ],
+    "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "house_coat",
     "color": "blue",
     "warmth": 20,
     "material_thickness": 2,
     "environmental_protection": 1,
-    "flags": [
-      "OUTER",
-      "OVERSIZE",
-      "SUPER_FANCY"
-    ],
+    "flags": [ "OUTER", "OVERSIZE", "SUPER_FANCY" ],
     "armor": [
-      {
-        "covers": [
-          "torso"
-        ],
-        "coverage": 85,
-        "encumbrance": [
-          5,
-          10
-        ]
-      },
-      {
-        "covers": [
-          "leg_l",
-          "leg_r"
-        ],
-        "coverage": 85,
-        "encumbrance": [
-          5,
-          5
-        ]
-      },
-      {
-        "covers": [
-          "arm_l",
-          "arm_r"
-        ],
-        "coverage": 85,
-        "encumbrance": [
-          5,
-          5
-        ]
-      }
+      { "covers": [ "torso" ], "coverage": 85, "encumbrance": [ 5, 10 ] },
+      { "covers": [ "leg_l", "leg_r" ], "coverage": 85, "encumbrance": [ 5, 5 ] },
+      { "covers": [ "arm_l", "arm_r" ], "coverage": 85, "encumbrance": [ 5, 5 ] }
     ],
     "pocket_data": [
       {
@@ -1267,350 +669,181 @@
   {
     "id": "fancy_bra",
     "type": "ARMOR",
-    "name": {
-      "str": "designer bra"
-    },
+    "name": { "str": "designer bra" },
     "description": "A luxurious designer bra.  Serves its purpose and looks good on you.",
     "weight": "35 g",
     "volume": "250 ml",
     "price": "100 USD",
     "price_postapoc": "50 cent",
-    "material": [
-      "cotton"
-    ],
+    "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "bra",
     "color": "white",
     "warmth": 5,
     "material_thickness": 2,
-    "flags": [
-      "VARSIZE",
-      "SKINTIGHT",
-      "SUPER_FANCY"
-    ],
-    "armor": [
-      {
-        "encumbrance": 0,
-        "coverage": 15,
-        "covers": [
-          "torso"
-        ]
-      }
-    ]
+    "flags": [ "VARSIZE", "SKINTIGHT", "SUPER_FANCY" ],
+    "armor": [ { "encumbrance": 0, "coverage": 15, "covers": [ "torso" ] } ]
   },
   {
     "id": "fancy_panties",
     "type": "ARMOR",
-    "name": {
-      "str_sp": "designer panties"
-    },
+    "name": { "str_sp": "designer panties" },
     "description": "A luxurious set of designer panties. Preserves your modesty and looks good on you.",
     "weight": "32 g",
     "volume": "250 ml",
     "price": "100 USD",
     "price_postapoc": "50 cent",
-    "material": [
-      "cotton"
-    ],
+    "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "panties",
     "color": "white",
     "warmth": 5,
     "material_thickness": 1,
-    "flags": [
-      "VARSIZE",
-      "SKINTIGHT",
-      "SUPER_FANCY"
-    ],
-    "armor": [
-      {
-        "encumbrance": 0,
-        "coverage": 15,
-        "covers": [
-          "leg_r",
-          "leg_l"
-        ]
-      }
-    ]
+    "flags": [ "VARSIZE", "SKINTIGHT", "SUPER_FANCY" ],
+    "armor": [ { "encumbrance": 0, "coverage": 15, "covers": [ "leg_r", "leg_l" ] } ]
   },
   {
     "id": "fancy_briefs",
     "type": "ARMOR",
-    "name": {
-      "str_sp": "designer briefs"
-    },
+    "name": { "str_sp": "designer briefs" },
     "description": "A pair of designer briefs.  Comfortable and good looking underwear worn by men.",
     "weight": "32 g",
     "volume": "250 ml",
     "price": "100 USD",
     "price_postapoc": "50 cent",
-    "material": [
-      "cotton"
-    ],
+    "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "briefs",
     "color": "white",
     "warmth": 5,
     "material_thickness": 1,
-    "flags": [
-      "VARSIZE",
-      "SKINTIGHT",
-      "SUPER_FANCY"
-    ],
-    "armor": [
-      {
-        "encumbrance": 0,
-        "coverage": 15,
-        "covers": [
-          "leg_r",
-          "leg_l"
-        ]
-      }
-    ]
+    "flags": [ "VARSIZE", "SKINTIGHT", "SUPER_FANCY" ],
+    "armor": [ { "encumbrance": 0, "coverage": 15, "covers": [ "leg_r", "leg_l" ] } ]
   },
   {
     "id": "fancy_boxer_shorts",
     "type": "ARMOR",
-    "name": {
-      "str_sp": "designer boxer shorts"
-    },
+    "name": { "str_sp": "designer boxer shorts" },
     "description": "Men's designer boxer shorts.  Much more fashionable than briefs and just as comfortable.",
     "weight": "42 g",
     "volume": "250 ml",
     "price": "100 USD",
     "price_postapoc": "50 cent",
-    "material": [
-      "cotton"
-    ],
+    "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "boxer_shorts",
     "color": "light_gray",
     "warmth": 5,
     "material_thickness": 1,
-    "flags": [
-      "VARSIZE",
-      "SKINTIGHT",
-      "SUPER_FANCY"
-    ],
-    "armor": [
-      {
-        "encumbrance": 0,
-        "coverage": 25,
-        "covers": [
-          "leg_r",
-          "leg_l"
-        ]
-      }
-    ]
+    "flags": [ "VARSIZE", "SKINTIGHT", "SUPER_FANCY" ],
+    "armor": [ { "encumbrance": 0, "coverage": 25, "covers": [ "leg_r", "leg_l" ] } ]
   },
   {
     "id": "fancy_boxer_briefs",
     "type": "ARMOR",
-    "name": {
-      "str_sp": "designer boxer briefs"
-    },
+    "name": { "str_sp": "designer boxer briefs" },
     "description": "The age-old question, boxers or briefs?  Your answer?  Yes, the fancy kind.",
     "weight": "37 g",
     "volume": "250 ml",
     "price": "100 USD",
     "price_postapoc": "50 cent",
-    "material": [
-      "cotton"
-    ],
+    "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "boxer_briefs",
     "color": "light_gray",
     "warmth": 5,
     "material_thickness": 1,
-    "flags": [
-      "VARSIZE",
-      "SKINTIGHT",
-      "SUPER_FANCY"
-    ],
-    "armor": [
-      {
-        "encumbrance": 0,
-        "coverage": 20,
-        "covers": [
-          "leg_r",
-          "leg_l"
-        ]
-      }
-    ]
+    "flags": [ "VARSIZE", "SKINTIGHT", "SUPER_FANCY" ],
+    "armor": [ { "encumbrance": 0, "coverage": 20, "covers": [ "leg_r", "leg_l" ] } ]
   },
   {
     "id": "bikini_bottom_leather",
     "type": "ARMOR",
-    "name": {
-      "str": "leather bikini bottom"
-    },
+    "name": { "str": "leather bikini bottom" },
     "description": "A simple leather bikini bottom.",
     "weight": "32 g",
     "volume": "250 ml",
     "price": "10 USD",
     "price_postapoc": "50 cent",
-    "material": [
-      "leather"
-    ],
+    "material": [ "leather" ],
     "symbol": "[",
     "looks_like": "bikini_bottom",
     "color": "dark_gray",
     "warmth": 5,
     "material_thickness": 1,
-    "flags": [
-      "VARSIZE",
-      "SKINTIGHT",
-      "WATER_FRIENDLY",
-      "FANCY"
-    ],
-    "armor": [
-      {
-        "encumbrance": 0,
-        "coverage": 15,
-        "covers": [
-          "leg_r",
-          "leg_l"
-        ]
-      }
-    ]
+    "flags": [ "VARSIZE", "SKINTIGHT", "WATER_FRIENDLY", "FANCY" ],
+    "armor": [ { "encumbrance": 0, "coverage": 15, "covers": [ "leg_r", "leg_l" ] } ]
   },
   {
     "id": "bikini_bottom_fur",
     "type": "ARMOR",
-    "name": {
-      "str": "fur bikini bottom"
-    },
+    "name": { "str": "fur bikini bottom" },
     "description": "A simple fur bikini bottom.",
     "weight": "32 g",
     "volume": "250 ml",
     "price": "10 USD",
     "price_postapoc": "50 cent",
-    "material": [
-      "fur"
-    ],
+    "material": [ "fur" ],
     "symbol": "[",
     "looks_like": "bikini_bottom",
     "color": "brown",
     "warmth": 5,
     "material_thickness": 1,
-    "flags": [
-      "VARSIZE",
-      "SKINTIGHT",
-      "WATER_FRIENDLY",
-      "FANCY"
-    ],
-    "armor": [
-      {
-        "encumbrance": 0,
-        "coverage": 15,
-        "covers": [
-          "leg_r",
-          "leg_l"
-        ]
-      }
-    ]
+    "flags": [ "VARSIZE", "SKINTIGHT", "WATER_FRIENDLY", "FANCY" ],
+    "armor": [ { "encumbrance": 0, "coverage": 15, "covers": [ "leg_r", "leg_l" ] } ]
   },
   {
     "id": "thong",
     "type": "ARMOR",
-    "name": {
-      "str": "thong"
-    },
+    "name": { "str": "thong" },
     "description": "Women's underwear that covers a little less than normal in exchange for stares.",
     "weight": "30 g",
     "volume": "250 ml",
     "price": "25 USD",
     "price_postapoc": "25 cent",
-    "material": [
-      "cotton"
-    ],
+    "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "bikini_bottom",
     "color": "white",
     "warmth": 5,
     "material_thickness": 1,
-    "flags": [
-      "VARSIZE",
-      "SKINTIGHT",
-      "FANCY"
-    ],
-    "armor": [
-      {
-        "encumbrance": 0,
-        "coverage": 12,
-        "covers": [
-          "leg_l",
-          "leg_r"
-        ]
-      }
-    ]
+    "flags": [ "VARSIZE", "SKINTIGHT", "FANCY" ],
+    "armor": [ { "encumbrance": 0, "coverage": 12, "covers": [ "leg_l", "leg_r" ] } ]
   },
   {
     "id": "dress_skirt",
     "type": "ARMOR",
-    "name": {
-      "str": "dress skirt"
-    },
+    "name": { "str": "dress skirt" },
     "description": "A short yet professional looking cotton skirt.  Somewhat easy to move in, but has no pockets.",
     "weight": "75 g",
     "volume": "250 ml",
     "price": "80 USD",
     "price_postapoc": "80 cent",
-    "material": [
-      "cotton"
-    ],
+    "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "skirt",
     "color": "dark_gray",
     "warmth": 5,
     "material_thickness": 1,
-    "flags": [
-      "VARSIZE",
-      "FANCY"
-    ],
-    "armor": [
-      {
-        "encumbrance": 2,
-        "coverage": 50,
-        "covers": [
-          "leg_l",
-          "leg_r"
-        ]
-      }
-    ]
+    "flags": [ "VARSIZE", "FANCY" ],
+    "armor": [ { "encumbrance": 2, "coverage": 50, "covers": [ "leg_l", "leg_r" ] } ]
   },
   {
     "id": "microskirt",
     "type": "ARMOR",
-    "name": {
-      "str": "microskirt"
-    },
+    "name": { "str": "microskirt" },
     "description": "A skirt that is on the short side.  No pockets but it is comfortable to wear.",
     "weight": "11 g",
     "volume": "250 ml",
     "price": "30 USD",
     "price_postapoc": "30 cent",
-    "material": [
-      "cotton"
-    ],
+    "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "nanoskirt",
     "color": "pink",
     "material_thickness": 1,
-    "flags": [
-      "VARSIZE",
-      "FANCY"
-    ],
-    "armor": [
-      {
-        "encumbrance": 0,
-        "coverage": 7,
-        "covers": [
-          "leg_l",
-          "leg_r"
-        ]
-      }
-    ]
+    "flags": [ "VARSIZE", "FANCY" ],
+    "armor": [ { "encumbrance": 0, "coverage": 7, "covers": [ "leg_l", "leg_r" ] } ]
   },
   {
     "id": "c_mi_go_carapace_salvaged",
@@ -1619,39 +852,16 @@
     "category": "armor",
     "symbol": "[",
     "color": "green",
-    "name": {
-      "str": "salvaged carapace armor"
-    },
+    "name": { "str": "salvaged carapace armor" },
     "description": "A vaguely human-shaped shell of alien sinew and steel support, covered in armor plates made of resin.  Effectively mutilated to fit a human (or mutant) wearer, somehow it's still functional, almost alive in fact.  Activating it will reduce the suit's encumbrance, enhance strength and dexterity, protect the wearer from toxic gas, serve as a rebreather, enhance stamina and carry capacity, and provide some protection from outside temperature.  It seems to recharge from sunlight, and being active will also gradually fatigue the user and affect healthiness, plus render them more vulnerable to electric shocks.",
-    "flags": [
-      "OVERSIZE",
-      "STURDY",
-      "OUTER",
-      "HELMET_COMPAT",
-      "SWIM_GOGGLES",
-      "SUN_GLASSES"
-    ],
+    "flags": [ "OVERSIZE", "STURDY", "OUTER", "PADDED", "SWIM_GOGGLES", "SUN_GLASSES" ],
     "price_postapoc": "80 USD",
-    "material": [
-      "alien_resin",
-      "flesh",
-      "steel"
-    ],
+    "material": [ "alien_resin", "flesh", "steel" ],
     "weight": "20 kg",
     "volume": "25 L",
     "to_hit": -3,
-    "ammo": [
-      "battery"
-    ],
-    "pocket_data": [
-      {
-        "pocket_type": "MAGAZINE",
-        "rigid": true,
-        "ammo_restriction": {
-          "battery": 100
-        }
-      }
-    ],
+    "ammo": [ "battery" ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "battery": 100 } } ],
     "use_action": {
       "type": "transform",
       "msg": "The carapace comes to life, spiracles dilating as environmental seals close.",
@@ -1662,39 +872,18 @@
       "need_charges_msg": "The carapace suit doesn't respond, evidently out of energy."
     },
     "relic_data": {
-      "charge_info": {
-        "recharge_type": "solar_sunny",
-        "time": "10 m",
-        "regenerate_ammo": true
-      },
+      "charge_info": { "recharge_type": "solar_sunny", "time": "10 m", "regenerate_ammo": true },
       "passive_effects": [
         {
           "has": "WORN",
           "condition": "ACTIVE",
           "values": [
-            {
-              "value": "STRENGTH",
-              "add": 2
-            },
-            {
-              "value": "DEXTERITY",
-              "add": 1
-            },
-            {
-              "value": "ARMOR_ELEC",
-              "multiply": 0.5
-            },
-            {
-              "value": "CARRY_WEIGHT",
-              "multiply": 1.0
-            }
+            { "value": "STRENGTH", "add": 2 },
+            { "value": "DEXTERITY", "add": 1 },
+            { "value": "ARMOR_ELEC", "multiply": 0.5 },
+            { "value": "CARRY_WEIGHT", "multiply": 1.0 }
           ],
-          "ench_effects": [
-            {
-              "effect": "c_mi_go_carapace_stamina",
-              "intensity": 1
-            }
-          ]
+          "ench_effects": [ { "effect": "c_mi_go_carapace_stamina", "intensity": 1 } ]
         }
       ]
     },
@@ -1705,20 +894,7 @@
       {
         "encumbrance": 30,
         "coverage": 100,
-        "covers": [
-          "head",
-          "mouth",
-          "eyes",
-          "torso",
-          "arm_l",
-          "arm_r",
-          "hand_l",
-          "hand_r",
-          "leg_l",
-          "leg_r",
-          "foot_l",
-          "foot_r"
-        ]
+        "covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
       }
     ]
   },
@@ -1726,10 +902,7 @@
     "id": "c_mi_go_carapace_salvaged_on",
     "copy-from": "c_mi_go_carapace_salvaged",
     "type": "TOOL_ARMOR",
-    "name": {
-      "str": "salvaged carapace armor (on)",
-      "str_pl": "salvaged carapace armors (on)"
-    },
+    "name": { "str": "salvaged carapace armor (on)", "str_pl": "salvaged carapace armors (on)" },
     "description": "A vaguely human-shaped shell of alien sinew and steel support, covered in armor plates made of resin.  Salvaged using pre-cataclysm research into other living weaponry, it's been practically mutilated to fit a human (or mutant) wearer.  Activating it will reduce the suit's encumbrance, enhance strength and dexterity, protect the wearer from toxic gas, serve as a rebreather, enhance stamina and carry capacity, and provide some protection from outside temperature.  It seems to recharge from sunlight, and being active will also gradually fatigue the user and affect healthiness, plus render them more vulnerable to electric shocks.",
     "turns_per_charge": 150,
     "revert_to": "c_mi_go_carapace_salvaged",
@@ -1738,41 +911,15 @@
       "msg": "The suit's sinews go slack, releasing you from its grasp.",
       "type": "transform"
     },
-    "extend": {
-      "flags": [
-        "WATERPROOF",
-        "RAINPROOF",
-        "CLIMATE_CONTROL",
-        "GAS_PROOF",
-        "REBREATHER",
-        "NO_TAKEOFF"
-      ]
-    },
-    "material": [
-      "alien_resin",
-      "flesh",
-      "steel"
-    ],
+    "extend": { "flags": [ "WATERPROOF", "RAINPROOF", "CLIMATE_CONTROL", "GAS_PROOF", "REBREATHER", "NO_TAKEOFF" ] },
+    "material": [ "alien_resin", "flesh", "steel" ],
     "material_thickness": 4,
     "environmental_protection": 15,
     "armor": [
       {
         "encumbrance": 30,
         "coverage": 100,
-        "covers": [
-          "head",
-          "mouth",
-          "eyes",
-          "torso",
-          "arm_l",
-          "arm_r",
-          "hand_l",
-          "hand_r",
-          "leg_l",
-          "leg_r",
-          "foot_l",
-          "foot_r"
-        ]
+        "covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
       }
     ]
   },
@@ -1781,37 +928,16 @@
     "type": "TOOL_ARMOR",
     "symbol": "[",
     "color": "green",
-    "name": {
-      "str": "set of salvaged exo-wings",
-      "str_pl": "sets of salvaged exo-wings"
-    },
+    "name": { "str": "set of salvaged exo-wings", "str_pl": "sets of salvaged exo-wings" },
     "description": "A set of thin, green iridescent wings, steel wires and joints meshed with thick alien nervous cords.  Salvaged using pre-cataclysm research into other living weaponry, it's been heavily altered to fit a human (or mutant) wearer.  Activating it will grant immunity to falling damage and vastly speed up movement.  It seems to recharge from sunlight, and being active will also gradually fatigue the user.",
-    "flags": [
-      "OVERSIZE",
-      "STURDY",
-      "BELTED"
-    ],
+    "flags": [ "OVERSIZE", "STURDY", "BELTED", "PADDED" ],
     "price_postapoc": "40 USD",
-    "material": [
-      "alien_resin",
-      "flesh",
-      "steel"
-    ],
+    "material": [ "alien_resin", "flesh", "steel" ],
     "weight": "2 kg",
     "volume": "5 L",
     "to_hit": -3,
-    "ammo": [
-      "battery"
-    ],
-    "pocket_data": [
-      {
-        "pocket_type": "MAGAZINE",
-        "rigid": true,
-        "ammo_restriction": {
-          "battery": 100
-        }
-      }
-    ],
+    "ammo": [ "battery" ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "battery": 100 } } ],
     "use_action": {
       "type": "transform",
       "msg": "The exo-wings whir to life, becoming a fluttering blur of green and gray.",
@@ -1822,91 +948,40 @@
       "need_charges_msg": "The exo-wings don't respond, evidently out of energy."
     },
     "relic_data": {
-      "charge_info": {
-        "recharge_type": "solar_sunny",
-        "time": "10 m",
-        "regenerate_ammo": true
-      },
+      "charge_info": { "recharge_type": "solar_sunny", "time": "10 m", "regenerate_ammo": true },
       "passive_effects": [
         {
           "has": "WORN",
           "condition": "ACTIVE",
-          "values": [
-            {
-              "value": "MOVE_COST",
-              "multiply": -0.5
-            },
-            {
-              "value": "BONUS_DODGE",
-              "add": 5
-            }
-          ],
-          "ench_effects": [
-            {
-              "effect": "c_mi_go_wings_immunity",
-              "intensity": 1
-            }
-          ]
+          "values": [ { "value": "MOVE_COST", "multiply": -0.5 }, { "value": "BONUS_DODGE", "add": 5 } ],
+          "ench_effects": [ { "effect": "c_mi_go_wings_immunity", "intensity": 1 } ]
         }
       ]
     },
     "material_thickness": 2,
-    "armor": [
-      {
-        "encumbrance": 10,
-        "coverage": 40,
-        "covers": [
-          "torso"
-        ]
-      }
-    ]
+    "armor": [ { "encumbrance": 10, "coverage": 40, "covers": [ "torso" ] } ]
   },
   {
     "id": "c_mi_go_wings_salvaged_on",
     "copy-from": "c_mi_go_wings_salvaged",
     "type": "TOOL_ARMOR",
-    "name": {
-      "str": "set of salvaged exo-wings (on)",
-      "str_pl": "sets of salvaged exo-wings (on)"
-    },
+    "name": { "str": "set of salvaged exo-wings (on)", "str_pl": "sets of salvaged exo-wings (on)" },
     "description": "A set of thin, green iridescent wings, steel wires and joints meshed with thick alien nervous cords.  They are currently buzzing with life, greatly speeding up movement and enhancing dodge as well as granting immunity to falling damage, in exchange for increased fatigue gain.",
     "turns_per_charge": 75,
     "revert_to": "c_mi_go_wings_salvaged",
-    "use_action": {
-      "target": "c_mi_go_wings_salvaged",
-      "msg": "The exo-wings go limp as they shut down.",
-      "type": "transform"
-    },
-    "extend": {
-      "flags": [
-        "NO_TAKEOFF"
-      ]
-    },
-    "armor": [
-      {
-        "encumbrance": 0,
-        "coverage": 40,
-        "covers": [
-          "torso"
-        ]
-      }
-    ]
+    "use_action": { "target": "c_mi_go_wings_salvaged", "msg": "The exo-wings go limp as they shut down.", "type": "transform" },
+    "extend": { "flags": [ "NO_TAKEOFF" ] },
+    "armor": [ { "encumbrance": 0, "coverage": 40, "covers": [ "torso" ] } ]
   },
   {
     "id": "cowboy_hat_surv",
     "copy-from": "cowboy_hat",
     "type": "ARMOR",
-    "name": {
-      "str": "survivor cowboy hat"
-    },
+    "name": { "str": "survivor cowboy hat" },
     "description": "A wide-brimmed hat that's been modified with kevlar padding, and bandolier loops sewn onto the hat band.  Perfect for holding a few cartridges somewhere out of the way, its adjustable loops fitting a wide variety of ammunition.",
     "weight": "420 g",
     "price_postapoc": 500,
-    "material": [
-      "leather",
-      "cotton",
-      "kevlar"
-    ],
+    "material": [ "leather", "cotton", "kevlar" ],
     "warmth": 10,
     "material_thickness": 4,
     "pocket_data": [
@@ -1959,36 +1034,19 @@
         "moves": 30
       }
     ],
-    "armor": [
-      {
-        "encumbrance": 20,
-        "coverage": 75,
-        "covers": [
-          "head"
-        ]
-      }
-    ],
-    "extend": {
-      "effects": [
-        "STURDY"
-      ]
-    }
+    "armor": [ { "encumbrance": 20, "coverage": 75, "covers": [ "head" ] } ],
+    "extend": { "effects": [ "STURDY" ] }
   },
   {
     "type": "ARMOR",
     "id": "legrig_surv",
-    "name": {
-      "str": "survivor leg rig"
-    },
+    "name": { "str": "survivor leg rig" },
     "description": "A custom set of low-slung adjustable straps and rings, designed to secure a variety of equipment strapped to the legs.  Its straps can handle a wide range of short blades, firearms, magazines, and most items that would fit on a tool belt.  Activate it to store up to 4 items.",
     "weight": "250 g",
     "volume": "1500 ml",
     "price": "100 USD",
     "price_postapoc": "5 USD",
-    "material": [
-      "cotton",
-      "leather"
-    ],
+    "material": [ "cotton", "leather" ],
     "symbol": "[",
     "looks_like": "legrig",
     "color": "dark_gray",
@@ -2000,12 +1058,7 @@
         "max_contains_volume": "1500 ml",
         "max_contains_weight": "5 kg",
         "max_item_length": "762 mm",
-        "skills": [
-          "pistol",
-          "smg",
-          "shotgun",
-          "rifle"
-        ],
+        "skills": [ "pistol", "smg", "shotgun", "rifle" ],
         "holster": true
       },
       {
@@ -2014,12 +1067,7 @@
         "max_contains_volume": "1500 ml",
         "max_contains_weight": "5 kg",
         "max_item_length": "762 mm",
-        "skills": [
-          "pistol",
-          "smg",
-          "shotgun",
-          "rifle"
-        ],
+        "skills": [ "pistol", "smg", "shotgun", "rifle" ],
         "holster": true
       },
       {
@@ -2029,14 +1077,7 @@
         "max_contains_weight": "5 kg",
         "max_item_length": "762 mm",
         "holster": true,
-        "flag_restriction": [
-          "SHEATH_KNIFE",
-          "BELT_CLIP",
-          "SHEATH_SWORD",
-          "MAG_COMPACT",
-          "MAG_BULKY",
-          "SPEEDLOADER"
-        ]
+        "flag_restriction": [ "SHEATH_KNIFE", "BELT_CLIP", "SHEATH_SWORD", "MAG_COMPACT", "MAG_BULKY", "SPEEDLOADER" ]
       },
       {
         "moves": 75,
@@ -2045,51 +1086,24 @@
         "max_contains_weight": "5 kg",
         "max_item_length": "762 mm",
         "holster": true,
-        "flag_restriction": [
-          "SHEATH_KNIFE",
-          "BELT_CLIP",
-          "SHEATH_SWORD",
-          "MAG_COMPACT",
-          "MAG_BULKY",
-          "SPEEDLOADER"
-        ]
+        "flag_restriction": [ "SHEATH_KNIFE", "BELT_CLIP", "SHEATH_SWORD", "MAG_COMPACT", "MAG_BULKY", "SPEEDLOADER" ]
       }
     ],
-    "use_action": {
-      "type": "holster",
-      "holster_prompt": "Stash item",
-      "holster_msg": "You stash your %s"
-    },
-    "flags": [
-      "WATER_FRIENDLY",
-      "BELTED",
-      "OVERSIZE",
-      "NO_QUICKDRAW"
-    ],
+    "use_action": { "type": "holster", "holster_prompt": "Stash item", "holster_msg": "You stash your %s" },
+    "flags": [ "WATER_FRIENDLY", "BELTED", "OVERSIZE", "NO_QUICKDRAW" ],
     "armor": [
       {
-        "encumbrance": [
-          2,
-          6
-        ],
+        "encumbrance": [ 2, 6 ],
         "coverage": 20,
-        "covers": [
-          "leg_l",
-          "leg_r"
-        ],
-        "specifically_covers": [
-          "leg_upper_r",
-          "leg_upper_l"
-        ]
+        "covers": [ "leg_l", "leg_r" ],
+        "specifically_covers": [ "leg_upper_r", "leg_upper_l" ]
       }
     ]
   },
   {
     "type": "mutation",
     "id": "C_MOVE_NOISE",
-    "name": {
-      "str": "Makeshift Power Armor Noise"
-    },
+    "name": { "str": "Makeshift Power Armor Noise" },
     "points": 99,
     "valid": false,
     "description": "This is used to make the player a lot less stealthy, but also punch harder on top of the armor's strength bonus.",
@@ -2097,10 +1111,7 @@
     "noise_modifier": 5.0,
     "stealth_modifier": -10,
     "scent_intensity": 1200,
-    "rand_bash_bonus": {
-      "min": 3,
-      "max": 6
-    }
+    "rand_bash_bonus": { "min": 3, "max": 6 }
   },
   {
     "id": "c_power_armor_surv",
@@ -2109,41 +1120,22 @@
     "symbol": "[",
     "color": "dark_gray",
     "looks_like": "rm13_armor",
-    "name": {
-      "str": "makeshift power armor"
-    },
+    "name": { "str": "makeshift power armor" },
     "description": "An incredibly heavy suit of steel plates covering a network of hydraulics, driven by pieces of a stripped-down diesel engine jury-rigged to assist the wearer's movements.  It's cumbersome but provides considerable protection aside from gaps in the joints and vision slits, and the servos offer quite a bit of power when active.",
-    "flags": [
-      "OVERSIZE",
-      "STURDY",
-      "OUTER",
-      "ALLOWS_NATURAL_ATTACKS"
-    ],
+    "flags": [ "OVERSIZE", "STURDY", "OUTER", "ALLOWS_NATURAL_ATTACKS", "PADDED" ],
     "price": "500 USD",
     "price_postapoc": "50 USD",
-    "material": [
-      "steel"
-    ],
+    "material": [ "steel" ],
     "weight": "50 kg",
     "volume": "40 L",
     "to_hit": -3,
-    "ammo": [
-      "diesel",
-      "lamp_oil",
-      "motor_oil",
-      "jp8"
-    ],
+    "ammo": [ "diesel", "lamp_oil", "motor_oil", "jp8" ],
     "pocket_data": [
       {
         "pocket_type": "MAGAZINE",
         "rigid": true,
         "watertight": true,
-        "ammo_restriction": {
-          "diesel": 2000,
-          "lamp_oil": 2000,
-          "motor_oil": 2000,
-          "jp8": 2000
-        }
+        "ammo_restriction": { "diesel": 2000, "lamp_oil": 2000, "motor_oil": 2000, "jp8": 2000 }
       }
     ],
     "relic_data": {
@@ -2151,19 +1143,8 @@
         {
           "has": "WORN",
           "condition": "ACTIVE",
-          "values": [
-            {
-              "value": "STRENGTH",
-              "add": 4
-            },
-            {
-              "value": "CARRY_WEIGHT",
-              "multiply": 1.5
-            }
-          ],
-          "mutations": [
-            "C_MOVE_NOISE"
-          ]
+          "values": [ { "value": "STRENGTH", "add": 4 }, { "value": "CARRY_WEIGHT", "multiply": 1.5 } ],
+          "mutations": [ "C_MOVE_NOISE" ]
         }
       ]
     },
@@ -2183,20 +1164,7 @@
       {
         "encumbrance": 45,
         "coverage": 90,
-        "covers": [
-          "head",
-          "mouth",
-          "eyes",
-          "torso",
-          "arm_l",
-          "arm_r",
-          "hand_l",
-          "hand_r",
-          "leg_l",
-          "leg_r",
-          "foot_l",
-          "foot_r"
-        ]
+        "covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
       }
     ]
   },
@@ -2205,16 +1173,9 @@
     "copy-from": "c_power_armor_surv",
     "repairs_like": "c_power_armor_surv",
     "type": "TOOL_ARMOR",
-    "name": {
-      "str": "makeshift power armor (on)",
-      "str_pl": "makeshift power armors (on)"
-    },
+    "name": { "str": "makeshift power armor (on)", "str_pl": "makeshift power armors (on)" },
     "description": "An incredibly heavy suit of steel plates covering a network of hydraulics, driven by pieces of a stripped-down diesel engine jury-rigged to assist the wearer's movements.  It's currently active, strengthening the wearer and making the armor less encumbering, but also being warmer and making stealth more difficult.",
-    "extend": {
-      "effects": [
-        "TRADER_AVOID"
-      ]
-    },
+    "extend": { "effects": [ "TRADER_AVOID" ] },
     "//": "power_draw does not actually work sanely for non-battery items, so value fits for roughly how many turns one unit of the weakest allowed fuel would last at twice the power draw of vanilla power armor, rounded down.",
     "turns_per_charge": 3,
     "revert_to": "c_power_armor_surv",
@@ -2230,20 +1191,7 @@
       {
         "encumbrance": 15,
         "coverage": 90,
-        "covers": [
-          "head",
-          "mouth",
-          "eyes",
-          "torso",
-          "arm_l",
-          "arm_r",
-          "hand_l",
-          "hand_r",
-          "leg_l",
-          "leg_r",
-          "foot_l",
-          "foot_r"
-        ]
+        "covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
       }
     ]
   }
