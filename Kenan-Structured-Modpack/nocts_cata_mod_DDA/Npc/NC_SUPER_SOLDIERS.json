@@ -27,24 +27,39 @@
     "id": "NC_SUPER_SOLDIER_carry",
     "type": "item_group",
     "subtype": "collection",
+    "ammo": 100,
     "entries": [
       { "item": "protein_bar_evac", "count": [ 4, 8 ] },
       { "item": "militarymap" },
       { "item": "id_military" },
-      { "item": "heavy_atomic_battery_cell", "charges": [ 5000, 10000 ], "container-item": "UPS_off" }
+      {
+        "distribution": [
+          { "item": "medium_atomic_battery_cell", "prob": 50 },
+          { "item": "medium_atomic_battery_cell_rechargeable", "prob": 50 }
+        ]
+      },
+      {
+        "distribution": [
+          { "item": "medium_atomic_battery_cell", "prob": 50 },
+          { "item": "medium_atomic_battery_cell_rechargeable", "prob": 50 }
+        ],
+        "prob": 50
+      }
     ]
   },
   {
     "id": "NC_SUPER_SOLDIER_weapon",
     "type": "item_group",
     "subtype": "collection",
+    "magazine": 100,
+    "ammo": 100,
     "//": "Randomly picks any of the medium-power super soldier energy weapons.",
     "entries": [
       {
         "distribution": [
-          { "item": "arc_laser_rifle_ups", "prob": 50 },
-          { "item": "xarm_laser_shotgun_ups", "prob": 30 },
-          { "item": "mx_laser_sniper_ups", "prob": 20 }
+          { "item": "arc_laser_rifle", "prob": 50 },
+          { "item": "xarm_laser_shotgun", "prob": 30 },
+          { "item": "mx_laser_sniper", "prob": 20 }
         ]
       }
     ]
@@ -73,13 +88,22 @@
     "subtype": "collection",
     "entries": [
       { "item": "badge_bio_weapon_evy" },
-      { "item": "mre_veggy_box" },
+      { "group": "mre_full_pack" },
       { "item": "biomap" },
       { "item": "militarymap" },
-      { "item": "heavy_atomic_battery_cell", "charges": [ 5000, 10000 ], "container-item": "UPS_off" },
+      { "group": "NC_BIO_HUNTER_E_battery", "count": [ 5, 10 ] },
       { "group": "everyday_gear" },
       { "group": "drugs_soldier", "prob": 50 },
       { "group": "supplies_electronics", "prob": 50, "count": [ 1, 3 ] }
+    ]
+  },
+  {
+    "id": "NC_BIO_HUNTER_E_battery",
+    "type": "item_group",
+    "subtype": "distribution",
+    "entries": [
+      { "item": "light_atomic_battery_cell", "prob": 50 },
+      { "item": "light_atomic_battery_cell_rechargeable", "prob": 50 }
     ]
   },
   {
@@ -87,6 +111,8 @@
     "type": "item_group",
     "//": "Evelynn Rose's weapon, don't think you can define weapon overrides any other way.",
     "subtype": "collection",
-    "entries": [ { "item": "akro_laser_smg_ups" } ]
+    "magazine": 100,
+    "ammo": 100,
+    "entries": [ { "item": "akro_laser_smg" } ]
   }
 ]
