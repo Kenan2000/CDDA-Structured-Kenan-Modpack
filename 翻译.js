@@ -246,7 +246,7 @@ function tryTranslation(value) {
           retry();
         });
     },
-    { retries: 10, maxTimeout: 10000, randomize: true }
+    { retries: 0, maxTimeout: 10000, randomize: true }
   ).catch((error) => {
     const errorMessage = `${TRANSLATION_ERROR}1: ${error.message} ${error.stack}\nresult:\n${lastResult}\nFrom:\n${value}\nstringToTranslate:\n${stringToTranslate}\nRetryCount: ${retryCount}\nRetry Again\n--\n\n `;
     logger.error(errorMessage);
