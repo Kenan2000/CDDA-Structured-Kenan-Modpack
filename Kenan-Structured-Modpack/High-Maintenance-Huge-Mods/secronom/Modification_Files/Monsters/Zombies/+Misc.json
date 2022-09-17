@@ -635,24 +635,24 @@
     "flags": [ "SEES", "SMELLS", "HEARS", "STUMBLES", "WARM", "BASHES", "POISON", "NO_BREATHE", "REVIVES", "HARDTOSHOOT", "FILTHY" ]
   },
   {
-    "//": "Support-type zed aberration that heals nearby allies. It uses its own health to perform healing spells.",
+    "//": "Support-type zed aberration that heals nearby allies. It uses its own health to perform its healing ability.",
     "id": "mon_zombie_fleshmonger",
     "type": "MONSTER",
     "name": { "str": "fleshmonger" },
-    "description": "A gigantic mound of putrid flesh, with assortments of limbs and writhing tendrils reemerging back and forth. Dark, oozing pus constantly erupts in its swollen body.",
+    "description": "A gigantic mound of putrid flesh, with assortments of limbs and writhing tendrils reemerging back and forth. Dark, oozing pus constantly erupts from its swollen body.",
     "default_faction": "zombie",
     "bodytype": "migo",
     "species": [ "ZOMBIE", "SECROZED_3", "ABERRATION" ],
     "volume": "1320 L",
     "weight": "2430000 g",
     "hp": 2120,
-    "speed": 25,
+    "speed": 40,
     "material": [ "flesh", "bone" ],
     "symbol": "♺",
     "color": "magenta_yellow",
+    "attack_cost": 1000,
     "aggression": 100,
     "morale": 100,
-    "attack_cost": 1525,
     "melee_skill": 10,
     "melee_dice": 8,
     "melee_dice_sides": 8,
@@ -664,15 +664,16 @@
     "vision_night": 12,
     "harvest": "zombie",
     "emit_fields": [ "emit_down_immunity" ],
+    "tracking_distance": 3,
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_fleshmonger_reflesh_target" },
+        "spell_data": { "id": "mon_zombie_fleshmonger_reflesh_check" },
         "cooldown": 18,
-        "monster_message": "<color_yellow>%1$s pierces the nearby monsters!</color>"
+        "monster_message": "<color_magenta>%1$s is trembling\u2026</color>"
       }
     ],
-    "regenerates": 20,
+    "regenerates": 10,
     "flags": [
       "SEES",
       "SMELLS",
@@ -688,11 +689,13 @@
       "PUSH_MON",
       "PUSH_VEH",
       "PLASTIC",
-      "STUN_IMMUNE"
+      "STUN_IMMUNE",
+      "RANGED_ATTACKER",
+      "KEEP_DISTANCE"
     ]
   },
   {
-    "//": "Summoner-type monster whose purpose is to send out minions using field emissions. Its basically a 3-tile wide monster: the center is its hitbox and the adjacent `mouth` causes damage when a creature steps on it.",
+    "//": "Summoner-type monster whose purpose is to send out minions. Its basically a 3-tile wide monster: the center is its hitbox and the adjacent `mouth` causes damage when a creature steps on it.",
     "id": "mon_zombie_gorepit",
     "type": "MONSTER",
     "name": { "str": "gorepit" },
@@ -1036,10 +1039,10 @@
       "WARM",
       "POISON",
       "NO_BREATHE",
-      "KEEP_DISTANCE",
       "REVIVES",
       "FILTHY",
-      "RANGED_ATTACKER"
+      "RANGED_ATTACKER",
+      "KEEP_DISTANCE"
     ]
   },
   {

@@ -144,6 +144,26 @@
   },
   {
     "type": "effect_on_condition",
+    "id": "eoc_secro_mon_zombie_fleshmonger_reflesh_check",
+    "condition": { "npc_is_in_field": "fd_gibs_flesh" },
+    "effect": [
+      {
+        "u_message": "The fleshmonger consumes the surroundings off of gore.\nTentacles were formed that pierced its nearby allies!",
+        "type": "warning"
+      },
+      { "npc_cast_spell": { "id": "mon_zombie_fleshmonger_reflesh", "hit_self": true } },
+      { "npc_add_effect": "secro_fleshmonger_fleshed_immune", "duration": "10 seconds" }
+    ],
+    "false_effect": [
+      { "u_message": "The fleshmonger violently bursts out tentacles that pierced its nearby allies!", "type": "warning" },
+      { "npc_cast_spell": { "id": "mon_zombie_fleshmonger_reflesh", "hit_self": true } },
+      { "npc_cast_spell": { "id": "mon_zombie_fleshmonger_reflesh_bleed", "hit_self": true } },
+      { "npc_add_effect": "secro_fleshmonger_fleshed_immune", "duration": "10 seconds" },
+      { "npc_cast_spell": { "id": "mon_zombie_fleshmonger_fchunk", "hit_self": true } }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_gorepit_spawnmore_check",
     "effect": [
       { "u_message": "The ground trembles underneath you!", "type": "bad" },

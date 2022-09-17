@@ -1,0 +1,302 @@
+[
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_blades_slash",
+    "name": "Slash",
+    "messages": [ "You slashed %s", "<npcname> slashes %s" ],
+    "melee_allowed": true,
+    "weighting": -1,
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 1 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 1.03 }, { "stat": "damage", "type": "cut", "scale": 1.1 } ],
+    "description": "+10% cut, +3% movecost",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_blades_slash_arc",
+    "name": "Arc Slash",
+    "messages": [ "You slashed %s in an arc", "<npcname> slashes %s in an arc" ],
+    "melee_allowed": true,
+    "weighting": -3,
+    "crit_tec": true,
+    "aoe": "wide",
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 2 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 1.1 }, { "stat": "damage", "type": "cut", "scale": 1.15 } ],
+    "description": "+15% cut, +10% movecost, crit only, wide",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_blades_slash_precise",
+    "name": "Precision Slash",
+    "messages": [ "You slashed %s with precise accuracy", "<npcname> precisely slashes %s" ],
+    "melee_allowed": true,
+    "weighting": -7,
+    "crit_tec": true,
+    "stun_dur": 2,
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 4 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 1.33 }, { "stat": "damage", "type": "cut", "scale": 1.5 } ],
+    "flat_bonuses": [ { "stat": "arpen", "type": "cut", "scaling-stat": "str", "scale": 1.0 } ],
+    "description": "+50% cut, +33% movecost, stun 2 turns, crit only",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_blades_ravage",
+    "name": "Ravage",
+    "messages": [ "You mutilate %s", "<npcname> mutilates %s" ],
+    "melee_allowed": true,
+    "weighting": -18,
+    "crit_tec": true,
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 5 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 1.66 }, { "stat": "damage", "type": "cut", "scale": 1.99 } ],
+    "description": "+66% movecost, +99% cut, crit only",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_tents_strike",
+    "name": "Strike",
+    "messages": [
+      "Your tentacles strike %s",
+      "<npcname>'s tentacles strike %s",
+      "Your tentacles slap at %s",
+      "<npcname>'s tentacles slap at %s",
+      "Your tentacles hit %s",
+      "<npcname>'s tentacles hit %s"
+    ],
+    "weighting": 2,
+    "melee_allowed": true,
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 }, { "stat": "damage", "type": "bash", "scale": 0.9 } ],
+    "description": "-10% bash, -10% movecost",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_tents_strike_quick",
+    "name": "Quick Strike",
+    "messages": [
+      "Your tentacles swiftly strikes %s",
+      "<npcname>'s tentacles strike %s",
+      "Your tentacles quickly slaps at %s",
+      "<npcname>'s tentacles slap at %s",
+      "Your tentacles swiftly hit %s",
+      "<npcname>'s tentacles hit %s"
+    ],
+    "melee_allowed": true,
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 1 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.5 }, { "stat": "damage", "type": "bash", "scale": 0.8 } ],
+    "description": "-33% bash, -33% movecost",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_tents_compact_swing",
+    "name": "Compact Swing",
+    "messages": [ "Your tentacles form into a mass as it is swung into %s", "<npcname> swings a compact tentacle at %s" ],
+    "melee_allowed": true,
+    "weighting": -4,
+    "crit_tec": true,
+    "down_dur": 2,
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 3 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 1.66 }, { "stat": "damage", "type": "bash", "scale": 2.0 } ],
+    "description": "+100% bash, +66% movecost, down 2 turns, crit only",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_tents_barrage",
+    "name": "Barrage",
+    "messages": [ "Your tentacles strike %s all at once", "All of <npcname>'s tentacles strike at %s" ],
+    "melee_allowed": true,
+    "weighting": -20,
+    "crit_tec": true,
+    "stun_dur": 2,
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 5 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 1.8 }, { "stat": "damage", "type": "bash", "scale": 3.0 } ],
+    "description": "+200% bash, +80% movecost, stun 2 turns, crit only",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_fleshpound_slam",
+    "name": "Slam",
+    "messages": [ "You slam %s with your arms", "<npcname> slams %s with their arms" ],
+    "melee_allowed": true,
+    "weighting": 0,
+    "stun_dur": 1,
+    "crit_tec": true,
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 1 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 1.4 }, { "stat": "damage", "type": "bash", "scale": 1.3 } ],
+    "description": "+30% bash, +40% movecost, stun 1 turn, crit only",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_fleshpound_pound",
+    "name": "Pound",
+    "messages": [ "You heavily pound at %s", "<npcname> heavily pounds at %s" ],
+    "melee_allowed": true,
+    "weighting": -2,
+    "stun_dur": 2,
+    "crit_tec": true,
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 3 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 1.9 }, { "stat": "damage", "type": "bash", "scale": 1.7 } ],
+    "description": "+70% bash, +90% movecost, stun 2 turns, crit only",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_fleshpound_swing_heavy",
+    "name": "Heavy Swing",
+    "messages": [ "You swing an arm with great momentum at %s", "<npcname> swings their arm with great momentum at %s" ],
+    "melee_allowed": true,
+    "weighting": -4,
+    "stun_dur": 3,
+    "knockback_dist": 2,
+    "crit_tec": true,
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 4 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 2.25 }, { "stat": "damage", "type": "bash", "scale": 2.0 } ],
+    "description": "+100% bash, +125% movecost, stun 3 turns, knock 2 tiles, crit only",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_fleshpound_quake",
+    "name": "Quake",
+    "messages": [
+      "You thrash %s into the ground with tremendous power.",
+      "<npcname> thrashed %s into the ground with tremendous power."
+    ],
+    "melee_allowed": true,
+    "weighting": -20,
+    "down_dur": 6,
+    "crit_tec": true,
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 5 } ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 2.99 }, { "stat": "damage", "type": "bash", "scale": 3.66 } ],
+    "eocs": [
+      {
+        "id": "eoc_tec_secro_morph_fleshpound_quake",
+        "effect": [
+          { "u_make_sound": "a tremor.", "volume": 100, "type": "combat" },
+          { "u_cast_spell": { "id": "tec_secro_morph_fleshpound_quake_push" } }
+        ]
+      }
+    ],
+    "description": "+266% bash, +199% movecost, down 6 turns, knocks adjacent, crit only",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_jawarms_bite",
+    "name": "Bite",
+    "messages": [
+      "Your arm bites %s",
+      "<npcname>'s arm bites %s",
+      "Your arm gnaws at %s",
+      "<npcname>'s arm gnaws at %s",
+      "Your arm nibbles at %s",
+      "<npcname>'s arm nibbles at %s"
+    ],
+    "melee_allowed": true,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.1 },
+      { "stat": "damage", "type": "bash", "scale": 1.2 },
+      { "stat": "damage", "type": "cut", "scale": 1.2 }
+    ],
+    "description": "+20% bash/cut, +10% movecost",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_jawarms_crunch",
+    "name": "Crunch",
+    "messages": [ "Your arm crunches at %s", "<npcname>'s arm crunches at %s" ],
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 2 } ],
+    "melee_allowed": true,
+    "weighting": -1,
+    "stun_dur": 1,
+    "crit_tec": true,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.35 },
+      { "stat": "damage", "type": "bash", "scale": 1.45 },
+      { "stat": "damage", "type": "cut", "scale": 1.45 }
+    ],
+    "description": "+45% bash/cut, +35% movecost, stun 1 turn, crit only",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_secro_morph_jawarms_munch",
+    "name": "Munch",
+    "messages": [ "You bite down %s with your arms", "<npcname>'s arm bites down %s" ],
+    "skill_requirements": [ { "name": "secro_flesh_combat", "level": 4 } ],
+    "melee_allowed": true,
+    "weighting": -2,
+    "stun_dur": 1,
+    "down_dur": 2,
+    "crit_tec": true,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.66 },
+      { "stat": "damage", "type": "bash", "scale": 1.9 },
+      { "stat": "damage", "type": "cut", "scale": 1.9 }
+    ],
+    "description": "+90% bash/cut, +66% movecost, stun 1 turn, down 2 turns, crit only",
+    "attack_vectors": [ "HAND" ]
+  },
+  {
+    "type": "martial_art",
+    "id": "secro_style_biomorph",
+    "name": { "str": "Biomorph" },
+    "description": "An innate knowledge gained by those who harness the power of bio-organic exoskeleton \"Flesh Vessel\". This style specializes at controlling hybrid weaponry called armaments and use them at their full potential thanks to your power armor's own consciousness.",
+    "initiate": [ "Your suit trembles as you take a defensive stance.", "%s takes on a defensive stance." ],
+    "learn_difficulty": 10,
+    "primary_skill": "secro_flesh_combat",
+    "static_buffs": [
+      {
+        "id": "buff_secro_biomorph_biomass_static",
+        "name": "Biomass Protection",
+        "description": "Your suit will always try to minimize the damage dealt to you by increasing the mass to the parts you're about to get hit.\n\nIncoming physical damage decreased by 2 and an additional 10% of Strength.",
+        "forbidden_buffs_all": [ "buff_secro_biomorph_augment_onpause" ],
+        "melee_allowed": true,
+        "unarmed_allowed": true,
+        "flat_bonuses": [
+          { "stat": "armor", "type": "bash", "scaling-stat": "str", "scale": 0.1 },
+          { "stat": "armor", "type": "stab", "scaling-stat": "str", "scale": 0.1 },
+          { "stat": "armor", "type": "cut", "scaling-stat": "str", "scale": 0.1 },
+          { "stat": "armor", "type": "bash", "scale": 2 },
+          { "stat": "armor", "type": "cut", "scale": 2 },
+          { "stat": "armor", "type": "stab", "scale": 2 }
+        ]
+      }
+    ],
+    "onpause_buffs": [
+      {
+        "id": "buff_secro_biomorph_augment_onpause",
+        "name": "Augmenting Distribution",
+        "description": "You channel your suit to enhance your armament. Disables suit's defensive capabilities as a cost.\n\nLasts for 10 turns",
+        "buff_duration": 10,
+        "melee_allowed": true
+      }
+    ],
+    "onhit_buffs": [
+      {
+        "id": "buff_secro_biomorph_augment_tent_onhit",
+        "name": "Augment: Twisted Vein",
+        "description": "Your twisted veins armament increases in numbers as you land a hit.\n\nBash damage increased by 2 for each stack. Physical resistance decreases by 1 every 3 stacks. Lasts for 4 turns. Stacks 6 times.",
+        "buff_duration": 4,
+        "max_stacks": 6,
+        "melee_allowed": true,
+        "required_buffs_all": [ "buff_secro_biomorph_augment_onpause" ],
+        "weapon_categories_allowed": [ "SECRO_BOW_MELEE_TV" ],
+        "flat_bonuses": [
+          { "stat": "damage", "type": "bash", "scale": 2.0 },
+          { "stat": "armor", "type": "bash", "scale": -0.33 },
+          { "stat": "armor", "type": "cut", "scale": -0.33 },
+          { "stat": "armor", "type": "stab", "scale": -0.33 }
+        ]
+      }
+    ],
+    "weapon_category": [ "SECRO_BOW" ]
+  }
+]
