@@ -194,7 +194,7 @@
           },
           {
             "effect_id": "corroding",
-            "body_part": "arm",
+            "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "1 seconds",
             "immune_inside_vehicle": true,
@@ -202,7 +202,23 @@
           },
           {
             "effect_id": "corroding",
-            "body_part": "leg",
+            "body_part": "arm_r",
+            "min_duration": "1 seconds",
+            "max_duration": "1 seconds",
+            "immune_inside_vehicle": true,
+            "message_type": "bad"
+          },
+          {
+            "effect_id": "corroding",
+            "body_part": "leg_l",
+            "min_duration": "1 seconds",
+            "max_duration": "1 seconds",
+            "immune_inside_vehicle": true,
+            "message_type": "bad"
+          },
+          {
+            "effect_id": "corroding",
+            "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "1 seconds",
             "immune_inside_vehicle": true,
@@ -214,7 +230,7 @@
       { "name": "noxious gas", "color": "green", "translucency": 0 }
     ],
     "description_affix": "covered_in",
-    "immunity_data": { "traits": [ "ACIDPROOF" ] },
+    "immunity_data": { "flags": [ "ACID_IMMUNE" ] },
     "decay_amount_factor": 5,
     "gas_absorption_factor": 15,
     "percent_spread": 20,
@@ -357,7 +373,13 @@
         "effects": [
           {
             "effect_id": "secro_gorepit_wall_dmg",
-            "body_part": "leg",
+            "body_part": "leg_r",
+            "min_duration": "1 seconds",
+            "max_duration": "1 seconds"
+          },
+          {
+            "effect_id": "secro_gorepit_wall_dmg",
+            "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "1 seconds"
           }
@@ -382,9 +404,10 @@
         "color": "dark_gray",
         "dangerous": true,
         "effects": [
+          { "effect_id": "secro_cordev_corrupt", "body_part": "leg_r", "min_duration": "1 seconds", "max_duration": "1 seconds" },
           {
             "effect_id": "secro_cordev_corrupt",
-            "body_part": "leg",
+            "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "1 seconds"
           }
@@ -395,16 +418,17 @@
         "name": "pool of corrupted acid",
         "color": "light_gray",
         "effects": [
+          { "effect_id": "secro_cordev_corrupt", "body_part": "leg_r", "min_duration": "1 seconds", "max_duration": "2 seconds" },
           {
             "effect_id": "secro_cordev_corrupt",
-            "body_part": "leg",
+            "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds"
           }
         ]
       }
     ],
-    "immunity_data": { "flags": [ "ACIDPROOF" ] },
+    "immunity_data": { "flags": [ "ACID_IMMUNE" ] },
     "underwater_age_speedup": "2 minutes",
     "has_acid": true,
     "priority": 2,
@@ -793,9 +817,10 @@
         "name": "...",
         "color": "black",
         "effects": [
+          { "effect_id": "secro_flesh_bones", "body_part": "leg_r", "min_duration": "1 seconds", "max_duration": "1 seconds" },
           {
             "effect_id": "secro_flesh_bones",
-            "body_part": "leg",
+            "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "1 seconds"
           }
@@ -817,9 +842,10 @@
         "name": "...",
         "color": "black",
         "effects": [
+          { "effect_id": "secro_flesh_tendrils", "body_part": "leg_r", "min_duration": "1 seconds", "max_duration": "1 seconds" },
           {
             "effect_id": "secro_flesh_tendrils",
-            "body_part": "leg",
+            "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "1 seconds"
           }
@@ -850,13 +876,25 @@
           },
           {
             "effect_id": "secro_flesh_biome",
-            "body_part": "arm",
+            "body_part": "arm_l",
             "min_duration": "1 seconds",
             "max_duration": "1 seconds"
           },
           {
             "effect_id": "secro_flesh_biome",
-            "body_part": "leg",
+            "body_part": "arm_r",
+            "min_duration": "1 seconds",
+            "max_duration": "1 seconds"
+          },
+          {
+            "effect_id": "secro_flesh_biome",
+            "body_part": "leg_l",
+            "min_duration": "1 seconds",
+            "max_duration": "1 seconds"
+          },
+          {
+            "effect_id": "secro_flesh_biome",
+            "body_part": "leg_r",
             "min_duration": "1 seconds",
             "max_duration": "1 seconds"
           }
@@ -958,9 +996,10 @@
         "color": "red",
         "dangerous": true,
         "effects": [
+          { "effect_id": "secro_blood_acid", "body_part": "leg_r", "min_duration": "1 seconds", "max_duration": "1 seconds" },
           {
             "effect_id": "secro_blood_acid",
-            "body_part": "leg",
+            "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "1 seconds"
           }
@@ -971,16 +1010,17 @@
         "name": "pool of blood acid",
         "color": "light_red",
         "effects": [
+          { "effect_id": "secro_blood_acid", "body_part": "leg_r", "min_duration": "1 seconds", "max_duration": "2 seconds" },
           {
             "effect_id": "secro_blood_acid",
-            "body_part": "leg",
+            "body_part": "leg_l",
             "min_duration": "1 seconds",
             "max_duration": "2 seconds"
           }
         ]
       }
     ],
-    "immunity_data": { "flags": [ "ACIDPROOF" ] },
+    "immunity_data": { "flags": [ "ACID_IMMUNE" ] },
     "underwater_age_speedup": "2 minutes",
     "has_acid": true,
     "priority": 2,
@@ -1208,7 +1248,7 @@
         "effects": [
           {
             "effect_id": "blind",
-            "body_part": "sensor",
+            "body_part": "eyes",
             "intensity": 1,
             "min_duration": "1 seconds",
             "max_duration": "1 seconds",
@@ -1246,7 +1286,7 @@
         "effects": [
           {
             "effect_id": "blind",
-            "body_part": "sensor",
+            "body_part": "eyes",
             "intensity": 1,
             "min_duration": "1 seconds",
             "max_duration": "1 seconds",
@@ -1279,7 +1319,15 @@
         "effects": [
           {
             "effect_id": "eff_fleshknot_tent",
-            "body_part": "leg",
+            "body_part": "leg_l",
+            "intensity": 1,
+            "min_duration": "2 seconds",
+            "max_duration": "2 seconds",
+            "immune_inside_vehicle": true
+          },
+          {
+            "effect_id": "eff_fleshknot_tent",
+            "body_part": "leg_r",
             "intensity": 1,
             "min_duration": "2 seconds",
             "max_duration": "2 seconds",
