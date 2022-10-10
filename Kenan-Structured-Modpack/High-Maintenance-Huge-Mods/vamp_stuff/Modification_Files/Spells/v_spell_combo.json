@@ -1,27 +1,23 @@
 [
   {
     "//": "Any spell that are casted indirectly are taken here.",
-    "id": "t1_blood_transfusion_spell_dmg",
+    "id": "t1_blood_transfusion_spell",
     "type": "SPELL",
-    "name": { "str": "Tranfusion Damage" },
-	"message": "",
-    "description": "Damages the target with 2 hp.",
-    "flags": [ "SILENT", "RANDOM_TARGET", "NO_PROJECTILE" ],
-    "valid_targets": [ "hostile" ],
+    "name": { "str": "Tranfusion Spell" },
+    "message": "You feel refreshed as you cast!",
+    "description": "It will cast Transfusion Damage and Transfusion Heal.",
+    "flags": [ "SILENT", "NO_PROJECTILE" ],
+    "valid_targets": [ "ally", "hostile", "ground" ],
     "effect": "attack",
     "shape": "blast",
-	"extra_effects": [ { "id": "t1_blood_transfusion_spell_heal", "hit_self": true } ],
-    "min_damage": 2,
-    "max_damage": 2,
+    "extra_effects": [ { "id": "t1_blood_transfusion_spell_heal", "hit_self": true }, { "id": "t1_blood_transfusion_spell_dmg" } ],
     "min_range": 10,
-    "max_range": 10,
-    "damage_type": "pure"
+    "max_range": 10
   },
   {
     "id": "t1_blood_transfusion_spell_heal",
     "type": "SPELL",
     "name": { "str": "Tranfusion Heal" },
-	"message": "You feel refreshed as you cast!",
     "description": "Heals the caster with 1 hp.",
     "flags": [ "SILENT", "NO_PROJECTILE" ],
     "valid_targets": [ "self" ],
@@ -29,6 +25,21 @@
     "shape": "blast",
     "min_damage": -1,
     "max_damage": -1,
+    "damage_type": "pure"
+  },
+  {
+    "id": "t1_blood_transfusion_spell_dmg",
+    "type": "SPELL",
+    "name": { "str": "Tranfusion Damage" },
+    "description": "Damages the target with 2 hp.",
+    "flags": [ "SILENT", "RANDOM_TARGET", "NO_PROJECTILE" ],
+    "valid_targets": [ "hostile" ],
+    "effect": "attack",
+    "shape": "blast",
+    "min_damage": 2,
+    "max_damage": 2,
+    "min_range": 10,
+    "max_range": 10,
     "damage_type": "pure"
   },
   {
