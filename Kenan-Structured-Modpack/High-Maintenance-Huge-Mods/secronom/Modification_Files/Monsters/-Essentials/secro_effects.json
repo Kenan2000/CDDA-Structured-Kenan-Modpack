@@ -225,7 +225,7 @@
     "name": [ "Reflesh" ],
     "rating": "good",
     "show_in_info": true,
-	"removes_effects": [ "bleed" ],
+    "removes_effects": [ "bleed" ],
     "blocks_effects": [ "bleed" ]
   },
   {
@@ -309,7 +309,14 @@
     "int_decay_tick": 25,
     "max_duration": "180 s",
     "base_mods": { "hurt_min": [ 1 ], "hurt_tick": [ 15 ], "speed_mod": [ -1 ] },
-    "scaling_mods": { "speed_mod": [ -1 ], "str_mod": [ -0.99 ], "dex_mod": [ -0.66 ], "per_mod": [ -0.33 ], "int_mod": [ -0.33 ], "hurt_tick": [ -1 ] }
+    "scaling_mods": {
+      "speed_mod": [ -1 ],
+      "str_mod": [ -0.99 ],
+      "dex_mod": [ -0.66 ],
+      "per_mod": [ -0.33 ],
+      "int_mod": [ -0.33 ],
+      "hurt_tick": [ -1 ]
+    }
   },
   {
     "type": "effect_type",
@@ -394,59 +401,13 @@
     "name": [ "on Momentum" ],
     "int_add_val": 1,
     "int_dur_factor": "1 seconds",
-    "max_intensity": 10,
-    "int_decay_step": -10,
+    "max_intensity": 6,
+    "int_decay_step": -1,
     "int_decay_tick": 1,
-    "max_duration": 11,
+    "max_duration": 6,
     "rating": "good",
     "show_in_info": true,
-    "base_mods": { "hurt_min": [ -1 ] },
-    "scaling_mods": { "speed_mod": [ 10 ], "bash_mod": [ 1.25 ], "hit_mod": [ 0.5 ], "hurt_min": [ -1 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "charge_spike_momentum",
-    "name": [ "on Momentum" ],
-    "int_add_val": 1,
-    "int_dur_factor": "1 seconds",
-    "max_intensity": 10,
-    "int_decay_step": -10,
-    "int_decay_tick": 1,
-    "max_duration": 11,
-    "rating": "good",
-    "show_in_info": true,
-    "base_mods": { "hurt_min": [ -1.5 ] },
-    "scaling_mods": { "speed_mod": [ 10 ], "bash_mod": [ 0.25 ], "cut_mod": [ 1.25 ], "hit_mod": [ 0.5 ], "hurt_min": [ -1.5 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "charge_plate_momentum",
-    "name": [ "on Momentum" ],
-    "int_add_val": 1,
-    "int_dur_factor": "1 seconds",
-    "max_intensity": 10,
-    "int_decay_step": -10,
-    "int_decay_tick": 1,
-    "max_duration": 11,
-    "rating": "good",
-    "show_in_info": true,
-    "base_mods": { "hurt_min": [ -1.75 ] },
-    "scaling_mods": { "speed_mod": [ 10 ], "bash_mod": [ 2 ], "hit_mod": [ 0.5 ], "hurt_min": [ -1.75 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "charge_vanguard_momentum",
-    "name": [ "on Momentum" ],
-    "int_add_val": 1,
-    "int_dur_factor": "1 seconds",
-    "max_intensity": 10,
-    "int_decay_step": -10,
-    "int_decay_tick": 1,
-    "max_duration": 11,
-    "rating": "good",
-    "show_in_info": true,
-    "base_mods": { "hurt_min": [ -3 ] },
-    "scaling_mods": { "speed_mod": [ 10 ], "bash_mod": [ 3.25 ], "hit_mod": [ 0.75 ], "hurt_min": [ -3 ] }
+    "scaling_mods": { "speed_mod": [ 10 ] }
   },
   {
     "type": "effect_type",
@@ -1476,12 +1437,5 @@
     "type": "effect_type",
     "id": "secro_sacrifice_effect",
     "base_mods": { "hurt_min": [ 100000000 ], "speed_mod": [ -1000 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "pacified",
-    "max_duration": 10,
-    "name": [ "pacified" ],
-    "desc": [ "pacified" ]
   }
 ]

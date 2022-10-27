@@ -1,10 +1,10 @@
 [
   {
-    "//": "Aggro-type zed. Shares similarities to the titan, but this type can go charging into its target in one turn and gain combat bonuses for doing so.",
+    "//": "Aggro-type zed. Shares similarities to the titan, but this type can go charging into its target in one turn and gain a burst of movement speed.",
     "id": "mon_zombie_charger",
     "type": "MONSTER",
     "name": "charger zombie",
-    "description": "A rugged corpse with one of its arms mutated into an overgrown bulging muscle, while the opposite to its other arm.",
+    "description": "A rugged corpse with one of its arms mutated into an overgrown bulging muscle.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_1", "HUMAN" ],
     "volume": "92500 ml",
@@ -31,8 +31,9 @@
         "type": "spell",
         "spell_data": { "id": "mon_zombie_charger_charge_target_random" },
         "cooldown": 180,
-        "monster_message": "<color_yellow>%1$s charges at %3$s!</color>"
-      }
+        "monster_message": "<color_yellow>%1$s is charging towards %3$s!</color>"
+      },
+      [ "charger_tackle", 6 ]
     ],
     "upgrades": { "half_life": 12, "into_group": "GROUP_CHARGER_UPGRADE" },
     "death_drops": "default_zombie_death_drops",
@@ -55,7 +56,7 @@
     "id": "mon_zombie_charger_spike",
     "type": "MONSTER",
     "name": "charger zombie",
-    "description": "A once stout zombie, now has been covered by protruding bone spikes under its skin, yet its thick, mutated arm is overwhelmed by the larger ones.",
+    "description": "A once stout zombie, now covered by protruding bone spikes under its skin.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_1", "HUMAN" ],
     "volume": "132500 ml",
@@ -83,8 +84,9 @@
         "type": "spell",
         "spell_data": { "id": "mon_zombie_charger_spike_charge_target_random" },
         "cooldown": 180,
-        "monster_message": "<color_yellow>%1$s charges at %3$s!</color>"
-      }
+        "monster_message": "<color_yellow>%1$s is charging towards %3$s!</color>"
+      },
+      [ "charger_spike_tackle", 6 ]
     ],
     "death_drops": "default_zombie_death_drops",
     "flags": [
@@ -106,7 +108,7 @@
     "id": "mon_zombie_charger_plate",
     "type": "MONSTER",
     "name": "charger zombie",
-    "description": "A large corpse with its skin calcified into a layer, like a shell whose purpose is to protect the underlying extremeties. It has caused its movement to become stiff, and the grinding of its skin is barely heard.",
+    "description": "A large corpse with its skin calcified, forming a shell-like layer.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_1", "HUMAN" ],
     "volume": "140000 ml",
@@ -134,8 +136,9 @@
         "type": "spell",
         "spell_data": { "id": "mon_zombie_charger_plate_charge_target_random" },
         "cooldown": 180,
-        "monster_message": "<color_yellow>%1$s charges at %3$s!</color>"
-      }
+        "monster_message": "<color_yellow>%1$s is charging towards %3$s!</color>"
+      },
+      [ "charger_plate_tackle", 6 ]
     ],
     "death_drops": "default_zombie_death_drops",
     "flags": [
@@ -185,8 +188,9 @@
         "type": "spell",
         "spell_data": { "id": "mon_zombie_charger_vanguard_charge_target_random" },
         "cooldown": 180,
-        "monster_message": "<color_yellow>%1$s charges at %3$s!</color>"
-      }
+        "monster_message": "<color_yellow>%1$s is charging towards %3$s!</color>"
+      },
+      [ "charger_vanguard_tackle", 6 ]
     ],
     "death_drops": "default_zombie_death_drops",
     "flags": [
