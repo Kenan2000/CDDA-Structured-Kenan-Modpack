@@ -78,7 +78,18 @@
   },
   {
     "type": "effect_type",
+    "id": "arcana_timestop_indicator",
+    "name": [ "Time Stands Still" ],
+    "desc": [ "A spell has given you bonus moves for the moment." ],
+    "apply_message": "Time stands still…",
+    "remove_message": "The flow of time resumes.",
+    "rating": "good",
+    "max_duration": "1 s"
+  },
+  {
+    "type": "effect_type",
     "id": "temporal_stimulation_effect",
+    "name": [ "Temporal Stimulation" ],
     "//": "This adds the stamina and fatigue effects to TS.  And the speed boost, because speed enchantments can't be trusted to work.",
     "base_mods": {
       "speed_mod": [ 100 ],
@@ -120,14 +131,10 @@
     "max_intensity": 30,
     "int_dur_factor": "1 m",
     "base_mods": {
-      "pain_chance": [ 12, 24 ],
-      "pain_min": [ 1 ],
-      "pain_tick": [ 25 ],
-      "pain_max_val": [ 20, 10 ],
       "str_mod": [ 5 ],
-      "dex_mod": [ -1 ],
-      "int_mod": [ -1 ],
-      "per_mod": [ -1 ],
+      "dex_mod": [ -1, 0 ],
+      "int_mod": [ -1, 0 ],
+      "per_mod": [ -1, 0 ],
       "speed_mod": [ 5 ],
       "stamina_min": [ 50 ],
       "stamina_chance": [ 6 ],
@@ -151,13 +158,9 @@
     "max_intensity": 30,
     "int_dur_factor": "1 m",
     "base_mods": {
-      "pain_chance": [ 12, 24 ],
-      "pain_min": [ 1 ],
-      "pain_tick": [ 25 ],
-      "pain_max_val": [ 15, 10 ],
-      "str_mod": [ -2 ],
+      "str_mod": [ -2, -1 ],
       "dex_mod": [ 2 ],
-      "int_mod": [ -2 ],
+      "int_mod": [ -2, -1 ],
       "per_mod": [ 2 ],
       "speed_mod": [ 50 ],
       "stamina_min": [ -25 ],
@@ -719,19 +722,9 @@
     "type": "effect_type",
     "id": "destructive_absorption_side_effects",
     "name": [ "Absorption Aftereffects" ],
-    "desc": [ "Recovers stamina and healthiness, steady fatigue recovery." ],
-    "max_duration": "30 m",
-    "max_intensity": 30,
-    "int_dur_factor": "1 m",
-    "base_mods": {
-      "stamina_min": [ 25 ],
-      "fatigue_min": [ 1 ],
-      "fatigue_tick": [ 25 ],
-      "health_min": [ 1 ],
-      "health_tick": [ 10 ],
-      "h_mod_min": [ 1 ],
-      "h_mod_tick": [ 10 ]
-    }
+    "desc": [ "Rapidly recovers stamina, increases healthiness." ],
+    "max_duration": "10 m",
+    "base_mods": { "stamina_min": [ 200 ], "health_min": [ 1 ], "h_mod_min": [ 1 ] }
   },
   {
     "type": "effect_type",
@@ -821,6 +814,23 @@
     "rating": "good",
     "max_duration": "15 s",
     "base_mods": { "pain_min": [ -6 ], "stamina_min": [ 60 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "arcana_wyrm_berserker_decay",
+    "name": [ "Abyssal Aura" ],
+    "desc": [ "Constant pain and stamina recovery, in exchange for increased fatigue gain and steady healthiness decline." ],
+    "base_mods": {
+      "pain_min": [ -1 ],
+      "pain_tick": [ 30 ],
+      "stamina_min": [ 30 ],
+      "health_min": [ -1 ],
+      "health_tick": [ 125 ],
+      "h_mod_min": [ -1 ],
+      "h_mod_tick": [ 125 ],
+      "fatigue_min": [ 1 ],
+      "fatigue_tick": [ 125 ]
+    }
   },
   {
     "type": "effect_type",
@@ -1281,7 +1291,7 @@
   {
     "type": "effect_type",
     "id": "sofia_motive_explained",
-    "//": "Effect for both players and NPCs, for Sofia it filters out sanguinist and Keeper players that have explained their motivation for visiting the holdout.  Also used for Johnathan to filter out some bug-proofing dialogue."
+    "//": "Effect for both players and NPCs, for Sofia it filters out sanguinist and Keeper players that have explained their motivation for visiting the holdout."
   },
   {
     "type": "effect_type",
@@ -1350,14 +1360,6 @@
     "type": "effect_type",
     "id": "cf_seeker_traded",
     "//": "Effect for players, populates Matthew's initial menu with the trade option.  Intended to be permanent."
-  },
-  {
-    "type": "effect_type",
-    "id": "cf_aux_merchant_restocked",
-    "name": [ "Recently restocked" ],
-    "desc": [
-      "AI tag marking an NPC as having triggered their merchant restock effect recently.  Intended duration 1 week.  This is a bug if you have it."
-    ]
   },
   {
     "type": "effect_type",

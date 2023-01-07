@@ -96,6 +96,30 @@
     "death_drops": "mon_zombie_pupa_shady_death_drops"
   },
   {
+    "id": "mon_spawn_raptor",
+    "copy-from": "mon_spawn_raptor",
+    "type": "MONSTER",
+    "death_drops": "mon_spawn_raptor_death_drops"
+  },
+  {
+    "id": "mon_spawn_raptor_shady",
+    "copy-from": "mon_spawn_raptor_shady",
+    "type": "MONSTER",
+    "death_drops": "mon_spawn_raptor_shady_death_drops"
+  },
+  {
+    "id": "mon_spawn_raptor_unstable",
+    "copy-from": "mon_spawn_raptor_unstable",
+    "type": "MONSTER",
+    "death_drops": "mon_spawn_raptor_unstable_death_drops"
+  },
+  {
+    "id": "mon_spawn_raptor_electric",
+    "copy-from": "mon_spawn_raptor_electric",
+    "type": "MONSTER",
+    "death_drops": "mon_spawn_raptor_electric_death_drops"
+  },
+  {
     "id": "mon_zombie_biter",
     "copy-from": "mon_zombie_biter",
     "type": "MONSTER",
@@ -135,22 +159,19 @@
     "id": "mon_zombie_necro",
     "copy-from": "mon_zombie_necro",
     "type": "MONSTER",
-    "death_drops": "mon_zombie_necro_death_drops",
-    "extend": { "flags": [ "COLDPROOF" ] }
+    "death_drops": "mon_zombie_necro_death_drops"
   },
   {
     "id": "mon_zombie_necro_boomer",
     "copy-from": "mon_zombie_necro_boomer",
     "type": "MONSTER",
-    "death_drops": "mon_zombie_necro_boomer_death_drops",
-    "extend": { "flags": [ "COLDPROOF" ] }
+    "death_drops": "mon_zombie_necro_boomer_death_drops"
   },
   {
     "id": "mon_zombie_master",
     "copy-from": "mon_zombie_master",
     "type": "MONSTER",
-    "death_drops": "mon_zombie_master_death_drops",
-    "extend": { "flags": [ "COLDPROOF" ] }
+    "death_drops": "mon_zombie_master_death_drops"
   },
   {
     "id": "mon_zombie_hollow",
@@ -291,7 +312,7 @@
     "id": "mon_blob_small",
     "copy-from": "mon_blob_small",
     "type": "MONSTER",
-    "death_drops": "mon_blob_small_death_drops"
+    "death_drops": "mon_blob_small_deathdrops"
   },
   {
     "id": "mon_one_eye",
@@ -326,8 +347,6 @@
     "type": "MONSTER",
     "death_drops": "mon_bee_mega_death_drops"
   },
-
-
   {
     "id": "mon_wasp_small",
     "copy-from": "mon_wasp_small",
@@ -364,10 +383,6 @@
     "type": "MONSTER",
     "death_drops": "mon_wasp_mega_death_drops"
   },
-
-
-
-
   {
     "id": "mon_dermatik_larva",
     "copy-from": "mon_dermatik_larva",
@@ -386,10 +401,6 @@
     "type": "MONSTER",
     "death_drops": "mon_dermatik_midwife_death_drops"
   },
-
-
-
-
   {
     "id": "mon_dark_wyrm",
     "copy-from": "mon_dark_wyrm",
@@ -448,24 +459,29 @@
     "id": "mon_vortex",
     "copy-from": "mon_vortex",
     "type": "MONSTER",
+    "aggression": 5,
     "//": "FFS why are they harmless",
+    "melee_skill": 6,
     "melee_dice": 1,
-    "melee_dice_sides": 2,
-    "melee_damage": [ { "damage_type": "cold", "amount": 2, "armor_multiplier": 0.75 } ],
+    "melee_dice_sides": 4,
+    "melee_damage": [ { "damage_type": "electric", "amount": 5 } ],
     "death_drops": "mon_vortex_death_drops",
-    "extend": { "flags": [ "COLDPROOF" ], "categories": [ "CLASSIC" ] }
+    "vision_day": 5,
+    "vision_night": 5,
+    "anger_triggers": [ "STALK", "HURT", "FRIEND_ATTACKED" ],
+    "placate_triggers": [ "PLAYER_WEAK" ],
+    "extend": { "flags": [ "SEES" ], "categories": [ "CLASSIC" ] }
   },
   {
     "id": "mon_flying_polyp",
     "copy-from": "mon_flying_polyp",
     "type": "MONSTER",
     "death_drops": "mon_flying_polyp_death_drops",
-    "extend": { "flags": [ "COLDPROOF" ], "categories": [ "CLASSIC" ] }
+    "extend": { "categories": [ "CLASSIC" ] }
   },
   {
     "id": "mon_hunting_horror",
     "copy-from": "mon_hunting_horror",
-    "melee_damage": [ { "damage_type": "cut", "amount": 4 }, { "damage_type": "cold", "amount": 4, "armor_multiplier": 0.75 } ],
     "type": "MONSTER",
     "death_drops": "mon_hunting_horror_death_drops",
     "extend": { "flags": [ "COLDPROOF" ], "categories": [ "CLASSIC" ] }
@@ -565,8 +581,8 @@
     "id": "mon_shadow",
     "copy-from": "mon_shadow",
     "type": "MONSTER",
-    "melee_dice_sides": 1,
-    "melee_damage": [ { "damage_type": "cold", "amount": 1, "armor_multiplier": 0.75 } ],
+    "melee_dice_sides": 3,
+    "melee_damage": [ { "damage_type": "cold", "amount": 3 } ],
     "death_drops": "mon_shadow_death_drops",
     "extend": { "flags": [ "COLDPROOF" ], "categories": [ "CLASSIC" ] }
   },
@@ -574,8 +590,8 @@
     "id": "mon_darkman",
     "copy-from": "mon_darkman",
     "type": "MONSTER",
-    "melee_damage": [ { "damage_type": "cut", "amount": 1 }, { "damage_type": "cold", "amount": 2, "armor_multiplier": 0.75 } ],
-    "special_attacks": [ [ "DARKMAN", 30 ], [ "scratch", 15 ] ],
+    "melee_dice_sides": 3,
+    "melee_damage": [ { "damage_type": "cold", "amount": 9 } ],
     "death_drops": "mon_darkman_death_drops",
     "extend": { "flags": [ "COLDPROOF" ], "categories": [ "CLASSIC" ] }
   },
@@ -596,7 +612,9 @@
   {
     "id": "mon_shadow_snake",
     "copy-from": "mon_shadow_snake",
-    "melee_damage": [ { "damage_type": "cut", "amount": 2 }, { "damage_type": "cold", "amount": 1, "armor_multiplier": 0.75 } ],
+    "melee_dice": 2,
+    "melee_dice_sides": 3,
+    "melee_damage": [ { "damage_type": "cold", "amount": 6 } ],
     "type": "MONSTER",
     "death_drops": "mon_shadow_snake_death_drops",
     "extend": { "flags": [ "COLDPROOF" ], "categories": [ "CLASSIC" ] }
@@ -606,7 +624,7 @@
     "copy-from": "mon_shoggoth",
     "type": "MONSTER",
     "death_drops": "mon_shoggoth_death_drops",
-    "extend": { "flags": [ "COLDPROOF" ], "categories": [ "CLASSIC" ] }
+    "extend": { "categories": [ "CLASSIC" ] }
   },
   {
     "id": "mon_dementia",
@@ -678,9 +696,9 @@
     "melee_dice_sides": 4,
     "dodge": 2,
     "harvest": "zombie",
-    "special_attacks": [ [ "FEAR_PARALYZE", 15 ], { "type": "bite", "cooldown": 5 } ],
+    "special_attacks": [ [ "FEAR_PARALYZE", 0 ], { "type": "bite", "cooldown": 5 } ],
     "death_drops": "mon_flesh_angel_death_drops",
-    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "HARDTOSHOOT", "FLIES", "HUMAN", "POISON", "REVIVES", "FILTHY" ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "HARDTOSHOOT", "ATTACKMON", "FLIES", "HUMAN", "POISON", "REVIVES", "FILTHY" ]
   },
   {
     "id": "mon_player_blob",
@@ -1067,5 +1085,41 @@
     "copy-from": "mon_kraken_queen",
     "type": "MONSTER",
     "death_drops": "mon_kraken_queen_death_drops"
+  },
+  {
+    "id": "mon_archunk_weak",
+    "copy-from": "mon_archunk_weak",
+    "type": "MONSTER",
+    "death_drops": "mon_archunk_weak_death_drops"
+  },
+  {
+    "id": "mon_archunk_medium",
+    "copy-from": "mon_archunk_medium",
+    "type": "MONSTER",
+    "death_drops": "mon_archunk_medium_death_drops"
+  },
+  {
+    "id": "mon_archunk_strong",
+    "copy-from": "mon_archunk_strong",
+    "type": "MONSTER",
+    "death_drops": "mon_archunk_strong_death_drops"
+  },
+  {
+    "id": "mon_hallucinator",
+    "copy-from": "mon_hallucinator",
+    "type": "MONSTER",
+    "death_drops": "mon_hallucinator_death_drops"
+  },
+  {
+    "id": "mon_guilt",
+    "copy-from": "mon_guilt",
+    "type": "MONSTER",
+    "death_drops": "mon_guilt_death_drops"
+  },
+  {
+    "id": "mon_sloth",
+    "copy-from": "mon_sloth",
+    "type": "MONSTER",
+    "death_drops": "mon_sloth_death_drops"
   }
 ]

@@ -177,10 +177,42 @@
     "unarmed_allowed": true,
     "melee_allowed": true,
     "flat_bonuses": [ { "stat": "damage", "type": "heat", "scale": 30 } ],
-    "crit_tec": true,
+    "crit_ok": true,
     "weighting": -25,
     "messages": [ "Your blade sears through %s with a brilliant glow", "<npcname>'s blade sears through %s with a brilliant glow" ],
     "description": "+30 fire damage, crit only",
+    "attack_vectors": [ "WEAPON" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_weapon_stormbringer_slash",
+    "name": "Shadow Cleave",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "flat_bonuses": [ { "stat": "damage", "type": "cold", "scale": 40 } ],
+    "crit_ok": true,
+    "weighting": -30,
+    "messages": [ "The runes on your blade shimmer as you hack into %s", "<npcname>'s blade shimmers as they hack into %s" ],
+    "description": "+40 cold damage, crit only",
+    "attack_vectors": [ "WEAPON" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_weapon_kinetic_knockback",
+    "name": "Kinetic Knockback",
+    "unarmed_allowed": true,
+    "melee_allowed": true,
+    "flat_bonuses": [
+      { "stat": "damage", "type": "bash", "scaling-stat": "str", "scale": 0.5 },
+      { "stat": "arpen", "type": "bash", "scaling-stat": "str", "scale": 0.5 }
+    ],
+    "knockback_dist": 3,
+    "powerful_knockback": true,
+    "down_dur": 1,
+    "crit_tec": true,
+    "weighting": 2,
+    "messages": [ "Your impact blasts %s back", "<npcname> blasts %s back" ],
+    "description": "+0.5 bash damage and armor penetration per point of strength, down 1 turn, knockback 3 tiles, crit only",
     "attack_vectors": [ "WEAPON" ]
   }
 ]

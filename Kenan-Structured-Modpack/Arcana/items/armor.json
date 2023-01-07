@@ -34,6 +34,31 @@
     "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
   },
   {
+    "id": "halo_phase_shield",
+    "copy-from": "spell_base",
+    "type": "ARMOR",
+    "name": { "str": "sunstone halo" },
+    "description": "A strange radiance permeating your body, repelling nearby attackers away from you.",
+    "color": "dark_gray",
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "hit_me_effect": [
+            {
+              "id": "arcana_react_phase_shield",
+              "once_in": 10,
+              "message": "%2$s is suddenly forced back!",
+              "npc_message": "%2$s is suddenly forced away from %1$s!"
+            }
+          ]
+        }
+      ]
+    },
+    "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
+  },
+  {
     "id": "halo_shadowsnakes",
     "//": "ID retained for simplicity.",
     "copy-from": "spell_base",
@@ -75,7 +100,7 @@
     "copy-from": "spell_base",
     "type": "ARMOR",
     "name": { "str": "shrouded aura" },
-    "description": "A strange radiance permeating your body, obscuring your life force from the undead.",
+    "description": "A strange radiance permeating your body, obscuring your life force from the undead.  You will be invisible to them, but not to other creatures, and they will still be able to hear and smell you.",
     "color": "white",
     "relic_data": {
       "passive_effects": [
@@ -96,24 +121,8 @@
     "name": { "str": "faded halo" },
     "description": "A strange radiance permeating your body, hiding your aura from otherworldly creatures in exchange for being more visible to wildlife and the undead.",
     "color": "white",
-    "relic_data": {
-      "passive_effects": [
-        {
-          "has": "WORN",
-          "condition": "ALWAYS",
-          "mutations": [ "ARCANA_TRANSCENDANT_AURA" ]
-        }
-      ]
-    },
+    "relic_data": { "passive_effects": [ { "has": "WORN", "condition": "ALWAYS", "mutations": [ "ARCANA_TRANSCENDANT_AURA" ] } ] },
     "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
-  },
-  {
-    "id": "arcana_ench_halo_flute_effect",
-    "type": "enchantment",
-    "has": "WORN",
-    "condition": "ALWAYS",
-    "values": [ { "value": "MOVE_COST", "multiply": -0.9 }, { "value": "BONUS_DODGE", "add": 10 } ],
-    "ench_effects": [ { "effect": "halo_flute_effect", "intensity": 1 } ]
   },
   {
     "id": "halo_flute_effect",
@@ -122,7 +131,16 @@
     "name": { "str": "elusive aura" },
     "description": "A strange radiance permeating your body, enhancing your movement and reflexes.",
     "color": "white",
-    "relic_data": { "passive_effects": [ { "id": "arcana_ench_halo_flute_effect" } ] },
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [ { "value": "MOVE_COST", "multiply": -0.9 }, { "value": "BONUS_DODGE", "add": 10 } ],
+          "ench_effects": [ { "effect": "halo_flute_effect", "intensity": 1 } ]
+        }
+      ]
+    },
     "extend": { "flags": [ "ONLY_ONE", "NO_TAKEOFF" ] }
   },
   {
@@ -307,7 +325,7 @@
       {
         "max_contains_volume": "5 L",
         "max_contains_weight": "25 kg",
-        "moves": 0,
+        "moves": 1,
         "rigid": true,
         "holster": true,
         "flag_restriction": [ "MAGIC_FOCUS" ]
@@ -315,7 +333,7 @@
       {
         "max_contains_volume": "5 L",
         "max_contains_weight": "25 kg",
-        "moves": 0,
+        "moves": 1,
         "rigid": true,
         "holster": true,
         "flag_restriction": [ "MAGIC_FOCUS" ]
@@ -323,7 +341,7 @@
       {
         "max_contains_volume": "5 L",
         "max_contains_weight": "25 kg",
-        "moves": 0,
+        "moves": 1,
         "rigid": true,
         "holster": true,
         "flag_restriction": [ "MAGIC_FOCUS" ]
@@ -331,7 +349,7 @@
       {
         "max_contains_volume": "5 L",
         "max_contains_weight": "25 kg",
-        "moves": 0,
+        "moves": 1,
         "rigid": true,
         "holster": true,
         "flag_restriction": [ "MAGIC_FOCUS" ]

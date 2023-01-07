@@ -3,47 +3,24 @@
     "id": "TALK_VAMP_GUNSHOP_talkme",
     "type": "talk_topic",
     "dynamic_line": "Mortal! Struggling to live?",
-    "responses": [
-      {
-        "text": "Yes, and true.",
-        "topic": "TALK_VAMP_GUNSHOP_maintalk"
-      }
-    ]
+    "responses": [ { "text": "Yes, and true.", "topic": "TALK_VAMP_GUNSHOP_maintalk" } ]
   },
   {
     "id": "TALK_VAMP_GUNSHOP_maintalk",
     "type": "talk_topic",
     "dynamic_line": "Now, you want something from me?",
     "responses": [
-      {
-        "text": "Who are you?",
-        "topic": "TALK_VAMP_GUNSHOP_whoisme"
-      },
-      {
-        "text": "Where did these guns came from?",
-        "topic": "TALK_VAMP_GUNSHOP_gunthere"
-      },
-      {
-        "text": "I want to buy.",
-        "effect": "start_trade",
-        "topic": "TALK_VAMP_GUNSHOP_maintalk"
-      },
-      {
-        "text": "Maybe later.",
-        "topic": "TALK_DONE"
-      }
+      { "text": "Who are you?", "topic": "TALK_VAMP_GUNSHOP_whoisme" },
+      { "text": "Where did these guns came from?", "topic": "TALK_VAMP_GUNSHOP_gunthere" },
+      { "text": "I want to buy.", "effect": "start_trade", "topic": "TALK_VAMP_GUNSHOP_maintalk" },
+      { "text": "Maybe later.", "topic": "TALK_DONE" }
     ]
   },
   {
     "id": "TALK_VAMP_GUNSHOP_whoisme",
     "type": "talk_topic",
     "dynamic_line": "I am the gun trader here... If you're not interested with my trades, just go outside.",
-    "responses": [
-      {
-        "text": "Thanks for your info.",
-        "topic": "TALK_VAMP_GUNSHOP_maintalk"
-      }
-    ]
+    "responses": [ { "text": "Thanks for your info.", "topic": "TALK_VAMP_GUNSHOP_maintalk" } ]
   },
   {
     "id": "TALK_VAMP_GUNSHOP_gunthere",
@@ -53,16 +30,9 @@
       {
         "text": "Can I get something from you for free?",
         "topic": "TALK_VAMP_GUNSHOP_freegun",
-        "condition": {
-          "not": {
-            "u_has_trait": "wvgssupp"
-          }
-        }
+        "condition": { "not": { "u_has_trait": "wvgssupp" } }
       },
-      {
-        "text": "Sound hard-to-get.",
-        "topic": "TALK_VAMP_GUNSHOP_maintalk"
-      }
+      { "text": "Sound hard-to-get.", "topic": "TALK_VAMP_GUNSHOP_maintalk" }
     ]
   },
   {
@@ -77,25 +47,17 @@
       {
         "text": "Well, okay...",
         "topic": "TALK_VAMP_GUNSHOP_maintalk",
-        "condition": {
-          "not": {
-            "u_has_trait": "commandovampmark"
-          }
-        }
+        "condition": { "not": { "u_has_trait": "commandovampmark" } }
       },
       {
         "text": "Nothing...",
         "topic": "TALK_VAMP_GUNSHOP_maintalk",
-        "condition": {
-          "u_has_trait": "commandovampmark"
-        }
+        "condition": { "u_has_trait": "commandovampmark" }
       },
       {
         "text": "The commando told me about the supplies...",
         "topic": "TALK_VAMP_GUNSHOP_givesupplies",
-        "condition": {
-          "u_has_trait": "commandovampmark"
-        }
+        "condition": { "u_has_trait": "commandovampmark" }
       }
     ]
   },
@@ -108,55 +70,21 @@
       {
         "text": "But he told me to get some guns from you?",
         "topic": "TALK_VAMP_GUNSHOP_gun",
-        "condition": {
-          "and": [
-            {
-              "u_is_wearing": "blood_cring"
-            },
-            {
-              "not": {
-                "u_has_trait": "wvgsgun"
-              }
-            }
-          ]
-        }
+        "condition": { "and": [ { "u_is_wearing": "blood_cring" }, { "not": { "u_has_trait": "wvgsgun" } } ] }
       },
       {
         "text": "But he told me to get some guns from you?",
         "topic": "TALK_VAMP_GUNSHOP_nogunforu",
-        "condition": {
-          "and": [
-            {
-              "not": {
-                "u_is_wearing": "blood_cring"
-              }
-            },
-            {
-              "not": {
-                "u_has_trait": "wvgsgun"
-              }
-            }
-          ]
-        }
+        "condition": { "and": [ { "not": { "u_is_wearing": "blood_cring" } }, { "not": { "u_has_trait": "wvgsgun" } } ] }
       },
       {
         "text": "Okay, I'll take them!",
         "topic": "TALK_DONE",
         "effect": [
-          {
-            "u_spawn_item": "vacutainer",
-            "count": 6
-          },
-          {
-            "u_spawn_item": "bloodpack"
-          },
-          {
-            "u_spawn_item": "bloodpowder",
-            "count": 44
-          },
-          {
-            "u_add_trait": "wvgssupp"
-          }
+          { "u_spawn_item": "vacutainer", "count": 6 },
+          { "u_spawn_item": "bloodpack" },
+          { "u_spawn_item": "bloodpowder", "count": 44 },
+          { "u_add_trait": "wvgssupp" }
         ]
       }
     ]
@@ -170,47 +98,21 @@
       {
         "text": "Seems legit. I'll take it!",
         "topic": "TALK_VAMP_GUNSHOP_givesupplies",
-        "effect": [
-          {
-            "u_spawn_item": "blood_slinger"
-          },
-          {
-            "u_add_trait": "wvgsgun"
-          }
-        ]
+        "effect": [ { "u_spawn_item": "blood_slinger" }, { "u_add_trait": "wvgsgun" } ]
       },
       {
         "text": "I guess not... Its like a garbaged project you vampires been doing for these days.",
         "topic": "TALK_VAMP_GUNSHOP_givesupplies",
-        "opinion": {
-          "fear": -1,
-          "anger": 5
-        },
-        "effect": {
-          "u_add_trait": "wvgsgun"
-        }
+        "opinion": { "fear": -1, "anger": 5 },
+        "effect": { "u_add_trait": "wvgsgun" }
       },
-      {
-        "text": "I guess not...",
-        "topic": "TALK_VAMP_GUNSHOP_givesupplies",
-        "effect": {
-          "u_add_trait": "wvgsgun"
-        }
-      }
+      { "text": "I guess not...", "topic": "TALK_VAMP_GUNSHOP_givesupplies", "effect": { "u_add_trait": "wvgsgun" } }
     ]
   },
   {
     "id": "TALK_VAMP_GUNSHOP_nogunforu",
     "type": "talk_topic",
     "dynamic_line": "Tell him that we don't have any spare guns to give.",
-    "responses": [
-      {
-        "text": "Sorry...",
-        "topic": "TALK_VAMP_GUNSHOP_givesupplies",
-        "effect": {
-          "u_add_trait": "wvgsgun"
-        }
-      }
-    ]
+    "responses": [ { "text": "Sorry...", "topic": "TALK_VAMP_GUNSHOP_givesupplies", "effect": { "u_add_trait": "wvgsgun" } } ]
   }
 ]

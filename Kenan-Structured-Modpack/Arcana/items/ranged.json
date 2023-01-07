@@ -73,7 +73,7 @@
     "color": "red",
     "ammo": "essence_blood_type",
     "skill": "magic",
-    "range": 15,
+    "range": 20,
     "ranged_damage": { "damage_type": "heat", "amount": 20, "armor_penetration": 3 },
     "dispersion": 250,
     "durability": 10,
@@ -108,8 +108,67 @@
       "NONCONDUCTIVE",
       "NO_SALVAGE",
       "MAGIC_FOCUS",
-      "TRADER_KEEP_EQUIPPED"
+      "TRADER_KEEP_EQUIPPED",
+      "SHEATH_SPEAR"
     ]
+  },
+  {
+    "id": "shrike_misericorde_folded",
+    "looks_like": "pistol_flintlock",
+    "type": "GUN",
+    "category": "weapons",
+    "reload_noise_volume": 10,
+    "name": { "str": "shrike's misericorde (pistol)", "str_pl": "shrike's misericordes (pistol)" },
+    "description": "An ornate silver weapon combining two flintlock barrels with a thin blade.  It's folded into its more compact pistol form, allowing it to be loaded and fired.  Its shots are imbued with a deathly chill.  The damage it adds to shots can ignore mundane armor, but robots and certain otherworldly monsters will only suffer the bullet's regular damage.  Activate it to revert back to blade form, making it better suited for melee but preventing you from being able to load or fire it.",
+    "weight": "2 kg",
+    "volume": "500 ml",
+    "longest_side": "36 cm",
+    "price": "1000 USD",
+    "price_postapoc": "50 USD",
+    "to_hit": -1,
+    "bashing": 12,
+    "cutting": 8,
+    "material": [ "iron", "silver" ],
+    "symbol": "(",
+    "color": "light_gray",
+    "ammo": [ "flintlock" ],
+    "skill": "pistol",
+    "range": 2,
+    "ranged_damage": { "damage_type": "cold", "amount": 10 },
+    "dispersion": 700,
+    "durability": 6,
+    "blackpowder_tolerance": 96,
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "flintlock": 2 } } ],
+    "reload": 700,
+    "modes": [ [ "DEFAULT", "single", 1 ], [ "DOUBLE", "double", 2 ] ],
+    "techniques": [ "WBLOCK_1" ],
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 9 ] ],
+    "flags": [ "STAB", "NEVER_JAMS", "DURABLE_MELEE", "NO_SALVAGE", "PRIMITIVE_RANGED_WEAPON", "RELOAD_ONE" ],
+    "ammo_effects": [ "ARCANA_SHRIKE_COLD_BULLET" ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [
+            {
+              "id": "arcana_react_shrike_misericorde_chill",
+              "once_in": 5,
+              "message": "An unearthly chill radiates from your weapon.",
+              "npc_message": "An unearthly chill radiates from %1$s's weapon."
+            }
+          ]
+        }
+      ]
+    },
+    "use_action": {
+      "menu_text": "Unfold into blade mode",
+      "type": "transform",
+      "target": "shrike_misericorde",
+      "msg": "The weapon splinters and unfurls, reforming into its blade form.",
+      "need_wielding": true,
+      "ammo_scale": 0
+    }
   },
   {
     "id": "ethereal_crossbow",
@@ -130,7 +189,7 @@
     "color": "green",
     "ammo": "essence_dull_type",
     "skill": "rifle",
-    "range": 25,
+    "range": 30,
     "ranged_damage": { "damage_type": "stab", "amount": 40, "armor_penetration": 40 },
     "dispersion": 150,
     "durability": 6,
@@ -160,7 +219,7 @@
     "color": "green",
     "ammo": "essence_dull_type",
     "skill": "pistol",
-    "range": 12,
+    "range": 15,
     "ranged_damage": { "damage_type": "stab", "amount": 40, "armor_penetration": 20 },
     "dispersion": 300,
     "durability": 6,
@@ -191,7 +250,7 @@
     "color": "green",
     "ammo": "essence_dull_type",
     "skill": "rifle",
-    "range": 50,
+    "range": 60,
     "ranged_damage": { "damage_type": "stab", "amount": 100, "armor_penetration": 80 },
     "dispersion": 75,
     "durability": 6,
@@ -223,7 +282,7 @@
     "color": "yellow",
     "ammo": "essence_pure_type",
     "skill": "magic",
-    "range": 40,
+    "range": 50,
     "//": "High as that amount is, remember this is equivalent to 10 essence a shot.",
     "ranged_damage": { "damage_type": "heat", "amount": 300, "armor_penetration": 25 },
     "dispersion": 200,
@@ -233,7 +292,7 @@
     "clip_size": 1,
     "reload": 200,
     "use_action": { "type": "cast_spell", "spell_id": "arcana_item_sparks", "no_fail": true, "level": 0, "need_wielding": true },
-    "ammo_effects": [ "NAPALM_CLAW", "FIRE_CORRUPTION" ],
+    "ammo_effects": [ "NAPALM_CLAW" ],
     "relic_data": {
       "passive_effects": [
         {
@@ -278,7 +337,7 @@
     "color": "yellow",
     "ammo": "essence_blood_type",
     "skill": "magic",
-    "range": 20,
+    "range": 40,
     "ranged_damage": { "damage_type": "acid", "amount": 30, "armor_penetration": 10 },
     "dispersion": 250,
     "durability": 10,
@@ -301,7 +360,7 @@
         }
       ]
     },
-    "ammo_effects": [ "ACIDBOMB", "TOXICGAS" ],
+    "ammo_effects": [ "ACIDBOMB", "TOXICGAS", "ARCANA_BANE_FUNG", "ARCANA_BANE_NUKE", "ARCANA_BANE_TEAR" ],
     "techniques": [ "WBLOCK_1", "RAPID" ],
     "flags": [
       "UNBREAKABLE_MELEE",
@@ -310,7 +369,8 @@
       "NONCONDUCTIVE",
       "NO_SALVAGE",
       "MAGIC_FOCUS",
-      "TRADER_KEEP_EQUIPPED"
+      "TRADER_KEEP_EQUIPPED",
+      "SHEATH_SPEAR"
     ]
   },
   {
@@ -319,7 +379,7 @@
     "type": "GUN",
     "reload_noise_volume": 10,
     "name": { "str": "electrothermal arc cannon" },
-    "description": "An advanced, though somewhat bulky, energy weapon exploiting exotic phenomenon.  Fires an anomalous bolt of energy that can jump from target to target, generating an electrothermal effect that leaves burning plasma in its erratic wake.  Inefficient and indiscriminate, but highly destructive if used in a target-rich environment.",
+    "description": "An advanced, though somewhat bulky, energy weapon exploiting exotic phenomenon.  Fires an anomalous bolt of energy that can jump from target to target, generating an electrothermal effect that leaves burning plasma and explosive bursts of electricity in its wake.  Highly indiscriminate, but equally destructive if used in a target-rich environment.",
     "weight": "5 kg",
     "volume": "3500 ml",
     "longest_side": "100 cm",
@@ -331,7 +391,8 @@
     "symbol": "(",
     "color": "yellow",
     "skill": "rifle",
-    "range": 40,
+    "range": 45,
+    "//": "Base impact damage is only ~42%, but ammo effects include an explosion that bumps expected damage back up to the standard 50% of UPS draw.",
     "ranged_damage": { "damage_type": "heat", "amount": 50 },
     "dispersion": 60,
     "durability": 7,
@@ -359,12 +420,11 @@
     "symbol": "(",
     "color": "light_blue",
     "name": { "str": "rift focus cannon" },
-    "description": "A bulky, heavy-duty experimental rifle with peculiar golden inlays along the length of its body.  Exploits otherworldly energy to tear a rift in reality, focusing it into a highly-destructive beam that risks tearing wounds in The Veil with each shot.  While its impact creates an EMP effect, the beam is utterly useless against robotic targets, and some anomalous monsters may also be immune to it.  Consuming UPS power and crystallized essence to fire makes its overall power draw considerable, but its overwhelming power makes it relatively more efficient than most energy weapons.",
+    "description": "A bulky, heavy-duty experimental rifle with peculiar golden inlays along the length of its body.  Exploits otherworldly energy to tear a rift in reality, focusing it into a highly-destructive beam that risks carving wounds in The Veil with each shot.  While its impact creates an EMP effect, the beam itself is utterly useless against robotic targets, and some anomalous monsters may also be immune to it.  Consuming crystallized essence to fire makes its overall energy usage considerable, but its overwhelming power makes it more efficient than most energy weapons.",
     "price": "1800 USD",
     "price_postapoc": "80 USD",
     "material": [ "steel", "plastic" ],
     "flags": [ "NEVER_JAMS", "NON-FOULING", "NEEDS_NO_LUBE" ],
-    "ups_charges": 100,
     "ammo_effects": [
       "LASER",
       "PLASMA_BUBBLE",
@@ -381,8 +441,8 @@
     "longest_side": "120 cm",
     "bashing": 14,
     "to_hit": -1,
-    "range": 45,
-    "ranged_damage": { "damage_type": "cold", "amount": 750 },
+    "range": 60,
+    "ranged_damage": { "damage_type": "cold", "amount": 800 },
     "loudness": 18,
     "dispersion": 20,
     "durability": 7,
@@ -492,7 +552,7 @@
     "looks_like": "v29",
     "color": "magenta",
     "skill": "pistol",
-    "range": 20,
+    "range": 30,
     "ranged_damage": { "damage_type": "heat", "amount": 30 },
     "dispersion": 90,
     "durability": 10,
@@ -512,29 +572,14 @@
     "looks_like": "v29",
     "color": "magenta",
     "skill": "pistol",
-    "range": 25,
+    "range": 40,
     "ranged_damage": { "damage_type": "cold", "amount": 40 },
     "dispersion": 30,
     "durability": 10,
     "loudness": 9,
     "modes": [ [ "DEFAULT", "semi-auto", 1 ], [ "BURST", "burst", 3 ] ],
-    "ammo_effects": [ "LASER", "BLINDS_EYES", "BEANBAG", "AMMO_RIFT_FOCUS_SHADOWS" ],
+    "ammo_effects": [ "LASER", "BLINDS_EYES", "BEANBAG", "AMMO_RIFT_FOCUS_SHADOWS", "AMMO_RIFT_FOCUS_TINDALOS" ],
     "flags": [ "NEVER_JAMS", "TRADER_AVOID", "USES_BIONIC_POWER" ]
-  },
-  {
-    "id": "arcana_ench_mech_laser",
-    "type": "enchantment",
-    "has": "WIELD",
-    "condition": "ALWAYS",
-    "values": [
-      { "value": "ARMOR_BASH", "add": -24 },
-      { "value": "ARMOR_CUT", "add": -32 },
-      { "value": "ARMOR_STAB", "add": -32 },
-      { "value": "ARMOR_BULLET", "add": -32 },
-      { "value": "ARMOR_HEAT", "add": -16 },
-      { "value": "ARMOR_ACID", "add": -16 }
-    ],
-    "ench_effects": [ { "effect": "arcana_mech_laser_immunities", "intensity": 1 } ]
   },
   {
     "id": "arcana_mech_laser",
@@ -542,7 +587,7 @@
     "type": "GUN",
     "reload_noise_volume": 2,
     "name": { "str": "rift focus weapon system" },
-    "description": "This is the integral weapon system for the Anomaly Recon Mech, focusing a small-scale hole in reality into a powerful beam.  Potent but useless against robots and some anomalous monsters.  Activating this weapon will let you launch a dazzling ghostly flare, illuminating an area in exchange for draining fatigue.  This flare will inflict similar forms of supernatural harm on anything caught in its radius.",
+    "description": "This is the integral weapon system for the Anomaly Recon Mech, focusing a small-scale hole in reality into a powerful beam.  Potent but useless against robots and some anomalous monsters, and carries the risk of opening temporary holes in reality.  Activating this weapon will let you launch a dazzling ghostly flare, illuminating an area in exchange for draining fatigue.  This flare will inflict similar forms of supernatural harm on anything caught in its radius.",
     "weight": "12500 g",
     "volume": "5500 ml",
     "price": "95000 USD",
@@ -553,16 +598,32 @@
     "symbol": "(",
     "color": "blue",
     "skill": "rifle",
-    "range": 45,
-    "ranged_damage": { "damage_type": "cold", "amount": 120 },
+    "range": 60,
+    "ranged_damage": { "damage_type": "cold", "amount": 160 },
     "dispersion": 15,
     "durability": 8,
     "loudness": 1,
-    "ups_charges": 200,
+    "ups_charges": 240,
     "reload": 0,
-    "relic_data": { "passive_effects": [ { "id": "arcana_ench_mech_laser" } ] },
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "values": [
+            { "value": "ARMOR_BASH", "add": -25 },
+            { "value": "ARMOR_CUT", "add": -35 },
+            { "value": "ARMOR_STAB", "add": -30 },
+            { "value": "ARMOR_BULLET", "add": -40 },
+            { "value": "ARMOR_HEAT", "add": -20 },
+            { "value": "ARMOR_ACID", "add": -20 }
+          ],
+          "ench_effects": [ { "effect": "arcana_mech_laser_immunities", "intensity": 1 } ]
+        }
+      ]
+    },
     "use_action": { "type": "cast_spell", "spell_id": "arcana_item_mech_flare", "no_fail": true, "level": 0, "need_wielding": true },
-    "ammo_effects": [ "LASER", "PLASMA_BUBBLE", "BLINDS_EYES", "BEANBAG", "AMMO_RIFT_FOCUS_SHADOWS" ],
+    "ammo_effects": [ "LASER", "PLASMA_BUBBLE", "BLINDS_EYES", "BEANBAG", "AMMO_RIFT_FOCUS_SHADOWS", "AMMO_RIFT_FOCUS_TINDALOS" ],
     "flags": [
       "NO_UNLOAD",
       "NEVER_JAMS",

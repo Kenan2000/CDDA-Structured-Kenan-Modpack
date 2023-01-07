@@ -14,7 +14,7 @@
     "name": { "str": "silver glyph" },
     "description": "A silver emblem resembling a 16-pointed star in a circle.  You feel as though it could be a powerful arcane device, but there is no magic in it.  Yet.",
     "weight": "285 g",
-    "volume": "250 ml",
+    "volume": "100 ml",
     "price": "80 USD",
     "price_postapoc": "8 USD",
     "to_hit": -3,
@@ -55,7 +55,7 @@
     "techniques": [ "PRECISE" ],
     "volume": "500 ml",
     "cutting": 10,
-    "flags": [ "SPEAR", "SHEATH_KNIFE" ],
+    "flags": [ "SPEAR", "SHEATH_KNIFE", "NO_SALVAGE" ],
     "price_postapoc": "5 USD"
   },
   {
@@ -195,7 +195,7 @@
     "description": "A mangled spike of woven, fused-together bones.  It might be useful, or it could be made into a trophy of some sort.",
     "to_hit": -1,
     "cutting": 8,
-    "flags": [ "SPEAR" ],
+    "flags": [ "SPEAR", "NO_SALVAGE" ],
     "material": [ "bone", "hflesh" ],
     "volume": "250 ml",
     "price_postapoc": "5 USD"
@@ -210,6 +210,7 @@
     "//": "Be glad I didn't name it gracked knucklebones for pun value.",
     "name": { "str": "cracked knucklebones", "str_pl": "cracked knucklebones" },
     "description": "A few splintered chunks of finger bones from some sort of monstrous creature, torn away and stripped of flesh from the force of its unnatural death throes.  It might be useful, or it could be made into a trophy of some sort.",
+    "flags": [ "NO_SALVAGE" ],
     "price_postapoc": "5 USD",
     "material": [ "bone" ],
     "weight": "225 g",
@@ -226,6 +227,7 @@
     "name": { "str": "acrid fragment" },
     "description": "An discolored, leathery piece of hardened tissue broken off from an otherworldly monster, like a massive shed scale.  It might be useful, or it could be made into a trophy of some sort.",
     "price_postapoc": "5 USD",
+    "flags": [ "NO_SALVAGE" ],
     "material": [ "wyrmskin" ],
     "weight": "120 g",
     "volume": "250 ml",
@@ -247,7 +249,7 @@
     "techniques": [ "PRECISE", "RAPID" ],
     "volume": "500 ml",
     "cutting": 8,
-    "flags": [ "SPEAR", "SHEATH_KNIFE" ],
+    "flags": [ "SPEAR", "SHEATH_KNIFE", "NO_SALVAGE" ],
     "price_postapoc": "5 USD"
   },
   {
@@ -476,5 +478,44 @@
     "copy-from": "AID_abstract",
     "name": { "str_sp": "Life Sign Suppression CBM installation data" },
     "description": "Precise step-by-step instructions and other required data for installation of Life Sign Suppression CBM, stored on a data card of proprietary form-factor, designed to be used extensively by an Autodoc, and allowing bionic installation with minimal failure chance.  Integrated security subroutine renders it unusable after installation."
+  },
+  {
+    "id": "AID_bio_kinetic_amplifier",
+    "type": "GENERIC",
+    "copy-from": "AID_abstract",
+    "name": { "str_sp": "Kinetic Amplifier CBM CBM installation data" },
+    "description": "Precise step-by-step instructions and other required data for installation of Kinetic Amplifier CBM CBM, stored on a data card of proprietary form-factor, designed to be used extensively by an Autodoc, and allowing bionic installation with minimal failure chance.  Integrated security subroutine renders it unusable after installation."
+  },
+  {
+    "type": "GENERIC",
+    "category": "weapons",
+    "id": "bio_kinetic_amplifier_weapon",
+    "name": { "str_sp": "kinetic amplifier" },
+    "description": "A band of steel slid into place over your knuckles, etched with strange markings.  When used as an unarmed weapon, it can give your strikes the ability to send victims flying, with amplified damage and armor penetration.  Its impacts have a chance of letting loose a blinding flashbang effect, making this weapon a double-edged sword without protection.",
+    "color": "light_gray",
+    "symbol": "{",
+    "material": [ "steel" ],
+    "volume": "250 ml",
+    "weight": "300 g",
+    "bashing": 24,
+    "flags": [ "UNARMED_WEAPON", "BIONIC_WEAPON", "UNBREAKABLE_MELEE", "TRADER_AVOID" ],
+    "qualities": [ [ "HAMMER", 1 ] ],
+    "techniques": [ "WBLOCK_1", "tec_weapon_kinetic_knockback" ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [
+            {
+              "id": "arcana_react_kinetic_amplifier_flashbang",
+              "once_in": 10,
+              "message": "Your kinetic resonates with a blinding flash and thunderous sound!",
+              "npc_message": "%1$s suddenly gives off a blinding flash and thunderous sound!"
+            }
+          ]
+        }
+      ]
+    }
   }
 ]

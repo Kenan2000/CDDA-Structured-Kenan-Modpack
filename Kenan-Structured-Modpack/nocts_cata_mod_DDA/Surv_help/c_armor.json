@@ -70,6 +70,7 @@
     "warmth": 25,
     "material_thickness": 4,
     "environmental_protection": 15,
+    "valid_mods": [ "steel_padded" ],
     "use_action": { "type": "holster", "holster_prompt": "Sheath knife/sword", "holster_msg": "You sheath your %s" },
     "flags": [
       "VARSIZE",
@@ -136,6 +137,7 @@
     "warmth": 25,
     "material_thickness": 5,
     "environmental_protection": 15,
+    "valid_mods": [ "steel_padded" ],
     "use_action": { "type": "holster", "holster_prompt": "Sheath knife/sword", "holster_msg": "You sheath your %s" },
     "flags": [
       "VARSIZE",
@@ -243,7 +245,7 @@
     "id": "gloves_plate_surv",
     "copy-from": "gloves_plate",
     "type": "ARMOR",
-    "name": { "str": "pair of survivor gauntlets", "str_pl": "pairs of survivor gauntlets" },
+    "name": { "str": "pair of survivor armored gauntlets", "str_pl": "pairs of survivor armored gauntlets" },
     "description": "A heavy set of medieval gauntlets, modified with kevlar reinforcements to increase protection from the elements.",
     "weight": "1080 g",
     "price": "500 USD",
@@ -259,7 +261,7 @@
     "id": "boots_plate_surv",
     "copy-from": "boots_plate",
     "type": "ARMOR",
-    "name": { "str": "pair of survivor sabatons", "str_pl": "pairs of survivor sabatons" },
+    "name": { "str": "pair of survivor armored boots", "str_pl": "pairs of survivor armored boots" },
     "description": "A heavy set of armor plated boots, modified with kevlar to better protect from the elements.",
     "weight": "2080 g",
     "price": "600 USD",
@@ -316,15 +318,6 @@
     "flags": [ "TRADER_AVOID", "NO_SALVAGE" ]
   },
   {
-    "id": "c_stealth_cloak",
-    "//": "Reinstated for use because it turns out ench_effects called directly from relics is broken in DDA.",
-    "type": "enchantment",
-    "has": "WORN",
-    "condition": "ALWAYS",
-    "values": [ { "value": "SPEED", "add": -20 }, { "value": "STRENGTH", "add": -4 }, { "value": "DEXTERITY", "add": -4 } ],
-    "ench_effects": [ { "effect": "invisibility", "intensity": 1 } ]
-  },
-  {
     "id": "acs_74_stealth_cloak_on",
     "type": "TOOL_ARMOR",
     "name": { "str": "ACS-74 stealth cloak" },
@@ -342,7 +335,16 @@
     "warmth": 15,
     "material_thickness": 1,
     "environmental_protection": 4,
-    "relic_data": { "passive_effects": [ { "id": "c_stealth_cloak" } ] },
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WORN",
+          "condition": "ALWAYS",
+          "values": [ { "value": "SPEED", "add": -20 }, { "value": "STRENGTH", "add": -4 }, { "value": "DEXTERITY", "add": -4 } ],
+          "ench_effects": [ { "effect": "invisibility", "intensity": 1 } ]
+        }
+      ]
+    },
     "flags": [ "OVERSIZE", "HOOD", "WATERPROOF", "OUTER", "VARSIZE", "PADDED" ],
     "armor": [ { "encumbrance": 15, "coverage": 75, "covers": [ "leg_l", "leg_r", "torso", "arm_l", "arm_r", "head" ] } ]
   },
@@ -639,6 +641,7 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "house_coat",
+    "repairs_like": "house_coat",
     "color": "blue",
     "warmth": 20,
     "material_thickness": 2,
@@ -678,6 +681,7 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "bra",
+    "repairs_like": "bra",
     "color": "white",
     "warmth": 5,
     "material_thickness": 2,
@@ -696,6 +700,7 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "panties",
+    "repairs_like": "panties",
     "color": "white",
     "warmth": 5,
     "material_thickness": 1,
@@ -714,6 +719,7 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "briefs",
+    "repairs_like": "briefs",
     "color": "white",
     "warmth": 5,
     "material_thickness": 1,
@@ -732,6 +738,7 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "boxer_shorts",
+    "repairs_like": "boxer_shorts",
     "color": "light_gray",
     "warmth": 5,
     "material_thickness": 1,
@@ -750,6 +757,7 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "boxer_briefs",
+    "repairs_like": "boxer_briefs",
     "color": "light_gray",
     "warmth": 5,
     "material_thickness": 1,
@@ -804,6 +812,7 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "bikini_bottom",
+    "repairs_like": "bikini_bottom",
     "color": "white",
     "warmth": 5,
     "material_thickness": 1,
@@ -822,6 +831,7 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "skirt",
+    "repairs_like": "jeans",
     "color": "dark_gray",
     "warmth": 5,
     "material_thickness": 1,
@@ -840,10 +850,21 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "nanoskirt",
+    "repairs_like": "jeans",
     "color": "pink",
     "material_thickness": 1,
     "flags": [ "VARSIZE", "FANCY" ],
     "armor": [ { "encumbrance": 0, "coverage": 7, "covers": [ "leg_l", "leg_r" ] } ]
+  },
+  {
+    "type": "mutation",
+    "id": "C_MIGO_HEAT_BONUS",
+    "name": { "str": "Carapace Armor Cooling" },
+    "points": 99,
+    "valid": false,
+    "description": "This is used to make salvaged carapace armor provide further cooling if overheating.",
+    "player_display": false,
+    "bodytemp_modifiers": [ -1000, 0 ]
   },
   {
     "id": "c_mi_go_carapace_salvaged",
@@ -853,8 +874,8 @@
     "symbol": "[",
     "color": "green",
     "name": { "str": "salvaged carapace armor" },
-    "description": "A vaguely human-shaped shell of alien sinew and steel support, covered in armor plates made of resin.  Effectively mutilated to fit a human (or mutant) wearer, somehow it's still functional, almost alive in fact.  Activating it will reduce the suit's encumbrance, enhance strength and dexterity, protect the wearer from toxic gas, serve as a rebreather, enhance stamina and carry capacity, and provide some protection from outside temperature.  It seems to recharge from sunlight, and being active will also gradually fatigue the user and affect healthiness, plus render them more vulnerable to electric shocks.",
-    "flags": [ "OVERSIZE", "STURDY", "OUTER", "PADDED", "SWIM_GOGGLES", "SUN_GLASSES" ],
+    "description": "A vaguely human-shaped second skin of alien sinew and steel support, covered in armor plates made of resin.  Effectively mutilated to fit a human (or mutant) wearer, somehow it's still functional, almost alive in fact.  Activating it will reduce the suit's encumbrance, enhance strength and dexterity, protect the wearer from toxic gas, serve as a rebreather, enhance stamina and carry capacity, and provide some protection from outside temperature.  It seems to recharge from sunlight, and being active will also gradually fatigue the user and affect healthiness, plus render them more vulnerable to electric shocks.",
+    "flags": [ "OVERSIZE", "STURDY", "SKINTIGHT", "PADDED", "SWIM_GOGGLES", "SUN_GLASSES", "ONLY_ONE" ],
     "price_postapoc": "80 USD",
     "material": [ "alien_resin", "flesh", "steel" ],
     "weight": "20 kg",
@@ -881,9 +902,12 @@
             { "value": "STRENGTH", "add": 2 },
             { "value": "DEXTERITY", "add": 1 },
             { "value": "ARMOR_ELEC", "multiply": 0.5 },
-            { "value": "CARRY_WEIGHT", "multiply": 1.0 }
+            { "value": "CARRY_WEIGHT", "multiply": 1.5 },
+            { "value": "CLIMATE_CONTROL_HEAT", "add": 50 },
+            { "value": "CLIMATE_CONTROL_CHILL", "add": 50 }
           ],
-          "ench_effects": [ { "effect": "c_mi_go_carapace_stamina", "intensity": 1 } ]
+          "ench_effects": [ { "effect": "c_mi_go_carapace_stamina", "intensity": 1 } ],
+          "mutations": [ "C_MIGO_HEAT_BONUS" ]
         }
       ]
     },
@@ -909,10 +933,12 @@
     "use_action": {
       "target": "c_mi_go_carapace_salvaged",
       "msg": "The suit's sinews go slack, releasing you from its grasp.",
-      "type": "transform"
+      "type": "transform",
+      "ammo_scale": 0
     },
-    "extend": { "flags": [ "WATERPROOF", "RAINPROOF", "CLIMATE_CONTROL", "GAS_PROOF", "REBREATHER", "NO_TAKEOFF" ] },
+    "extend": { "flags": [ "WATERPROOF", "RAINPROOF", "GAS_PROOF", "REBREATHER", "NO_TAKEOFF" ] },
     "material": [ "alien_resin", "flesh", "steel" ],
+    "warmth": 0,
     "material_thickness": 4,
     "environmental_protection": 15,
     "armor": [
@@ -929,8 +955,8 @@
     "symbol": "[",
     "color": "green",
     "name": { "str": "set of salvaged exo-wings", "str_pl": "sets of salvaged exo-wings" },
-    "description": "A set of thin, green iridescent wings, steel wires and joints meshed with thick alien nervous cords.  Salvaged using pre-cataclysm research into other living weaponry, it's been heavily altered to fit a human (or mutant) wearer.  Activating it will grant immunity to falling damage and vastly speed up movement.  It seems to recharge from sunlight, and being active will also gradually fatigue the user.",
-    "flags": [ "OVERSIZE", "STURDY", "BELTED", "PADDED" ],
+    "description": "A harness from which jut thin, green iridescent wings, steel wires and joints meshed with thick alien nervous cords.  Salvaged using pre-cataclysm research into other living weaponry, it's been heavily altered to fit a human (or mutant) wearer.  Activating it will grant immunity to falling damage and vastly speed up movement.  It seems to recharge from sunlight, and being active will also gradually fatigue the user.",
+    "flags": [ "OVERSIZE", "STURDY", "BELTED", "PADDED", "ONLY_ONE" ],
     "price_postapoc": "40 USD",
     "material": [ "alien_resin", "flesh", "steel" ],
     "weight": "2 kg",
@@ -959,7 +985,7 @@
       ]
     },
     "material_thickness": 2,
-    "armor": [ { "encumbrance": 10, "coverage": 40, "covers": [ "torso" ] } ]
+    "armor": [ { "encumbrance": 10, "coverage": 40, "covers": [ "torso" ], "specifically_covers": [ "torso_waist" ] } ]
   },
   {
     "id": "c_mi_go_wings_salvaged_on",
@@ -969,9 +995,14 @@
     "description": "A set of thin, green iridescent wings, steel wires and joints meshed with thick alien nervous cords.  They are currently buzzing with life, greatly speeding up movement and enhancing dodge as well as granting immunity to falling damage, in exchange for increased fatigue gain.",
     "turns_per_charge": 75,
     "revert_to": "c_mi_go_wings_salvaged",
-    "use_action": { "target": "c_mi_go_wings_salvaged", "msg": "The exo-wings go limp as they shut down.", "type": "transform" },
+    "use_action": {
+      "target": "c_mi_go_wings_salvaged",
+      "msg": "The exo-wings go limp as they shut down.",
+      "type": "transform",
+      "ammo_scale": 0
+    },
     "extend": { "flags": [ "NO_TAKEOFF" ] },
-    "armor": [ { "encumbrance": 0, "coverage": 40, "covers": [ "torso" ] } ]
+    "armor": [ { "encumbrance": 0, "coverage": 40, "covers": [ "torso" ], "specifically_covers": [ "torso_waist" ] } ]
   },
   {
     "id": "cowboy_hat_surv",
@@ -984,6 +1015,7 @@
     "material": [ "leather", "cotton", "kevlar" ],
     "warmth": 10,
     "material_thickness": 4,
+    "valid_mods": [ "steel_padded" ],
     "pocket_data": [
       {
         "ammo_restriction": {
@@ -1121,7 +1153,7 @@
     "color": "dark_gray",
     "looks_like": "rm13_armor",
     "name": { "str": "makeshift power armor" },
-    "description": "An incredibly heavy suit of steel plates covering a network of hydraulics, driven by pieces of a stripped-down diesel engine jury-rigged to assist the wearer's movements.  It's cumbersome but provides considerable protection aside from gaps in the joints and vision slits, and the servos offer quite a bit of power when active.",
+    "description": "An incredibly heavy suit of steel plates covering a network of hydraulics, driven by pieces of a stripped-down diesel engine jury-rigged to assist the wearer's movements.  When running it will increase your strength and make it less encumbering to wear, but the motors make things warm and make stealth harder.",
     "flags": [ "OVERSIZE", "STURDY", "OUTER", "ALLOWS_NATURAL_ATTACKS", "PADDED" ],
     "price": "500 USD",
     "price_postapoc": "50 USD",
@@ -1129,13 +1161,13 @@
     "weight": "50 kg",
     "volume": "40 L",
     "to_hit": -3,
-    "ammo": [ "diesel", "lamp_oil", "motor_oil", "jp8" ],
+    "ammo": [ "diesel", "lamp_oil", "crude_lamp_oil", "motor_oil", "jp8" ],
     "pocket_data": [
       {
         "pocket_type": "MAGAZINE",
         "rigid": true,
         "watertight": true,
-        "ammo_restriction": { "diesel": 2000, "lamp_oil": 2000, "motor_oil": 2000, "jp8": 2000 }
+        "ammo_restriction": { "diesel": 2000, "lamp_oil": 2000, "crude_lamp_oil": 2000, "motor_oil": 2000, "jp8": 2000 }
       }
     ],
     "relic_data": {
@@ -1143,7 +1175,7 @@
         {
           "has": "WORN",
           "condition": "ACTIVE",
-          "values": [ { "value": "STRENGTH", "add": 4 }, { "value": "CARRY_WEIGHT", "multiply": 1.5 } ],
+          "values": [ { "value": "STRENGTH", "add": 4 }, { "value": "CARRY_WEIGHT", "multiply": 2.0 } ],
           "mutations": [ "C_MOVE_NOISE" ]
         }
       ]
@@ -1184,7 +1216,8 @@
       "target": "c_power_armor_surv",
       "msg": "You shut the makeshift power armor off.",
       "menu_text": "Turn off",
-      "type": "transform"
+      "type": "transform",
+      "ammo_scale": 0
     },
     "warmth": 45,
     "armor": [

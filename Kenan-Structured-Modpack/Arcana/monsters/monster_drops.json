@@ -112,6 +112,36 @@
   },
   {
     "type": "item_group",
+    "id": "mon_spawn_raptor_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "bone_twisted", "prob": 5 }, { "item": "essence_blood", "count": [ 2, 4 ], "prob": 10 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_spawn_raptor_shady_death_drops",
+    "subtype": "collection",
+    "entries": [
+      { "distribution": [ { "item": "shadow_gem", "prob": 50 }, { "item": "bone_twisted", "prob": 50 } ], "prob": 5 },
+      { "item": "essence_blood", "count": [ 2, 4 ], "prob": 10 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_spawn_raptor_unstable_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "bone_twisted", "prob": 5 }, { "item": "essence_blood", "count": [ 2, 4 ], "prob": 10 } ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_spawn_raptor_electric_death_drops",
+    "subtype": "collection",
+    "entries": [
+      { "distribution": [ { "item": "vortex_shard", "prob": 50 }, { "item": "bone_twisted", "prob": 50 } ], "prob": 5 },
+      { "item": "essence_blood", "count": [ 2, 4 ], "prob": 10 }
+    ]
+  },
+  {
+    "type": "item_group",
     "id": "mon_zoose_thorny_death_drops",
     "subtype": "collection",
     "entries": [
@@ -498,9 +528,10 @@
   },
   {
     "type": "item_group",
-    "id": "mon_blob_small_death_drops",
+    "id": "mon_blob_small_deathdrops",
+    "copy-from": "mon_blob_small_deathdrops",
     "subtype": "collection",
-    "entries": [ { "item": "blob_gem", "prob": 5 }, { "item": "essence", "prob": 5, "count": [ 1, 3 ] } ]
+    "extend": { "entries": [ { "item": "blob_gem", "prob": 5 }, { "item": "essence", "prob": 5, "count": [ 1, 3 ] } ] }
   },
   {
     "type": "item_group",
@@ -778,7 +809,11 @@
     "type": "item_group",
     "id": "mon_gelatin_death_drops",
     "subtype": "collection",
-    "entries": [ { "item": "blob_gem", "prob": 50 }, { "item": "essence", "prob": 50, "count": [ 1, 3 ] } ]
+    "entries": [
+      { "item": "slime_sample", "count-min": 1, "count-max": 3 },
+      { "item": "blob_gem", "prob": 50 },
+      { "item": "essence", "prob": 50, "count": [ 1, 3 ] }
+    ]
   },
   {
     "type": "item_group",
@@ -2278,5 +2313,46 @@
       { "group": "sanguine_cult_books_postapoc", "prob": 25 },
       { "item": "bloodscourge", "prob": 75, "damage": [ 1, 4 ] }
     ]
+  },
+  {
+    "id": "mon_archunk_weak_death_drops",
+    "type": "item_group",
+    "subtype": "collection",
+    "entries": [ { "group": "ps_artifact_weak" }, { "item": "essence", "count": [ 1, 3 ] } ]
+  },
+  {
+    "id": "mon_archunk_medium_death_drops",
+    "type": "item_group",
+    "subtype": "collection",
+    "entries": [ { "group": "ps_artifact_medium" }, { "item": "essence", "count": [ 4, 6 ] } ]
+  },
+  {
+    "id": "mon_archunk_strong_death_drops",
+    "type": "item_group",
+    "subtype": "collection",
+    "entries": [
+      { "group": "ps_artifact_strong" },
+      {
+        "distribution": [ { "item": "essence", "prob": 75, "count": [ 8, 12 ] }, { "item": "essence_pure", "prob": 25 } ]
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_hallucinator_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "monster_tear", "prob": 25 }, { "item": "essence", "prob": 50, "count": [ 1, 3 ] } ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_guilt_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "shadow_gem", "prob": 25 }, { "item": "essence", "prob": 50, "count": [ 1, 3 ] } ]
+  },
+  {
+    "type": "item_group",
+    "id": "mon_sloth_death_drops",
+    "subtype": "collection",
+    "entries": [ { "item": "shadow_gem", "prob": 25 }, { "item": "essence", "prob": 50, "count": [ 1, 3 ] } ]
   }
 ]

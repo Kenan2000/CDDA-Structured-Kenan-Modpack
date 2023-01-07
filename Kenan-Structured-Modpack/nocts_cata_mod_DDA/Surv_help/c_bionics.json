@@ -53,8 +53,8 @@
     "techniques": [ "RAPID", "WBLOCK_2" ],
     "volume": "2250 ml",
     "cutting": 48,
-    "flags": [ "NO_UNWIELD", "NO_DROP", "UNBREAKABLE_MELEE", "TRADER_AVOID" ],
-    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 20 ] ]
+    "flags": [ "BIONIC_WEAPON", "UNBREAKABLE_MELEE", "TRADER_AVOID" ],
+    "qualities": [ [ "CUT", 2 ], [ "BUTCHER", 20 ] ]
   },
   {
     "type": "bionic",
@@ -124,12 +124,37 @@
     "occupied_bodyparts": [ [ "torso", 15 ] ],
     "encumbrance": [ [ "torso", 5 ] ],
     "fuel_options": [ "hydrogen_cell" ],
-    "fuel_capacity": 5,
     "fuel_efficiency": 0.25,
     "exothermic_power_gen": true,
     "time": 1,
     "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
-    "included_bionics": [ "bio_plasma_cell_hydrogen" ]
+    "included_bionics": [ "bio_plasma_cell_hydrogen" ],
+    "passive_pseudo_items": [ "c_internal_plasma_tank" ]
+  },
+  {
+    "id": "c_internal_plasma_tank",
+    "type": "GENERIC",
+    "category": "container",
+    "name": { "str": "internal plasma tank" },
+    "description": "Internal tank for Plasma Pulse Cell bionic.",
+    "volume": "501 ml",
+    "weight": "1 g",
+    "price": 0,
+    "material": [ "plastic" ],
+    "symbol": "(",
+    "color": "magenta",
+    "flags": [ "INTEGRATED", "UNBREAKABLE", "PERSONAL", "NO_REPAIR", "ALLOWS_NATURAL_ATTACKS", "BIONIC_FUEL_SOURCE", "TARDIS" ],
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "watertight": true,
+        "rigid": true,
+        "max_contains_volume": "1000 ml",
+        "max_item_volume": "200 ml",
+        "max_contains_weight": "1 kg",
+        "material_restriction": [ "hydrogen_cell" ]
+      }
+    ]
   },
   {
     "id": "bio_plasma_cell_hydrogen",
@@ -137,12 +162,37 @@
     "name": { "str": "Hydrogen Pulse Cell" },
     "description": "A small, advanced form of hydrogen fuel cell, designed to produce a spike of power production for cutting-edge military cybernetics.  This is the separate chamber for burning lower-pressure hydrogen, for less intense bursts of bionic energy.",
     "fuel_options": [ "c_hydrogen_gas" ],
-    "fuel_capacity": 8,
     "fuel_efficiency": 0.25,
     "exothermic_power_gen": true,
     "time": 1,
     "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
-    "included": true
+    "included": true,
+    "passive_pseudo_items": [ "c_internal_hydrogen_tank" ]
+  },
+  {
+    "id": "c_internal_hydrogen_tank",
+    "type": "GENERIC",
+    "category": "container",
+    "name": { "str": "internal hydrogen tank" },
+    "description": "Internal tank for Hydrogen Pulse Cell bionic.",
+    "volume": "501 ml",
+    "weight": "1 g",
+    "price": 0,
+    "material": [ "plastic" ],
+    "symbol": "(",
+    "color": "magenta",
+    "flags": [ "INTEGRATED", "UNBREAKABLE", "PERSONAL", "NO_REPAIR", "ALLOWS_NATURAL_ATTACKS", "BIONIC_FUEL_SOURCE", "TARDIS" ],
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "watertight": true,
+        "rigid": true,
+        "max_contains_volume": "1000 ml",
+        "max_item_volume": "200 ml",
+        "max_contains_weight": "1 kg",
+        "material_restriction": [ "c_hydrogen_gas" ]
+      }
+    ]
   },
   {
     "id": "bio_plasma_cell",

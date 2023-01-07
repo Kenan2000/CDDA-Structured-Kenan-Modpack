@@ -496,7 +496,7 @@
     "item": "arcana_radio_relay_beacon",
     "origins": [ "ORIGIN_SECONDARY" ],
     "start": {
-      "assign_mission_target": { "om_terrain": "station_radio_1", "reveal_radius": 3 },
+      "assign_mission_target": { "om_terrain": "station_radio_1", "search_range": 360, "reveal_radius": 3 },
       "update_mapgen": [
         { "mapgen_update_id": "arcana_radio_station" },
         { "om_terrain": "cf_church_1", "mapgen_update_id": "cf_church_upgrade_9_a" },
@@ -860,7 +860,7 @@
     },
     "dialogue": {
       "describe": "Seeing this is probably a bug.",
-      "offer": "I need to do something discreet for me, if you could.  The locals here are still a bit reluctant to work with us, and I can understand why.  Personally, I just want to go about my duties here as best as I'm able, and I think the best way to keep my superiors from causing trouble would be if I provided them with information that'd give them good reason to work with this place, instead of working against them.  I have something in mind that'd kill two birds with one stone, as it were.  If you can provide me with a copy of their medical text, History of Alchemy, I'll be able to better treat people here, not to mention it'll give me a bargaining chip to keep things a bit more civil between the locals and my superiors.",
+      "offer": "I need you to do something discreet for me, if you could.  The locals here are still a bit reluctant to work with us, and I can understand why.  Personally, I just want to go about my duties here as best as I'm able, and I think the best way to keep my superiors from causing trouble would be if I provided them with information that'd give them good reason to work with this place, instead of working against them.  I have something in mind that'd kill two birds with one stone, as it were.  If you can provide me with a copy of their medical text, History of Alchemy, I'll be able to better treat people here, and it'll give me a bargaining chip to keep things civil between the locals and my superiors.",
       "accepted": "Excellent.  I know this is a bit of an odd task, but it will do a lot to ease my mind.  Not to mention, as anomalous as all this is, having the opportunity to better understand what I've gotten myself into would be appreciated.",
       "rejected": "Please reconsider, I'll do what I can to repay you if you're able to handle this for me.",
       "advice": "You can see if they have a book to spare, but do try not to be overly obvious about it…",
@@ -873,7 +873,7 @@
   {
     "id": "MISSION_CF_AUX_D",
     "type": "mission_definition",
-    "name": { "str": "Find a triffid queen flower" },
+    "name": { "str": "Find a scarlet flower" },
     "description": "Obtain a red flower associated with otherworldly plant monsters, and return it to the farmhand.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 1,
@@ -994,7 +994,7 @@
     "id": "MISSION_CF_PURIFIER_1_2",
     "type": "mission_definition",
     "name": { "str": "Find Information About Project Kairos" },
-    "description": "Investigate for further information about Project Kairos, talking to others familiar with military or science facilities.  Bring any findings back to Nicholas afterward.",
+    "description": "Investigate for further information about Project Kairos, talking to others familiar with military or science facilities.  Bring any findings back to Nicholas.",
     "goal": "MGOAL_FIND_ITEM",
     "difficulty": 4,
     "value": 150000,
@@ -1005,8 +1005,8 @@
     "start": { "effect": [ { "u_spawn_item": "cf_purifier_project_data" } ] },
     "dialogue": {
       "describe": "Seeing this is probably a bug.",
-      "offer": "I'd like for you to find anyone else you think might be familiar with the military's experiments, the research labs, that sort of thing.  People who might be able to help us get a definite location out of what little information we have to go on.",
-      "accepted": "Here's a printout of all the useful information I could get out of the laptop concerning Project Kairos.  It contains a list of known Priority Sites and records of shipments between them.  We need someone who knows more about what these specific Priority Sites were up to, and ideally which of those shipments contained anomalous materials.  We might get a namedrop of the project, or just confirmation that one location in particular was getting the bulk of the anomalous items.",
+      "offer": "I'd like for you to find anyone else you think might be familiar with the military's experiments, the research labs, that sort of thing.  People who might be able to help us get a definite location out of what little information we have to go on.  If they give us any leads, I'd like you to bring whatever intel you find back here.",
+      "accepted": "Here's a printout of all the useful information I got out of the laptop concerning Project Kairos.  It contains a list of known Priority Sites and records of shipments between them.  Show this to someone who might know more about what these specific Priority Sites were up to, and ideally which of those shipments contained anomalous materials.  We might get a namedrop of the project, or just confirmation that one location in particular was getting the bulk of the anomalous items.",
       "rejected": "Come back if you change your mind.  You need to understand how close we are to a breakthrough.  All that information Sofia gathered, if we had this project's findings to go with that, we might be able to fix some of this.",
       "advice": "Some of the people at the refugee center might have contacts with the Old Guard.  I don't know if they'll be that willing to help us or not, but if they understand the direness of the situation they might be our best bet.  Otherwise, if you know of any surviving research personnel from other government labs, they might be worth talking to.",
       "inquire": "Any luck?",
@@ -1132,48 +1132,6 @@
         { "npc_add_effect": "cf_purifier_making_item", "duration": 259200 },
         { "u_spawn_item": "CF_golden_scale", "count": 20 }
       ]
-    }
-  },
-  {
-    "id": "MISSION_CF_PURIFIER_2",
-    "//": "This missions is here so that I can expand on the mission chain later on without old saves being stuck.",
-    "type": "mission_definition",
-    "name": { "str": "Placeholder Mission" },
-    "goal": "MGOAL_KILL_MONSTER",
-    "difficulty": 4,
-    "value": 150000,
-    "origins": [ "ORIGIN_SECONDARY" ],
-    "dialogue": {
-      "describe": "…",
-      "offer": "…",
-      "accepted": "…",
-      "rejected": "…",
-      "advice": "…",
-      "inquire": "…",
-      "success": "…",
-      "success_lie": "…",
-      "failure": "…"
-    }
-  },
-  {
-    "id": "MISSION_CF_SCIENTIST_1",
-    "//": "This missions is here so that I can expand on the mission chain later on without old saves being stuck.",
-    "type": "mission_definition",
-    "name": { "str": "Placeholder Mission" },
-    "goal": "MGOAL_KILL_MONSTER",
-    "difficulty": 4,
-    "value": 150000,
-    "origins": [ "ORIGIN_SECONDARY" ],
-    "dialogue": {
-      "describe": "…",
-      "offer": "…",
-      "accepted": "…",
-      "rejected": "…",
-      "advice": "…",
-      "inquire": "…",
-      "success": "…",
-      "success_lie": "…",
-      "failure": "…"
     }
   }
 ]

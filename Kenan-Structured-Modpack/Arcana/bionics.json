@@ -3,9 +3,9 @@
     "id": "bio_electrothermal_arc_projector",
     "type": "bionic",
     "name": { "str": "Electrothermal Arc Projector" },
-    "description": "Integrated into your left arm is a device capable of firing exotic bolts of energy that bounce from target to target, electrocuting and immolating them.",
+    "description": "Integrated into your left arm is a device capable of firing exotic bolts of energy that bounce from target to target, electrocuting with explosive bursts of lightning and immolating them.",
     "occupied_bodyparts": [ [ "arm_l", 4 ] ],
-    "act_cost": "75 kJ",
+    "act_cost": "80 kJ",
     "fake_weapon": "bio_electrothermal_arc_projector_gun",
     "flags": [ "BIONIC_GUN", "BIONIC_NPC_USABLE" ]
   },
@@ -13,7 +13,7 @@
     "id": "bio_rift_focus_projector",
     "type": "bionic",
     "name": { "str": "Rift Focus Projector" },
-    "description": "Integrated into your right hand is a device capable of creating small holes in reality, focusing them into beams of supernatural energy.  Reasonably potent with good range, but utterly useless against robotic targets, and some otherworldly monsters are also immune to it.",
+    "description": "Integrated into your right hand is a device capable of creating small holes in reality, focusing them into beams of supernatural energy.  Reasonably potent with good range, but utterly useless against robotic targets, and some otherworldly monsters are also immune to it.  Its shots also carry a risk of creating temporary rifts in reality.",
     "occupied_bodyparts": [ [ "hand_r", 1 ] ],
     "act_cost": "60 kJ",
     "fake_weapon": "bio_rift_focus_projector_gun",
@@ -23,38 +23,152 @@
     "id": "bio_essence_surge_cell",
     "type": "bionic",
     "name": { "str": "Surge Cell - Essence" },
-    "description": "A miniaturized reactor of exotic manufacture, with separate chambers to store and consume one of three different types of essence at the same time.  This component will draw on any stored standard essence.",
+    "description": "A miniaturized reactor of exotic manufacture, with separate chambers to store and consume one of four different types of essence at the same time.  This component will draw on any stored standard essence.",
     "occupied_bodyparts": [ [ "torso", 10 ] ],
     "fuel_options": [ "arcana_fuel_essence" ],
-    "fuel_capacity": 20,
     "fuel_efficiency": 1.0,
     "time": 1,
     "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
-    "included_bionics": [ "bio_essence_blood_surge_cell", "bio_essence_dull_surge_cell" ]
+    "included_bionics": [ "bio_essence_blood_surge_cell", "bio_essence_dull_surge_cell", "bio_essence_pure_surge_cell" ],
+    "passive_pseudo_items": [ "internal_essence_tank" ]
+  },
+  {
+    "id": "internal_essence_tank",
+    "type": "GENERIC",
+    "category": "container",
+    "name": { "str": "internal essence tank" },
+    "description": "Internal tank for Surge Cell - Essence bionic.",
+    "volume": "501 ml",
+    "weight": "1 g",
+    "price": 0,
+    "material": [ "plastic" ],
+    "symbol": "(",
+    "color": "magenta",
+    "flags": [ "INTEGRATED", "UNBREAKABLE", "PERSONAL", "NO_REPAIR", "ALLOWS_NATURAL_ATTACKS", "BIONIC_FUEL_SOURCE", "TARDIS" ],
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "watertight": true,
+        "rigid": true,
+        "max_contains_volume": "500 ml",
+        "max_item_volume": "32 ml",
+        "max_contains_weight": "1 kg",
+        "material_restriction": [ "arcana_fuel_essence" ]
+      }
+    ]
   },
   {
     "id": "bio_essence_blood_surge_cell",
     "type": "bionic",
     "name": { "str": "Surge Cell - Blood Essence" },
-    "description": "A miniaturized reactor of exotic manufacture, with separate chambers to store and consume one of three different types of essence at the same time.  This component will draw on any stored blood essence.",
+    "description": "A miniaturized reactor of exotic manufacture, with separate chambers to store and consume one of four different types of essence at the same time.  This component will draw on any stored blood essence.",
     "fuel_options": [ "arcana_fuel_essence_blood" ],
-    "fuel_capacity": 60,
     "fuel_efficiency": 1.0,
     "time": 1,
     "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
-    "included": true
+    "included": true,
+    "passive_pseudo_items": [ "internal_essence_blood_tank" ]
+  },
+  {
+    "id": "internal_essence_blood_tank",
+    "type": "GENERIC",
+    "category": "container",
+    "name": { "str": "internal blood essence tank" },
+    "description": "Internal tank for Surge Cell - Blood Essence bionic.",
+    "volume": "501 ml",
+    "weight": "1 g",
+    "price": 0,
+    "material": [ "plastic" ],
+    "symbol": "(",
+    "color": "magenta",
+    "flags": [ "INTEGRATED", "UNBREAKABLE", "PERSONAL", "NO_REPAIR", "ALLOWS_NATURAL_ATTACKS", "BIONIC_FUEL_SOURCE", "TARDIS" ],
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "watertight": true,
+        "rigid": true,
+        "max_contains_volume": "750 ml",
+        "max_item_volume": "32 ml",
+        "max_contains_weight": "1 kg",
+        "material_restriction": [ "arcana_fuel_essence_blood" ]
+      }
+    ]
   },
   {
     "id": "bio_essence_dull_surge_cell",
     "type": "bionic",
     "name": { "str": "Surge Cell - Dull Essence" },
-    "description": "A miniaturized reactor of exotic manufacture, with separate chambers to store and consume one of three different types of essence at the same time.  This component will draw on any stored dull essence.",
+    "description": "A miniaturized reactor of exotic manufacture, with separate chambers to store and consume one of four different types of essence at the same time.  This component will draw on any stored dull essence.",
     "fuel_options": [ "arcana_fuel_essence_dull" ],
     "fuel_capacity": 300,
     "fuel_efficiency": 1.0,
     "time": 1,
     "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
-    "included": true
+    "included": true,
+    "passive_pseudo_items": [ "internal_essence_dull_tank" ]
+  },
+  {
+    "id": "internal_essence_dull_tank",
+    "type": "GENERIC",
+    "category": "container",
+    "name": { "str": "internal dull essence tank" },
+    "description": "Internal tank for Surge Cell - Dull Essence bionic.",
+    "volume": "501 ml",
+    "weight": "1 g",
+    "price": 0,
+    "material": [ "plastic" ],
+    "symbol": "(",
+    "color": "magenta",
+    "flags": [ "INTEGRATED", "UNBREAKABLE", "PERSONAL", "NO_REPAIR", "ALLOWS_NATURAL_ATTACKS", "BIONIC_FUEL_SOURCE", "TARDIS" ],
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "watertight": true,
+        "rigid": true,
+        "max_contains_volume": "1500 ml",
+        "max_item_volume": "32 ml",
+        "max_contains_weight": "1 kg",
+        "material_restriction": [ "arcana_fuel_essence_dull" ]
+      }
+    ]
+  },
+  {
+    "id": "bio_essence_pure_surge_cell",
+    "type": "bionic",
+    "name": { "str": "Surge Cell - Crystallized Essence" },
+    "description": "A miniaturized reactor of exotic manufacture, with separate chambers to store and consume one of four different types of essence at the same time.  This component will draw on any stored crystallized essence.",
+    "fuel_options": [ "arcana_fuel_essence_dull" ],
+    "fuel_capacity": 300,
+    "fuel_efficiency": 1.0,
+    "time": 1,
+    "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
+    "included": true,
+    "passive_pseudo_items": [ "internal_essence_pure_tank" ]
+  },
+  {
+    "id": "internal_essence_pure_tank",
+    "type": "GENERIC",
+    "category": "container",
+    "name": { "str": "internal crystallized essence tank" },
+    "description": "Internal tank for Surge Cell - Crystallized Essence bionic.",
+    "volume": "501 ml",
+    "weight": "1 g",
+    "price": 0,
+    "material": [ "plastic" ],
+    "symbol": "(",
+    "color": "magenta",
+    "flags": [ "INTEGRATED", "UNBREAKABLE", "PERSONAL", "NO_REPAIR", "ALLOWS_NATURAL_ATTACKS", "BIONIC_FUEL_SOURCE", "TARDIS" ],
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "watertight": true,
+        "rigid": true,
+        "max_contains_volume": "75 ml",
+        "max_item_volume": "32 ml",
+        "max_contains_weight": "1 kg",
+        "material_restriction": [ "arcana_fuel_essence_pure" ]
+      }
+    ]
   },
   {
     "id": "bio_temporal_stimulation",
@@ -79,5 +193,15 @@
     "act_cost": "750 J",
     "react_cost": "750 J",
     "time": 1
+  },
+  {
+    "id": "bio_kinetic_amplifier",
+    "type": "bionic",
+    "name": { "str": "Kinetic Amplifier" },
+    "description": "Implanted in one arm is a device that weaponizes kinetic energy through anomalous means.  When deployed, it can give your punches a powerful knockback effect while amplifying damage and armor penetration.  It comes with the side effect of your punches sometimes giving off a blinding flashbang effect.",
+    "occupied_bodyparts": [ [ "arm_r", 2 ], [ "hand_r", 1 ] ],
+    "act_cost": "50 J",
+    "fake_weapon": "bio_kinetic_amplifier_weapon",
+    "flags": [ "BIONIC_TOGGLED", "BIONIC_WEAPON", "USES_BIONIC_POWER", "BIONIC_NPC_USABLE" ]
   }
 ]

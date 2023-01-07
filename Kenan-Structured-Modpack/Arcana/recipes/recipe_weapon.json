@@ -1,7 +1,7 @@
 [
   {
     "type": "recipe",
-    "result": "arming_sword",
+    "result": "qt_arming_sword",
     "id_suffix": "arcana",
     "category": "CC_ARCANA",
     "subcategory": "CSC_ARCANA_WEAPON",
@@ -18,7 +18,7 @@
   },
   {
     "type": "recipe",
-    "result": "broadsword",
+    "result": "qt_broadsword",
     "id_suffix": "arcana",
     "category": "CC_ARCANA",
     "subcategory": "CSC_ARCANA_WEAPON",
@@ -35,7 +35,7 @@
   },
   {
     "type": "recipe",
-    "result": "jian",
+    "result": "qt_jian",
     "id_suffix": "arcana",
     "category": "CC_ARCANA",
     "subcategory": "CSC_ARCANA_WEAPON",
@@ -297,7 +297,7 @@
     "tools": [ [ [ "book_hexenhammer", -1 ] ], [ [ "surface_heat", 5, "LIST" ] ] ],
     "proficiencies": [ { "proficiency": "prof_metalworking", "required": false, "time_multiplier": 1.5 } ],
     "components": [
-      [ [ "broadsword", 1 ], [ "arming_sword", 1 ], [ "jian", 1 ] ],
+      [ [ "qt_broadsword", 1 ], [ "qt_arming_sword", 1 ], [ "qt_jian", 1 ] ],
       [ [ "gold_small", 80 ], [ "CF_golden_scale", 16 ] ],
       [ [ "essence_dull", 100 ] ]
     ],
@@ -391,6 +391,32 @@
     "flags": [ "SECRET" ]
   },
   {
+    "result": "shrike_misericorde",
+    "type": "recipe",
+    "category": "CC_ARCANA",
+    "subcategory": "CSC_ARCANA_WEAPON",
+    "skill_used": "magic",
+    "difficulty": 7,
+    "skills_required": [ [ "fabrication", 7 ], [ "mechanics", 4 ], [ "pistol", 3 ] ],
+    "time": "120 m",
+    "activity_level": "LIGHT_EXERCISE",
+    "book_learn": [ [ "book_bloodmagic", 7 ] ],
+    "using": [ [ "blacksmithing_standard", 2 ], [ "steel_tiny", 2 ] ],
+    "proficiencies": [ { "proficiency": "prof_metalworking", "required": false, "time_multiplier": 2 } ],
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "SCREW_FINE", "level": 1 }, { "id": "CHISEL", "level": 3 } ],
+    "tools": [ [ [ "swage", -1 ] ], [ [ "book_bloodmagic", -1 ] ] ],
+    "components": [
+      [ [ "silver_small", 500 ] ],
+      [ [ "2x4", 1 ], [ "stick", 1 ] ],
+      [ [ "fur", 1 ], [ "leather", 1 ] ],
+      [ [ "pipe", 2 ] ],
+      [ [ "sharp_rock", 2 ] ],
+      [ [ "shadow_gem", 1 ], [ "vortex_shard", 1 ] ],
+      [ [ "essence_blood", 10 ] ]
+    ],
+    "flags": [ "SECRET" ]
+  },
+  {
     "result": "lichhook",
     "type": "recipe",
     "category": "CC_ARCANA",
@@ -399,10 +425,11 @@
     "difficulty": 6,
     "skills_required": [ "fabrication", 4 ],
     "time": "80 m",
+    "activity_level": "LIGHT_EXERCISE",
     "book_learn": [ [ "book_bloodmagic", 6 ] ],
     "using": [ [ "arcana_holy_symbol_any", 1 ] ],
     "qualities": [ { "id": "HAMMER", "level": 2 }, { "id": "ANVIL", "level": 1 } ],
-    "tools": [ [ [ "book_hexenhammer", -1 ] ], [ [ "surface_heat", 5, "LIST" ] ] ],
+    "tools": [ [ [ "book_bloodmagic", -1 ] ], [ [ "surface_heat", 5, "LIST" ] ] ],
     "proficiencies": [ { "proficiency": "prof_metalworking", "required": false, "time_multiplier": 1.5 } ],
     "components": [
       [ [ "khopesh", 1 ], [ "dao", 1 ] ],
@@ -498,7 +525,7 @@
     "skills_required": [ "fabrication", 5 ],
     "time": "50 m",
     "activity_level": "LIGHT_EXERCISE",
-    "book_learn": [ [ "book_syncretism", 9 ] ],
+    "book_learn": [ [ "book_syncretism", 8 ], [ "book_hexenhammer", 9 ], [ "book_bloodmagic", 9 ] ],
     "using": [ [ "arcana_holy_relic_any", 1 ] ],
     "qualities": [ { "id": "HAMMER", "level": 2 }, { "id": "ANVIL", "level": 1 } ],
     "tools": [
@@ -550,7 +577,7 @@
     "skills_required": [ "fabrication", 6 ],
     "time": "100 m",
     "activity_level": "LIGHT_EXERCISE",
-    "book_learn": [ [ "book_sacrifice", 9 ], [ "book_syncretism", 8 ] ],
+    "book_learn": [ [ "book_bloodmagic", 9 ], [ "book_syncretism", 8 ] ],
     "using": [
       [ "sewing_standard", 80 ],
       [ "forging_standard", 2 ],
@@ -572,7 +599,7 @@
     "difficulty": 4,
     "time": "30 m",
     "activity_level": "NO_EXERCISE",
-    "book_learn": [ [ "book_sacrifice", 8 ] ],
+    "book_learn": [ [ "book_sacrifice", 8 ], [ "book_bloodmagic", 9 ] ],
     "using": [ [ "arcana_purification_standard", 1 ] ],
     "qualities": [ { "id": "CUT", "level": 1 } ],
     "tools": [

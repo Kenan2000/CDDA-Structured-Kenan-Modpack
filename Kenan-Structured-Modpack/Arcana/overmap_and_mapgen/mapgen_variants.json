@@ -2186,7 +2186,8 @@
         { "item": "bone_human", "x": [ 4, 14 ], "y": [ 9, 14 ], "chance": 50, "repeat": 10 },
         { "group": "arcana_hunt_random", "x": [ 12, 13 ], "y": [ 10, 13 ], "chance": 25, "repeat": 5 },
         { "group": "magic_books_postapoc", "x": [ 12, 13 ], "y": [ 10, 13 ], "chance": 25, "repeat": 5 },
-        { "group": "lab_magitech_other", "x": [ 12, 13 ], "y": [ 10, 13 ], "chance": 25, "repeat": 5 },
+        { "group": "lab_magitech_weaponry", "x": [ 12, 13 ], "y": [ 10, 13 ], "chance": 100 },
+        { "group": "lab_magitech_other", "x": [ 12, 13 ], "y": [ 10, 13 ], "chance": 100 },
         { "group": "lab_misc_anomalous_items", "x": [ 12, 13 ], "y": [ 10, 13 ], "chance": 50, "repeat": 5 },
         { "group": "tools_science", "x": [ 3, 10 ], "y": 15, "chance": 50, "repeat": 5 },
         { "group": "tools_mechanic", "x": [ 3, 10 ], "y": 15, "chance": 25, "repeat": 5 },
@@ -2483,11 +2484,11 @@
         " (V.??....G............|",
         " (t.......|CC........CC|",
         " (^???....|C.........CC|",
-        " |||||||.^|yyyyyyy.....|",
-        " |.hd^=..^|eeeeeey....C|",
-        " |.dd.=..^|eeeeeey.....|",
-        " |B...=..^|EeeeeEy....C|",
-        " |B...[..^|eeeeeey...CC|",
+        " |||||||.^|((((|22|((((|",
+        " |.hd^=..^|c..........c|",
+        " |.dd.=..^|c...........|",
+        " |B...=..^|....yyyy...c|",
+        " |B...[..^|cc..y>>y..cc|",
         " |||||||||||||||||||||||"
       ],
       "palettes": [ "microlab" ],
@@ -2503,8 +2504,93 @@
         "C": "t_thconc_floor",
         "G": "t_card_science"
       },
-      "furniture": { "C": "f_crate_c" },
-      "items": { "C": [ { "item": "science", "chance": 25, "repeat": 2 }, { "item": "tools_science", "chance": 25, "repeat": 3 } ] }
+      "furniture": { "C": "f_crate_c", "c": "f_crate_c" },
+      "items": {
+        "C": [ { "item": "science", "chance": 25, "repeat": 2 }, { "item": "tools_science", "chance": 25, "repeat": 3 } ],
+        "c": [ { "item": "lab_misc_anomalous_items", "chance": 25, "repeat": 2 }, { "item": "lab_magitech_general", "chance": 25 } ]
+      }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": [ "microlab_arcana_rock_connector" ],
+    "weight": 1000,
+    "object": {
+      "fill_ter": "t_concrete",
+      "rows": [
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "########################",
+        "##############||||||||##",
+        "##############| h   6|##",
+        "##############|ddd  >|##",
+        "##############|     >|##",
+        "##############|6<<   |##",
+        "##############||||||||##"
+      ],
+      "palettes": [ "microlab" ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [ "microlab_arcana_surface_connector" ],
+    "method": "json",
+    "object": {
+      "fill_ter": "t_strconc_floor",
+      "rows": [
+        "     |    |  |cccc|     ",
+        "     |=[==|  ||||||     ",
+        "  ((2|    |  2    2  i  ",
+        "  (  | cci|  2    2  c  ",
+        "  (@@|    |  ||||||  c  ",
+        "|||||| cci|  |rrrr|     ",
+        " F|F (    |  |    2  c  ",
+        " F|F ( cci|  ||||||  c  ",
+        " F|F 2    |  |rrrr|  i  ",
+        "  |F |rrrr|  |    2     ",
+        "|5|||||||||22|||||||||||",
+        "    2      YY      5TYY ",
+        "    2      YY      5 YY ",
+        "|2||||^???    yyyyy|(((|",
+        "    r|t       y    5 dd|",
+        "cc  r|V tt    yyyyy| hl|",
+        "cc hc|t       y    |||||",
+        "    c|^???    yyyyy|###|",
+        "|||||||||||  ^|((22|||#|",
+        " rrcc| hd^=  ^|     <|#|",
+        "    c| dd =  ^|     <|#|",
+        " c6 6|B   =  ^|c     |#|",
+        " cc r|B   [  ^|c  rrr|#|",
+        "     |    |22|||||||||||"
+      ],
+      "place_nested": [
+        { "else_chunks": [ "concrete_corner" ], "x": 0, "y": 0, "neighbors": { "north_west": "microlab" } },
+        { "else_chunks": [ "concrete_corner" ], "x": 23, "y": 0, "neighbors": { "north_east": "microlab" } },
+        { "else_chunks": [ "concrete_corner" ], "x": 23, "y": 23, "neighbors": { "south_east": "microlab" } },
+        { "else_chunks": [ "concrete_corner" ], "x": 0, "y": 23, "neighbors": { "south_west": "microlab" } }
+      ],
+      "palettes": [ "microlab" ],
+      "items": {
+        "l": [ { "item": "guns_milspec", "chance": 10 }, { "item": "ammo_milspec", "chance": 70 } ],
+        "t": { "item": "magazines", "chance": 90 }
+      },
+      "monster": { "T": { "monster": "mon_turret_rifle", "spawn_data": { "ammo": [ { "ammo_id": "556", "qty": [ 30, 90 ] } ] } } }
     }
   },
   {

@@ -15,96 +15,6 @@
         "no": "Anything you need?"
       }
     },
-    "speaker_effect": [
-      {
-        "condition": { "and": [ { "npc_has_trait": "CF_AUX_MARKER_1" }, { "not": { "npc_has_effect": "cf_aux_merchant_restocked" } } ] },
-        "effect": [
-          { "npc_add_effect": "cf_aux_merchant_restocked", "duration": 2592000 },
-          {
-            "mapgen_update": "cf_church_merchant_restock_1",
-            "om_terrain": "cf_church_1",
-            "om_special": "cf_rural_church"
-          }
-        ]
-      },
-      {
-        "condition": { "and": [ { "npc_has_trait": "CF_AUX_MARKER_2" }, { "not": { "npc_has_effect": "cf_aux_merchant_restocked" } } ] },
-        "effect": [
-          { "npc_add_effect": "cf_aux_merchant_restocked", "duration": 2592000 },
-          {
-            "mapgen_update": "cf_church_merchant_restock_2",
-            "om_terrain": "cf_church_1",
-            "om_special": "cf_rural_church"
-          }
-        ]
-      },
-      {
-        "condition": { "and": [ { "npc_has_trait": "CF_AUX_MARKER_3" }, { "not": { "npc_has_effect": "cf_aux_merchant_restocked" } } ] },
-        "effect": [
-          { "npc_add_effect": "cf_aux_merchant_restocked", "duration": 2592000 },
-          {
-            "mapgen_update": "cf_church_merchant_restock_3",
-            "om_terrain": "cf_church_1",
-            "om_special": "cf_rural_church"
-          }
-        ]
-      },
-      {
-        "condition": { "and": [ { "npc_has_trait": "CF_AUX_MARKER_4" }, { "not": { "npc_has_effect": "cf_aux_merchant_restocked" } } ] },
-        "effect": [
-          { "npc_add_effect": "cf_aux_merchant_restocked", "duration": 2592000 },
-          {
-            "mapgen_update": "cf_church_merchant_restock_4",
-            "om_terrain": "cf_church_1",
-            "om_special": "cf_rural_church"
-          }
-        ]
-      },
-      {
-        "condition": { "and": [ { "npc_has_trait": "CF_AUX_MARKER_5" }, { "not": { "npc_has_effect": "cf_aux_merchant_restocked" } } ] },
-        "effect": [
-          { "npc_add_effect": "cf_aux_merchant_restocked", "duration": 2592000 },
-          {
-            "mapgen_update": "cf_church_merchant_restock_5",
-            "om_terrain": "cf_church_1",
-            "om_special": "cf_rural_church"
-          }
-        ]
-      },
-      {
-        "condition": { "and": [ { "npc_has_trait": "CF_AUX_MARKER_6" }, { "not": { "npc_has_effect": "cf_aux_merchant_restocked" } } ] },
-        "effect": [
-          { "npc_add_effect": "cf_aux_merchant_restocked", "duration": 2592000 },
-          {
-            "mapgen_update": "cf_church_merchant_restock_6",
-            "om_terrain": "cf_church_3",
-            "om_special": "cf_rural_church"
-          }
-        ]
-      },
-      {
-        "condition": { "and": [ { "npc_has_trait": "CF_AUX_MARKER_7" }, { "not": { "npc_has_effect": "cf_aux_merchant_restocked" } } ] },
-        "effect": [
-          { "npc_add_effect": "cf_aux_merchant_restocked", "duration": 2592000 },
-          {
-            "mapgen_update": "cf_church_merchant_restock_7",
-            "om_terrain": "cf_church_1",
-            "om_special": "cf_rural_church"
-          }
-        ]
-      },
-      {
-        "condition": { "and": [ { "npc_has_trait": "CF_AUX_MARKER_8" }, { "not": { "npc_has_effect": "cf_aux_merchant_restocked" } } ] },
-        "effect": [
-          { "npc_add_effect": "cf_aux_merchant_restocked", "duration": 2592000 },
-          {
-            "mapgen_update": "cf_church_merchant_restock_8",
-            "om_terrain": "cf_church_3",
-            "om_special": "cf_rural_church"
-          }
-        ]
-      }
-    ],
     "responses": [
       {
         "text": "I've been sent to ask about recent attacks on survivors by anomalous creatures.  Know anything about that?",
@@ -134,6 +44,11 @@
       { "text": "Who are you?", "topic": "TALK_MERCHANT_CF_AUX_WHO" },
       { "text": "What do you do around here?", "topic": "TALK_MERCHANT_CF_AUX_DO" },
       { "text": "Got anything to trade?", "effect": "start_trade", "topic": "TALK_MERCHANT_CF_AUX" },
+      {
+        "text": "I'd like to ask about turning in a bounty.",
+        "condition": { "u_has_var": "cf_aux_bounty_learned", "type": "flag", "context": "knowledge", "value": "yes" },
+        "topic": "TALK_MERCHANT_CF_AUX_BOUNTY_ASK"
+      },
       {
         "text": "Can I do anything to help?",
         "switch": true,
@@ -274,7 +189,7 @@
         "topic": "TALK_MERCHANT_CF_AUX_BOUNTY_TURNIN"
       },
       {
-        "text": "Turning in a triffid queen flower.",
+        "text": "Turning in a scarlet flower.",
         "condition": { "u_has_item": "triffid_queen_flower" },
         "effect": { "u_consume_item": "triffid_queen_flower" },
         "topic": "TALK_MERCHANT_CF_AUX_BOUNTY_TURNIN"

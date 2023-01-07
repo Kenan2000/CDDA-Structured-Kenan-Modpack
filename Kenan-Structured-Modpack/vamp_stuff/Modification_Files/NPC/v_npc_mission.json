@@ -3,16 +3,12 @@
     "//": "Subgoals that you may want to complete or to keep you in the bay for moments.",
     "id": "VAMP_UNDERCOMMANDO_quest1",
     "type": "mission_definition",
-    "name": {
-      "str": "Collect 30 blood"
-    },
+    "name": { "str": "Collect 30 blood" },
     "description": "Collect <color_light_red>30 human blood</color> then bring it to the commando.",
     "goal": "MGOAL_NULL",
     "difficulty": 0,
     "value": 100000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "VAMP_UNDERCOMMANDO_quest2",
     "has_generic_rewards": false,
     "dialogue": {
@@ -30,16 +26,12 @@
   {
     "id": "VAMP_UNDERCOMMANDO_quest2",
     "type": "mission_definition",
-    "name": {
-      "str": "Collect 15 small leech teeth"
-    },
+    "name": { "str": "Collect 15 small leech teeth" },
     "description": "Gather <color_light_red>15 small leech teeth</color> and give them to the commando. They are rarely dropped by <color_magenta>leeches</color> that lives in the <color_light_blue>swamp</color>.",
     "goal": "MGOAL_NULL",
     "difficulty": 2,
     "value": 200000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "VAMP_UNDERCOMMANDO_quest3",
     "has_generic_rewards": false,
     "dialogue": {
@@ -57,43 +49,20 @@
   {
     "id": "VAMP_UNDERCOMMANDO_quest3",
     "type": "mission_definition",
-    "name": {
-      "str": "Take the blood sac from the giant \"Thing\""
-    },
+    "name": { "str": "Take the blood sac from the giant \"Thing\"" },
     "description": "Get the <color_light_red>blood sac</color> by slaying the <color_magenta>giant \"Thing\"</color>, then deliver it to the commando.\n<color_red>Going unprepared is a death trap!</color>.",
     "goal": "MGOAL_NULL",
     "difficulty": 10,
     "value": 300000,
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "bloodhole",
-        "om_special": "bhole",
-        "reveal_radius": 1,
-        "search_range": 50,
-        "z": 0
-      },
+      "assign_mission_target": { "om_terrain": "bloodhole", "om_special": "bhole", "reveal_radius": 1, "search_range": 50, "z": 0 },
       "update_mapgen": {
-        "place_item": [
-          {
-            "item": "bigbloodrune",
-            "x": 13,
-            "y": 13
-          }
-        ],
-        "place_monster": [
-          {
-            "monster": "mon_insect_devourerleech",
-            "x": 13,
-            "y": 13,
-            "target": true
-          }
-        ]
+        "place_item": [ { "item": "bigbloodrune", "x": 13, "y": 13 } ],
+        "place_monster": [ { "monster": "mon_insect_devourerleech", "x": 13, "y": 13, "target": true } ]
       }
     },
     "followup": "VAMP_UNDERCOMMANDO_quest4",
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "dialogue": {
       "describe": "This is pretty much risky to you... Going to do it?",
@@ -110,23 +79,15 @@
   {
     "id": "VAMP_UNDERCOMMANDO_quest4",
     "type": "mission_definition",
-    "name": {
-      "str": "Kill 200 zombies"
-    },
+    "name": { "str": "Kill 200 zombies" },
     "description": "Kill <color_light_red>200 zombies</color> then talk to the commando after completion.",
     "goal": "MGOAL_KILL_MONSTER_SPEC",
     "difficulty": 5,
     "value": 400000,
     "monster_species": "ZOMBIE",
     "monster_kill_goal": 200,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
-    "end": {
-      "effect": {
-        "npc_add_trait": "commandotestdone"
-      }
-    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "end": { "effect": { "npc_add_trait": "commandotestdone" } },
     "has_generic_rewards": false,
     "dialogue": {
       "describe": "This is the final test I can give you... Still want to try?",
@@ -143,16 +104,12 @@
   {
     "id": "VAMP_LONELY_quest1",
     "type": "mission_definition",
-    "name": {
-      "str": "Collect 15 blood"
-    },
+    "name": { "str": "Collect 15 blood" },
     "description": "Gather <color_light_red>15 human blood</color> then bring it to the vampire.",
     "goal": "MGOAL_NULL",
     "difficulty": 0,
     "value": 100000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "followup": "VAMP_LONELY_quest2",
     "dialogue": {
@@ -170,18 +127,14 @@
   {
     "id": "VAMP_LONELY_quest2",
     "type": "mission_definition",
-    "name": {
-      "str": "Take down 10 elder zombies"
-    },
+    "name": { "str": "Take down 10 elder zombies" },
     "description": "Slay <color_magenta>10 elder zombies</color> then talk to the vampire after completion.  <color_magenta>Elder zombies</color> are depicted to their stone-like, compact blood and are rarely seen in the <color_light_blue>graveyards</color>.",
     "goal": "MGOAL_KILL_MONSTER_SPEC",
     "difficulty": 3,
     "value": 300000,
     "monster_species": "ELDERZED",
     "monster_kill_goal": 10,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "followup": "VAMP_LONELY_quest3",
     "dialogue": {
@@ -199,16 +152,12 @@
   {
     "id": "VAMP_LONELY_quest3",
     "type": "mission_definition",
-    "name": {
-      "str": "Bring a bloodrune"
-    },
+    "name": { "str": "Bring a bloodrune" },
     "description": "Get a <color_light_red>bloodrune</color> then deliver it to the vampire.",
     "goal": "MGOAL_NULL",
     "difficulty": 5,
     "value": 400000,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "followup": "VAMP_LONELY_quest4",
     "//": "Locating a blended overmap in a world would take forever, so we WILL set a pedestal in random distances. RNG is your enemy here.",
@@ -236,37 +185,18 @@
   {
     "id": "VAMP_LONELY_quest4",
     "type": "mission_definition",
-    "name": {
-      "str": "Take Vampire to the Cove"
-    },
+    "name": { "str": "Take Vampire to the Cove" },
     "description": "Escort the vampire to the <color_light_blue>vampire cove</color>.",
     "goal": "MGOAL_GO_TO_TYPE",
     "difficulty": 2,
     "value": 500000,
     "destination": "vampcave_corridor1",
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "vampcave_entrance",
-        "om_special": "Vampire Cove",
-        "reveal_radius": 3,
-        "search_range": 180,
-        "z": 0
-      },
-      "effect": [
-        "follow_only"
-      ]
+      "assign_mission_target": { "om_terrain": "vampcave_entrance", "om_special": "Vampire Cove", "reveal_radius": 3, "search_range": 180, "z": 0 },
+      "effect": [ "follow_only" ]
     },
-    "end": {
-      "effect": [
-        "stop_following",
-        {
-          "npc_add_trait": "isolatedtestsdone"
-        }
-      ]
-    },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "end": { "effect": [ "stop_following", { "npc_add_trait": "isolatedtestsdone" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
     "dialogue": {
       "describe": "This is the last job, you want to do it?",
       "offer": "Since you've been helping me for a while, I will need you to travel with me to the vampire cove. Being isolated for centuries is a great experience, but seeing a living community of my kind alleviates my frozen body the most.",
@@ -282,9 +212,7 @@
   {
     "id": "VAMP_UNDERTRADER_quest",
     "type": "mission_definition",
-    "name": {
-      "str": "Get 2 Corrupt Bloodrune Stone"
-    },
+    "name": { "str": "Get 2 Corrupt Bloodrune Stone" },
     "description": "Get the <color_light_red>2 corrupted bloodrune stones</color> that are dropped by killing the <color_magenta>infected vampires</color> then deliver them to the trader.",
     "goal": "MGOAL_NULL",
     "difficulty": 3,
@@ -292,17 +220,9 @@
     "item": "corruptbloodrune",
     "count": 2,
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "vampcave_corridor2",
-        "om_special": "Vampire Cove",
-        "reveal_radius": 1,
-        "search_range": 180,
-        "z": -1
-      }
+      "assign_mission_target": { "om_terrain": "vampcave_corridor2", "om_special": "Vampire Cove", "reveal_radius": 1, "search_range": 180, "z": -1 }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "followup": "VAMP_UNDERTRADER_quest2",
     "dialogue": {
@@ -320,23 +240,15 @@
   {
     "id": "VAMP_UNDERTRADER_quest2",
     "type": "mission_definition",
-    "name": {
-      "str": "Slay 10 bats"
-    },
+    "name": { "str": "Slay 10 bats" },
     "description": "Kill <color_magenta>10 bats</color> then talk to the trader after completion. <color_magenta>Bats</color> are commonly seen at <color_gray>nighttime</color> or inside a <color_light_blue>cave</color>.",
     "goal": "MGOAL_KILL_MONSTER_SPEC",
     "difficulty": 2,
     "value": 200000,
     "monster_species": "VAMPBAT",
     "monster_kill_goal": 10,
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
-    "end": {
-      "effect": {
-        "npc_add_trait": "undertradertestsdone"
-      }
-    },
+    "origins": [ "ORIGIN_SECONDARY" ],
+    "end": { "effect": { "npc_add_trait": "undertradertestsdone" } },
     "dialogue": {
       "describe": "We do appreciate your assistance with our needs.",
       "offer": "Vampire bats became literal bloodsuckers these passing days and I want you to hunt down 10 of these vermins. We've been swarmed by these creatures lately but gladly we managed to shove them away.",
@@ -352,22 +264,16 @@
   {
     "id": "VAMP_UNDERSEEKER_quest1",
     "type": "mission_definition",
-    "name": {
-      "str": "Go to a forgotten burial site"
-    },
+    "name": { "str": "Go to a forgotten burial site" },
     "description": " Travel to a <color_light_blue>burial site</color> then talk to the seeker.",
     "goal": "MGOAL_GO_TO_TYPE",
     "difficulty": 1,
     "value": 200000,
     "destination": "gravesite1",
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "start": {
-      "effect": [
-        "follow"
-      ],
+      "effect": [ "follow" ],
       "assign_mission_target": {
         "om_terrain": "gravesite1",
         "om_special": "Gravesite - Wild",
@@ -377,22 +283,7 @@
         "must_see": false,
         "z": 0
       },
-      "update_mapgen": {
-        "place_monsters": [
-          {
-            "monster": "GROUP_CRYPTIES",
-            "x": [
-              0,
-              23
-            ],
-            "y": [
-              0,
-              23
-            ],
-            "density": 0.25
-          }
-        ]
-      }
+      "update_mapgen": { "place_monsters": [ { "monster": "GROUP_CRYPTIES", "x": [ 0, 23 ], "y": [ 0, 23 ], "density": 0.25 } ] }
     },
     "followup": "VAMP_UNDERSEEKER_quest2",
     "dialogue": {
@@ -410,37 +301,18 @@
   {
     "id": "VAMP_UNDERSEEKER_quest2",
     "type": "mission_definition",
-    "name": {
-      "str": "Go to the wasteland outskirts"
-    },
+    "name": { "str": "Go to the wasteland outskirts" },
     "description": "Along with the seeker, travel to the <color_light_blue>wasteland outskirts</color>. Talk to them again after reaching the destination.",
     "goal": "MGOAL_GO_TO_TYPE",
     "difficulty": 2,
     "value": 400000,
     "destination": "wo5",
     "start": {
-      "effect": [
-        "follow"
-      ],
-      "assign_mission_target": {
-        "om_terrain": "wo5",
-        "om_special": "Wasteland Outskirts",
-        "reveal_radius": 5,
-        "search_range": 180,
-        "z": 0
-      }
+      "effect": [ "follow" ],
+      "assign_mission_target": { "om_terrain": "wo5", "om_special": "Wasteland Outskirts", "reveal_radius": 5, "search_range": 180, "z": 0 }
     },
-    "end": {
-      "effect": [
-        "leave",
-        {
-          "u_add_trait": "underseekerdone"
-        }
-      ]
-    },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "end": { "effect": [ "leave", { "u_add_trait": "underseekerdone" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "dialogue": {
       "describe": "Are we ready for this trip?",
@@ -457,35 +329,16 @@
   {
     "id": "VAMP_WS2_quest1",
     "type": "mission_definition",
-    "name": {
-      "str": "Recruit Radio Specialist"
-    },
+    "name": { "str": "Recruit Radio Specialist" },
     "description": "Ask the <color_yellow>Radio Specialist</color> to join, then talk to the guard after they did.",
     "goal": "MGOAL_RECRUIT_NPC",
     "difficulty": 2,
     "value": 100000,
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "radio_tower",
-        "om_special": "Radio Tower",
-        "reveal_radius": 2,
-        "search_range": 90,
-        "z": 0
-      },
-      "update_mapgen": {
-        "place_npcs": [
-          {
-            "class": "HUMAN_RADIOSPEC",
-            "x": 10,
-            "y": 10,
-            "target": true
-          }
-        ]
-      }
+      "assign_mission_target": { "om_terrain": "radio_tower", "om_special": "Radio Tower", "reveal_radius": 2, "search_range": 90, "z": 0 },
+      "update_mapgen": { "place_npcs": [ { "class": "HUMAN_RADIOSPEC", "x": 10, "y": 10, "target": true } ] }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "followup": "VAMP_WS2_quest2",
     "dialogue": {
@@ -503,9 +356,7 @@
   {
     "id": "VAMP_WS2_quest2",
     "type": "mission_definition",
-    "name": {
-      "str": "Slay the succumbed vampire"
-    },
+    "name": { "str": "Slay the succumbed vampire" },
     "description": "Kill the <color_magenta>succumbed vampire</color> then talk to the guard.\n<color_red>Going unprepared is a death trap!</color>",
     "goal": "MGOAL_KILL_MONSTER",
     "difficulty": 10,
@@ -520,20 +371,9 @@
         "must_see": false,
         "z": 0
       },
-      "update_mapgen": {
-        "place_monster": [
-          {
-            "monster": "mon_zombie_succumbvampire",
-            "x": 11,
-            "y": 11,
-            "target": true
-          }
-        ]
-      }
+      "update_mapgen": { "place_monster": [ { "monster": "mon_zombie_succumbvampire", "x": 11, "y": 11, "target": true } ] }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "dialogue": {
       "describe": "It's easy, I think...",
@@ -550,29 +390,15 @@
   {
     "id": "VAMP_WS2_quest3",
     "type": "mission_definition",
-    "name": {
-      "str": "Destroy the vampirus"
-    },
+    "name": { "str": "Destroy the vampirus" },
     "description": "With the help of the <color_yellow>seeker</color>, locate and destroy the <color_light_blue>vampirus</color>, the place where <color_magenta>infected vampires</color> gather.\n<color_red>Going unprepared is a death trap!</color>",
     "goal": "MGOAL_CONDITION",
-    "goal_condition": {
-      "u_has_trait": "wsg2vampirusdone"
-    },
+    "goal_condition": { "u_has_trait": "wsg2vampirusdone" },
     "difficulty": 10,
     "value": 100000,
-    "start": {
-      "effect": {
-        "u_add_trait": "wsg2vampirushelp"
-      }
-    },
-    "end": {
-      "effect": {
-        "u_lose_trait": "wsg2vampirushelp"
-      }
-    },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "start": { "effect": { "u_add_trait": "wsg2vampirushelp" } },
+    "end": { "effect": { "u_lose_trait": "wsg2vampirushelp" } },
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "dialogue": {
       "describe": "It's easy, I think...",
@@ -589,18 +415,14 @@
   {
     "id": "VAMP_UNDERSEEKER_quest_vampirus1",
     "type": "mission_definition",
-    "name": {
-      "str": "Travel to the vampirus"
-    },
+    "name": { "str": "Travel to the vampirus" },
     "description": "Along with the seeker, travel to the <color_light_blue>vampirus</color>.",
     "goal": "MGOAL_GO_TO_TYPE",
     "difficulty": 1,
     "value": 1000,
     "destination": "vampirus",
     "start": {
-      "effect": [
-        "follow_only"
-      ],
+      "effect": [ "follow_only" ],
       "assign_mission_target": {
         "om_terrain": "vampirus",
         "om_special": "Vampirus",
@@ -611,9 +433,7 @@
         "z": 0
       }
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "followup": "VAMP_UNDERSEEKER_quest_vampirus2",
     "dialogue": {
@@ -631,84 +451,35 @@
   {
     "id": "VAMP_UNDERSEEKER_quest_vampirus2",
     "type": "mission_definition",
-    "name": {
-      "str": "Unseal the entrance"
-    },
+    "name": { "str": "Unseal the entrance" },
     "description": "Protect the seeker from the <color_magenta>zeds</color> attracted to your location.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
-      "and": [
-        {
-          "u_has_trait": "underseekerhelpvampirusunseal"
-        },
-        {
-          "not": {
-            "npc_has_effect": "underseeker_unsealing"
-          }
-        }
-      ]
+      "and": [ { "u_has_trait": "underseekerhelpvampirusunseal" }, { "not": { "npc_has_effect": "underseeker_unsealing" } } ]
     },
     "difficulty": 1,
     "value": 1000,
     "start": {
       "effect": [
         "leave",
-        {
-          "u_add_trait": "underseekerhelpvampirusunseal"
-        },
-        {
-          "npc_add_effect": "underseeker_unsealing",
-          "duration": 100
-        },
-        {
-          "mapgen_update": "vampirus_attracted",
-          "origin_npc": true,
-          "offset_x": 2
-        },
-        {
-          "mapgen_update": "vampirus_attracted",
-          "origin_npc": true,
-          "offset_x": 1,
-          "offset_y": -2
-        },
-        {
-          "mapgen_update": "vampirus_attracted",
-          "origin_npc": true,
-          "offset_x": -2
-        },
-        {
-          "mapgen_update": "vampirus_attracted",
-          "origin_npc": true,
-          "offset_x": -1,
-          "offset_y": 2
-        },
-        {
-          "mapgen_update": "vampirus_attracted",
-          "origin_npc": true,
-          "offset_y": 2
-        },
-        {
-          "mapgen_update": "vampirus_attracted",
-          "origin_npc": true,
-          "offset_y": -2
-        }
+        { "u_add_trait": "underseekerhelpvampirusunseal" },
+        { "npc_add_effect": "underseeker_unsealing", "duration": 100 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_x": 2 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_x": 1, "offset_y": -2 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_x": -2 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_x": -1, "offset_y": 2 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_y": 2 },
+        { "mapgen_update": "vampirus_attracted", "origin_npc": true, "offset_y": -2 }
       ]
     },
     "end": {
       "effect": [
         "follow_only",
-        {
-          "u_add_trait": "underseekerhelpvampirus_enter"
-        },
-        {
-          "mapgen_update": "vampirus_unsealing",
-          "origin_npc": true
-        }
+        { "u_add_trait": "underseekerhelpvampirus_enter" },
+        { "mapgen_update": "vampirus_unsealing", "origin_npc": true }
       ]
     },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "dialogue": {
       "describe": "...",
@@ -725,54 +496,19 @@
   {
     "id": "HUMAN_RADIOSPEC_quest",
     "type": "mission_definition",
-    "name": {
-      "str": "Bring Radio Specialist to the outskirts"
-    },
+    "name": { "str": "Bring Radio Specialist to the outskirts" },
     "description": "Escort the specialist to the <color_light_blue>wasteland outskirts</color>.",
     "goal": "MGOAL_GO_TO_TYPE",
     "difficulty": 1,
     "value": 10000,
     "destination": "wo5",
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "wo5",
-        "om_special": "Wasteland Outskirts",
-        "reveal_radius": 2,
-        "search_range": 80
-      },
-      "effect": [
-        "follow_only",
-        {
-          "u_add_trait": "wrsgoing"
-        }
-      ],
-      "update_mapgen": {
-        "om_terrain": "wo5",
-        "place_nested": [
-          {
-            "chunks": [
-              "wasteland_radio_tower"
-            ],
-            "x": 0,
-            "y": 0
-          }
-        ]
-      }
+      "assign_mission_target": { "om_terrain": "wo5", "om_special": "Wasteland Outskirts", "reveal_radius": 2, "search_range": 80 },
+      "effect": [ "follow_only", { "u_add_trait": "wrsgoing" } ],
+      "update_mapgen": { "om_terrain": "wo5", "place_nested": [ { "chunks": [ "wasteland_radio_tower" ], "x": 0, "y": 0 } ] }
     },
-    "end": {
-      "effect": [
-        "stop_following",
-        {
-          "npc_change_faction": "wastelander"
-        },
-        {
-          "u_add_trait": "wrsdone"
-        }
-      ]
-    },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "end": { "effect": [ "stop_following", { "npc_change_faction": "wastelander" }, { "u_add_trait": "wrsdone" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "dialogue": {
       "describe": "We're going, right?",
@@ -787,38 +523,17 @@
     }
   },
   {
-    "id": "HUMAN_VA\u039cPRISON_quest",
+    "id": "HUMAN_VAΜPRISON_quest",
     "type": "mission_definition",
-    "name": {
-      "str": "Bring Prisoner to the outskirts"
-    },
+    "name": { "str": "Bring Prisoner to the outskirts" },
     "description": "Take the prisoner to the <color_light_blue>wasteland outskirts</color>.",
     "goal": "MGOAL_GO_TO_TYPE",
     "difficulty": 3,
     "value": 30000,
     "destination": "wo3",
-    "start": {
-      "assign_mission_target": {
-        "om_terrain": "wo3",
-        "om_special": "Wasteland Outskirts",
-        "reveal_radius": 2,
-        "search_range": 80
-      },
-      "effect": [
-        "follow"
-      ]
-    },
-    "end": {
-      "effect": [
-        "leave",
-        {
-          "npc_change_faction": "wastelander"
-        }
-      ]
-    },
-    "origins": [
-      "ORIGIN_SECONDARY"
-    ],
+    "start": { "assign_mission_target": { "om_terrain": "wo3", "om_special":"Wasteland Outskirts", "reveal_radius": 2, "search_range": 80 }, "effect": [ "follow" ] },
+    "end": { "effect": [ "leave", { "npc_change_faction": "wastelander" } ] },
+    "origins": [ "ORIGIN_SECONDARY" ],
     "has_generic_rewards": false,
     "dialogue": {
       "describe": "We're going, right?",
@@ -836,40 +551,26 @@
     "//": "Missions obtained from starting with the 'Vampire Wannabe' scenario.",
     "id": "SCEN_FIND_CRYPT",
     "type": "mission_definition",
-    "name": {
-      "str": "Reach a memorial crypt"
-    },
+    "name": { "str": "Reach a memorial crypt" },
     "description": "Travel to a <color_light_blue>memorial crypt</color> then inspect its surroundings.",
     "goal": "MGOAL_GO_TO_TYPE",
     "destination": "crypt1_b1",
     "difficulty": 1,
     "value": 0,
-    "origins": [
-      "ORIGIN_GAME_START"
-    ],
+    "origins": [ "ORIGIN_GAME_START" ],
     "start": {
-      "assign_mission_target": {
-        "om_terrain": "crypt1",
-        "om_special": "Memorial Crypt",
-        "reveal_radius": 2,
-        "search_range": 90,
-        "z": 0
-      }
+      "assign_mission_target": { "om_terrain": "crypt1", "om_special": "Memorial Crypt", "reveal_radius": 2, "search_range": 90, "z": 0 }
     }
   },
   {
     "//": "From this mission, players will start to progress little by little, by showing quest related structures.",
     "id": "SCEN_RECRUIT_VAMP",
     "type": "mission_definition",
-    "name": {
-      "str": "Dark Descendant"
-    },
+    "name": { "str": "Dark Descendant" },
     "description": "Ask a <color_yellow>lone vampire</color> to join your party.\nYou must earn their trust by doing their favor.",
     "goal": "MGOAL_RECRUIT_NPC_CLASS",
     "difficulty": 10,
     "value": 0,
-    "origins": [
-      "ORIGIN_GAME_START"
-    ]
+    "origins": [ "ORIGIN_GAME_START" ]
   }
 ]

@@ -118,19 +118,7 @@
         "switch": true,
         "topic": "TALK_CF_GM_PRELUDE_4"
       },
-      {
-        "text": "Anything I can do to help?",
-        "condition": { "npc_has_trait": "FIX_CF_GM" },
-        "switch": true,
-        "topic": "TALK_MISSION_LIST"
-      },
-      {
-        "text": "Anything I can do to help?",
-        "//": "Effect reused since this is all just to patch up my mistake.",
-        "condition": { "not": { "npc_has_effect": "sofia_motive_explained" } },
-        "switch": true,
-        "topic": "TALK_CF_GM_DUN_GOOFED"
-      },
+      { "text": "Anything I can do to help?", "switch": true, "default": true, "topic": "TALK_MISSION_LIST" },
       { "text": "Well, bye.", "topic": "TALK_DONE" }
     ]
   },
@@ -193,7 +181,7 @@
       "type": "knowledge",
       "context": "rural_church",
       "value": "yes",
-      "yes": "They're hard-working, but they know more than they let on.  At least, whoever sent them.  Be careful what you say around them.  They are here for a reason, and I'm concerned that it endanger our purpose.",
+      "yes": "They're hard-working, but they know more than they let on.  At least, whoever sent them.  Be careful what you say around them.  They are here for a reason, and I'm concerned that it might endanger our purpose.",
       "no": "I have my concerns, but they seem to be trustworthy.  Not well-versed in the arcane, but if need be we can teach them our ways.  Other than that, they seem to mostly just help with day-to-day tasks."
     },
     "responses": [
@@ -213,6 +201,7 @@
         "text": "Alright.",
         "effect": [
           { "npc_add_var": "johnathan_prelude_ended", "type": "mission", "context": "rural_church", "value": "yes" },
+          { "u_add_var": "johnathan_prelude_ended", "type": "mission", "context": "rural_church", "value": "yes" },
           {
             "mapgen_update": "cf_church_upgrade_GM_4_prelude_a",
             "om_terrain": "cf_church_1",
@@ -505,17 +494,5 @@
     "type": "talk_topic",
     "dynamic_line": "To bring justice to those who would endanger humanity, if we must.  To mend the growing wound In The Veil Between Worlds, if we can.  To guard and guide so that a dangerous path may be avoided, so we shall.  So long as the Sun shines upon the Earth.  We are hunters of the wicked and otherworldly, and protectors of the innocent.  At least, we strive to be.  There weren't that many of us, and being scattered as small parties meant that not all of us adhered to proper conduct, though it never reached the point of dissension and division.",
     "responses": [ { "text": "I see.", "topic": "TALK_CF_GM" } ]
-  },
-  {
-    "id": "TALK_CF_GM_DUN_GOOFED",
-    "type": "talk_topic",
-    "dynamic_line": "(( Unfortunately, due to a mistake on the part of the mod author, old versions of this NPC were set to start with Sofia's first mission instead of the inaccessible dummy mission created for them.  This was supposed to allow old saves to be able to immediately make use of the new mission chain being added, but bungling it means versions from old saves cannot correctly grab the new mission chain.  This message is here to inform the player why their old version of this NPC still lacks accessible missions. ))",
-    "responses": [
-      {
-        "text": "Oof.",
-        "effect": { "npc_add_effect": "sofia_motive_explained", "duration": "PERMANENT" },
-        "topic": "TALK_CF_GM"
-      }
-    ]
   }
 ]

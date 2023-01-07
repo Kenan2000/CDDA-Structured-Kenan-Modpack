@@ -5,6 +5,19 @@
     "group": "build_door",
     "//": "Step 1: door frame",
     "category": "CONSTRUCT",
+    "required_skills": [ [ "fabrication", 1 ] ],
+    "time": "60 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 2 } ], [ { "id": "AXE", "level": 2 }, { "id": "SAW_W", "level": 1 } ] ],
+    "components": [ [ [ "2x4", 6 ] ], [ [ "nail", 12 ] ] ],
+    "pre_terrain": "t_window_empty",
+    "post_terrain": "t_door_frame"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_door_frame_2",
+    "group": "build_door",
+    "//": "Step 1: door frame",
+    "category": "CONSTRUCT",
     "required_skills": [ [ "fabrication", 2 ], [ "survival", 2 ] ],
     "time": "80 m",
     "qualities": [
@@ -18,10 +31,10 @@
   },
   {
     "type": "construction",
-    "id": "constr_mst_window_empty",
-    "group": "build_window",
-    "//": "Step 1: window frame",
-    "category": "WINDOWS",
+    "id": "constr_mst_door_frame_3",
+    "group": "build_door",
+    "//": "Step 1: door frame",
+    "category": "CONSTRUCT",
     "required_skills": [ [ "fabrication", 2 ], [ "survival", 2 ] ],
     "time": "80 m",
     "qualities": [
@@ -32,6 +45,19 @@
     "components": [ [ [ "2x4", 12 ], [ "stick", 12 ] ], [ [ "adhesive", 4, "LIST" ] ] ],
     "pre_special": "check_empty",
     "post_terrain": "t_door_frame"
+  },
+  {
+    "type": "construction",
+    "id": "constr_mst_window_empty",
+    "group": "build_window",
+    "//": "Step 1: window frame",
+    "category": "WINDOWS",
+    "required_skills": [ [ "fabrication", 3 ], [ "survival", 3 ] ],
+    "time": "90 m",
+    "qualities": [ [ { "id": "HAMMER", "level": 2 } ] ],
+    "components": [ [ [ "2x4", 15 ], [ "stick", 15 ], [ "log", 2 ] ], [ [ "adhesive", 2, "LIST" ] ] ],
+    "pre_special": "check_empty",
+    "post_terrain": "t_window_empty"
   },
   {
     "type": "construction",
@@ -167,9 +193,8 @@
     "type": "construction",
     "id": "constr_mst_tarp_leanto",
     "group": "build_tarp_leanto",
-    "skill": "survival",
     "category": "CONSTRUCT",
-    "difficulty": 1,
+    "required_skills": [ [ "survival", 1 ] ],
     "time": "50 m",
     "qualities": [ { "id": "HAMMER", "level": 1 } ],
     "components": [ [ [ "pointy_stick", 4 ] ], [ [ "cordage_short", 4, "LIST" ] ], [ [ "leather_tarp", 1 ] ] ],

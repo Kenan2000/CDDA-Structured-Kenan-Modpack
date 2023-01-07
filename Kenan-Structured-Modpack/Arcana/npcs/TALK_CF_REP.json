@@ -30,13 +30,6 @@
         }
       }
     },
-    "speaker_effect": {
-      "condition": { "not": { "npc_has_effect": "cf_aux_merchant_restocked" } },
-      "effect": [
-        { "npc_add_effect": "cf_aux_merchant_restocked", "duration": 2592000 },
-        { "mapgen_update": "cf_church_sofia_restock", "om_terrain": "cf_church_4", "om_special": "cf_rural_church" }
-      ]
-    },
     "responses": [
       {
         "text": "[MISSION] I need another copy of the trade arrangements, please.",
@@ -82,6 +75,9 @@
           "and": [
             { "u_has_item": "arcana_dream_journal" },
             {
+              "not": { "npc_has_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
+            },
+            {
               "u_has_var": "johnathan_prelude_penultimate",
               "type": "mission",
               "context": "rural_church",
@@ -97,6 +93,9 @@
         "condition": {
           "and": [
             { "u_has_item": "arcana_strange_crystal" },
+            {
+              "not": { "npc_has_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
+            },
             {
               "u_has_var": "johnathan_prelude_penultimate",
               "type": "mission",
@@ -422,7 +421,10 @@
     "dynamic_line": "A few of their early entries, the first few days into the journey, references nearby landmarks.  The last one before things go off the rails mentions a recently-built otherworldly structure in their path, and I can confirm which location that is.  Given the description suggests something anomalous happened there more recently, it's possible that the source of this took up residence there.  Go talk to Johnathan, tell him we have what we need.",
     "speaker_effect": [
       {
-        "effect": [ { "u_add_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" } ]
+        "effect": [
+          { "u_add_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" },
+          { "npc_add_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
+        ]
       }
     ],
     "responses": [
@@ -446,7 +448,10 @@
     "dynamic_line": "It still has some lingering aftereffects.  Like a trail of energy burnt into what remains of its enchantments, essentially pointing in the direction of the source as of the moment it activated.  That'd be no good to us just standing here, but we know the rough area of the anomalous region, and we know where it was when it activated.  Go tell Johnathan we have what we need to pinpoint the source.",
     "speaker_effect": [
       {
-        "effect": [ { "u_add_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" } ]
+        "effect": [
+          { "u_add_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" },
+          { "npc_add_var": "johnathan_prelude_data_5", "type": "mission", "context": "rural_church", "value": "yes" }
+        ]
       }
     ],
     "responses": [

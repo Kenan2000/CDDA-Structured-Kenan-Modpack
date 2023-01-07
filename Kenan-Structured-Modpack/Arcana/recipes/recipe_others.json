@@ -87,7 +87,7 @@
     "qualities": [ { "id": "CUT", "level": 1 } ],
     "components": [
       [ [ "paper", 20 ], [ "tanbark", 1 ], [ "birchbark", 1 ], [ "willowbark", 1 ] ],
-      [ [ "essence_blood", 1 ], [ "veggy_wild", 10 ], [ "cattail_stalk", 30 ], [ "wild_herbs", 100 ] ]
+      [ [ "essence_blood", 1 ], [ "arcana_flora_forage", 1, "LIST" ] ]
     ],
     "delete_flags": [ "HIDDEN_HALLU", "HIDDEN_POISON", "BAD_TASTE", "CANNIBALISM" ],
     "flags": [ "BLIND_EASY", "ALLOW_ROTTEN" ]
@@ -145,7 +145,7 @@
       [ [ "paper", 20 ], [ "tanbark", 1 ], [ "birchbark", 1 ], [ "willowbark", 1 ] ],
       [ [ "material_sand", 50 ], [ "clay_lump", 5 ], [ "rock", 5 ] ],
       [ [ "ash", 25 ], [ "withered", 5 ] ],
-      [ [ "essence", 1 ], [ "bone_tainted", 10 ], [ "bone_human", 15 ], [ "bone_demihuman", 15 ], [ "bone", 20 ] ]
+      [ [ "essence", 1 ], [ "bone_human", 10 ], [ "bone_demihuman", 15 ], [ "bone", 20 ], [ "bone_tainted", 30 ] ]
     ],
     "delete_flags": [ "HIDDEN_HALLU", "HIDDEN_POISON", "BAD_TASTE", "CANNIBALISM" ],
     "flags": [ "BLIND_EASY", "ALLOW_ROTTEN" ]
@@ -165,7 +165,7 @@
     "components": [
       [ [ "paper", 20 ], [ "tanbark", 1 ], [ "birchbark", 1 ], [ "willowbark", 1 ] ],
       [
-        [ "meat_offal", 1, "LIST" ],
+        [ "meat_offal", 6, "LIST" ],
         [ "brain", 4 ],
         [ "mutant_brain", 4 ],
         [ "meat_stomach", 1, "LIST" ],
@@ -521,7 +521,7 @@
     "book_learn": [ [ "book_scrollcraft", 4 ] ],
     "using": [ [ "arcana_scrollwriting_standard", 1 ], [ "arcana_essence_exclude_blood", 2 ] ],
     "tools": [ [ [ "book_scrollcraft", -1 ] ] ],
-    "components": [ [ [ "material_limestone", 16 ], [ "material_quicklime", 16 ], [ "engraved_stone", 1 ] ] ],
+    "components": [ [ [ "engraved_stone", 1 ], [ "material_quicklime", 15 ], [ "chem_saltpetre", 20 ], [ "salt", 100 ] ] ],
     "delete_flags": [ "HIDDEN_HALLU", "HIDDEN_POISON", "BAD_TASTE", "CANNIBALISM" ],
     "flags": [ "BLIND_EASY" ]
   },
@@ -537,17 +537,7 @@
     "book_learn": [ [ "book_scrollcraft", 4 ] ],
     "using": [ [ "arcana_scrollwriting_standard", 1 ], [ "arcana_essence_exclude_blood", 2 ] ],
     "tools": [ [ [ "book_scrollcraft", -1 ] ] ],
-    "components": [
-      [
-        [ "raw_dandelion", 12 ],
-        [ "hops", 10 ],
-        [ "bee_balm", 8 ],
-        [ "poppy_bud", 6 ],
-        [ "rose_hips", 4 ],
-        [ "inflorescent_root", 1 ],
-        [ "triffid_queen_flower", 1 ]
-      ]
-    ],
+    "components": [ [ [ "inflorescent_root", 1 ], [ "triffid_queen_flower", 1 ], [ "arcana_flora_flowers", 5, "LIST" ] ] ],
     "delete_flags": [ "HIDDEN_HALLU", "HIDDEN_POISON", "BAD_TASTE", "CANNIBALISM" ],
     "flags": [ "BLIND_EASY", "ALLOW_ROTTEN" ]
   },
@@ -563,7 +553,7 @@
     "book_learn": [ [ "book_scrollcraft", 5 ] ],
     "using": [ [ "arcana_scrollwriting_standard", 1 ], [ "arcana_essence_exclude_blood", 3 ] ],
     "tools": [ [ [ "book_scrollcraft", -1 ] ] ],
-    "components": [ [ [ "bone", 12 ], [ "bone_human", 6 ], [ "bone_demihuman", 6 ], [ "bone_tainted", 24 ], [ "charm_bone", 1 ] ] ],
+    "components": [ [ [ "charm_bone", 1 ], [ "bone_human", 5 ], [ "bone_demihuman", 10 ], [ "bone", 15 ], [ "bone_tainted", 20 ] ] ],
     "delete_flags": [ "HIDDEN_HALLU", "HIDDEN_POISON", "BAD_TASTE", "CANNIBALISM" ],
     "flags": [ "BLIND_EASY" ]
   },
@@ -579,7 +569,7 @@
     "book_learn": [ [ "book_scrollcraft", 5 ] ],
     "using": [ [ "arcana_scrollwriting_standard", 1 ], [ "arcana_essence_exclude_blood", 3 ] ],
     "tools": [ [ [ "book_scrollcraft", -1 ] ] ],
-    "components": [ [ [ "feather", 40 ], [ "spiral_stone", 1 ], [ "vortex_shard", 1 ] ] ],
+    "components": [ [ [ "vortex_shard", 1 ], [ "cured_hide", 20 ], [ "cured_pelt", 20 ], [ "chitin_piece", 40 ], [ "feather", 80 ] ] ],
     "delete_flags": [ "HIDDEN_HALLU", "HIDDEN_POISON", "BAD_TASTE", "CANNIBALISM" ],
     "flags": [ "BLIND_EASY" ]
   },
@@ -625,10 +615,10 @@
     "difficulty": 4,
     "time": "30 m",
     "activity_level": "NO_EXERCISE",
-    "book_learn": [ [ "book_syncretism", 4 ], [ "book_hexenhammer", 5 ] ],
+    "book_learn": [ [ "book_syncretism", 4 ], [ "book_hexenhammer", 5 ], [ "book_bloodmagic", 5 ], [ "book_sacrifice", 5 ] ],
     "using": [ [ "arcana_purification_standard", 1 ] ],
     "qualities": [ { "id": "CONTAIN", "level": 1 } ],
-    "tools": [ [ [ "book_syncretism", -1 ], [ "book_hexenhammer", -1 ] ] ],
+    "tools": [ [ [ "book_syncretism", -1 ], [ "book_hexenhammer", -1 ], [ "book_bloodmagic", -1 ], [ "book_sacrifice", -1 ] ] ],
     "components": [
       [ [ "wax", 1 ], [ "any_tallow", 4, "LIST" ], [ "edible_lard", 1, "LIST" ] ],
       [ [ "cordage_short", 1, "LIST" ] ],
@@ -653,7 +643,6 @@
     "using": [ [ "surface_heat", 100 ], [ "arcana_essence_any", 3 ] ],
     "tools": [
       [ [ "book_hexenhammer", -1 ], [ "book_bloodmagic", -1 ], [ "book_sacrifice", -1 ], [ "book_syncretism", -1 ] ],
-      [ [ "crucible", -1 ], [ "crucible_clay", -1 ] ],
       [ [ "candle_warding_active", -1 ] ]
     ],
     "components": [
@@ -674,7 +663,7 @@
     "skills_required": [ "fabrication", 6 ],
     "time": "50 m",
     "activity_level": "LIGHT_EXERCISE",
-    "book_learn": [ [ "book_syncretism", 10 ] ],
+    "book_learn": [ [ "book_syncretism", 9 ], [ "book_sacrifice", 10 ], [ "book_hexenhammer", 10 ] ],
     "qualities": [ { "id": "HAMMER", "level": 2 }, { "id": "ANVIL", "level": 1 } ],
     "tools": [
       [ [ "book_syncretism", -1 ] ],

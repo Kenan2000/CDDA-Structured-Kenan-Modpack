@@ -54,12 +54,12 @@
     "looks_like": "flesh_rifle",
     "color": "red",
     "name": { "str": "biological pistol" },
-    "description": "A pistol made out of fleshy material enclosed by metal.  Whatever it fires seems to be solid enough to do damage along with immolating victims.  Activate it to draw your life force into the weapon, weaving a replacement magazine of flesh and bone.  Wielding it gives you a strange sense of focus, though the occasional twitch and unnerving sound from this thing leaves you uneasy.  Hopefully it's not sentient.",
+    "description": "A pistol made out of fleshy material enclosed by metal.  Whatever it fires seems to be solid enough to do damage along with immolating victims.  Wielding it gives you a strange sense of focus, though the occasional twitch and unnerving sound from this thing leaves you uneasy.  Hopefully it's not sentient.",
     "price": "5800 USD",
     "price_postapoc": "60 USD",
     "material": [ "flesh", "superalloy" ],
     "ammo_effects": [ "NEVER_MISFIRES", "INCENDIARY", "MUZZLE_SMOKE", "PLASMA", "BLINDS_EYES" ],
-    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "NON_FOULING", "NEEDS_NO_LUBE" ],
+    "flags": [ "NEVER_JAMS", "NON_FOULING", "NEEDS_NO_LUBE" ],
     "skill": "pistol",
     "weight": "850 g",
     "volume": "500 ml",
@@ -72,24 +72,13 @@
     "durability": 8,
     "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "2-rd. burst", 2 ] ],
     "valid_mod_locations": [ [ "accessories", 1 ], [ "sling", 1 ] ],
-    "ammo": [ "battery" ],
-    "pocket_data": [
-      {
-        "magazine_well": "200 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "flesh_pistol_magazine" ]
-      }
-    ],
-    "use_action": { "type": "cast_spell", "spell_id": "c_flesh_pistol_regen", "need_wielding": true, "no_fail": true, "level": 0 },
     "relic_data": {
       "passive_effects": [
         {
           "has": "WIELD",
           "condition": "ALWAYS",
           "values": [ { "value": "STRENGTH", "add": -2 }, { "value": "DEXTERITY", "add": -2 }, { "value": "PERCEPTION", "add": 4 } ],
+          "ench_effects": [ { "effect": "c_flesh_pistol_side_effect", "intensity": 1 } ],
           "mutations": [ "SCHIZOPHRENIC", "ROT1", "PRED1" ]
         }
       ]
@@ -102,12 +91,12 @@
     "looks_like": "flesh_rifle",
     "color": "red",
     "name": { "str": "biological sub-machinegun" },
-    "description": "A sub-machinegun made out of fleshy material enclosed by metal.  Whatever the hell it fires seems to have an incendiary effect on targets.  Activate it to draw your life force into the weapon, weaving a replacement magazine of flesh and bone.  Wielding it gives you a strange sense of focus, though the occasional twitch and unnerving sound from this thing leaves you uneasy.  Hopefully it's not sentient.",
+    "description": "A sub-machinegun made out of fleshy material enclosed by metal.  Whatever the hell it fires seems to have an incendiary effect on targets.  Wielding it gives you a strange sense of focus, though the occasional twitch and unnerving sound from this thing leaves you uneasy.  Hopefully it's not sentient.",
     "price": "5800 USD",
     "price_postapoc": "75 USD",
     "material": [ "flesh", "superalloy" ],
     "ammo_effects": [ "NEVER_MISFIRES", "INCENDIARY", "MUZZLE_SMOKE", "PLASMA", "BLINDS_EYES", "FLAME", "BEANBAG", "STREAM" ],
-    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "NON_FOULING", "NEEDS_NO_LUBE" ],
+    "flags": [ "NEVER_JAMS", "NON_FOULING", "NEEDS_NO_LUBE" ],
     "skill": "smg",
     "weight": "2850 g",
     "volume": "1 L",
@@ -118,19 +107,7 @@
     "dispersion": 150,
     "recoil": 20,
     "durability": 8,
-    "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "burst", 3 ] ],
-    "ammo": [ "battery" ],
-    "pocket_data": [
-      {
-        "magazine_well": "600 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "flesh_smg_magazine" ]
-      }
-    ],
-    "use_action": { "type": "cast_spell", "spell_id": "c_flesh_smg_regen", "need_wielding": true, "no_fail": true, "level": 0 },
+    "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "burst", 3 ], [ "AUTO", "auto", 5 ] ],
     "valid_mod_locations": [ [ "accessories", 1 ], [ "sling", 1 ] ],
     "relic_data": {
       "passive_effects": [
@@ -139,6 +116,7 @@
           "condition": "ALWAYS",
           "values": [ { "value": "STRENGTH", "add": -2 }, { "value": "DEXTERITY", "add": -2 }, { "value": "PERCEPTION", "add": 4 } ],
           "mutations": [ "SCHIZOPHRENIC", "ROT2", "PRED2", "INFRARED", "ELECTRORECEPTORS" ],
+          "ench_effects": [ { "effect": "c_flesh_smg_side_effect", "intensity": 1 } ],
           "hit_me_effect": [
             {
               "id": "c_flesh_hit_effect",
@@ -157,12 +135,12 @@
     "symbol": "(",
     "color": "red",
     "name": { "str": "biological rifle" },
-    "description": "A rifle made out of fleshy material enclosed by metal.  It fires something seemingly alive, over quite a long range in fact, horribly burning and stunning whatever it hits.  Activate it to draw your life force into the weapon, weaving a replacement magazine of flesh and bone.  Wielding it gives you a strange sense of focus, though the occasional twitch and unnerving sound from this thing leaves you uneasy.  Hopefully it's not sentient.",
+    "description": "A rifle made out of fleshy material enclosed by metal.  It fires something seemingly alive, over quite a long range in fact, horribly burning and stunning whatever it hits.  Wielding it gives you a strange sense of focus, though the occasional twitch and unnerving sound from this thing leaves you uneasy.  Hopefully it's not sentient.",
     "price": "5800 USD",
     "price_postapoc": "75 USD",
     "material": [ "flesh", "superalloy" ],
     "ammo_effects": [ "NEVER_MISFIRES", "INCENDIARY", "MUZZLE_SMOKE", "PLASMA", "BLINDS_EYES", "FLAME", "LARGE_BEANBAG", "NAPALM" ],
-    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "NON_FOULING", "NEEDS_NO_LUBE" ],
+    "flags": [ "NEVER_JAMS", "NON_FOULING", "NEEDS_NO_LUBE" ],
     "skill": "rifle",
     "weight": "3650 g",
     "volume": "2 L",
@@ -174,19 +152,7 @@
     "dispersion": 50,
     "recoil": 200,
     "durability": 8,
-    "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "burst", 3 ], [ "AUTO", "auto", 5 ] ],
-    "ammo": [ "battery" ],
-    "pocket_data": [
-      {
-        "magazine_well": "300 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "flesh_rifle_magazine" ]
-      }
-    ],
-    "use_action": { "type": "cast_spell", "spell_id": "c_flesh_rifle_regen", "need_wielding": true, "no_fail": true, "level": 0 },
+    "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "burst", 3 ] ],
     "valid_mod_locations": [ [ "accessories", 1 ], [ "sling", 1 ] ],
     "relic_data": {
       "passive_effects": [
@@ -195,6 +161,7 @@
           "condition": "ALWAYS",
           "values": [ { "value": "STRENGTH", "add": -2 }, { "value": "DEXTERITY", "add": -2 }, { "value": "PERCEPTION", "add": 4 } ],
           "mutations": [ "SCHIZOPHRENIC", "ROT2", "PRED2", "INFRARED", "ELECTRORECEPTORS" ],
+          "ench_effects": [ { "effect": "c_flesh_rifle_side_effect", "intensity": 1 } ],
           "hit_me_effect": [
             {
               "id": "c_flesh_hit_effect",
@@ -214,12 +181,12 @@
     "looks_like": "flesh_rifle",
     "color": "red",
     "name": { "str": "biological machinegun" },
-    "description": "A light machinegun made out of fleshy material enclosed by metal.  It fires unnatural, presumably-living rounds that daze and immolate almost anything hit by sustained fire.  Activate it to draw your life force into the weapon, weaving a replacement magazine of flesh and bone.  Wielding it gives you a strange sense of focus, though the occasional twitch and unnerving sound from this thing leaves you uneasy.  Hopefully it's not sentient.",
+    "description": "A light machinegun made out of fleshy material enclosed by metal.  It fires unnatural, presumably-living rounds that daze and immolate almost anything hit by sustained fire.  Wielding it gives you a strange sense of focus, though the occasional twitch and unnerving sound from this thing leaves you uneasy.  Hopefully it's not sentient.",
     "price": "5800 USD",
     "price_postapoc": "75 USD",
     "material": [ "flesh", "superalloy" ],
     "ammo_effects": [ "NEVER_MISFIRES", "INCENDIARY", "MUZZLE_SMOKE", "PLASMA", "BLINDS_EYES", "FLAME", "BEANBAG", "STREAM_BIG" ],
-    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "NON_FOULING", "NEEDS_NO_LUBE" ],
+    "flags": [ "NEVER_JAMS", "NON_FOULING", "NEEDS_NO_LUBE" ],
     "skill": "rifle",
     "weight": "4750 g",
     "volume": "2 L",
@@ -231,18 +198,6 @@
     "recoil": 100,
     "durability": 8,
     "modes": [ [ "DEFAULT", "semi", 5 ], [ "BURST", "low auto", 5 ], [ "AUTO", "high auto", 10 ] ],
-    "ammo": [ "battery" ],
-    "pocket_data": [
-      {
-        "magazine_well": "1000 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "flesh_lmg_magazine" ]
-      }
-    ],
-    "use_action": { "type": "cast_spell", "spell_id": "c_flesh_lmg_regen", "need_wielding": true, "no_fail": true, "level": 0 },
     "valid_mod_locations": [ [ "accessories", 1 ], [ "sling", 1 ] ],
     "relic_data": {
       "passive_effects": [
@@ -251,6 +206,7 @@
           "condition": "ALWAYS",
           "values": [ { "value": "STRENGTH", "add": -2 }, { "value": "DEXTERITY", "add": -2 }, { "value": "PERCEPTION", "add": 4 } ],
           "mutations": [ "SCHIZOPHRENIC", "ROT2", "PRED2", "INFRARED", "ELECTRORECEPTORS" ],
+          "ench_effects": [ { "effect": "c_flesh_lmg_side_effect", "intensity": 1 } ],
           "hit_me_effect": [
             {
               "id": "c_flesh_hit_effect",
@@ -270,7 +226,7 @@
     "color": "red",
     "looks_like": "flesh_rifle",
     "name": { "str": "biological scattergun" },
-    "description": "An automatic shotgun made out of fleshy material enclosed by metal.  It's hard to tell what this thing even fires, but it appears to have a powerful stunning and incendiary effect on targets.  Activate it to draw your life force into the weapon, weaving a replacement magazine of flesh and bone.  Wielding it gives you a strange sense of focus, though the occasional twitch and unnerving sound from this thing leaves you uneasy.  Hopefully it's not sentient.",
+    "description": "An automatic shotgun made out of fleshy material enclosed by metal.  It's hard to tell what this thing even fires, but it appears to have a powerful stunning and incendiary effect on targets.  Wielding it gives you a strange sense of focus, though the occasional twitch and unnerving sound from this thing leaves you uneasy.  Hopefully it's not sentient.",
     "price": "5800 USD",
     "price_postapoc": "75 USD",
     "material": [ "flesh", "superalloy" ],
@@ -286,7 +242,7 @@
       "STREAM_BIG",
       "WIDE"
     ],
-    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "NON_FOULING", "NEEDS_NO_LUBE" ],
+    "flags": [ "NEVER_JAMS", "NON_FOULING", "NEEDS_NO_LUBE" ],
     "skill": "shotgun",
     "weight": "3850 g",
     "volume": "2 L",
@@ -299,18 +255,6 @@
     "recoil": 300,
     "durability": 8,
     "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "2-rd. burst", 2 ] ],
-    "ammo": [ "battery" ],
-    "pocket_data": [
-      {
-        "magazine_well": "400 ml",
-        "pocket_type": "MAGAZINE_WELL",
-        "holster": true,
-        "max_contains_volume": "20 L",
-        "max_contains_weight": "20 kg",
-        "item_restriction": [ "flesh_shotgun_magazine" ]
-      }
-    ],
-    "use_action": { "type": "cast_spell", "spell_id": "c_flesh_shotgun_regen", "need_wielding": true, "no_fail": true, "level": 0 },
     "valid_mod_locations": [ [ "accessories", 1 ], [ "sling", 1 ] ],
     "relic_data": {
       "passive_effects": [
@@ -319,6 +263,7 @@
           "condition": "ALWAYS",
           "values": [ { "value": "STRENGTH", "add": -2 }, { "value": "DEXTERITY", "add": -2 }, { "value": "PERCEPTION", "add": 4 } ],
           "mutations": [ "SCHIZOPHRENIC", "ROT2", "PRED2", "INFRARED", "ELECTRORECEPTORS" ],
+          "ench_effects": [ { "effect": "c_flesh_scattergun_side_effect", "intensity": 1 } ],
           "hit_me_effect": [
             {
               "id": "c_flesh_hit_effect",
@@ -388,9 +333,9 @@
     "to_hit": -1,
     "ammo_effects": [ "LASER", "SHOT", "INCENDIARY" ],
     "flags": [ "NO_UNLOAD", "NON_FOULING", "NEEDS_NO_LUBE" ],
-    "ups_charges": 80,
+    "ups_charges": 60,
     "skill": "rifle",
-    "ranged_damage": { "damage_type": "heat", "amount": 40, "armor_penetration": 3 },
+    "ranged_damage": { "damage_type": "heat", "amount": 30, "armor_penetration": 3 },
     "range": 25,
     "dispersion": 120,
     "durability": 7,
@@ -413,7 +358,7 @@
     "symbol": "(",
     "looks_like": "ups_rifle",
     "name": { "str": "survivor's crank rifle" },
-    "description": "Further building on the developments that went into the UPS rifle, this integrates a hand crank and capacitors to charge a custom-made power cell.  Infinite ammo, at the cost of performance and reliability.  Use it to deploy the crank charger.",
+    "description": "Further building on the developments that went into the UPS rifle, this integrates a hand crank and capacitors to charge a custom-made power cell.  Infinite ammo at the cost of reliability.  Use it to ready the hand-crank charger, allowing you to recharge loaded capacitor banks.",
     "price": "7490 USD",
     "price_postapoc": "60 USD",
     "material": [ "steel", "wood" ],
@@ -425,7 +370,7 @@
     "flags": [ "NON_FOULING", "NEEDS_NO_LUBE" ],
     "skill": "rifle",
     "ammo": [ "battery" ],
-    "ranged_damage": { "damage_type": "heat", "amount": 40, "armor_penetration": 3 },
+    "ranged_damage": { "damage_type": "heat", "amount": 30, "armor_penetration": 3 },
     "range": 25,
     "dispersion": 150,
     "recoil": 15,
@@ -433,10 +378,16 @@
     "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "burst", 5 ] ],
     "reload": 0,
     "loudness": 16,
-    "use_action": "HAND_CRANK",
+    "use_action": {
+      "type": "transform",
+      "msg": "You ready the rifle for recharging.",
+      "menu_text": "Swap to recharge mode",
+      "target": "ups_rifle_crank_charge",
+      "ammo_scale": 0
+    },
     "pocket_data": [
       {
-        "magazine_well": "150 ml",
+        "magazine_well": "300 ml",
         "pocket_type": "MAGAZINE_WELL",
         "holster": true,
         "max_contains_volume": "20 L",
@@ -444,15 +395,7 @@
         "item_restriction": [ "rifle_crank_battery_cell" ]
       }
     ],
-    "valid_mod_locations": [
-      [ "accessories", 2 ],
-      [ "sling", 1 ],
-      [ "grip", 1 ],
-      [ "rail", 1 ],
-      [ "sights", 1 ],
-      [ "stock", 1 ],
-      [ "underbarrel", 1 ]
-    ]
+    "//": "No gunmods as these will likely get deleted on transformation."
   },
   {
     "id": "surv_battery_pistol",
@@ -492,7 +435,7 @@
       }
     ],
     "skill": "pistol",
-    "ranged_damage": { "damage_type": "electric", "amount": 5 },
+    "ranged_damage": { "damage_type": "electric", "amount": 8 },
     "range": 10,
     "dispersion": 120,
     "recoil": 10,
@@ -531,7 +474,7 @@
       }
     ],
     "skill": "rifle",
-    "ranged_damage": { "damage_type": "electric", "amount": 12 },
+    "ranged_damage": { "damage_type": "electric", "amount": 20 },
     "range": 15,
     "dispersion": 100,
     "recoil": 30,
@@ -1214,8 +1157,17 @@
     "price": "880 USD",
     "price_postapoc": "88 USD",
     "material": [ "wood", "steel" ],
-    "flags": [ "FIRE_TWOHAND", "STR_DRAW", "RELOAD_AND_SHOOT", "PRIMITIVE_RANGED_WEAPON", "DURABLE_MELEE" ],
+    "flags": [
+      "WATERPROOF_GUN",
+      "NEVER_JAMS",
+      "FIRE_TWOHAND",
+      "STR_DRAW",
+      "RELOAD_AND_SHOOT",
+      "PRIMITIVE_RANGED_WEAPON",
+      "DURABLE_MELEE"
+    ],
     "techniques": [ "RAPID", "WBLOCK_2", "PRECISE" ],
+    "ammo_effects": [ "NEVER_MISFIRES" ],
     "skill": "archery",
     "min_strength": 6,
     "ammo": [ "arrow" ],
@@ -1232,7 +1184,12 @@
     "durability": 6,
     "clip_size": 1,
     "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "arrow": 1 } } ],
-    "use_action": { "type": "transform", "msg": "You collapse the fighting bow into its takedown form.", "target": "survbowstored" }
+    "use_action": {
+      "type": "transform",
+      "msg": "You collapse the fighting bow into its takedown form.",
+      "target": "survbowstored",
+      "ammo_scale": 0
+    }
   },
   {
     "id": "surv_sniper",
@@ -1666,7 +1623,7 @@
         "holster": true,
         "max_contains_volume": "20 L",
         "max_contains_weight": "20 kg",
-        "item_restriction": [ "medium_atomic_battery_cell", "medium_atomic_battery_cell_rechargeable" ]
+        "item_restriction": [ "medium_atomic_battery_cell", "heavy_atomic_battery_cell", "medium_atomic_battery_cell_rechargeable", "heavy_atomic_battery_cell_rechargeable" ]
       }
     ]
   },
@@ -1734,7 +1691,7 @@
     "dispersion": 300,
     "durability": 8,
     "built_in_mods": [ "rail_laser_sight", "pistol_grip" ],
-    "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "double-barrel", 2 ] ],
+    "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "2-rd. burst", 2 ] ],
     "reload": 250,
     "valid_mod_locations": [
       [ "accessories", 2 ],
@@ -1783,7 +1740,7 @@
     "dispersion": 300,
     "durability": 8,
     "built_in_mods": [ "rail_laser_sight", "pistol_grip" ],
-    "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "double-barrel", 2 ] ],
+    "modes": [ [ "DEFAULT", "semi", 1 ], [ "BURST", "2-rd. burst", 2 ] ],
     "ups_charges": 100,
     "valid_mod_locations": [
       [ "accessories", 2 ],
@@ -1874,7 +1831,7 @@
     "name": { "str": "survivor's flamethrower" },
     "//": "Most stats are in between regular flamethrower and obsoleted simple flamethrower.  Integral mag because multiple ammo types.  No burst fire, less range and a damage penalty, but it uses half as much fuel as normal.",
     "description": "A makeshift flamethrower, charged from a integral fuel tank using a hand-cranked pump.  While homemade, it is higher-quality than most makeshift weapons, and can run on just about any fuel of suitable viscosity.  It uses considerably less fuel per gout of flame, at the expense of power and range.",
-    "ammo": [ "diesel", "gasoline", "flammable", "lamp_oil", "motor_oil", "jp8", "avgas" ],
+    "ammo": [ "diesel", "gasoline", "flammable", "lamp_oil", "crude_lamp_oil", "motor_oil", "jp8", "avgas" ],
     "weight": "1587 g",
     "volume": "5 L",
     "price": "200 USD",
@@ -1892,7 +1849,16 @@
         "pocket_type": "MAGAZINE",
         "rigid": true,
         "watertight": true,
-        "ammo_restriction": { "diesel": 1500, "gasoline": 1500, "flammable": 1500, "lamp_oil": 1500, "motor_oil": 1500, "jp8": 1500, "avgas": 1500 }
+        "ammo_restriction": {
+          "diesel": 1500,
+          "gasoline": 1500,
+          "flammable": 1500,
+          "lamp_oil": 1500,
+          "crude_lamp_oil": 1500,
+          "motor_oil": 1500,
+          "jp8": 1500,
+          "avgas": 1500
+        }
       }
     ],
     "reload": 4,
@@ -1982,16 +1948,16 @@
     "durability": 6,
     "modes": [ [ "DEFAULT", "semi", 1 ], [ "AUTO", "auto", 3 ] ],
     "clip_size": 15,
-    "pocket_data": [ { "pocket_type": "MAGAZINE", "watertight": true, "airtight": true, "rigid": true, "ammo_restriction": { "plasma": 15, "c_hydrogen": 15 } } ],
+    "pocket_data": [
+      {
+        "pocket_type": "MAGAZINE",
+        "watertight": true,
+        "airtight": true,
+        "rigid": true,
+        "ammo_restriction": { "plasma": 15, "c_hydrogen": 15 }
+      }
+    ],
     "reload": 450,
-    "valid_mod_locations": [
-      [ "accessories", 2 ],
-      [ "grip", 1 ],
-      [ "rail", 1 ],
-      [ "sights", 1 ],
-      [ "stock", 1 ],
-      [ "underbarrel", 1 ]
-    ]
+    "valid_mod_locations": [ [ "accessories", 2 ], [ "grip", 1 ], [ "rail", 1 ], [ "sights", 1 ], [ "stock", 1 ], [ "underbarrel", 1 ] ]
   }
-
 ]

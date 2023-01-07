@@ -298,15 +298,14 @@
       [ [ "boots_larmor", 1 ] ],
       [ [ "leather", 4 ], [ "fur", 4 ] ],
       [
+        [ "brooch_iridescent", 1 ],
+        [ "jade_brooch", 1 ],
         [ "alexandrite", 1 ],
         [ "peridot", 1 ],
         [ "citrine", 1 ],
-        [ "emerald", 1 ],
-        [ "jade_brooch", 1 ],
-        [ "iridescent_plate", 1 ],
-        [ "wyrmskin_piece", 1 ]
+        [ "emerald", 1 ]
       ],
-      [ [ "chem_acetic_acid", 1 ], [ "any_strong_acid", 1, "LIST" ] ],
+      [ [ "wyrmskin_piece", 1 ], [ "chem_acetic_acid", 1 ], [ "any_strong_acid", 2, "LIST" ] ],
       [ [ "essence_blood", 4 ] ]
     ],
     "flags": [ "SECRET" ]
@@ -437,7 +436,7 @@
     "skills_required": [ "tailor", 3 ],
     "time": "45 m",
     "activity_level": "LIGHT_EXERCISE",
-    "book_learn": [ [ "book_syncretism", 8 ] ],
+    "book_learn": [ [ "book_syncretism", 7 ], [ "book_bloodmagic", 8 ], [ "book_sacrifice", 8 ] ],
     "using": [ [ "filament", 24 ], [ "arcana_essence_exclude_dull", 8 ] ],
     "qualities": [
       { "id": "CUT", "level": 1 },
@@ -484,5 +483,29 @@
       [ [ "essence_pure", 1 ], [ "arcana_essence_exclude_blood", 10, "LIST" ] ]
     ],
     "flags": [ "SECRET" ]
+  },
+  {
+    "result": "armor_wyrm_berserker",
+    "type": "recipe",
+    "category": "CC_ARCANA",
+    "subcategory": "CSC_ARCANA_ARMOR",
+    "skill_used": "magic",
+    "difficulty": 9,
+    "skills_required": [ "fabrication", 7 ],
+    "time": "5 h",
+    "activity_level": "LIGHT_EXERCISE",
+    "book_learn": [ [ "book_bloodmagic", 9 ], [ "book_syncretism", 8 ] ],
+    "using": [ [ "sewing_standard", 30 ], [ "steel_standard", 10 ], [ "arcana_forging_tools_standard", 1 ] ],
+    "proficiencies": [ { "proficiency": "prof_metalworking", "required": false, "time_multiplier": 1.5, "fail_multiplier": 1.5 } ],
+    "tools": [ [ [ "book_bloodmagic", -1 ], [ "book_syncretism", -1 ] ] ],
+    "components": [
+      [ [ "armor_wyrm", 1 ] ],
+      [ [ "arcana_holy_relic_any", 1, "LIST" ] ],
+      [ [ "dragonblood_mutagen", 1 ] ],
+      [ [ "material_shrd_limestone", 3 ], [ "material_limestone", 30 ] ],
+      [ [ "charcoal", 30 ], [ "coal_lump", 30 ] ],
+      [ [ "essence_pure", 1 ], [ "arcana_essence_exclude_dull", 10, "LIST" ] ]
+    ],
+    "flags": [ "BLIND_EASY", "SECRET" ]
   }
 ]

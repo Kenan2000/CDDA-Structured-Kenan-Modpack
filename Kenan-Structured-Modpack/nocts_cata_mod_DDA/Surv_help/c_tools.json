@@ -51,7 +51,13 @@
     "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "battery": 100 } } ],
     "turns_per_charge": 15,
     "revert_to": "solar_flashlight",
-    "use_action": { "type": "transform", "menu_text": "Turn off", "msg": "You turn the flashlight off.", "target": "solar_flashlight" }
+    "use_action": {
+      "type": "transform",
+      "menu_text": "Turn off",
+      "msg": "You turn the flashlight off.",
+      "target": "solar_flashlight",
+      "ammo_scale": 0
+    }
   },
   {
     "id": "wear_solar_flashlight",
@@ -118,7 +124,8 @@
       "type": "transform",
       "menu_text": "Turn off",
       "msg": "You turn the flashlight off.",
-      "target": "wear_solar_flashlight"
+      "target": "wear_solar_flashlight",
+      "ammo_scale": 0
     },
     "armor": [
       {
@@ -201,7 +208,15 @@
     "turns_per_charge": 60,
     "revert_to": "solar_torch",
     "revert_msg": "The torch is extinguished.",
-    "use_action": [ { "type": "transform", "menu_text": "Extinguish", "msg": "The torch is extinguished.", "target": "solar_torch" } ]
+    "use_action": [
+      {
+        "type": "transform",
+        "menu_text": "Extinguish",
+        "msg": "The torch is extinguished.",
+        "target": "solar_torch",
+        "ammo_scale": 0
+      }
+    ]
   },
   {
     "id": "fr_22",
@@ -631,7 +646,12 @@
     "weight": "1144 g",
     "volume": "1 L",
     "to_hit": -1,
-    "use_action": { "type": "transform", "msg": "You unfold your bow, locking the arms into place.", "target": "survbow" }
+    "use_action": {
+      "type": "transform",
+      "msg": "You unfold your bow, locking the arms into place.",
+      "target": "survbow",
+      "ammo_scale": 0
+    }
   },
   {
     "id": "semap",
@@ -1171,7 +1191,8 @@
         "type": "transform",
         "msg": "You switch the %s to weaving mode",
         "target": "c_mi_go_extruder_salvaged_alt",
-        "menu_text": "switch mode"
+        "menu_text": "switch mode",
+        "ammo_scale": 0
       }
     ]
   },
@@ -1197,8 +1218,63 @@
         "type": "transform",
         "msg": "You switch the %s to its normal mode",
         "target": "c_mi_go_extruder_salvaged",
-        "menu_text": "switch mode"
+        "menu_text": "switch mode",
+        "ammo_scale": 0
       }
     ]
+  },
+  {
+    "id": "ups_rifle_crank_charge",
+    "type": "TOOL",
+    "category": "tools",
+    "name": { "str": "survivor's crank rifle (charge mode)", "str_pl": "survivor's crank rifle (charge mode)" },
+    "description": "Further building on the developments that went into the UPS rifle, this integrates a hand crank and capacitors to charge a custom-made power cell.  Activate it to recharge a loaded capacitor bank, or to ready it for firing.",
+    "color": "yellow",
+    "symbol": "(",
+    "looks_like": "ups_rifle_crank",
+    "price": "7490 USD",
+    "price_postapoc": "60 USD",
+    "material": [ "steel", "wood" ],
+    "weight": "4964 g",
+    "volume": "4250 ml",
+    "bashing": 8,
+    "to_hit": -1,
+    "ammo": [ "battery" ],
+    "use_action": [
+      "HAND_CRANK",
+      {
+        "type": "transform",
+        "msg": "You ready the rifle for firing.",
+        "menu_text": "Swap to fire mode",
+        "target": "ups_rifle_crank",
+        "ammo_scale": 0
+      }
+    ],
+    "pocket_data": [
+      {
+        "magazine_well": "300 ml",
+        "pocket_type": "MAGAZINE_WELL",
+        "holster": true,
+        "max_contains_volume": "20 L",
+        "max_contains_weight": "20 kg",
+        "item_restriction": [ "rifle_crank_battery_cell" ]
+      }
+    ]
+  },
+  {
+    "id": "wire_saw_makeshift",
+    "type": "GENERIC",
+    "category": "tools",
+    "name": { "str": "makeshift wire saw" },
+    "description": "This is a flexible saw made from thin wire and added abrasive, with makeshift handles on either end.  It should suffice for light metal and wood sawing.",
+    "weight": "200 g",
+    "volume": "100 ml",
+    "price": "10 USD",
+    "price_postapoc": "50 cent",
+    "material": "iron",
+    "symbol": ";",
+    "color": "light_gray",
+    "looks_like": "chain",
+    "qualities": [ [ "SAW_M", 1 ], [ "SAW_W", 1 ] ]
   }
 ]

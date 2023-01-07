@@ -1,0 +1,37 @@
+[
+  {
+    "type": "GENERIC",
+    "category": "weapons",
+    "id": "unbio_kinetic_amplifier_weapon",
+    "name": { "str_sp": "salvaged kinetic amplifier" },
+    "description": "A band of steel worn over the knuckles, etched with strange markings.  Salvaged from a CBM.  When used as an unarmed weapon, it can give your strikes the ability to send victims flying, with amplified damage and armor penetration.  Its impacts have a chance of letting loose a blinding flashbang effect, making this weapon a double-edged sword without protection.",
+    "color": "light_gray",
+    "symbol": "{",
+    "looks_like": "knuckle_steel",
+    "material": [ "steel" ],
+    "price": "400 USD",
+    "price_postapoc": "20 USD",
+    "volume": "250 ml",
+    "weight": "500 g",
+    "bashing": 24,
+    "flags": [ "UNARMED_WEAPON", "UNBREAKABLE_MELEE", "TRADER_AVOID" ],
+    "qualities": [ [ "HAMMER", 1 ] ],
+    "techniques": [ "WBLOCK_1", "tec_weapon_kinetic_knockback" ],
+    "relic_data": {
+      "passive_effects": [
+        {
+          "has": "WIELD",
+          "condition": "ALWAYS",
+          "hit_you_effect": [
+            {
+              "id": "arcana_react_kinetic_amplifier_flashbang",
+              "once_in": 10,
+              "message": "Your kinetic resonates with a blinding flash and thunderous sound!",
+              "npc_message": "%1$s suddenly gives off a blinding flash and thunderous sound!"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
