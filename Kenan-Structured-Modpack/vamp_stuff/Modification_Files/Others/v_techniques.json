@@ -1,0 +1,191 @@
+[
+  {
+    "type": "technique",
+    "id": "UPRIGHT_SLASH",
+    "name": "Upright Slash",
+    "description": "Sends enemy into the air, knockback 6, down 5, stun 2, crit only",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "crit_tec": true,
+    "stun_dur": 2,
+    "knockback_dist": 6,
+    "down_dur": 5,
+    "weighting": -4,
+    "messages": [
+      "The upward slash brought %s into the air",
+      "%s were sent into the air",
+      "<npcname> striked %s upwards, and fell down"
+    ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.33 },
+      { "stat": "damage", "type": "bash", "scaling-stat": "str", "scale": 1.33 },
+      { "stat": "damage", "type": "cut", "scaling-stat": "str", "scale": 1.66 },
+      { "stat": "damage", "type": "stab", "scaling-stat": "str", "scale": 0.66 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "DOWNWARD_SLASH",
+    "name": "Downward Slash",
+    "description": "Slams enemy into the ground, down 6, stun 2, crit only",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "crit_tec": true,
+    "weighting": -3,
+    "down_dur": 6,
+    "stun_dur": 2,
+    "messages": [ "%s faced the floor", "The downward slash sent %s into the ground", "<npcname> slammed %s beneath the floor." ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.33 },
+      { "stat": "damage", "type": "bash", "scaling-stat": "str", "scale": 1.66 },
+      { "stat": "damage", "type": "cut", "scaling-stat": "str", "scale": 1.33 },
+      { "stat": "damage", "type": "stab", "scaling-stat": "str", "scale": 0.66 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "VAMP_WRATH",
+    "name": "Vampire's Wrath",
+    "description": "Swift attacks, 33% movecost, 66% damage.",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "crit_tec": false,
+    "weighting": 1,
+    "messages": [ "Quick strike", "%s was immediately struck", "<npcname> attacked %s quickly" ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.33 },
+      { "stat": "damage", "type": "bash", "scaling-stat": "str", "scale": 0.66 },
+      { "stat": "damage", "type": "cut", "scaling-stat": "str", "scale": 0.66 },
+      { "stat": "damage", "type": "stab", "scaling-stat": "str", "scale": 0.66 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "BOW_VAMP_SWEEP",
+    "name": "Vampiric Bow Sweep",
+    "description": "Send monsters back, 3 tile sweep attack, down 1, knockback 1.",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "knockback_dist": 1,
+    "down_dur": 1,
+    "crit_tec": false,
+    "weighting": 1,
+    "messages": [ "Your swing sent %s back and stumble", "<npcname>'s bow horizontally swinged!" ],
+    "aoe": "wide"
+  },
+  {
+    "type": "technique",
+    "id": "WEAK_HITCRIT",
+    "name": "Weak Point Stab",
+    "description": "Precise hit for 2x damage, down 1, crit only",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "crit_tec": true,
+    "weighting": -8,
+    "down_dur": 1,
+    "messages": [ "%s's weak point were stabbed", "<npcname> located %s's weak point and stab it" ],
+    "mult_bonuses": [ { "stat": "damage", "type": "stab", "scaling-stat": "str", "scale": 2.0 } ]
+  },
+  {
+    "type": "technique",
+    "id": "STRONG_HITCRIT",
+    "name": "Weak Point Pierce",
+    "description": "Precise hit for 4x damage, down 2, crit only",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "crit_tec": true,
+    "weighting": -16,
+    "down_dur": 2,
+    "messages": [ "You delivered a deadly stab to %s's weak point", "<npcname>'s deadly hit struck to %s." ],
+    "mult_bonuses": [ { "stat": "damage", "type": "stab", "scaling-stat": "str", "scale": 4.0 } ]
+  },
+  {
+    "type": "technique",
+    "id": "VAMP_TRICK",
+    "name": "Vampire's Trick",
+    "description": "Trips enemy, down 3.",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "crit_tec": false,
+    "weighting": 1,
+    "down_dur": 3,
+    "messages": [ "%s was tripped", "<npcname> tripped %s" ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.75 }, { "stat": "damage", "type": "bash", "scaling-stat": "str", "scale": 1.0 } ]
+  },
+  {
+    "type": "technique",
+    "id": "BOW_VAMP_THRUST",
+    "name": "Vampiric Bow Thrust",
+    "description": "Stabs enemy back, down 1, knockback 2.",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "knockback_dist": 2,
+    "down_dur": 1,
+    "crit_tec": false,
+    "weighting": 0,
+    "messages": [ "You stab %s and stumble", "%s was pushed back with a stab by <npcname>" ]
+  },
+  {
+    "type": "technique",
+    "id": "HEAD_GRIND",
+    "name": "Head Grind",
+    "description": "Insta-kill, crit only",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "crit_tec": true,
+    "weighting": -100,
+    "messages": [ "%s's head were snapped out of from its neck", "%s's head fell into the floor after strucked by <npcname>" ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 2.0 }, { "stat": "damage", "type": "cut", "scaling-stat": "str", "scale": 99.99 } ]
+  },
+  {
+    "type": "technique",
+    "id": "UPRIGHT_BASH",
+    "name": "Upright Slash",
+    "description": "Sends enemy into the air, knockback 8, down 4, stun 3, crit only",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "crit_tec": true,
+    "stun_dur": 3,
+    "knockback_dist": 8,
+    "down_dur": 4,
+    "weighting": -5,
+    "messages": [ "The upward bash brought %s into the air", "%s were sent into the air!", "You bash %s upwards, and fell down" ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.33 },
+      { "stat": "damage", "type": "bash", "scaling-stat": "str", "scale": 1.66 },
+      { "stat": "damage", "type": "cut", "scaling-stat": "str", "scale": 0.66 },
+      { "stat": "damage", "type": "stab", "scaling-stat": "str", "scale": 1.33 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "DOWNWARD_BASH",
+    "name": "Downward Bash",
+    "description": "Slams enemy into the ground, down 2, stun 5, crit only",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "crit_tec": true,
+    "stun_dur": 5,
+    "down_dur": 2,
+    "weighting": -6,
+    "messages": [ "The heavy slam drove %s into the ground", "<npcname>'s bash sent %s downwards, and kissed the floor" ],
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 1.33 },
+      { "stat": "damage", "type": "bash", "scaling-stat": "str", "scale": 1.66 },
+      { "stat": "damage", "type": "cut", "scaling-stat": "str", "scale": 0.66 },
+      { "stat": "damage", "type": "stab", "scaling-stat": "str", "scale": 1.66 }
+    ]
+  },
+  {
+    "type": "technique",
+    "id": "TRENCH",
+    "name": "Trench",
+    "description": "Crushes opponent, insta-kill, crit only",
+    "unarmed_allowed": false,
+    "melee_allowed": true,
+    "crit_tec": true,
+    "weighting": -100,
+    "messages": [ "%s was crushed", "<npcname> smashed %s" ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 2.0 }, { "stat": "damage", "type": "bash", "scaling-stat": "str", "scale": 99.99 } ]
+  }
+]

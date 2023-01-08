@@ -1,0 +1,90 @@
+[
+  {
+    "type": "construction",
+    "id": "constr_blaze_blob_pit",
+    "category": "OTHER",
+    "group": "dig_blaze_blob_pit",
+    "difficulty": 0,
+    "time": "1 s",
+    "pre_terrain": "t_pit_corpsed",
+    "post_terrain": "blob_pit",
+    "tools": [
+      [ [ "gloople", -1 ], [ "glooplegrow", -1 ], [ "oozle", -1 ], [ "oozlegrow", -1 ], [ "gray", -1 ], [ "graygrow", -1 ] ]
+    ]
+  },
+  {
+    "type": "construction",
+    "id": "constr_blaze_blob_pit_slime",
+    "category": "OTHER",
+    "group": "dig_blaze_blob_pit_slime",
+    "difficulty": 0,
+    "time": "1 s",
+    "pre_terrain": "t_slime",
+    "post_terrain": "blob_pit_slime",
+    "tools": [
+      [ [ "gloople", -1 ], [ "glooplegrow", -1 ], [ "oozle", -1 ], [ "oozlegrow", -1 ], [ "gray", -1 ], [ "graygrow", -1 ] ]
+    ]
+  },
+  {
+    "id": "blob_pit",
+    "type": "terrain",
+    "name": "mass of blob feed",
+    "description": "",
+    "symbol": "O",
+    "color": "light_green",
+    "move_cost": 0,
+    "bash": {
+      "str_min": 1,
+      "str_max": 1,
+      "ter_set": "t_pit",
+      "sound": "squish!",
+      "sound_fail": "squish!",
+      "items": [ { "item": "bfeed", "count": [ 250, 500 ] } ]
+    },
+    "flags": [ "WALL", "TRANSPARENT", "EASY_DECONSTRUCT" ]
+  },
+  {
+    "id": "blob_pit_slime",
+    "type": "terrain",
+    "name": "mound of blob feed",
+    "description": "",
+    "symbol": "O",
+    "color": "light_green",
+    "move_cost": 0,
+    "bash": {
+      "str_min": 1,
+      "str_max": 1,
+      "ter_set": "t_dirt",
+      "sound": "squish!",
+      "sound_fail": "squish!",
+      "items": [ { "item": "bfeed", "count": [ 50, 250 ] } ]
+    },
+    "flags": [ "WALL", "TRANSPARENT", "EASY_DECONSTRUCT" ]
+  },
+  {
+    "type": "construction",
+    "id": "constr_afs_fridge_vehicle",
+    "group": "convert_fridge_power_supply",
+    "category": "FURN",
+    "required_skills": [ [ "fabrication", 3 ], [ "electronics", 4 ], [ "mechanics", 3 ] ],
+    "time": "1 s",
+    "qualities": [ { "id": "SCREW", "level": 1 }, { "id": "HAMMER", "level": 3 }, { "id": "SAW_M", "level": 2 } ],
+    "components": [ [ [ "cable", 10 ] ], [ [ "power_supply", 1 ] ], [ [ "plastic_chunk", 2 ] ] ],
+    "pre_note": "Converts a fridge to run off of vehicle power.  You can 'e'xamine it afterwards to take it down for mounting.",
+    "pre_terrain": "f_fridge",
+    "post_terrain": "f_afs_fridge_vehicle"
+  },
+  {
+    "type": "construction",
+    "id": "constr_afs_freezer_vehicle",
+    "group": "convert_vehicle_fridge_to_freezer",
+    "category": "FURN",
+    "required_skills": [ [ "electronics", 3 ], [ "mechanics", 3 ] ],
+    "time": "1 s",
+    "qualities": [ { "id": "SCREW", "level": 1 }, { "id": "HAMMER", "level": 3 }, { "id": "SAW_M", "level": 2 } ],
+    "components": [ [ [ "cable", 10 ] ], [ [ "amplifier", 3 ] ], [ [ "refrigerant_tank", 2 ] ] ],
+    "pre_note": "Further modifies a converted fridge to function as a freezer.  You can 'e'xamine it afterwards to take it down for mounting.",
+    "pre_terrain": "f_afs_fridge_vehicle",
+    "post_terrain": "f_afs_freezer_vehicle"
+  }
+]
