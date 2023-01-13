@@ -375,7 +375,7 @@ class ModCache {
 
   insertToCache(key, value) {
     this.translationCache[key] = value;
-    if (!value.includes(TRANSLATION_ERROR)) {
+    if (!value?.includes(TRANSLATION_ERROR)) {
       sharedTranslationCache[key] = value;
       this.stages[value] = 1;
     } else {
