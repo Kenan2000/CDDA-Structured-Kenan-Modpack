@@ -292,7 +292,7 @@ function kvToParatranz(kvTranslationsCache, stages, contexts) {
 function paratranzToKV(paratranzTranslationsContent) {
   return paratranzTranslationsContent.reduce((prev, item) => {
     if (item.translation?.includes(TRANSLATION_ERROR)) {
-      return { ...prev, [item.original]: item.original };
+      return { ...prev, [item.original]: TRANSLATION_ERROR };
     }
     return { ...prev, [item.original]: item.translation };
   }, {});
@@ -303,7 +303,7 @@ function paratranzToKV(paratranzTranslationsContent) {
 function paratranzToStage(paratranzTranslationsContent) {
   return paratranzTranslationsContent.reduce((prev, item) => {
     if (item.translation?.includes(TRANSLATION_ERROR)) {
-      return { ...prev, [item.original]: item.original };
+      return { ...prev, [item.original]: TRANSLATION_ERROR };
     }
     return { ...prev, [item.original]: item.stage };
   }, {});
