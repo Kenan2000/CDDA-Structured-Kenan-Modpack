@@ -229,29 +229,6 @@ function tryTranslation(value) {
   let retryCount = 0;
 
   const stringToTranslate = replaceNto1111(value);
-  return promiseRetry(
-    (retry, number) => {
-      return unionTranslate(stringToTranslate)
-        .then((result) => {
-          if (typeof result === 'string') {
-            return replace1111toN(result);
-          }
-          lastResult = result;
-          retryCount = number;
-          retry();
-        })
-        .catch((error) => {
-          logger.error('Translate failed', error.message, `stringToTranslate:\n${stringToTranslate}`);
-          retryCount = number;
-          retry();
-        });
-    },
-    { retries: 1, maxTimeout: 10000, randomize: true }
-  ).catch((error) => {
-    const errorMessage = `${TRANSLATION_ERROR}1: ${error?.message} ${error?.stack}\nresult:\n${lastResult}\nFrom:\n${value}\nstringToTranslate:\n${stringToTranslate}\nRetryCount: ${retryCount}\nRetry Again\n--\n\n `;
-    logger.error(errorMessage);
-    return TRANSLATION_ERROR;
-  });
 }
 
 /**
