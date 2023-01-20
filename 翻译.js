@@ -252,9 +252,6 @@ function kvToParatranz(kvTranslationsCache, stages, contexts) {
  */
 function paratranzToKV(paratranzTranslationsContent) {
   return paratranzTranslationsContent.reduce((prev, item) => {
-    if (item.translation?.includes(TRANSLATION_ERROR)) {
-      return { ...prev, [item.original]: TRANSLATION_ERROR };
-    }
     return { ...prev, [item.original]: item.translation };
   }, {});
 }
@@ -263,9 +260,6 @@ function paratranzToKV(paratranzTranslationsContent) {
  */
 function paratranzToStage(paratranzTranslationsContent) {
   return paratranzTranslationsContent.reduce((prev, item) => {
-    if (item.translation?.includes(TRANSLATION_ERROR)) {
-      return { ...prev, [item.original]: TRANSLATION_ERROR };
-    }
     return { ...prev, [item.original]: item.stage };
   }, {});
 }
@@ -359,12 +353,8 @@ class ModCache {
 
   insertToCache(key, value) {
     this.translationCache[key] = value;
-    if (!value?.includes(TRANSLATION_ERROR)) {
-      sharedTranslationCache[key] = value;
-      this.stages[value] = 1;
-    } else {
-      sharedTranslationCache[key] = `${sharedTranslationCache[key]}\n\n${value}`;
-    }
+    sharedTranslationCache[key] = value;
+    this.stages[value] = 1;
     this.debouncedWriteTranslationCache();
   }
 
