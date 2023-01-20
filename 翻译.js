@@ -444,7 +444,7 @@ async function translateWithCache(value, modTranslationCache, context) {
   } else {
     // 没有缓存，就更新缓存
     logger.log(`No Cached Translation for ${value}\n`);
-    translatedValue = await tryTranslation(value);
+    translatedValue = 'x';
     logger.log(`New Translation ${value}\n -> ${translatedValue}\n`);
     modTranslationCache.insertToCache(value, translatedValue);
   }
