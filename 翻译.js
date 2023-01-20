@@ -104,11 +104,8 @@ const baiduTranslateRaw = new BaiduTranslate(
 const baiduTranslate = async (value) => {
   const results = await baiduTranslateRaw(value);
   const { trans_result: result } = results;
-  if (result && result.length > 0) {
-    const [{ dst }] = result;
-    return dst;
-  }
-  throw new Error(`百度翻译又跪了 result: ${JSON.stringify(results)}`);
+  const [{ dst }] = result;
+  return dst;
 };
 /**
  * 先尝试百度再尝试搜狗
@@ -217,42 +214,6 @@ function replace1111toN(text) {
   return Object.keys(mapTo111).reduce((acc, key) => acc.replaceAll(mapTo111[key], key), text);
 }
 
-const TRANSLATION_ERROR = 'Translation Error';
-/**
- * 使用百度翻译，带重试
- * @param {string | undefined} value 要翻译的字符串，可以为空，为空就返回空
- */
-function tryTranslation(value) {
-  if (typeof value !== 'string') return Promise.resolve(value);
-  if (!_.trim(value)) return Promise.resolve('');
-  let lastResult = 'null';
-  let retryCount = 0;
-
-  const stringToTranslate = replaceNto1111(value);
-  return promiseRetry(
-    (retry, number) => {
-      return unionTranslate(stringToTranslate)
-        .then((result) => {
-          if (typeof result === 'string') {
-            return replace1111toN(result);
-          }
-          lastResult = result;
-          retryCount = number;
-          retry();
-        })
-        .catch((error) => {
-          logger.error('Translate failed', error.message, `stringToTranslate:\n${stringToTranslate}`);
-          retryCount = number;
-          retry();
-        });
-    },
-    { retries: 0, maxTimeout: 10000, randomize: true }
-  ).catch((error) => {
-    const errorMessage = `${TRANSLATION_ERROR}1: ${error?.message} ${error?.stack}\nresult:\n${lastResult}\nFrom:\n${value}\nstringToTranslate:\n${stringToTranslate}\nRetryCount: ${retryCount}\nRetry Again\n--\n\n `;
-    logger.error(errorMessage);
-    return TRANSLATION_ERROR;
-  });
-}
 
 /**
  *  paratranz 的翻译条目格式，保存到文件时保存为此格式，读取时反序列化为 original: translation 放入 cache
