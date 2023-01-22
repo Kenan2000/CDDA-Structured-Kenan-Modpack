@@ -198,8 +198,8 @@
     "type": "TOOL_ARMOR",
     "name": { "str": "wyrmskin armor", "str_pl": "sets of wyrmskin armor" },
     "description": "A set of well-decorated leather armor, with serpentine patterns sewn into it and various adjustable straps added.  It can be used to conjure a long-lasting spray of acid, or it can place a rune that will explode with acid if something steps into it.",
-    "weight": "2830 g",
-    "volume": "11 L",
+    "weight": "4400 g",
+    "volume": "9 L",
     "material": [ "wyrmskin", "leather" ],
     "price": "450 USD",
     "price_postapoc": "30 USD",
@@ -208,11 +208,31 @@
     "symbol": "[",
     "looks_like": "armor_larmor",
     "color": "green",
-    "material_thickness": 5,
+    "material_thickness": 4,
     "environmental_protection": 10,
-    "armor": [ { "encumbrance": 9, "coverage": 90, "covers": [ "torso", "arm_l", "arm_r", "leg_l", "leg_r", "foot_l", "foot_r" ] } ],
+    "armor": [
+      {
+        "covers": [ "torso" ],
+        "coverage": 95,
+        "encumbrance": 8,
+        "material": [
+          { "type": "leather", "covered_by_mat": 100, "thickness": 2.5 },
+          { "type": "wyrmskin", "covered_by_mat": 100, "thickness": 2.5 }
+        ]
+      },
+      { "covers": [ "arm_l", "arm_r" ], "coverage": 90, "encumbrance": 7 },
+      { "covers": [ "leg_l", "leg_r" ], "coverage": 85, "encumbrance": 7 },
+      {
+        "covers": [ "foot_l", "foot_r" ],
+        "coverage": 100,
+        "encumbrance": 9,
+        "material": [
+          { "type": "leather", "covered_by_mat": 100, "thickness": 2.5 },
+          { "type": "wyrmskin", "covered_by_mat": 100, "thickness": 2.5 }
+        ]
+      }
+    ],
     "warmth": 20,
-    "valid_mods": [ "steel_padded" ],
     "charges_per_use": 2,
     "ammo": "essence_blood_type",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_blood_type": 16 } } ],
@@ -382,13 +402,13 @@
   },
   {
     "id": "gauntlets_necro",
-    "copy-from": "gloves_plate",
+    "copy-from": "qt_mitten_gaunt",
     "type": "TOOL_ARMOR",
     "name": { "str": "pair of thunder gauntlets", "str_pl": "pairs of thunder gauntlets" },
     "description": "A heavy set of plate gauntlets, decorated with silver around the edges of each individual plate.  Touching the bare metal sends a faint electric tingle through you.  Use them to give a nearby enemy a powerful stunning jolt, draining health from your target.  It can also be used to place a rune that will blast an area with lightning if something steps on it.",
     "price": "600 USD",
     "price_postapoc": "50 USD",
-    "material": [ "iron", "leather", "silver" ],
+    "material": [ "qt_steel", "qt_steel_chain", "silver" ],
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_type": 4 } } ],
     "charges_per_use": 1,
     "ammo": "essence_type",
@@ -409,13 +429,25 @@
         "need_worn": true
       }
     ],
-    "material_thickness": 5,
+    "armor": [
+      {
+        "material": [
+          { "type": "qt_steel", "covered_by_mat": 95, "thickness": 1.25 },
+          { "type": "qt_steel_chain", "covered_by_mat": 100, "thickness": 1.2 },
+          { "type": "leather", "covered_by_mat": 100, "thickness": 0.05 },
+          { "type": "silver", "covered_by_mat": 20, "thickness": 0.05 }
+        ],
+        "covers": [ "hand_l", "hand_r" ],
+        "coverage": 100,
+        "encumbrance": 20
+      }
+    ],
     "relative": { "weight": 210 },
     "extend": { "flags": [ "NO_SALVAGE", "TRADER_KEEP_EQUIPPED" ] }
   },
   {
     "id": "gauntlets_necro_xl",
-    "copy-from": "gloves_plate",
+    "copy-from": "qt_demi_gaunt",
     "looks_like": "gauntlets_necro",
     "repairs_like": "gauntlets_necro",
     "type": "TOOL_ARMOR",
@@ -423,7 +455,7 @@
     "description": "Heavy fingerless plate gauntlets, decorated with silver and leaving the user free to wear them even if they have claws or other mutations, or over gloves.  Touching the bare metal sends a faint electric tingle through you.  Use them to give a nearby enemy a powerful stunning jolt, draining health from your target.  It can also be used to place a rune that will blast an area with lightning if something steps on it.",
     "price": "600 USD",
     "price_postapoc": "50 USD",
-    "material": [ "iron", "leather", "silver" ],
+    "material": [ "qt_steel", "qt_steel_chain", "silver" ],
     "warmth": 15,
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "essence_type": 4 } } ],
     "charges_per_use": 1,
@@ -445,10 +477,21 @@
         "need_worn": true
       }
     ],
+    "armor": [
+      {
+        "material": [
+          { "type": "qt_steel", "covered_by_mat": 60, "thickness": 1.25 },
+          { "type": "qt_steel_chain", "covered_by_mat": 100, "thickness": 1.2 },
+          { "type": "leather", "covered_by_mat": 100, "thickness": 1 },
+          { "type": "silver", "covered_by_mat": 20, "thickness": 0.05 }
+        ],
+        "covers": [ "hand_l", "hand_r" ],
+        "coverage": 100,
+        "encumbrance": 10
+      }
+    ],
     "relative": { "weight": 120 },
-    "extend": { "flags": [ "NO_SALVAGE", "ALLOWS_NATURAL_ATTACKS", "OVERSIZE", "OUTER" ] },
-    "material_thickness": 5,
-    "armor": [ { "encumbrance": 10, "coverage": 75, "covers": [ "hand_l", "hand_r" ] } ]
+    "extend": { "flags": [ "NO_SALVAGE", "ALLOWS_NATURAL_ATTACKS", "OVERSIZE", "OUTER" ] }
   },
   {
     "id": "cyclopean_mirror",
