@@ -901,12 +901,73 @@
     "use_action": {
       "type": "place_monster",
       "monster_id": "mon_cleaner_bot",
-      "difficulty": 2,
-      "skills": [ "electronics", "computer" ],
-      "hostile_msg": "You misprogram the cleaner bot!",
       "friendly_msg": "The cleanerbot charges up and begins bubbling over with noxious chemicals.",
+      "hostile_msg": "You misprogram the cleaner bot!",
+      "difficulty": 2,
       "place_randomly": true,
-      "moves": 200
+      "moves": 200,
+      "skills": [ "electronics", "computer" ]
     }
+  },
+  {
+    "id": "bot_laserturret",
+    "type": "TOOL",
+    "name": { "str": "inactive laser turret" },
+    "description": "This is an inactive laser turret.  Using this item involves turning it on and placing it on the ground, where it will attach itself.  If reprogrammed and rewired successfully the turret will identify you as a friendly, and attack all enemies with its revolving laser cannons.  It requires sunlight in order to fire.",
+    "weight": "40750 g",
+    "volume": "30 L",
+    "price": 600000,
+    "price_postapoc": 12000,
+    "to_hit": -3,
+    "bashing": 8,
+    "material": [ "steel", "plastic" ],
+    "symbol": ";",
+    "color": "white",
+    "use_action": {
+      "type": "place_monster",
+      "monster_id": "mon_laserturret",
+      "difficulty": 6,
+      "moves": 100,
+      "skills": [ "electronics", "computer" ]
+    }
+  },
+  {
+    "id": "broken_laserturret",
+    "type": "GENERIC",
+    "symbol": ",",
+    "color": "green",
+    "name": { "str": "broken laser turret" },
+    "weight": "110 kg",
+    "copy-from": "broken_turret"
+  },
+  {
+    "id": "cerberus_laser",
+    "type": "GENERIC",
+    "symbol": "(",
+    "color": "magenta",
+    "name": { "str": "TX-5LR Laser Cannon" },
+    "description": "A laser cannon stripped from the barrel of a TX-5LR Cerberus laser turret.  Unusable as a weapon on its own without the necessary parts.",
+    "price": 5000000,
+    "price_postapoc": 1000,
+    "material": [ "steel", "plastic" ],
+    "weight": "5000 g",
+    "volume": "750 ml",
+    "category": "spare_parts"
+  },
+  {
+    "id": "bone_plate",
+    "type": "GENERIC",
+    "symbol": "]",
+    "color": "white",
+    "name": { "str": "bone armor kit" },
+    "description": "Bone plating made for a vehicle.",
+    "price": 1200,
+    "price_postapoc": 100,
+    "material": [ "bone" ],
+    "weight": "4000 g",
+    "volume": "9500 ml",
+    "bashing": 8,
+    "to_hit": -4,
+    "category": "veh_parts"
   }
 ]
