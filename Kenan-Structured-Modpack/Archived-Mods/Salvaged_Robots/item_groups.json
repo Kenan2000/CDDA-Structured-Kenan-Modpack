@@ -1,9 +1,11 @@
 [
   {
     "id": "schematics",
+	"copy-from": "schematics",
     "//": "override of vanilla schematics, includes tripod, chickenbot, tankbot",
     "type": "item_group",
-    "items": [
+    "extend": { "items": [
+
       [ "schematics_nursebot", 10 ],
       [ "schematics_grocerybot", 20 ],
       [ "schematics_copbot", 50 ],
@@ -22,15 +24,19 @@
       [ "schematics_antimateriel", 20 ],
       [ "schematics_searchlight", 50 ]
     ]
-  },
+  }},
   {
     "type": "item_group",
     "id": "mine_storage",
-    "items": [ [ "broken_craftbuddy", 1 ] ]
-  },
+	"copy-from": "mine_storage",
+    "extend": { "items": [
+ [ "broken_craftbuddy", 1 ] ]
+  }},
   {
     "type": "item_group",
     "id": "mine_equipment",
-    "items": [ [ "broken_craftbuddy", 5 ] ]
-  }
+	"copy-from": "mine_equipment",
+    "extend": { "items": [
+ [ "broken_craftbuddy", 5 ] ]
+  }}
 ]
