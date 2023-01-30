@@ -1,6 +1,25 @@
 [
   {
     "type": "mutation",
+    "id": "LIZ_EYE",
+    "copy-from": "LIZ_EYE",
+    "extend": { "category": [ "DRAGONBLOOD" ] }
+  },
+  {
+    "type": "mutation",
+    "//": "this one just fits too well with both reptile and heat theme of this mutation tree",
+    "id": "LIZ_IR",
+    "copy-from": "LIZ_IR",
+    "extend": { "category": [ "DRAGONBLOOD" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "FORKED_TONGUE",
+    "copy-from": "FORKED_TONGUE",
+    "extend": { "category": [ "DRAGONBLOOD" ] }
+  },
+  {
+    "type": "mutation",
     "id": "THRESH_DRAGONBLOOD",
     "name": { "str": "Dragonblood" },
     "points": 1,
@@ -119,7 +138,7 @@
     "points": 1,
     "visibility": 2,
     "ugliness": 1,
-    "description": "Part of your torso and arms have become covered in flexible scales, providing limited protection there.",
+    "description": "Your body has become covered in flexible scales, providing limited protection.",
     "valid": false,
     "purifiable": false,
     "category": [ "DRAGONBLOOD" ],
@@ -127,8 +146,20 @@
     "leads_to": [ "ARCANA_SCALYWINGS", "ARCANA_SCALYTAIL" ],
     "types": [ "SKIN" ],
     "stealth_modifier": -5,
-    "wet_protection": [ { "part": "arm_l", "ignored": 4 }, { "part": "arm_r", "ignored": 4 }, { "part": "torso", "ignored": 10 } ],
-    "armor": [ { "parts": [ "arm_l", "arm_r", "torso" ], "cut": 2, "stab": 1 } ]
+    "wet_protection": [
+      { "part": "head", "ignored": 2 },
+      { "part": "leg_l", "ignored": 5 },
+      { "part": "leg_r", "ignored": 5 },
+      { "part": "foot_l", "ignored": 2 },
+      { "part": "foot_r", "ignored": 2 },
+      { "part": "arm_l", "ignored": 4 },
+      { "part": "arm_r", "ignored": 4 },
+      { "part": "hand_l", "ignored": 1 },
+      { "part": "hand_r", "ignored": 1 },
+      { "part": "torso", "ignored": 10 }
+    ],
+    "armor": [ { "part_types": [ "tail" ], "cut": 2, "bash": 2 } ],
+    "integrated_armor": [ "integrated_scalypatches" ]
   },
   {
     "type": "mutation",
@@ -137,7 +168,7 @@
     "points": 2,
     "visibility": 10,
     "ugliness": 3,
-    "description": "A set of flexible scales and armored plates now covers your body, acting as natural armor.  Somewhat reduces wet effects.",
+    "description": "A set of thick scales and armored plates now covers your body, acting as natural armor.  Somewhat reduces wet effects.",
     "valid": false,
     "purifiable": false,
     "category": [ "DRAGONBLOOD" ],
@@ -146,29 +177,21 @@
     "leads_to": [ "ARCANA_SCALYWINGS", "ARCANA_SCALYTAIL", "ARCANA_SCALYLEGS" ],
     "threshreq": [ "THRESH_DRAGONBLOOD" ],
     "types": [ "SKIN" ],
-    "stealth_modifier": -20,
+    "stealth_modifier": -30,
     "wet_protection": [
-      { "part": "head", "ignored": 3 },
-      { "part": "leg_l", "ignored": 10 },
-      { "part": "leg_r", "ignored": 10 },
-      { "part": "foot_l", "ignored": 3 },
-      { "part": "foot_r", "ignored": 3 },
-      { "part": "arm_l", "ignored": 9 },
-      { "part": "arm_r", "ignored": 9 },
-      { "part": "hand_l", "ignored": 2 },
-      { "part": "hand_r", "ignored": 2 },
-      { "part": "torso", "ignored": 20 }
+      { "part": "head", "ignored": 5 },
+      { "part": "leg_l", "ignored": 16 },
+      { "part": "leg_r", "ignored": 16 },
+      { "part": "foot_l", "ignored": 5 },
+      { "part": "foot_r", "ignored": 5 },
+      { "part": "arm_l", "ignored": 14 },
+      { "part": "arm_r", "ignored": 14 },
+      { "part": "hand_l", "ignored": 4 },
+      { "part": "hand_r", "ignored": 4 },
+      { "part": "torso", "ignored": 30 }
     ],
-    "armor": [
-      {
-        "parts": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "head", "mouth", "eyes" ],
-        "bash": 2,
-        "cut": 4,
-        "stab": 3,
-        "bullet": 3,
-        "acid": 2
-      }
-    ]
+    "armor": [ { "part_types": [ "tail" ], "cut": 14, "bash": 10 } ],
+    "integrated_armor": [ "integrated_dragonscales" ]
   },
   {
     "type": "mutation",
@@ -201,7 +224,7 @@
     "changes_to": [ "ARCANA_TOXINIMMUNE_2" ],
     "category": [ "DRAGONBLOOD" ],
     "prereqs": [ "ARCANA_INNERFIRE", "ARCANA_DRAGONFIRE" ],
-    "vitamin_rates": [ [ "mutant_toxin", 1 ] ],
+    "vitamin_rates": [ [ "mutant_toxin", 2 ] ],
     "vitamins_absorb_multi": [ [ "all", [ [ "mutant_toxin", 0.75 ] ] ] ],
     "flags": [ "ARCANA_DRAGONBLOOD_MARKER_FIRE" ]
   },
@@ -218,7 +241,7 @@
     "category": [ "DRAGONBLOOD" ],
     "threshreq": [ "THRESH_DRAGONBLOOD" ],
     "enchantments": [ "ENCH_DRAGONBLOOD_TOXINIMMUNE_2" ],
-    "vitamin_rates": [ [ "mutant_toxin", 2 ] ],
+    "vitamin_rates": [ [ "mutant_toxin", 1 ] ],
     "vitamins_absorb_multi": [ [ "all", [ [ "mutant_toxin", 0.5 ] ] ] ]
   },
   {
@@ -242,7 +265,8 @@
     "healing_resting": 0.25,
     "mending_modifier": 1.0,
     "stamina_regen_modifier": 0.5,
-    "vitamin_rates": [ [ "blood", -1 ], [ "redcells", -1 ] ]
+    "vitamin_rates": [ [ "blood", -5 ], [ "redcells", -5 ] ],
+    "flags": [ "PRED1" ]
   },
   {
     "type": "mutation",
@@ -268,7 +292,8 @@
     "mending_modifier": 2.0,
     "stamina_regen_modifier": 0.666,
     "social_modifiers": { "persuade": -25, "intimidate": 25 },
-    "vitamin_rates": [ [ "blood", -3 ], [ "redcells", -3 ] ]
+    "vitamin_rates": [ [ "blood", -3 ], [ "redcells", -3 ] ],
+    "flags": [ "PRED2" ]
   },
   {
     "type": "mutation",
@@ -298,8 +323,8 @@
     "cost": 500,
     "kcal": true,
     "ranged_mutation": { "type": "mut_dragonfire", "message": "You loose a tongue of flame from your mouth." },
-    "vitamin_rates": [ [ "blood", -5 ], [ "redcells", -5 ] ],
-    "flags": [ "ARCANE_FOG_IMMUNE" ]
+    "vitamin_rates": [ [ "blood", -1 ], [ "redcells", -1 ] ],
+    "flags": [ "ARCANE_FOG_IMMUNE", "PRED3" ]
   },
   {
     "type": "mutation",
@@ -315,7 +340,6 @@
     "prereqs": [ "ARCANA_SCALYPATCHES", "ARCANA_DRAGONSCALES" ],
     "changes_to": [ "ARCANA_DRAGONWINGS" ],
     "encumbrance_always": [ [ "torso", 5 ] ],
-    "encumbrance_covered": [ [ "torso", 5 ] ],
     "category": [ "DRAGONBLOOD" ],
     "types": [ "WINGS" ],
     "cardio_multiplier": 1.1,
@@ -340,7 +364,6 @@
     "prereqs": [ "ARCANA_SCALYWINGS" ],
     "threshreq": [ "THRESH_DRAGONBLOOD" ],
     "category": [ "DRAGONBLOOD" ],
-    "encumbrance_covered": [ [ "torso", 5 ] ],
     "types": [ "WINGS" ],
     "enchantments": [ "ENCH_DRAGONBLOOD_DRACONIC_WINGS" ],
     "cardio_multiplier": 1.2,
@@ -383,8 +406,8 @@
       "attack_text_u": "You sink your teeth into %s",
       "attack_text_npc": "%1$s sinks their teeth into %2$s",
       "body_part": "mouth",
-      "chance": 30,
-      "strength_damage": { "damage_type": "stab", "amount": 2 }
+      "chance": 18,
+      "base_damage": { "damage_type": "stab", "amount": 4 }
     }
   },
   {
@@ -395,23 +418,22 @@
     "visibility": 4,
     "ugliness": 3,
     "mixed_effect": true,
-    "description": "Your jaw and nose have extended into a somewhat long snout, pointed yet fairly broad.  It lends itself to biting in combat and looks impressive, but prevents you from wearing mouthgear, and makes whatever else still fits feel a bit more awkward.",
+    "description": "Your jaw and nose have extended into a somewhat long snout, pointed yet fairly broad.  It lends itself to biting in combat and looks impressive, but prevents you from wearing mouthgear.",
     "valid": false,
     "purifiable": false,
     "prereqs": [ "ARCANA_DRAGONSCALES", "ARCANA_PLATES" ],
     "prereqs2": [ "ARCANA_DRAGONTEETH" ],
     "threshreq": [ "THRESH_DRAGONBLOOD" ],
     "category": [ "DRAGONBLOOD" ],
-    "types": [ "TEETH", "MUZZLE", "facial_hair" ],
+    "types": [ "TEETH", "MUZZLE" ],
     "restricts_gear": [ "mouth" ],
-    "encumbrance_covered": [ [ "mouth", 5 ] ],
     "social_modifiers": { "intimidate": 20 },
     "attacks": {
       "attack_text_u": "You savagely tear into %s with your jaws",
       "attack_text_npc": "%1$s savagely tear into %2$s with their jaws",
       "body_part": "mouth",
-      "chance": 30,
-      "strength_damage": { "damage_type": "stab", "amount": 4 }
+      "chance": 20,
+      "base_damage": { "damage_type": "stab", "amount": 25 }
     }
   },
   {
@@ -429,9 +451,9 @@
     "prereqs": [ "ARCANA_DRAGONSCALES", "ARCANA_PLATES" ],
     "threshreq": [ "THRESH_DRAGONBLOOD" ],
     "changes_to": [ "ARCANA_DRAGONLEGS" ],
-    "types": [ "LEGS" ],
+    "types": [ "LEGS", "FEET" ],
     "encumbrance_always": [ [ "leg_l", 5 ], [ "leg_r", 5 ], [ "foot_l", 5 ], [ "foot_r", 5 ] ],
-    "encumbrance_covered": [ [ "leg_l", 5 ], [ "leg_r", 5 ], [ "foot_l", 5 ], [ "foot_r", 5 ] ],
+    "encumbrance_covered": [ [ "leg_l", 5 ], [ "leg_r", 5 ] ],
     "restricts_gear": [ "foot_l", "foot_r" ],
     "movecost_obstacle_modifier": 1.375,
     "movecost_flatground_modifier": 0.875,
@@ -440,7 +462,7 @@
       {
         "attack_text_u": "You rake %s with your toe claws",
         "attack_text_npc": "%1$s rakes %2$s with their toe claws",
-        "chance": 40,
+        "chance": 20,
         "strength_damage": { "damage_type": "cut", "amount": 2 }
       }
     ],
@@ -460,8 +482,8 @@
     "category": [ "DRAGONBLOOD" ],
     "prereqs": [ "ARCANA_SCALYLEGS" ],
     "threshreq": [ "THRESH_DRAGONBLOOD" ],
-    "types": [ "LEGS" ],
-    "encumbrance_covered": [ [ "leg_l", 5 ], [ "leg_r", 5 ], [ "foot_l", 5 ], [ "foot_r", 5 ] ],
+    "types": [ "LEGS", "FEET" ],
+    "encumbrance_covered": [ [ "leg_l", 5 ], [ "leg_r", 5 ] ],
     "restricts_gear": [ "foot_l", "foot_r" ],
     "movecost_obstacle_modifier": 1.25,
     "movecost_flatground_modifier": 0.75,
@@ -470,8 +492,8 @@
       {
         "attack_text_u": "You rake %s with your toe claws",
         "attack_text_npc": "%1$s rakes %2$s with their toe claws",
-        "chance": 40,
-        "strength_damage": { "damage_type": "cut", "amount": 3 }
+        "chance": 20,
+        "strength_damage": { "damage_type": "cut", "amount": 5 }
       }
     ],
     "allowed_items": [ "ALLOWS_TALONS" ]
@@ -496,7 +518,7 @@
       "attack_text_u": "You whip %s with your tail",
       "attack_text_npc": "%1$s whips %2$s with their tail",
       "chance": 20,
-      "strength_damage": { "damage_type": "bash", "amount": 1 }
+      "base_damage": { "damage_type": "bash", "amount": 1 }
     },
     "dodge_modifier": 2,
     "flags": [ "ARCANA_DRAGONBLOOD_MARKER_TAIL" ],
@@ -521,7 +543,7 @@
       "attack_text_u": "You lash %s with your tail",
       "attack_text_npc": "%1$s lashes %2$s with their tail",
       "chance": 20,
-      "strength_damage": [ { "damage_type": "stab", "amount": 2 }, { "damage_type": "bash", "amount": 1 } ]
+      "base_damage": { "damage_type": "bash", "amount": 8 }
     },
     "//": "Becoming less effective at balancing is intentional, spikes aren't as substantial as Spiked Tail but still impedes dodge bonus.",
     "dodge_modifier": 1,
@@ -536,20 +558,18 @@
     "visibility": 3,
     "ugliness": 1,
     "mixed_effect": true,
-    "description": "You have a pair of relatively short horns, sweeping and pointing backwards.  They work as a natural weapon in a pinch, and they tend to get in the way of attacks aimed at your head, but they also prevent wearing non-fabric headwear and make headwear more cumbersome in general.",
+    "description": "You have a pair of relatively short horns, sweeping and pointing backwards.  They allow you to make a strong bashing headbutt attack, but prevent wearing any headwear.",
     "valid": false,
     "purifiable": false,
     "category": [ "DRAGONBLOOD" ],
     "types": [ "HORNS" ],
-    "restricts_gear": [ "head" ],
-    "encumbrance_covered": [ [ "head", 5 ] ],
+    "restricts_gear": [ "head_crown" ],
     "allow_soft_gear": true,
-    "armor": [ { "parts": "head", "bash": 4, "cut": 8, "stab": 6, "bullet": 6 } ],
     "attacks": {
       "attack_text_u": "You headbutt %s",
       "attack_text_npc": "%1$s headbutts %2$s",
-      "chance": 40,
-      "strength_damage": { "damage_type": "bash", "amount": 2 }
+      "chance": 20,
+      "base_damage": { "damage_type": "bash", "amount": 10 }
     }
   },
   {
@@ -560,7 +580,7 @@
     "visibility": 10,
     "ugliness": 3,
     "mixed_effect": true,
-    "description": "You have grown thick, overlapping plates like scutes over your throat and underbelly, adding yet more natural armor to your scales.  Reduces wet effects a bit.",
+    "description": "Your scales have become a lot more dense yet thinner, increasing your protection slightly and considerably reducing bulk. Reduces wet effects a bit.",
     "valid": false,
     "purifiable": false,
     "prereqs": [ "ARCANA_DRAGONSCALES" ],
@@ -568,34 +588,21 @@
     "category": [ "DRAGONBLOOD" ],
     "threshreq": [ "THRESH_DRAGONBLOOD" ],
     "types": [ "SKIN" ],
-    "stealth_modifier": -30,
-    "encumbrance_always": [ [ "torso", 5 ] ],
-    "encumbrance_covered": [ [ "torso", 5 ], [ "arm_l", 5 ], [ "arm_r", 5 ], [ "leg_l", 5 ], [ "leg_r", 5 ] ],
+    "stealth_modifier": -15,
     "wet_protection": [
-      { "part": "head", "ignored": 3 },
-      { "part": "mouth", "ignored": 1 },
-      { "part": "leg_l", "ignored": 10 },
-      { "part": "leg_r", "ignored": 10 },
-      { "part": "foot_l", "ignored": 3 },
-      { "part": "foot_r", "ignored": 3 },
-      { "part": "arm_l", "ignored": 9 },
-      { "part": "arm_r", "ignored": 9 },
-      { "part": "hand_l", "ignored": 2 },
-      { "part": "hand_r", "ignored": 2 },
+      { "part": "head", "ignored": 5 },
+      { "part": "leg_l", "ignored": 16 },
+      { "part": "leg_r", "ignored": 16 },
+      { "part": "foot_l", "ignored": 5 },
+      { "part": "foot_r", "ignored": 5 },
+      { "part": "arm_l", "ignored": 14 },
+      { "part": "arm_r", "ignored": 14 },
+      { "part": "hand_l", "ignored": 4 },
+      { "part": "hand_r", "ignored": 4 },
       { "part": "torso", "ignored": 30 }
     ],
-    "armor": [
-      { "parts": [ "torso" ], "bash": 8, "cut": 16, "stab": 12, "bullet": 12, "acid": 8 },
-      { "parts": [ "mouth" ], "bash": 4, "cut": 8, "stab": 6, "bullet": 6, "acid": 4 },
-      {
-        "parts": [ "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "head", "eyes" ],
-        "bash": 2,
-        "cut": 4,
-        "stab": 3,
-        "bullet": 3,
-        "acid": 2
-      }
-    ]
+    "armor": [ { "part_types": [ "tail" ], "cut": 14, "bash": 10 } ],
+    "integrated_armor": [ "integrated_draconicplating" ]
   },
   {
     "type": "mutation",
@@ -621,8 +628,8 @@
     "enchantments": [ "ENCH_DRAGONBLOOD_KNOCKDOWN" ],
     "anger_relations": [ [ "DRAGON", -100 ], [ "FUNGUS", 25 ], [ "MAMMAL", 15 ], [ "BIRD", 15 ], [ "REPTILE", 15 ] ],
     "weight_capacity_modifier": 1.05,
+	"passive_mods": { "str_mod": 2 },
     "hp_adjustment": 25,
-    "movecost_obstacle_modifier": 1.1,
     "flags": [ "PRED4", "LARGE" ]
   }
 ]
