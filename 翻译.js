@@ -826,6 +826,12 @@ ${getItemBrowserLink(fullItem)}`
     if (Array.isArray(item.responses)) {
       for (const response of item.responses) {
         response.text = await translateFunction(response.text);
+				if(Array.isArray(response?.effect)){
+					for(const res_effect of response.effect){
+						if(res_effect.u_message)
+							res_effect.u_message = await translateFunction(res_effect.u_message)
+					}
+				}
       }
     }
     if (item.dynamic_line) {
@@ -841,6 +847,69 @@ ${getItemBrowserLink(fullItem)}`
     }
   };
 
+	const EOC = async (item) => {
+		if (Array.isArray(item.effect)){
+			for (let effects of item.effect){
+				effects.u_message = await translateFunction(effects.u_message);
+				if (effects?.u_cast_spell?.message)
+					effects.u_cast_spell.message = await translateFunction(effects.u_cast_spell.message)
+				if (Array.isArray(effects?.run_eocs)){
+					for (let run_eocs of effects.run_eocs){
+						if (Array.isArray(run_eocs?.effect)){
+							for (let effect of run_eocs.effect)
+								effect.u_message = await translateFunction(effect.u_message);
+						}
+						if (Array.isArray(run_eocs?.false_effect)){
+							for (let effect of run_eocs.false_effect)
+								effect.u_message = await translateFunction(effect.u_message);
+						}
+					}
+				}
+				if (Array.isArray(effects?.queue_eocs)){
+					for (let queue_eocs of effects.queue_eocs){
+						if (Array.isArray(queue_eocs?.effect)){
+							for (let effect of queue_eocs.effect)
+								effect.u_message = await translateFunction(effect.u_message);
+						}
+						if (Array.isArray(queue_eocs?.false_effect)){
+							for (let effect of queue_eocs.false_effect)
+								effect.u_message = await translateFunction(effect.u_message);
+						}
+					}
+				}
+			}
+		}
+		if (Array.isArray(item.false_effect)){
+			for (let false_effects of item.false_effect){
+				false_effects.u_message = await translateFunction(false_effects.u_message);
+				if (Array.isArray(false_effects?.run_eocs)){
+					for (let run_eocs of false_effects.run_eocs){
+						if (Array.isArray(run_eocs?.effect)){
+							for (let effect of run_eocs.effect)
+								effect.u_message = await translateFunction(effect.u_message);
+						}
+						if (Array.isArray(run_eocs?.false_effect)){
+							for (let effect of run_eocs.false_effect)
+								effect.u_message = await translateFunction(effect.u_message);
+						}
+					}
+				}
+				if (Array.isArray(false_effects?.queue_eocs)){
+					for (let queue_eocs of false_effects.queue_eocs){
+						if (Array.isArray(queue_eocs?.effect)){
+							for (let effect of queue_eocs.effect)
+								effect.u_message = await translateFunction(effect.u_message);
+						}
+						if (Array.isArray(queue_eocs?.false_effect)){
+							for (let effect of queue_eocs.false_effect)
+								effect.u_message = await translateFunction(effect.u_message);
+						}
+					}
+				}
+			}
+		}
+	}
+	
   const infoItem = async (item) => {
     // 注意可能有 <good>protection</good> 这样的标记
     item.info = await translateFunction(item.info);
@@ -862,7 +931,7 @@ ${getItemBrowserLink(fullItem)}`
     const translated = await translateFunction(realCategoryName);
     return prefix + translated;
   };
-
+ 
   // 注册各种类型数据的翻译器
   translators.profession = namePlDesc;
   translators.scenario = async (item) => {
@@ -1097,6 +1166,9 @@ ${getItemBrowserLink(fullItem)}`
   translators.item_action = namePlDesc;
   translators.ENGINE = namePlDesc;
   translators.ITEM_CATEGORY = namePlDesc;
+	translators.weapon_category = namePlDesc;
+	translators.practice = namePlDesc;
+	translators.vitamin = namePlDesc;
   translators.sound_effect = noop;
   translators.vehicle_placement = namePlDesc;
   translators.monster_attack = monsterAttack;
@@ -1105,6 +1177,7 @@ ${getItemBrowserLink(fullItem)}`
   translators.region_settings = namePlDesc;
   translators.proficiency = namePlDesc;
   translators.overmap_location = namePlDesc;
+	translators.effect_on_condition = EOC
   translators.ITEM_BLACKLIST = noop;
   translators.MONSTER_BLACKLIST = noop;
   translators.MONSTER_WHITELIST = noop;
@@ -1114,6 +1187,7 @@ ${getItemBrowserLink(fullItem)}`
   translators.vehicle = namePlDesc;
   translators.vehicle_spawn = noop;
   translators.file = noop;
+	translators.charge_removal_blacklist = noop;
 
   return translators;
 }
