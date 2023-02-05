@@ -206,55 +206,22 @@
     "difficulty": 7
   },
   {
-    "type": "GENERIC",
-    "//": "pseudo item, used as fuel type for atomic battery CBM",
-    "id": "c_atomic_battery_power",
-    "symbol": "?",
-    "color": "white",
-    "name": { "str": "Alphavoltaic Power", "str_pl": "none" },
-    "description": "seeing this is a bug",
-    "stackable": true,
-    "volume": "0 ml",
-    "material": [ "c_atomic_battery_power" ],
-    "flags": [ "PSEUDO", "PERPETUAL" ]
-  },
-  {
     "id": "bio_atomic_battery",
-    "//": "This actually does nothing useful, see below.",
     "type": "bionic",
     "name": { "str": "Atomic Battery" },
-    "description": "Your body has been implanted with a compact, advanced plutonium-cell generator for military use.  A true atomic battery, using advanced materials to create a practical alphavoltaic power source.  While its power output is still very low, it's also consistent with negligible waste heat, making it a useful backup to another power generation method.  It will produce power continuously unless interrupted by the integral disconnect switch.",
+    "description": "Your body has been implanted with a compact, advanced plutonium-cell generator for military use.  A true atomic battery, using advanced materials to create a practical alphavoltaic power source.  While its power output is still very low, it's also consistent with negligible waste heat, making it a useful backup to another power generation method.",
     "occupied_bodyparts": [ [ "torso", 10 ] ],
-    "included_bionics": [ "bio_atomic_battery_2" ],
-    "flags": [ "BIONIC_SHOCKPROOF" ]
-  },
-  {
-    "id": "bio_atomic_battery_2",
-    "//": "This hides where the actual powergen is defined.  Toggling pure-passive powergen screws up the logic such that it'll only work when off, so of course turning it on needs to be disguised as a safety switch.  5 watts, closer to a bank of RHUs than an RTG, but it outputs ",
-    "type": "bionic",
-    "name": { "str": "Atomic Battery Interrupter" },
-    "description": "An integrated safety mechanism allowing one to shut down power production at will.  Works via angling plutonium catalysts to manipulate how much alpha decay hits the advanced nanocompounds that produce power.  Turn it on to halt power production, in the unlikely event that it becomes necessary.",
-    "fuel_options": [ "c_atomic_battery_power" ],
-    "passive_fuel_efficiency": 0.005,
-    "time": 1,
-    "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_SHOCKPROOF" ]
+    "power_trickle": "5 J",
+    "flags": [ "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE", "BIONIC_SHOCKPROOF" ]
   },
   {
     "id": "bio_atomic_battery",
     "copy-from": "bionic_general",
     "type": "BIONIC_ITEM",
     "name": { "str": "Atomic Battery CBM" },
-    "description": "An old form of non-thermal radioisotope generator, given new life and military applications using cutting-edge plutonium-catalyst developments.  Effectively a plutonium fuel cell converted into an alphavoltaic battery, with greater power output and longevity than older implants.  Its output is still very low at only 5 watts, but it is continuous unless deliberately interrupted by the provided disconnect system, making it a good supplement to a more intensive power generation method.",
+    "description": "An old form of non-thermal radioisotope generator, given new life and military applications using cutting-edge plutonium-catalyst developments.  Effectively a plutonium fuel cell converted into an alphavoltaic battery, with greater power output and longevity than older implants.  Its output is still very low at only 5 watts, but it also provides a continuous source of power, making it a good supplement to a more intensive power generation method.",
     "price": "8000 USD",
     "difficulty": 8
-  },
-  {
-    "id": "bio_atomic_battery_2",
-    "//": "Never actually exists, only needed by bionic code for unknown reason to avoid load error.",
-    "copy-from": "bionic_general",
-    "type": "BIONIC_ITEM",
-    "name": { "str": "Atomic Battery Interrupter" },
-    "description": "A system of power control and safety mechanisms normally built into an Atomic Battery system.  Removing it is almost certainly a bad idea."
   },
   {
     "id": "bio_hazard_shield",
