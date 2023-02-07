@@ -227,7 +227,16 @@
     "volume": "5500 ml",
     "warmth": 30,
     "flags": [ "VARSIZE", "SUPER_FANCY", "OVERSIZE" ],
-    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "assassins_throwing_dagger": 12 } } ],
+    "pocket_data": [
+      { "pocket_type": "CONTAINER", "ammo_restriction": { "assassins_throwing_dagger": 12 } },
+      {
+        "pocket_type": "CONTAINER",
+        "max_contains_volume": "1 L",
+        "max_contains_weight": "3 kg",
+        "max_item_length": "10 cm",
+        "moves": 75
+      }
+    ],
     "ammo": [ "assassins_throwing_dagger" ],
     "armor": [
       {
@@ -255,7 +264,7 @@
     "volume": "11250 ml",
     "warmth": 30,
     "pocket_data": [
-      { "pocket_type": "MAGAZINE", "ammo_restriction": { "assassins_throwing_dagger": 12 } },
+      { "pocket_type": "CONTAINER", "ammo_restriction": { "assassins_throwing_dagger": 12 } },
       {
         "pocket_type": "CONTAINER",
         "max_contains_volume": "1 L",
@@ -346,7 +355,10 @@
     "material": [ "cotton" ],
     "volume": "250 ml",
     "flags": [ "SUPER_FANCY" ],
-    "armor": [ { "material": [ "cotton" ], "material_thickness": 1 } ]
+    "armor": [
+      { "coverage": 100, "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_hip_l", "leg_hip_r" ] },
+      { "coverage": 30, "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ] }
+    ]
   },
   {
     "type": "ARMOR",

@@ -37,9 +37,11 @@
     "death_drops": "mon_shoggoth_death_drops"
   },
   {
+    "//":"BONES",
     "type": "MONSTER",
     "id": "maid_master",
     "name": { "str": "master", "str_pl": "masters" },
+    "description": "A child entrusted to you by the owner of the house you served at. There's a deep feeling of fear in your stomach as you embrace the cataclysm, but protecting this child gives you purpose and makes you feel less alone.",
     "species": "UNKNOWN",
     "default_faction": "player",
     "symbol": "m",
@@ -61,8 +63,8 @@
     "vision_night": 3,
     "harvest": "human",
     "hp": 40,
-    "description": "A child entrusted to you by the owner of the house you served at. There's a deep feeling of fear in your stomach as you embrace the cataclysm, but protecting this child gives you purpose and makes you feel less alone.",
-    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "GUILT", "BONES" ]
+    "death_function": { "effect": { "id": "death_guilt", "min_level": 6 } },
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM" ]
   },
   {
     "type": "MONSTER",
