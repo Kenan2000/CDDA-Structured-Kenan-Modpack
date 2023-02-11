@@ -2651,6 +2651,130 @@
   {
     "type": "mapgen",
     "method": "json",
+    "om_terrain": [ "arcana_warehouse_lab" ],
+    "weight": 500,
+    "object": {
+      "fill_ter": "t_thconc_floor",
+      "rows": [
+        "FFFFFFFFFFFffffffffFFFFF",
+        "F,,,,,,,,,,________,,,,F",
+        "F,_________________,,,,F",
+        "F,_-WWW----========--,,F",
+        "F,_Wd  |  &        C|,,F",
+        "F,_Wdh +            |3,F",
+        "F,_W6d |           C|,,F",
+        "F,_-WWW--          C|,,F",
+        "F,_|   t|           |,,F",
+        "F,_+    +          C|,,F",
+        "F,,|    |          C|,,F",
+        "F,,|b  b|CC        C|,,F",
+        "F,,|b  b|CC         |,,F",
+        "F,,|c  c|         CC|,,F",
+        "F,,-------CC     CCC|,,F",
+        "F,,|T + s|CCC    CCC|,,F",
+        "F,,---- t-----++-----,,F",
+        "F,,|]]   | ll       |,,F",
+        "F,,|     +         l|,,F",
+        "F,,|SSS  |  cccccc l|,,F",
+        "F,,------------------,,F",
+        "F,,,,,,,,,,,,,,,,,,,,,,F",
+        "F,,,,,,,,,,,,,,,,,,,,,,F",
+        "FFFFFFFFFFFFFFFFFFFFFFFF"
+      ],
+      "terrain": {
+        " ": "t_thconc_floor",
+        ",": "t_region_groundcover",
+        "_": "t_sidewalk",
+        "-": "t_concrete_wall",
+        "|": "t_concrete_wall",
+        "=": "t_door_metal_locked",
+        "+": "t_door_glass_frosted_lab_c",
+        "&": "t_gates_mech_control",
+        "3": "t_gutter_downspout",
+        "6": "t_console_broken",
+        "F": "t_chainfence",
+        "W": "t_reinforced_glass",
+        "f": "t_chaingate_l"
+      },
+      "furniture": {
+        "]": "f_bookcase",
+        "C": [ "f_crate_c", "f_cardboard_box" ],
+        "S": "f_sofa",
+        "b": "f_bench",
+        "c": "f_counter",
+        "d": "f_desk",
+        "h": "f_chair",
+        "l": "f_locker",
+        "s": "f_sink",
+        "t": "f_trashcan"
+      },
+      "toilets": { "T": {  } },
+      "items": {
+        "C": [
+          { "item": "supplies_reagents_lab", "chance": 50, "repeat": 3 },
+          { "item": "lab_magitech_general", "chance": 10 }
+        ],
+        "d": { "item": "office", "chance": 75, "repeat": 2 },
+        "l": [
+          { "item": "tools_robotics", "chance": 25, "repeat": 3 },
+          { "item": "robots", "chance": 10, "repeat": 2 },
+          { "item": "supplies_electronics", "chance": 50, "repeat": 3 }
+        ],
+        "t": { "item": "trash", "chance": 75, "repeat": 3 }
+      },
+      "place_loot": [
+        { "group": "magazines", "x": 4, "y": 13, "chance": 50, "repeat": 3 },
+        { "group": "magazines", "x": 7, "y": 13, "chance": 50, "repeat": 3 },
+        { "item": "arcane_purifier_intel_2", "x": [ 12, 14 ], "y": 19 },
+        { "item": "sample_t_substrate", "x": [ 15, 17 ], "y": 19 }
+      ],
+      "place_monster": [
+        { "monster": "mon_turret_rifle", "x": 1, "y": 1 },
+        { "monster": "mon_crows_m240", "x": 1, "y": 22 },
+        { "monster": "mon_turret_rifle", "x": 22, "y": 22 },
+        { "monster": "mon_crows_m240", "x": 22, "y": 1 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "om_terrain": "arcana_warehouse_lab_roof",
+    "object": {
+      "fill_ter": "t_tar_flat_roof",
+      "rows": [
+        "                        ",
+        "                        ",
+        "                        ",
+        "   |22222222222222223   ",
+        "   |................3   ",
+        "   |................5   ",
+        "   |................3   ",
+        "   |................3   ",
+        "   |................3   ",
+        "   |................3   ",
+        "   |................3   ",
+        "   |................3   ",
+        "   |................3   ",
+        "   |................3   ",
+        "   |.........&......3   ",
+        "   |................3   ",
+        "   |................3   ",
+        "   |................3   ",
+        "   |..=..........:..3   ",
+        "   |................3   ",
+        "   |----------------3   ",
+        "                        ",
+        "                        ",
+        "                        "
+      ],
+      "palettes": [ "roof_palette" ],
+      "terrain": { ".": "t_tar_flat_roof" }
+    }
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
     "om_terrain": [ "arcana_cave_caravan" ],
     "weight": 1000,
     "object": {

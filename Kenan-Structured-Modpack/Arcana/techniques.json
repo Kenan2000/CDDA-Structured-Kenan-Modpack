@@ -214,5 +214,40 @@
     "messages": [ "Your impact blasts %s back", "<npcname> blasts %s back" ],
     "description": "+0.5 bash damage and armor penetration per point of strength, down 1 turn, knockback 3 tiles, crit only",
     "attack_vectors": [ "WEAPON" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_veil_chosen_enervation",
+    "name": "Enervation",
+    "melee_allowed": true,
+    "required_buffs_all": [ "buff_veil_chosen_onpause" ],
+    "flat_bonuses": [
+      { "stat": "arpen", "type": "bash", "scaling-stat": "per", "scale": 0.5 },
+      { "stat": "arpen", "type": "cut", "scaling-stat": "per", "scale": 0.5 },
+      { "stat": "arpen", "type": "stab", "scaling-stat": "per", "scale": 0.5 }
+    ],
+    "crit_ok": true,
+    "weighting": -10,
+    "stun_dur": 2,
+    "messages": [ "Your strike resonates through %s", "<npcname>'s strike resonates through %s" ],
+    "attack_vectors": [ "WEAPON" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_veil_chosen_dimension_cutter",
+    "name": "Dimension-Cutter",
+    "weapon_damage_requirements": [ { "type": "bash", "min": 15 }, { "type": "cut", "min": 35 } ],
+    "melee_allowed": true,
+    "required_buffs_all": [ "buff_veil_chosen_ondodge" ],
+    "mult_bonuses": [ { "stat": "movecost", "scale": 0.75 } ],
+    "flat_bonuses": [
+      { "stat": "damage", "type": "cut", "scaling-stat": "per", "scale": 1.0 },
+      { "stat": "arpen", "type": "cut", "scaling-stat": "per", "scale": 0.75 }
+    ],
+    "crit_tec": true,
+    "weighting": 2,
+    "down_dur": 2,
+    "messages": [ "Your blade flickers and sunders through %s", "<npcname>'s blade flickers and sunders through %s" ],
+    "attack_vectors": [ "WEAPON" ]
   }
 ]

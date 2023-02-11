@@ -498,5 +498,115 @@
       "bullwhip",
       "bullwhip_razor"
     ]
+  },
+  {
+    "type": "martial_art",
+    "id": "style_veil_chosen",
+    "name": { "str": "Ritual Art" },
+    "description": "Immersed in The Beyond, you have learned to defend against unconventional threats with otherworldly weapons, rewarding high intelligence and perception.  Though not of mortal origin, this art's greatest secrets resonate with specific ritual weapons, destined for their Chosen wielders.",
+    "initiate": [ "You focus your will through your weapon.", "%s focuses and readies their weapon." ],
+    "autolearn": [ [ "magic", 10 ], [ "melee", 5 ] ],
+    "strictly_melee": true,
+    "static_buffs": [
+      {
+        "id": "buff_veil_chosen_static",
+        "name": "Liminal Stance",
+        "description": "Attuning to the ebb and flow of this reality, you more easily avoid threats.\n\n+2 Dodge attempts, Dodge Skill increased by 50% of Intelligence.",
+        "melee_allowed": true,
+        "bonus_dodges": 2,
+        "flat_bonuses": [ { "stat": "dodge", "scaling-stat": "int", "scale": 0.5 } ]
+      }
+    ],
+    "onpause_buffs": [
+      {
+        "id": "buff_veil_chosen_onpause",
+        "name": "Grounding Focus",
+        "description": "Turning inward, your elusiveness gives way to resilence.\n\n-2 Dodge attempts, Dodge Skill reduced by 50% of Intelligence, +2 Block attempts, damage blocked increased by 100% of intelligence, bash and electric armor increased by 50% of Intelligence.\nLasts 2 turns.",
+        "melee_allowed": true,
+        "bonus_dodges": -2,
+        "bonus_blocks": 2,
+        "buff_duration": 3,
+        "max_stacks": 1,
+        "flat_bonuses": [
+          { "stat": "dodge", "scaling-stat": "int", "scale": -0.5 },
+          { "stat": "block", "scaling-stat": "int", "scale": 1.0 },
+          { "stat": "armor", "type": "bash", "scaling-stat": "int", "scale": 0.5 },
+          { "stat": "armor", "type": "electric", "scaling-stat": "int", "scale": 0.5 }
+        ]
+      }
+    ],
+    "ongethit_buffs": [
+      {
+        "id": "buff_veil_chosen_ongethit",
+        "name": "Resurgence",
+        "description": "You flow with the impact, and draw upon your enemy's own strength.\n\nSpeed increased by 100% of Intelligence.\nLasts 3 turns.",
+        "melee_allowed": true,
+        "buff_duration": 3,
+        "max_stacks": 1,
+        "flat_bonuses": [ { "stat": "speed", "scaling-stat": "int", "scale": 1.0 } ]
+      }
+    ],
+    "ondodge_buffs": [
+      {
+        "id": "buff_veil_chosen_ondodge",
+        "name": "Draw Forth",
+        "description": "You offer void where the enemy offers strength, and thus unravel their defenses.\n\nAccuracy increased by 50% of intelligence, bash/cut/stab armor penetration increased by 100% of Intelligence.\nLasts 3 turns.",
+        "melee_allowed": true,
+        "buff_duration": 3,
+        "max_stacks": 1,
+        "flat_bonuses": [
+          { "stat": "hit", "scaling-stat": "int", "scale": 0.5 },
+          { "stat": "arpen", "type": "bash", "scaling-stat": "int", "scale": 1.0 },
+          { "stat": "arpen", "type": "cut", "scaling-stat": "int", "scale": 1.0 },
+          { "stat": "arpen", "type": "stab", "scaling-stat": "int", "scale": 1.0 }
+        ]
+      }
+    ],
+    "onhit_buffs": [
+      {
+        "id": "buff_veil_chosen_oncrit",
+        "name": "Unraveling Resonance",
+        "description": "As you excise the blight on this reality, you turn this release of energy inward.\n\nSpeed increased by 50% of Intelligence, Dodge Skill increased by 25% of Intelligence, bash/cut/stab armor increased by 25% of Intelligence.\nLasts 3 turns.",
+        "weapon_damage_requirements": [ { "type": "bash", "min": 15 }, { "type": "cut", "min": 35 } ],
+        "melee_allowed": true,
+        "buff_duration": 3,
+        "max_stacks": 1,
+        "flat_bonuses": [
+          { "stat": "speed", "scaling-stat": "int", "scale": 0.5 },
+          { "stat": "dodge", "scaling-stat": "int", "scale": 0.25 },
+          { "stat": "armor", "type": "bash", "scaling-stat": "int", "scale": 0.25 },
+          { "stat": "armor", "type": "cut", "scaling-stat": "int", "scale": 0.25 },
+          { "stat": "armor", "type": "stab", "scaling-stat": "int", "scale": 0.25 }
+        ]
+      }
+    ],
+    "techniques": [ "tec_veil_chosen_enervation", "tec_veil_chosen_dimension_cutter" ],
+    "weapons": [
+      "bio_kinetic_amplifier_weapon",
+      "thunder_sigil",
+      "hand_of_armok",
+      "blood_athame",
+      "moonstone_fang",
+      "moonstone_fang_on",
+      "spear_pestilence",
+      "scourge_moonstone",
+      "scourge_moonstone_on",
+      "staff_druidic",
+      "bloodscourge",
+      "verge_meteoric",
+      "scourge_staff",
+      "hexenhammer",
+      "lucern_hexenhammer",
+      "bloodaxe",
+      "bloodaxe_act",
+      "sun_sword",
+      "sun_sword_on",
+      "lichhook",
+      "shrike_misericorde",
+      "shrike_misericorde_folded",
+      "veilblade",
+      "stormbringer",
+      "stormbringer_on"
+    ]
   }
 ]
