@@ -64,7 +64,7 @@
     "destination": "arcana_hermitage_1",
     "start": {
       "effect": { "u_add_effect": "sent_to_hermit", "duration": "PERMANENT" },
-      "assign_mission_target": { "om_terrain": "arcana_hermitage_1", "om_special": "Hermit Cabin", "reveal_radius": 3, "search_range": 180, "z": 0 }
+      "assign_mission_target": { "om_terrain": "arcana_hermitage_1", "om_special": "Hermit Cabin", "reveal_radius": 3, "search_range": 360, "z": 0 }
     },
     "dialogue": {
       "describe": "If you see this, it's a bug!",
@@ -88,7 +88,7 @@
     "difficulty": 5,
     "value": 250000,
     "start": {
-      "assign_mission_target": { "om_terrain": "impact_site", "om_special": "Floating Temple", "reveal_radius": 3, "search_range": 180, "z": 0 }
+      "assign_mission_target": { "om_terrain": "impact_site", "om_special": "Floating Temple", "reveal_radius": 3, "search_range": 360, "z": 0 }
     },
     "end": { "effect": [ { "npc_add_effect": "hermit_stage_1", "duration": "PERMANENT" } ] },
     "origins": [ "ORIGIN_SECONDARY" ],
@@ -412,7 +412,7 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_REP_6",
     "start": {
-      "assign_mission_target": { "om_terrain": "arcana_hermitage_1", "om_special": "Hermit Cabin", "reveal_radius": 1 },
+      "assign_mission_target": { "om_terrain": "arcana_hermitage_1", "om_special": "Hermit Cabin", "reveal_radius": 1, "search_range": 360 },
       "update_mapgen": [ { "om_terrain": "cf_church_2", "place_nested": [ { "chunks": [ "cf_church_upgrade_5" ], "x": 2, "y": 3 } ] } ]
     },
     "dialogue": {
@@ -539,7 +539,7 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_GM_2",
     "start": {
-      "assign_mission_target": { "om_terrain": "strange_grove", "om_special": "Strange Grove", "reveal_radius": 3, "z": 0 }
+      "assign_mission_target": { "om_terrain": "strange_grove", "om_special": "Strange Grove", "reveal_radius": 3, "search_range": 360, "z": 0 }
     },
     "end": {
       "effect": [ { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" }, { "u_spawn_item": "CF_golden_scale", "count": 6 } ],
@@ -575,7 +575,13 @@
     "origins": [ "ORIGIN_SECONDARY" ],
     "followup": "MISSION_CF_GM_3",
     "start": {
-      "assign_mission_target": { "om_terrain": "curious_structure_2", "om_special": "Curious Structure", "reveal_radius": 3, "z": 0 }
+      "assign_mission_target": {
+        "om_terrain": "curious_structure_2",
+        "om_special": "Curious Structure",
+        "reveal_radius": 3,
+        "search_range": 360,
+        "z": 0
+      }
     },
     "end": {
       "effect": [ { "u_add_effect": "cf_mission_1", "duration": "PERMANENT" }, { "u_spawn_item": "CF_golden_scale", "count": 8 } ],
