@@ -30,7 +30,7 @@
     "cancels": [ "MANA_SUB1", "MANA_SUB2", "MANA_SUB3" ],
     "changes_to": [ "MANA_ADD2" ],
     "types": [ "MANA_ADD" ],
-    "category": [ "MAGIC" ],
+    "category": [ "DRAGON_BLACK", "MANATOUCHED", "MAGIC" ],
     "starting_trait": true,
     "flags": [ "NON_THRESH" ],
     "mana_modifier": 500
@@ -44,7 +44,7 @@
     "cancels": [ "MANA_SUB1", "MANA_SUB2", "MANA_SUB3" ],
     "changes_to": [ "MANA_ADD3" ],
     "types": [ "MANA_ADD" ],
-    "category": [ "MAGIC" ],
+    "category": [ "DRAGON_BLACK", "MANATOUCHED", "MAGIC" ],
     "starting_trait": true,
     "prereqs": [ "MANA_ADD1" ],
     "flags": [ "NON_THRESH" ],
@@ -58,8 +58,9 @@
     "description": "You are able to store a lot more mana in your body than usual.",
     "cancels": [ "MANA_SUB1", "MANA_SUB2", "MANA_SUB3" ],
     "types": [ "MANA_ADD" ],
-    "category": [ "MAGIC" ],
+    "category": [ "DRAGON_BLACK", "MANATOUCHED", "MAGIC" ],
     "starting_trait": true,
+    "changes_to": [ "MANA_ADD_MANATOUCHED" ],
     "prereqs": [ "MANA_ADD2" ],
     "flags": [ "NON_THRESH" ],
     "mana_modifier": 2000
@@ -113,7 +114,7 @@
     "cancels": [ "BAD_MANA_REGEN1", "BAD_MANA_REGEN2", "BAD_MANA_REGEN3" ],
     "changes_to": [ "MANA_REGEN2" ],
     "types": [ "MANA_REGEN" ],
-    "category": [ "MAGIC" ],
+    "category": [ "FISH", "ELFA", "ALPHA", "PLANT", "CEPHALOPOD", "MANATOUCHED", "DRAGON_BLACK", "MAGIC" ],
     "starting_trait": true,
     "flags": [ "NON_THRESH" ],
     "mana_regen_multiplier": 1.1
@@ -128,7 +129,9 @@
     "cancels": [ "BAD_MANA_REGEN1", "BAD_MANA_REGEN2", "BAD_MANA_REGEN3" ],
     "changes_to": [ "MANA_REGEN3" ],
     "types": [ "MANA_REGEN" ],
-    "category": [ "MAGIC" ],
+    "category": [ "FISH", "ELFA", "PLANT", "MANATOUCHED", "DRAGON_BLACK", "MAGIC" ],
+    "flags": [ "NON_THRESH" ],
+    "starting_trait": true,
     "flags": [ "NON_THRESH" ],
     "mana_regen_multiplier": 1.25
   },
@@ -141,7 +144,8 @@
     "prereqs": [ "MANA_REGEN2" ],
     "cancels": [ "BAD_MANA_REGEN1", "BAD_MANA_REGEN2", "BAD_MANA_REGEN3" ],
     "types": [ "MANA_REGEN" ],
-    "category": [ "MAGIC" ],
+    "threshreq": [ "THRESH_PLANT", "THRESH_MANA", "THRESH_DRAGON_BLACK" ],
+    "category": [ "PLANT", "DRAGON_BLACK", "MAGIC" ],
     "flags": [ "NON_THRESH" ],
     "mana_regen_multiplier": 1.5
   },
@@ -154,7 +158,7 @@
     "cancels": [ "MANA_REGEN1", "MANA_REGEN2", "MANA_REGEN3" ],
     "changes_to": [ "BAD_MANA_REGEN2" ],
     "types": [ "MANA_REGEN" ],
-    "category": [ "MAGIC" ],
+    "category": [ "LIZARD", "BEAST", "LUPINE", "URSINE", "CATTLE", "SLIME", "MEDICAL", "CHIMERA", "MAGIC" ],
     "starting_trait": true,
     "flags": [ "NON_THRESH" ],
     "mana_regen_multiplier": 0.9
@@ -169,7 +173,7 @@
     "cancels": [ "MANA_REGEN1", "MANA_REGEN2", "MANA_REGEN3" ],
     "changes_to": [ "BAD_MANA_REGEN3" ],
     "types": [ "MANA_REGEN" ],
-    "category": [ "MAGIC" ],
+    "category": [ "BEAST", "CATTLE", "SLIME", "MEDICAL", "CHIMERA", "MAGIC" ],
     "flags": [ "NON_THRESH" ],
     "mana_regen_multiplier": 0.75
   },
@@ -182,7 +186,7 @@
     "prereqs": [ "BAD_MANA_REGEN2" ],
     "cancels": [ "MANA_REGEN1", "MANA_REGEN2", "MANA_REGEN3" ],
     "types": [ "MANA_REGEN" ],
-    "category": [ "MAGIC" ],
+    "category": [ "BEAST", "MEDICAL", "MAGIC" ],
     "flags": [ "NON_THRESH" ],
     "mana_regen_multiplier": 0.5
   },
@@ -195,7 +199,21 @@
     "cancels": [ "BAD_MANA_MULT1", "BAD_MANA_MULT2", "BAD_MANA_MULT3" ],
     "changes_to": [ "MANA_MULT2" ],
     "types": [ "MANA_MULT" ],
-    "category": [ "MAGIC" ],
+    "category": [
+      "BIRD",
+      "LIZARD",
+      "SLIME",
+      "FELINE",
+      "CATTLE",
+      "URSINE",
+      "PLANT",
+      "CEPHALOPOD",
+      "ALPHA",
+      "ELFA",
+      "MANATOUCHED",
+      "DRAGON_BLACK",
+      "MAGIC"
+    ],
     "starting_trait": true,
     "flags": [ "NON_THRESH" ],
     "mana_multiplier": 1.25
@@ -209,8 +227,9 @@
     "cancels": [ "BAD_MANA_MULT1", "BAD_MANA_MULT2", "BAD_MANA_MULT3" ],
     "changes_to": [ "MANA_MULT3" ],
     "types": [ "MANA_MULT" ],
-    "category": [ "MAGIC" ],
+    "category": [ "BIRD", "SLIME", "CATTLE", "PLANT", "CEPHALOPOD", "ELFA", "MANATOUCHED", "DRAGON_BLACK", "MAGIC" ],
     "prereqs": [ "MANA_MULT1" ],
+    "starting_trait": true,
     "flags": [ "NON_THRESH" ],
     "mana_multiplier": 1.9
   },
@@ -222,7 +241,8 @@
     "description": "You can sense the mana in your body much better than normal, allowing you to tap into more of your reserves.",
     "cancels": [ "BAD_MANA_MULT1", "BAD_MANA_MULT2", "BAD_MANA_MULT3" ],
     "types": [ "MANA_MULT" ],
-    "category": [ "MAGIC" ],
+    "changes_to": [ "MANA_MULT_MANATOUCHED" ],
+    "category": [ "SLIME", "CATTLE", "CEPHALOPOD", "MANATOUCHED", "DRAGON_BLACK", "MAGIC" ],
     "prereqs": [ "MANA_MULT2" ],
     "flags": [ "NON_THRESH" ],
     "mana_multiplier": 2.5
@@ -236,7 +256,7 @@
     "cancels": [ "MANA_MULT1", "MANA_MULT2", "MANA_MULT3" ],
     "changes_to": [ "BAD_MANA_MULT2" ],
     "types": [ "MANA_MULT" ],
-    "category": [ "MAGIC" ],
+    "category": [ "BEAST", "FISH", "LUPINE", "INSECT", "TROGLOBITE", "SPIDER", "RAT", "MOUSE", "MEDICAL", "CHIMERA", "RAPTOR", "MAGIC" ],
     "starting_trait": true,
     "flags": [ "NON_THRESH" ],
     "mana_multiplier": 0.85
@@ -250,7 +270,7 @@
     "cancels": [ "MANA_MULT1", "MANA_MULT2", "MANA_MULT3" ],
     "changes_to": [ "BAD_MANA_MULT3" ],
     "types": [ "MANA_MULT" ],
-    "category": [ "MAGIC" ],
+    "category": [ "BEAST", "INSECT", "TROGLOBITE", "MOUSE", "MEDICAL", "CHIMERA", "RAPTOR", "MAGIC" ],
     "prereqs": [ "BAD_MANA_MULT1" ],
     "flags": [ "NON_THRESH" ],
     "mana_multiplier": 0.65
@@ -263,7 +283,7 @@
     "description": "You have a hard time sensing the mana in your body, making less of your reserves available for use.",
     "cancels": [ "MANA_MULT1", "MANA_MULT2", "MANA_MULT3" ],
     "types": [ "MANA_MULT" ],
-    "category": [ "MAGIC" ],
+    "category": [ "INSECT", "MEDICAL", "CHIMERA", "MAGIC" ],
     "prereqs": [ "BAD_MANA_MULT2" ],
     "flags": [ "NON_THRESH" ],
     "mana_multiplier": 0.35
@@ -274,6 +294,7 @@
     "name": { "str": "Debug Spell Mutation" },
     "points": 20,
     "description": "Gives all of the debug spells at max level.",
+    "debug": true,
     "spells_learned": [ [ "example_template", 10 ], [ "debug_stamina", 0 ], [ "debug_hp", 0 ], [ "debug_bionic", 0 ], [ "debug_effect", 0 ] ]
   },
   {
@@ -282,7 +303,6 @@
     "name": { "str": "Innate Spell: Mage Hand" },
     "points": 2,
     "description": "Your attunement to the Magi allows one to summon an ethereal hand.",
-    "category": [ "MAGIC" ],
     "prereqs": [ "MAGUS" ],
     "spells_learned": [ [ "mhand", 1 ] ]
   },
@@ -292,7 +312,6 @@
     "name": { "str": "Innate Spell: Shockwave" },
     "points": 2,
     "description": "Your attunement to the Magi allows one to blast opponents to the ground.",
-    "category": [ "MAGIC" ],
     "prereqs": [ "MAGUS" ],
     "spells_learned": [ [ "cone_force", 1 ] ]
   }
