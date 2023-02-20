@@ -23,7 +23,7 @@
     "valid": false,
     "description": "The alchemist comes from the technomancer's skills with unliving matter combined with the animist's grasp on the ambient ley lines.  It requires magical talent and lots of time, but is invaluable for creating powerful magical effects in a storable, accessible form.",
     "prereqs": [ "ANIMIST", "TECHNOMANCER" ],
-    "spells_learned": [ [ "alchemist_make_potion_bomb", 5 ], [ "alchemist_make_potion_trap", 5 ] ],
+    "spells_learned": [ [ "alchemist_make_potion_starter", 5 ], [ "alchemist_make_potion_bomb", 5 ], [ "alchemist_make_potion_trap", 5 ] ],
     "flags": [ "ATTUNEMENT" ]
   },
   {
@@ -51,6 +51,7 @@
     "valid": false,
     "description": "Animists are known for their blood magic, and being a Biomancer you are able to take it another step further by strengthening your blood.  The dark arts have opened to you, and while dangerous, are incredible to behold.",
     "prereqs": [ "BIOMANCER", "ANIMIST" ],
+    "enchantments": [ "BLOOD_MAGE_HEALING" ],
     "spells_learned": [ [ "banishment_greater", 5 ], [ "demonic_possession", 5 ] ],
     "flags": [ "ATTUNEMENT", "BLEED_IMMUNE" ]
   },
@@ -63,6 +64,7 @@
     "purifiable": false,
     "valid": false,
     "description": "Named for the auroras that grace the poles of the earth, the Boreal mage specializes in auras that protect ethereally.  Boreal mages definitely know their way around cold spells, but their real strength is protection.",
+    "enchantments": [ "BOREAL_MAGE" ],
     "prereqs": [ "KELVINIST", "TECHNOMANCER" ],
     "spells_learned": [ [ "auroral_wave", 5 ], [ "borealmage_auroral_guard", 5 ] ],
     "flags": [ "ATTUNEMENT" ]
@@ -76,6 +78,7 @@
     "purifiable": false,
     "valid": false,
     "description": "The Cleansing Flame is the fire that burns away the chaff, in preparation for the regrowth of new life.",
+    "enchantments": [ "CLEANSING_FLAME" ],
     "spells_learned": [ [ "immolate", 5 ], [ "cleansingflame_hermes_heal", 5 ] ],
     "prereqs": [ "DRUID", "KELVINIST" ],
     "flags": [ "ATTUNEMENT" ]
@@ -90,7 +93,7 @@
     "valid": false,
     "description": "The Crusader attunement is a clashing dichotomy of Man and Nature.  Utilizing man's propensity for tools and nature's resilience, the Crusader is a juggernaut in armed combat.",
     "prereqs": [ "DRUID", "TECHNOMANCER" ],
-    "spells_learned": [ [ "holy_shield", 5 ] ],
+    "spells_learned": [ [ "holy_shield", 5 ], [ "judgement_sword", 5 ] ],
     "passive_mods": { "dex_mod": 5 },
     "hp_modifier": 1,
     "flags": [ "ATTUNEMENT" ]
@@ -138,7 +141,8 @@
     "description": "Force = Mass x Acceleration.  This is the typical thing that people think of nowadays when the word is used, but Force Mages have a different meaning, coming from traditional roots: untyped magical damage appears to be a ghostly \"force.\"  This might be the effect of the attunement, but the cause is even more intriguing: they appear to turn Newton's Third Law on its head.  Magical scholars of the 21st century have theorized that this isn't really the case; instead of the opposite reaction happening on this plane of existence, a Force Mage uses the Aetherium's alternate Laws to rebound the force back upon itself, effectively doubling the force in the same direction instead.  However this ability comes with limitations, as the Force Mage can only do this for melee damage.",
     "prereqs": [ "MAGUS", "STORMSHAPER" ],
     "spells_learned": [ [ "force_blade", 5 ], [ "force_magical_armor", 5 ] ],
-    "flags": [ "ATTUNEMENT" ]
+    "flags": [ "ATTUNEMENT" ],
+    "enchantments": [ "FORCE_MAGE" ]
   },
   {
     "id": "GAIAS_CHOSEN",
@@ -164,6 +168,7 @@
     "valid": false,
     "description": "The power of a Glacier Mage is backed by a thousand tons of ice and snow, with a brutal might in their spells.  While they are skilled with cold spells, their greatest strength is in offense.",
     "prereqs": [ "EARTHSHAPER", "KELVINIST" ],
+    "enchantments": [ "GLACIER_MAGE" ],
     "spells_learned": [ [ "ice_clave", 5 ], [ "frozen_winds", 5 ] ],
     "flags": [ "ATTUNEMENT" ]
   },
@@ -175,6 +180,7 @@
     "starting_trait": false,
     "purifiable": false,
     "valid": false,
+    "enchantments": [ "GOLEMANCER_BLOCK" ],
     "description": "The Golemancer is the ancient myth of the clay golem, made reality from constant use of Animist summons and Earthshaper self-strengthening spells.  Takes some traits from the golems they create, such as immunity to slowing effects.",
     "prereqs": [ "ANIMIST", "EARTHSHAPER" ],
     "spells_learned": [ [ "golem_push", 5 ], [ "summon_golem_clay", 5 ] ],
@@ -190,7 +196,8 @@
     "valid": false,
     "description": "The fundamental Laws of the universe are thought of as the end-all-be-all in magical circles, and the Gravity Mage is a result of mages mucking around with those laws.  Unfortunately, this attunement does not give supreme control over gravity as a fundamental force, though the affinity is prominent and comes with some non-negligible benefits.",
     "prereqs": [ "MAGUS", "EARTHSHAPER" ],
-    "spells_learned": [ [ "gravitymage_graviton", 5 ] ],
+    "spells_learned": [ [ "gravitymage_graviton", 5 ], [ "gravity_mage_leap", 5 ], [ "gravity_mage_melee", 5 ] ],
+    "enchantments": [ "GRAVITY_MAGE" ],
     "weight_capacity_modifier": 2,
     "flags": [ "ATTUNEMENT", "CLIMB_NO_LADDER" ]
   },
@@ -219,7 +226,7 @@
     "valid": false,
     "description": "Through your power in Biomancy, you have changed your body towards your Kelvinist affinity for ice.  Extreme cold has less effect on you, and your superchilled skin causes frostbite when touching others.  You're also starting to research more magic that focuses on your body's inherent ice affinity.",
     "enchantments": [ "ICE_ELEMENTAL" ],
-    "spells_learned": [ [ "summon_subzero_talons", 5 ], [ "cold_heart", 5 ] ],
+    "spells_learned": [ [ "summon_subzero_talons", 5 ], [ "cold_heart", 5 ], [ "iceelemental_frostcrystal", 5 ] ],
     "prereqs": [ "BIOMANCER", "KELVINIST" ],
     "flags": [ "ATTUNEMENT" ]
   },
@@ -232,8 +239,10 @@
     "purifiable": false,
     "valid": false,
     "description": "Through the fine manipulation of light, an Illusionist might craft deceptively convincing and dangerous illusions.  An Illusionist excels at avoiding direct confrontation, instead relying on decoys and traps to slip by undetected.",
-    "spells_learned": [ [ "spear_of_light", 5 ] ],
+    "spells_learned": [ [ "spear_of_light", 5 ], [ "illusionist_hologram", 5 ], [ "illusionist_transposition", 5 ] ],
     "prereqs": [ "MAGUS", "TECHNOMANCER" ],
+    "ugliness": -7,
+    "social_modifiers": { "persuade": 10, "lie": 10, "intimidate": 10 },
     "flags": [ "ATTUNEMENT", "HARDTOHIT" ]
   },
   {
@@ -245,9 +254,10 @@
     "purifiable": false,
     "valid": false,
     "description": "",
+    "enchantments": [ "MAGNETISM_MAGE" ],
     "prereqs": [ "STORMSHAPER", "EARTHSHAPER" ],
-    "spells_learned": [ [ "railgun", 5 ], [ "magnetismmage_electrolaser", 5 ] ],
-    "flags": [ "ATTUNEMENT" ]
+    "spells_learned": [ [ "railgun", 5 ], [ "magnetismmage_electrolaser", 5 ], [ "robot_disabler_explosion", 5 ] ],
+    "flags": [ "ATTUNEMENT", "ELECTRIC_IMMUNE" ]
   },
   {
     "id": "PERMAFROST_MAGE",
@@ -259,7 +269,8 @@
     "valid": false,
     "description": "",
     "prereqs": [ "KELVINIST", "MAGUS" ],
-    "flags": [ "ATTUNEMENT" ]
+    "spells_learned": [ [ "cold_energy", 5 ], [ "permafrost_mage_ice_age", 5 ] ],
+    "flags": [ "ATTUNEMENT", "COLD_ENERGY_IMMUNE" ]
   },
   {
     "id": "RADIATION_MAGE",
@@ -284,6 +295,8 @@
     "valid": false,
     "description": "Deeply attuned to the spiritual fabric that shapes and nurtures the natural world.  Shamans call upon the primeval spirits of nature for aid and advice.  Be careful however, for ancient spirits are fickle and unknowable things.",
     "prereqs": [ "ANIMIST", "DRUID" ],
+    "spells_learned": [ [ "butterfly_swarm", 5 ], [ "summon_shambling_mound", 5 ] ],
+    "enchantments": [ "SHAMAN_MANA_REGEN" ],
     "flags": [ "ATTUNEMENT" ]
   },
   {
@@ -296,9 +309,12 @@
     "valid": false,
     "description": "The shapeshifter is the Biomancer refined - able to use a flicker of mana to change shape at the drop of a hat to make yourself more inviting or shape others into desired shapes.",
     "prereqs": [ "BIOMANCER", "MAGUS" ],
+    "spells_learned": [ [ "shapeshifter_alkahest", 5 ], [ "biomechanic", 5 ] ],
     "//": "Purposefully omits torso, head, etc.",
     "encumbrance_multiplier_always": { "arm_l": 0.4, "arm_r": 0.4, "hand_l": 0.4, "hand_r": 0.4, "leg_l": 0.4, "leg_r": 0.4, "mouth": 0.4 },
-    "flags": [ "ATTUNEMENT" ]
+    "ugliness": -7,
+    "social_modifiers": { "persuade": 10, "lie": 10, "intimidate": 10 },
+    "flags": [ "ATTUNEMENT", "ALKAHEST_IMMUNE" ]
   },
   {
     "id": "SOULFIRE",
@@ -325,8 +341,8 @@
     "description": "You've used your knowledge of Biomancy to change your body into a form befitting a Stormshaper.  You can better withstand the power of electricity, and sparks leap from your skin when something hits you.  You're beginning to study spells that utilize your body's affinity for the electric.",
     "prereqs": [ "STORMSHAPER", "BIOMANCER" ],
     "enchantments": [ "STORM_ELEMENTAL" ],
-    "spells_learned": [ [ "storm_chain_master", 5 ] ],
-    "flags": [ "ATTUNEMENT" ]
+    "spells_learned": [ [ "storm_chain_master", 5 ], [ "storm_elemental_electric_melee", 5 ] ],
+    "flags": [ "ATTUNEMENT", "ELECTRIC_IMMUNE" ]
   },
   {
     "id": "STORMCALLER",
@@ -338,7 +354,8 @@
     "valid": false,
     "description": "A stormcaller is a stormshaper with an additional affinity toward the weather in a localized area.  Historians agree that the druid requirement has something to do with the Druid's affinity for nature, just like their ability to summon animals.  You will know a stormcaller is in the room if your ears pop and your hair stands straight on end.  Stormcallers are not known for their subtlety.",
     "prereqs": [ "STORMSHAPER", "DRUID" ],
-    "flags": [ "ATTUNEMENT" ]
+    "spells_learned": [ [ "electric_demon", 5 ], [ "electric_turret", 5 ] ],
+    "flags": [ "ATTUNEMENT", "ELECTRIC_IMMUNE" ]
   },
   {
     "id": "SUN_MAGE",
@@ -365,6 +382,7 @@
     "valid": false,
     "description": "The barren cold of the world's far reaches flows through the Tundra Mage.  They find power in the all-pervasive frost of the North and in the creatures that defy its deathly chill.",
     "prereqs": [ "DRUID", "KELVINIST" ],
+    "enchantments": [ "TUNDRA_MAGE" ],
     "spells_learned": [ [ "cold_snap", 5 ], [ "summon_winter_wolf", 5 ] ],
     "flags": [ "ATTUNEMENT" ]
   },
@@ -393,7 +411,8 @@
     "description": "One of the most destructive forces on earth, a Volcano Mage takes some aspect of its namesake.  Their spells tend to be a little slow, but their resilience in proximity to a volcano is legendary.",
     "spells_learned": [ [ "lava_bomb_main", 5 ], [ "vulcanist_pyroclastic_flow", 5 ] ],
     "prereqs": [ "EARTHSHAPER", "KELVINIST" ],
-    "flags": [ "ATTUNEMENT" ]
+    "enchantments": [ "VULCANIST" ],
+    "flags": [ "ATTUNEMENT", "HEAT_IMMUNE" ]
   },
   {
     "id": "WITHER_MAGE",
@@ -405,6 +424,7 @@
     "valid": false,
     "description": "While biomancers focus on both life and death; Wither Mages set their sights on the transitional period between these two stages.  They wield entropy and decay hand and hand, using it to enhance their combat prowess to surgical precision.  This confluence of abilities are what lead to assassin mages gaining this attunement.",
     "prereqs": [ "DRUID", "MAGUS" ],
+    "enchantments": [ "WITHER_MAGE_AP", "WITHER_MAGE_WITHERING" ],
     "spells_learned": [ [ "assassin_strike", 5 ], [ "life_drain", 5 ] ],
     "flags": [ "ATTUNEMENT" ]
   }
