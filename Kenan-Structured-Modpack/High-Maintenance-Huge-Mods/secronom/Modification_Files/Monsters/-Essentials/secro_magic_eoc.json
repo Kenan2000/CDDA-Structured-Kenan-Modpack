@@ -2,7 +2,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_tendrils_sprint_check",
-    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 11 } ] },
+    "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 11 } ] },
     "effect": [
       { "npc_add_effect": "secro_tendril_sprint", "duration": "14 seconds" },
       { "u_message": "The tendril zombie's movement became erratic!", "type": "bad" }
@@ -15,7 +15,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_bootlegsmoker_snatch_check",
-    "condition": { "compare_int": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
+    "condition": { "compare_num": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
     "effect": [ { "u_message": "You resist the snatcher zombie's tongue!", "type": "good" } ],
     "false_effect": [
       { "u_add_effect": "stunned", "duration": "2 seconds" },
@@ -41,7 +41,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_hemo_bcurl_check",
-    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 4 } ] },
+    "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 4 } ] },
     "effect": [
       { "u_message": "Blood accumulates around you!", "type": "bad" },
       { "u_add_effect": "unity_bloodslow", "duration": "25 seconds" }
@@ -92,8 +92,8 @@
     "id": "eoc_secro_mon_zombie_tentawraith_tentgrasp_check",
     "condition": {
       "and": [
-        { "compare_int": [ { "u_val": "skill_level", "skill": "dodge" }, ">=", { "const": 4 } ] },
-        { "compare_int": [ { "u_val": "dexterity" }, ">=", { "const": 8 } ] }
+        { "compare_num": [ { "u_val": "skill_level", "skill": "dodge" }, ">=", { "const": 4 } ] },
+        { "compare_num": [ { "u_val": "dexterity" }, ">=", { "const": 8 } ] }
       ]
     },
     "effect": [ { "u_message": "A barrage of tentacles tried to grasp at you, but you dodge!", "type": "good" } ],
@@ -113,7 +113,7 @@
         "run_eocs": [
           {
             "id": "eoc_secro_mon_zombie_akin_constrict_check1",
-            "condition": { "compare_int": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
+            "condition": { "compare_num": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
             "effect": [ { "u_message": "You resist the visceral tendril's constriction.", "type": "good" } ],
             "false_effect": [
               { "u_message": "You've been constricted by the tendrils!", "type": "bad" },
@@ -131,7 +131,7 @@
         "run_eocs": [
           {
             "id": "eoc_secro_mon_zombie_akin_constrict_check2",
-            "condition": { "compare_int": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
+            "condition": { "compare_num": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
             "effect": [ { "u_message": "You resist the visceral tendril's constriction.", "type": "good" } ],
             "false_effect": [
               { "u_message": "You've been constricted by the tendrils!", "type": "bad" },
@@ -512,7 +512,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_ayenel_lockon_check",
-    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 5 } ] },
+    "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 5 } ] },
     "effect": [ { "u_add_effect": "blind", "duration": "6 seconds" }, { "u_add_effect": "glowing", "duration": "60 seconds" } ]
   },
   {
@@ -677,7 +677,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_secrodragon_woke_check",
-    "condition": { "compare_int": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 2 } ] },
+    "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 2 } ] },
     "effect": [ { "queue_eocs": [ "eoc_secro_mon_secrodragon_woke_barrier_check" ] } ],
     "false_effect": [ { "queue_eocs": [ "eoc_secro_mon_secrodragon_woke_ranged_check" ] } ]
   }
