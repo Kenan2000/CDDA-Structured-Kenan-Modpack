@@ -1,0 +1,83 @@
+[
+  {
+    "id": "TALK_BL9_BASE_ANDROID",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_var": "BL9_shields_on",
+      "type": "dialogue",
+      "context": "lifehope",
+      "value": "yes",
+      "yes": "Welcome to BL9 Safety Base, survivor of hope in life, you don't mind if I call you like this? All systems are online, Energy Shield works exactly as my masters, as we have all, hoped for, thanks to your work! If inhabitants decide to go outside, shield will be deactivated for a split second then turned on again. If inhabitants decide to go back here, scanners, installed near entrance, will scan them, if they are former inhabitants, inhabitants will be able to go back here, shield will be deactivated for split second then turned back on again. My masters ordered me to advise you to make this your permanent, safe home here. Make a family, bring your love here, have children, adopt children, live as a civilization hopefully as well",
+      "no": "Welcome to BL9 Safety Base, I am a control Android. We are built with a purpose to ensure safe work of all systems in BL9 Safety Bases. If you are new here, I suggest you to go to Leisure Center in order to learn as much information as possible about essentially everything related to BL9, which has been collected by my masters, this is a must. If you are already experienced, know what our main goals are, feel free to ask me questions that you have"
+    },
+    "responses": [
+      {
+        "text": "I want to talk about Shield Generator",
+        "topic": "TALK_BL9_BASE_ANDROID1",
+        "condition": { "not": { "u_has_var": "BL9_shields_on", "type": "dialogue", "context": "lifehope", "value": "yes" } }
+      },
+      { "text": "What is the purpose of these BL9 Safety Bases?", "topic": "TALK_BL9_BASE_ANDROID2" },
+      { "text": "Who is this man in Leisure Center?", "topic": "TALK_BL9_BASE_ANDROID3" },
+      { "text": "[GOODBYE]", "topic": "TALK_BASE_ANDROID_GOODBYE" }
+    ]
+  },
+  {
+    "id": "TALK_BL9_BASE_ANDROID1",
+    "type": "talk_topic",
+    "dynamic_line": "Have you managed to acquire 4 pieces of 'Alliance' tech, required to activate our Shield Generator?",
+    "responses": [
+      {
+        "text": "I have managed to acquire all 4 of them, activate Shield Generator now",
+        "topic": "TALK_BL9_BASE_ANDROID1_1",
+        "condition": {
+          "and": [
+            { "u_has_item": "BL9_argan_tech" },
+            { "u_has_item": "BL9_wanzel_tech" },
+            { "u_has_item": "BL9_davran_tech" },
+            { "u_has_item": "BL9_salden_tech" }
+          ]
+        }
+      },
+      { "text": "I have not collected them all yet", "topic": "TALK_BL9_BASE_ANDROID1_2" },
+      { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" }
+    ]
+  },
+  {
+    "id": "TALK_BL9_BASE_ANDROID1_1",
+    "type": "talk_topic",
+    "dynamic_line": "Initiate Radio Call. You can hear me? I am the creator of this Shield Generator that you have helped us to activate! You have managed to do this! Also, these structures that belong to 'Alliance', some of which you have cleared, have a lot of remaining tech for our scavengers teams to salvage. This means that not only your BL9 Safety Base is a beacon of hope for life now, but also our own structures! We can actually restore civilization, restore humanity now! Power cells in these generators will work for a very long time, decades, if not for a century essentially. Not even mentioning remaining tech that 'Alliance' has, which is essentially an endless supply of power cells for us! This BL9 Safety Base now belongs to you, survivor of hope in life, you can live, love, try to procreate, build a family in your own really safe shelter! This is what we will also try to do! May God keep you, keep all of us healthy, safe, bring you, bring all of us luck hopefully as well",
+    "speaker_effect": { "effect": { "u_add_var": "BL9_shields_on", "type": "dialogue", "context": "lifehope", "value": "yes" } },
+    "responses": [ { "text": "Same to you", "topic": "TALK_BL9_BASE_ANDROID" } ]
+  },
+  {
+    "id": "TALK_BL9_BASE_ANDROID1_2",
+    "type": "talk_topic",
+    "dynamic_line": "No rush, try to follow order of locations, stated in BL9 Hidden Structures Map, also try to read intel along with journals hopefully as well",
+    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+  },
+  {
+    "id": "TALK_BL9_BASE_ANDROID2",
+    "type": "talk_topic",
+    "dynamic_line": {
+      "u_has_var": "BL9_shields_on",
+      "type": "dialogue",
+      "context": "lifehope",
+      "value": "yes",
+      "yes": "The sole purpose of BL9 Safety Bases is to make safe areas for people to live, work, love, procreate, make families, have children, adopt children, live as a civilization in. Thanks to your work, we have an active Energy Shield now, which makes an already relatively safe area a beacon of hope, civilization for people, for you also. My masters advise you to make this your permanent, safe home here. Try to do things that I have listed. Try to do what, in the past, was a luxury, but thanks to your work now is accessible, is what all people should strive for hopefully. Just try to help me with cleaning, alright? Humans along with 'Alliance' are not that different. Both make a lot of mess when they eat or have a sexual intercourse. Don't ask me how I know this",
+      "no": "The sole purpose of BL9 Safety Bases is to make safe areas for people to live, work, love, procreate, make families, have children, adopt children, live as a civilization in. Even without active Energy Shield, these are still relatively safe areas to live in, try to do things that I have listed. However, to ensure protection from all living horrors of Cataclysm, we need actually to have active Energy Shield hopefully. You can still try to do things from this list whenever you want to. Just try to help me with cleaning, alright? Humans along with 'Alliance' are not that different. Both make a lot of mess when they eat or have a sexual intercourse. Don't ask me how I know this"
+    },
+    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+  },
+  {
+    "id": "TALK_BASE_ANDROID_GOODBYE",
+    "type": "talk_topic",
+    "dynamic_line": "Good luck, feel free to come back here, either alone or with your friends, or your love, whenever you want to, survivor",
+    "responses": [ { "text": "Thanks", "topic": "TALK_DONE" } ]
+  },
+  {
+    "id": "TALK_BL9_BASE_ANDROID3",
+    "type": "talk_topic",
+    "dynamic_line": "This man has benign purpose of his presence here. He is a rare equipment trader. He seems to have a unique BL9 mutation which makes him 'one of their own' among these extremists organizations mutants. He sells this equipment for currencies that Strange Cult along with 'THEY' along with 'True Superiors' use. He might seem like a weird, shady man, but he genuinely shows interest in helping us fight these bastards. Obviously, provided that you help him in achieving material gain thanks to currencies that you, survivors, bring to him",
+    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+  }
+]
