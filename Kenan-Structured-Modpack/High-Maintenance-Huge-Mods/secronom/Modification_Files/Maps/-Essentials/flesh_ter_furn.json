@@ -946,31 +946,37 @@
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_column" }
   },
   {
-    "type": "terrain",
-    "id": "t_secro_console_broken_flesh",
+    "type": "furniture",
+    "id": "f_secro_console_broken_flesh",
+    "looks_like": "t_console_broken",
     "name": "fleshed broken console",
     "description": "This is a standalone computer terminal that is beyond broken. Veins crawl through the monitor.",
     "symbol": "6",
     "color": "light_red",
-    "move_cost": 0,
+    "move_cost_mod": -1,
     "coverage": 50,
-    "roof": "t_secro_flat_roof_flesh",
+    "required_str": -1,
     "flags": [ "TRANSPARENT", "NOITEM", "INDOORS", "SHORT", "PERMEABLE" ],
-    "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_console_broken" }
+    "connect_groups": "COUNTER",
+    "connects_to": "COUNTER",
+    "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "furn_set": "f_console_broken" }
   },
   {
-    "type": "terrain",
-    "id": "t_secro_console_flesh",
+    "type": "furniture",
+    "id": "f_secro_console_flesh",
+    "looks_like": "t_console",
     "name": "fleshed computer console",
     "description": "This is a standalone computer terminal. Veins crawl through the monitor, but seems to work in its current condition.",
     "symbol": "6",
     "color": "red",
-    "move_cost": 0,
+    "move_cost_mod": -1,
     "coverage": 50,
-    "light_emitted": 5,
-    "roof": "t_secro_flat_roof_flesh",
+    "required_str": -1,
+    "light_emitted": 10,
     "flags": [ "TRANSPARENT", "CONSOLE", "S_FLESH", "NOITEM", "INDOORS", "SHORT", "PERMEABLE" ],
-    "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_console" }
+    "connect_groups": "COUNTER",
+    "connects_to": "COUNTER",
+    "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "furn_set": "f_console" }
   },
   {
     "type": "terrain",
