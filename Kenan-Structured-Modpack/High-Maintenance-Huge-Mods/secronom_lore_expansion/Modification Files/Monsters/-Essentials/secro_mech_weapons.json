@@ -8,7 +8,7 @@
     "weight": "43220 g",
     "volume": "15 L",
     "to_hit": -4,
-    "bashing": 8,
+    "melee_damage": { "bash": 8 },
     "material": [ "superalloy", "secro_flesh_reinforced" ],
     "symbol": "(",
     "color": "light_blue",
@@ -20,7 +20,7 @@
     "loudness": 2,
     "ammo": [ "secro_flesh" ],
     "clip_size": 10,
-    "ups_charges": 6,
+    "energy_drain": "6 kJ",
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "secro_flesh": 10 } } ],
     "valid_mod_locations": [ [ "SPEMF accessories", 1 ], [ "SPEMF gun morphs", 2 ] ],
     "default_mods": [ "secro_fleshmech_gun_acid", "secro_fleshmech_gun_acid_large", "secro_fleshmech_gun_spikes_large" ],
@@ -41,7 +41,7 @@
         }
       ]
     },
-    "flags": [ "NO_UNLOAD", "NEVER_JAMS", "NO_UNWIELD", "NO_SALVAGE", "NO_REPAIR", "UNBREAKABLE_MELEE", "NON_FOULING" ]
+    "flags": [ "NO_UNLOAD", "NEVER_JAMS", "NO_UNWIELD", "NO_SALVAGE", "NO_REPAIR", "UNBREAKABLE_MELEE", "NON_FOULING", "USE_UPS" ]
   },
   {
     "id": "secro_fleshmech_gun_spikes_large",
@@ -64,13 +64,13 @@
       "ranged_damage": { "damage_type": "stab", "amount": 40 },
       "dispersion": 225,
       "durability": 10,
-      "ups_charges": 40,
+      "energy_drain": "40 kJ",
       "ammo_effects": [ "SHOT" ],
       "ammo": [ "secro_flesh_large" ],
       "clip_size": 2
     },
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "secro_flesh_large": 2 } } ],
-    "flags": [ "IRREMOVABLE" ]
+    "flags": [ "IRREMOVABLE", "USE_UPS" ]
   },
   {
     "id": "secro_fleshmech_gun_acid_large",
@@ -93,13 +93,13 @@
       "ranged_damage": { "damage_type": "acid", "amount": 22 },
       "dispersion": 500,
       "durability": 10,
-      "ups_charges": 130,
+      "energy_drain": "130 kJ",
       "ammo_effects": [ "SECRO_BLOODACID_BIG" ],
       "ammo": [ "secro_flesh_large" ],
       "clip_size": 2
     },
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "secro_flesh_large": 2 } } ],
-    "flags": [ "IRREMOVABLE" ]
+    "flags": [ "IRREMOVABLE", "USE_UPS" ]
   },
   {
     "id": "secro_fleshmech_gun_acid",
@@ -122,13 +122,13 @@
       "ranged_damage": { "damage_type": "acid", "amount": 6 },
       "dispersion": 100,
       "durability": 10,
-      "ups_charges": 32,
+      "energy_drain": "32 kJ",
       "modes": [ [ "DEFAULT", "semi-auto", 3 ] ],
       "ammo_effects": [ "SECRO_BLOODACID_SMOL" ],
       "ammo": [ "secro_flesh" ],
       "clip_size": 6
     },
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "secro_flesh": 6 } } ],
-    "flags": [ "IRREMOVABLE" ]
+    "flags": [ "IRREMOVABLE", "USE_UPS" ]
   }
 ]

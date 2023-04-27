@@ -9,7 +9,7 @@
     "volume": "3750 ml",
     "price": "3500 USD",
     "to_hit": -3,
-    "bashing": 6,
+    "melee_damage": { "bash": 6 },
     "material": [ "steel" ],
     "symbol": "(",
     "color": "dark_gray",
@@ -43,7 +43,7 @@
     "volume": "5500 ml",
     "price": "600 USD",
     "to_hit": -1,
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "light_gray",
@@ -78,7 +78,7 @@
     "volume": "2 L",
     "price": "100 USD",
     "to_hit": -1,
-    "bashing": 10,
+    "melee_damage": { "bash": 10 },
     "material": [ "steel", "wood" ],
     "symbol": "(",
     "color": "white",
@@ -104,7 +104,7 @@
     "volume": "3750 ml",
     "price": "800 USD",
     "to_hit": -1,
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "light_gray",
@@ -131,7 +131,7 @@
     "volume": "3 L",
     "price": "2700 USD",
     "to_hit": -1,
-    "bashing": 8,
+    "melee_damage": { "bash": 8 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "blue",
@@ -140,10 +140,10 @@
     "ranged_damage": { "damage_type": "heat", "amount": 150, "armor_penetration": 100 },
     "sight_dispersion": 150,
     "durability": 8,
-    "ups_charges": 249,
+    "energy_drain": "249 kJ",
     "valid_mod_locations": [  ],
     "ammo_effects": [ "LASER", "WIDE" ],
-    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "MOUNTED_GUN" ]
+    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "MOUNTED_GUN", "USE_UPS" ]
   },
   {
     "id": "lasgunp",
@@ -155,7 +155,7 @@
     "volume": "3 L",
     "price": "7500 USD",
     "to_hit": -1,
-    "bashing": 8,
+    "melee_damage": { "bash": 8 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "blue",
@@ -165,10 +165,10 @@
     "sight_dispersion": 150,
     "durability": 8,
     "modes": [ [ "DEFAULT", "semi-auto", 1 ], [ "AUTO", "auto", 5 ] ],
-    "ups_charges": 29,
+    "energy_drain": "29 kJ",
     "valid_mod_locations": [  ],
     "ammo_effects": [ "LASER", "WIDE" ],
-    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "MOUNTED_GUN" ]
+    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "MOUNTED_GUN", "USE_UPS" ]
   },
   {
     "id": "lasgunx",
@@ -180,7 +180,7 @@
     "volume": "4500 ml",
     "price": "7500 USD",
     "to_hit": -1,
-    "bashing": 8,
+    "melee_damage": { "bash": 8 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "magenta",
@@ -189,10 +189,10 @@
     "ranged_damage": { "damage_type": "heat", "amount": 200, "armor_penetration": 100 },
     "sight_dispersion": 150,
     "durability": 8,
-    "ups_charges": 499,
+    "energy_drain": "499 kJ",
     "valid_mod_locations": [  ],
     "ammo_effects": [ "EXPLOSIVE", "LASER", "WIDE" ],
-    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "MOUNTED_GUN", "NON-FOULING" ]
+    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "MOUNTED_GUN", "NON-FOULING", "USE_UPS" ]
   },
   {
     "id": "nailmag",
@@ -225,7 +225,7 @@
     "price": "750 USD",
     "price_postapoc": "50 USD",
     "to_hit": -2,
-    "bashing": 10,
+    "melee_damage": { "bash": 10 },
     "material": [ "copper", "steel" ],
     "ammo": "nail",
     "skill": "rifle",
@@ -233,7 +233,7 @@
     "ranged_damage": { "damage_type": "stab", "amount": 4, "armor_penetration": 20 },
     "dispersion": 180,
     "durability": 5,
-    "ups_charges": 5,
+    "energy_drain": "5 kJ",
     "valid_mod_locations": [
       [ "accessories", 4 ],
       [ "grip", 1 ],
@@ -251,7 +251,8 @@
         "max_contains_weight": "20 kg",
         "item_restriction": [ "nailmag" ]
       }
-    ]
+    ],
+    "flags": [ "USE_UPS" ]
   },
   {
     "id": "nailrifle",
@@ -261,7 +262,7 @@
     "name": { "str": "nail rifle" },
     "description": "This is a nailgun that has been extensively modified with the addition of a short barrel, stock and hand guard.  It can be reloaded using detachable magazines and is an overall much more effective weapon.",
     "to_hit": -1,
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "price_postapoc": 750,
     "skill": "rifle",
     "modes": [ [ "DEFAULT", "semi-auto", 1 ], [ "AUTO", "auto", 3 ] ],
@@ -304,7 +305,7 @@
     "volume": "2500 ml",
     "price": "500 USD",
     "to_hit": -1,
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "light_blue",
@@ -314,7 +315,7 @@
     "ranged_damage": { "damage_type": "stab", "amount": 25, "armor_penetration": 30 },
     "sight_dispersion": 150,
     "durability": 5,
-    "ups_charges": 9,
+    "energy_drain": "9 kJ",
     "reload": 150,
     "valid_mod_locations": [  ],
     "pocket_data": [
@@ -327,7 +328,7 @@
         "item_restriction": [ "nailmag" ]
       }
     ],
-    "flags": [ "MOUNTED_GUN", "NEVER_JAMS", "NON-FOULING" ]
+    "flags": [ "MOUNTED_GUN", "NEVER_JAMS", "NON-FOULING", "USE_UPS" ]
   },
   {
     "id": "needler",
@@ -339,7 +340,7 @@
     "volume": "3750 ml",
     "price": "1100 USD",
     "to_hit": -1,
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "dark_gray",
@@ -377,7 +378,7 @@
     "price": "9000 USD",
     "price_postapoc": "90 USD",
     "to_hit": -1,
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "dark_gray",
@@ -389,7 +390,7 @@
     "durability": 7,
     "clip_size": 10,
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "metal_rail": 10 } } ],
-    "ups_charges": 100,
+    "energy_drain": "100 kJ",
     "reload": 200,
     "valid_mod_locations": [
       [ "accessories", 4 ],
@@ -402,7 +403,7 @@
       [ "underbarrel", 1 ]
     ],
     "ammo_effects": [ "INCENDIARY", "TRAIL" ],
-    "flags": [ "RELOAD_ONE" ]
+    "flags": [ "RELOAD_ONE", "USE_UPS" ]
   },
   {
     "id": "rebar_rifle",
@@ -417,7 +418,7 @@
     "price": "5500 USD",
     "price_postapoc": "60 USD",
     "to_hit": -3,
-    "bashing": 10,
+    "melee_damage": { "bash": 10 },
     "material": [ "steel", "wood" ],
     "symbol": "(",
     "color": "brown",
@@ -428,7 +429,7 @@
     "durability": 6,
     "clip_size": 1,
     "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "metal_rail": 1 } } ],
-    "ups_charges": 40,
+    "energy_drain": "40 kJ",
     "reload": 200,
     "valid_mod_locations": [
       [ "emitter", 1 ],
@@ -439,7 +440,8 @@
       [ "rail mount", 1 ],
       [ "underbarrel mount", 1 ]
     ],
-    "ammo_effects": [ "INCENDIARY", "TRAIL" ]
+    "ammo_effects": [ "INCENDIARY", "TRAIL" ],
+    "flags": [ "USE_UPS" ]
   },
   {
     "id": "railturret",
@@ -451,7 +453,7 @@
     "volume": "4 L",
     "price": "5500 USD",
     "to_hit": -3,
-    "bashing": 10,
+    "melee_damage": { "bash": 10 },
     "material": [ "steel", "wood" ],
     "symbol": "(",
     "color": "magenta",
@@ -463,10 +465,11 @@
     "durability": 6,
     "clip_size": 1,
     "pocket_data": [ { "pocket_type": "MAGAZINE", "holster": true, "rigid": true, "ammo_restriction": { "metal_rail": 1 } } ],
-    "ups_charges": 249,
+    "energy_drain": "249 kJ",
     "reload": 200,
     "valid_mod_locations": [  ],
-    "ammo_effects": [ "FRAG", "TRAIL", "WIDE" ]
+    "ammo_effects": [ "FRAG", "TRAIL", "WIDE" ],
+    "flags": [ "USE_UPS" ]
   },
   {
     "id": "ripper",
@@ -478,7 +481,7 @@
     "volume": "3750 ml",
     "price": "950 USD",
     "to_hit": -1,
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "material": [ "steel" ],
     "symbol": "(",
     "color": "dark_gray",
@@ -506,7 +509,7 @@
     "volume": "4500 ml",
     "price": "2800 USD",
     "to_hit": -1,
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "light_gray",
@@ -534,7 +537,7 @@
     "volume": "5 L",
     "price": "1500 USD",
     "to_hit": -1,
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "material": [ "wood", "steel" ],
     "symbol": "(",
     "color": "dark_gray",
@@ -561,7 +564,7 @@
     "volume": "3500 ml",
     "price": "500 USD",
     "to_hit": -1,
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "light_blue",
@@ -573,7 +576,7 @@
     "sight_dispersion": 150,
     "durability": 5,
     "modes": [ [ "DEFAULT", "semi-auto", 1 ], [ "AUTO", "auto", 25 ] ],
-    "ups_charges": 1,
+    "energy_drain": "1 kJ",
     "reload": 150,
     "valid_mod_locations": [  ],
     "pocket_data": [
@@ -586,7 +589,7 @@
         "item_restriction": [ "bb_hopper" ]
       }
     ],
-    "flags": [ "MOUNTED_GUN", "NEVER_JAMS", "NON-FOULING" ]
+    "flags": [ "MOUNTED_GUN", "NEVER_JAMS", "NON-FOULING", "USE_UPS" ]
   },
   {
     "id": "slauncher",
@@ -598,7 +601,7 @@
     "volume": "4 L",
     "price": "1100 USD",
     "to_hit": -1,
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "light_gray",
@@ -626,7 +629,7 @@
     "volume": "3750 ml",
     "price": "2800 USD",
     "to_hit": -1,
-    "bashing": 8,
+    "melee_damage": { "bash": 8 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "blue",
@@ -634,10 +637,10 @@
     "range": 20,
     "ranged_damage": { "damage_type": "electric", "amount": 30, "armor_penetration": 10 },
     "durability": 8,
-    "ups_charges": 249,
+    "energy_drain": "249 kJ",
     "valid_mod_locations": [  ],
     "ammo_effects": [ "BOUNCE", "LIGHTNING" ],
-    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "NON-FOULING", "MOUNTED_GUN" ]
+    "flags": [ "NEVER_JAMS", "NO_UNLOAD", "NON-FOULING", "MOUNTED_GUN", "USE_UPS" ]
   },
   {
     "id": "tihar",
@@ -657,7 +660,7 @@
     "weight": "4211 g",
     "volume": "2750 ml",
     "longest_side": "1020 mm",
-    "bashing": 8,
+    "melee_damage": { "bash": 8 },
     "to_hit": -1,
     "ranged_damage": { "damage_type": "stab", "amount": 15, "armor_penetration": 4 },
     "range": 15,
@@ -697,7 +700,7 @@
     "weight": "3110 g",
     "volume": "3 L",
     "longest_side": "1020 mm",
-    "bashing": 12,
+    "melee_damage": { "bash": 12 },
     "to_hit": -1,
     "ranged_damage": { "damage_type": "stab", "amount": 20, "armor_penetration": 7 },
     "range": 20,
@@ -736,7 +739,7 @@
     "volume": "2500 ml",
     "longest_side": "920 mm",
     "price_postapoc": "120 USD",
-    "bashing": 8,
+    "melee_damage": { "bash": 8 },
     "to_hit": -1,
     "ranged_damage": { "damage_type": "stab", "amount": 15, "armor_penetration": 10 },
     "range": 3,
@@ -768,7 +771,7 @@
     "volume": "3750 ml",
     "price": "1550 USD",
     "to_hit": -3,
-    "bashing": 6,
+    "melee_damage": { "bash": 6 },
     "material": [ "steel" ],
     "symbol": "(",
     "color": "light_gray",
@@ -804,7 +807,7 @@
     "price": "4000 USD",
     "price_postapoc": "80 USD",
     "to_hit": -1,
-    "bashing": 4,
+    "melee_damage": { "bash": 4 },
     "material": [ "steel", "plastic" ],
     "symbol": "(",
     "color": "magenta",
@@ -814,7 +817,7 @@
     "dispersion": 90,
     "durability": 7,
     "loudness": 8,
-    "ups_charges": 25,
+    "energy_drain": "25 kJ",
     "reload": 200,
     "valid_mod_locations": [
       [ "emitter", 1 ],
@@ -827,7 +830,7 @@
       [ "underbarrel mount", 1 ]
     ],
     "ammo_effects": [ "LASER", "INCENDIARY" ],
-    "flags": [ "NO_UNLOAD", "NON_FOULING", "NEEDS_NO_LUBE" ]
+    "flags": [ "NO_UNLOAD", "NON_FOULING", "NEEDS_NO_LUBE", "USE_UPS" ]
   },
   {
     "id": "bio_blaster",
@@ -844,10 +847,33 @@
     "name": { "str": "Fusion Blaster Arm" },
     "description": "Your left arm has been surgically replaced by a heavy-duty fusion blaster!  You may use your energy banks to fire a damaging heat ray.  However, you are unable to use or carry two-handed items, and your strength limits what you can use with your one hand.",
     "occupied_bodyparts": [ [ "arm_l", 20 ], [ "hand_l", 5 ] ],
-    "act_cost": 50,
     "fake_weapon": "bio_blaster_gun",
-    "flags": [ "BIONIC_GUN", "USES_BIONIC_POWER" ],
+    "flags": [ "BIONIC_GUN" ],
     "cant_remove_reason": "Removing %1$s Fusion Blaster Arm would leave %2$s with a useless stump."
+  },
+  {
+    "id": "bio_powershot",
+    "type": "GUNMOD",
+    "name": { "str": "Power shot" },
+    "description": "This is a pseudo item -- the builtin part of a fusion blaster for the maximum power firing mode.",
+    "weight": "1 g",
+    "volume": "0 ml",
+    "mod_targets": [ "rifle" ],
+    "price": "850 USD",
+    "price_postapoc": "0 cent",
+    "install_time": "0 s",
+    "material": [ "steel" ],
+    "symbol": ":",
+    "color": "light_red",
+    "location": "underbarrel",
+    "gun_data": {
+      "skill": "rifle",
+      "range": 30,
+      "ranged_damage": { "damage_type": "stab", "amount": 1 },
+      "ammo_effects": [ "PLASMA", "EXPLOSIVE", "FLAME", "NPC_AVOID" ],
+      "durability": 10
+    },
+    "flags": [ "IRREMOVABLE" ]
   },
   {
     "id": "bio_blaster_gun",
@@ -865,11 +891,12 @@
     "dispersion": 30,
     "durability": 10,
     "loudness": 12,
+    "energy_drain": "50 kJ",
     "modes": [ [ "DEFAULT", "single shot", 1 ], [ "burst", "triple shot", 3 ] ],
     "reload": 500,
     "built_in_mods": [ "bio_powershot" ],
     "ammo_effects": [ "PLASMA" ],
-    "flags": [ "NEVER_JAMS", "TRADER_AVOID", "ZERO_WEIGHT" ]
+    "flags": [ "NEVER_JAMS", "TRADER_AVOID", "ZERO_WEIGHT", "USES_BIONIC_POWER" ]
   },
   {
     "id": "rifle_308",
@@ -883,7 +910,7 @@
     "volume": "2 L",
     "price": "100 USD",
     "to_hit": -1,
-    "bashing": 10,
+    "melee_damage": { "bash": 10 },
     "material": [ "steel", "wood" ],
     "symbol": "(",
     "color": "brown",
@@ -931,7 +958,7 @@
     "volume": "1500 ml",
     "price": "100 USD",
     "to_hit": -1,
-    "bashing": 6,
+    "melee_damage": { "bash": 6 },
     "material": [ "steel", "wood" ],
     "symbol": "(",
     "color": "brown",
