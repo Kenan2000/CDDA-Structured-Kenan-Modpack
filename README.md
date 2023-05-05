@@ -40,7 +40,7 @@ Kenan's **personal** structured modpack for Cataclysm - Dark Days Ahead for **LA
 
 **1) https://discourse.cataclysmdda.org/t/secronom-zombies-mod-thread/16211**
 
-**2) Legendary UDP tileset by SDG, while Theawesomeboophis is it's current maintainer - https://github.com/Theawesomeboophis/UndeadPeopleTileset**
+**2) Legendary UDP tileset by SDG, while Theawesomeboophis is its current maintainer - https://github.com/Theawesomeboophis/UndeadPeopleTileset**
 
 **3) https://github.com/chaosvolt/cdda-arcana-mod**
 
