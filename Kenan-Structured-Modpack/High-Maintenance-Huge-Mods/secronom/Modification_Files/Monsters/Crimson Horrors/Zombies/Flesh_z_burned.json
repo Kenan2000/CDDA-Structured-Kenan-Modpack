@@ -1,0 +1,68 @@
+[
+  {
+    "id": "mon_sflesh_zombie_child_scorched",
+    "copy-from": "mon_zombie_child_scorched",
+    "burn_into": "mon_zombie_child_scorched",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  },
+  {
+    "id": "mon_sflesh_zombie_fiend",
+    "copy-from": "mon_zombie_fiend",
+    "burn_into": "mon_zombie_fiend",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  },
+  {
+    "id": "mon_sflesh_zombie_scorched",
+    "copy-from": "mon_zombie_scorched",
+    "burn_into": "mon_zombie_scorched",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  }
+]

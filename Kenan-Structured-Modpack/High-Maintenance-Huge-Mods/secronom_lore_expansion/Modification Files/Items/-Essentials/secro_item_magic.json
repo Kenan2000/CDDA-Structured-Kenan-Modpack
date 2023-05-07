@@ -1441,7 +1441,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_pafv_morphed_gun_spit_1",
-    "condition": { "compare_num": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, "<=", { "const": 2 } ] },
+    "condition": { "math": [ "u_skill('secro_flesh_combat')", "<=", "2" ] },
     "effect": [
       {
         "u_cast_spell": { "id": "secro_pafv_morphed_gun_spit_1", "message": "Your spitter armament launches a glob of blood acid!" },
@@ -1459,9 +1459,9 @@
     "id": "eoc_secro_pafv_morphed_gun_spit_2",
     "condition": {
       "and": [
-        { "compare_num": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, ">=", { "const": 3 } ] },
+        { "math": [ "u_skill('secro_flesh_combat')", ">=", "3" ] },
         {
-          "not": { "compare_num": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, ">=", { "const": 6 } ] }
+          "not": { "math": [ "u_skill('secro_flesh_combat')", ">=", "6" ] }
         }
       ]
     },
@@ -1480,7 +1480,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_pafv_morphed_gun_spit_3",
-    "condition": { "compare_num": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, ">=", { "const": 6 } ] },
+    "condition": { "math": [ "u_skill('secro_flesh_combat')", ">=", "6" ] },
     "effect": [
       {
         "u_cast_spell": { "id": "secro_pafv_morphed_gun_spit_3", "message": "Your spitter armament launches a glob of blood acid!" },
@@ -1591,7 +1591,7 @@
         "queue_eocs": [
           {
             "id": "eoc_secro_pafv_morphed_gun_bonelance_shot_1",
-            "condition": { "compare_num": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, "<=", { "const": 4 } ] },
+            "condition": { "math": [ "u_skill('secro_flesh_combat')", "<=", "4" ] },
             "effect": [
               { "u_add_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepare", "duration": 8 },
               {
@@ -1610,7 +1610,7 @@
           },
           {
             "id": "eoc_secro_pafv_morphed_gun_bonelance_shot_2",
-            "condition": { "compare_num": [ { "u_val": "skill_level", "skill": "secro_flesh_combat" }, ">=", { "const": 5 } ] },
+            "condition": { "math": [ "u_skill('secro_flesh_combat')", ">=", "5" ] },
             "effect": [
               { "u_add_effect": "eff_secro_pafv_morphed_gun_bonelance_shot_prepare", "duration": 6 },
               {

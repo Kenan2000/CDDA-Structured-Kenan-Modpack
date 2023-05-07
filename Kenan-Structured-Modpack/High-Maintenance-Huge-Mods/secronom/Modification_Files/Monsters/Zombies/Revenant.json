@@ -5,7 +5,7 @@
     "type": "MONSTER",
     "name": "revenant",
     "description": "Enveloped in odd stench, this severely diluted corpse became an overseer for its fiendish undeads.",
-    "default_faction": "zombie_revenant",
+    "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_2", "HUMAN" ],
     "volume": "62500 ml",
     "weight": "81500 g",
@@ -18,38 +18,22 @@
     "color": "magenta",
     "aggression": 50,
     "morale": 50,
-    "emit_fields": [ "emit_revenant_trigger_immunity" ],
     "melee_skill": 0,
     "melee_dice": 0,
     "melee_dice_sides": 0,
-    "tracking_distance": 8,
+    "tracking_distance": 5,
     "special_attacks": [
       {
         "type": "spell",
         "spell_data": { "id": "mon_zombie_revenant_target" },
         "cooldown": 12,
+        "condition": { "compare_num": [ { "npc_val": "monsters_nearby", "radius": 5 }, ">=", { "const": 2 } ] },
         "monster_message": "<color_magenta>%1$s shrieks!</color>"
       }
     ],
     "upgrades": { "half_life": 12, "into_group": "GROUP_REVENANT_UPGRADE" },
     "death_drops": "default_zombie_death_drops",
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "REVIVES", "FILTHY", "KEEP_DISTANCE" ]
-  },
-  {
-    "id": "mon_zombie_revenant_idle",
-    "copy-from": "mon_zombie_revenant",
-    "type": "MONSTER",
-    "name": "revenant",
-    "description": "Enveloped in odd stench, this severely diluted corpse has became an overseer for its fiendish undeads.",
-    "default_faction": "zombie",
-    "special_attacks": [
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_zombie_revenant_idle_target" },
-        "cooldown": 1,
-        "monster_message": "<color_dark_gray>%1$s glares...</color>"
-      }
-    ]
   },
   {
     "id": "mon_zombie_revenant_forsaken",
@@ -89,7 +73,7 @@
     "type": "MONSTER",
     "name": "alluring revenant",
     "description": "Concealed beneath a thick, eerie fog, a slim, humanoid figure stands firm. Mischievous, its claws drip with peculiar black goo.",
-    "default_faction": "zombie_revenant",
+    "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_2", "HUMAN" ],
     "volume": "62500 ml",
     "weight": "81500 g",
@@ -100,18 +84,18 @@
     "material": [ "flesh" ],
     "symbol": "♂",
     "color": "red",
-    "emit_fields": [ "emit_revenant_allure_induce_immunity" ],
     "aggression": 50,
     "morale": 50,
     "melee_skill": 0,
     "melee_dice": 0,
     "melee_dice_sides": 0,
-    "tracking_distance": 8,
+    "tracking_distance": 6,
     "special_attacks": [
       {
         "type": "spell",
         "spell_data": { "id": "mon_zombie_revenant_allure_target" },
         "cooldown": 12,
+        "condition": { "compare_num": [ { "npc_val": "monsters_nearby", "radius": 6 }, ">=", { "const": 2 } ] },
         "monster_message": "<color_magenta>%1$s spreads its goo at %3$s!</color>"
       }
     ],
@@ -127,22 +111,6 @@
       "FILTHY",
       "HARDTOSHOOT",
       "KEEP_DISTANCE"
-    ]
-  },
-  {
-    "id": "mon_zombie_revenant_allure_idle",
-    "copy-from": "mon_zombie_revenant_allure",
-    "type": "MONSTER",
-    "name": "alluring revenant",
-    "description": "Concealed beneath a thick, eerie fog, a slim humanoid figure stands firm. Mischievous, its claws drip with peculiar black goo.",
-    "default_faction": "zombie",
-    "special_attacks": [
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_zombie_revenant_allure_idle_target" },
-        "cooldown": 1,
-        "monster_message": "<color_dark_gray>%1$s stares...</color>"
-      }
     ]
   }
 ]

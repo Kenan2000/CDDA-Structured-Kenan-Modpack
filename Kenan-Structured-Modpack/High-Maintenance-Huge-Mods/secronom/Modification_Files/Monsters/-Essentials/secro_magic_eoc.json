@@ -92,7 +92,7 @@
     "id": "eoc_secro_mon_zombie_tentawraith_tentgrasp_check",
     "condition": {
       "and": [
-        { "compare_num": [ { "u_val": "skill_level", "skill": "dodge" }, ">=", { "const": 4 } ] },
+        { "math": [ "u_skill('dodge')", ">=", "4" ] },
         { "compare_num": [ { "u_val": "dexterity" }, ">=", { "const": 8 } ] }
       ]
     },
@@ -562,11 +562,11 @@
   },
   {
     "type": "effect_on_condition",
-    "id": "eoc_secro_mon_sflesh_flesh_taken_check",
+    "id": "eoc_secro_mon_sflesh_flesh_check",
     "condition": { "one_in_chance": 2 },
     "effect": [
       { "u_message": "A membranous pod emerges from the flesh underneath!", "type": "bad" },
-      { "u_spawn_monster": "mon_sflesh_taken_potent", "real_count": 1, "min_radius": 4, "max_radius": 6 }
+      { "u_spawn_monster": "mon_sflesh_potent", "real_count": 1, "min_radius": 4, "max_radius": 6 }
     ]
   },
   {
@@ -680,5 +680,12 @@
     "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 2 } ] },
     "effect": [ { "queue_eocs": [ "eoc_secro_mon_secrodragon_woke_barrier_check" ] } ],
     "false_effect": [ { "queue_eocs": [ "eoc_secro_mon_secrodragon_woke_ranged_check" ] } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "mon_sflesh_flesh_convert_terrain_check",
+    "effect": [
+      { "npc_add_effect": "mon_sflesh_flesh_initial", "duration": "PERMANENT" }
+    ]
   }
 ]

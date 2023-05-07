@@ -1,7 +1,7 @@
 [
   {
     "//": "Like flesh sacks, but destroying or letting it hatch results the same.",
-    "id": "mon_sflesh_taken",
+    "id": "mon_sflesh",
     "type": "MONSTER",
     "name": { "str": "taken" },
     "description": "A membranous pod of flesh, filled with putrid yellow-ish fluid. Hanging from the ceiling, a creature seems to be trapped inside, but unknown to what it is.",
@@ -14,7 +14,7 @@
     "speed": 85,
     "material": [ "flesh" ],
     "symbol": "⚱",
-    "emit_fields": [ "emit_flesh_taken_blind" ],
+    "emit_fields": [ "emit_flesh_blind" ],
     "color": "light_red",
     "aggression": 100,
     "morale": 100,
@@ -28,7 +28,7 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_sflesh_taken_target" },
+        "spell_data": { "id": "mon_sflesh_target" },
         "cooldown": 10,
         "monster_message": "<color_light_red>The taken bursts, letting loose of its content!</color>"
       }
@@ -37,12 +37,12 @@
     "death_function": {
       "corpse_type": "NO_CORPSE",
       "message": "The %s melts away.",
-      "effect": { "id": "mon_sflesh_taken_death", "hit_self": true }
+      "effect": { "id": "mon_sflesh_death", "hit_self": true }
     },
     "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "IMMOBILE", "NOHEAD", "PACIFIST" ]
   },
   {
-    "id": "mon_sflesh_taken_potent",
+    "id": "mon_sflesh_potent",
     "type": "MONSTER",
     "name": { "str": "taken" },
     "description": "A membranous pod of flesh, filled with putrid yellow-ish fluid. Sprouting from the flesh, a creature seems to be trapped inside, but unknown to what it is.",
@@ -55,7 +55,7 @@
     "speed": 85,
     "material": [ "flesh" ],
     "symbol": "⚱",
-    "emit_fields": [ "emit_flesh_taken_potent_blind" ],
+    "emit_fields": [ "emit_flesh_potent_blind" ],
     "color": "light_red",
     "aggression": 100,
     "morale": 100,
@@ -69,7 +69,7 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_sflesh_taken_target" },
+        "spell_data": { "id": "mon_sflesh_target" },
         "cooldown": 5,
         "monster_message": "<color_light_red>The taken bursts, letting loose of its content!</color>"
       }
@@ -78,7 +78,7 @@
     "death_function": {
       "corpse_type": "NO_CORPSE",
       "message": "The %s melts away.",
-      "effect": { "id": "mon_sflesh_taken_death", "hit_self": true }
+      "effect": { "id": "mon_sflesh_death", "hit_self": true }
     },
     "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "NOHEAD", "IMMOBILE", "PACIFIST" ]
   },

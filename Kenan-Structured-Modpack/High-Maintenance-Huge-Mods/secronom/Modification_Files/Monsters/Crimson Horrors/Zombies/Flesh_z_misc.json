@@ -1,10 +1,12 @@
 [
   {
-    "id": "mon_sflesh_rat",
-    "copy-from": "mon_black_rat",
+    "id": "mon_sflesh_zombie_biter",
+    "copy-from": "mon_zombie_biter",
+    "burn_into": "mon_zombie_biter",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -19,11 +21,57 @@
     }
   },
   {
-    "id": "mon_sflesh_bear_cub",
-    "copy-from": "mon_bear_cub",
+    "id": "mon_sflesh_zombie_brainless",
+    "copy-from": "mon_zombie_brainless",
+    "burn_into": "mon_zombie_brainless",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  },
+  {
+    "id": "mon_sflesh_zombie_ears",
+    "copy-from": "mon_zombie_ears",
+    "burn_into": "mon_zombie_ears",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  },
+  {
+    "id": "mon_sflesh_zombie_skull",
+    "copy-from": "mon_zombie_skull",
+    "burn_into": "mon_zombie_skull",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -38,11 +86,35 @@
     }
   },
   {
-    "id": "mon_sflesh_bear",
-    "copy-from": "mon_bear",
+    "id": "mon_sflesh_zombie_brute",
+    "copy-from": "mon_zombie_brute",
+    "burn_into": "mon_zombie_brute",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  },
+  {
+    "id": "mon_sflesh_zombie_brute_grappler",
+    "copy-from": "mon_zombie_brute_grappler",
+    "burn_into": "mon_zombie_brute_grappler",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -57,11 +129,13 @@
     }
   },
   {
-    "id": "mon_sflesh_cougar",
-    "copy-from": "mon_cougar",
+    "id": "mon_sflesh_zombie_brute_ninja",
+    "copy-from": "mon_zombie_brute_ninja",
+    "burn_into": "mon_zombie_brute_ninja",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -76,11 +150,13 @@
     }
   },
   {
-    "id": "mon_sflesh_moose",
-    "copy-from": "mon_moose",
+    "id": "mon_sflesh_zombie_grappler",
+    "copy-from": "mon_zombie_grappler",
+    "burn_into": "mon_zombie_grappler",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -95,11 +171,13 @@
     }
   },
   {
-    "id": "mon_sflesh_beaver",
-    "copy-from": "mon_beaver",
+    "id": "mon_sflesh_zombie_hollow",
+    "copy-from": "mon_zombie_hollow",
+    "burn_into": "mon_zombie_hollow",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -114,11 +192,13 @@
     }
   },
   {
-    "id": "mon_sflesh_boar_wild_piglet",
-    "copy-from": "mon_boar_wild_piglet",
+    "id": "mon_sflesh_zombie_hulk",
+    "copy-from": "mon_zombie_hulk",
+    "burn_into": "mon_zombie_hulk",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -133,11 +213,35 @@
     }
   },
   {
-    "id": "mon_sflesh_boar_wild",
-    "copy-from": "mon_boar_wild",
+    "id": "mon_sflesh_zombie_hunter",
+    "copy-from": "mon_zombie_hunter",
+    "burn_into": "mon_zombie_hunter",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  },
+  {
+    "id": "mon_sflesh_zombie_mancroc",
+    "copy-from": "mon_zombie_mancroc",
+    "burn_into": "mon_zombie_mancroc",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -152,11 +256,13 @@
     }
   },
   {
-    "id": "mon_sflesh_cat_kitten",
-    "copy-from": "mon_cat_kitten",
+    "id": "mon_sflesh_zombie_master",
+    "copy-from": "mon_zombie_master",
+    "burn_into": "mon_zombie_master",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -171,11 +277,13 @@
     }
   },
   {
-    "id": "mon_sflesh_cat",
-    "copy-from": "mon_cat",
+    "id": "mon_sflesh_zombie_necro",
+    "copy-from": "mon_zombie_necro",
+    "burn_into": "mon_zombie_necro",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -190,11 +298,13 @@
     }
   },
   {
-    "id": "mon_sflesh_chipmunk",
-    "copy-from": "mon_chipmunk",
+    "id": "mon_sflesh_zombie_predator",
+    "copy-from": "mon_zombie_predator",
+    "burn_into": "mon_zombie_predator",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -209,11 +319,13 @@
     }
   },
   {
-    "id": "mon_sflesh_cow_calf",
-    "copy-from": "mon_cow_calf",
+    "id": "mon_sflesh_zombie_screecher",
+    "copy-from": "mon_zombie_screecher",
+    "burn_into": "mon_zombie_screecher",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -228,11 +340,13 @@
     }
   },
   {
-    "id": "mon_sflesh_cow",
-    "copy-from": "mon_cow",
+    "id": "mon_sflesh_zombie_thorny",
+    "copy-from": "mon_zombie_thorny",
+    "burn_into": "mon_zombie_thorny",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -247,11 +361,35 @@
     }
   },
   {
-    "id": "mon_sflesh_coyote",
-    "copy-from": "mon_coyote",
+    "id": "mon_sflesh_zombie_smoker",
+    "copy-from": "mon_zombie_smoker",
+    "burn_into": "mon_zombie_smoker",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  },
+  {
+    "id": "mon_sflesh_frog_mother",
+    "copy-from": "mon_frog_mother",
+    "burn_into": "mon_frog_mother",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -266,11 +404,13 @@
     }
   },
   {
-    "id": "mon_sflesh_deer_fawn",
-    "copy-from": "mon_deer_fawn",
+    "id": "mon_sflesh_tadpole_grabber",
+    "copy-from": "mon_tadpole_grabber",
+    "burn_into": "mon_tadpole_grabber",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -285,11 +425,35 @@
     }
   },
   {
-    "id": "mon_sflesh_deer",
-    "copy-from": "mon_deer",
+    "id": "mon_sflesh_zombullfrog",
+    "copy-from": "mon_zombullfrog",
+    "burn_into": "mon_zombullfrog",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  },
+  {
+    "id": "mon_sflesh_afs_headless_horror",
+    "copy-from": "mon_afs_headless_horror",
+    "burn_into": "mon_afs_headless_horror",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -304,11 +468,13 @@
     }
   },
   {
-    "id": "mon_sflesh_dog",
-    "copy-from": "mon_dog",
+    "id": "mon_sflesh_zombie_nemesis",
+    "copy-from": "mon_zombie_nemesis",
+    "burn_into": "mon_zombie_nemesis",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -323,11 +489,13 @@
     }
   },
   {
-    "id": "mon_sflesh_dog_pup",
-    "copy-from": "mon_dog_pup",
+    "id": "mon_sflesh_zombie_necro_boomer",
+    "copy-from": "mon_zombie_necro_boomer",
+    "burn_into": "mon_zombie_necro_boomer",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -342,11 +510,35 @@
     }
   },
   {
-    "id": "mon_sflesh_fox",
-    "copy-from": "mon_fox_gray",
+    "id": "mon_sflesh_zombie_runner",
+    "copy-from": "mon_zombie_runner",
+    "burn_into": "mon_zombie_runner",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  },
+  {
+    "id": "mon_sflesh_zombie_regenerating",
+    "copy-from": "mon_zombie_regenerating",
+    "burn_into": "mon_zombie_regenerating",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -361,11 +553,57 @@
     }
   },
   {
-    "id": "mon_sflesh_groundhog",
-    "copy-from": "mon_groundhog",
+    "id": "mon_sflesh_zombie_shady",
+    "copy-from": "mon_zombie_shady",
+    "burn_into": "mon_zombie_shady",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  },
+  {
+    "id": "mon_sflesh_zombie_shrieker",
+    "copy-from": "mon_zombie_shrieker",
+    "burn_into": "mon_zombie_shrieker",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "upgrades": { }
+  },
+  {
+    "id": "mon_sflesh_smoker_brute",
+    "copy-from": "mon_smoker_brute",
+    "burn_into": "mon_smoker_brute",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -380,11 +618,13 @@
     }
   },
   {
-    "id": "mon_sflesh_horse",
-    "copy-from": "mon_horse",
+    "id": "mon_sflesh_zombie_swimmer_base",
+    "copy-from": "mon_zombie_swimmer_base",
+    "burn_into": "mon_zombie_swimmer_base",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -396,14 +636,17 @@
         }
       ],
       "species": [ "SFLESH" ]
-    }
+    },
+    "upgrades": { }
   },
   {
-    "id": "mon_sflesh_lemming",
-    "copy-from": "mon_lemming",
+    "id": "mon_sflesh_zombie_swimmer",
+    "copy-from": "mon_zombie_swimmer",
+    "burn_into": "mon_zombie_swimmer",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -415,14 +658,17 @@
         }
       ],
       "species": [ "SFLESH" ]
-    }
+    },
+    "upgrades": { }
   },
   {
-    "id": "mon_sflesh_mink",
-    "copy-from": "mon_mink",
+    "id": "mon_sflesh_zombie_technician",
+    "copy-from": "mon_zombie_technician",
+    "burn_into": "mon_zombie_technician",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -434,14 +680,17 @@
         }
       ],
       "species": [ "SFLESH" ]
-    }
+    },
+    "upgrades": { }
   },
   {
-    "id": "mon_sflesh_muskrat",
-    "copy-from": "mon_muskrat",
+    "id": "mon_sflesh_zombie_miner",
+    "copy-from": "mon_zombie_miner",
+    "burn_into": "mon_zombie_miner",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -453,14 +702,17 @@
         }
       ],
       "species": [ "SFLESH" ]
-    }
+    },
+    "upgrades": { }
   },
   {
-    "id": "mon_sflesh_opossum",
-    "copy-from": "mon_opossum",
+    "id": "mon_sflesh_zombie_reenactor",
+    "copy-from": "mon_zombie_reenactor",
+    "burn_into": "mon_zombie_reenactor",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -472,14 +724,17 @@
         }
       ],
       "species": [ "SFLESH" ]
-    }
+    },
+    "upgrades": { }
   },
   {
-    "id": "mon_sflesh_otter",
-    "copy-from": "mon_otter",
+    "id": "mon_sflesh_zombie_fursuit",
+    "copy-from": "mon_zombie_fursuit",
+    "burn_into": "mon_zombie_fursuit",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -491,14 +746,17 @@
         }
       ],
       "species": [ "SFLESH" ]
-    }
+    },
+    "upgrades": { }
   },
   {
-    "id": "mon_sflesh_pig_piglet",
-    "copy-from": "mon_pig_piglet",
+    "id": "mon_sflesh_zombie_grabber",
+    "copy-from": "mon_zombie_grabber",
+    "burn_into": "mon_zombie_grabber",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.9 },
     "extend": {
       "special_attacks": [
         {
@@ -510,177 +768,7 @@
         }
       ],
       "species": [ "SFLESH" ]
-    }
-  },
-  {
-    "id": "mon_sflesh_pig",
-    "copy-from": "mon_pig",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ]
-    }
-  },
-  {
-    "id": "mon_sflesh_rabbit",
-    "copy-from": "mon_rabbit",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ]
-    }
-  },
-  {
-    "id": "mon_sflesh_raccoon",
-    "copy-from": "mon_raccoon",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ]
-    }
-  },
-  {
-    "id": "mon_sflesh_sheep_lamb",
-    "copy-from": "mon_sheep_lamb",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ]
-    }
-  },
-  {
-    "id": "mon_sflesh_sheep",
-    "copy-from": "mon_sheep",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ]
-    }
-  },
-  {
-    "id": "mon_sflesh_squirrel",
-    "copy-from": "mon_squirrel",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ]
-    }
-  },
-  {
-    "id": "mon_sflesh_weasel",
-    "copy-from": "mon_weasel",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ]
-    }
-  },
-  {
-    "id": "mon_sflesh_wolf",
-    "copy-from": "mon_wolf",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ]
-    }
-  },
-  {
-    "id": "mon_sflesh_reindeer",
-    "copy-from": "mon_reindeer",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "hp": 20, "speed": -5, "melee_skill": 1, "armor": { "bash": 3 } },
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ]
-    }
+    },
+    "upgrades": { }
   }
 ]

@@ -42,7 +42,8 @@
           [ "t_secro_tree_young_flesh", 5 ],
           [ "t_secro_flesh", 250 ]
         ]
-      }
+      },
+      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ]
     },
     "nested_mapgen_id": "mx_flesh_biome_extra_nested",
     "type": "mapgen"
@@ -90,7 +91,8 @@
           [ "t_secro_tree_young_flesh", 5 ],
           [ "t_secro_flesh", 250 ]
         ]
-      }
+      },
+      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ]
     },
     "nested_mapgen_id": "mx_flesh_biome_extra_nested",
     "type": "mapgen"
@@ -100,5 +102,104 @@
     "method": "json",
     "update_mapgen_id": "mx_flesh_biome_extra",
     "object": { "place_nested": [ { "chunks": [ "mx_flesh_biome_extra_nested" ], "x": 0, "y": 0 } ] }
+  },
+  {
+    "method": "json",
+    "object": {
+      "rotation": [ 0, 3 ],
+      "mapgensize": [ 24, 24 ],
+      "rows": [
+            "                        ",
+            "                        ",
+            "                        ",
+            "         pppppp         ",
+            "      pppllllllppp      ",
+            "     plllpppppplllp     ",
+            "    p.ppp......ppp.p    ",
+            "   plp............plp   ",
+            "   plp.ll......ll.plp   ",
+            "   plp.ll......ll.plp   ",
+            "  plp..............plp  ",
+            "  plp..............plp  ",
+            "  plp..............plp  ",
+            "  plp......k.......plp  ",
+            "  plp..............plp  ",
+            "  plp..............plp  ",
+            "   plp.ll......ll.plp   ",
+            "   plp.ll......ll.plp   ",
+            "   plp............plp   ",
+            "    p.ppp......ppp.p    ",
+            "     plllpppppplllp     ",
+            "      pppllllllppp      ",
+            "         pppppp         ",
+            "                        "
+      ],
+      "terrain": {
+        "l": [ [ "t_secro_flesh_wall", 95 ], [ "t_secro_flesh", 5 ] ],
+        "p": [ [ "t_secro_flesh_wall", 75 ], [ "t_secro_flesh", 25 ] ],
+        ".": "t_secro_flesh",
+        "k": "t_secro_flesh"
+      },
+      "monster": { "k": { "monster": "mon_sflesh_flesh" } },
+      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ]
+    },
+    "nested_mapgen_id": "mx_flesh_city_core",
+    "type": "mapgen"
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "update_mapgen_id": "mx_flesh_core_extra",
+    "object": { "place_nested": [ { "chunks": [ "mx_flesh_city_core" ], "x": 0, "y": 0 } ] }
+  },
+  {
+    "method": "json",
+    "object": {
+      "rotation": [ 0, 3 ],
+      "mapgensize": [ 24, 24 ],
+      "rows": [
+            "                        ",
+            "                        ",
+            "                        ",
+            "                        ",
+            "                        ",
+            "         qq             ",
+            "        qssq     q      ",
+            "       qssq     qsqq    ",
+            "       qsq     qqsssq   ",
+            "      qqsq   qqsssqq    ",
+            "     qssssqqqsssqq      ",
+            "    qssqqs...sqq        ",
+            "     qq  q....q         ",
+            "         q.k..q         ",
+            "        qqs...q         ",
+            "      qqsssqqssqq       ",
+            "     qsssqq  qsssq      ",
+            "    qssqssq   qsq       ",
+            "     qq qsq   qsq       ",
+            "         q     q        ",
+            "                        ",
+            "                        ",
+            "                        ",
+            "                        "
+      ],
+      "terrain": {
+        "s": [ [ "t_secro_flesh_wall", 90 ], [ "t_secro_flesh", 10 ] ],
+        "q": [ [ "t_null", 75 ], [ "t_secro_flesh", 25 ] ],
+        ".": "t_secro_flesh",
+        "k": "t_secro_flesh"
+      },
+      "monster": { ".": { "monster": "mon_sflesh_zombie", "chance": 5 }, "k": { "monster": "mon_sflesh_zombie" } },
+	  "ter_furn_transforms": { " ": { "transform": "flesh_spread" } },
+      "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ]
+    },
+    "nested_mapgen_id": "mx_flesh_random",
+    "type": "mapgen"
+  },
+  {
+    "type": "mapgen",
+    "method": "json",
+    "update_mapgen_id": "mx_flesh_random_extra",
+    "object": { "place_nested": [ { "chunks": [ "mx_flesh_random" ], "x": 0, "y": 0 } ] }
   }
 ]
