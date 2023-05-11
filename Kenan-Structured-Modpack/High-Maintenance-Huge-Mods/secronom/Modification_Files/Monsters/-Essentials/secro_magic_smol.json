@@ -478,7 +478,10 @@
     "id": "mon_zombie_revenant_target",
     "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
-    "extra_effects": [ { "id": "mon_zombie_revenant_trigger_immune", "hit_self": true }, { "id": "mon_zombie_revenant_trigger", "hit_self": true } ],
+    "extra_effects": [
+      { "id": "mon_zombie_revenant_trigger_immune", "hit_self": true },
+      { "id": "mon_zombie_revenant_trigger", "hit_self": true }
+    ],
     "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
     "valid_targets": [ "none" ],
     "effect": "attack",
@@ -549,7 +552,10 @@
     "id": "mon_zombie_revenant_allure_target",
     "name": { "str": "a spell" },
     "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
-    "extra_effects": [ { "id": "mon_zombie_revenant_allure_incite_immune", "hit_self": true }, { "id": "mon_zombie_revenant_allure_incite", "hit_self": true } ],
+    "extra_effects": [
+      { "id": "mon_zombie_revenant_allure_incite_immune", "hit_self": true },
+      { "id": "mon_zombie_revenant_allure_incite", "hit_self": true }
+    ],
     "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
     "valid_targets": [ "none" ],
     "effect": "attack",
@@ -1138,65 +1144,25 @@
     "max_range": 20
   },
   {
-    "id": "mon_sflesh_sack_birthmore_check",
-    "type": "SPELL",
-    "name": { "str": "Flesh Sack - Birthmore" },
-    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'1/2 chance for the caster to spawn more parasytes.'",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "SILENT" ],
-    "message": "",
-    "min_damage": 10000,
-    "max_damage": 10000,
-    "min_range": 20,
-    "max_range": 20,
-    "shape": "line",
-    "effect": "effect_on_condition",
-    "effect_str": "eoc_secro_mon_sflesh_sack_birthmore_check"
-  },
-  {
     "id": "mon_sflesh_sack_birth_check",
     "type": "SPELL",
     "name": { "str": "Flesh Sack - Birth" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster spawns several parasytes.'",
-    "valid_targets": [ "hostile" ],
+    "valid_targets": [ "self" ],
     "flags": [ "SILENT" ],
     "message": "",
-    "min_damage": 10000,
-    "max_damage": 10000,
-    "min_range": 20,
-    "max_range": 20,
-    "shape": "line",
+    "shape": "blast",
     "effect": "effect_on_condition",
     "effect_str": "eoc_secro_mon_sflesh_sack_birth_check"
-  },
-  {
-    "type": "SPELL",
-    "id": "mon_sflesh_sack_target",
-    "name": { "str": "a spell" },
-    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
-    "extra_effects": [
-      { "id": "mon_sflesh_sack_birth_check" },
-      { "id": "mon_sflesh_sack_birthmore_check" },
-      { "id": "mon_sflesh_sack_birthmore_check" },
-      { "id": "mon_sflesh_sack_birthmore_check" },
-      { "id": "sacrifice_spell", "hit_self": true }
-    ],
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
-    "valid_targets": [ "none" ],
-    "effect": "attack",
-    "shape": "blast",
-    "min_range": 20,
-    "max_range": 20
   },
   {
     "id": "mon_sflesh_veinstalk_spread_check",
     "type": "SPELL",
     "name": { "str": "Veinstalk - Spread" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster converts nearby terrain into flesh variant.'",
-    "valid_targets": [ "hostile" ],
+    "valid_targets": [ "self" ],
     "flags": [ "SILENT" ],
     "message": "",
-    "extra_effects": [ { "id": "sacrifice_spell", "hit_self": true } ],
     "min_damage": 10000,
     "max_damage": 10000,
     "min_range": 60,
@@ -1204,6 +1170,22 @@
     "shape": "line",
     "effect": "effect_on_condition",
     "effect_str": "eoc_secro_mon_sflesh_veinstalk_spread_check"
+  },
+  {
+    "id": "mon_sflesh_veinstalk_initial_convert",
+    "type": "SPELL",
+    "name": { "str": "Flesh Conversion" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster converts the surrounding terrain into flesh.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
+    "valid_targets": [ "ally", "hostile", "ground", "self" ],
+	"extra_effects": [ { "id": "secro_flesh_infect_large_target", "hit_self": true }, { "id": "sacrifice_spell", "hit_self": true } ],
+    "effect": "ter_transform",
+    "shape": "blast",
+    "effect_str": "flesh_spread",
+    "min_damage": 10,
+    "max_damage": 10,
+    "min_aoe": 32,
+    "max_aoe": 32
   },
   {
     "id": "mon_vector_rize_smol_check",
@@ -1264,5 +1246,33 @@
     "shape": "line",
     "effect": "effect_on_condition",
     "effect_str": "eoc_secro_mon_zombie_akin_sattach_check"
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_fake_ichorus_poly",
+    "name": { "str": "Morph" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Target is converted into its flesh variant'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
+    "valid_targets": [ "self" ],
+	"extra_effects": [ { "id": "secro_flesh_infect_success_heal", "hit_self": true } ],
+    "min_damage": 999999,
+    "max_damage": 999999,
+    "effect": "targeted_polymorph",
+    "shape": "blast",
+    "effect_str": "mon_zombie_ichorus"
+  },
+  {
+    "type": "SPELL",
+    "id": "mon_zombie_fake_psyrus_poly",
+    "name": { "str": "Morph" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Target is converted into its flesh variant'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
+    "valid_targets": [ "self" ],
+	"extra_effects": [ { "id": "secro_flesh_infect_success_heal", "hit_self": true } ],
+    "min_damage": 999999,
+    "max_damage": 999999,
+    "effect": "targeted_polymorph",
+    "shape": "blast",
+    "effect_str": "mon_zombie_psyrus"
   }
 ]

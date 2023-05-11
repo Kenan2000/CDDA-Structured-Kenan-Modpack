@@ -213,14 +213,6 @@
   },
   {
     "type": "effect_type",
-    "id": "secro_uruxis_shroud",
-    "name": [ "Shadow Mended" ],
-    "desc": [ "Shadow enshrouds you that heals and protects, but burdens." ],
-    "show_in_info": true,
-    "base_mods": { "str_mod": [ 1 ], "dex_mod": [ 2 ], "speed_mod": [ -30 ] }
-  },
-  {
-    "type": "effect_type",
     "id": "secro_fleshmonger_fleshed",
     "name": [ "Reflesh" ],
     "rating": "good",
@@ -648,6 +640,10 @@
   },
   {
     "type": "effect_type",
+    "id": "secro_zombie_uruxis_passive"
+  },
+  {
+    "type": "effect_type",
     "id": "secro_flesh_tree_grab",
     "name": [ "Grabbed" ],
     "desc": [ "You have been grabbed by an attack.\nYou are being held in place, and dodging and blocking are very difficult." ],
@@ -738,7 +734,11 @@
   },
   {
     "type": "effect_type",
-    "id": "mon_sflesh_flesh_initial"
+    "id": "mon_sflesh_flesh_swing_recently"
+  },
+  {
+    "type": "effect_type",
+    "id": "mon_sflesh_flesh_slam_recently"
   },
   {
     "type": "effect_type",
@@ -1117,167 +1117,10 @@
     "id": "eff_fleshweaver_justhealed"
   },
   {
-    "//": "Effects for notifying the player. These can slow down the game and will use EOC instead for better performance at later updates.",
-    "type": "effect_type",
-    "id": "mon_zombie_swarmer_evo_savage_tension_target_random_YES",
-    "apply_message": "Then its muscles suddenly mutates!",
-    "rating": "bad"
-  },
-  {
     "type": "effect_type",
     "id": "secro_flesh_transmit_attack",
     "removes_effects": [ "docile" ],
     "blocks_effects": [ "docile" ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_secrodragon_barrier_target_random_YES",
-    "apply_message": "After a brief moment, a temporary force field has been generated surrounding the secronom dragon!",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_secrodragon_edischarge_target_random_YES",
-    "apply_message": "Then several sparks of electric discharge archs through the vicinity!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombieworm_mawy_web_target_YES",
-    "apply_message": "Then spews out flesh webs at their surroundings!",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombieworm_mawy_crunch_YES",
-    "apply_message": "Then its dreadful inner mouth stretches its way to crunch at them!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombie_equinox_nimplode_target_random_YES",
-    "apply_message": "After a short period of time, the equinox flung its rancid flesh into the sky!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombie_equinox_ndischarge_YES",
-    "apply_message": "Then suddenly, a flash flood of liquidated vile flesh were sent into a direction!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombie_fleshysnaky_ppoint_YES",
-    "apply_message": "The flesilisk then suddenly spew its fang at them!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombie_fleshysnaky_hails_YES",
-    "apply_message": "The flesilisk then undulates hastily, creating a hail of bone spikes in every direction!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombie_fleshysnaky_sbomb_YES",
-    "apply_message": "For a short moment, the flesilisk's bone spikes shoots into the sky then swoops down towards them!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombie_fleshysnaky_pmissile_target_random_YES",
-    "apply_message": "Flesilisk's body then barrages its bone spikes into them!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombie_cordev_texplode_target_YES",
-    "apply_message": "But suddenly its volatile core explodes violently, spreading corrupted acid everywhere!\n<color_light_green>The corrupted devourer suffers from the explosion!</color>",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombie_cordev_corrupt_YES",
-    "apply_message": "Then its arm biters vomit a large amount of polluted acid at their location!",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombie_cordev_whip_target_random_YES",
-    "apply_message": "The corrupted devourer's core quickly forms numerous errant tendrils that lashes towards them!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_zombie_cordev_mincem_target_YES",
-    "apply_message": "But while the corrupted devourer looks at them, its arm biters suddenly eats away the flesh it touches!",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_insect_saddler_baby_potent_grow_YES",
-    "apply_message": "Then grows into a saddler!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_insect_saddler_baby_potent_grow_brute_YES",
-    "apply_message": "Then grows into a saddler brute!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_insect_saddler_baby_potent_grow_scout_YES",
-    "apply_message": "Then grows into a saddler scout!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_insect_saddler_baby_potent_grow_null_YES",
-    "apply_message": "Suddenly it erupts into gore!",
-    "rating": "good"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_flesh_city_fturmoil_YES",
-    "apply_message": "As the flesh trembles further, the tower's tentacle veins suddenly moves and thrashes the entire area!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_zombie_turret_adischarge_YES",
-    "apply_message": "Suddenly, the flesh heap discharges of blood acid!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_zombie_turret_aspit_target_YES",
-    "apply_message": "The flesh heap's orifice spews out globs of blood acid!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_shifter_stun_YES",
-    "apply_message": "The air thickens as the shapeshifter moves.",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_shifter_target_atk_illu_YES",
-    "apply_message": "Silhouettes were formed around the shapeshifter!",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_shifter_target_atk_onslaught_dmgcutlow_YES",
-    "apply_message": "An errant silhouette flies toward its target, then shreds them!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_shifter_target_atk_onslaught_dmgcuthigh_YES",
-    "apply_message": "An errant silhouette rakes through their target!",
-    "rating": "bad"
   },
   {
     "type": "effect_type",
@@ -1296,36 +1139,6 @@
     "id": "secro_power_armor_flesh_morphed_gun_spit_as_YES",
     "apply_message": "Your spitter armament shoots a glob of blood acid!",
     "rating": "good"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_fleshling_stingy_sting_YES",
-    "apply_message": "The amalgam stinger thrusts its stinger at them!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_fleshling_stingy_whiplash_YES",
-    "apply_message": "The amalagam stinger slashes in a wide arc!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_fleshling_stingy_bb_YES",
-    "apply_message": "The fleshed stinger bursts a bulbous wart!",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_fleshling_ravagy_fburst_YES",
-    "apply_message": "The fleshed ravager's body bursts a chunk of flesh!",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_fleshling_ravagy_outb_YES",
-    "apply_message": "The fleshed ravager's extra appendages flings in every direction!",
-    "rating": "mixed"
   },
   {
     "type": "effect_type",

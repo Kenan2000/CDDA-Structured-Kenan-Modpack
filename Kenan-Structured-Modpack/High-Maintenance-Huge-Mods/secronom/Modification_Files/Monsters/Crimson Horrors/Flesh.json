@@ -31,14 +31,8 @@
         "cooldown": 12,
         "monster_message": "<color_light_red>%1$s trembles!</color>"
       },
-	  {
-        "type": "spell",
-        "spell_data": { "id": "mon_sflesh_flesh_convert_terrain" },
-        "cooldown": 30,
-		"allow_no_target": true,
-		"condition": { "not": { "u_has_effect": "mon_sflesh_flesh_initial" } },
-        "monster_message": "<color_light_red>%1$s trembles!</color>"
-      }
+      [ "sflesh_flesh_swing", 2 ],
+      [ "sflesh_flesh_slam", 2 ]
     ],
     "bleed_rate": 0,
     "regenerates": 15,
@@ -50,6 +44,24 @@
       "effect": { "id": "mon_sflesh_flesh_bio_death", "hit_self": true }
     },
     "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "NOHEAD", "IMMOBILE", "PACIFIST", "QUEEN" ]
+  },
+  {
+    "id": "mon_sflesh_flesh_initial",
+    "copy-from": "mon_sflesh_flesh",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "extend": {
+      "special_attacks": [
+	  {
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_flesh_convert_terrain" },
+        "cooldown": 1,
+		"allow_no_target": true,
+        "monster_message": "<color_light_red>%1$s trembles!</color>"
+      }
+      ],
+      "species": [ "SFLESH" ]
+    }
   },
   {
     "//": "A boss that resides in cities. It has weaker health and regenerates lesser, but it can attack directly with tentacles, which deals moderate to massive damage.",

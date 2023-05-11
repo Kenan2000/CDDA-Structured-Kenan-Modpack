@@ -15,8 +15,8 @@
   {
     "type": "SPELL",
     "id": "secro_flesh_infect_huge_target",
-    "name": { "str": "a spell" },
-    "description": "Target spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster locks its line of sight onto the target, then casts the Spell(s).'",
+    "name": { "str": "Huge Conversion" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Affected creatures turn into a crimson horror.'",
     "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
     "valid_targets": [ "ally", "hostile" ],
     "shape": "blast",
@@ -26,6 +26,21 @@
     "max_range": 1,
     "min_aoe": 64,
     "max_aoe": 64
+  },
+  {
+    "type": "SPELL",
+    "id": "secro_flesh_infect_large_target",
+    "name": { "str": "Large Conversion" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Affected creatures turn into a crimson horror.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
+    "valid_targets": [ "ally", "hostile" ],
+    "shape": "blast",
+    "effect": "effect_on_condition",
+    "effect_str": "eoc_secro_mon_flesh_infect",
+    "min_range": 1,
+    "max_range": 1,
+    "min_aoe": 32,
+    "max_aoe": 32
   },
   {
     "id": "secro_flesh_infect_success_heal",
@@ -1690,6 +1705,45 @@
   },
   {
     "type": "SPELL",
+    "id": "secro_flesh_infect_spawn_raptor_unstable",
+    "name": { "str": "Morph" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Target is converted into its flesh variant.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
+    "valid_targets": [ "self" ],
+    "min_damage": 999999,
+    "max_damage": 999999,
+    "effect": "targeted_polymorph",
+    "shape": "blast",
+    "effect_str": "mon_sflesh_spawn_raptor_unstable"
+  },
+  {
+    "type": "SPELL",
+    "id": "secro_flesh_infect_spawn_raptor_electric",
+    "name": { "str": "Morph" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Target is converted into its flesh variant.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
+    "valid_targets": [ "self" ],
+    "min_damage": 999999,
+    "max_damage": 999999,
+    "effect": "targeted_polymorph",
+    "shape": "blast",
+    "effect_str": "mon_sflesh_spawn_raptor_electric"
+  },
+  {
+    "type": "SPELL",
+    "id": "secro_flesh_infect_spawn_raptor_shady",
+    "name": { "str": "Morph" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Target is converted into its flesh variant.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
+    "valid_targets": [ "self" ],
+    "min_damage": 999999,
+    "max_damage": 999999,
+    "effect": "targeted_polymorph",
+    "shape": "blast",
+    "effect_str": "mon_sflesh_spawn_raptor_shady"
+  },
+  {
+    "type": "SPELL",
     "id": "secro_flesh_infect_zombie_dog_acidic",
     "name": { "str": "Morph" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Target is converted into its flesh variant.'",
@@ -2662,6 +2716,19 @@
     "effect": "targeted_polymorph",
     "shape": "blast",
     "effect_str": "mon_sflesh_feral_diver_knife"
+  },
+  {
+    "type": "SPELL",
+    "id": "secro_flesh_infect_feral_swimmer_kickboard",
+    "name": { "str": "Morph" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Target is converted into its flesh variant.'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
+    "valid_targets": [ "self" ],
+    "min_damage": 999999,
+    "max_damage": 999999,
+    "effect": "targeted_polymorph",
+    "shape": "blast",
+    "effect_str": "mon_sflesh_feral_swimmer_kickboard"
   },
   {
     "type": "SPELL",

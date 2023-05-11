@@ -690,5 +690,40 @@
     "hit_dmg_npc": "%1$s slashes <npcname>!",
     "no_dmg_msg_u": "%1$s tries to slash you, but fails to penetrate your armor!",
     "no_dmg_msg_npc": "%1$s tries to slash <npcname>, but fails to penetrate their armor!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "sflesh_flesh_swing",
+    "accuracy": 10,
+    "blockable": false,
+    "dodgeable": true,
+    "range": 3,
+    "damage_max_instance": [ { "damage_type": "bash", "amount": 14 } ],
+    "min_mul": 0.4,
+    "throw_strength": 40,
+    "condition": { "not": { "npc_has_effect": "mon_sflesh_flesh_swing_recently" } },
+    "effects": [ { "id": "stunned", "duration": 3 }, { "id": "mon_sflesh_flesh_swing_recently", "duration": 40 } ],
+    "hit_dmg_u": "%1$s swings a massive tentacle at you!",
+    "hit_dmg_npc": "%1$s swings a massive tentacle at <npcname>!",
+    "no_dmg_msg_u": "%1$s swings a tentacle at you, but fails to penetrate your armor!",
+    "no_dmg_msg_npc": "%1$s swings a tentacle at <npcname>, but fails to penetrate their armor!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "sflesh_flesh_slam",
+    "accuracy": 10,
+    "blockable": false,
+    "dodgeable": true,
+    "range": 2,
+    "damage_max_instance": [ { "damage_type": "bash", "amount": 25 } ],
+    "min_mul": 0.75,
+    "condition": { "not": { "npc_has_effect": "mon_sflesh_flesh_slam_recently" } },
+    "effects": [ { "id": "stunned", "duration": 4 }, { "id": "mon_sflesh_flesh_slam_recently", "duration": 25 } ],
+    "hit_dmg_u": "%1$s slams at you with its massive tentacles!",
+    "hit_dmg_npc": "%1$s slams <npcname> with its massive tentacle!",
+    "no_dmg_msg_u": "%1$s slams at you, but fails to penetrate your armor!",
+    "no_dmg_msg_npc": "%1$s slams at <npcname>, but fails to penetrate their armor!"
   }
 ]

@@ -91,10 +91,7 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_tentawraith_tentgrasp_check",
     "condition": {
-      "and": [
-        { "math": [ "u_skill('dodge')", ">=", "4" ] },
-        { "compare_num": [ { "u_val": "dexterity" }, ">=", { "const": 8 } ] }
-      ]
+      "and": [ { "math": [ "u_skill('dodge')", ">=", "4" ] }, { "compare_num": [ { "u_val": "dexterity" }, ">=", { "const": 8 } ] } ]
     },
     "effect": [ { "u_message": "A barrage of tentacles tried to grasp at you, but you dodge!", "type": "good" } ],
     "false_effect": [
@@ -518,18 +515,20 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_sack_birth_check",
+    "condition": { "one_in_chance": 6 },
     "effect": [
-      { "u_message": "A parasyte pops out of the flesh sack!", "type": "warning" },
-      { "npc_spawn_monster": "mon_sflesh_parasyte", "real_count": 3, "min_radius": 1, "max_radius": 2 }
-    ]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "eoc_secro_mon_sflesh_sack_birthmore_check",
-    "condition": { "one_in_chance": 2 },
-    "effect": [
-      { "u_message": "A parasyte pops out of the flesh sack!", "type": "warning" },
-      { "npc_spawn_monster": "mon_sflesh_parasyte", "real_count": 1, "min_radius": 1, "max_radius": 2 }
+      { "npc_spawn_monster": "mon_sflesh_parasyte", "real_count": 2, "min_radius": 1, "max_radius": 3 },
+      {
+        "run_eocs": [
+          {
+            "id": "eoc_secro_mon_sflesh_sack_birthmore_check",
+            "condition": { "one_in_chance": 2 },
+            "effect": [ { "npc_spawn_monster": "mon_sflesh_parasyte", "real_count": 2, "min_radius": 1, "max_radius": 3 } ],
+            "false_effect": [ { "npc_spawn_monster": "mon_sflesh_parasyte", "real_count": 1, "min_radius": 1, "max_radius": 3 } ]
+          }
+        ]
+      },
+      { "npc_cast_spell": { "id": "sacrifice_spell", "hit_self": true } }
     ]
   },
   {
@@ -566,7 +565,7 @@
     "condition": { "one_in_chance": 2 },
     "effect": [
       { "u_message": "A membranous pod emerges from the flesh underneath!", "type": "bad" },
-      { "u_spawn_monster": "mon_sflesh_potent", "real_count": 1, "min_radius": 4, "max_radius": 6 }
+      { "u_spawn_monster": "mon_sflesh_potent", "real_count": 2, "min_radius": 2, "max_radius": 4 }
     ]
   },
   {
@@ -601,6 +600,11 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_veinstalk_spread_check",
     "effect": [ { "npc_transform_radius": 4, "ter_furn_transform": "flesh_spread" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_veinstalk_initial_spread_check",
+    "effect": [ { "npc_cast_spell": { "id": "secro_flesh_infect_large_target", "hit_self": true } }, { "npc_cast_spell": { "id": "sacrifice_spell", "hit_self": true } } ]
   },
   {
     "type": "effect_on_condition",
@@ -683,9 +687,17 @@
   },
   {
     "type": "effect_on_condition",
-    "id": "mon_sflesh_flesh_convert_terrain_check",
+    "id": "eoc_secro_mon_zombie_uruxis_passive",
     "effect": [
-      { "npc_add_effect": "mon_sflesh_flesh_initial", "duration": "PERMANENT" }
+      {
+        "u_spawn_monster": "GROUP_ZOMBIE",
+        "group": true,
+        "real_count": 1,
+        "min_radius": 2,
+        "max_radius": 4,
+        "spawn_message": "A zombie rose up from the ground!"
+      },
+	  { "u_add_effect": "secro_veinstalk_limit", "duration": "10 seconds" }
     ]
   }
 ]

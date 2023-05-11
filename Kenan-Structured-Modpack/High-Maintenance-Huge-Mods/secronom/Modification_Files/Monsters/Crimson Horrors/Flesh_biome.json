@@ -153,7 +153,6 @@
     "speed": 85,
     "material": [ "flesh" ],
     "symbol": "◈",
-    "emit_fields": [ "emit_flesh_sack_blind" ],
     "color": "light_red",
     "aggression": 100,
     "morale": 100,
@@ -166,14 +165,19 @@
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_sflesh_sack_target" },
-        "cooldown": 0,
-        "monster_message": "<color_light_red>%1$s bursts, giving birth to parasytes!</color>"
+        "spell_data": { "id": "mon_sflesh_sack_birth_check", "hit_self": true },
+        "cooldown": 255,
+        "allow_no_target": true,
+        "monster_message": "<color_light_red>%1$s undulates.</color>"
       }
     ],
     "harvest": "exempt",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
-    "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "NOHEAD", "IMMOBILE", "PACIFIST" ]
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s bursts, giving birth to parasytes!",
+      "effect": { "id": "mon_sflesh_sack_death", "hit_self": true }
+    },
+    "flags": [ "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "NOHEAD", "IMMOBILE", "PACIFIST" ]
   },
   {
     "//": "Face hugger from the alien movie!",
@@ -232,11 +236,30 @@
       {
         "type": "spell",
         "spell_data": { "id": "mon_sflesh_veinstalk_spread_check" },
-        "cooldown": 20,
+        "cooldown": 10,
+        "allow_no_target": true,
         "monster_message": "<color_yellow>%1$s twitches."
       }
     ],
     "death_function": { "corpse_type": "NO_CORPSE", "message": "<color_yellow>The %s disappears into the ground." },
     "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "IMMOBILE", "PACIFIST" ]
+  },
+  {
+    "id": "mon_sflesh_veinstalk_initial",
+    "copy-from": "mon_sflesh_veinstalk",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "extend": {
+      "special_attacks": [
+	  {
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_veinstalk_initial_convert" },
+        "cooldown": 1,
+        "allow_no_target": true,
+        "monster_message": "<color_yellow>%1$s twitches."
+      }
+      ],
+      "species": [ "SFLESH" ]
+    }
   }
 ]

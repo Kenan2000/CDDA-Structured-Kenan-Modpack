@@ -10,11 +10,11 @@
     "species": [ "SFLESH", "ABERRATION" ],
     "volume": "92500 ml",
     "weight": "120000 g",
-    "hp": 35,
+    "hp": 20,
     "speed": 85,
     "material": [ "flesh" ],
     "symbol": "⚱",
-    "emit_fields": [ "emit_flesh_blind" ],
+    "emit_fields": [ "emit_veinstalk_limiter" ],
     "color": "light_red",
     "aggression": 100,
     "morale": 100,
@@ -25,62 +25,20 @@
     "armor": { "bash": 20, "cut": 8, "bullet": 6, "stab": 17 },
     "vision_day": 22,
     "vision_night": 22,
-    "special_attacks": [
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_sflesh_target" },
-        "cooldown": 10,
-        "monster_message": "<color_light_red>The taken bursts, letting loose of its content!</color>"
-      }
-    ],
     "harvest": "exempt",
     "death_function": {
       "corpse_type": "NO_CORPSE",
       "message": "The %s melts away.",
       "effect": { "id": "mon_sflesh_death", "hit_self": true }
     },
-    "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "IMMOBILE", "NOHEAD", "PACIFIST" ]
+    "flags": [ "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "IMMOBILE", "NOHEAD", "PACIFIST" ]
   },
   {
     "id": "mon_sflesh_potent",
+    "copy-from": "mon_sflesh",
     "type": "MONSTER",
-    "name": { "str": "taken" },
-    "description": "A membranous pod of flesh, filled with putrid yellow-ish fluid. Sprouting from the flesh, a creature seems to be trapped inside, but unknown to what it is.",
     "default_faction": "secro_flesh",
-    "bodytype": "blob",
-    "species": [ "SFLESH", "ABERRATION" ],
-    "volume": "92500 ml",
-    "weight": "120000 g",
-    "hp": 35,
-    "speed": 85,
-    "material": [ "flesh" ],
-    "symbol": "⚱",
-    "emit_fields": [ "emit_flesh_potent_blind" ],
-    "color": "light_red",
-    "aggression": 100,
-    "morale": 100,
-    "melee_skill": 6,
-    "melee_dice": 2,
-    "melee_dice_sides": 4,
-    "melee_damage": [ { "damage_type": "cut", "amount": 6 } ],
-    "armor": { "bash": 20, "cut": 8, "bullet": 6, "stab": 17 },
-    "vision_day": 22,
-    "vision_night": 22,
-    "special_attacks": [
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_sflesh_target" },
-        "cooldown": 5,
-        "monster_message": "<color_light_red>The taken bursts, letting loose of its content!</color>"
-      }
-    ],
-    "harvest": "exempt",
-    "death_function": {
-      "corpse_type": "NO_CORPSE",
-      "message": "The %s melts away.",
-      "effect": { "id": "mon_sflesh_death", "hit_self": true }
-    },
-    "flags": [ "SEES", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "NOHEAD", "IMMOBILE", "PACIFIST" ]
+    "proportional": { "hp": 0.5 }
   },
   {
     "//": "These walls will make obstacles as long as they live. They remain for 10-20 turns!",

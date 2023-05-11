@@ -118,19 +118,7 @@
       }
     ],
     "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
-    "flags": [
-      "HEARS",
-      "SEES",
-      "SMELLS",
-      "WARM",
-      "AQUATIC",
-      "GRABS",
-      "BASHES",
-      "NOHEAD",
-      "SWIMS",
-      "PACIFIST",
-      "HARDTOSHOOT"
-    ]
+    "flags": [ "HEARS", "SEES", "SMELLS", "WARM", "AQUATIC", "GRABS", "BASHES", "NOHEAD", "SWIMS", "PACIFIST", "HARDTOSHOOT" ]
   },
   {
     "//": "Support-type zed that uses an aura to inflict debuffs.",
@@ -289,12 +277,19 @@
     "vision_day": 4,
     "vision_night": 4,
     "harvest": "zombie",
-    "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "GRAB", 7 ], [ "scratch", 20 ] ],
-    "death_function": {
-      "corpse_type": "NO_CORPSE",
-      "message": "<color_light_red>%s mutates into an ichorus!</color>",
-      "effect": { "id": "mon_zombie_fake_ichorus_death", "hit_self": true }
-    },
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_fake_ichorus_poly" },
+        "cooldown": 1,
+        "condition": { "math": [ "u_val('hp')", "<=", "50" ] },
+        "allow_no_target": true,
+        "monster_message": "<color_light_red>%1$s trembles!</color>"
+      },
+      { "type": "bite", "cooldown": 5 },
+      [ "GRAB", 7 ],
+      [ "scratch", 20 ]
+    ],
     "flags": [
       "SEES",
       "HEARS",
@@ -378,12 +373,19 @@
     "vision_day": 4,
     "vision_night": 4,
     "harvest": "zombie",
-    "special_attacks": [ { "type": "bite", "cooldown": 5 }, [ "GRAB", 7 ], [ "scratch", 20 ] ],
-    "death_function": {
-      "corpse_type": "NO_CORPSE",
-      "message": "<color_light_red>%s mutates into a psyrus!</color>",
-      "effect": { "id": "mon_zombie_fake_psyrus_death", "hit_self": true }
-    },
+    "special_attacks": [
+      {
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_fake_psyrus_poly" },
+        "cooldown": 1,
+        "condition": { "math": [ "u_val('hp')", "<=", "50" ] },
+        "allow_no_target": true,
+        "monster_message": "<color_light_red>%1$s trembles!</color>"
+      },
+      { "type": "bite", "cooldown": 5 },
+      [ "GRAB", 7 ],
+      [ "scratch", 20 ]
+    ],
     "flags": [
       "SEES",
       "HEARS",
@@ -443,11 +445,11 @@
     ]
   },
   {
-    "//": "Specialized summoner. Slim chance to call a zed of random type using its aura, but becomes frequent when a target is in sight.",
+    "//": "Specialized summoner. Passively summons zombies in its area, slowly losing health overtime.",
     "id": "mon_zombie_uruxis",
     "type": "MONSTER",
     "name": { "str": "uruxis" },
-    "description": "Shrouded in ominous black mist, this corpse's horrid visage strikes fear to the minds of the conscious ones.",
+    "description": "Shrouded in ominous black mist, this corpse's horrid visage strikes fear to the minds of the conscious.",
     "default_faction": "zombie",
     "bodytype": "human",
     "species": [ "ZOMBIE", "SECROZED_2" ],
@@ -461,7 +463,6 @@
     "color": "dark_gray_white",
     "aggression": 5,
     "morale": 100,
-    "emit_fields": [ "emit_urixis_aura" ],
     "melee_skill": 6,
     "melee_dice": 2,
     "melee_dice_sides": 6,
@@ -475,9 +476,11 @@
       [ "UPGRADE", 48 ],
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_uruxis_spawn_target" },
-        "cooldown": 24,
-        "monster_message": "<color_yellow>%1$s curses the surrounding area as it enshrouds itself in shadows!</color>"
+        "spell_data": { "id": "mon_zombie_uruxis_spawn_passive" },
+		"allow_no_target": true,
+		"condition": { "not": { "u_has_effect": "secro_zombie_uruxis_passive" } },
+        "cooldown": 1,
+        "monster_message": "<color_yellow>Shadows around %1$s intensifies!</color>"
       }
     ],
     "death_drops": "default_zombie_death_drops",

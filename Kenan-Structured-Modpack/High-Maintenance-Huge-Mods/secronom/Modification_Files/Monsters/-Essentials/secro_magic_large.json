@@ -604,13 +604,26 @@
     "effect_str": "eoc_secro_mon_sflesh_flesh_check"
   },
   {
+    "type": "SPELL",
+    "id": "mon_sflesh_flesh_convert_initial",
+    "name": { "str": "Morph" },
+    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Target is converted into its flesh variant'",
+    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
+    "valid_targets": [ "self" ],
+    "min_damage": 999999,
+    "max_damage": 999999,
+    "effect": "targeted_polymorph",
+    "shape": "blast",
+    "effect_str": "mon_sflesh_flesh"
+  },
+  {
     "id": "mon_sflesh_flesh_convert_terrain",
     "type": "SPELL",
     "name": { "str": "Flesh - Convert" },
     "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster converts the surrounding terrain into flesh.'",
     "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
     "valid_targets": [ "ally", "hostile", "ground", "self" ],
-	"extra_effects": [ { "id": "mon_sflesh_flesh_convert", "hit_self": true }, { "id": "secro_flesh_infect_huge_target", "hit_self": true }, { "id": "mon_sflesh_flesh_convert_terrain2", "hit_self": true }, { "id": "mon_sflesh_flesh_convert_terrain3", "hit_self": true }, { "id": "mon_sflesh_flesh_convert_terrain4", "hit_self": true } ],
+	"extra_effects": [ { "id": "secro_flesh_infect_huge_target", "hit_self": true }, { "id": "mon_sflesh_flesh_convert_terrain2", "hit_self": true }, { "id": "mon_sflesh_flesh_convert_initial", "hit_self": true } ],
     "effect": "ter_transform",
     "shape": "blast",
     "effect_str": "flesh_spread",
@@ -627,45 +640,8 @@
     "effect": "ter_transform",
     "shape": "blast",
     "effect_str": "flesh_spread",
-    "min_aoe": 48,
-    "max_aoe": 48
-  },
-  {
-    "id": "mon_sflesh_flesh_convert_terrain3",
-    "type": "SPELL",
-    "name": { "str": "Flesh - Convert" },
-    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster converts the surrounding terrain into flesh.'",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
-    "valid_targets": [ "ally", "hostile", "ground", "self" ],
-    "effect": "ter_transform",
-    "shape": "blast",
-    "effect_str": "flesh_spread",
     "min_aoe": 32,
     "max_aoe": 32
-  },
-  {
-    "id": "mon_sflesh_flesh_convert_terrain4",
-    "type": "SPELL",
-    "name": { "str": "Flesh - Convert" },
-    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster converts the surrounding terrain into flesh.'",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
-    "valid_targets": [ "ally", "hostile", "ground", "self" ],
-    "effect": "ter_transform",
-    "shape": "blast",
-    "effect_str": "flesh_spread",
-    "min_aoe": 16,
-    "max_aoe": 16
-  },
-  {
-    "id": "mon_sflesh_flesh_convert",
-    "type": "SPELL",
-    "name": { "str": "Flesh - Convert" },
-    "description": "Spell casted by a monster. If you're seeing this, then read this one instead:\n'Caster converts the surrounding terrain into flesh.'",
-    "flags": [ "SILENT", "NO_HANDS", "NO_LEGS", "IGNORE_WALLS", "NO_PROJECTILE", "NO_EXPLOSION_SFX" ],
-    "valid_targets": [ "self" ],
-    "effect": "effect_on_condition",
-    "shape": "blast",
-    "effect_str": "mon_sflesh_flesh_convert_terrain_check"
   },
   {
     "type": "SPELL",
