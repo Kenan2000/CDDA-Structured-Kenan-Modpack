@@ -38,8 +38,9 @@
     "capacity": "1000 kJ",
     "occupied_bodyparts": [ [ "head", 1 ], [ "torso", 10 ], [ "arm_l", 1 ], [ "arm_r", 1 ], [ "leg_l", 1 ], [ "leg_r", 1 ] ],
     "fuel_options": [ "secro_flesh_fuel" ],
-    "fuel_efficiency": 1,
-    "time": "1 s",
+    "fuel_efficiency": 25,
+    "passive_pseudo_items": [ "internal_secro_fv_core" ],
+    "time": "20 s",
     "flags": [ "BIONIC_TOGGLED", "BIONIC_POWER_SOURCE", "BIONIC_NPC_USABLE" ],
     "included_bionics": [ "bio_secro_fv_core_meta" ]
   },
@@ -206,5 +207,30 @@
     "react_cost": "250 J",
     "time": "1 s",
     "enchantments": [ "ench_bio_secro_fv_extra_shockresist" ]
+  },
+  {
+    "id": "internal_secro_fv_core",
+    "type": "GENERIC",
+    "category": "container",
+    "name": { "str": "flesh core" },
+    "description": "Internal storage for articifial flesh.",
+    "volume": "100 ml",
+    "weight": "1 g",
+    "price": 0,
+    "material": [ "flesh" ],
+    "symbol": "(",
+    "color": "red",
+    "flags": [ "INTEGRATED", "UNBREAKABLE", "PERSONAL", "NO_REPAIR", "ALLOWS_NATURAL_ATTACKS", "BIONIC_FUEL_SOURCE", "TARDIS" ],
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "watertight": true,
+        "rigid": true,
+        "max_contains_volume": "2000 ml",
+        "max_item_volume": "100 ml",
+        "max_contains_weight": "3 kg",
+        "material_restriction": [ "secro_flesh_fuel" ]
+      }
+    ]
   }
 ]

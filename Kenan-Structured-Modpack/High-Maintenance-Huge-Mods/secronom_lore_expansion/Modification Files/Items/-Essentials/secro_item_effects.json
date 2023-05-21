@@ -1,0 +1,61 @@
+[
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_fleshmend_ing",
+    "name": [ "Flesh Mending" ],
+    "desc": [ "Your internal flesh weavers are repairing sustained damage!" ],
+    "rating": "good",
+    "base_mods": {
+      "speed_mod": [ -5 ],
+      "hurt_min": [ -2 ],
+      "hurt_tick": [ 10 ],
+      "hunger_min": [ 3 ],
+      "hunger_tick": [ 60 ],
+      "thirst_min": [ 1 ],
+      "thirst_tick": [ 60 ],
+      "pain_min": [ -1 ],
+      "pain_tick": [ 10 ],
+      "pain_chance": [ 20 ]
+    },
+    "removes_effects": [ "bleed" ],
+    "blocks_effects": [ "bleed" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_flesh_resist",
+    "name": [ "Vessel Resistance" ],
+    "desc": [ "The bio-organic exoskeleton isn't responding to you!" ],
+    "rating": "bad",
+    "max_duration": 1,
+    "base_mods": { "speed_mod": [ -25 ], "dex_mod": [ -4 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_flesh_resisted",
+    "max_duration": 1,
+    "rating": "good",
+    "removes_effects": [ "secro_power_armor_flesh_resist" ],
+    "blocks_effects": [ "secro_power_armor_flesh_resist" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_flesh_devouring",
+    "rating": "bad",
+    "base_mods": { "pain_min": [ 1 ], "pain_chance": [ 25 ], "hurt_min": [ 1 ], "hurt_chance": [ 5 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_power_armor_feed_metabolic_act_cost",
+    "name": [ "Metabolic Distribution" ],
+    "desc": [ "Your movement is hampered!" ],
+    "apply_message": "The flesh vessel starts burning your calories!",
+    "rating": "bad",
+    "base_mods": { "speed_mod": [ -50 ], "dex_mod": [ -4 ], "hunger_min": [ 3 ], "thirst_min": [ 1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_flesh_transmit_attack",
+    "removes_effects": [ "docile" ],
+    "blocks_effects": [ "docile" ]
+  }
+]

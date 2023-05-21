@@ -57,13 +57,14 @@
   {
     "type": "effect_type",
     "id": "parasiteworm_pain",
+	"apply_message": "You feel a burning sensation from your wound!",
     "miss_messages": [ [ "You feel bad inside.", 2 ] ],
     "blood_analysis_description": "Unknown Parasites",
     "int_add_val": 1,
     "max_intensity": 3,
     "int_decay_step": -1,
-    "int_decay_tick": 300,
-    "max_duration": 600,
+    "int_decay_tick": 100,
+    "max_duration": 300,
     "rating": "bad",
     "resist_traits": [ "POISRESIST" ],
     "pain_sizing": true,
@@ -74,13 +75,14 @@
   {
     "type": "effect_type",
     "id": "parasiteworm_move",
+	"apply_message": "Your movement suddenly felt stiff!",
     "miss_messages": [ [ "You feel bad inside.", 2 ] ],
     "blood_analysis_description": "Unknown Parasites",
     "int_add_val": 1,
     "max_intensity": 3,
     "int_decay_step": -1,
-    "int_decay_tick": 300,
-    "max_duration": 600,
+    "int_decay_tick": 100,
+    "max_duration": 300,
     "rating": "bad",
     "resist_traits": [ "POISRESIST" ],
     "base_mods": { "dex_mod": [ -1.55 ], "speed_mod": [ -1.15 ] },
@@ -94,8 +96,8 @@
     "int_add_val": 1,
     "max_intensity": 3,
     "int_decay_step": -1,
-    "int_decay_tick": 250,
-    "max_duration": 1000,
+    "int_decay_tick": 100,
+    "max_duration": 300,
     "rating": "bad",
     "resist_traits": [ "POISRESIST" ],
     "base_mods": { "int_mod": [ -2, -1.25 ] },
@@ -109,12 +111,29 @@
     "int_add_val": 1,
     "max_intensity": 3,
     "int_decay_step": -1,
-    "int_decay_tick": 150,
-    "max_duration": 600,
+    "int_decay_tick": 100,
+    "max_duration": 300,
     "rating": "bad",
     "resist_traits": [ "POISRESIST" ],
     "base_mods": { "hunger_min": [ 2, 1 ], "hunger_chance": [ 275 ], "thirst_min": [ 3, 1 ], "thirst_chance": [ 325 ] },
     "scaling_mods": { "hunger_chance": [ -1.1 ], "thirst_chance": [ -1.1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "parasiteworm_weaken",
+	"apply_message": "You feel weakened.",
+    "miss_messages": [ [ "You feel bad inside.", 2 ] ],
+    "blood_analysis_description": "Unknown Parasites",
+    "int_add_val": 1,
+    "max_intensity": 3,
+    "int_decay_step": -1,
+    "int_decay_tick": 100,
+    "max_duration": 300,
+    "rating": "bad",
+    "resist_traits": [ "POISRESIST" ],
+    "base_mods": { "str_mod": [ -1 ] },
+    "scaling_mods": { "str_mod": [ -1 ] },
+    "enchantments": [ { "values": [ { "value": "MELEE_DAMAGE", "add": -3 } ] } ]
   },
   {
     "type": "effect_type",
@@ -175,18 +194,6 @@
     "scaling_mods": { "str_mod": [ -0.9 ], "per_mod": [ -0.82 ], "dex_mod": [ -1.3 ], "int_mod": [ -1.65 ] }
   },
   {
-    "//": "And royal jelly is the only available cure (at the moment).",
-    "type": "effect_type",
-    "id": "cureall",
-    "removes_effects": [ "vector_infect" ]
-  },
-  {
-    "type": "effect_type",
-    "id": "secro_magic_target",
-    "name": [ "Target" ],
-    "desc": [ "An ally or foe locks its line of sight onto you!" ]
-  },
-  {
     "//": "Screamer uses invisible fields to apply this to players with no head protection. As it is a field, it can't go through closed windows and such.",
     "type": "effect_type",
     "id": "secro_dissed",
@@ -207,24 +214,12 @@
   },
   {
     "type": "effect_type",
-    "id": "deaf",
-    "//": "Make players unaffected if they're deaf.",
-    "blocks_effects": [ "secro_dissed" ]
-  },
-  {
-    "type": "effect_type",
     "id": "secro_fleshmonger_fleshed",
     "name": [ "Reflesh" ],
     "rating": "good",
     "show_in_info": true,
     "removes_effects": [ "bleed" ],
     "blocks_effects": [ "bleed" ]
-  },
-  {
-    "type": "effect_type",
-    "id": "secro_fleshmonger_fleshed_immune",
-    "removes_effects": [ "secro_fleshmonger_fleshed" ],
-    "blocks_effects": [ "secro_fleshmonger_fleshed" ]
   },
   {
     "type": "effect_type",
@@ -345,12 +340,6 @@
   },
   {
     "type": "effect_type",
-    "id": "secro_akin_death",
-    "max_duration": 1,
-    "removes_effects": [ "secro_akin_constrict", "secro_akin_siphon_foe", "secro_akin_siphon_ally" ]
-  },
-  {
-    "type": "effect_type",
     "id": "secro_necros_para",
     "name": [
       "Neural Disorder",
@@ -380,12 +369,6 @@
     "max_duration": 330,
     "base_mods": { "speed_mod": [ -7.5 ], "dex_mod": [ -1 ] },
     "scaling_mods": { "speed_mod": [ -7.5 ], "dex_mod": [ -1 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "paralyzepoison",
-    "removes_effects": [ "secro_necros_para" ],
-    "blocks_effects": [ "secro_necros_para" ]
   },
   {
     "type": "effect_type",
@@ -473,14 +456,6 @@
     "scaling_mods": { "bash_mod": [ 0.25 ], "cut_mod": [ 0.25 ], "hit_mod": [ 0.15 ] }
   },
   {
-    "//": "Don't trigger the triggerer.",
-    "type": "effect_type",
-    "id": "secro_revenant_trigger_immune",
-    "max_duration": 12,
-    "removes_effects": [ "secro_revenant_trigger" ],
-    "blocks_effects": [ "secro_revenant_trigger" ]
-  },
-  {
     "type": "effect_type",
     "id": "secro_revenant_forsaken_dilute",
     "name": [ "Weakened", "Weakened", "Weakened", "Weakened", "Severely Weakened" ],
@@ -511,14 +486,6 @@
     "base_mods": { "hurt_min": [ 1 ], "hurt_tick": [ 20 ], "size_mod": [ 0.3 ], "hit_mod": [ 0.5 ] },
     "//": "At max intensity, deals 1 hp per 10 turns.",
     "scaling_mods": { "hurt_tick": [ -2.5 ], "size_mod": [ 0.3 ], "hit_mod": [ 0.5 ] }
-  },
-  {
-    "//": "Do not induce the inducer.",
-    "type": "effect_type",
-    "id": "secro_revenant_allure_induce_immune",
-    "max_duration": 1,
-    "removes_effects": [ "secro_revenant_allure_induce" ],
-    "blocks_effects": [ "secro_revenant_allure_induce" ]
   },
   {
     "type": "effect_type",
@@ -640,10 +607,6 @@
   },
   {
     "type": "effect_type",
-    "id": "secro_zombie_uruxis_passive"
-  },
-  {
-    "type": "effect_type",
     "id": "secro_flesh_tree_grab",
     "name": [ "Grabbed" ],
     "desc": [ "You have been grabbed by an attack.\nYou are being held in place, and dodging and blocking are very difficult." ],
@@ -734,14 +697,6 @@
   },
   {
     "type": "effect_type",
-    "id": "mon_sflesh_flesh_swing_recently"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_flesh_slam_recently"
-  },
-  {
-    "type": "effect_type",
     "id": "secro_flesh_bio_limb",
     "name": [ "Mending" ],
     "desc": [ "Your broken limbs are mending!" ],
@@ -775,11 +730,6 @@
   },
   {
     "type": "effect_type",
-    "id": "secro_veinstalk_limit",
-    "base_mods": { "hurt_min": [ 1 ], "hurt_max": [ 2 ] }
-  },
-  {
-    "type": "effect_type",
     "id": "secro_gravtur_magnet",
     "name": [ "Magnetized" ],
     "desc": [ "Your movements were hampered." ],
@@ -791,28 +741,12 @@
   },
   {
     "type": "effect_type",
-    "id": "mon_shifter_illu_limit",
-    "base_mods": { "hurt_min": [ 5 ], "hurt_max": [ 10 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_shifter_onslaught_dmgpure_dmg",
-    "base_mods": { "hurt_min": [ 8 ], "hurt_max": [ 16 ] }
-  },
-  {
-    "type": "effect_type",
     "id": "secro_power_armor_flesh_devouring_note",
     "name": [ "Vessel Consumption" ],
     "desc": [ "You had no artificial flesh in hand, now it feeds on your flesh as alternative." ],
     "apply_message": "You body fills in with distress!",
     "remove_message": "The vessel was satisfied\u2024",
     "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "secro_power_armor_flesh_devouring",
-    "rating": "bad",
-    "base_mods": { "pain_min": [ 1 ], "pain_chance": [ 25 ], "hurt_min": [ 1 ], "hurt_chance": [ 5 ] }
   },
   {
     "type": "effect_type",
@@ -866,34 +800,8 @@
   },
   {
     "type": "effect_type",
-    "id": "secro_power_armor_flesh_morphed_jugg_bonespikes_skeletaloutburst_cost",
-    "rating": "bad",
-    "base_mods": { "hurt_min": [ 2 ], "pain_min": [ 0 ], "pain_max": [ 2 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "secro_power_armor_flesh_created_gun_bonerifle_cost",
-    "rating": "bad",
-    "base_mods": { "hurt_min": [ 5 ], "pain_min": [ 1 ], "pain_max": [ 7 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_fleshling_huge_limit",
-    "rating": "bad",
-    "base_mods": { "hurt_min": [ 30 ], "hurt_max": [ 60 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_fleshling_scavengy_cost",
-    "rating": "bad",
-    "base_mods": { "hurt_min": [ 2 ], "hurt_max": [ 4 ], "speed_mod": [ -1000 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_fleshling_scavengy_spawnlimits",
-    "rating": "bad",
-    "max_duration": "3 s",
-    "base_mods": { "hurt_min": [ 1 ], "hurt_tick": [ 100 ] }
+    "id": "mon_shifter_onslaught_dmgpure_dmg",
+    "base_mods": { "hurt_min": [ 8 ], "hurt_max": [ 16 ] }
   },
   {
     "type": "effect_type",
@@ -912,18 +820,6 @@
     "rating": "bad",
     "show_in_info": true,
     "scaling_mods": { "dex_mod": [ -0.075 ], "speed_mod": [ -0.75 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_fleshling_ravagy_fburst_pay",
-    "rating": "bad",
-    "base_mods": { "hurt_min": [ 5 ], "hurt_max": [ 15 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_fleshling_ravagy_outb_pay",
-    "rating": "bad",
-    "base_mods": { "hurt_min": [ 20 ], "hurt_max": [ 40 ] }
   },
   {
     "type": "effect_type",
@@ -954,80 +850,6 @@
   },
   {
     "type": "effect_type",
-    "id": "secro_power_armor_feed_metabolic_act_cost",
-    "name": [ "Metabolic Distribution" ],
-    "desc": [ "Your movement is hampered!" ],
-    "apply_message": "The flesh vessel starts burning your calories!",
-    "rating": "bad",
-    "base_mods": { "speed_mod": [ -50 ], "dex_mod": [ -4 ], "hunger_min": [ 3 ], "thirst_min": [ 1 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "secro_power_armor_fleshmend_ing",
-    "name": [ "Flesh Mending" ],
-    "desc": [ "Your internal flesh weavers are repairing sustained damage!" ],
-    "rating": "good",
-    "base_mods": {
-      "speed_mod": [ -5 ],
-      "hurt_min": [ -2 ],
-      "hurt_tick": [ 10 ],
-      "hunger_min": [ 3 ],
-      "hunger_tick": [ 60 ],
-      "thirst_min": [ 1 ],
-      "thirst_tick": [ 60 ],
-      "pain_min": [ -1 ],
-      "pain_tick": [ 10 ],
-      "pain_chance": [ 20 ]
-    },
-    "removes_effects": [ "bleed" ],
-    "blocks_effects": [ "bleed" ]
-  },
-  {
-    "type": "effect_type",
-    "id": "secro_power_armor_flesh_resist",
-    "name": [ "Vessel Resistance" ],
-    "desc": [ "The bio-organic exoskeleton isn't responding to you!" ],
-    "rating": "bad",
-    "max_duration": 1,
-    "base_mods": { "speed_mod": [ -25 ], "dex_mod": [ -4 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "secro_power_armor_flesh_resisted",
-    "max_duration": 1,
-    "rating": "good",
-    "removes_effects": [ "secro_power_armor_flesh_resist" ],
-    "blocks_effects": [ "secro_power_armor_flesh_resist" ]
-  },
-  {
-    "type": "effect_type",
-    "id": "eff_carrion_alpha_rally_atk_cmd",
-    "max_duration": 100,
-    "removes_effects": [ "controlled" ],
-    "blocks_effects": [ "controlled" ]
-  },
-  {
-    "type": "effect_type",
-    "id": "eff_bot_secroinforcer_deploy_cost",
-    "base_mods": { "hurt_min": [ 15 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "eff_bot_secromissile_slow",
-    "base_mods": { "speed_mod": [ -150 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "eff_bot_secromissile_limit",
-    "base_mods": { "hurt_min": [ 1 ], "hurt_tick": [ 3 ] }
-  },
-  {
-    "type": "effect_type",
-    "id": "eff_bot_secrolauncher_slow",
-    "base_mods": { "speed_mod": [ -70 ] }
-  },
-  {
-    "type": "effect_type",
     "id": "eff_fleshknot_tent",
     "name": [ "Grasped", "Grasped", "Grasped", "Overrun By Tentacles" ],
     "desc": [
@@ -1049,11 +871,6 @@
   },
   {
     "type": "effect_type",
-    "id": "eff_grubbyworm_limit",
-    "base_mods": { "hurt_min": [ 1 ], "hurt_tick": [ 3 ], "hurt_chance": [ 3 ] }
-  },
-  {
-    "type": "effect_type",
     "id": "secro_gorepit_absorb",
     "name": [ "Absorbing" ],
     "base_mods": { "hurt_min": [ -20 ] },
@@ -1068,18 +885,6 @@
     "blocks_effects": [ "secro_gorepit_absorb" ],
     "flags": [ "BLIND" ],
     "show_in_info": true
-  },
-  {
-    "type": "effect_type",
-    "id": "eff_zombie_gorepit_spawnmore_rage"
-  },
-  {
-    "type": "effect_type",
-    "id": "eff_zombie_gorepit_spawnmore_stop"
-  },
-  {
-    "type": "effect_type",
-    "id": "eff_zombie_gorepit_tent_massive_cd"
   },
   {
     "type": "effect_type",
@@ -1098,119 +903,10 @@
   },
   {
     "type": "effect_type",
-    "id": "secro_zombie_spider_cripple",
-    "name": [ "Crippled" ],
-    "max_intensity": 8,
-    "int_add_val": 1,
-    "show_in_info": true,
-    "scaling_mods": { "speed_mod": [ -20 ] }
-  },
-  {
-    "type": "effect_type",
     "id": "eff_fleshweaver_healing",
     "base_mods": { "pain_min": [ 1 ], "pain_chance": [ 2 ], "pain_tick": [ 8 ] },
     "rating": "bad",
     "remove_message": "The flesh weaver finishes its operation."
-  },
-  {
-    "type": "effect_type",
-    "id": "eff_fleshweaver_justhealed"
-  },
-  {
-    "type": "effect_type",
-    "id": "secro_flesh_transmit_attack",
-    "removes_effects": [ "docile" ],
-    "blocks_effects": [ "docile" ]
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_shifter_target_atk_onslaught_dmgpure_YES",
-    "apply_message": "The shapeshifter sets out a harrowing shriek before reaping their target!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_shifter_target_atk_onslaught_illu_YES",
-    "apply_message": "A silhouette were formed before the shapeshifter!",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "secro_power_armor_flesh_morphed_gun_spit_as_YES",
-    "apply_message": "Your spitter armament shoots a glob of blood acid!",
-    "rating": "good"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_adischarge_YES",
-    "apply_message": "Suddenly, the flesh heap discharges of blood acid!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_aspit_target_YES",
-    "apply_message": "The flesh heap's orifice spews out globs of blood acid!",
-    "rating": "bad"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_blade_slice_YES",
-    "apply_message": "<color_yellow>The flesh heap (blade) slashes wildly!</color>",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_blade_swirl_target_YES",
-    "apply_message": "<color_light_red>The flesh heap (blade) projects several bone spikes!</color>",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_tendril_swing_YES",
-    "apply_message": "<color_yellow>The flesh heap (tendril) sweeps its tentacle veins!</color>",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_tendril_slam_YES",
-    "apply_message": "<color_light_red>The flesh heap (tendril) slams a tentacle at its target!</color>",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_tendril_thrust_YES",
-    "apply_message": "<color_pink>The flesh heap (tendril) thrusts a tentacle vein!</color>",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_mouth_crunch_YES",
-    "apply_message": "<color_pink>The flesh heap (mouthswell) crunches at its target!</color>",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_unify_form_target_YES",
-    "apply_message": "<color_pink>The flesh heap (unifier) forms blood creatures!</color>",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_hravager_swing_YES",
-    "apply_message": "<color_light_red>The ravager flesh heap swings its bladed tentacle!</color>",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_hravager_slam_YES",
-    "apply_message": "<color_magenta>The ravager flesh heap slashes!</color>",
-    "rating": "mixed"
-  },
-  {
-    "type": "effect_type",
-    "id": "mon_sflesh_camp_turret_hravager_thrust_YES",
-    "apply_message": "<color_pink>The ravager flesh heap rakes at its target!</color>",
-    "rating": "mixed"
   },
   {
     "type": "effect_type",
@@ -1241,18 +937,5 @@
     "id": "mon_szombie_vessel_spitter_cs_YES",
     "apply_message": "<color_red>Its spitter armament showers blood acid!</color>",
     "rating": "mixed"
-  },
-  {
-    "//": "Effects used for immunity fields",
-    "type": "effect_type",
-    "id": "secro_down_immune",
-    "max_duration": 1,
-    "removes_effects": [ "downed" ],
-    "blocks_effects": [ "downed" ]
-  },
-  {
-    "type": "effect_type",
-    "id": "secro_sacrifice_effect",
-    "base_mods": { "hurt_min": [ 100000000 ], "speed_mod": [ -1000 ] }
   }
 ]

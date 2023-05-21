@@ -9,7 +9,6 @@
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 75,
-    "diff": 1,
     "speed": 115,
     "material": [ "flesh" ],
     "symbol": "⨍",
@@ -24,7 +23,7 @@
     "dodge": 1,
     "melee_damage": [ { "damage_type": "cut", "amount": 1 }, { "damage_type": "bash", "amount": 2 } ],
     "vision_night": 5,
-    "armor": { "bash": 3, "cut": 1, "bullet": 1, "acid": 1, "heat": 1 },
+    "armor": { "bash": 2, "cut": 1, "bullet": 1, "acid": 1, "heat": 1 },
     "special_attacks": [
       {
         "type": "spell",
@@ -33,9 +32,10 @@
         "monster_message": "<color_yellow>%1$s twitches.</color>"
       },
       { "type": "bite", "cooldown": 7, "damage_max_instance": [ { "damage_type": "stab", "armor_penetration": 10 } ] },
-      [ "tendrilgrip", 30 ],
-      [ "tendrilslam", 30 ],
-      [ "tendrilswing", 5 ]
+      [ "secro_tendrilgrip", 30 ],
+      [ "secro_tendrilslam", 30 ],
+      [ "secro_tendrilswing", 5 ],
+      [ "secro_tendril_pull", 40 ]
     ],
     "death_drops": "default_zombie_death_drops",
     "upgrades": { "half_life": 12, "into_group": "GROUP_TENDRILS_UPGRADE" },
@@ -56,28 +56,25 @@
   },
   {
     "id": "mon_zombie_thicktendrils",
+    "copy-from": "mon_zombie_tendrils",
     "type": "MONSTER",
     "name": "tendril zombie",
-    "description": "A tendril zombie with its tentacle pairs thickened from prolonged mutations.",
+    "description": "A tendril zombie with larger and thicker set of tentacle limbs.",
     "default_faction": "zombie",
-    "species": [ "ZOMBIE", "SECROZED_1" ],
-    "volume": "62500 ml",
-    "weight": "81500 g",
-    "hp": 130,
-    "speed": 85,
-    "diff": 5,
-    "material": [ "flesh" ],
+    "proportional": { "hp": 1.8, "speed": 0.8, "weight": 1.22 },
+    "relative": {
+      "melee_skill": 1,
+      "melee_dice_sides": 2,
+      "grab_strength": 1,
+      "armor": { "bash": 6, "cut": 2, "stab": 1, "bullet": 4 }
+    },
     "symbol": "⨎",
     "color": "green",
-    "harvest": "zombie",
-    "aggression": 100,
-    "morale": 100,
-    "melee_skill": 4,
-    "melee_dice": 3,
-    "melee_dice_sides": 5,
-    "grab_strength": 3,
-    "melee_damage": [ { "damage_type": "cut", "amount": 1 }, { "damage_type": "bash", "amount": 4 }, { "damage_type": "stab", "amount": 1 } ],
-    "armor": { "bash": 8, "cut": 4, "bullet": 4, "acid": 3, "heat": 2 },
+    "melee_damage": [
+      { "damage_type": "cut", "amount": 1 },
+      { "damage_type": "bash", "amount": 4 },
+      { "damage_type": "stab", "amount": 1 }
+    ],
     "special_attacks": [
       {
         "type": "spell",
@@ -85,53 +82,30 @@
         "cooldown": 605,
         "monster_message": "<color_yellow>%1$s twitches.</color>"
       },
-      { "type": "bite", "cooldown": 10, "damage_max_instance": [ { "damage_type": "stab", "armor_penetration": 16 } ] },
-      [ "tendrilswing", 12 ],
-      [ "tendrilgrip", 20 ],
-      [ "tendrilslam", 29 ]
+      {
+        "type": "bite",
+        "cooldown": 10,
+        "damage_max_instance": [ { "damage_type": "stab", "armor_penetration": 16 } ]
+      },
+      [ "secro_tendrilswing", 12 ],
+      [ "secro_tendrilgrip", 20 ],
+      [ "secro_tendrilslam", 29 ],
+      [ "secro_tendril_pull", 55 ]
     ],
-    "death_drops": "default_zombie_death_drops",
-    "upgrades": { "half_life": 16, "into_group": "GROUP_TENDRILS_UPGRADEX" },
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "STUMBLES",
-      "WARM",
-      "BASHES",
-      "GROUP_BASH",
-      "POISON",
-      "NO_BREATHE",
-      "REVIVES",
-      "FILTHY",
-      "PUSH_MON"
-    ]
+    "upgrades": { "half_life": 16, "into_group": "GROUP_TENDRILS_UPGRADEX" }
   },
   {
     "id": "mon_zombie_tendricles",
+    "copy-from": "mon_zombie_tendrils",
     "type": "MONSTER",
     "name": "tendril zombie",
     "description": "A frail-looking corpse with raging long tentacles covering its rotten skin.",
     "default_faction": "zombie",
-    "species": [ "ZOMBIE", "SECROZED_1" ],
-    "volume": "62500 ml",
-    "weight": "81500 g",
-    "hp": 105,
-    "speed": 105,
-    "diff": 5,
-    "material": [ "flesh" ],
+    "proportional": { "hp": 1.33, "speed": 1.1, "weight": 1.075 },
+    "relative": { "melee_skill": 2, "melee_dice": 1, "melee_dice_sides": 3, "grab_strength": 2, "armor": { "bash": 3, "bullet": 1 } },
     "symbol": "⨏",
     "color": "light_gray",
-    "aggression": 100,
-    "morale": 100,
-    "harvest": "zombie",
-    "melee_skill": 6,
-    "melee_dice": 2,
-    "melee_dice_sides": 4,
-    "dodge": 1,
-    "grab_strength": 4,
-    "melee_damage": [ { "damage_type": "cut", "amount": 2 }, { "damage_type": "bash", "amount": 1 }, { "damage_type": "stab", "amount": 3 } ],
-    "armor": { "bash": 6, "cut": 3, "bullet": 3, "acid": 1, "heat": 1 },
+    "melee_damage": [ { "damage_type": "cut", "amount": 1 }, { "damage_type": "stab", "amount": 5, "armor_penetration": 3 } ],
     "special_attacks": [
       {
         "type": "spell",
@@ -140,55 +114,35 @@
         "monster_message": "<color_yellow>%1$s twitches.</color>"
       },
       { "type": "bite", "cooldown": 6, "damage_max_instance": [ { "damage_type": "stab", "armor_penetration": 10 } ] },
-      [ "tendrilswing", 4 ],
-      [ "tendrilslam", 22 ],
-      [ "tendrilgrip", 15 ],
-      [ "tendrilstab", 32 ],
-      [ "GRAB_DRAG", 10 ]
+      [ "secro_tendrilswing", 4 ],
+      [ "secro_tendrilslam", 22 ],
+      [ "secro_tendrilgrip", 15 ],
+      [ "secro_tendrilstab", 32 ],
+      [ "GRAB_DRAG", 6 ],
+      [ "secro_tendril_pull", 20 ]
     ],
-    "death_drops": "default_zombie_death_drops",
-    "upgrades": { "half_life": 16, "into_group": "GROUP_TENDRILS_UPGRADEX" },
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "STUMBLES",
-      "WARM",
-      "BASHES",
-      "GROUP_BASH",
-      "POISON",
-      "NO_BREATHE",
-      "REVIVES",
-      "FILTHY",
-      "PUSH_MON"
-    ]
+    "upgrades": { "half_life": 16, "into_group": "GROUP_TENDRILS_UPGRADEX" }
   },
   {
     "id": "mon_zombie_tentawraith",
+    "copy-from": "mon_zombie_tendrils",
     "type": "MONSTER",
     "name": "wraith",
-    "description": "Dreadful outgrowths of savage tentacles accompanies this corpse's crimson body, thrashing anything in its path as it moves aimlessly. Within a closer look, one of its arm pulsates that burdens the body, dragging the heavily mutated portion into the ground.",
+    "description": "Dreadful outgrowths of savage tentacles accompanies this corpse's crimson body, thrashing anything in its path. Within a closer look, one of its arm pulsates that burdens the body, dragging the heavily mutated portion into the ground.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_3" ],
-    "volume": "92500 ml",
-    "weight": "120000 g",
-    "hp": 465,
-    "speed": 90,
-    "diff": 15,
-    "material": [ "flesh" ],
+    "proportional": { "hp": 7, "speed": 0.9, "volume": 1.8, "weight": 2 },
+    "relative": {
+      "melee_skill": 4,
+      "melee_dice": 2,
+      "melee_dice_sides": 4,
+      "grab_strength": 4,
+      "dodge": 1,
+      "armor": { "bash": 12, "cut": 9, "stab": 4, "bullet": 9, "acid": 3, "heat": 1 }
+    },
     "symbol": "⨘",
     "color": "red",
-    "aggression": 100,
-    "morale": 100,
-    "melee_skill": 8,
-    "melee_dice": 4,
-    "harvest": "zombie",
-    "melee_dice_sides": 6,
-    "dodge": 2,
-    "grab_strength": 6,
     "melee_damage": [ { "damage_type": "bash", "amount": 4 }, { "damage_type": "cut", "amount": 7 } ],
-    "vision_night": 5,
-    "armor": { "bash": 11, "cut": 9, "bullet": 6, "acid": 4, "heat": 2 },
     "special_attacks": [
       {
         "type": "spell",
@@ -196,34 +150,18 @@
         "cooldown": 50,
         "monster_message": "<color_yellow>%1$s's tentacles thrashes its surroundings!</color>"
       },
-      [ "tendrilslam", 32 ],
-      [ "tendrilstab", 26 ],
+      [ "secro_tendrilslam", 32 ],
+      [ "secro_tendrilstab", 26 ],
       [ "RANGED_PULL", 20 ],
       [ "STRETCH_ATTACK", 17 ],
-      [ "tendrilgrip", 11 ],
+      [ "secro_tendrilgrip", 11 ],
       { "type": "bite", "cooldown": 7, "damage_max_instance": [ { "damage_type": "cut", "armor_penetration": 12 } ] }
     ],
-    "death_drops": "default_zombie_death_drops",
     "death_function": {
       "corpse_type": "NORMAL",
       "message": "The %s dies!",
       "effect": { "id": "mon_zombie_tentawraith_death", "hit_self": true }
-    },
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "STUMBLES",
-      "WARM",
-      "BASHES",
-      "GROUP_BASH",
-      "POISON",
-      "NO_BREATHE",
-      "REVIVES",
-      "FILTHY",
-      "PUSH_MON",
-      "ATTACKMON"
-    ]
+    }
   },
   {
     "id": "mon_zombie_tentawraith_tent",
@@ -247,7 +185,11 @@
     "harvest": "zombie",
     "melee_dice_sides": 4,
     "dodge": 1,
-    "melee_damage": [ { "damage_type": "cut", "amount": 4 }, { "damage_type": "bash", "amount": 2 }, { "damage_type": "stab", "amount": 5 } ],
+    "melee_damage": [
+      { "damage_type": "cut", "amount": 4 },
+      { "damage_type": "bash", "amount": 2 },
+      { "damage_type": "stab", "amount": 5 }
+    ],
     "vision_night": 10,
     "armor": { "bash": 6, "cut": 4, "bullet": 4, "acid": 4, "heat": 2 },
     "special_attacks": [ [ "STRETCH_ATTACK", 19 ] ],

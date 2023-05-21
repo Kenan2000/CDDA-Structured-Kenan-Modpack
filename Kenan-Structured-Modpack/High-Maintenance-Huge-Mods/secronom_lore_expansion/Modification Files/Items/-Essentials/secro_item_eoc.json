@@ -2,25 +2,43 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_pafv_fleshconsumption",
-    "recurrence": [ "4 hours", "5 hours 30 minutes" ],
-    "condition": { "and": [ { "u_has_flag": "SECRO_WEARING_FLESH_VESSEL" }, { "u_has_items": { "item": "secro_flesh", "count": 5 } } ] },
+    "recurrence": [ "5 hours", "6 hours" ],
+    "condition": { "and": [ { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" }, { "u_has_items": { "item": "secro_flesh", "count": 5 } } ] },
+	"deactivate_condition": { "not": { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" } },
     "effect": [
       { "u_message": "The vessel consumes your flesh.", "type": "good" },
       { "u_consume_item": "secro_flesh", "count": 5 },
       {
         "arithmetic": [ { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "result" }, "=", { "const": 0 } ]
+      },
+	  {
+        "arithmetic": [ { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "penalty" }, "=", { "const": 0 } ]
       }
     ],
     "false_effect": [
       {
-        "queue_eocs": [
+        "run_eocs": [
           {
             "id": "eoc_secro_pafv_fleshconsumption_fail",
             "condition": {
-              "and": [ { "u_has_flag": "SECRO_WEARING_FLESH_VESSEL" }, { "not": { "u_has_items": { "item": "secro_flesh", "count": 5 } } } ]
+              "and": [ { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" }, { "not": { "u_has_items": { "item": "secro_flesh", "count": 5 } } } ]
             },
             "effect": [
               { "u_message": "The vessel consumes your flesh.", "type": "bad" },
+			  {
+                "arithmetic": [
+                  { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "penalty" },
+                  "+=",
+                  { "const": 5 }
+                ]
+              },
+			  {
+                "arithmetic": [
+                  { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "result" },
+                  "+=",
+                  { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "penalty" }
+                ]
+              },
               {
                 "arithmetic": [
                   { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "result" },
@@ -88,7 +106,7 @@
     "recurrence": [ "24 hours", "24 hours" ],
     "condition": {
       "and": [
-        { "u_has_flag": "SECRO_WEARING_FLESH_VESSEL" },
+        { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" },
         {
           "or": [
             { "u_has_item": "secro_power_armor_flesh" },
@@ -101,9 +119,8 @@
         }
       ]
     },
-    "deactivate_condition": { "not": { "u_has_flag": "SECRO_WEARING_FLESH_VESSEL" } },
+    "deactivate_condition": { "not": { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" } },
     "effect": [
-      { "u_message": "You felt uncomfortable for a split second\u2024", "type": "grazing" },
       { "u_adjust_var": "secro_fleshvessel", "type": "growth", "context": "time", "adjustment": 1 },
       {
         "arithmetic": [
@@ -142,8 +159,8 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_pafv_core",
     "recurrence": [ "24 hours", "48 hours" ],
-    "condition": { "and": [ { "not": { "u_has_flag": "SECRO_WEARING_FLESH_VESSEL" } }, { "u_has_item": "secro_flesh_core" } ] },
-    "deactivate_condition": { "u_has_flag": "SECRO_WEARING_FLESH_VESSEL" },
+    "condition": { "and": [ { "not": { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" } }, { "u_has_item": "secro_flesh_core" } ] },
+    "deactivate_condition": { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" },
     "effect": [ { "u_message": "You feel the flesh core beat.", "type": "info" } ]
   },
   {
@@ -152,7 +169,7 @@
     "recurrence": [ "2 hours", "3 hours" ],
     "condition": {
       "and": [
-        { "u_has_flag": "SECRO_WEARING_FLESH_VESSEL" },
+        { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" },
         { "u_has_item": "secro_power_armor_flesh" },
         { "u_compare_var": "secro_fleshvessel", "type": "growth", "context": "time", "op": ">=", "value": 7 },
         { "not": { "u_has_item": "secro_power_armor_flesh2" } },
@@ -181,7 +198,7 @@
     "recurrence": [ "3 hours", "3 hours" ],
     "condition": {
       "and": [
-        { "u_has_flag": "SECRO_WEARING_FLESH_VESSEL" },
+        { "u_has_trait": "SECRO_WEARING_FLESH_VESSEL" },
         { "u_has_item": "secro_power_armor_flesh2" },
         { "u_compare_var": "secro_fleshvessel", "type": "growth", "context": "time", "op": ">=", "value": 35 },
         { "not": { "u_has_item": "secro_power_armor_flesh3" } },
@@ -199,7 +216,7 @@
         "arithmetic": [
           { "u_val": "var", "var_name": "secro_fleshvessel", "type": "consumption", "context": "bonus" },
           "+=",
-          { "const": 25 }
+          { "const": 20 }
         ]
       }
     ]
