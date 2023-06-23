@@ -27,7 +27,7 @@
         "type": "spell",
         "spell_data": { "id": "mon_zombie_revenant_target" },
         "cooldown": 12,
-        "condition": { "compare_num": [ { "npc_val": "monsters_nearby", "radius": 5 }, ">=", { "const": 2 } ] },
+        "condition": { "math": [ "monsters_nearby('radius': 5)", ">=", "2" ] },
         "monster_message": "<color_magenta>%1$s shrieks!</color>"
       }
     ],
@@ -95,7 +95,7 @@
         "type": "spell",
         "spell_data": { "id": "mon_zombie_revenant_allure_target" },
         "cooldown": 12,
-        "condition": { "compare_num": [ { "npc_val": "monsters_nearby", "radius": 6 }, ">=", { "const": 2 } ] },
+        "condition": { "math": [ "monsters_nearby('radius': 6)", ">=", "2" ] },
         "monster_message": "<color_magenta>%1$s spreads its goo at %3$s!</color>"
       }
     ],
