@@ -63,9 +63,10 @@
     "vision_day": 30,
     "special_attacks": [
       { "type": "bite", "cooldown": 10 },
-      [ "GRAB", 10 ],
+      { "id": "grab", "cooldown": 10 },
       [ "scratch", 10 ],
-      [ "GRAB_DRAG", 5 ],
+      { "id": "grab_drag", "cooldown": 5 },
+      { "id": "drag_followup" },
       [ "secro_swarmerzed_bite_vstro", 15 ]
     ]
   },
@@ -77,10 +78,11 @@
     "description": "A normal humanoid body, almost in its decaying state.",
     "special_attacks": [
       { "type": "bite", "cooldown": 25 },
-      [ "GRAB", 3 ],
+      { "id": "grab", "cooldown": 3 },
       [ "scratch", 32 ],
       [ "secro_swarmerzed_bite_weak", 10 ],
-      [ "GRAB_DRAG", 40 ]
+      { "id": "grab_drag", "cooldown": 40 },
+      { "id": "drag_followup" }
     ],
     "upgrades": { "half_life": 10, "into": "mon_zombie_swarmer_moderate" }
   },
@@ -92,10 +94,11 @@
     "description": "A normal humanoid body, almost in its decaying state.",
     "special_attacks": [
       { "type": "bite", "cooldown": 25 },
-      [ "GRAB", 3 ],
+      { "id": "grab", "cooldown": 3 },
       [ "scratch", 32 ],
       [ "secro_swarmerzed_bite_weak", 10 ],
-      [ "GRAB_DRAG", 40 ]
+      { "id": "grab_drag", "cooldown": 40 },
+      { "id": "drag_followup" }
     ],
     "upgrades": {
       "half_life": 1,
@@ -117,10 +120,11 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 3 } ],
     "special_attacks": [
       { "type": "bite", "cooldown": 23 },
-      [ "GRAB", 3 ],
+      { "id": "grab", "cooldown": 3 },
       [ "scratch", 30 ],
       [ "secro_swarmerzed_bite_mode", 10 ],
-      [ "GRAB_DRAG", 34 ]
+      { "id": "grab_drag", "cooldown": 34 },
+      { "id": "drag_followup" }
     ],
     "upgrades": { "half_life": 11, "into": "mon_zombie_swarmer_strong" }
   },
@@ -138,10 +142,11 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 3 } ],
     "special_attacks": [
       { "type": "bite", "cooldown": 21 },
-      [ "GRAB", 3 ],
+      { "id": "grab", "cooldown": 3 },
       [ "scratch", 28 ],
       [ "secro_swarmerzed_bite_stro", 10 ],
-      [ "GRAB_DRAG", 30 ]
+      { "id": "grab_drag", "cooldown": 30 },
+      { "id": "drag_followup" }
     ],
     "upgrades": { "half_life": 13, "into": "mon_zombie_swarmer_evo_hungry" }
   },
@@ -161,10 +166,11 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 4 } ],
     "special_attacks": [
       { "type": "bite", "cooldown": 19 },
-      [ "GRAB", 2 ],
+      { "id": "grab", "cooldown": 2 },
       [ "scratch", 26 ],
       [ "secro_swarmerzed_bite_vstro", 10 ],
-      [ "GRAB_DRAG", 26 ]
+      { "id": "grab_drag", "cooldown": 26 },
+      { "id": "drag_followup" }
     ],
     "upgrades": { "half_life": 16, "into": "mon_zombie_swarmer_evo_starving" }
   },
@@ -184,10 +190,11 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 4 } ],
     "special_attacks": [
       { "type": "bite", "cooldown": 17 },
-      [ "GRAB", 2 ],
+      { "id": "grab", "cooldown": 2 },
       [ "scratch", 24 ],
       [ "secro_swarmerzed_bite_vstro", 10 ],
-      [ "GRAB_DRAG", 20 ]
+      { "id": "grab_drag", "cooldown": 20 },
+      { "id": "drag_followup" }
     ],
     "upgrades": { "half_life": 10, "into_group": "GROUP_EZTARVING_UPGRADE" }
   },
@@ -229,6 +236,6 @@
     "melee_dice": 4,
     "melee_dice_sides": 6,
     "melee_damage": [ { "damage_type": "cut", "amount": 2 } ],
-    "special_attacks": [ { "type": "bite", "cooldown": 10 }, [ "scratch", 15 ], [ "GRAB_DRAG", 2 ] ]
+    "special_attacks": [ { "type": "bite", "cooldown": 10 }, [ "scratch", 15 ], { "id": "grab_drag", "cooldown": 2 }, { "id": "drag_followup" } ]
   }
 ]
