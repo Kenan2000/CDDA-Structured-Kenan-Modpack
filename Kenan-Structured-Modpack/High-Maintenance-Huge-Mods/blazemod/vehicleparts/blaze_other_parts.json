@@ -3,11 +3,9 @@
     "type": "vehicle_part",
     "id": "cargo_rack_extended",
     "name": { "str": "cargo shelving" },
-    "symbol": "=",
     "looks_like": "box",
     "categories": [ "cargo" ],
     "color": "light_gray",
-    "broken_symbol": "#",
     "broken_color": "dark_gray",
     "durability": 250,
     "size": 4000,
@@ -24,7 +22,8 @@
       { "item": "steel_chunk", "count": [ 6, 16 ] },
       { "item": "scrap", "count": [ 6, 16 ] }
     ],
-    "damage_reduction": { "all": 28 }
+    "damage_reduction": { "all": 28 },
+    "variants": [ { "symbols": "=", "symbols_broken": "#" } ]
   },
   {
     "id": "solar_array_part",
@@ -32,8 +31,7 @@
     "name": { "str": "solar array" },
     "item": "solar_array",
     "location": "structure",
-    "symbol": "#",
-    "broken_symbol": "x",
+    "variants": [ { "symbols": "#", "symbols_broken": "x" } ],
     "categories": [ "energy" ],
     "color": "yellow",
     "broken_color": "yellow",
@@ -148,8 +146,7 @@
     "name": { "str": "wiring" },
     "item": "wire",
     "location": "structure",
-    "symbol": ".",
-    "broken_symbol": "#",
+    "variants": [ { "symbols": ".", "symbols_broken": "#" } ],
     "categories": [ "hull", "energy" ],
     "color": "white",
     "broken_color": "white",
@@ -171,8 +168,7 @@
     "//": "Keep away from Svarog detectors!",
     "item": "space_anomaly",
     "location": "center",
-    "symbol": "O",
-    "broken_symbol": "O",
+    "variants": [ { "symbols": "O", "symbols_broken": "O" } ],
     "color": "magenta",
     "broken_color": "magenta",
     "durability": 400,
@@ -254,10 +250,8 @@
     "type": "vehicle_part",
     "id": "afs_cooking_rig",
     "name": { "str": "cooking rig" },
-    "symbol": "&",
     "categories": [ "utility" ],
     "color": "blue",
-    "broken_symbol": "x",
     "broken_color": "blue",
     "looks_like": "kitchen_unit",
     "damage_modifier": 10,
@@ -289,16 +283,15 @@
       { "item": "chemistry_set", "charges": 0, "prob": 50 },
       { "item": "electrolysis_kit", "charges": 0, "prob": 50 },
       { "item": "hotplate", "charges": 0, "prob": 50 }
-    ]
+    ],
+    "variants": [ { "symbols": "&", "symbols_broken": "x" } ]
   },
   {
     "type": "vehicle_part",
     "id": "afs_kitchen_rig",
     "name": { "str": "KitchenMaster cooking buddy" },
-    "symbol": "&",
     "categories": [ "utility" ],
     "color": "yellow",
-    "broken_symbol": "x",
     "broken_color": "yellow",
     "looks_like": "kitchen_unit",
     "damage_modifier": 10,
@@ -341,6 +334,7 @@
       { "item": "dehydrator", "charges": 0, "prob": 50 },
       { "item": "food_processor", "charges": 0, "prob": 50 },
       { "item": "press", "prob": 50 }
-    ]
+    ],
+    "variants": [ { "symbols": "&", "symbols_broken": "x" } ]
   }
 ]
