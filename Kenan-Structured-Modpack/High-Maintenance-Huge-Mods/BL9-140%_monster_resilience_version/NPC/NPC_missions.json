@@ -31,42 +31,12 @@
   },
   {
     "type": "npc",
-    "id": "BL9_inhravtidius_hologram",
-    "name_unique": "BL9 Inhravtidius Laboratory Locator Hologram",
+    "id": "BL9_infested_facility_hologram",
+    "name_unique": "BL9 Infested Facility Locator Hologram",
     "class": "BL9_hologram_class",
     "attitude": 0,
     "mission": 7,
-    "chat": "TALK_BL9_INHRAVTIDIUS_HOLOGRAM",
-    "faction": "no_faction"
-  },
-  {
-    "type": "npc",
-    "id": "BL9_yengnutrium_hologram",
-    "name_unique": "BL9 Yengnutrium Cult Lair Locator Hologram",
-    "class": "BL9_hologram_class",
-    "attitude": 0,
-    "mission": 7,
-    "chat": "TALK_BL9_YENGNUTRIUM_HOLOGRAM",
-    "faction": "no_faction"
-  },
-  {
-    "type": "npc",
-    "id": "BL9_ulniviunite_hologram",
-    "name_unique": "BL9 Ulniviunite Factory Locator Hologram",
-    "class": "BL9_hologram_class",
-    "attitude": 0,
-    "mission": 7,
-    "chat": "TALK_BL9_ULNIVIUNITE_HOLOGRAM",
-    "faction": "no_faction"
-  },
-  {
-    "type": "npc",
-    "id": "BL9_ezrondium_hologram",
-    "name_unique": "BL9 Ezrondium Cult Dungeon Locator Hologram",
-    "class": "BL9_hologram_class",
-    "attitude": 0,
-    "mission": 7,
-    "chat": "TALK_BL9_EZRONDIUM_HOLOGRAM",
+    "chat": "TALK_BL9_INFESTED_FACILITY_HOLOGRAM",
     "faction": "no_faction"
   },
   {
@@ -131,42 +101,12 @@
   },
   {
     "type": "npc",
-    "id": "BL9_arganoides_hologram",
-    "name_unique": "BL9 Arganoides Mobile Base Locator Hologram",
+    "id": "BL9_alliance_base_hologram",
+    "name_unique": "BL9 Mobile Alliance Base Locator Hologram",
     "class": "BL9_hologram_class",
     "attitude": 0,
     "mission": 7,
-    "chat": "TALK_BL9_ARGANOIDES_HOLOGRAM",
-    "faction": "no_faction"
-  },
-  {
-    "type": "npc",
-    "id": "BL9_wanzeltiums_hologram",
-    "name_unique": "BL9 Wanzeltiums Mobile Base Locator Hologram",
-    "class": "BL9_hologram_class",
-    "attitude": 0,
-    "mission": 7,
-    "chat": "TALK_BL9_WANZELTIUMS_HOLOGRAM",
-    "faction": "no_faction"
-  },
-  {
-    "type": "npc",
-    "id": "BL9_davranides_hologram",
-    "name_unique": "BL9 Davranides Mobile Base Locator Hologram",
-    "class": "BL9_hologram_class",
-    "attitude": 0,
-    "mission": 7,
-    "chat": "TALK_BL9_DAVRANIDES_HOLOGRAM",
-    "faction": "no_faction"
-  },
-  {
-    "type": "npc",
-    "id": "BL9_saldeniums_hologram",
-    "name_unique": "BL9 Saldeniums Mobile Base Locator Hologram",
-    "class": "BL9_hologram_class",
-    "attitude": 0,
-    "mission": 7,
-    "chat": "TALK_BL9_SALDENIUMS_HOLOGRAM",
+    "chat": "TALK_BL9_ALLIANCE_BASE_HOLOGRAM",
     "faction": "no_faction"
   },
   {
@@ -200,91 +140,21 @@
     }
   },
   {
-    "id": "MISSION_BL9_INHRAVTIDIUS",
+    "id": "MISSION_BL9_INFESTED_FACILITY",
     "type": "mission_definition",
-    "name": { "str": "Go to Inhravtidius Laboratory" },
-    "description": "Go to Inhravtidius Laboratory",
+    "name": { "str": "Go to Infested Facility" },
+    "description": "Go to Infested Facility",
     "goal": "MGOAL_GO_TO_TYPE",
-    "destination": "BL9_anomaly_lab1",
+    "destination": "BL9_anomaly_infested_facility1",
     "difficulty": 3,
     "value": 368000,
     "start": {
-      "assign_mission_target": { "om_terrain": "BL9_anomaly_lab1", "reveal_radius": 5, "om_special": "BL9_inhrav_anomaly", "search_range": 368 }
-    },
-    "origins": [ "ORIGIN_OPENER_NPC" ],
-    "dialogue": {
-      "describe": "You want me to find this location for you to explore? Sure, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "offer": "You want me to locate it now for you to explore? Sure, just tell me, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "accepted": "Good luck to you!",
-      "rejected": "Not interested in explorations of new locations? No rush hopefully. You can come back to me later. I'm sure that you will. Because I believe that you are not a boring person",
-      "advice": "Use your wits for your own safety hopefully as well",
-      "inquire": "Have you went to this location that I have found for you to explore?",
-      "success": "Good work!",
-      "success_lie": "What's the point of lying to me? You think I'm gonna reward you? Your rewards for this mission is valuable for you items or living creatures or other survivors you manage to find in this location which I have found for you to explore",
-      "failure": "You are a boring, lazy person honestly. I guess that laziness applies to both of us"
-    }
-  },
-  {
-    "id": "MISSION_BL9_YENGNUTRIUM",
-    "type": "mission_definition",
-    "name": { "str": "Go to Yengnutrium Cult Lair" },
-    "description": "Go to Yengnutrium Cult Lair",
-    "goal": "MGOAL_GO_TO_TYPE",
-    "destination": "BL9_anomaly_cultlair1",
-    "difficulty": 3,
-    "value": 368000,
-    "start": {
-      "assign_mission_target": { "om_terrain": "BL9_anomaly_cultlair1", "reveal_radius": 5, "om_special": "BL9_yengn_anomaly", "search_range": 368 }
-    },
-    "origins": [ "ORIGIN_OPENER_NPC" ],
-    "dialogue": {
-      "describe": "You want me to find this location for you to explore? Sure, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "offer": "You want me to locate it now for you to explore? Sure, just tell me, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "accepted": "Good luck to you!",
-      "rejected": "Not interested in explorations of new locations? No rush hopefully. You can come back to me later. I'm sure that you will. Because I believe that you are not a boring person",
-      "advice": "Use your wits for your own safety hopefully as well",
-      "inquire": "Have you went to this location that I have found for you to explore?",
-      "success": "Good work!",
-      "success_lie": "What's the point of lying to me? You think I'm gonna reward you? Your rewards for this mission is valuable for you items or living creatures or other survivors you manage to find in this location which I have found for you to explore",
-      "failure": "You are a boring, lazy person honestly. I guess that laziness applies to both of us"
-    }
-  },
-  {
-    "id": "MISSION_BL9_ULNIVIUNITE",
-    "type": "mission_definition",
-    "name": { "str": "Go to Ulniviunite Factory" },
-    "description": "Go to Ulniviunite Factory",
-    "goal": "MGOAL_GO_TO_TYPE",
-    "destination": "BL9_anomaly_factory1",
-    "difficulty": 3,
-    "value": 368000,
-    "start": {
-      "assign_mission_target": { "om_terrain": "BL9_anomaly_factory1", "reveal_radius": 5, "om_special": "BL9_ulniv_anomaly", "search_range": 368 }
-    },
-    "origins": [ "ORIGIN_OPENER_NPC" ],
-    "dialogue": {
-      "describe": "You want me to find this location for you to explore? Sure, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "offer": "You want me to locate it now for you to explore? Sure, just tell me, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "accepted": "Good luck to you!",
-      "rejected": "Not interested in explorations of new locations? No rush hopefully. You can come back to me later. I'm sure that you will. Because I believe that you are not a boring person",
-      "advice": "Use your wits for your own safety hopefully as well",
-      "inquire": "Have you went to this location that I have found for you to explore?",
-      "success": "Good work!",
-      "success_lie": "What's the point of lying to me? You think I'm gonna reward you? Your rewards for this mission is valuable for you items or living creatures or other survivors you manage to find in this location which I have found for you to explore",
-      "failure": "You are a boring, lazy person honestly. I guess that laziness applies to both of us"
-    }
-  },
-  {
-    "id": "MISSION_BL9_EZRONDIUM",
-    "type": "mission_definition",
-    "name": { "str": "Go to Ezrondium Cult Dungeon" },
-    "description": "Go to Ezrondium Cult Dungeon",
-    "goal": "MGOAL_GO_TO_TYPE",
-    "destination": "BL9_anomaly_cultdungeon1",
-    "difficulty": 3,
-    "value": 368000,
-    "start": {
-      "assign_mission_target": { "om_terrain": "BL9_anomaly_cultdungeon1", "reveal_radius": 5, "om_special": "BL9_ezron_anomaly", "search_range": 368 }
+      "assign_mission_target": {
+        "om_terrain": "BL9_anomaly_infested_facility1",
+        "reveal_radius": 5,
+        "om_special": "BL9_facility_anomaly",
+        "search_range": 368
+      }
     },
     "origins": [ "ORIGIN_OPENER_NPC" ],
     "dialogue": {
@@ -475,91 +345,21 @@
     }
   },
   {
-    "id": "MISSION_BL9_ARGANOIDES",
+    "id": "MISSION_BL9_ALLIANCE_BASE",
     "type": "mission_definition",
-    "name": { "str": "Go to Arganoides Mobile Base" },
-    "description": "Go to Arganoides Mobile Base",
+    "name": { "str": "Go to Mobile Alliance Base" },
+    "description": "Go to Mobile Alliance Base",
     "goal": "MGOAL_GO_TO_TYPE",
-    "destination": "BL9_anomaly_argan1",
+    "destination": "BL9_anomaly_mobile_alliance_base1",
     "difficulty": 5,
     "value": 368000,
     "start": {
-      "assign_mission_target": { "om_terrain": "BL9_anomaly_argan1", "reveal_radius": 5, "om_special": "BL9_domain_argan", "search_range": 368 }
-    },
-    "origins": [ "ORIGIN_OPENER_NPC" ],
-    "dialogue": {
-      "describe": "You want me to find this location for you to explore? Sure, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "offer": "You want me to locate it now for you to explore? Sure, just tell me, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "accepted": "Good luck to you!",
-      "rejected": "Not interested in explorations of new locations? No rush hopefully. You can come back to me later. I'm sure that you will. Because I believe that you are not a boring person",
-      "advice": "Use your wits for your own safety hopefully as well",
-      "inquire": "Have you went to this location that I have found for you to explore?",
-      "success": "Good work!",
-      "success_lie": "What's the point of lying to me? You think I'm gonna reward you? Your rewards for this mission is valuable for you items or living creatures or other survivors you manage to find in this location which I have found for you to explore",
-      "failure": "You are a boring, lazy person honestly. I guess that laziness applies to both of us"
-    }
-  },
-  {
-    "id": "MISSION_BL9_WANZELTIUMS",
-    "type": "mission_definition",
-    "name": { "str": "Go to Wanzeltiums Mobile Base" },
-    "description": "Go to Wanzeltiums Mobile Base",
-    "goal": "MGOAL_GO_TO_TYPE",
-    "destination": "BL9_anomaly_wanzel1",
-    "difficulty": 5,
-    "value": 368000,
-    "start": {
-      "assign_mission_target": { "om_terrain": "BL9_anomaly_wanzel1", "reveal_radius": 5, "om_special": "BL9_domain_wanzel", "search_range": 368 }
-    },
-    "origins": [ "ORIGIN_OPENER_NPC" ],
-    "dialogue": {
-      "describe": "You want me to find this location for you to explore? Sure, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "offer": "You want me to locate it now for you to explore? Sure, just tell me, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "accepted": "Good luck to you!",
-      "rejected": "Not interested in explorations of new locations? No rush hopefully. You can come back to me later. I'm sure that you will. Because I believe that you are not a boring person",
-      "advice": "Use your wits for your own safety hopefully as well",
-      "inquire": "Have you went to this location that I have found for you to explore?",
-      "success": "Good work!",
-      "success_lie": "What's the point of lying to me? You think I'm gonna reward you? Your rewards for this mission is valuable for you items or living creatures or other survivors you manage to find in this location which I have found for you to explore",
-      "failure": "You are a boring, lazy person honestly. I guess that laziness applies to both of us"
-    }
-  },
-  {
-    "id": "MISSION_BL9_DAVRANIDES",
-    "type": "mission_definition",
-    "name": { "str": "Go to Davranides Mobile Base" },
-    "description": "Go to Davranides Mobile Base",
-    "goal": "MGOAL_GO_TO_TYPE",
-    "destination": "BL9_anomaly_davran1",
-    "difficulty": 5,
-    "value": 368000,
-    "start": {
-      "assign_mission_target": { "om_terrain": "BL9_anomaly_davran1", "reveal_radius": 5, "om_special": "BL9_domain_davran", "search_range": 368 }
-    },
-    "origins": [ "ORIGIN_OPENER_NPC" ],
-    "dialogue": {
-      "describe": "You want me to find this location for you to explore? Sure, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "offer": "You want me to locate it now for you to explore? Sure, just tell me, you will just need to wait for a couple of minutes or less for me to find it via my network system",
-      "accepted": "Good luck to you!",
-      "rejected": "Not interested in explorations of new locations? No rush hopefully. You can come back to me later. I'm sure that you will. Because I believe that you are not a boring person",
-      "advice": "Use your wits for your own safety hopefully as well",
-      "inquire": "Have you went to this location that I have found for you to explore?",
-      "success": "Good work!",
-      "success_lie": "What's the point of lying to me? You think I'm gonna reward you? Your rewards for this mission is valuable for you items or living creatures or other survivors you manage to find in this location which I have found for you to explore",
-      "failure": "You are a boring, lazy person honestly. I guess that laziness applies to both of us"
-    }
-  },
-  {
-    "id": "MISSION_BL9_SALDENIUMS",
-    "type": "mission_definition",
-    "name": { "str": "Go to Saldeniums Mobile Base" },
-    "description": "Go to Saldeniums Mobile Base",
-    "goal": "MGOAL_GO_TO_TYPE",
-    "destination": "BL9_anomaly_salden1",
-    "difficulty": 5,
-    "value": 368000,
-    "start": {
-      "assign_mission_target": { "om_terrain": "BL9_anomaly_salden1", "reveal_radius": 5, "om_special": "BL9_domain_salden", "search_range": 368 }
+      "assign_mission_target": {
+        "om_terrain": "BL9_anomaly_mobile_alliance_base1",
+        "reveal_radius": 5,
+        "om_special": "BL9_alliance_base",
+        "search_range": 368
+      }
     },
     "origins": [ "ORIGIN_OPENER_NPC" ],
     "dialogue": {
@@ -605,14 +405,14 @@
     "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_CASTLE_HOLOGRAM" } ]
   },
   {
-    "id": "TALK_BL9_INHRAVTIDIUS_HOLOGRAM",
+    "id": "TALK_BL9_INFESTED_FACILITY_HOLOGRAM",
     "type": "talk_topic",
     "dynamic_line": "System is online. Initiate conversation mode. Look at that. Survivor has managed to activate a hologram projector easily! Yeah, my creators know many types of you who don't even read what's written on items honestly. Good that you seem like a pretty intelligent person hopefully. So, do you want me to show you where this location is via my network system? I can grant you access to archived global network system which my creators have managed to restore. However, after usage I will need to recharge a little bit which only means that you will need to wait to use this function again hopefully",
     "responses": [
       {
         "text": "[MISSIONS] I want you to find this location for me to explore it hopefully via your network system",
-        "topic": "TALK_BL9_INHRAVTIDIUS_HOLOGRAM_MISSION",
-        "effect": { "add_mission": "MISSION_BL9_INHRAVTIDIUS" }
+        "topic": "TALK_BL9_INFESTED_FACILITY_HOLOGRAM_MISSION",
+        "effect": { "add_mission": "MISSION_BL9_INFESTED_FACILITY" }
       },
       { "text": "Who or what are you?", "topic": "TALK_BL9_HOLOGRAM_1" },
       {
@@ -629,100 +429,10 @@
     ]
   },
   {
-    "id": "TALK_BL9_INHRAVTIDIUS_HOLOGRAM_MISSION",
+    "id": "TALK_BL9_INFESTED_FACILITY_HOLOGRAM_MISSION",
     "type": "talk_topic",
     "dynamic_line": "Initiate search mode. Please, wait for a couple of minutes or less. You've heard me clearly. Still, we have limitations with regards to our locating tools. If locator does not manage to find this location then simply create another hologram locator of which can find this location successfully",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_INHRAVTIDIUS_HOLOGRAM" } ]
-  },
-  {
-    "id": "TALK_BL9_YENGNUTRIUM_HOLOGRAM",
-    "type": "talk_topic",
-    "dynamic_line": "System is online. Initiate conversation mode. Look at that. Survivor has managed to activate a hologram projector easily! Yeah, my creators know many types of you who don't even read what's written on items honestly. Good that you seem like a pretty intelligent person hopefully. So, do you want me to show you where this location is via my network system? I can grant you access to archived global network system which my creators have managed to restore. However, after usage I will need to recharge a little bit which only means that you will need to wait to use this function again hopefully",
-    "responses": [
-      {
-        "text": "[MISSIONS] I want you to find this location for me to explore it hopefully via your network system",
-        "topic": "TALK_BL9_YENGNUTRIUM_HOLOGRAM_MISSION",
-        "effect": { "add_mission": "MISSION_BL9_YENGNUTRIUM" }
-      },
-      { "text": "Who or what are you?", "topic": "TALK_BL9_HOLOGRAM_1" },
-      {
-        "text": "Who are your creators? What is the purpose of producing these projectors?",
-        "topic": "TALK_BL9_HOLOGRAM_2"
-      },
-      {
-        "text": "[IMPROVE MOOD] I want you to grant me access to archived global network system",
-        "topic": "TALK_BL9_HOLOGRAM_3",
-        "condition": { "not": { "npc_has_effect": "asked_to_socialize" } }
-      },
-      { "text": "About that mission...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "[GOODBYE]", "topic": "TALK_BL9_HOLOGRAM_GOODBYE" }
-    ]
-  },
-  {
-    "id": "TALK_BL9_YENGNUTRIUM_HOLOGRAM_MISSION",
-    "type": "talk_topic",
-    "dynamic_line": "Initiate search mode. Please, wait for a couple of minutes or less. You've heard me clearly. Still, we have limitations with regards to our locating tools. If locator does not manage to find this location then simply create another hologram locator of which can find this location successfully",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_YENGNUTRIUM_HOLOGRAM" } ]
-  },
-  {
-    "id": "TALK_BL9_ULNIVIUNITE_HOLOGRAM",
-    "type": "talk_topic",
-    "dynamic_line": "System is online. Initiate conversation mode. Look at that. Survivor has managed to activate a hologram projector easily! Yeah, my creators know many types of you who don't even read what's written on items honestly. Good that you seem like a pretty intelligent person hopefully. So, do you want me to show you where this location is via my network system? I can grant you access to archived global network system which my creators have managed to restore. However, after usage I will need to recharge a little bit which only means that you will need to wait to use this function again hopefully",
-    "responses": [
-      {
-        "text": "[MISSIONS] I want you to find this location for me to explore it hopefully via your network system",
-        "topic": "TALK_BL9_ULNIVIUNITE_HOLOGRAM_MISSION",
-        "effect": { "add_mission": "MISSION_BL9_YENGNUTRIUM" }
-      },
-      { "text": "Who or what are you?", "topic": "TALK_BL9_HOLOGRAM_1" },
-      {
-        "text": "Who are your creators? What is the purpose of producing these projectors?",
-        "topic": "TALK_BL9_HOLOGRAM_2"
-      },
-      {
-        "text": "[IMPROVE MOOD] I want you to grant me access to archived global network system",
-        "topic": "TALK_BL9_HOLOGRAM_3",
-        "condition": { "not": { "npc_has_effect": "asked_to_socialize" } }
-      },
-      { "text": "About that mission...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "[GOODBYE]", "topic": "TALK_BL9_HOLOGRAM_GOODBYE" }
-    ]
-  },
-  {
-    "id": "TALK_BL9_ULNIVIUNITE_HOLOGRAM_MISSION",
-    "type": "talk_topic",
-    "dynamic_line": "Initiate search mode. Please, wait for a couple of minutes or less. You've heard me clearly. Still, we have limitations with regards to our locating tools. If locator does not manage to find this location then simply create another hologram locator of which can find this location successfully",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_ULNIVIUNITE_HOLOGRAM" } ]
-  },
-  {
-    "id": "TALK_BL9_EZRONDIUM_HOLOGRAM",
-    "type": "talk_topic",
-    "dynamic_line": "System is online. Initiate conversation mode. Look at that. Survivor has managed to activate a hologram projector easily! Yeah, my creators know many types of you who don't even read what's written on items honestly. Good that you seem like a pretty intelligent person hopefully. So, do you want me to show you where this location is via my network system? I can grant you access to archived global network system which my creators have managed to restore. However, after usage I will need to recharge a little bit which only means that you will need to wait to use this function again hopefully",
-    "responses": [
-      {
-        "text": "[MISSIONS] I want you to find this location for me to explore it hopefully via your network system",
-        "topic": "TALK_BL9_EZRONDIUM_HOLOGRAM_MISSION",
-        "effect": { "add_mission": "MISSION_BL9_EZRONDIUM" }
-      },
-      { "text": "Who or what are you?", "topic": "TALK_BL9_HOLOGRAM_1" },
-      {
-        "text": "Who are your creators? What is the purpose of producing these projectors?",
-        "topic": "TALK_BL9_HOLOGRAM_2"
-      },
-      {
-        "text": "[IMPROVE MOOD] I want you to grant me access to archived global network system",
-        "topic": "TALK_BL9_HOLOGRAM_3",
-        "condition": { "not": { "npc_has_effect": "asked_to_socialize" } }
-      },
-      { "text": "About that mission...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "[GOODBYE]", "topic": "TALK_BL9_HOLOGRAM_GOODBYE" }
-    ]
-  },
-  {
-    "id": "TALK_BL9_EZRONDIUM_HOLOGRAM_MISSION",
-    "type": "talk_topic",
-    "dynamic_line": "Initiate search mode. Please, wait for a couple of minutes or less. You've heard me clearly. Still, we have limitations with regards to our locating tools. If locator does not manage to find this location then simply create another hologram locator of which can find this location successfully",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_EZRONDIUM_HOLOGRAM" } ]
+    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_INFESTED_FACILITY_HOLOGRAM" } ]
   },
   {
     "id": "TALK_BL9_ISLAND_HOLOGRAM",
@@ -905,14 +615,14 @@
     "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_MOLTEN_CAVES_HOLOGRAM" } ]
   },
   {
-    "id": "TALK_BL9_ARGANOIDES_HOLOGRAM",
+    "id": "TALK_BL9_ALLIANCE_BASE_HOLOGRAM",
     "type": "talk_topic",
     "dynamic_line": "System is online. Initiate conversation mode. Look at that. Survivor has managed to activate a hologram projector easily! Yeah, my creators know many types of you who don't even read what's written on items honestly. Good that you seem like a pretty intelligent person hopefully. So, do you want me to show you where this location is via my network system? I can grant you access to archived global network system which my creators have managed to restore. However, after usage I will need to recharge a little bit which only means that you will need to wait to use this function again hopefully",
     "responses": [
       {
         "text": "[MISSIONS] I want you to find this location for me to explore it hopefully via your network system",
-        "topic": "TALK_BL9_ARGANOIDES_HOLOGRAM_MISSION",
-        "effect": { "add_mission": "MISSION_BL9_ARGANOIDES" }
+        "topic": "TALK_BL9_ALLIANCE_BASE_HOLOGRAM_MISSION",
+        "effect": { "add_mission": "MISSION_BL9_ALLIANCE_BASE" }
       },
       { "text": "Who or what are you?", "topic": "TALK_BL9_HOLOGRAM_1" },
       {
@@ -929,100 +639,10 @@
     ]
   },
   {
-    "id": "TALK_BL9_ARGANOIDES_HOLOGRAM_MISSION",
+    "id": "TALK_BL9_ALLIANCE_BASE_HOLOGRAM_MISSION",
     "type": "talk_topic",
     "dynamic_line": "Initiate search mode. Please, wait for a couple of minutes or less. You've heard me clearly. Still, we have limitations with regards to our locating tools. If locator does not manage to find this location then simply create another hologram locator of which can find this location successfully",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_ARGANOIDES_HOLOGRAM" } ]
-  },
-  {
-    "id": "TALK_BL9_WANZELTIUMS_HOLOGRAM",
-    "type": "talk_topic",
-    "dynamic_line": "System is online. Initiate conversation mode. Look at that. Survivor has managed to activate a hologram projector easily! Yeah, my creators know many types of you who don't even read what's written on items honestly. Good that you seem like a pretty intelligent person hopefully. So, do you want me to show you where this location is via my network system? I can grant you access to archived global network system which my creators have managed to restore. However, after usage I will need to recharge a little bit which only means that you will need to wait to use this function again hopefully",
-    "responses": [
-      {
-        "text": "[MISSIONS] I want you to find this location for me to explore it hopefully via your network system",
-        "topic": "TALK_BL9_WANZELTIUMS_HOLOGRAM_MISSION",
-        "effect": { "add_mission": "MISSION_BL9_WANZELTIUMS" }
-      },
-      { "text": "Who or what are you?", "topic": "TALK_BL9_HOLOGRAM_1" },
-      {
-        "text": "Who are your creators? What is the purpose of producing these projectors?",
-        "topic": "TALK_BL9_HOLOGRAM_2"
-      },
-      {
-        "text": "[IMPROVE MOOD] I want you to grant me access to archived global network system",
-        "topic": "TALK_BL9_HOLOGRAM_3",
-        "condition": { "not": { "npc_has_effect": "asked_to_socialize" } }
-      },
-      { "text": "About that mission...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "[GOODBYE]", "topic": "TALK_BL9_HOLOGRAM_GOODBYE" }
-    ]
-  },
-  {
-    "id": "TALK_BL9_WANZELTIUMS_HOLOGRAM_MISSION",
-    "type": "talk_topic",
-    "dynamic_line": "Initiate search mode. Please, wait for a couple of minutes or less. You've heard me clearly. Still, we have limitations with regards to our locating tools. If locator does not manage to find this location then simply create another hologram locator of which can find this location successfully",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_WANZELTIUMS_HOLOGRAM" } ]
-  },
-  {
-    "id": "TALK_BL9_DAVRANIDES_HOLOGRAM",
-    "type": "talk_topic",
-    "dynamic_line": "System is online. Initiate conversation mode. Look at that. Survivor has managed to activate a hologram projector easily! Yeah, my creators know many types of you who don't even read what's written on items honestly. Good that you seem like a pretty intelligent person hopefully. So, do you want me to show you where this location is via my network system? I can grant you access to archived global network system which my creators have managed to restore. However, after usage I will need to recharge a little bit which only means that you will need to wait to use this function again hopefully",
-    "responses": [
-      {
-        "text": "[MISSIONS] I want you to find this location for me to explore it hopefully via your network system",
-        "topic": "TALK_BL9_DAVRANIDES_HOLOGRAM_MISSION",
-        "effect": { "add_mission": "MISSION_BL9_DAVRANIDES" }
-      },
-      { "text": "Who or what are you?", "topic": "TALK_BL9_HOLOGRAM_1" },
-      {
-        "text": "Who are your creators? What is the purpose of producing these projectors?",
-        "topic": "TALK_BL9_HOLOGRAM_2"
-      },
-      {
-        "text": "[IMPROVE MOOD] I want you to grant me access to archived global network system",
-        "topic": "TALK_BL9_HOLOGRAM_3",
-        "condition": { "not": { "npc_has_effect": "asked_to_socialize" } }
-      },
-      { "text": "About that mission...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "[GOODBYE]", "topic": "TALK_BL9_HOLOGRAM_GOODBYE" }
-    ]
-  },
-  {
-    "id": "TALK_BL9_DAVRANIDES_HOLOGRAM_MISSION",
-    "type": "talk_topic",
-    "dynamic_line": "Initiate search mode. Please, wait for a couple of minutes or less. You've heard me clearly. Still, we have limitations with regards to our locating tools. If locator does not manage to find this location then simply create another hologram locator of which can find this location successfully",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_DAVRANIDES_HOLOGRAM" } ]
-  },
-  {
-    "id": "TALK_BL9_SALDENIUMS_HOLOGRAM",
-    "type": "talk_topic",
-    "dynamic_line": "System is online. Initiate conversation mode. Look at that. Survivor has managed to activate a hologram projector easily! Yeah, my creators know many types of you who don't even read what's written on items honestly. Good that you seem like a pretty intelligent person hopefully. So, do you want me to show you where this location is via my network system? I can grant you access to archived global network system which my creators have managed to restore. However, after usage I will need to recharge a little bit which only means that you will need to wait to use this function again hopefully",
-    "responses": [
-      {
-        "text": "[MISSIONS] I want you to find this location for me to explore it hopefully via your network system",
-        "topic": "TALK_BL9_SALDENIUMS_HOLOGRAM_MISSION",
-        "effect": { "add_mission": "MISSION_BL9_SALDENIUMS" }
-      },
-      { "text": "Who or what are you?", "topic": "TALK_BL9_HOLOGRAM_1" },
-      {
-        "text": "Who are your creators? What is the purpose of producing these projectors?",
-        "topic": "TALK_BL9_HOLOGRAM_2"
-      },
-      {
-        "text": "[IMPROVE MOOD] I want you to grant me access to archived global network system",
-        "topic": "TALK_BL9_HOLOGRAM_3",
-        "condition": { "not": { "npc_has_effect": "asked_to_socialize" } }
-      },
-      { "text": "About that mission...", "topic": "TALK_MISSION_INQUIRE", "condition": "has_assigned_mission" },
-      { "text": "[GOODBYE]", "topic": "TALK_BL9_HOLOGRAM_GOODBYE" }
-    ]
-  },
-  {
-    "id": "TALK_BL9_SALDENIUMS_HOLOGRAM_MISSION",
-    "type": "talk_topic",
-    "dynamic_line": "Initiate search mode. Please, wait for a couple of minutes or less. You've heard me clearly. Still, we have limitations with regards to our locating tools. If locator does not manage to find this location then simply create another hologram locator of which can find this location successfully",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_SALDENIUMS_HOLOGRAM" } ]
+    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_ALLIANCE_BASE_HOLOGRAM" } ]
   },
   {
     "id": "TALK_BL9_HOLOGRAM_GOODBYE",

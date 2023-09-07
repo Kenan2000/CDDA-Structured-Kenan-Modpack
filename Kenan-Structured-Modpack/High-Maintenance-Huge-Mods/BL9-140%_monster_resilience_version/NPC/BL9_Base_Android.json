@@ -8,7 +8,7 @@
       "context": "lifehope",
       "value": "yes",
       "yes": "Welcome to BL9 Safety Base, survivor of hope in life, you don't mind if I call you like this? All systems are online, Energy Shield works exactly as my masters, as we have all, hoped for, thanks to your work! If inhabitants decide to go outside, shield will be deactivated for a split second then turned on again. If inhabitants decide to go back here, scanners, installed near entrance, will scan them, if they are former inhabitants, inhabitants will be able to go back here, shield will be deactivated for split second then turned back on again. My masters ordered me to advise you to make this your permanent, safe home here. Make a family, bring your love here, have children, adopt children, live as a civilization hopefully as well",
-      "no": "Welcome to BL9 Safety Base, I am a control Android. We are built with a purpose to ensure safe work of all systems in BL9 Safety Bases. If you are new here, I suggest you to access my storage system with intel along with journals in order to learn as much information as possible about essentially everything related to BL9, which has been collected by my masters, this is a must. If you are already experienced, know what our main goals are, feel free to ask me questions that you have"
+      "no": "Welcome to BL9 Safety Base, I am a control Android. We are one system of multiple control machines connected via a network. We are built with a purpose to ensure safe work of all systems in BL9 Safety Bases. If you are new here, I suggest you to access my storage system with intel along with journals in order to learn as much information as possible about essentially everything related to BL9, which has been collected by my masters, this is a must. If you are already experienced, know what our main goals are, feel free to ask me questions that you have"
     },
     "responses": [
       {
@@ -32,21 +32,14 @@
   {
     "id": "TALK_BL9_BASE_ANDROID1",
     "type": "talk_topic",
-    "dynamic_line": "Have you managed to acquire 4 pieces of 'Alliance' tech, required to activate our Shield Generator?",
+    "dynamic_line": "Have you managed to acquire Shield Generator?",
     "responses": [
       {
-        "text": "I have managed to acquire all 4 of them, activate Shield Generator now",
+        "text": "I have managed to acquire Shield Generator, activate Shield Generator now",
         "topic": "TALK_BL9_BASE_ANDROID1_1",
-        "condition": {
-          "and": [
-            { "u_has_item": "BL9_argan_tech" },
-            { "u_has_item": "BL9_wanzel_tech" },
-            { "u_has_item": "BL9_davran_tech" },
-            { "u_has_item": "BL9_salden_tech" }
-          ]
-        }
+        "condition": { "u_has_item": "BL9_shield_generator" }
       },
-      { "text": "I have not collected them all yet", "topic": "TALK_BL9_BASE_ANDROID1_2" },
+      { "text": "I have not acquired Shield Generator yet", "topic": "TALK_BL9_BASE_ANDROID1_2" },
       { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" }
     ]
   },
@@ -256,7 +249,7 @@
   {
     "id": "TALK_BL9_BASE_ANDROID3_ALLIANCE_MOTIVES",
     "type": "talk_topic",
-    "dynamic_line": "Initiate fancy reading mode. It's an alliance of alien invaders. These are 4 advanced alien civilizations, Arganoides, Wanzeltiums, Davranides, Saldeniums. Their main reason of allying is supporting each other for successful survival on ravaged Earth, considering presence of all these hostile creatures here. Most important thing to them is BL9, they are obsessed with it, they seek it diligently.\n \n    They've learned, thanks to Davranides' research, that alien symbiotes are capable of granting their hosts incredible abilities. They've learned that BL9 is incredibly advanced, capable of being greatly modified. They've somehow learned that it is present on Earth, likely with their spy drones or portal spy teams, this is why they're here as well",
+    "dynamic_line": "Initiate fancy reading mode. It's an alliance of alien invaders. These are 3 of them, Arganoides, Wanzeltiums, Davranides alien civilizations. There was one more, Saldeniums alien civilization, but they were too bloodthirsty to build mutually beneficial relations with someone so they were disposed of thanks to combined effort of other alien invaders alliance members which are definitely much more civilized. Their main reason of allying is supporting each other for successful survival on ravaged Earth, considering presence of all these hostile creatures here. Most important thing to them is BL9, they are obsessed with it, they seek it diligently.\n \n    They've learned, thanks to Davranides' research, that alien symbiotes are capable of granting their hosts incredible abilities. They've learned that BL9 is incredibly advanced, capable of being greatly modified. They've somehow learned that it is present on Earth, likely with their spy drones or portal spy teams, this is why they're here as well",
     "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
   },
   {
@@ -286,13 +279,13 @@
   {
     "id": "TALK_BL9_BASE_ANDROID3_ALLIANCE_SALDENIUMS",
     "type": "talk_topic",
-    "dynamic_line": "Initiate fancy reading mode. Well, Saldeniums are incredibly strong warriors, hunters, mercenaries in general. They are native to a volcanic barren wasteland-like planet. On their planet they wage wars, conquer tribes, hunt animals. In space they hunt people in cases of mercenaries, teach other combat, all of this is something that they are very proficient at.\n \n    They are tall leathery-skinned fierce-looking humanoids, emitting a bright solar-orange crystalline light. It's forehead is ridged, it's entire face is covered with multiple curved spikes and it's neck has some sorts of breathing tubes, their gaze is akin to a hunter as well",
+    "dynamic_line": "Initiate fancy reading mode. Well, Saldeniums are incredibly strong warriors, hunters, mercenaries in general. They are native to a volcanic barren wasteland-like planet. On their planet they wage wars, conquer tribes, hunt animals. In space they hunt people in cases of mercenaries, teach other combat, all of this is something that they are very proficient at.\n \n    Because of their savage ways, upon providing combat training to allies of theirs which was the main reason of them being accepted in first place, thanks to support of Arganoides along with pragmatism of Wanzeltiums along with devious ways of Davranides civilizations, they have been expelled from their alliance justly. They evidently objected, but having taught others everything, having no industry, having no less savage, more practical merits of their own, they've become a liability, thrown back to their own planet",
     "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_ALLIANCE_BL9_IMPORTANT",
     "type": "talk_topic",
-    "dynamic_line": "Initiate fancy reading mode. Honestly, Arganoides are interested mainly in using it as a high quality fuel for their spaceships, more efficient locating tech for acquiring rare valuable items. Wanzeltiums want to use it for creating more durable and unique building materials, improving their existing tech and weapons via infusing it with BL9.\n \n    Davranides crave to significantly advance their existent mutation, splicing research in an attempt to make their race genetically superior via their own efforts. Saldeniums show interest in upgrading their armor and weapons with it, enhancing their current energy-based physically boosting accessories with BL9 to provide even greater strength to them, of course, creating BL9 monstrosities to instill fear into their enemies and conquer them",
+    "dynamic_line": "Initiate fancy reading mode. Honestly, Arganoides are interested mainly in using it as a high quality fuel for their spaceships, more efficient locating tech for acquiring rare valuable items. Wanzeltiums want to use it for creating more durable and unique building materials, improving their existing tech and weapons via infusing it with BL9.\n \n    Davranides crave to significantly advance their existent mutation, splicing research in an attempt to make their race genetically superior via their own efforts",
     "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
   },
   {
@@ -430,60 +423,42 @@
     "type": "talk_topic",
     "dynamic_line": "Initiate mimicking mode. Got a selection of good things to read, stranger!",
     "responses": [
+      { "text": "Let's read Military Partners first journal", "topic": "TALK_BL9_BASE_ANDROID3_MILPARTNERS_JOURNAL1" },
       {
-        "text": "Military partners romance? Mansion? 'That City' unsanctioned scientific research incident? 'That City' investigation then it's nuclear destruction? Conspiracy? This reminds me of video game fanfiction honestly. Let's read first journal",
-        "topic": "TALK_BL9_BASE_ANDROID3_MILPARTNERS_JOURNAL1"
-      },
-      {
-        "text": "Military partners romance? Mansion? 'That City' unsanctioned scientific research incident? 'That City' investigation then it's nuclear destruction? Conspiracy? This reminds me of video game fanfiction honestly. Let's read second journal",
+        "text": "Let's read Military Partners second journal",
         "topic": "TALK_BL9_BASE_ANDROID3_MILPARTNERS_JOURNAL2"
       },
+      { "text": "Let's read Military Partners third journal", "topic": "TALK_BL9_BASE_ANDROID3_MILPARTNERS_JOURNAL3" },
       {
-        "text": "Military partners romance? Mansion? 'That City' unsanctioned scientific research incident? 'That City' investigation then it's nuclear destruction? Conspiracy? This reminds me of video game fanfiction honestly. Let's read third journal",
-        "topic": "TALK_BL9_BASE_ANDROID3_MILPARTNERS_JOURNAL3"
-      },
-      {
-        "text": "Military partners romance? Mansion? 'That City' unsanctioned scientific research incident? 'That City' investigation then it's nuclear destruction? Conspiracy? This reminds me of video game fanfiction honestly. Let's read fourth journal",
+        "text": "Let's read Military Partners fourth journal",
         "topic": "TALK_BL9_BASE_ANDROID3_MILPARTNERS_JOURNAL4"
       },
       {
-        "text": "Newbie cop with student girl romance? Escape from 'That City'? They become government agents then work together against madmen across the globe? This reminds me of video game fanfiction honestly. Let's read first journal",
+        "text": "Let's read Security Force Partners first journal",
         "topic": "TALK_BL9_BASE_ANDROID3_PARTNERS_JOURNAL1"
       },
       {
-        "text": "Newbie cop with student girl romance? Escape from 'That City'? They become government agents then work together against madmen across the globe? This reminds me of video game fanfiction honestly. Let's read second journal",
+        "text": "Let's read Security Force Partners second journal",
         "topic": "TALK_BL9_BASE_ANDROID3_PARTNERS_JOURNAL2"
       },
       {
-        "text": "Newbie cop with student girl romance? Escape from 'That City'? They become government agents then work together against madmen across the globe? This reminds me of video game fanfiction honestly. Let's read third journal",
+        "text": "Let's read Security Force Partners third journal",
         "topic": "TALK_BL9_BASE_ANDROID3_PARTNERS_JOURNAL3"
       },
       {
-        "text": "Newbie cop with student girl romance? Escape from 'That City'? They become government agents then work together against madmen across the globe? This reminds me of video game fanfiction honestly. Let's read fourth journal",
+        "text": "Let's read Security Force Partners fourth journal",
         "topic": "TALK_BL9_BASE_ANDROID3_PARTNERS_JOURNAL4"
       },
-      {
-        "text": "Unethical, pompous artificially created narcissist? Obsessed with him being 'genetically superior' to other humans? Mansion? 'That City' conspiracy? Betrays everyone including his boss? Is this fucker from video game fanfiction? Let's read first journal",
-        "topic": "TALK_BL9_BASE_ANDROID3_NARCISSIST_JOURNAL1"
-      },
-      {
-        "text": "Unethical, pompous artificially created narcissist? Obsessed with him being 'genetically superior' to other humans? Mansion? 'That City' conspiracy? Betrays everyone including his boss? Is this fucker from video game fanfiction? Let's read second journal",
-        "topic": "TALK_BL9_BASE_ANDROID3_NARCISSIST_JOURNAL2"
-      },
-      {
-        "text": "Triple agent, cunning female spy with her own strange moral code? Hired by unethical narcissist for her to retrieve sample? Secretly in love with newbie cop to government agent guy? Is this controversial lady from video game fanfiction? Let's read first journal",
-        "topic": "TALK_BL9_BASE_ANDROID3_SPY_JOURNAL1"
-      },
-      {
-        "text": "Triple agent, cunning female spy with her own strange moral code? Hired by unethical narcissist for her to retrieve sample? Secretly in love with newbie cop to government agent guy? Is this controversial lady from video game fanfiction? Let's read second journal",
-        "topic": "TALK_BL9_BASE_ANDROID3_SPY_JOURNAL2"
-      },
+      { "text": "Let's read Vile Narcissist first journal", "topic": "TALK_BL9_BASE_ANDROID3_NARCISSIST_JOURNAL1" },
+      { "text": "Let's read Vile Narcissist second journal", "topic": "TALK_BL9_BASE_ANDROID3_NARCISSIST_JOURNAL2" },
+      { "text": "Let's read Cunning Female Spy first journal", "topic": "TALK_BL9_BASE_ANDROID3_SPY_JOURNAL1" },
+      { "text": "Let's read Cunning Female Spy second journal", "topic": "TALK_BL9_BASE_ANDROID3_SPY_JOURNAL2" },
       {
         "text": "What have you just read? They resemble video games fanfictions",
         "topic": "TALK_BL9_BASE_ANDROID3_JOKE"
       },
       {
-        "text": "I mean, do people like to read or listen to these stories so diligently? I mean, quality of writing is meh, but effort is obvious, which is something that I appreciate honestly. I rate 10 punched boulders out of 10",
+        "text": "I mean, do people like to read or listen to these stories so diligently? I mean, quality of writing is meh, but effort is obvious, which is something that I appreciate honestly. I rate 10 punched boulders out of 10 for this work",
         "topic": "TALK_BL9_BASE_ANDROID3_GOOD_JOKE"
       },
       { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" }
@@ -493,73 +468,133 @@
     "id": "TALK_BL9_BASE_ANDROID3_MILPARTNERS_JOURNAL1",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. Alright, she let me write this first, because I suck at writing coherently, hah. Weird name for our journal, but I would not have even survived half of our encounters without her. Tough lady she is. Now to business. It was before Cataclysm. I thought we killed this bastard in his mansion, with us barely managing do this successfully. We were trying to acquire enough proof in order to close, as we later learned, his superiors' organization for good, standing behind incident in that mansion, but no.\n \n    In the same year, horrible incident in That City. Small city, in the middle of nowhere, perfect place to conduct experiments. Hidden laboratory, unsanctioned bioweapons experiments going wrong, population turning into aggressive mutants, city being nuked from the face of Earth essentially. Many evacuated, not witnessing anything, luckily for them. However, some were caught in the middle of these events: former police officer man with my engineer sister with a little girl, also my partner.\n \n    My partner, as a veteran military agent, was sent there to find essentially traces of whatever turned this many people into horrifying mutants or drugs that would counter this bioweapon. What she went through, what she found, what she saw in That City though was even more interesting. Diary of main scientist with proof of one of his samples being stolen from him by military men. Highly trained female infiltrator searching for something in laboratory. Giant fucktard mutated bioweapon that deliberately hunted down remaining survivors in That City, chased my partner, that she has managed to kill, luckily for us",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Military partners romance? Mansion? 'That City' unsanctioned scientific research incident? 'That City' investigation then it's nuclear destruction? Conspiracy? This reminds me of video game fanfiction honestly. Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_MILPARTNERS_JOURNAL2",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. Hmm, let's continue this. What a name for a journal, I like this soft side of his, hah. This man is essentially definition of reliability, formidability. Where do I continue? Aha, yes, That City events. Was I surprised that there was conspiracy involved? Not really. That scum we thought we had killed in that mansion was cunning, devious, just like that woman who changed God knows how many employers. Organization's founder, that was behind events of that mansion along with That City, was no less of a mad man. The more ambitious they were, the more fucked up their ideas were. Some wanted regional power, some wanted riches, some wanted World domination, whereas some were so fucked up in terms of their ideas that I'm glad we've killed them.\n \n   Him and his superiors had a simple plan. First, retrieve whatever of their horrible work they left there, then leave no witnesses thanks to their bio-soldiers hunters, then let government do their job of nuking city so that nobody would know of this. These bastards' arrogance, huh? No way, motherfuckers. Not only me with some good people have escaped safely, we have also managed to destroy a lot of these bio-soldiers with all of these hunters. I've acquired plenty of intel to learn that fucker from that mansion was alive, plotting to continue work of his superiors. He later killed them, betrayed everyone he knew.\n \n    I can tell you more, there were bioweapons with all kinds of private mutants armies in many parts of the World essentially. Private military organizations, rich, power craving people, cultists, all sorts of madmen. All tied to someone bigger than them. Then Cataclysm happened. Still, me, my partner with other agents have luckily managed to assemble our team again",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Military partners romance? Mansion? 'That City' unsanctioned scientific research incident? 'That City' investigation then it's nuclear destruction? Conspiracy? This reminds me of video game fanfiction honestly. Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_MILPARTNERS_JOURNAL3",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. Interesting, let's talk about our newly assembled team of former military agents. Clearly, Cataclysm happened, however, our training, our experience, our stubbornness really saved our asses. Each of involved agents had a safety plan, in case of global threat that would significantly damage or mostly destroy communications systems. Special safezones located across the entire World for agents from various countries. Back then, 4 of us were stationed in North America. This includes me, my partner, also my sister along with her police officer survivor, hah. They became a couple, their first 'survivors date' taught them how to care for each other real good.\n \n   My partner wants us to stay here, to help local survivor structures with more mundane stuff that requires more concentration. Clearing local areas, handling logistics, making safe routes, expanding survivors' structures, helping find safe sources of water. Forget about secret vile organizations, eh? That's what younger professionals are for, right? My sister with her police officer promoted to a government agent, so, leave this shit for them to investigate?\n \n    Maybe she is right, we need to care for each other, settle down together, help local survivors, ensure our own safety hopefully. We should also convince our couple of adventurers to do the same. Maybe not. No, not now. Cults, 'THEY', 'True Superiors', this fucker is still out there. Unless we get help from survivors. Maybe we have a chance to settle down, survive, live together hopefully as well",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Military partners romance? Mansion? 'That City' unsanctioned scientific research incident? 'That City' investigation then it's nuclear destruction? Conspiracy? This reminds me of video game fanfiction honestly. Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_MILPARTNERS_JOURNAL4",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. Aha, so he has some hopes to settle down with me, that's very sweet! That's beneficial for our own safety. All 4 of us should be thankful that we have even managed to survive, assemble our team again. With intel that we've learned about strange organizations' activities in New England, no doubt that bio-soldiers, mutants are again being produced by shady masterminds. The most prominent are Strange Cult, 'THEY', there are also rumors of a more discreet organization called 'True Superiors'. Considering how careful 'Alliance' is, sheer numbers of these bio-soldiers, all of this made aliens choose a safe option of allying with them.\n \n    Still, they are much weaker than pre-Cataclysm private military organizations, they are simply remnants of former ones. However, they are way too sophisticated for mere remnants. I know some altruistic remnants of organizations, they are quite advanced, but are still forced into hiding. They even rely on help from local survivors. I'm not sure if we should concentrate on restoring safety in our local areas like professional survivors, or support my partner's obsession with further investigating these ourselves, I'm confused honestly.\n \n    What I know from our allies is that survivors do fend off these bastards successfully, they even attack their structures. Even though my distrust towards these experiments is greatest compared to all of us, these scientists have shown me proof of saving survivors from dangers of The Blob, Mycus, Triffids. Clearly, BL9 is a symbiote, it's origin is not of regular bioweapons. Only because it is either easily modifiable BL9 or horrible mutations from The Blob from local water, BL9 has a potential to be safe option to protect everyone, but only provided that experiments are long-term, guarantee physical, mental safety of hosts hopefully as well",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Military partners romance? Mansion? 'That City' unsanctioned scientific research incident? 'That City' investigation then it's nuclear destruction? Conspiracy? This reminds me of video game fanfiction honestly. Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_PARTNERS_JOURNAL1",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. Name sounds like a cheap romance novel, but let's keep it like this for fun, as long as it makes both of us chuckle. How we've met? Ah, shit, reminds me of so much we've went through with her. Two desperate survivors in these horrible conditions stuck in a city full of terrors. Love was least of my priorities back then. I worked as a police officer in my home town. As I remember, this started with me receiving my promotion of a corporal under the condition that I would move to a nearby town. I needed money, so I agreed. It was That City, one of the most horrible pre-Cataclysm cases of unsanctioned bioweapons experiments.\n \n    I was about to start my first day as a newly promoted corporal. I was being late when I've heard the sirens all across the city, evacuation helicopters recklessly getting away. On my way to police station I saw people aggressively chasing other people, leaping at them, grabbing them by their legs. They clawed them savagely then started to eat their flesh. It was horrifying and disgusting, I puked upon seeing this right in my car. Some of them saw me and ran towards my car, I pressed gas, running few of them over. I made my way to one of the closest relatively big markets.\n \n    I went to this market get supplies, also to possibly find a good melee weapon, a fire axe or a wrench. I heard a running noise from the outside towards the same door I entered. A girl armed with a revolver clumsily yet quickly entered with a shambler behind her. I aimed at it, telling her to get down. With a headshot I killed it. Then we both ran towards my car, quickly made our way out of there. She was a junior robotics engineering student in That City. Her brother was a high-ranking veteran policeman. This explained to me her being pretty good with guns",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Newbie cop with student girl romance? Escape from 'That City'? This reminds me of video game fanfiction honestly. Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_PARTNERS_JOURNAL2",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. This really is a cheap romance novel name! Though, I actually find it funny. I was getting a robotics engineering degree in my university. I always found applied math, physics pretty fun. My brother, the cop in our family, approved of my decision, he is all fists and fighting, so analytical one in our family is a must. As my dear says about his first day of corporal rank experience, I felt the same way back then. Love, no. Safety, protection, yes. That's how I felt back then. My brother was missing, I was alone on the streets, searching for him, when the whole city went to shit. I ran as fast as I could to nearest building, coming across him. A guy in a police uniform, aiming his gun at me, telling me to get down. So I did, out of fear, yet he killed a shambler behind me.\n \n    We made our way in his car to police station, which, disappointingly, was also infested with these mutants. Most were shamblers, but there was this horrible type. A fleshy beast with a grotesque head, long tongue, no eyes, and long claws size of a human. We were chased by a giant brute in this building. As we were hiding from it, I found documents proving that my brother left That City weeks ago to do his private investigation. Also we found a secret underground passage in That City's police station. It was leading to some kind of a laboratory complex, which answered most of our questions in terms of what the heck even happened in That City.\n \n    This entire lab was a huge conspiracy. Unsanctioned bioweapons experiments. An incident with bioweapon leak was a result of lab's main mutated scientist going mad over his secret creation being stolen by some private military. On our way out of lab, we saved this scientist's daughter. Three of us barely made it out of there safely via an underground train system with that scientist beast and a huge brute chasing us",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Newbie cop with student girl romance? Escape from 'That City'? This reminds me of video game fanfiction honestly. Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_PARTNERS_JOURNAL3",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. She is right, my honey really managed to rescue that scientist's daughter. Strange child, immune to That City's bioweapons, as she stated herself. That's what her father told her when injecting her with all kinds of shit. Her bruises were healing up at an extreme rate. The whole shit was really a conspiracy with shady people involved. This is what government told me later on. Hunter brute, horribly mutated scientist, stolen samples of bioweapons, shady female spy. That spy really did save my life multiple times, helping me to destroy this brute, but she clearly had her own motives there. Every time our paths crossed, I always knew that she had some errands to do, provided by her new employers. Whatever, we made it safe, now about events after That City essentially.\n \n    Let's just say that government has become interested in two barely trained survivors going through so much shit successfully. We've been 'offered' government agents jobs. Not much choice, considering what we've seen. Then these were times of my duty in various parts of the World. Strangely, current New England prominent factions of madmen that are obsessed with BL9 symbiote really remind me of what I've seen in Europe. Is that some kind of a bullshit trend? As years went by, I tried to convince my engineer girl to let me talk government out of her further involvement. I've been seeing more and more shit that I didn't get killed for only because I'm too useful to kill essentially.\n \n    Honey is too stubborn, she wanted to delve even deeper into this. Saving people from madmen with bioweapons is more important than building complex electromechanical systems. That's what she says. When Cataclysm happened, this tight grip was gone. So now we hunt for remnants of these madmen, whereas her brother with his partner try to rebuild everything in local areas. It's a fucking mess, but at least we've got each other to survive hopefully as well",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Newbie cop with student girl romance? Escape from 'That City'? They become government agents then work together against madmen across the globe? This reminds me of video game fanfiction honestly. Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_PARTNERS_JOURNAL4",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. My dear describes my motives pretty clearly. We've survived a horrifying incident in That City full of shady bastards behind it essentially. We've travelled across the World, fought madmen along with their creations. My dear warned me though that eventually we can uncover things that will make government treat us differently. I convinced him though that our usefulness simply matters much more to them than our knowledge, as long as we have no objections to working for them. Then Cataclysm happened. Governments were gone. No united control. Only individual organizations remained. Some new, some remnants of former organizations. All have different motives.\n \n    Even though there is a lot of work we have in terms of rebuilding everything, I've convinced my dear for us to become hunters of some sorts. We investigate activities of strange local cults, military formations. If we suspect them to have not particularly friendly motives, we carefully check their structures. Usually they clearly are hostile, attack everyone on sight, however some really are altruistic. Latter are much more discreet, not because it is their intention. They achieve their goals only by communicating with, helping people. They are forced into hiding, especially in New England area because of Strange Cults, 'THEM', 'True Superiors', 'Alliance'. Should not we help them to fend them off to keep everyone safe?\n \n    They all diligently hunt for BL9, all of these bastards. Even altruistic organizations that we've contacted convince us of BL9 not being a bioweapon, huh? I mean, pretty much everything around, The Blob, Mycus, Triffids, can be considered bioweapons, pretty much not safe for majority of people. BL9, as our allies state, can be modified, to be used as protection against other hostile microorganisms, they even have proof of this. I don't know, my brother would not agree, but if there are no alternative options. This potentially can be used as means to protect all of us, our offspring, hopefully as well",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Newbie cop with student girl romance? Escape from 'That City'? They become government agents then work together against madmen across the globe? This reminds me of video game fanfiction honestly. Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_NARCISSIST_JOURNAL1",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. Inventions of 20th century - can you imagine how impactful they were? Some have improved our lifestyle, others have advanced all of us as a civilization. But humans still remained filthy humans with their animal needs, failing to see the bigger picture of what humans are truly capable of. However, one particular discovery, that later led to an invention, gave some a chance to evolve from this filthy state of animals. I was one of such who was worthy of this evolution. I started to see the bigger picture. I obediently followed my benefactors, learned from them, made temporary friends, who proved to be incredibly useful in terms of knowledge they shared in field of bioweapons research.\n \n    Even though our organization made a lot of progress, that was not without curious feeble beings, limited by ethics, shoving their noses into what was beyond their comprehension. Not being a public figure in our organization, I was sent as a double agent to police department that was responsible for investigations related to one of our properties. Plan was simple, lure them into a trap in one of our mansions they intended to investigate. That plan failed, though, it was not mine in first place. When our weaker subjects failed to kill these two fuckers, I've decided to take on them myself, obviously, with help of one of our sophisticated creations. That failed, fuckers proved to be too stubborn, however, experience is what I've gained from this.\n \n    This failure brought a lot of unwanted attention to our organization. It needed to be restructured. So it was. My temporary friend, main scientist in our lab of That City, was given an order to accelerate development of new bioweapon. However, his views started to change. There were disagreements with his superiors. His own pride and foolishness gave me an advantage. Seeing my high intelligence, knowledge that I've gained from this 'friend' of mine, I've managed to convince my benefactor to forcefully acquire samples of newest bioweapon that my 'friend' has made in That City",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Unethical, pompous artificially created narcissist? Obsessed with him being 'genetically superior' to other humans? Mansion? 'That City' conspiracy? Is this fucker from video game fanfiction? Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_NARCISSIST_JOURNAL2",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. One of our top scientists, the one who taught me everything I knew back then about microorganisms research, became a liability, to my own advantage. Old fool didn't know that I was already working on my own organization. I sent a professional female spy to ambush our men and steal samples of that bioweapon. Fucking snake in red dress failed though. Luckily, she found more samples in that laboratory in addition to valuable intelligence from my former 'friend' that even that old fool didn't get his hands on. That City incident was a good reason for me to leave our organization under the pretext of being worried of further investigations. I had plenty of data to research until discovery in Europe.\n \n    Villagers, Cultists, Military, all turned into obedient mutants. This was somewhere in Europe. Controlled by some ambitious fucker. His research was really of high quality though, but not as good as what I've made with a later discovery. Didn't gain much from this except for being more careful with choosing people to work for me. That fucking snake in red dress fooled me, sent me a fake sample instead of a real one, never trust devious fuckers. I had temporary success with my latest discovery back then. It was perfect for global evolution according to my own views. I was enhanced like never before. I came as a guest to my former benefactor. I showed him everything that I've become, something that he could never possibly achieve, then I killed him.\n \n    Fuckers from that mansion ruined everything. My newest invention was entirely destroyed with me being forced into hiding. Until Cataclysm happened. The Blob, Mycus, Triffids, so much to research! However, none of them are even as near as sophisticated as alien symbiote, BL9, which is hunted even by alien pillagers from other galaxies. I have created 'True Superiors' organization, I have built 'THEIR' army, I have fooled 'Alliance', forcing them to work with my organization. These feeble altruistic fuckers think they can stop our evolution with a bunch of survivors?",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Unethical, pompous artificially created narcissist? Obsessed with him being 'genetically superior' to other humans? Mansion? 'That City' conspiracy? Betrays everyone including his boss? Is this fucker from video game fanfiction? Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_SPY_JOURNAL1",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. My father taught me one very important thing when I was a young girl. He told me that it is wrong to think in absolutes. Has he done something significant in his life with this way of thinking? Maybe. Maybe not. What I know is that his advice greatly helps me in my work. My work is not just means of acquiring money. It helps me to prevent people who think in absolutes from shaping the World in a way that they like. This is especially important if we are talking about genetical experiments related to unknown microorganisms which have many uses. From healthy drugs, protection, extending lives of people to bioweapons. Don't ask me how I got in this field of work. Let's just say that I have received plenty of military experience to work as a professional mercenary spy.\n \n    I've heard of reputation of organization behind incidents in that mansion along with That City. No doubt that extremists were among it's leaders, intending to work on advanced bioweapons research. I was offered a job by an unknown man, who described himself as a former research scientist in that organization, who had changed his ways. My job was to intercept military, sent by that organization to kill their main scientist, stationed in That City's laboratory. My goal was not to save that scientist. Like I was told, scum simply wanted to sell property of their organization to highest bidder essentially. My task was to steal this property from military then bring it to my employer.\n \n    As a careful person I am, I waited for a perfect opportunity to ambush them. However, my stealth approach was interrupted by hordes of mutants, attacking both me along with military. The whole city went to shit within a few minutes. I had to run for my life essentially. However, I am no dumb girl. I knew that lab must have contained various intelligence, notes, diaries, maybe even something more important. This scientist devoted himself to his work entirely. There must have been another sample in that laboratory. I managed to find both, though, it was very difficult to do based on what I've seen there honestly",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Triple agent, cunning female spy with her own strange moral code? Hired by unethical narcissist for her to retrieve sample? Is this controversial lady from video game fanfiction? Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_SPY_JOURNAL2",
     "type": "talk_topic",
     "dynamic_line": "Initiate fancy reading mode. Essentially in my work thinking in absolutes means either of two things. Either granting access to all of these drugs, genetically modified microorganisms, to general public. Giving them all for free. Not thinking that this can produce riots, forced acceleration of production. At the same time, similar inadequate total access can make available production of bioweapons for madmen. Both are extremists points of views that must be avoided. This is what gave me motivation when I was going through that ruined city. I trusted this man. He seemed like he was hating himself for his involvement in this mess. All he needed, he said, was to make sure that their property won't get into their hands. Incident in that mansion fooled me into trusting him.\n \n    I've found very important intelligence in police station, records of a former member of investigation department that almost got investigators' team killed in that mansion. It was said that man was incredibly devious, cunning. It's as if his betrayal was planned in advance. Whoever wrote this had suspicions of involvement of this organization in an attempted murder of investigators' team. This made me think of who I actually work for. However, there was no real proof of whether it was the same person or not. In the same police station I've met a newly promoted corporal, pretty young, seemed to lack experience, still, confident in a non-arrogant way, determined to survive, also escape to safety with whatever companion of his that he mentioned.\n \n    I saved his ass from one of hunters bioweapons sent to kill any witnesses. Hah, he was keep asking me questions. I tried to buzz him off saying that he should be glad that not only I didn't kill him, but also saved his ass multiple times as well. I didn't know that we would meet in Europe with him again. Well, I did steal a sample from him. Still, I knew by then who I worked for, sending him fake sample as a reward. What do I do now after Cataclysm? Well, I've recently brought an advanced BL9 sample to human disguised exiled alien scientist that helps humans survive",
-    "responses": [ { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" } ]
+    "responses": [
+      {
+        "text": "Triple agent, cunning female spy with her own strange moral code? Hired by unethical narcissist for her to retrieve sample? Secretly in love with newbie cop to government agent guy? Is this controversial lady from video game fanfiction? Can I talk to you about something else?",
+        "topic": "TALK_BL9_BASE_ANDROID"
+      }
+    ]
   },
   {
     "id": "TALK_BL9_BASE_ANDROID3_JOKE",
@@ -594,7 +629,7 @@
   {
     "id": "TALK_BL9_BASE_ANDROID4_2",
     "type": "talk_topic",
-    "dynamic_line": "Correct order is very important to follow for safety hopefully. You need to follow this order of locations hopefully. Castlelan Castle, Inhravtidius Laboratory, Yengnutrium Cult Lair, Ulniviunite Factory, Ezrondium Cult Dungeon, Militarized Island, Guard Towers with Hive Caves, Underground Ruins, Acidic Caves, Sunken Caves, Molten Caves, Arganoides, Wanzeltiums, Davranides, Saldeniums Mobile Bases in this order for your own safety hopefully",
+    "dynamic_line": "Correct order is very important to follow for safety hopefully. You need to follow this order of locations hopefully. Castlelan Castle, Infested Facility, Militarized Island, Guard Towers with Hive Caves, Underground Ruins, Acidic Caves, Sunken Caves, Molten Caves, Mobile Alliance Base in this order for your own safety hopefully",
     "responses": [ { "text": "I have other questions about missions", "topic": "TALK_BL9_BASE_ANDROID4" } ]
   },
   {
@@ -625,24 +660,9 @@
         "effect": [ { "u_spawn_item": "BL9_castle_mission_hologram" } ]
       },
       {
-        "text": "[INHRAVTIDIUS LABORATORY]",
+        "text": "[INFESTED FACILITY]",
         "topic": "TALK_BL9_BASE_ANDROID4_MISSIONS",
-        "effect": [ { "u_spawn_item": "BL9_inhravtidius_mission_hologram" } ]
-      },
-      {
-        "text": "[YENGNUTRIUM CULT LAIR]",
-        "topic": "TALK_BL9_BASE_ANDROID4_MISSIONS",
-        "effect": [ { "u_spawn_item": "BL9_yengnutrium_mission_hologram" } ]
-      },
-      {
-        "text": "[ULNIVIUNITE FACTORY]",
-        "topic": "TALK_BL9_BASE_ANDROID4_MISSIONS",
-        "effect": [ { "u_spawn_item": "BL9_ulniviunite_mission_hologram" } ]
-      },
-      {
-        "text": "[EZRONDIUM CULT DUNGEON]",
-        "topic": "TALK_BL9_BASE_ANDROID4_MISSIONS",
-        "effect": [ { "u_spawn_item": "BL9_ezrondium_mission_hologram" } ]
+        "effect": [ { "u_spawn_item": "BL9_infested_facility_mission_hologram" } ]
       },
       { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" }
     ]
@@ -691,24 +711,9 @@
     "dynamic_line": "Either select a mission from list of expert missions or ask me if you can talk to me about something else if you don't want to do missions currently",
     "responses": [
       {
-        "text": "[ARGANOIDES MOBILE BASE]",
+        "text": "[MOBILE ALLIANCE BASE]",
         "topic": "TALK_BL9_BASE_ANDROID4_MISSIONS",
-        "effect": [ { "u_spawn_item": "BL9_arganoides_mission_hologram" } ]
-      },
-      {
-        "text": "[WANZELTIUMS MOBILE BASE]",
-        "topic": "TALK_BL9_BASE_ANDROID4_MISSIONS",
-        "effect": [ { "u_spawn_item": "BL9_wanzeltiums_mission_hologram" } ]
-      },
-      {
-        "text": "[DAVRANIDES MOBILE BASE]",
-        "topic": "TALK_BL9_BASE_ANDROID4_MISSIONS",
-        "effect": [ { "u_spawn_item": "BL9_davranides_mission_hologram" } ]
-      },
-      {
-        "text": "[SALDENIUMS MOBILE BASE]",
-        "topic": "TALK_BL9_BASE_ANDROID4_MISSIONS",
-        "effect": [ { "u_spawn_item": "BL9_saldeniums_mission_hologram" } ]
+        "effect": [ { "u_spawn_item": "BL9_alliance_base_mission_hologram" } ]
       },
       { "text": "Can I talk to you about something else?", "topic": "TALK_BL9_BASE_ANDROID" }
     ]
