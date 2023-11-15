@@ -300,31 +300,6 @@
 	"placate_triggers": [ ]
   },
   {
-    "id": "mon_sflesh_cockatrice",
-    "copy-from": "mon_cockatrice",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
-    "proportional": { "hp": 1.25, "speed": 0.85, "bleed_rate": 0.33 },
-	"regen_morale": true,
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ],
-	  "flags": [ "NO_BREED" ]
-    },
-	"delete": { "species": [ "BIRD" ], "flags": [ "ANIMAL" ] },
-	"fear_triggers": [ ],
-	"placate_triggers": [ ]
-  },
-  {
     "id": "mon_sflesh_generic_chick",
     "copy-from": "mon_generic_chick",
     "type": "MONSTER",
@@ -613,32 +588,6 @@
   {
     "id": "mon_sflesh_pheasant_chick",
     "copy-from": "mon_pheasant_chick",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
-    "proportional": { "hp": 1.25, "speed": 0.85, "bleed_rate": 0.33 },
-	"regen_morale": true,
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_val('hp') / 2", ">=", "n_val('hp')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ],
-	  "flags": [ "NO_BREED" ]
-    },
-	"upgrades": {  },
-	"delete": { "species": [ "BIRD" ], "flags": [ "ANIMAL" ] },
-	"fear_triggers": [ ],
-	"placate_triggers": [ ]
-  },
-  {
-    "id": "mon_sflesh_cockatrice_chick",
-    "copy-from": "mon_cockatrice_chick",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
     "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
