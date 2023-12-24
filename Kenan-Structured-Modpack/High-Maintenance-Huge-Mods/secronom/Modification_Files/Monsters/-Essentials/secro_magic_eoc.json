@@ -2,15 +2,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_tendrils_sprint_check",
-    "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 11 } ] },
-    "effect": [
-      { "npc_add_effect": "secro_tendril_sprint", "duration": "14 seconds" },
-      { "u_message": "The tendril zombie's movement became erratic!", "type": "bad" }
-    ],
-    "false_effect": [
-      { "npc_add_effect": "secro_tendril_sprint", "duration": "5 seconds" },
-      { "u_message": "The tendril zombie's movement became erratic!", "type": "bad" }
-    ]
+    "effect": [ { "npc_add_effect": "secro_tendril_sprint", "duration": "22 seconds" } ]
   },
   {
     "type": "effect_on_condition",
@@ -89,6 +81,22 @@
   },
   {
     "type": "effect_on_condition",
+    "id": "eoc_secro_mon_zombie_tentawraith_summonself_check",
+    "condition": { "not": { "one_in_chance": 3 } },
+    "effect": [
+      {
+        "npc_spawn_monster": "mon_zombie_tentawraith_tent",
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 5,
+        "outdoor_only": true,
+        "lifespan": [ "20 seconds", "40 seconds" ],
+        "spawn_message": "A tentacle bursts out of the ground!"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_tentawraith_tentgrasp_check",
     "condition": {
       "and": [ { "math": [ "u_skill('dodge')", ">=", "4" ] }, { "compare_num": [ { "u_val": "dexterity" }, ">=", { "const": 8 } ] } ]
@@ -103,7 +111,7 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_akin_sattach_check",
     "//": "Can't check resistance values of target so use armor flag instead.",
-    "condition": { "and": [ { "u_has_worn_with_flag": "STURDY" }, { "not": { "one_in_chance": 4 } } ] },
+    "condition": { "and": [ { "math": [ "u_armor('stab', 'torso')", ">=", "6" ] }, { "not": { "one_in_chance": 2 } } ] },
     "effect": [
       { "u_message": "The akin's tendrils failed to impale you.", "type": "good" },
       {
@@ -142,20 +150,16 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_fleshmonger_reflesh_check",
-    "condition": { "npc_is_in_field": "fd_gibs_flesh" },
     "effect": [
-      {
-        "u_message": "The fleshmonger consumes the surroundings off of gore.\nTentacles were formed that pierced its nearby allies!",
-        "type": "warning"
-      },
-      { "npc_cast_spell": { "id": "mon_zombie_fleshmonger_reflesh", "hit_self": true } },
-      { "npc_add_effect": "secro_fleshmonger_fleshed_immune", "duration": "10 seconds" }
-    ],
-    "false_effect": [
-      { "u_message": "The fleshmonger violently bursts out tentacles that pierced its nearby allies!", "type": "warning" },
+      { "u_message": "Tentacles bursts out of the fleshmonger that stretches out into the vicinity!", "type": "warning" },
       { "npc_cast_spell": { "id": "mon_zombie_fleshmonger_reflesh", "hit_self": true } },
       { "npc_cast_spell": { "id": "mon_zombie_fleshmonger_reflesh_bleed", "hit_self": true } },
       { "npc_add_effect": "secro_fleshmonger_fleshed_immune", "duration": "10 seconds" },
+      {
+        "npc_add_effect": "secro_fleshmonger_fleshed_penalty",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "n_effect_intensity('secro_fleshmonger_fleshed_penalty') + 1" ] }
+      },
       { "npc_cast_spell": { "id": "mon_zombie_fleshmonger_fchunk", "hit_self": true } }
     ]
   },
@@ -604,7 +608,10 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_sflesh_veinstalk_initial_spread_check",
-    "effect": [ { "npc_cast_spell": { "id": "secro_flesh_infect_large_target", "hit_self": true } }, { "npc_cast_spell": { "id": "sacrifice_spell", "hit_self": true } } ]
+    "effect": [
+      { "npc_cast_spell": { "id": "secro_flesh_infect_large_target", "hit_self": true } },
+      { "npc_cast_spell": { "id": "sacrifice_spell", "hit_self": true } }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -629,15 +636,14 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_secrodragon_woke_barrier_check",
     "effect": [
-      { "u_message": "The secronom dragon generates a forcefield, pushing you!", "type": "mixed" },
       { "npc_cast_spell": { "id": "mon_secrodragon_barrier_target_random", "hit_self": true } },
       { "npc_make_sound": "Bzzt.", "volume": 90, "type": "combat" }
     ]
   },
   {
     "type": "effect_on_condition",
-    "id": "eoc_secro_mon_secrodragon_woke_ranged_check",
-    "condition": { "not": { "one_in_chance": 3 } },
+    "id": "eoc_secro_mon_secrodragon_woke_elec_check",
+    "condition": { "not": { "one_in_chance": 2 } },
     "effect": [
       { "u_message": "Electric discharges arc from the secronom dragon!", "type": "warning" },
       { "npc_cast_spell": { "id": "mon_secrodragon_edischarge_target_random", "hit_self": true } },
@@ -680,13 +686,6 @@
   },
   {
     "type": "effect_on_condition",
-    "id": "eoc_secro_mon_secrodragon_woke_check",
-    "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 2 } ] },
-    "effect": [ { "queue_eocs": [ "eoc_secro_mon_secrodragon_woke_barrier_check" ] } ],
-    "false_effect": [ { "queue_eocs": [ "eoc_secro_mon_secrodragon_woke_ranged_check" ] } ]
-  },
-  {
-    "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_uruxis_passive",
     "effect": [
       {
@@ -697,7 +696,7 @@
         "max_radius": 4,
         "spawn_message": "A zombie rose up from the ground!"
       },
-	  { "u_add_effect": "secro_veinstalk_limit", "duration": "10 seconds" }
+      { "u_add_effect": "secro_veinstalk_limit", "duration": "10 seconds" }
     ]
   }
 ]

@@ -477,8 +477,8 @@
       {
         "type": "spell",
         "spell_data": { "id": "mon_zombie_uruxis_spawn_passive" },
-		"allow_no_target": true,
-		"condition": { "not": { "u_has_effect": "secro_zombie_uruxis_passive" } },
+        "allow_no_target": true,
+        "condition": { "not": { "u_has_effect": "secro_zombie_uruxis_passive" } },
         "cooldown": 1,
         "monster_message": "<color_yellow>Shadows around %1$s intensifies!</color>"
       }
@@ -631,33 +631,67 @@
     "species": [ "ZOMBIE", "SECROZED_3", "ABERRATION" ],
     "volume": "1320 L",
     "weight": "2430000 g",
-    "hp": 2120,
+    "hp": 1080,
     "speed": 40,
     "material": [ "flesh", "bone" ],
     "symbol": "♺",
     "color": "magenta_yellow",
-    "attack_cost": 1000,
+    "attack_cost": 300,
     "aggression": 100,
     "morale": 100,
     "melee_skill": 10,
     "melee_dice": 8,
     "melee_dice_sides": 8,
-    "melee_damage": [ { "damage_type": "cut", "amount": 1 } ],
+    "melee_damage": [ { "damage_type": "bash", "amount": 20 } ],
     "armor": { "bash": 30, "cut": 2, "bullet": 2 },
     "vision_day": 22,
     "vision_night": 12,
     "harvest": "zombie",
     "emit_fields": [ "emit_down_immunity" ],
-    "tracking_distance": 3,
     "special_attacks": [
       {
         "type": "spell",
+        "id": "zombie_fleshmonger_reflesh_check",
         "spell_data": { "id": "mon_zombie_fleshmonger_reflesh_check" },
-        "cooldown": 18,
-        "monster_message": "<color_magenta>%1$s is trembling\u2026</color>"
+        "cooldown": 22,
+        "monster_message": "<color_magenta>%1$s is trembling\u2026</color>",
+        "condition": { "math": [ "u_monsters_nearby('radius': 5)", ">=", "2" ] }
+      },
+      {
+        "type": "spell",
+        "id": "monspell_zombie_fleshmonger_abs1_target",
+        "spell_data": { "id": "mon_zombie_fleshmonger_abs1_target", "hit_self": true },
+        "cooldown": 4,
+        "monster_message": "<color_magenta>%1$s absorbs the bits of gore on the ground.</color>",
+        "condition": { "math": [ "u_field_strength('fd_gibs_flesh')", "==", "1" ] },
+        "allow_no_target": true
+      },
+      {
+        "type": "spell",
+        "id": "monspell_zombie_fleshmonger_abs2_target",
+        "spell_data": { "id": "mon_zombie_fleshmonger_abs2_target", "hit_self": true },
+        "cooldown": 4,
+        "monster_message": "<color_magenta>%1$s absorbs the gore on the ground.</color>",
+        "condition": { "math": [ "u_field_strength('fd_gibs_flesh')", "==", "2" ] },
+        "allow_no_target": true
+      },
+      {
+        "type": "spell",
+        "id": "monspell_zombie_fleshmonger_abs3_target",
+        "spell_data": { "id": "mon_zombie_fleshmonger_abs3_target", "hit_self": true },
+        "cooldown": 4,
+        "monster_message": "<color_magenta>%1$s absorbs the heaps of gore on the ground.</color>",
+        "condition": { "math": [ "u_field_strength('fd_gibs_flesh')", ">=", "3" ] },
+        "allow_no_target": true
       }
     ],
-    "regenerates": 10,
+    "regenerates": 20,
+    "bleed_rate": 10,
+    "death_function": {
+      "message": "The %s explodes in a shower of gore!",
+      "corpse_type": "NO_CORPSE",
+      "effect": { "id": "death_blood", "hit_self": true, "min_level": 3 }
+    },
     "flags": [
       "SEES",
       "SMELLS",
@@ -674,8 +708,7 @@
       "PUSH_VEH",
       "PLASTIC",
       "STUN_IMMUNE",
-      "RANGED_ATTACKER",
-      "KEEP_DISTANCE"
+      "RANGED_ATTACKER"
     ]
   },
   {
@@ -715,16 +748,16 @@
         "effects": [
           {
             "effect": "secro_gorepit_absorb",
-            "duration": [ 30, 45 ],
-            "damage_required": [ 8, 18 ],
-            "//": "Around 130 damage. Will trigger another ability if this effect is active.",
-            "message": "<color_light_red>The %s unleashes an ear-splitting screech!</color>\n<color_magenta>The %s's orb is absorbing its surrounding flesh, replenishing itself.</color>"
+            "chance": 33,
+            "duration": [ 20, 25 ],
+            "damage_required": [ 1, 18 ],
+            "message": "<color_light_red>The %s unleashes an ear-splitting screech!</color>"
           },
           {
             "effect": "secro_gorepit_explode",
+            "chance": 66,
             "permanent": true,
             "damage_required": [ 19, 100 ],
-            "//": "Around 500 damage.",
             "message": "The %s's orb exploded!"
           }
         ]
@@ -733,9 +766,19 @@
     "special_attacks": [
       {
         "type": "spell",
+        "id": "monspell_zombie_gorepit_spawn_target",
         "spell_data": { "id": "mon_zombie_gorepit_spawn_target" },
         "cooldown": 38,
         "monster_message": "<color_red>You feel the ground shaking as it originates from %1$s!</color>\n<color_yellow>%1$s sends a defeaning screech!</color>"
+      },
+      {
+        "type": "spell",
+        "id": "monspell_zombie_gorepit_abs",
+        "spell_data": { "id": "mon_zombie_gorepit_abs" },
+        "cooldown": 1,
+        "condition": { "and": [ { "not": { "u_has_effect": "secro_gorepit_absorption" } }, { "u_has_effect": "secro_gorepit_absorb" } ] },
+        "monster_message": "<color_magenta>%s's orb is absorbing its surrounding flesh!</color>",
+        "allow_no_target": true
       }
     ],
     "death_function": {
@@ -773,7 +816,12 @@
     "vision_day": 13,
     "vision_night": 13,
     "harvest": "exempt",
-    "special_attacks": [ [ "secro_gorepit_tent_hswing", 30 ], [ "secro_gorepit_tent_stab", 22 ], [ "secro_gorepit_tent_slam", 40 ], [ "DISAPPEAR", 250 ] ],
+    "special_attacks": [
+      [ "secro_gorepit_tent_hswing", 30 ],
+      [ "secro_gorepit_tent_stab", 22 ],
+      [ "secro_gorepit_tent_slam", 40 ],
+      [ "DISAPPEAR", 250 ]
+    ],
     "death_function": { "message": "The %s disappears into the ground.", "corpse_type": "NO_CORPSE" },
     "flags": [ "SEES", "WARM", "IMMOBILE", "POISON", "NO_BREATHE", "NOHEAD", "STUN_IMMUNE", "PRIORITIZE_TARGETS", "NOHEAD" ]
   },
@@ -804,7 +852,12 @@
     "vision_day": 13,
     "vision_night": 13,
     "harvest": "exempt",
-    "special_attacks": [ [ "secro_gorepit_tent_hswing", 25 ], [ "secro_gorepit_tent_stab", 19 ], [ "secro_gorepit_tent_slam", 33 ], [ "DISAPPEAR", 600 ] ],
+    "special_attacks": [
+      [ "secro_gorepit_tent_hswing", 25 ],
+      [ "secro_gorepit_tent_stab", 19 ],
+      [ "secro_gorepit_tent_slam", 33 ],
+      [ "DISAPPEAR", 600 ]
+    ],
     "death_function": { "message": "The %s disappears into the pit.", "corpse_type": "NO_CORPSE" },
     "flags": [ "SEES", "WARM", "IMMOBILE", "POISON", "NO_BREATHE", "NOHEAD", "STUN_IMMUNE", "PRIORITIZE_TARGETS", "NOHEAD" ]
   },

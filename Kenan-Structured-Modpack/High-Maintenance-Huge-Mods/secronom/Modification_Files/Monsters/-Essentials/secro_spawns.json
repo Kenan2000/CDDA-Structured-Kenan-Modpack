@@ -3,14 +3,52 @@
     "type": "monstergroup",
     "name": "GROUP_ZOMBIE",
     "monsters": [
+      { "monster": "mon_secrozombie_potent", "weight": 30, "cost_multiplier": 2 },
+      { "group": "GROUP_SECROZEDS", "weight": 50, "ends": "3 days" },
+      { "group": "GROUP_SECROZEDS", "weight": 75, "starts": "3 days", "ends": "7 days" },
+      { "group": "GROUP_SECROZEDS", "weight": 100, "starts": "7 days", "ends": "14 days" },
+      { "group": "GROUP_SECROZEDS", "weight": 125, "starts": "14 days", "ends": "30 days" },
+      { "group": "GROUP_SECROZEDS", "weight": 150, "pack_size": [ 1, 2 ], "starts": "30 days" }
+    ]
+  },
+  {
+    "name": "GROUP_SECROZEDS",
+    "type": "monstergroup",
+    "monsters": [
+      { "monster": "mon_zombie_spoder", "weight": 500 },
+      { "monster": "mon_zombie_tendrils", "weight": 480 },
+      { "monster": "mon_zombie_blade", "weight": 450 },
+      { "monster": "mon_zombie_mouth", "weight": 300 },
+      { "monster": "mon_zombie_scourge", "weight": 175 },
+      { "monster": "mon_zombie_charger", "weight": 90, "cost_multiplier": 7 },
+      { "monster": "mon_zombie_grubby", "weight": 120, "cost_multiplier": 5 },
+      { "monster": "mon_zombie_revenant", "weight": 60, "cost_multiplier": 5, "ends": "14 days" },
+      { "monster": "mon_zombie_revenant", "weight": 120, "cost_multiplier": 5, "starts": "14 days" },
+      { "monster": "mon_zombie_WALKINGPOTATO", "weight": 5, "cost_multiplier": 3 },
+      { "monster": "mon_zombieworm_noxeater", "weight": 4, "cost_multiplier": 10 },
+      { "monster": "mon_zombie_bootlegsmoker", "weight": 10, "cost_multiplier": 7, "starts": "7 days" },
+      { "monster": "mon_zombie_lick", "weight": 10, "cost_multiplier": 6, "starts": "14 days" },
       {
-        "//": "Make swarmers spawn rarer. Horde size increases by time in this formulation: 1*2=2*2=4... (integers shown by days)",
-        "monster": "mon_zombie_swarmer_weak",
+        "monster": "mon_zombie_nocturne",
         "weight": 1,
-        "cost_multiplier": 10,
-        "pack_size": [ 25, 35 ],
-        "ends": 24
+        "cost_multiplier": 40,
+        "starts": "60 days",
+        "conditions": [ "DUSK", "NIGHT" ]
       },
+      { "monster": "mon_zombie_nix", "weight": 1, "cost_multiplier": 25, "starts": "60 days" },
+      { "monster": "mon_zombie_fleshmonger", "weight": 1, "cost_multiplier": 40, "starts": "60 days" },
+      { "monster": "mon_zombie_gorepit", "weight": 1, "cost_multiplier": 65, "starts": "180 days" },
+      { "monster": "mon_zombie_cordev", "weight": 1, "cost_multiplier": 55, "starts": "180 days" },
+      { "monster": "mon_zombie_fleshysnaky", "weight": 1, "cost_multiplier": 125, "starts": "730 days" },
+      { "monster": "mon_zombie_akin", "weight": 1, "cost_multiplier": 30, "starts": "730 days" },
+      { "monster": "mon_zombie_equinox", "weight": 1, "cost_multiplier": 80, "starts": "730 days" }
+    ]
+  },
+  {
+    "name": "GROUP_SECRO_SWARMERS",
+    "type": "monstergroup",
+    "monsters": [
+      { "monster": "mon_zombie_swarmer_weak", "weight": 1, "cost_multiplier": 10, "pack_size": [ 25, 35 ], "ends": 24 },
       {
         "monster": "mon_zombie_swarmer_weak",
         "weight": 1,
@@ -66,59 +104,7 @@
         "pack_size": [ 100, 200 ],
         "starts": 1536
       },
-      { "monster": "mon_zombie_swarmer_segway", "weight": 1, "cost_multiplier": 1, "pack_size": [ 3, 9 ] },
-      { "monster": "mon_zombie_charger", "weight": 1, "cost_multiplier": 8 },
-      { "monster": "mon_zombie_scourge", "weight": 1, "cost_multiplier": 8, "pack_size": [ 1, 2 ] },
-      { "monster": "mon_zombie_grubby", "weight": 1, "cost_multiplier": 9 },
-      { "monster": "mon_zombie_blade", "weight": 5, "cost_multiplier": 5 },
-      { "monster": "mon_zombie_spoder", "weight": 6, "cost_multiplier": 5, "pack_size": [ 1, 2 ] },
-      { "monster": "mon_zombie_tendrils", "weight": 8, "cost_multiplier": 5 },
-      { "monster": "mon_zombie_mouth", "weight": 3, "cost_multiplier": 5 },
-      { "monster": "mon_zombie_translucent", "weight": 2, "cost_multiplier": 5 },
-      { "monster": "mon_zombie_WALKINGPOTATO", "weight": 1, "cost_multiplier": 12 },
-      { "monster": "mon_zombieworm_noxeater", "weight": 1, "cost_multiplier": 13 },
-      { "monster": "mon_zombie_revenant", "weight": 1, "cost_multiplier": 20 },
-      {
-        "monster": "mon_zombie_bootlegsmoker",
-        "weight": 1,
-        "cost_multiplier": 15,
-        "starts": 168,
-        "//": "These appear after a week."
-      },
-      {
-        "monster": "mon_zombie_lick",
-        "weight": 1,
-        "cost_multiplier": 10,
-        "starts": 336,
-        "//": "These appear after 2 weeks."
-      },
-      {
-        "monster": "mon_zombie_nocturne",
-        "weight": 1,
-        "cost_multiplier": 40,
-        "starts": 1460,
-        "//": "These appears after 2 months.",
-        "conditions": [ "DUSK", "NIGHT" ]
-      },
-      { "monster": "mon_zombie_nix", "weight": 1, "cost_multiplier": 25, "starts": 1460 },
-      { "monster": "mon_zombie_fleshmonger", "weight": 1, "cost_multiplier": 40, "starts": 1460 },
-      {
-        "monster": "mon_zombie_gorepit",
-        "weight": 1,
-        "cost_multiplier": 65,
-        "starts": 4380,
-        "//": "These appears after 6 months."
-      },
-      { "monster": "mon_zombie_cordev", "weight": 1, "cost_multiplier": 55, "starts": 4380 },
-      {
-        "monster": "mon_zombie_fleshysnaky",
-        "weight": 1,
-        "cost_multiplier": 125,
-        "starts": 8760,
-        "//": "These appears after a year."
-      },
-      { "monster": "mon_zombie_akin", "weight": 1, "cost_multiplier": 30, "starts": 8760 },
-      { "monster": "mon_zombie_equinox", "weight": 1, "cost_multiplier": 80, "starts": 8760 }
+      { "monster": "mon_zombie_swarmer_segway", "weight": 1, "cost_multiplier": 1, "pack_size": [ 3, 9 ] }
     ]
   },
   {

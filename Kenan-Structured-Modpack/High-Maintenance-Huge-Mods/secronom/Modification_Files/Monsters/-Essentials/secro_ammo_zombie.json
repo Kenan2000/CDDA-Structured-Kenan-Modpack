@@ -124,8 +124,15 @@
     "symbol": "*",
     "color": "light_red",
     "explode_in_fire": true,
-    "use_action": { "target": "SSimpactgrenadeact", "target_charges": 3, "active": true, "type": "transform" },
-    "flags": [ "TRADER_AVOID", "CUSTOM_EXPLOSION" ]
+    "use_action": {
+      "need_wielding": true,
+      "target": "SSimpactgrenadeact",
+      "msg": "You pull the pin on the SS grenade.",
+      "target_timer": "3 seconds",
+      "menu_text": "Pull pin",
+      "type": "transform"
+    },
+    "flags": [ "TRADER_AVOID", "CUSTOM_EXPLOSION", "BOMB", "GRENADE" ]
   },
   {
     "id": "SSimpactgrenadeact",
@@ -140,15 +147,7 @@
     "material": [ "steel", "plastic" ],
     "symbol": "*",
     "color": "red",
-    "initial_charges": 3,
-    "max_charges": 3,
-    "turns_per_charge": 1,
-    "use_action": {
-      "type": "explosion",
-      "draw_explosion_radius": 2,
-      "draw_explosion_color": "red",
-      "explosion": { "power": 75 }
-    },
+    "countdown_action": { "type": "explosion", "draw_explosion_radius": 2, "draw_explosion_color": "red", "explosion": { "power": 75 } },
     "flags": [ "BOMB", "TRADER_AVOID", "CUSTOM_EXPLOSION" ]
   },
   {

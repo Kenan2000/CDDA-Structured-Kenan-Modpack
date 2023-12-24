@@ -214,12 +214,25 @@
   },
   {
     "type": "effect_type",
+    "id": "secro_fleshmonger_abs",
+    "name": [ "Absorption" ],
+    "show_in_info": true,
+	"base_mods": { "hurt_min": [ -10 ] }
+  },
+  {
+    "type": "effect_type",
     "id": "secro_fleshmonger_fleshed",
     "name": [ "Reflesh" ],
     "rating": "good",
     "show_in_info": true,
     "removes_effects": [ "bleed" ],
     "blocks_effects": [ "bleed" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_fleshmonger_fleshed_penalty",
+    "max_intensity": 40,
+	"scaling_mods": { "hurt_min": [ 1.33 ] }
   },
   {
     "type": "effect_type",
@@ -383,6 +396,24 @@
     "rating": "good",
     "show_in_info": true,
     "scaling_mods": { "speed_mod": [ 10 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "charge_momentum_initial",
+    "name": [ "Gaining Momentum" ],
+    "int_add_val": 1,
+    "int_dur_factor": "1 seconds",
+    "max_intensity": 4,
+    "int_decay_step": -1,
+    "int_decay_tick": 1,
+    "max_duration": 4,
+    "rating": "bad",
+    "show_in_info": true,
+    "scaling_mods": { "speed_mod": [ -15 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "charge_momentum_initialcheck"
   },
   {
     "type": "effect_type",
@@ -873,8 +904,13 @@
     "type": "effect_type",
     "id": "secro_gorepit_absorb",
     "name": [ "Absorbing" ],
-    "base_mods": { "hurt_min": [ -20 ] },
     "show_in_info": true
+  },
+  {
+    "type": "effect_type",
+    "id": "secro_gorepit_absorption",
+    "removes_effects": [ "bleed" ],
+    "blocks_effects": [ "bleed" ]
   },
   {
     "type": "effect_type",

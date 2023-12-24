@@ -1,6 +1,5 @@
 [
   {
-    "//": "Aggro-type zed. Shares similarities to the titan, but this type can go charging into its target in one turn and gain a burst of movement speed.",
     "id": "mon_zombie_charger",
     "type": "MONSTER",
     "name": { "str": "charger zombie" },
@@ -24,12 +23,24 @@
     "melee_dice": 2,
     "melee_dice_sides": 4,
     "armor": { "bash": 16, "cut": 2, "bullet": 2 },
+    "melee_damage": [ { "damage_type": "bash", "amount": 10 } ],
     "special_attacks": [
       {
         "type": "spell",
+        "id": "monspell_zombie_charger_initial_target",
+        "spell_data": { "id": "mon_zombie_charger_initial_target" },
+        "cooldown": 120,
+        "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 9 } ] },
+        "monster_message": "<color_yellow>%1$s is gaining momentum!</color>"
+      },
+      {
+        "type": "spell",
+        "id": "monspell_zombie_charger_charge_target_random",
         "spell_data": { "id": "mon_zombie_charger_charge_target_random" },
-        "cooldown": 180,
-		"condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 9 } ] },
+        "cooldown": 4,
+        "condition": {
+          "and": [ { "not": { "u_has_effect": "charge_momentum_initial" } }, { "u_has_effect": "charge_momentum_initialcheck" } ]
+        },
         "monster_message": "<color_yellow>%1$s is charging towards %3$s!</color>"
       },
       [ "secro_charger_tackle", 6 ]
@@ -73,14 +84,25 @@
     "melee_skill": 6,
     "melee_dice": 2,
     "melee_dice_sides": 4,
-    "melee_damage": [ { "damage_type": "cut", "amount": 2 } ],
+    "melee_damage": [ { "damage_type": "bash", "amount": 9 }, { "damage_type": "cut", "amount": 3 } ],
     "armor": { "bash": 18, "cut": 4, "bullet": 2, "stab": 2 },
     "special_attacks": [
       {
         "type": "spell",
+        "id": "monspell_zombie_charger_initial_target",
+        "spell_data": { "id": "mon_zombie_charger_initial_target" },
+        "cooldown": 120,
+        "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 10 } ] },
+        "monster_message": "<color_yellow>%1$s is gaining momentum!</color>"
+      },
+      {
+        "type": "spell",
+        "id": "monspell_zombie_charger_spike_charge_target_random",
         "spell_data": { "id": "mon_zombie_charger_spike_charge_target_random" },
-        "cooldown": 180,
-		"condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 10 } ] },
+        "cooldown": 4,
+        "condition": {
+          "and": [ { "not": { "u_has_effect": "charge_momentum_initial" } }, { "u_has_effect": "charge_momentum_initialcheck" } ]
+        },
         "monster_message": "<color_yellow>%1$s is charging towards %3$s!</color>"
       },
       [ "secro_charger_spike_tackle", 6 ]
@@ -125,12 +147,24 @@
     "melee_dice": 4,
     "melee_dice_sides": 6,
     "armor": { "bash": 28, "cut": 8, "bullet": 6, "stab": 6 },
+    "melee_damage": [ { "damage_type": "bash", "amount": 16 } ],
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_zombie_charger_plate_charge_target_random" },
+        "id": "monspell_zombie_charger_initial_target",
+        "spell_data": { "id": "mon_zombie_charger_initial_target" },
         "cooldown": 180,
-		"condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 5 } ] },
+        "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 5 } ] },
+        "monster_message": "<color_yellow>%1$s is gaining momentum!</color>"
+      },
+      {
+        "type": "spell",
+        "id": "monspell_zombie_charger_plate_charge_target_random",
+        "spell_data": { "id": "mon_zombie_charger_plate_charge_target_random" },
+        "cooldown": 4,
+        "condition": {
+          "and": [ { "not": { "u_has_effect": "charge_momentum_initial" } }, { "u_has_effect": "charge_momentum_initialcheck" } ]
+        },
         "monster_message": "<color_yellow>%1$s is charging towards %3$s!</color>"
       },
       [ "secro_charger_plate_tackle", 6 ]
@@ -170,17 +204,29 @@
     "aggression": 100,
     "morale": 100,
     "attack_cost": 750,
-    "attack_effs": [ { "id": "stunned", "duration": 1, "chance": 25 }, { "id": "downed", "duration": 1 } ],
+    "attack_effs": [ { "id": "stunned", "duration": 1 }, { "id": "downed", "duration": 1 } ],
     "melee_skill": 8,
     "melee_dice": 8,
     "melee_dice_sides": 6,
     "armor": { "bash": 40, "cut": 10, "bullet": 5, "stab": 5 },
+    "melee_damage": [ { "damage_type": "bash", "amount": 26 } ],
     "special_attacks": [
       {
         "type": "spell",
+        "id": "monspell_zombie_charger_initial_target",
+        "spell_data": { "id": "mon_zombie_charger_initial_target" },
+        "cooldown": 120,
+        "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 13 } ] },
+        "monster_message": "<color_yellow>%1$s is gaining momentum!</color>"
+      },
+      {
+        "type": "spell",
+        "id": "monspell_zombie_charger_vanguard_charge_target_random",
         "spell_data": { "id": "mon_zombie_charger_vanguard_charge_target_random" },
-        "cooldown": 180,
-		"condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 13 } ] },
+        "cooldown": 4,
+        "condition": {
+          "and": [ { "not": { "u_has_effect": "charge_momentum_initial" } }, { "u_has_effect": "charge_momentum_initialcheck" } ]
+        },
         "monster_message": "<color_yellow>%1$s is charging towards %3$s!</color>"
       },
       [ "secro_charger_vanguard_tackle", 6 ]

@@ -256,9 +256,9 @@
     "skill": "rifle",
     "durability": 10,
     "range": 11,
-    "dispersion": 40000,
+    "dispersion": 33333,
     "modes": [ [ "N", "near", 25 ] ],
-    "ranged_damage": { "damage_type": "bullet", "amount": 7 }
+    "ranged_damage": { "damage_type": "bullet", "amount": 6, "armor_penetration": 3 }
   },
   {
     "id": "equinox_hole",
@@ -274,5 +274,20 @@
     "dispersion": 200000,
     "modes": [ [ "N", "near", 3 ] ],
     "ranged_damage": { "damage_type": "bash", "amount": 25 }
+  },
+  {
+    "id": "tentawraith_tentgun",
+    "type": "GUN",
+    "copy-from": "fake_item",
+    "name": { "str": "wraith's swollen arm" },
+    "description": "This is the swollen proportion of the wraith. Shoots tentacles.",
+    "flags": [ "NEVER_JAMS" ],
+    "ammo_effects": [ "NEVER_MISFIRES", "NO_PENETRATE_OBSTACLES", "DRAW_AS_LINE" ],
+    "skill": "rifle",
+    "durability": 10,
+    "range": 7,
+    "dispersion": 12500,
+    "modes": [ [ "N", "near", 5 ] ],
+    "ranged_damage": { "damage_type": "bullet", "amount": 7, "armor_penetration": 2, "armor_multiplier": 0.95 }
   }
 ]
