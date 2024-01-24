@@ -1458,9 +1458,9 @@
         "queue_eocs": [
           {
             "id": "eoc_secro_pafv_morphed_gun_bonelance_shoot_power_check",
-            "condition": { "compare_num": [ { "u_val": "power" }, ">=", { "const": 100000 } ] },
+            "condition": { "math": [ "u_val('power')" }, ">=", "energy('100 kJ')" ] },
             "effect": [
-              { "arithmetic": [ { "u_val": "power" }, "-=", { "const": 100000 } ] },
+              { "math": [ "u_val('power')", "-=", "energy('100 kJ')" ] },
               {
                 "queue_eocs": [
                   {

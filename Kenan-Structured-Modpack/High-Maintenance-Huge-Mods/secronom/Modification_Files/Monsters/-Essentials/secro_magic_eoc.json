@@ -7,7 +7,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_bootlegsmoker_snatch_check",
-    "condition": { "compare_num": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
+    "condition": { "math": [ "u_val('strength')", ">=", "10" ] },
     "effect": [ { "u_message": "You resist the snatcher zombie's tongue!", "type": "good" } ],
     "false_effect": [
       { "u_add_effect": "stunned", "duration": "2 seconds" },
@@ -33,7 +33,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_hemo_bcurl_check",
-    "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, "<=", { "const": 4 } ] },
+    "condition": { "math": [ "distance('u', 'npc')", "<=", "4" ] },
     "effect": [
       { "u_message": "Blood accumulates around you!", "type": "bad" },
       { "u_add_effect": "unity_bloodslow", "duration": "25 seconds" }
@@ -99,7 +99,7 @@
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_tentawraith_tentgrasp_check",
     "condition": {
-      "and": [ { "math": [ "u_skill('dodge')", ">=", "4" ] }, { "compare_num": [ { "u_val": "dexterity" }, ">=", { "const": 8 } ] } ]
+      "and": [ { "math": [ "u_skill('dodge')", ">=", "4" ] }, { "math": [ "u_val('dexterity')", ">=", "8" ] } ]
     },
     "effect": [ { "u_message": "A barrage of tentacles tried to grasp at you, but you dodge!", "type": "good" } ],
     "false_effect": [
@@ -118,7 +118,7 @@
         "run_eocs": [
           {
             "id": "eoc_secro_mon_zombie_akin_constrict_check1",
-            "condition": { "compare_num": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
+            "condition": { "math": [ "u_val('strength')", ">=", "10" ] },
             "effect": [ { "u_message": "You resist the visceral tendril's constriction.", "type": "good" } ],
             "false_effect": [
               { "u_message": "You've been constricted by the tendrils!", "type": "bad" },
@@ -136,7 +136,7 @@
         "run_eocs": [
           {
             "id": "eoc_secro_mon_zombie_akin_constrict_check2",
-            "condition": { "compare_num": [ { "u_val": "strength" }, ">=", { "const": 10 } ] },
+            "condition": { "math": [ "u_val('strength')", ">=", "10" ] },
             "effect": [ { "u_message": "You resist the visceral tendril's constriction.", "type": "good" } ],
             "false_effect": [
               { "u_message": "You've been constricted by the tendrils!", "type": "bad" },
@@ -513,7 +513,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_ayenel_lockon_check",
-    "condition": { "compare_num": [ { "distance": [ "u", "npc" ] }, ">=", { "const": 5 } ] },
+    "condition": { "math": [ "distance('u', 'npc')", ">=", "5" ] },
     "effect": [ { "u_add_effect": "blind", "duration": "6 seconds" }, { "u_add_effect": "glowing", "duration": "60 seconds" } ]
   },
   {
