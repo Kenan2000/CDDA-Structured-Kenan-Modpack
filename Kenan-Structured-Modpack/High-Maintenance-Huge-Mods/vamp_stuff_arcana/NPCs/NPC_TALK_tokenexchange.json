@@ -4,34 +4,34 @@
     "id": "VAMP_ASEEKER_questinquire_tokenexc",
     "type": "talk_topic",
     "dynamic_line": {
-      "days_since_cataclysm": 5,
+      "math": [ "time_since('cataclysm', 'unit': 'days') >= 5" ],
       "no": "I don't know if I have something for you to exchange at this moment...",
       "yes": {
-        "days_since_cataclysm": 15,
+        "math": [ "time_since('cataclysm', 'unit': 'days') >= 15" ],
         "//": "Supply related items, namely some recipe materials.",
         "no": "Well, my ware is too small. Maybe you could be needing something at these stuff.",
         "yes": {
-          "days_since_cataclysm": 30,
+          "math": [ "time_since('cataclysm', 'unit': 'days') >= 30" ],
           "//": "Tools related items, like forges.",
           "no": "I've got some supplies for your stock...",
           "yes": {
-            "days_since_cataclysm": 60,
+            "math": [ "time_since('cataclysm', 'unit': 'days') >= 60" ],
             "//": "Well-made items, like weapons and armors.",
             "no": "Lets see what could we exchange for your tokens...",
             "yes": {
-              "days_since_cataclysm": 120,
+              "math": [ "time_since('cataclysm', 'unit': 'days') >= 120" ],
               "//": "High-grade items, like guns and stronger armors.",
               "no": "Well... The gunshop is offering you with limited guns in exchange of tokens.",
               "yes": {
-                "days_since_cataclysm": 240,
+                "math": [ "time_since('cataclysm', 'unit': 'days') >= 240" ],
                 "//": "Exclusive items, or those you can't get from either crafting nor in the wilds.",
                 "no": "A set of items for your endeavors!",
                 "yes": {
-                  "days_since_cataclysm": 480,
+                  "math": [ "time_since('cataclysm', 'unit': 'days') >= 480" ],
                   "//": "Exclusive items that costs more than 500 tokens... I guess.",
                   "no": "For all of your pain, these items would help you out!",
                   "yes": {
-                    "days_since_cataclysm": 960,
+                    "math": [ "time_since('cataclysm', 'unit': 'days') >= 960" ],
                     "//": "Notifies player that no more stocks will be added.",
                     "no": "This stock is at its finest!",
                     "yes": "I guess you're waiting for more contents... Don't wait for something else."
@@ -47,22 +47,22 @@
       {
         "text": "(Inquire for tier 1 VS rewards)",
         "topic": "VAMP_ASEEKER_questinquire_tokenexct1VS",
-        "condition": { "days_since_cataclysm": 5 }
+        "condition": { "math": [ "time_since('cataclysm', 'unit': 'days') >= 5" ] }
       },
       {
         "text": "(Inquire for tier 2 VS rewards)",
         "topic": "VAMP_ASEEKER_questinquire_tokenexct2VS",
-        "condition": { "days_since_cataclysm": 15 }
+        "condition": { "math": [ "time_since('cataclysm', 'unit': 'days') >= 15" ] }
       },
       {
         "text": "(Inquire for tier 3 VS rewards)",
         "topic": "VAMP_ASEEKER_questinquire_tokenexct3VS",
-        "condition": { "days_since_cataclysm": 30 }
+        "condition": { "math": [ "time_since('cataclysm', 'unit': 'days') >= 30" ] }
       },
       {
         "text": "(Inquire for tier 4 VS rewards)",
         "topic": "VAMP_ASEEKER_questinquire_tokenexct3VS",
-        "condition": { "days_since_cataclysm": 60 }
+        "condition": { "math": [ "time_since('cataclysm', 'unit': 'days') >= 60" ] }
       },
       { "text": "I change my mind...", "topic": "VAMP_ASEEKER_main" }
     ]
