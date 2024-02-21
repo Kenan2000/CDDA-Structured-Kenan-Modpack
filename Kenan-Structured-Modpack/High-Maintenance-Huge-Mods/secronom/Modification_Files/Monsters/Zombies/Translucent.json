@@ -23,7 +23,14 @@
     "harvest": "zombie",
     "melee_damage": [ { "damage_type": "cut", "amount": 1 }, { "damage_type": "acid", "amount": 2 } ],
     "armor": { "bash": 2, "cut": 1, "heat": 1 },
-    "special_attacks": [ [ "ACID_BARF", 30 ] ],
+    "special_attacks": [ 
+      {
+        "type": "spell",
+        "spell_data": { "id": "acid_barf", "min_level": 3 },
+        "monster_message": "The %s barfs acid!",
+        "cooldown": 30
+      }
+    ],
     "death_drops": "default_zombie_death_drops",
     "upgrades": { "half_life": 14, "into": "mon_zombie_pellucid" },
     "anger_triggers": [ "PLAYER_CLOSE" ],
@@ -69,7 +76,12 @@
     "luminance": 1,
     "armor": { "bash": 6, "heat": 2 },
     "special_attacks": [
-      [ "ACID_BARF", 30 ],
+      {
+        "type": "spell",
+        "spell_data": { "id": "acid_barf", "min_level": 3 },
+        "monster_message": "The %s barfs acid!",
+        "cooldown": 30 
+      },
       [ "ACID", 40 ],
       {
         "type": "gun",

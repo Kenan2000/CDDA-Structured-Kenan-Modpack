@@ -1727,7 +1727,17 @@
     "melee_dice_sides": 4,
     "melee_damage": [ { "damage_type": "acid", "amount": 4 } ],
     "armor": { "bash": 2, "cut": 2, "bullet": 2, "stab": 2 },
-    "special_attacks": [ { "type": "bite", "cooldown": 5 }, { "id": "grab", "cooldown": 7 }, [ "scratch", 20 ], [ "ACID_BARF", 30 ] ],
+    "special_attacks": [ 
+      { "type": "bite", "cooldown": 5 }, 
+      { "id": "grab", "cooldown": 7 }, 
+      [ "scratch", 20 ], 
+      {
+        "type": "spell",
+        "spell_data": { "id": "acid_barf", "min_level": 3 },
+        "monster_message": "The %s barfs acid!",
+        "cooldown": 30
+      }
+    ],
     "death_drops": "default_zombie_death_drops",
     "upgrades": { "half_life": 18, "into": "mon_zombie_stray_w_acid_stro2" },
     "flags": [
@@ -1774,7 +1784,12 @@
       { "type": "bite", "cooldown": 5 },
       { "id": "grab", "cooldown": 7 },
       [ "scratch", 20 ],
-      [ "ACID_BARF", 28 ],
+      {
+        "type": "spell",
+        "spell_data": { "id": "acid_barf", "min_level": 3 },
+        "monster_message": "The %s barfs acid!",
+        "cooldown": 28
+      },
       {
         "type": "spell",
         "spell_data": { "id": "mon_zombie_stray_w_acid_stro2_acoat" },
@@ -1828,7 +1843,12 @@
       { "type": "bite", "cooldown": 5 },
       { "id": "grab", "cooldown": 7 },
       [ "scratch", 20 ],
-      [ "ACID_BARF", 25 ],
+      {
+        "type": "spell",
+        "spell_data": { "id": "acid_barf", "min_level": 3 },
+        "monster_message": "The %s barfs acid!",
+        "cooldown": 25
+      },
       {
         "type": "spell",
         "spell_data": { "id": "mon_zombie_stray_w_acid_stro3_arain" },
