@@ -94,8 +94,7 @@
     "description": "The Crusader attunement is a clashing dichotomy of Man and Nature.  Utilizing man's propensity for tools and nature's resilience, the Crusader is a juggernaut in armed combat.",
     "prereqs": [ "DRUID", "TECHNOMANCER" ],
     "spells_learned": [ [ "holy_shield", 5 ], [ "judgement_sword", 5 ] ],
-    "passive_mods": { "dex_mod": 5 },
-    "hp_modifier": 1,
+    "enchantments": [ { "values": [ { "value": "DEXTERITY", "add": 5 }, { "value": "MAX_HP", "multiply": 1 } ] } ],
     "flags": [ "ATTUNEMENT" ]
   },
   {
@@ -112,7 +111,7 @@
     "armor": [
       { "parts": [ "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r", "head" ], "cut": 15 }
     ],
-    "passive_mods": { "str_mod": 5 },
+    "enchantments": [ { "values": [ { "value": "STRENGTH", "add": 5 } ] } ],
     "flags": [ "ATTUNEMENT" ]
   },
   {
@@ -197,8 +196,7 @@
     "description": "The fundamental Laws of the universe are thought of as the end-all-be-all in magical circles, and the Gravity Mage is a result of mages mucking around with those laws.  Unfortunately, this attunement does not give supreme control over gravity as a fundamental force, though the affinity is prominent and comes with some non-negligible benefits.",
     "prereqs": [ "MAGUS", "EARTHSHAPER" ],
     "spells_learned": [ [ "gravitymage_graviton", 5 ], [ "gravity_mage_leap", 5 ], [ "gravity_mage_melee", 5 ] ],
-    "enchantments": [ "GRAVITY_MAGE" ],
-    "weight_capacity_modifier": 2,
+    "enchantments": [ "GRAVITY_MAGE", { "values": [ { "value": "CARRY_WEIGHT", "multiply": 1 } ] } ],
     "flags": [ "ATTUNEMENT", "CLIMB_NO_LADDER" ]
   },
   {
@@ -211,7 +209,7 @@
     "valid": false,
     "description": "The Technomancer specializes in augmenting humans without actually modifying them; and the Overclocker takes the heat aptitude of a Kelvinist and puts that to work.  You are able to think significantly faster, and are able to align your leylines for spellcasting faster as a result.",
     "prereqs": [ "KELVINIST", "TECHNOMANCER" ],
-    "passive_mods": { "int_mod": 5 },
+    "enchantments": [ { "values": [ { "value": "INTELLIGENCE", "add": 5 } ] } ],
     "casting_time_multiplier": 0.75,
     "spells_learned": [ [ "overaccelerate", 5 ], [ "overclocker_drive", 5 ] ],
     "flags": [ "ATTUNEMENT" ]
@@ -367,8 +365,7 @@
     "valid": false,
     "description": "The Sun Mage has been studying the Laws governing heat, and has attained a special relationship with that life-giving yellow orb in the sky.  Glimpses of the Sun meet its foes, and its own burning light pierces the darkness.",
     "prereqs": [ "MAGUS", "KELVINIST" ],
-    "passive_mods": { "per_mod": 5 },
-    "enchantments": [ "SUN_MAGE" ],
+    "enchantments": [ "SUN_MAGE", { "values": [ { "value": "PERCEPTION", "add": 5 } ] } ],
     "spells_learned": [ [ "solar_beam", 5 ], [ "sunmage_pocket_sun", 5 ] ],
     "flags": [ "ATTUNEMENT" ]
   },
