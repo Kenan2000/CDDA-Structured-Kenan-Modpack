@@ -61,7 +61,7 @@
     ],
     "encumbrance_always": [ [ "hand_l", 20 ], [ "hand_r", 20 ] ],
     "encumbrance_covered": [ [ "hand_l", 30 ], [ "hand_r", 30 ] ],
-    "rand_bash_bonus": { "min": 1, "max": 3 },
+    "enchantments": [ { "values": [ { "value": "ITEM_DAMAGE_BASH", "add": 2 }]}],
     "attacks": [
       {
         "attack_text_u": "You slap %s with your tendrils",
@@ -97,7 +97,6 @@
     "leads_to": [ "SECRO_TENDRIL_THICK_THRESHOLD" ],
     "encumbrance_always": [ [ "hand_l", 45 ], [ "hand_r", 45 ] ],
     "encumbrance_covered": [ [ "hand_l", 55 ], [ "hand_r", 55 ] ],
-    "rand_bash_bonus": { "min": 3, "max": 8 },
     "attacks": [
       {
         "attack_text_u": "You slap %s with your thick tendrils",
@@ -115,7 +114,14 @@
       }
     ],
     "armor": [ { "parts": [ "arm_l", "arm_r" ], "bash": 6 } ],
-    "enchantments": [ { "values": [ { "value": "DEXTERITY", "add": -2 } ] } ],
+    "enchantments": [
+      {
+        "values": [
+          { "value": "DEXTERITY", "add": -2 },
+          { "value": "ITEM_DAMAGE_BASH", "add": 5.5}
+        ]
+      }
+    ],
     "category": [ "SECRONOM_EX" ]
   },
   {
@@ -156,7 +162,6 @@
       [ "arm_l", 25 ],
       [ "arm_r", 25 ]
     ],
-    "rand_bash_bonus": { "min": 1, "max": 2 },
     "attacks": [
       {
         "attack_text_u": "You slap %s with your tendrils",
@@ -188,7 +193,15 @@
       }
     ],
     "armor": [ { "parts": [ "arm_l", "arm_r" ], "bash": 1 }, { "parts": "ALL", "bash": 2 } ],
-    "enchantments": [ { "values": [ { "value": "DEXTERITY", "add": 1 }, { "value": "ATTACK_SPEED", "multiply": 0.05 } ] } ],
+    "enchantments": [
+      {
+        "values": [
+          { "value": "DEXTERITY", "add": 1 },
+          { "value": "ATTACK_SPEED", "multiply": 0.05 },
+          { "value": "ITEM_DAMAGE_BASH", "add": 1.5 }
+        ]
+      }
+    ],
     "category": [ "SECRONOM_EX" ]
   },
   {
@@ -204,8 +217,14 @@
     "threshreq": [ "THRESH_SECRONOM_EX" ],
     "cancels": [ "SECRO_BLADE_SHARP_THRESHOLD", "SECRO_BLADE_SERRATED_THRESHOLD", "SECRO_TENDRIL_TENT_THRESHOLD" ],
     "armor": [ { "parts": [ "arm_l", "arm_r" ], "bash": 4 } ],
-    "bash_dmg_bonus": 4,
-    "enchantments": [ { "values": [ { "value": "STRENGTH", "add": 2 } ] } ],
+    "enchantments": [
+      {
+        "values": [
+          { "value": "STRENGTH", "add": 2 },
+          { "value": "ITEM_DAMAGE_BASH", "add": 4 }
+        ]
+      }
+    ],
     "category": [ "SECRONOM_EX" ]
   },
   {
@@ -250,7 +269,7 @@
       "SECRO_BLADE_SERRATED_THRESHOLD"
     ],
     "encumbrance_always": [ [ "hand_l", 100 ] ],
-    "rand_bash_bonus": { "min": 4, "max": 8 },
+    "enchantments": [ { "values": [ { "value": "ITEM_DAMAGE_BASH", "add": 6 } ] } ],
     "armor": [ { "parts": "arm_l", "bash": 10, "cut": 10, "stab": 10 } ],
     "category": [ "SECRONOM_EX" ]
   },
@@ -269,9 +288,15 @@
     "prereqs": [ "SECRO_BLADE_L" ],
     "leads_to": [ "SECRO_BLADE_SHARP_THRESHOLD" ],
     "encumbrance_always": [ [ "hand_l", 100 ] ],
-    "rand_cut_bonus": { "min": 4, "max": 12 },
     "armor": [ { "parts": "arm_l", "bash": 6, "cut": 6, "stab": 6 } ],
-    "enchantments": [ { "values": [ { "value": "ATTACK_SPEED", "multiply": 0.1 } ] } ],
+    "enchantments": [
+      {
+        "values": [
+          { "value": "ATTACK_SPEED", "multiply": 0.1 },
+          { "value": "ITEM_DAMAGE_CUT", "add": 8 }
+        ]
+      }
+    ],
     "category": [ "SECRONOM_EX" ]
   },
   {
@@ -289,10 +314,16 @@
     "prereqs": [ "SECRO_BLADE_L" ],
     "leads_to": [ "SECRO_BLADE_SERRATED_THRESHOLD" ],
     "encumbrance_always": [ [ "hand_l", 100 ] ],
-    "rand_cut_bonus": { "min": 3, "max": 8 },
-    "rand_bash_bonus": { "min": 3, "max": 8 },
     "armor": [ { "parts": "arm_l", "bash": 14, "cut": 14, "stab": 14 } ],
-    "enchantments": [ { "values": [ { "value": "ATTACK_SPEED", "multiply": -0.05 } ] } ],
+    "enchantments": [
+      {
+        "values": [
+          { "value": "ATTACK_SPEED", "multiply": -0.05 },
+          { "value": "ITEM_DAMAGE_BASH", "add": 5.5 },
+          { "value": "ITEM_DAMAGE_CUT", "add": 5.5 }
+        ]
+      }
+    ],
     "category": [ "SECRONOM_EX" ]
   },
   {
