@@ -308,28 +308,6 @@
     "delete": { "flags": [ "HUMAN" ] }
   },
   {
-    "id": "mon_sflesh_feral_fancy_crossbow",
-    "copy-from": "mon_feral_fancy_crossbow",
-    "burn_into": "mon_zombie",
-    "type": "MONSTER",
-    "default_faction": "secro_flesh",
-    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
-    "proportional": { "hp": 1.25, "speed": 0.85, "bleed_rate": 0.33 },
-    "extend": {
-      "special_attacks": [
-        {
-          "type": "spell",
-          "spell_data": { "id": "secro_flesh_infect_target" },
-          "cooldown": 30,
-		  "condition": { "math": [ "u_hp('ALL') / 2", ">=", "n_hp('ALL')" ] },
-          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
-        }
-      ],
-      "species": [ "SFLESH" ]
-    },
-    "delete": { "flags": [ "HUMAN" ] }
-  },
-  {
     "id": "mon_sflesh_feral_armored_mace",
     "copy-from": "mon_feral_armored_mace",
     "burn_into": "mon_zombie",
@@ -374,8 +352,8 @@
     "delete": { "flags": [ "HUMAN" ] }
   },
   {
-    "id": "mon_sflesh_feral_prepper",
-    "copy-from": "mon_feral_prepper",
+    "id": "mon_sflesh_feral_prepper_knife",
+    "copy-from": "mon_feral_prepper_knife",
     "burn_into": "mon_zombie",
     "type": "MONSTER",
     "default_faction": "secro_flesh",
@@ -388,6 +366,28 @@
           "spell_data": { "id": "secro_flesh_infect_target" },
           "cooldown": 30,
 		  "condition": { "math": [ "u_hp('ALL') / 2", ">=", "n_hp('ALL')" ] },
+          "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+        }
+      ],
+      "species": [ "SFLESH" ]
+    },
+    "delete": { "flags": [ "HUMAN" ] }
+  },
+  {
+    "id": "mon_sflesh_feral_prepper_mace",
+    "copy-from": "mon_feral_prepper_mace",
+    "burn_into": "mon_zombie",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "relative": { "melee_skill": 1, "armor": { "bash": 3 } },
+    "proportional": { "hp": 1.25, "speed": 0.85, "bleed_rate": 0.33 },
+    "extend": {
+      "special_attacks": [
+        {
+          "type": "spell",
+          "spell_data": { "id": "secro_flesh_infect_target" },
+          "cooldown": 30,
+          "condition": { "math": [ "u_hp('ALL') / 2", ">=", "n_hp('ALL')" ] },
           "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
         }
       ],
