@@ -29,6 +29,8 @@
     "move_cost": 0,
     "coverage": 100,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_wall" }
   },
@@ -41,7 +43,10 @@
     "color": "light_red",
     "move_cost": 0,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "FLAMMABLE", "NOITEM", "REDUCE_SCENT", "BARRICADABLE_WINDOW", "CONNECT_TO_WALL", "BLOCK_WIND", "S_FLESH" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "FLAMMABLE", "NOITEM", "REDUCE_SCENT", "BARRICADABLE_WINDOW", "BLOCK_WIND", "S_FLESH" ],
     "bash": {
       "str_min": 8,
       "str_max": 16,
@@ -73,7 +78,10 @@
       "ter_set": "t_window_empty",
       "items": [ { "item": "glass_shard", "count": [ 6, 10 ] } ]
     },
-    "flags": [ "TRANSPARENT", "SHARP", "FLAMMABLE", "NOITEM", "MOUNTABLE", "CONNECT_TO_WALL", "SMALL_PASSAGE", "S_FLESH" ]
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "TRANSPARENT", "SHARP", "FLAMMABLE", "NOITEM", "MOUNTABLE", "SMALL_PASSAGE", "S_FLESH" ]
   },
   {
     "type": "terrain",
@@ -85,7 +93,10 @@
     "move_cost": 0,
     "coverage": 95,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "FLAMMABLE_ASH", "DOOR", "NOITEM", "BARRICADABLE_DOOR", "CONNECT_TO_WALL", "BLOCK_WIND", "S_FLESH" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "FLAMMABLE_ASH", "DOOR", "NOITEM", "BARRICADABLE_DOOR", "BLOCK_WIND", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splat!", "sound_fail": "splat!", "ter_set": "t_door_c" }
   },
   {
@@ -98,12 +109,14 @@
     "move_cost": 0,
     "coverage": 95,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
     "flags": [
       "FLAMMABLE_ASH",
       "NOITEM",
       "OPENCLOSE_INSIDE",
       "REDUCE_SCENT",
-      "CONNECT_TO_WALL",
       "BARRICADABLE_DOOR",
       "BLOCK_WIND",
       "S_FLESH"
@@ -119,6 +132,7 @@
     "color": "light_red",
     "move_cost": 5,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "ROAD", "NOCOLLIDE", "S_FLESH" ],
     "bash": { "sound": "splash!", "ter_set": "t_floor", "str_min": 8, "str_max": 16 }
   },
@@ -131,6 +145,7 @@
     "color": "red",
     "move_cost": 5,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "INDOORS", "COLLAPSES", "SUPPORTS_ROOF", "FLAT", "ROAD", "NOCOLLIDE", "S_FLESH" ],
     "bash": { "ter_set": "t_rock_floor", "str_min": 8, "str_max": 16, "bash_below": true }
   },
@@ -143,6 +158,7 @@
     "color": "red",
     "move_cost": 5,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "GOES_DOWN", "INDOORS", "PLACE_ITEM", "S_FLESH" ]
   },
   {
@@ -153,6 +169,7 @@
     "symbol": "<",
     "color": "red",
     "move_cost": 5,
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "GOES_UP", "INDOORS", "PLACE_ITEM", "S_FLESH" ]
   },
   {
@@ -323,6 +340,8 @@
     "move_cost": 0,
     "coverage": 100,
     "bash": { "str_min": 100, "str_max": 300, "sound": "splash!", "sound_fail": "splat.", "ter_set": "t_secro_flesh" },
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "FLAMMABLE_HARD", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL", "S_FLESH", "BLOCK_WIND" ]
   },
   {
@@ -336,6 +355,8 @@
     "move_cost": 0,
     "coverage": 90,
     "bash": { "str_min": 10, "str_max": 30, "sound": "splook!", "sound_fail": "splat.", "ter_set": "t_secro_flesh" },
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "FLAMMABLE_HARD", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL", "S_FLESH", "BLOCK_WIND" ]
   },
   {
@@ -488,6 +509,8 @@
     "move_cost_mod": -1,
     "required_str": -1,
     "coverage": 100,
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "FLAMMABLE_HARD", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL", "S_FLESH", "BLOCK_WIND", "FF_BIOHAZARD" ]
   },
   {
@@ -502,6 +525,8 @@
     "required_str": -1,
     "coverage": 100,
     "emissions": [ "emit_flesh_wall" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [
       "FLAMMABLE_HARD",
       "NOITEM",
@@ -547,6 +572,8 @@
     "color": "red",
     "move_cost": 0,
     "coverage": 100,
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "FLAMMABLE_HARD", "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL", "S_FLESH", "BLOCK_WIND", "FF_BIOHAZARD" ],
     "bash": { "str_min": 10, "str_max": 20, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_secro_flesh" }
   },
@@ -617,6 +644,8 @@
     "move_cost": 0,
     "coverage": 100,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "CHIP", "S_FLESH", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_wall_w" }
   },
@@ -630,6 +659,8 @@
     "move_cost": 0,
     "coverage": 100,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "CHIP", "S_FLESH", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_wall_g" }
   },
@@ -643,6 +674,8 @@
     "move_cost": 0,
     "coverage": 100,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "CHIP", "S_FLESH", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_wall_r" }
   },
@@ -656,6 +689,8 @@
     "move_cost": 0,
     "coverage": 100,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "CHIP", "S_FLESH", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_wall_b" }
   },
@@ -669,8 +704,9 @@
     "move_cost": 0,
     "coverage": 100,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "NOITEM", "SUPPORTS_ROOF", "S_FLESH", "WALL", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND" ],
+    "connect_groups": "WALL",
     "connects_to": "WALL",
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "S_FLESH", "WALL", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_rock_wall" }
   },
   {
@@ -681,7 +717,9 @@
     "symbol": "\"",
     "color": "red",
     "move_cost": 0,
-    "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE", "CONNECT_TO_WALL", "THIN_OBSTACLE", "S_FLESH" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE", "THIN_OBSTACLE", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_bars" }
   },
   {
@@ -694,6 +732,8 @@
     "move_cost": 0,
     "coverage": 90,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "NOITEM", "WALL", "AUTO_WALL_SYMBOL", "BLOCK_WIND", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_wall_glass" }
   },
@@ -706,7 +746,10 @@
     "color": "light_red",
     "move_cost": 0,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "S_FLESH", "NOITEM", "CONNECT_TO_WALL", "BLOCK_WIND" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "S_FLESH", "NOITEM", "BLOCK_WIND" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_door_glass_c" }
   },
   {
@@ -764,6 +807,7 @@
     "color": "light_red",
     "move_cost": 5,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "NOCOLLIDE", "ROAD", "S_FLESH" ],
     "bash": { "sound": "splash!", "ter_set": "t_thconc_floor", "str_min": 8, "str_max": 16 }
   },
@@ -786,6 +830,7 @@
     "symbol": "<",
     "color": "red",
     "move_cost": 5,
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "INDOORS", "PLACE_ITEM", "S_FLESH" ]
   },
   {
@@ -807,8 +852,9 @@
     "symbol": "LINE_OXOX",
     "color": "red",
     "move_cost": 6,
-    "flags": [ "TRANSPARENT", "NOITEM", "THIN_OBSTACLE", "MOUNTABLE", "SHORT", "AUTO_WALL_SYMBOL", "BURROWABLE", "S_FLESH" ],
+    "connect_groups": "RAILING",
     "connects_to": "RAILING",
+    "flags": [ "TRANSPARENT", "NOITEM", "THIN_OBSTACLE", "MOUNTABLE", "SHORT", "AUTO_WALL_SYMBOL", "BURROWABLE", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat.", "ter_set": "t_railing" }
   },
   {
@@ -821,7 +867,10 @@
     "move_cost": 0,
     "coverage": 95,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "NOITEM", "S_FLESH", "CONNECT_TO_WALL", "MINEABLE", "BLOCK_WIND" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "NOITEM", "S_FLESH", "MINEABLE", "BLOCK_WIND" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_door_metal_c" }
   },
   {
@@ -834,7 +883,10 @@
     "move_cost": 0,
     "coverage": 95,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "NOITEM", "REDUCE_SCENT", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_door_metal_locked" }
   },
   {
@@ -846,6 +898,7 @@
     "color": "red",
     "move_cost": 5,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "NOCOLLIDE", "S_FLESH", "FLAT" ],
     "bash": { "sound": "splash!", "ter_set": "t_carpet_red", "str_min": 8, "str_max": 16 }
   },
@@ -858,6 +911,7 @@
     "color": "red",
     "move_cost": 5,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "NOCOLLIDE", "S_FLESH", "FLAT" ],
     "bash": { "sound": "splash!", "ter_set": "t_carpet_yellow", "str_min": 8, "str_max": 16 }
   },
@@ -870,6 +924,7 @@
     "color": "red",
     "move_cost": 5,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "NOCOLLIDE", "S_FLESH", "FLAT" ],
     "bash": { "sound": "splash!", "ter_set": "t_carpet_green", "str_min": 8, "str_max": 16 }
   },
@@ -882,6 +937,7 @@
     "color": "red",
     "move_cost": 5,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "SUPPORTS_ROOF", "COLLAPSES", "NOCOLLIDE", "INDOORS", "S_FLESH", "FLAT" ],
     "bash": { "sound": "splash!", "ter_set": "t_carpet_purple", "str_min": 8, "str_max": 16 }
   },
@@ -894,6 +950,7 @@
     "color": "light_red",
     "move_cost": 5,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "NOCOLLIDE", "S_FLESH", "FLAT", "ROAD" ],
     "bash": { "sound": "splash!", "ter_set": "t_linoleum_white", "str_min": 8, "str_max": 16 }
   },
@@ -906,6 +963,7 @@
     "symbol": ".",
     "color": "light_red",
     "move_cost": 5,
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "NOCOLLIDE", "S_FLESH", "FLAT", "ROAD" ],
     "bash": { "sound": "splash!", "ter_set": "t_linoleum_gray", "str_min": 8, "str_max": 16 }
   },
@@ -917,6 +975,9 @@
     "symbol": "LINE_OXOX",
     "color": "red",
     "move_cost": 6,
+    "connect_groups": "WOODFENCE",
+    "connects_to": "WOODFENCE",
+    "rotates_to": "INDOORFLOOR",
     "flags": [
       "TRANSPARENT",
       "DIGGABLE",
@@ -930,7 +991,6 @@
       "BURROWABLE",
       "S_FLESH"
     ],
-    "connects_to": "WOODFENCE",
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash.", "sound_fail": "splat.", "ter_set": "t_fence" }
   },
   {
@@ -942,6 +1002,8 @@
     "color": "light_red",
     "move_cost": 0,
     "coverage": 80,
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "WALL", "MINEABLE", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_column" }
   },
@@ -956,9 +1018,10 @@
     "move_cost_mod": -1,
     "coverage": 50,
     "required_str": -1,
-    "flags": [ "TRANSPARENT", "NOITEM", "INDOORS", "SHORT", "PERMEABLE" ],
     "connect_groups": "COUNTER",
     "connects_to": "COUNTER",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "TRANSPARENT", "NOITEM", "INDOORS", "SHORT", "PERMEABLE" ],  
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "furn_set": "f_console_broken" }
   },
   {
@@ -973,9 +1036,10 @@
     "coverage": 50,
     "required_str": -1,
     "light_emitted": 10,
-    "flags": [ "TRANSPARENT", "CONSOLE", "S_FLESH", "NOITEM", "INDOORS", "SHORT", "PERMEABLE" ],
     "connect_groups": "COUNTER",
     "connects_to": "COUNTER",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "TRANSPARENT", "CONSOLE", "S_FLESH", "NOITEM", "INDOORS", "SHORT", "PERMEABLE" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "furn_set": "f_console" }
   },
   {
@@ -986,6 +1050,7 @@
     "symbol": "6",
     "color": "red",
     "move_cost": 0,
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "NOITEM", "INDOORS", "PERMEABLE", "THIN_OBSTACLE", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_gates_mech_control" }
   },
@@ -997,6 +1062,7 @@
     "symbol": "6",
     "color": "cyan_red",
     "move_cost": 0,
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "NOITEM", "INDOORS", "PERMEABLE", "THIN_OBSTACLE", "S_FLESH" ],
     "examine_action": "controls_gate",
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_gates_control_concrete" }
@@ -1022,7 +1088,10 @@
     "color": "red",
     "move_cost": 0,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "BARRICADABLE_WINDOW", "CONNECT_TO_WALL", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "BARRICADABLE_WINDOW", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_window_stained_green" }
   },
   {
@@ -1034,7 +1103,10 @@
     "color": "red",
     "move_cost": 0,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "BARRICADABLE_WINDOW", "CONNECT_TO_WALL", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "BARRICADABLE_WINDOW", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_window_stained_red" }
   },
   {
@@ -1046,7 +1118,10 @@
     "color": "red",
     "move_cost": 0,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "BARRICADABLE_WINDOW", "CONNECT_TO_WALL", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "BARRICADABLE_WINDOW", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_window_stained_blue" }
   },
   {
@@ -1058,7 +1133,9 @@
     "color": "light_red",
     "move_cost": 0,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "NOITEM", "CONNECT_TO_WALL", "THIN_OBSTACLE", "S_FLESH" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "flags": [ "NOITEM", "THIN_OBSTACLE", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_window_bars" }
   },
   {
@@ -1069,6 +1146,8 @@
     "symbol": "LINE_OXOX",
     "color": "light_red",
     "move_cost": 0,
+    "connect_groups": "CHAINFENCE",
+    "connects_to": "CHAINFENCE",
     "flags": [
       "TRANSPARENT",
       "NOITEM",
@@ -1080,7 +1159,6 @@
       "BURROWABLE",
       "S_FLESH"
     ],
-    "connects_to": "CHAINFENCE",
     "examine_action": "chainfence",
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_chainfence" }
   },
@@ -1092,8 +1170,9 @@
     "symbol": "+",
     "color": "red",
     "move_cost": 0,
-    "flags": [ "TRANSPARENT", "PERMEABLE", "THIN_OBSTACLE", "BURROWABLE", "S_FLESH" ],
+    "connect_groups": "CHAINFENCE",
     "connects_to": "CHAINFENCE",
+    "flags": [ "TRANSPARENT", "PERMEABLE", "THIN_OBSTACLE", "BURROWABLE", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_chaingate_l" }
   },
   {
@@ -1104,8 +1183,9 @@
     "symbol": "+",
     "color": "red",
     "move_cost": 0,
-    "flags": [ "TRANSPARENT", "PERMEABLE", "THIN_OBSTACLE", "BURROWABLE", "S_FLESH" ],
+    "connect_groups": "CHAINFENCE",
     "connects_to": "CHAINFENCE",
+    "flags": [ "TRANSPARENT", "PERMEABLE", "THIN_OBSTACLE", "BURROWABLE", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_chaingate_c" }
   },
   {
@@ -1118,6 +1198,8 @@
     "move_cost": 0,
     "coverage": 100,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "FLAMMABLE", "NOITEM", "SUPPORTS_ROOF", "WALL", "CHIP", "S_FLESH", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_wall_p" }
   },
@@ -1130,7 +1212,10 @@
     "color": "red",
     "move_cost": 0,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "NOITEM", "CONNECT_TO_WALL", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "NOITEM", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_reinforced_door_glass_c" }
   },
   {
@@ -1143,8 +1228,9 @@
     "move_cost": 0,
     "coverage": 100,
     "roof": "t_secro_flat_roof_flesh",
-    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
+    "connect_groups": "WALL",
     "connects_to": "WALL",
+    "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_brick_wall" }
   },
   {
@@ -1157,6 +1243,8 @@
     "move_cost": 0,
     "coverage": 100,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "MINEABLE", "S_FLESH", "BLOCK_WIND" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_concrete_wall" }
   },
@@ -1170,6 +1258,8 @@
     "move_cost": 0,
     "coverage": 100,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "NOITEM", "SUPPORTS_ROOF", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "MINEABLE", "S_FLESH", "BLOCK_WIND" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_wall_metal" }
   },
@@ -1183,6 +1273,7 @@
     "color": "light_red",
     "move_cost": 5,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "INDOORS", "FLAT", "ROAD", "SFLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_metal_floor" }
   },
@@ -1195,6 +1286,8 @@
     "color": "light_red",
     "move_cost": 0,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "NOITEM", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "MINEABLE", "S_FLESH", "BLOCK_WIND" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_reinforced_glass" }
   },
@@ -1220,6 +1313,8 @@
     "color": "light_red",
     "move_cost": 0,
     "roof": "t_secro_flat_roof_flesh",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "NOITEM", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "MINEABLE", "BLOCK_WIND", "S_FLESH" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splash!", "sound_fail": "splat!", "ter_set": "t_ballistic_glass" }
   },
@@ -1232,7 +1327,9 @@
     "symbol": "6",
     "color": "pink",
     "move_cost": 0,
-    "flags": [ "NOITEM", "CONNECT_TO_WALL" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "flags": [ "NOITEM" ],
     "bash": {
       "str_min": 18,
       "str_max": 180,
@@ -1253,7 +1350,10 @@
     "move_cost": 0,
     "coverage": 95,
     "roof": "t_flat_roof",
-    "flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "LOCKED", "MINEABLE", "BLOCK_WIND" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "NOITEM", "REDUCE_SCENT", "INDOORS", "LOCKED", "MINEABLE", "BLOCK_WIND" ],
     "bash": {
       "str_min": 120,
       "str_max": 350,
@@ -1279,7 +1379,10 @@
     "move_cost": 0,
     "coverage": 95,
     "roof": "t_flat_roof",
-    "flags": [ "NOITEM", "REDUCE_SCENT", "CONNECT_TO_WALL", "LOCKED", "MINEABLE", "BLOCK_WIND" ],
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
+    "rotates_to": "INDOORFLOOR",
+    "flags": [ "NOITEM", "REDUCE_SCENT", "INDOORS", "LOCKED", "MINEABLE", "BLOCK_WIND" ],
     "bash": {
       "str_min": 120,
       "str_max": 350,
@@ -1304,6 +1407,8 @@
     "move_cost": 0,
     "coverage": 40,
     "roof": "t_flat_roof",
+    "connect_groups": "WALL",
+    "connects_to": "WALL",
     "flags": [ "TRANSPARENT", "SEALED", "PLACE_ITEM", "WALL" ],
     "bash": {
       "str_min": 12,
