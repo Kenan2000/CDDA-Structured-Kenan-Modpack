@@ -153,7 +153,7 @@
         "type": "spell",
         "spell_data": { "id": "mon_zombie_hemo_bspit" },
         "cooldown": 65,
-        "monster_message": "<color_yellow>%1$s's blood gurgling intensifies...</color>\n<color_red>%1$s spits a glob of thick blood at %3$s</color>"
+        "monster_message": "<color_yellow>%1$s's blood gurgling intensifies…</color>\n<color_red>%1$s spits a glob of thick blood at %3$s</color>"
       }
     ],
     "regenerates": 2,
@@ -192,11 +192,21 @@
     "color": "light_red",
     "aggression": 100,
     "morale": 100,
-    "emit_fields": [ "emit_veinstalk_limiter" ],
     "melee_skill": 4,
     "melee_dice": 2,
     "melee_dice_sides": 2,
     "armor": { "bash": 20 },
+    "special_attacks": [
+      {
+		"id": "monspell_secro_veinstalk_initial",
+        "type": "spell",
+        "spell_data": { "id": "secro_veinstalk_initial" },
+        "cooldown": 1,
+        "monster_message": "",
+		"condition": { "not": { "u_has_effect": "secro_veinstalk_limit" } },
+		"allow_no_target": true
+      }
+    ],
     "death_function": {
       "corpse_type": "NO_CORPSE",
       "message": "The %s melts away.",
@@ -235,13 +245,23 @@
     "harvest": "exempt",
     "symbol": "&",
     "color": "red",
-    "emit_fields": [ "emit_veinstalk_limiter" ],
     "aggression": 100,
     "morale": 100,
     "melee_skill": 6,
     "melee_dice": 4,
     "melee_dice_sides": 4,
     "armor": { "bash": 24 },
+    "special_attacks": [
+      {
+		"id": "monspell_secro_veinstalk_initial",
+        "type": "spell",
+        "spell_data": { "id": "secro_veinstalk_initial" },
+        "cooldown": 1,
+        "monster_message": "",
+		"condition": { "not": { "u_has_effect": "secro_veinstalk_limit" } },
+		"allow_no_target": true
+      }
+    ],
     "death_function": {
       "corpse_type": "NO_CORPSE",
       "message": "The %s melts away.",

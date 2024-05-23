@@ -14,7 +14,6 @@
     "speed": 85,
     "material": [ "flesh" ],
     "symbol": "⚱",
-    "emit_fields": [ "emit_veinstalk_limiter" ],
     "color": "light_red",
     "aggression": 100,
     "morale": 100,
@@ -26,6 +25,17 @@
     "vision_day": 22,
     "vision_night": 22,
     "harvest": "exempt",
+    "special_attacks": [
+      {
+		"id": "monspell_secro_veinstalk_initial",
+        "type": "spell",
+        "spell_data": { "id": "secro_veinstalk_initial" },
+        "cooldown": 1,
+        "monster_message": "",
+		"condition": { "not": { "u_has_effect": "secro_veinstalk_limit" } },
+		"allow_no_target": true
+      }
+    ],
     "death_function": {
       "corpse_type": "NO_CORPSE",
       "message": "The %s melts away.",
@@ -55,7 +65,6 @@
     "speed": 10,
     "material": [ "flesh" ],
     "symbol": "☒",
-    "emit_fields": [ "emit_flesh_wall_limitation", "emit_down_immunity" ],
     "color": "light_red",
     "aggression": 100,
     "morale": 100,
@@ -68,10 +77,21 @@
     "vision_night": 30,
     "special_attacks": [
       {
+		"id": "monspell_secro_flesh_wall_initial",
+        "type": "spell",
+        "spell_data": { "id": "secro_flesh_wall_initial" },
+        "cooldown": 1,
+        "monster_message": "",
+		"condition": { "not": { "u_has_effect": "secro_flesh_wall_limit" } },
+		"allow_no_target": true
+      },
+      {
+		"id": "monspell_sflesh_wall_ing_target",
         "type": "spell",
         "spell_data": { "id": "mon_sflesh_wall_ing_target" },
         "cooldown": 5,
-        "monster_message": "<color_light_red>%1$s trembles!</color>"
+        "monster_message": "",
+		"allow_no_target": true
       }
     ],
     "harvest": "exempt",
@@ -93,7 +113,6 @@
     "speed": 10,
     "material": [ "flesh" ],
     "symbol": "☒",
-    "emit_fields": [ "emit_flesh_wall_limitation", "emit_down_immunity" ],
     "color": "light_red",
     "aggression": 100,
     "morale": 100,
@@ -106,10 +125,20 @@
     "vision_night": 30,
     "special_attacks": [
       {
+		"id": "monspell_secro_flesh_wall_initial",
+        "type": "spell",
+        "spell_data": { "id": "secro_flesh_wall_initial" },
+        "cooldown": 1,
+        "monster_message": "",
+		"condition": { "not": { "u_has_effect": "secro_flesh_wall_limit" } },
+		"allow_no_target": true
+      },
+      {
         "type": "spell",
         "spell_data": { "id": "mon_sflesh_wall_city_ing_target" },
         "cooldown": 5,
-        "monster_message": "<color_light_red>%1$s trembles!</color>"
+        "monster_message": "",
+		"allow_no_target": true
       }
     ],
     "harvest": "exempt",

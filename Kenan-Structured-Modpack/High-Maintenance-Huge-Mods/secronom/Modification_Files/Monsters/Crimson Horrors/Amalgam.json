@@ -3,7 +3,7 @@
     "id": "mon_sflesh_fleshling_stingy",
     "type": "MONSTER",
     "name": { "str": "amalgam stinger" },
-    "description": "A rotten conglomeration of fused limbs and appendages that has been formed into a stout, meandering humanoid. Several parts of its body are infused with bulbous warts, to which are seem to be filled with sizzling crimson acid. A slender, predominant limb sways like a whip, flowing freely around itself. It is tipped with a barbed stinger that drips with a potent corrosive compound.",
+    "description": "A rotten conglomeration of fused limbs and appendages that has been formed into a stout, meandering humanoid. Several parts of its body are infused with bulbous warts filled with sizzling crimson acid. A slender, predominant limb sways like a whip tipped with a barbed stinger.",
     "default_faction": "secro_flesh3",
     "bodytype": "human",
     "species": [ "SFLESH", "ABERRATION" ],
@@ -40,7 +40,7 @@
     "id": "mon_sflesh_fleshling_ravagy",
     "type": "MONSTER",
     "name": { "str": "amalgam ravager" },
-    "description": "A monstrous humanoid formed by fusing several appendages of unknown creatures, which are reemerging back and forth in its vessel. Apart from its figure are long, irregular bone outgrowths covering its surface, and a gaping jaw opened widely on its twisted visage. Sluggish, yet opposes great danger.",
+    "description": "A monstrous humanoid formed by fusing several appendages of unknown creatures. Apart from its figure are long, irregular bone outgrowths covering its surface, and a gaping jaw opened widely on its twisted visage.",
     "default_faction": "secro_flesh3",
     "bodytype": "human",
     "species": [ "SFLESH", "ABERRATION" ],
@@ -84,31 +84,30 @@
     "weight": "22350 g",
     "hp": 70,
     "speed": 90,
-    "emit_fields": [ "emit_sflesh_fleshling_scavengy_forms" ],
     "material": [ "flesh" ],
     "symbol": "♮",
     "color": "light_red",
-    "aggression": 5,
-    "morale": 20,
+    "aggression": 100,
+    "morale": 100,
     "melee_skill": 6,
     "melee_dice": 3,
     "melee_dice_sides": 2,
     "melee_damage": [ { "damage_type": "cut", "amount": 5 } ],
     "armor": { "bash": 12, "cut": 2, "bullet": 2 },
-    "vision_day": 3,
     "harvest": "exempt",
+    "tracking_distance": 7,
     "special_attacks": [
       {
         "type": "spell",
-        "spell_data": { "id": "mon_sflesh_fleshling_scavengy_flee_target" },
-        "cooldown": 3,
-        "monster_message": "<color_light_red>%1$s flees from %3$s!</color>"
+        "spell_data": { "id": "mon_sflesh_fleshling_scavengy_spawn" },
+        "cooldown": 15,
+        "monster_message": "The amalgam scavenger forms a fleshling!"
       },
       [ "ABSORB_ITEMS", 0 ]
     ],
     "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
-    "absorb_ml_per_hp": 250,
+    "absorb_ml_per_hp": 1000,
     "absorb_move_cost_per_ml": 0.0,
-    "flags": [ "SEES", "HEARS", "SMELLS", "STUMBLES", "BASHES", "GROUP_BASH", "POISON", "NO_BREATHE", "PUSH_MON" ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "BASHES", "GROUP_BASH", "POISON", "NO_BREATHE", "PUSH_MON", "KEEP_DISTANCE" ]
   }
 ]

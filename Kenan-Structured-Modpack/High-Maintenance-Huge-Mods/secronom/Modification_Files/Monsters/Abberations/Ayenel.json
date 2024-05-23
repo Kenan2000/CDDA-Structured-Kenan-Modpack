@@ -24,19 +24,21 @@
     "dodge": 2,
     "harvest": "zombie",
     "melee_damage": [ { "damage_type": "cut", "amount": 15 } ],
-    "armor": { "bash": 8, "cut": 14, "bullet": 10, "acid": 1 },
+    "armor": { "bash": 8, "cut": 13, "bullet": 13, "stab": 13, "acid": 1 },
     "vision_day": 42,
     "vision_night": 16,
     "special_attacks": [
       [ "secro_ayenel_swing", 18 ],
       [ "secro_ayenel_bitedown", 26 ],
       {
+		"id": "monspell_ayenel_lockon_check",
         "type": "spell",
         "spell_data": { "id": "mon_ayenel_lockon_check" },
         "cooldown": 80,
+		"condition": { "math": [ "distance('u', 'npc')", ">=", "5" ] },
         "monster_message": "<color_yellow>%1$s glares at %3$s!</color>"
       }
     ],
-    "flags": [ "SEES", "STUMBLES", "WARM", "BASHES", "POISON", "ATTACKMON", "NO_BREATHE", "PUSH_MON" ]
+    "flags": [ "SEES", "WARM", "BASHES", "POISON", "ATTACKMON", "NO_BREATHE", "PUSH_MON" ]
   }
 ]

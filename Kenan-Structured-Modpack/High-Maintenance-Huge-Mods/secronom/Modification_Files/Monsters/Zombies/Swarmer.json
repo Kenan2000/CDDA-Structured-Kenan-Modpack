@@ -1,18 +1,19 @@
 [
   {
-    "//": "Aggro-type zeds that form hordes with an alpha leading them (disabled for now)",
+    "//": "Aggro-type zeds that form hordes with an alpha leading them.'",
     "id": "mon_zombie_swarmer",
+    "copy-from": "mon_zombie_base",
     "looks_like": "mon_zombie_swarmer_weak",
     "type": "MONSTER",
     "name": { "str": "swarmer template" },
-    "description": "This guy exists to ease the author's work. If you see this in-game then you've cheated.",
-    "default_faction": "swarmer",
-    "species": [ "ZOMBIE", "SECROZED_1", "HUMAN" ],
+    "description": "Template guy.",
+    "default_faction": "zombie",
+    "species": [ "ZOMBIE", "SECROSWARMER", "HUMAN" ],
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 40,
     "harvest": "zombie",
-    "speed": 80,
+    "speed": 70,
     "material": [ "flesh" ],
     "symbol": "⩔",
     "color": "light_green",
@@ -22,12 +23,11 @@
     "melee_dice": 1,
     "melee_dice_sides": 2,
     "melee_damage": [ { "damage_type": "cut", "amount": 1 } ],
-    "vision_night": 6,
-    "vision_day": 20,
     "death_drops": "default_zombie_death_drops",
     "flags": [
       "SEES",
       "HEARS",
+      "GOODHEARING",
       "SMELLS",
       "WARM",
       "BASHES",
@@ -45,30 +45,63 @@
     "id": "mon_zombie_swarmer_alpha",
     "copy-from": "mon_zombie_swarmer",
     "type": "MONSTER",
-    "name": { "str": "swarmer" },
-    "description": "A stout humanoid body, almost in its decaying state. Unlike other swarmers, something's strange on its body that attracts its \"team\".",
-    "default_faction": "swarmer",
-    "species": [ "ZOMBIE", "SECROZED_2", "HUMAN" ],
-    "hp": 130,
-    "speed": 70,
+    "name": { "str": "swarmer alpha" },
+    "description": "A stout humanoid body, almost in its decaying state.",
+    "species": [ "ZOMBIE", "SECROSWARMER_ALPHA", "HUMAN" ],
+    "hp": 100,
+    "speed": 85,
     "symbol": "⩙",
     "color": "light_green_magenta",
     "melee_skill": 6,
-    "melee_dice": 6,
-    "melee_dice_sides": 6,
+    "melee_dice": 4,
+    "melee_dice_sides": 4,
     "melee_damage": [ { "damage_type": "cut", "amount": 1 } ],
-    "armor": { "bash": 4, "cut": 3, "bullet": 2, "stab": 2, "acid": 1 },
-    "dodge": 2,
-    "vision_night": 12,
-    "vision_day": 30,
+    "armor": { "bash": 3, "cut": 2, "bullet": 3, "stab": 3, "acid": 1 },
+    "dodge": 1,
+    "vision_night": 8,
     "special_attacks": [
       { "type": "bite", "cooldown": 10 },
       { "id": "grab", "cooldown": 10 },
       [ "scratch", 10 ],
-      { "id": "grab_drag", "cooldown": 5 },
-      { "id": "drag_followup" },
-      [ "secro_swarmerzed_bite_vstro", 15 ]
-    ]
+      { "id": "grab_drag", "cooldown": 3, "grab_data": { "drag_distance": 1 } },
+      { "id": "drag_followup", "grab_data": { "drag_distance": 1 } },
+      [ "secro_swarmerzed_bite_vstro", 15 ],
+      [ "SHRIEK_ALERT", 3 ],
+      {
+        "id": "monspell_zombie_swarmer_alphasive",
+        "type": "spell",
+        "condition": { "math": [ "u_mon_species_nearby('SECROSWARMER', 'radius': 16)", ">", "0" ] },
+        "spell_data": { "id": "mon_zombie_swarmer_alphasive", "hit_self": true },
+        "cooldown": 10,
+        "monster_message": "",
+        "allow_no_target": true
+      }
+    ],
+    "death_function": { "effect": { "id": "mon_zombie_swarmer_alphadeath", "hit_self": true } },
+    "upgrades": { "half_life": 10, "into": "mon_zombie_swarmer_alpha_moderate" }
+  },
+  {
+    "id": "mon_zombie_swarmer_alpha_moderate",
+    "copy-from": "mon_zombie_swarmer_alpha",
+    "type": "MONSTER",
+    "proportional": { "hp": 1.4 },
+    "relative": { "speed": 10, "melee_dice": 2, "melee_dice_sides": 2, "armor": { "bash": 1, "bullet": 1, "stab": 1 } },
+    "upgrades": { "half_life": 13, "into": "mon_zombie_swarmer_alpha_strong" }
+  },
+  {
+    "id": "mon_zombie_swarmer_alpha_strong",
+    "copy-from": "mon_zombie_swarmer_alpha",
+    "type": "MONSTER",
+    "proportional": { "hp": 2 },
+    "relative": {
+      "speed": 25,
+      "melee_skill": 2,
+      "melee_dice": 4,
+      "melee_dice_sides": 3,
+      "dodge": 1,
+      "armor": { "bash": 2, "cut": 1, "bullet": 2, "stab": 2 }
+    },
+    "upgrades": false
   },
   {
     "id": "mon_zombie_swarmer_weak",
@@ -80,31 +113,26 @@
       { "type": "bite", "cooldown": 25 },
       { "id": "grab", "cooldown": 3 },
       [ "scratch", 32 ],
-      [ "secro_swarmerzed_bite_weak", 10 ],
-      { "id": "grab_drag", "cooldown": 40 },
-      { "id": "drag_followup" }
+      [ "secro_swarmerzed_bite", 10 ],
+      { "id": "grab_drag", "cooldown": 30, "grab_data": { "pull_weight_ratio": 1, "drag_distance": 1 } },
+      { "id": "drag_followup", "grab_data": { "pull_weight_ratio": 1, "drag_distance": 1 } },
+      {
+        "id": "monspell_zombie_swarmer_alphaform_check",
+        "type": "spell",
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_zombie_swarmer_alpha_death" } },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER_ALPHA', 'radius': 128)", "==", "0" ] },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER', 'radius': 128)", ">", "15" ] }
+          ]
+        },
+        "spell_data": { "id": "mon_zombie_swarmer_alphaform_check" },
+        "cooldown": 333,
+        "monster_message": "",
+        "allow_no_target": true
+      }
     ],
     "upgrades": { "half_life": 10, "into": "mon_zombie_swarmer_moderate" }
-  },
-  {
-    "id": "mon_zombie_swarmer_segway",
-    "copy-from": "mon_zombie_swarmer",
-    "type": "MONSTER",
-    "name": { "str": "swarmer" },
-    "description": "A normal humanoid body, almost in its decaying state.",
-    "special_attacks": [
-      { "type": "bite", "cooldown": 25 },
-      { "id": "grab", "cooldown": 3 },
-      [ "scratch", 32 ],
-      [ "secro_swarmerzed_bite_weak", 10 ],
-      { "id": "grab_drag", "cooldown": 40 },
-      { "id": "drag_followup" }
-    ],
-    "upgrades": {
-      "half_life": 1,
-      "into_group": "GROUP_SWARMERSEGWAY_UPGRADE",
-      "//": "Quickly branches out into a better secrozed mutant (evolves after four days by default)"
-    }
   },
   {
     "id": "mon_zombie_swarmer_moderate",
@@ -112,19 +140,35 @@
     "type": "MONSTER",
     "name": { "str": "swarmer" },
     "description": "A normal humanoid body, almost in its decaying state.",
-    "hp": 65,
-    "speed": 85,
-    "melee_skill": 2,
-    "melee_dice": 3,
-    "melee_dice_sides": 1,
+    "proportional": { "hp": 1.33 },
+    "relative": { "speed": 5, "melee_skill": 1, "melee_dice": 2, "melee_dice_sides": 1 },
     "melee_damage": [ { "damage_type": "cut", "amount": 3 } ],
     "special_attacks": [
       { "type": "bite", "cooldown": 23 },
       { "id": "grab", "cooldown": 3 },
       [ "scratch", 30 ],
-      [ "secro_swarmerzed_bite_mode", 10 ],
-      { "id": "grab_drag", "cooldown": 34 },
-      { "id": "drag_followup" }
+      {
+        "id": "secro_swarmerzed_bite",
+        "cooldown": 10,
+        "damage_max_instance": [ { "damage_type": "stab", "amount": 6, "armor_multiplier": 0.75 } ]
+      },
+      { "id": "grab_drag", "cooldown": 24, "grab_data": { "pull_weight_ratio": 1.1, "drag_distance": 1 } },
+      { "id": "drag_followup", "grab_data": { "pull_weight_ratio": 1.1, "drag_distance": 1 } },
+      {
+        "id": "monspell_zombie_swarmer_alphaform_check",
+        "type": "spell",
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_zombie_swarmer_alpha_death" } },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER_ALPHA', 'radius': 128)", "==", "0" ] },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER', 'radius': 128)", ">", "15" ] }
+          ]
+        },
+        "spell_data": { "id": "mon_zombie_swarmer_alphaform_check" },
+        "cooldown": 333,
+        "monster_message": "",
+        "allow_no_target": true
+      }
     ],
     "upgrades": { "half_life": 11, "into": "mon_zombie_swarmer_strong" }
   },
@@ -134,19 +178,35 @@
     "type": "MONSTER",
     "name": { "str": "swarmer" },
     "description": "A normal humanoid body, almost in its decaying state.",
-    "hp": 80,
-    "speed": 90,
-    "melee_skill": 3,
-    "melee_dice": 3,
-    "melee_dice_sides": 3,
+    "proportional": { "hp": 1.8 },
+    "relative": { "speed": 10, "melee_skill": 2, "melee_dice": 2, "melee_dice_sides": 2 },
     "melee_damage": [ { "damage_type": "cut", "amount": 3 } ],
     "special_attacks": [
       { "type": "bite", "cooldown": 21 },
       { "id": "grab", "cooldown": 3 },
       [ "scratch", 28 ],
-      [ "secro_swarmerzed_bite_stro", 10 ],
-      { "id": "grab_drag", "cooldown": 30 },
-      { "id": "drag_followup" }
+      {
+        "id": "secro_swarmerzed_bite",
+        "cooldown": 10,
+        "damage_max_instance": [ { "damage_type": "stab", "amount": 7, "armor_multiplier": 0.8 } ]
+      },
+      { "id": "grab_drag", "cooldown": 20, "grab_data": { "pull_weight_ratio": 1.2, "drag_distance": 1 } },
+      { "id": "drag_followup", "grab_data": { "pull_weight_ratio": 1.2, "drag_distance": 1 } },
+      {
+        "id": "monspell_zombie_swarmer_alphaform_check",
+        "type": "spell",
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_zombie_swarmer_alpha_death" } },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER_ALPHA', 'radius': 128)", "==", "0" ] },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER', 'radius': 128)", ">", "15" ] }
+          ]
+        },
+        "spell_data": { "id": "mon_zombie_swarmer_alphaform_check" },
+        "cooldown": 333,
+        "monster_message": "",
+        "allow_no_target": true
+      }
     ],
     "upgrades": { "half_life": 13, "into": "mon_zombie_swarmer_evo_hungry" }
   },
@@ -155,22 +215,34 @@
     "copy-from": "mon_zombie_swarmer",
     "type": "MONSTER",
     "name": { "str": "hungry swarmer" },
-    "description": "A normal humanoid body, almost in its decaying state. Despite that, its excitement for flesh makes it a threat.",
-    "hp": 95,
-    "speed": 95,
+    "description": "A normal humanoid body, almost in its decaying state.",
+    "proportional": { "hp": 2.3 },
+    "relative": { "speed": 15, "melee_skill": 3, "melee_dice": 2, "melee_dice_sides": 3 },
     "symbol": "⩖",
     "color": "light_gray_yellow",
-    "melee_skill": 4,
-    "melee_dice": 2,
-    "melee_dice_sides": 3,
     "melee_damage": [ { "damage_type": "cut", "amount": 4 } ],
     "special_attacks": [
       { "type": "bite", "cooldown": 19 },
       { "id": "grab", "cooldown": 2 },
       [ "scratch", 26 ],
       [ "secro_swarmerzed_bite_vstro", 10 ],
-      { "id": "grab_drag", "cooldown": 26 },
-      { "id": "drag_followup" }
+      { "id": "grab_drag", "cooldown": 16, "grab_data": { "pull_weight_ratio": 1.3, "drag_distance": 1 } },
+      { "id": "drag_followup", "grab_data": { "pull_weight_ratio": 1.3, "drag_distance": 1 } },
+      {
+        "id": "monspell_zombie_swarmer_alphaform_moderate_check",
+        "type": "spell",
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_zombie_swarmer_alpha_death" } },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER_ALPHA', 'radius': 128)", "==", "0" ] },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER', 'radius': 128)", ">", "15" ] }
+          ]
+        },
+        "spell_data": { "id": "mon_zombie_swarmer_alphaform_moderate_check" },
+        "cooldown": 333,
+        "monster_message": "",
+        "allow_no_target": true
+      }
     ],
     "upgrades": { "half_life": 16, "into": "mon_zombie_swarmer_evo_starving" }
   },
@@ -180,62 +252,108 @@
     "type": "MONSTER",
     "name": { "str": "starving swarmer" },
     "description": "A normal humanoid body, almost in its decaying state. Its physique have somewhat swollen.",
-    "hp": 110,
-    "speed": 100,
+    "proportional": { "hp": 2.9 },
+    "relative": { "speed": 20, "melee_skill": 4, "melee_dice": 3, "melee_dice_sides": 3 },
     "symbol": "⩖",
     "color": "dark_gray_yellow",
-    "melee_skill": 4,
-    "melee_dice": 3,
-    "melee_dice_sides": 4,
     "melee_damage": [ { "damage_type": "cut", "amount": 4 } ],
     "special_attacks": [
       { "type": "bite", "cooldown": 17 },
       { "id": "grab", "cooldown": 2 },
       [ "scratch", 24 ],
       [ "secro_swarmerzed_bite_vstro", 10 ],
-      { "id": "grab_drag", "cooldown": 20 },
-      { "id": "drag_followup" }
+      { "id": "grab_drag", "cooldown": 10, "grab_data": { "pull_weight_ratio": 1.4, "drag_distance": 1 } },
+      { "id": "drag_followup", "grab_data": { "pull_weight_ratio": 1.4, "drag_distance": 1 } },
+      {
+        "id": "monspell_zombie_swarmer_alphaform_moderate_check",
+        "type": "spell",
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_zombie_swarmer_alpha_death" } },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER_ALPHA', 'radius': 128)", "==", "0" ] },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER', 'radius': 128)", ">", "15" ] }
+          ]
+        },
+        "spell_data": { "id": "mon_zombie_swarmer_alphaform_moderate_check" },
+        "cooldown": 333,
+        "monster_message": "",
+        "allow_no_target": true
+      }
     ],
     "upgrades": { "half_life": 10, "into_group": "GROUP_EZTARVING_UPGRADE" }
   },
   {
-    "//": "Final counterparts. Removed their monsterspells due to them spamming it to the alpha.",
     "id": "mon_zombie_swarmer_evo_savage",
     "copy-from": "mon_zombie_swarmer",
     "type": "MONSTER",
     "name": { "str": "savage swarmer" },
-    "description": "Gray-ish visage in misunderstandable expression, this zombie has gone feral, visible to its extreme twitching of its head. Although possesses a regular body, there's something wrong in it.",
-    "species": [ "ZOMBIE", "SECROZED_2", "HUMAN" ],
-    "hp": 135,
-    "speed": 85,
+    "description": "Gray-ish visage in misunderstandable expression, this zombie has gone feral. Although possesses a regular body, there's something wrong with it.",
+    "proportional": { "hp": 3.33 },
+    "relative": {
+      "speed": 10,
+      "melee_skill": 4,
+      "melee_dice": 4,
+      "melee_dice_sides": 5,
+      "armor": { "bash": 1, "bullet": 1, "stab": 1 }
+    },
     "symbol": "⩝",
     "color": "black_yellow",
-    "melee_skill": 6,
-    "melee_dice": 2,
-    "melee_dice_sides": 4,
     "melee_damage": [ { "damage_type": "cut", "amount": 4 } ],
     "special_attacks": [
       { "type": "bite", "cooldown": 15 },
       [ "scratch", 20 ],
       [ "secro_swarmerzed_bite_vstro", 10 ],
-      [ "secro_swarmerzed_savage_charge_bite", 33 ]
-    ]
+      [ "secro_swarmerzed_savage_charge_bite", 33 ],
+      {
+        "id": "monspell_zombie_swarmer_alphaform_strong_check",
+        "type": "spell",
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_zombie_swarmer_alpha_death" } },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER_ALPHA', 'radius': 128)", "==", "0" ] },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER', 'radius': 128)", ">", "15" ] }
+          ]
+        },
+        "spell_data": { "id": "mon_zombie_swarmer_alphaform_strong_check" },
+        "cooldown": 333,
+        "monster_message": "",
+        "allow_no_target": true
+      }
+    ],
+    "upgrades": false
   },
   {
     "id": "mon_zombie_swarmer_evo_virulent",
     "copy-from": "mon_zombie_swarmer",
     "type": "MONSTER",
     "name": { "str": "virulent swarmer" },
-    "description": "A greenish scourge with significant lust upon the living flesh. Usually docile, but seeing any living thing brings this corpse to a ferocious berserk, gnawing the air as it chase them down.",
-    "species": [ "ZOMBIE", "SECROZED_2", "HUMAN" ],
-    "hp": 125,
-    "speed": 110,
+    "description": "A greenish scourge with significant lust upon the living flesh. Incredibly nimble despite of its decaying state.",
+    "proportional": { "hp": 2.5 },
+    "relative": { "speed": 30, "melee_skill": 6, "melee_dice": 3, "melee_dice_sides": 6 },
     "symbol": "⩛",
     "color": "magenta_green",
-    "melee_skill": 8,
-    "melee_dice": 4,
-    "melee_dice_sides": 6,
     "melee_damage": [ { "damage_type": "cut", "amount": 2 } ],
-    "special_attacks": [ { "type": "bite", "cooldown": 10 }, [ "scratch", 15 ], { "id": "grab_drag", "cooldown": 2 }, { "id": "drag_followup" } ]
+    "special_attacks": [
+      { "type": "bite", "cooldown": 10 },
+      [ "scratch", 8 ],
+      { "id": "grab_drag", "cooldown": 3, "grab_data": { "drag_distance": 1 } },
+      { "id": "drag_followup", "grab_data": { "drag_distance": 1 } },
+      {
+        "id": "monspell_zombie_swarmer_alphaform_strong_check",
+        "type": "spell",
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_zombie_swarmer_alpha_death" } },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER_ALPHA', 'radius': 128)", "==", "0" ] },
+            { "math": [ "u_mon_species_nearby('SECROSWARMER', 'radius': 128)", ">", "15" ] }
+          ]
+        },
+        "spell_data": { "id": "mon_zombie_swarmer_alphaform_strong_check" },
+        "cooldown": 333,
+        "monster_message": "",
+        "allow_no_target": true
+      }
+    ],
+    "upgrades": false
   }
 ]

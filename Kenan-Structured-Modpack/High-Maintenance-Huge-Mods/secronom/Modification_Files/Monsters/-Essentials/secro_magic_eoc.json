@@ -1,6 +1,21 @@
 [
   {
     "type": "effect_on_condition",
+    "id": "eoc_secro_mon_zombie_swarmer_alphaform_check",
+    "effect": [ { "u_cast_spell": { "id": "mon_zombie_swarmer_alphaform", "hit_self": true } } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_zombie_swarmer_alphaform_moderate_check",
+    "effect": [ { "u_cast_spell": { "id": "mon_zombie_swarmer_alphaform_moderate", "hit_self": true } } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_zombie_swarmer_alphaform_strong_check",
+    "effect": [ { "u_cast_spell": { "id": "mon_zombie_swarmer_alphaform_strong", "hit_self": true } } ]
+  },
+  {
+    "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_tendrils_sprint_check",
     "effect": [ { "npc_add_effect": "secro_tendril_sprint", "duration": "22 seconds" } ]
   },
@@ -98,9 +113,7 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_zombie_tentawraith_tentgrasp_check",
-    "condition": {
-      "and": [ { "math": [ "u_skill('dodge')", ">=", "4" ] }, { "math": [ "u_val('dexterity')", ">=", "8" ] } ]
-    },
+    "condition": { "and": [ { "math": [ "u_skill('dodge')", ">=", "4" ] }, { "math": [ "u_val('dexterity')", ">=", "8" ] } ] },
     "effect": [ { "u_message": "A barrage of tentacles tried to grasp at you, but you dodge!", "type": "good" } ],
     "false_effect": [
       { "u_message": "A barrage of tentacles grasps at you!", "type": "bad" },
@@ -513,7 +526,6 @@
   {
     "type": "effect_on_condition",
     "id": "eoc_secro_mon_ayenel_lockon_check",
-    "condition": { "math": [ "distance('u', 'npc')", ">=", "5" ] },
     "effect": [ { "u_add_effect": "blind", "duration": "6 seconds" }, { "u_add_effect": "glowing", "duration": "60 seconds" } ]
   },
   {
@@ -689,14 +701,284 @@
     "id": "eoc_secro_mon_zombie_uruxis_passive",
     "effect": [
       {
-        "u_spawn_monster": "GROUP_ZOMBIE",
-        "group": true,
-        "real_count": 1,
+        "u_location_variable": { "global_val": "secro_uruxis_spawnset" },
         "min_radius": 2,
         "max_radius": 4,
+        "passable_only": true
+      },
+      {
+        "u_spawn_monster": "GROUP_VANILLA_NO_FERAL",
+        "group": true,
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 1,
+        "target_var": { "global_val": "secro_uruxis_spawnset" },
         "spawn_message": "A zombie rose up from the ground!"
       },
-      { "u_add_effect": "secro_veinstalk_limit", "duration": "10 seconds" }
+      { "u_set_field": "fd_churned_earth", "target_var": { "global_val": "secro_uruxis_spawnset" }, "radius": 0 },
+      { "u_add_effect": "secro_veinstalk_limit", "duration": "11 seconds" },
+      { "u_add_effect": "secro_zombie_uruxis_passive", "duration": { "math": [ "rng(60, 100)" ] } }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_fleshling_tiny_check",
+    "condition": { "math": [ "u_mon_species_nearby('CYBORG', 'ROBOT', 'radius': 0)", "==", "0" ] },
+    "effect": [
+      { "u_add_effect": "sflesh_fleshling_meld", "duration": "10 seconds" },
+      { "u_message": "A tiny chunk of its flesh latches onto your skin!", "type": "warning" },
+      { "u_cast_spell": { "id": "mon_sflesh_fleshling_tiny_devour", "hit_self": true } },
+      {
+        "npc_add_effect": "sflesh_fleshling_growth",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "n_effect_intensity('sflesh_fleshling_growth') + 1" ] }
+      }
+    ],
+    "false_effect": [ { "u_add_effect": "mon_sflesh_fleshling_scavengy_sticky_stick", "duration": "3 seconds" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_fleshling_smol_check",
+    "condition": { "math": [ "u_mon_species_nearby('CYBORG', 'ROBOT', 'radius': 0)", "==", "0" ] },
+    "effect": [
+      { "u_add_effect": "sflesh_fleshling_meld", "duration": "20 seconds" },
+      { "u_message": "A small chunk of its flesh latches onto your skin!", "type": "warning" },
+      { "u_cast_spell": { "id": "mon_sflesh_fleshling_smol_devour", "hit_self": true } },
+      {
+        "npc_add_effect": "sflesh_fleshling_growth",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "n_effect_intensity('sflesh_fleshling_growth') + 1" ] }
+      }
+    ],
+    "false_effect": [ { "u_add_effect": "mon_sflesh_fleshling_scavengy_sticky_stick", "duration": "6 seconds" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_fleshling_med_check",
+    "condition": { "math": [ "u_mon_species_nearby('CYBORG', 'ROBOT', 'radius': 0)", "==", "0" ] },
+    "effect": [
+      { "u_add_effect": "sflesh_fleshling_meld", "duration": "40 seconds" },
+      { "u_message": "A chunk of its flesh latches onto your skin!", "type": "warning" },
+      { "u_cast_spell": { "id": "mon_sflesh_fleshling_med_devour", "hit_self": true } },
+      {
+        "npc_add_effect": "sflesh_fleshling_growth",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "n_effect_intensity('sflesh_fleshling_growth') + 1" ] }
+      }
+    ],
+    "false_effect": [ { "u_add_effect": "mon_sflesh_fleshling_scavengy_sticky_stick", "duration": "12 seconds" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_fleshling_big_check",
+    "condition": { "math": [ "u_mon_species_nearby('CYBORG', 'ROBOT', 'radius': 0)", "==", "0" ] },
+    "effect": [
+      { "u_add_effect": "sflesh_fleshling_meld", "duration": "70 seconds" },
+      { "u_message": "A big chunk of its flesh latches onto your skin!", "type": "warning" },
+      { "u_cast_spell": { "id": "mon_sflesh_fleshling_big_devour", "hit_self": true } },
+      {
+        "npc_add_effect": "sflesh_fleshling_growth",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "n_effect_intensity('sflesh_fleshling_growth') + 1" ] }
+      }
+    ],
+    "false_effect": [ { "u_add_effect": "mon_sflesh_fleshling_scavengy_sticky_stick", "duration": "24 seconds" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_fleshling_huge_check",
+    "condition": { "math": [ "u_mon_species_nearby('CYBORG', 'ROBOT', 'radius': 0)", "==", "0" ] },
+    "effect": [
+      { "u_add_effect": "sflesh_fleshling_meld", "duration": "120 seconds" },
+      { "u_message": "A huge chunk of its flesh latches onto your skin!", "type": "warning" },
+      { "u_cast_spell": { "id": "mon_sflesh_fleshling_huge_devour", "hit_self": true } }
+    ],
+    "false_effect": [ { "u_add_effect": "mon_sflesh_fleshling_scavengy_sticky_stick", "duration": "48 seconds" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_fleshling_huge_limit",
+    "effect": [
+      { "u_add_effect": "sflesh_fleshling_huge_limit", "duration": "PERMANENT", "intensity": { "math": [ "3 + rand(2)" ] } }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_fleshling_huge_spawn",
+    "effect": [
+      {
+        "u_spawn_monster": "GROUP_FLESHLING_CHILDREN",
+        "group": true,
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 2,
+        "spawn_message": "An amalgam emerges from the flesh mound!"
+      },
+      {
+        "npc_add_effect": "sflesh_fleshling_huge_curlimit",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "n_effect_intensity('sflesh_fleshling_huge_curlimit') + 1" ] }
+      },
+      { "npc_add_effect": "sflesh_fleshling_huge_spawned", "duration": { "math": [ "30 + rand(30)" ] } }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_fleshling_scavengy_spawn",
+    "effect": [
+      {
+        "npc_spawn_monster": "GROUP_FLESHLING_SCAVENGY_FORMS",
+        "group": true,
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 1,
+        "spawn_message": ""
+      },
+      { "npc_add_effect": "secro_veinstalk_limit", "duration": "7 seconds" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_fleshling_smol_split",
+    "condition": { "not": { "u_has_effect": "eff_fleshling_splitcheck" } },
+    "effect": [
+      {
+        "u_spawn_monster": "mon_sflesh_fleshling_tiny",
+        "real_count": 2,
+        "min_radius": 1,
+        "max_radius": 1,
+        "spawn_message": ""
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_fleshling_med_split",
+    "condition": { "not": { "u_has_effect": "eff_fleshling_splitcheck" } },
+    "effect": [
+      {
+        "u_spawn_monster": "mon_sflesh_fleshling_smol",
+        "real_count": 2,
+        "min_radius": 1,
+        "max_radius": 1,
+        "spawn_message": ""
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_sflesh_fleshling_big_split",
+    "condition": { "not": { "u_has_effect": "eff_fleshling_splitcheck" } },
+    "effect": [
+      {
+        "u_spawn_monster": "mon_sflesh_fleshling_med",
+        "real_count": 2,
+        "min_radius": 1,
+        "max_radius": 1,
+        "spawn_message": ""
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_maneater_bloodcheck",
+    "effect": [
+      { "u_cast_spell": { "id": "mon_zombie_charger_charge_push", "hit_self": true } },
+      { "u_cast_spell": { "id": "mon_maneater_bloodconsume", "hit_self": true } },
+      { "u_cast_spell": { "id": "mon_maneater_bloodconsume_veggy", "hit_self": true } },
+      { "u_cast_spell": { "id": "mon_maneater_bloodconsume_insect", "hit_self": true } },
+      { "u_cast_spell": { "id": "mon_maneater_bloodconsume_invertebrate", "hit_self": true } },
+      {
+        "u_add_effect": "secro_maneater_stack",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "u_effect_intensity('secro_maneater_stack') + rng(20, 30)" ] }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_maneater_bloodcheck_target",
+    "effect": [
+      { "u_cast_spell": { "id": "mon_zombie_charger_charge_push", "hit_self": true } },
+      { "u_cast_spell": { "id": "mon_maneater_bloodconsume" } },
+      { "u_cast_spell": { "id": "mon_maneater_bloodconsume_veggy" } },
+      { "u_cast_spell": { "id": "mon_maneater_bloodconsume_insect" } },
+      { "u_cast_spell": { "id": "mon_maneater_bloodconsume_invertebrate" } },
+      {
+        "npc_add_effect": "secro_maneater_stack",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "n_effect_intensity('secro_maneater_stack') + rng(20, 30)" ] }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_maneater_heal",
+    "condition": {
+      "and": [
+        { "math": [ "u_hp('torso')", "<", "u_hp_max('torso') * 0.33" ] },
+        { "math": [ "u_effect_intensity('secro_maneater_stack')", ">=", "100" ] }
+      ]
+    },
+    "effect": [
+      {
+        "u_add_effect": "secro_maneater_stack",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "u_effect_intensity('secro_maneater_stack') - 100" ] }
+      },
+      { "u_add_effect": "secro_maneater_healing_more", "duration": "3 seconds" },
+      {
+        "run_eocs": [
+          {
+            "id": "eoc_secro_mon_maneater_heal_more_msg",
+            "condition": "player_see_u",
+            "effect": [ { "message": "The maneater is rapidly regenerating!" } ]
+          }
+        ]
+      }
+    ],
+    "false_effect": [
+      {
+        "u_add_effect": "secro_maneater_stack",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "u_effect_intensity('secro_maneater_stack') - 15" ] }
+      },
+      { "u_add_effect": "secro_maneater_healing", "duration": "3 seconds" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "eoc_secro_mon_maneater_evo_heal",
+    "condition": {
+      "and": [
+        { "math": [ "u_hp('torso')", "<", "u_hp_max('torso') * 0.33" ] },
+        { "math": [ "u_effect_intensity('secro_maneater_stack')", ">=", "100" ] }
+      ]
+    },
+    "effect": [
+      {
+        "u_add_effect": "secro_maneater_stack",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "u_effect_intensity('secro_maneater_stack') - 100" ] }
+      },
+      { "u_add_effect": "secro_maneater_evo_healing_more", "duration": "3 seconds" },
+      {
+        "run_eocs": [
+          {
+            "id": "eoc_secro_mon_maneater_evo_heal_more_msg",
+            "condition": "player_see_u",
+            "effect": [ { "message": "The colossal maneater is rapidly regenerating!" } ]
+          }
+        ]
+      }
+    ],
+    "false_effect": [
+      {
+        "u_add_effect": "secro_maneater_stack",
+        "duration": "PERMANENT",
+        "intensity": { "math": [ "u_effect_intensity('secro_maneater_stack') - 15" ] }
+      },
+      { "u_add_effect": "secro_maneater_evo_healing", "duration": "3 seconds" }
     ]
   }
 ]

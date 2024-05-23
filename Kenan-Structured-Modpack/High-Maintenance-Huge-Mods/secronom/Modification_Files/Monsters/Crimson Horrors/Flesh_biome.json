@@ -143,7 +143,7 @@
     "id": "mon_sflesh_sack",
     "type": "MONSTER",
     "name": { "str": "flesh sack" },
-    "description": "A large, bulbous pus sticking firmly to nearby terrains. Distinct to its vented mouth, it throbs at a constant rate as if it's about to hatch...",
+    "description": "A large, bulbous pus sticking firmly to nearby terrains. Distinct to its vented mouth, it throbs at a constant rate as if it's about to hatch…",
     "default_faction": "secro_flesh",
     "bodytype": "blob",
     "species": [ "SFLESH", "ABERRATION" ],
@@ -219,7 +219,6 @@
     "weight": "115 kg",
     "hp": 15,
     "speed": 100,
-    "emit_fields": [ "emit_veinstalk_limiter" ],
     "material": [ "flesh" ],
     "symbol": "⨕",
     "color": "red",
@@ -233,6 +232,15 @@
     "vision_night": 60,
     "harvest": "zombie",
     "special_attacks": [
+      {
+		"id": "monspell_secro_veinstalk_initial",
+        "type": "spell",
+        "spell_data": { "id": "secro_veinstalk_initial" },
+        "cooldown": 1,
+        "monster_message": "",
+		"condition": { "not": { "u_has_effect": "secro_veinstalk_limit" } },
+		"allow_no_target": true
+      },
       {
         "type": "spell",
         "spell_data": { "id": "mon_sflesh_veinstalk_spread_check" },

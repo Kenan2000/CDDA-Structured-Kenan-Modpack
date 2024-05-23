@@ -3,12 +3,12 @@
     "id": "mon_maneater",
     "type": "MONSTER",
     "name": { "str": "maneater" },
-    "description": "A triffid-looking creature, composed of staggering flesh and bones. Its 'flower petals' are lined with razor-sharp teeth, with slender 'vines' twitching incoherently. Unique to its adaptive instincts, its need for 'nutrients' drive it to face everything with voracious intent.",
+    "description": "A triffid-looking creature, composed of staggering flesh and bones. Its \"flower petals\" are lined with razor-sharp teeth, with slender \"vines\" twitching incoherently. The need for \"nutrients\" drive it to face everything with voracious intent.",
     "default_faction": "maneater",
     "species": [ "ABERRATION", "SECROSPEC" ],
     "volume": "92500 ml",
     "weight": "120000 g",
-    "hp": 275,
+    "hp": 310,
     "speed": 90,
     "material": [ "flesh", "bone" ],
     "symbol": "☋",
@@ -16,26 +16,242 @@
     "aggression": 100,
     "morale": 100,
     "melee_skill": 8,
-    "melee_dice": 2,
+    "melee_dice": 4,
     "melee_dice_sides": 4,
-    "melee_damage": [ { "damage_type": "cut", "amount": 8 } ],
-    "attack_cost": 145,
+    "melee_damage": [ { "damage_type": "cut", "amount": 8 }, { "damage_type": "stab", "amount": 6, "armor_penetration": 5 } ],
     "dodge": 1,
     "harvest": "zombie",
-    "armor": { "bash": 4, "cut": 16, "bullet": 12, "stab": 10 },
-    "vision_day": 8,
-    "vision_night": 8,
+    "armor": { "bash": 4, "cut": 10, "bullet": 18, "stab": 18, "acid": 1 },
+    "vision_day": 24,
+    "vision_night": 12,
+    "grab_strength": 40,
     "special_attacks": [
-      [ "secro_maneater_vineslash", 12 ],
-      [ "secro_maneater_floralbite", 26 ],
+      [ "secro_maneater_vineslash", 10 ],
+      [ "secro_maneater_floralbite", 43 ],
+      [ "secro_maneater_tentapull", 33 ],
+      [ "secro_maneater_bloodsuck", 13 ],
       {
+        "id": "monspell_maneater_bloodcheck",
         "type": "spell",
-        "spell_data": { "id": "mon_maneater_bsuck_target" },
-        "cooldown": 37,
-        "monster_message": "<color_yellow>%1$s's vines pulls %3$s in!</color>"
+        "spell_data": { "id": "mon_maneater_bloodcheck", "hit_self": true },
+        "condition": {
+          "and": [
+            {
+              "or": [
+                { "u_is_in_field": "fd_blood" },
+                { "u_is_in_field": "fd_blood_veggy" },
+                { "u_is_in_field": "fd_blood_insect" },
+                { "u_is_in_field": "fd_blood_invertebrate" }
+              ]
+            },
+            { "math": [ "u_effect_intensity('secro_maneater_stack')", "<", "300" ] }
+          ]
+        },
+        "cooldown": 3,
+        "monster_message": "<color_yellow>Blood flows through %1$s!</color>",
+        "allow_no_target": true
+      },
+      {
+        "id": "monspell_maneater_bloodcheck_target",
+        "type": "spell",
+        "spell_data": { "id": "mon_maneater_bloodcheck_target" },
+        "condition": {
+          "and": [
+            {
+              "or": [
+                { "npc_is_in_field": "fd_blood" },
+                { "npc_is_in_field": "fd_blood_veggy" },
+                { "npc_is_in_field": "fd_blood_insect" },
+                { "npc_is_in_field": "fd_blood_invertebrate" }
+              ]
+            },
+            { "math": [ "u_effect_intensity('secro_maneater_stack')", "<", "300" ] }
+          ]
+        },
+        "cooldown": 3,
+        "monster_message": "<color_yellow>Blood flows through %1$s from %3$s!</color>"
+      },
+      {
+        "id": "monspell_maneater_healcheck",
+        "type": "spell",
+        "spell_data": { "id": "mon_maneater_healcheck", "hit_self": true },
+        "condition": {
+          "and": [
+            { "math": [ "u_hp('torso')", "<", "u_hp_max('torso') * 0.95" ] },
+            { "math": [ "u_effect_intensity('secro_maneater_stack')", ">=", "15" ] }
+          ]
+        },
+        "cooldown": 3,
+        "monster_message": "",
+        "allow_no_target": true
+      },
+      {
+        "id": "monspell_maneater_bloodspray_target",
+        "type": "spell",
+        "spell_data": { "id": "mon_maneater_bloodspray_target" },
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_maneater_bloodexp_eff" } },
+            { "math": [ "distance('u', 'npc')", ">=", "3" ] },
+            { "math": [ "u_effect_intensity('secro_maneater_stack')", ">=", "40" ] }
+          ]
+        },
+        "cooldown": 18,
+        "monster_message": "<color_magenta>%1$s sprays at %3$s.</color>"
+      },
+      {
+        "id": "monspell_maneater_bloodexp_target",
+        "type": "spell",
+        "spell_data": { "id": "mon_maneater_bloodexp_target" },
+        "condition": { "math": [ "u_effect_intensity('secro_maneater_stack')", ">=", "120" ] },
+        "cooldown": 65,
+        "monster_message": "<color_magenta>%1$s's mouth closes as it accumulates blood!</color>"
+      },
+      {
+        "id": "monspell_maneater_bloodexp",
+        "type": "spell",
+        "spell_data": { "id": "mon_maneater_bloodexp", "hit_self": true },
+        "condition": { "u_has_effect": "secro_maneater_bloodexp_eff" },
+        "cooldown": 1,
+        "monster_message": "<color_magenta>%1$s explodes into a shower of blood!</color>",
+        "allow_no_target": true
       }
     ],
+    "upgrades": { "half_life": 42, "into": "mon_maneater_evo" },
     "looks_like": "mon_triffid",
-    "flags": [ "HEARS", "SEES", "SMELLS", "WARM", "GRABS", "CLIMBS" ]
+    "flags": [
+      "HEARS",
+      "SEES",
+      "SMELLS",
+      "GRABS",
+      "CLIMBS",
+      "DESTROYS",
+      "PUSH_MON",
+      "PUSH_VEH",
+      "PATH_AVOID_FIRE",
+      "POISON",
+      "NO_BREATHE",
+      "REVIVES"
+    ]
+  },
+  {
+    "id": "mon_maneater_evo",
+    "copy-from": "mon_maneater",
+    "looks_like": "mon_maneater",
+    "type": "MONSTER",
+    "name": { "str": "colossal maneater" },
+    "color": "black_red",
+    "proportional": { "volume": 7.5, "weight": 5, "hp": 3, "armor": { "bash": 2, "cut": 2.25, "stab": 3, "bullet": 3 } },
+    "relative": { "speed": 10, "grab_strength": 35, "armor": { "acid": 2 } },
+    "melee_damage": [ { "damage_type": "cut", "amount": 8 }, { "damage_type": "stab", "amount": 10, "armor_penetration": 15 } ],
+    "melee_skill": 10,
+    "melee_dice": 8,
+    "special_attacks": [
+      {
+        "id": "secro_maneater_vineslash",
+        "cooldown": 6,
+        "damage_max_instance": [ { "damage_type": "cut", "amount": 13, "armor_penetration": 3 } ]
+      },
+      {
+        "id": "secro_maneater_floralbite",
+        "cooldown": 33,
+        "damage_max_instance": [ { "damage_type": "cut", "amount": 12 }, { "damage_type": "stab", "amount": 38, "armor_penetration": 18 } ]
+      },
+      [ "secro_maneater_tentapull", 33 ],
+      {
+        "id": "secro_maneater_bloodsuck",
+        "cooldown": 10,
+        "damage_max_instance": [ { "damage_type": "stab", "amount": 16, "armor_penetration": 32 } ],
+        "effects": [ { "id": "star_vampire_blood_drink", "duration": 2, "chance": 100 } ],
+        "self_effects_ondmg": [ { "id": "secro_maneater_healing", "duration": 5 } ]
+      },
+      {
+        "id": "monspell_maneater_bloodcheck",
+        "type": "spell",
+        "spell_data": { "id": "mon_maneater_bloodcheck", "hit_self": true },
+        "condition": {
+          "and": [
+            {
+              "or": [
+                { "u_is_in_field": "fd_blood" },
+                { "u_is_in_field": "fd_blood_veggy" },
+                { "u_is_in_field": "fd_blood_insect" },
+                { "u_is_in_field": "fd_blood_invertebrate" }
+              ]
+            },
+            { "math": [ "u_effect_intensity('secro_maneater_stack')", "<", "300" ] }
+          ]
+        },
+        "cooldown": 3,
+        "monster_message": "<color_yellow>Blood flows through %1$s!</color>",
+        "allow_no_target": true
+      },
+      {
+        "id": "monspell_maneater_bloodcheck_target",
+        "type": "spell",
+        "spell_data": { "id": "mon_maneater_bloodcheck_target" },
+        "condition": {
+          "and": [
+            {
+              "or": [
+                { "npc_is_in_field": "fd_blood" },
+                { "npc_is_in_field": "fd_blood_veggy" },
+                { "npc_is_in_field": "fd_blood_insect" },
+                { "npc_is_in_field": "fd_blood_invertebrate" }
+              ]
+            },
+            { "math": [ "u_effect_intensity('secro_maneater_stack')", "<", "300" ] }
+          ]
+        },
+        "cooldown": 3,
+        "monster_message": "<color_yellow>Blood flows through %1$s from %3$s!</color>"
+      },
+      {
+        "id": "monspell_maneater_evo_healcheck",
+        "type": "spell",
+        "spell_data": { "id": "mon_maneater_evo_healcheck", "hit_self": true },
+        "condition": {
+          "and": [
+            { "math": [ "u_hp('torso')", "<", "u_hp_max('torso') * 0.95" ] },
+            { "math": [ "u_effect_intensity('secro_maneater_stack')", ">=", "15" ] }
+          ]
+        },
+        "cooldown": 3,
+        "monster_message": "",
+        "allow_no_target": true
+      },
+      {
+        "id": "monspell_maneater_evo_bloodspray_target",
+        "type": "spell",
+        "spell_data": { "id": "mon_maneater_evo_bloodspray_target" },
+        "condition": {
+          "and": [
+            { "not": { "u_has_effect": "secro_maneater_bloodexp_eff" } },
+            { "math": [ "distance('u', 'npc')", ">=", "3" ] },
+            { "math": [ "u_effect_intensity('secro_maneater_stack')", ">=", "40" ] }
+          ]
+        },
+        "cooldown": 18,
+        "monster_message": "<color_magenta>%1$s sprays at %3$s.</color>"
+      },
+      {
+        "id": "monspell_maneater_evo_bloodexp_target",
+        "type": "spell",
+        "spell_data": { "id": "mon_maneater_evo_bloodexp_target" },
+        "condition": { "math": [ "u_effect_intensity('secro_maneater_stack')", ">=", "120" ] },
+        "cooldown": 65,
+        "monster_message": "<color_magenta>%1$s's mouth closes as it accumulates blood!</color>"
+      },
+      {
+        "id": "monspell_maneater_evo_bloodexp",
+        "type": "spell",
+        "spell_data": { "id": "mon_maneater_evo_bloodexp", "hit_self": true },
+        "condition": { "u_has_effect": "secro_maneater_bloodexp_eff" },
+        "cooldown": 1,
+        "monster_message": "<color_magenta>%1$s explodes into a shower of blood!</color>",
+        "allow_no_target": true
+      }
+    ],
+    "upgrades": false
   }
 ]

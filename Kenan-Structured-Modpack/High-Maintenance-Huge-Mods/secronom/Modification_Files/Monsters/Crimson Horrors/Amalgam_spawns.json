@@ -1,104 +1,89 @@
 [
   {
     "id": "mon_sflesh_fleshling_scavengy_explosive",
+    "copy-from": "mon_sflesh_fleshling_tiny",
+    "looks_like": "mon_sflesh_fleshling_tiny",
     "type": "MONSTER",
-    "name": { "str": "fleshling" },
-    "description": "A tiny slab of meat that moves by either hopping or slithering through the ground. It throbs faster as it gets closer.",
+	"description": "A tiny slab of meat that moves by either hopping or slithering through the ground. It throbs faster as it gets closer.",
     "default_faction": "secro_flesh3",
-    "bodytype": "blob",
     "species": [ "SFLESH", "ABERRATION" ],
-    "volume": "2000 ml",
-    "weight": "1200 g",
-    "hp": 10,
-    "speed": 75,
-    "material": [ "flesh" ],
-    "symbol": "◇",
-    "color": "light_red",
-    "aggression": 100,
-    "morale": 100,
-    "emit_fields": [ "emit_sflesh_fleshling_scavengy_forms_limit" ],
-    "melee_skill": 2,
-    "melee_dice": 1,
-    "melee_dice_sides": 2,
-    "melee_damage": [ { "damage_type": "cut", "amount": 2 } ],
+    "relative": { "speed": 10 },
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "special_attacks": [
       {
+		"id": "monspell_sflesh_fleshling_scavengy_limit",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_scavengy_limit" },
+        "cooldown": 1,
+        "monster_message": "",
+		"condition": { "not": { "u_has_effect": "mon_sflesh_fleshling_scavengy_spawnlimits" } },
+		"allow_no_target": true
+      },
+      {
+		"id": "monspell_sflesh_fleshling_scavengy_explosive_pop_target",
         "type": "spell",
         "spell_data": { "id": "mon_sflesh_fleshling_scavengy_explosive_pop_target" },
         "cooldown": 5,
         "monster_message": "<color_yellow>%1$s explodes into gore!</color>"
       }
-    ],
-    "harvest": "exempt",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
-    "flags": [ "SEES", "SMELLS", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "PACIFIST" ]
+    ]
   },
   {
     "id": "mon_sflesh_fleshling_scavengy_tent",
+    "copy-from": "mon_sflesh_fleshling_tiny",
+    "looks_like": "mon_sflesh_fleshling_tiny",
     "type": "MONSTER",
-    "name": { "str": "fleshling" },
-    "description": "A tiny slab of meat that moves by either hopping or slithering through the ground. It throbs faster as it gets closer.",
+	"description": "A tiny slab of meat that moves by either hopping or slithering through the ground. It throbs faster as it gets closer.",
     "default_faction": "secro_flesh3",
-    "bodytype": "blob",
     "species": [ "SFLESH", "ABERRATION" ],
-    "volume": "2000 ml",
-    "weight": "1200 g",
-    "hp": 10,
-    "speed": 75,
-    "material": [ "flesh" ],
-    "symbol": "◇",
-    "color": "light_red",
-    "aggression": 100,
-    "morale": 100,
-    "emit_fields": [ "emit_sflesh_fleshling_scavengy_forms_limit" ],
-    "melee_skill": 2,
-    "melee_dice": 1,
-    "melee_dice_sides": 2,
-    "melee_damage": [ { "damage_type": "cut", "amount": 2 } ],
+    "relative": { "speed": 10 },
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "special_attacks": [
       {
+		"id": "monspell_sflesh_fleshling_scavengy_limit",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_scavengy_limit" },
+        "cooldown": 1,
+        "monster_message": "",
+		"condition": { "not": { "u_has_effect": "mon_sflesh_fleshling_scavengy_spawnlimits" } },
+		"allow_no_target": true
+      },
+      {
+		"id": "monspell_sflesh_fleshling_scavengy_tent_tentsurprise",
         "type": "spell",
         "spell_data": { "id": "mon_sflesh_fleshling_scavengy_tent_tentsurprise" },
         "cooldown": 5,
         "monster_message": "<color_yellow>%1$s explodes into a heap of bladed tentacles!</color>"
       }
-    ],
-    "harvest": "exempt",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
-    "flags": [ "SEES", "SMELLS", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "PACIFIST" ]
+    ]
   },
   {
     "id": "mon_sflesh_fleshling_scavengy_sticky",
+    "copy-from": "mon_sflesh_fleshling_tiny",
+    "looks_like": "mon_sflesh_fleshling_tiny",
     "type": "MONSTER",
-    "name": { "str": "fleshling" },
-    "description": "A tiny slab of meat that moves by either hopping or slithering through the ground. It throbs faster as it gets closer.",
+	"description": "A tiny slab of meat that moves by either hopping or slithering through the ground. It throbs faster as it gets closer.",
     "default_faction": "secro_flesh3",
-    "bodytype": "blob",
     "species": [ "SFLESH", "ABERRATION" ],
-    "volume": "2000 ml",
-    "weight": "1200 g",
-    "hp": 10,
-    "speed": 75,
-    "material": [ "flesh" ],
-    "symbol": "◇",
-    "color": "light_red",
-    "aggression": 100,
-    "morale": 100,
-    "emit_fields": [ "emit_sflesh_fleshling_scavengy_forms_limit" ],
-    "melee_skill": 2,
-    "melee_dice": 1,
-    "melee_dice_sides": 2,
-    "melee_damage": [ { "damage_type": "cut", "amount": 2 } ],
+    "relative": { "speed": 10 },
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "special_attacks": [
       {
+		"id": "monspell_sflesh_fleshling_scavengy_limit",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_scavengy_limit" },
+        "cooldown": 1,
+        "monster_message": "",
+		"condition": { "not": { "u_has_effect": "mon_sflesh_fleshling_scavengy_spawnlimits" } },
+		"allow_no_target": true
+      },
+      {
+		"id": "monspell_sflesh_fleshling_scavengy_sticky_sg",
         "type": "spell",
         "spell_data": { "id": "mon_sflesh_fleshling_scavengy_sticky_sg" },
         "cooldown": 5,
         "monster_message": "<color_yellow>%1$s sticks on %3$s!</color>"
       }
-    ],
-    "harvest": "exempt",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
-    "flags": [ "SEES", "SMELLS", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "PACIFIST" ]
+    ]
   }
 ]

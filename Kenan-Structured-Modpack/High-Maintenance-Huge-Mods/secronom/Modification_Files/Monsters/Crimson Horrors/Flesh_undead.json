@@ -1,6 +1,5 @@
 [
   {
-    "//": "Killing this monster will split flesh zombie(s), up to 9 of them! (3x3 tile from the location)",
     "id": "mon_sflesh_zombie_turret",
     "type": "MONSTER",
     "name": { "str": "flesh heap" },
@@ -30,11 +29,14 @@
         "type": "spell",
         "spell_data": { "id": "mon_sflesh_zombie_turret_target" },
         "cooldown": 12,
-        "monster_message": "<color_light_red>%1$s pulsates...</color>"
+        "monster_message": "<color_light_red>%1$s pulsates…</color>"
       }
     ],
-    "death_drops": "mon_sflesh_zombie_turret_death_drop",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s splits!",
+      "effect": { "id": "mon_sflesh_zombie_turret_death", "hit_self": true }
+    },
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "IMMOBILE", "PACIFIST", "FILTHY" ]
   }
 ]

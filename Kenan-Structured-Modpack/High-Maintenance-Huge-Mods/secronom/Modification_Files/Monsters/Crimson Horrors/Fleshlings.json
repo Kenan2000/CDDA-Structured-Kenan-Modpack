@@ -7,7 +7,7 @@
     "description": "A tiny slab of meat that moves by either hopping or slithering through the ground. Attracted to flesh.",
     "default_faction": "secro_flesh2",
     "bodytype": "blob",
-    "species": [ "SFLESH", "ABERRATION" ],
+    "species": [ "SFLESH_FLESHLING", "ABERRATION" ],
     "volume": "200 ml",
     "weight": "30 g",
     "hp": 10,
@@ -20,18 +20,73 @@
     "melee_skill": 2,
     "melee_dice": 1,
     "melee_dice_sides": 2,
+    "bleed_rate": 50,
     "melee_damage": [ { "damage_type": "cut", "amount": 2 } ],
     "special_attacks": [
       {
+        "id": "monspell_secro_flesh_infect_target",
         "type": "spell",
-        "spell_data": { "id": "mon_sflesh_fleshling_tiny_devour" },
-        "cooldown": 50,
-        "monster_message": "<color_magenta>%1$s devours %3$s...</color>"
+        "spell_data": { "id": "secro_flesh_infect_target" },
+        "cooldown": 1,
+        "condition": {
+          "and": [
+            { "math": [ "u_hp('ALL') * 2", ">=", "n_hp('ALL')" ] },
+            { "not": { "npc_has_effect": "sflesh_infect_checked" } },
+            {
+              "math": [
+                "n_mon_species_nearby('CYBORG', 'ROBOT', 'HALLUCINATION', 'UNKNOWN', 'SECRODRAG', 'SFLESH', 'SFLESH_FLESHLING', 'SFLESH_FLESHLING_EX', 'radius': 0)",
+                "==",
+                "0"
+              ]
+            }
+          ]
+        },
+        "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+      },
+      {
+        "id": "monspell_sflesh_fleshling_tiny_check",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_tiny_check" },
+        "cooldown": 10,
+        "monster_message": "<color_magenta>%1$s latches at %3$s.</color>"
+      },
+      {
+        "id": "monspell_sflesh_fleshling_tiny_growth",
+        "type": "spell",
+        "spell_data": { "id": "secro_flesh_infect_fleshling2" },
+        "cooldown": 2,
+        "monster_message": "<color_yellow>%1$s grows in size!</color>",
+        "condition": { "math": [ "u_effect_intensity('sflesh_fleshling_growth')", ">", "4" ] },
+        "allow_no_target": true
+      },
+      {
+        "id": "monspell_sflesh_fleshling_tiny_ex",
+        "type": "spell",
+        "spell_data": { "id": "secro_flesh_infect_fleshling1_ex" },
+        "cooldown": 1,
+        "monster_message": "",
+        "condition": {
+          "and": [
+            { "math": [ "u_mon_species_nearby('SFLESH_FLESHLING_EX', 'radius': 64)", "==", "0" ] },
+            { "math": [ "u_mon_species_nearby('SFLESH_FLESHLING', 'radius': 64)", ">=", "2" ] }
+          ]
+        },
+        "allow_no_target": true
       }
     ],
     "harvest": "exempt",
     "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "flags": [ "SEES", "SMELLS", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "PACIFIST" ]
+  },
+  {
+    "id": "mon_sflesh_fleshling_tiny_ex",
+    "copy-from": "mon_sflesh_fleshling_tiny",
+    "looks_like": "mon_sflesh_fleshling_tiny",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "species": [ "SFLESH_FLESHLING_EX", "ABERRATION" ],
+    "proportional": { "hp": 1.5, "speed": 0.33 },
+    "special_attacks": [  ]
   },
   {
     "id": "mon_sflesh_fleshling_smol",
@@ -40,7 +95,7 @@
     "description": "A small slab of meat that's larger than a basketball. Will try to devour anything nearby.",
     "default_faction": "secro_flesh2",
     "bodytype": "blob",
-    "species": [ "SFLESH", "ABERRATION" ],
+    "species": [ "SFLESH_FLESHLING", "ABERRATION" ],
     "volume": "1250 ml",
     "weight": "170 g",
     "hp": 20,
@@ -53,18 +108,84 @@
     "melee_skill": 3,
     "melee_dice": 2,
     "melee_dice_sides": 3,
+    "bleed_rate": 50,
     "melee_damage": [ { "damage_type": "cut", "amount": 3 } ],
     "harvest": "exempt",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away.", "eoc": "eoc_secro_mon_sflesh_fleshling_smol_split" },
     "special_attacks": [
       {
+        "id": "monspell_secro_flesh_infect_target",
         "type": "spell",
-        "spell_data": { "id": "mon_sflesh_fleshling_smol_devour" },
-        "cooldown": 75,
-        "monster_message": "<color_magenta>%1$s devours %3$s...</color>"
+        "spell_data": { "id": "secro_flesh_infect_target" },
+        "cooldown": 1,
+        "condition": {
+          "and": [
+            { "math": [ "u_hp('ALL') * 2", ">=", "n_hp('ALL')" ] },
+            { "not": { "npc_has_effect": "sflesh_infect_checked" } },
+            {
+              "math": [
+                "n_mon_species_nearby('CYBORG', 'ROBOT', 'HALLUCINATION', 'UNKNOWN', 'SECRODRAG', 'SFLESH', 'SFLESH_FLESHLING', 'SFLESH_FLESHLING_EX', 'radius': 0)",
+                "==",
+                "0"
+              ]
+            }
+          ]
+        },
+        "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+      },
+      {
+        "id": "monspell_sflesh_fleshling_smol_check",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_smol_check" },
+        "cooldown": 10,
+        "monster_message": "<color_magenta>%1$s latches at %3$s.</color>"
+      },
+      {
+        "id": "monspell_sflesh_fleshling_smol_growth",
+        "type": "spell",
+        "spell_data": { "id": "secro_flesh_infect_fleshling3" },
+        "cooldown": 2,
+        "monster_message": "<color_yellow>%1$s grows in size!</color>",
+        "condition": { "math": [ "u_effect_intensity('sflesh_fleshling_growth')", ">", "8" ] },
+        "allow_no_target": true
+      },
+      {
+        "id": "monspell_sflesh_fleshling_smol_ex",
+        "type": "spell",
+        "spell_data": { "id": "secro_flesh_infect_fleshling2_ex" },
+        "cooldown": 1,
+        "monster_message": "",
+        "condition": {
+          "and": [
+            { "math": [ "u_mon_species_nearby('SFLESH_FLESHLING_EX', 'radius': 64)", "==", "0" ] },
+            { "math": [ "u_mon_species_nearby('SFLESH_FLESHLING', 'radius': 64)", ">=", "2" ] }
+          ]
+        },
+        "allow_no_target": true
       }
     ],
     "flags": [ "SEES", "SMELLS", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "PACIFIST" ]
+  },
+  {
+    "id": "mon_sflesh_fleshling_smol_ex",
+    "copy-from": "mon_sflesh_fleshling_smol",
+    "looks_like": "mon_sflesh_fleshling_smol",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "species": [ "SFLESH_FLESHLING_EX", "ABERRATION" ],
+    "proportional": { "hp": 1.5, "speed": 0.33 },
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "special_attacks": [
+      {
+        "id": "monspell_sflesh_fleshling_ex_initial",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_ex_initial" },
+        "cooldown": 1,
+        "monster_message": "",
+        "condition": { "not": { "u_has_effect": "eff_fleshling_splitcheck" } },
+        "allow_no_target": true
+      }
+    ]
   },
   {
     "id": "mon_sflesh_fleshling_med",
@@ -73,7 +194,7 @@
     "description": "A slab of meat that's larger than a dog. Will try to devour anything nearby.",
     "default_faction": "secro_flesh2",
     "bodytype": "blob",
-    "species": [ "SFLESH", "ABERRATION" ],
+    "species": [ "SFLESH_FLESHLING", "ABERRATION" ],
     "volume": "17000 ml",
     "weight": "12050 g",
     "hp": 40,
@@ -86,18 +207,84 @@
     "melee_skill": 4,
     "melee_dice": 3,
     "melee_dice_sides": 4,
+    "bleed_rate": 50,
     "melee_damage": [ { "damage_type": "cut", "amount": 4 } ],
     "harvest": "exempt",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away.", "eoc": "eoc_secro_mon_sflesh_fleshling_med_split" },
     "special_attacks": [
       {
+        "id": "monspell_secro_flesh_infect_target",
         "type": "spell",
-        "spell_data": { "id": "mon_sflesh_fleshling_med_devour" },
-        "cooldown": 100,
-        "monster_message": "<color_magenta>%1$s devours %3$s...</color>"
+        "spell_data": { "id": "secro_flesh_infect_target" },
+        "cooldown": 1,
+        "condition": {
+          "and": [
+            { "math": [ "u_hp('ALL') * 2", ">=", "n_hp('ALL')" ] },
+            { "not": { "npc_has_effect": "sflesh_infect_checked" } },
+            {
+              "math": [
+                "n_mon_species_nearby('CYBORG', 'ROBOT', 'HALLUCINATION', 'UNKNOWN', 'SECRODRAG', 'SFLESH', 'SFLESH_FLESHLING', 'SFLESH_FLESHLING_EX', 'radius': 0)",
+                "==",
+                "0"
+              ]
+            }
+          ]
+        },
+        "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+      },
+      {
+        "id": "monspell_sflesh_fleshling_med_check",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_med_check" },
+        "cooldown": 10,
+        "monster_message": "<color_magenta>%1$s latches at %3$s.</color>"
+      },
+      {
+        "id": "monspell_sflesh_fleshling_med_growth",
+        "type": "spell",
+        "spell_data": { "id": "secro_flesh_infect_fleshling4" },
+        "cooldown": 2,
+        "monster_message": "<color_yellow>%1$s grows in size!</color>",
+        "condition": { "math": [ "u_effect_intensity('sflesh_fleshling_growth')", ">", "16" ] },
+        "allow_no_target": true
+      },
+      {
+        "id": "monspell_sflesh_fleshling_med_ex",
+        "type": "spell",
+        "spell_data": { "id": "secro_flesh_infect_fleshling3_ex" },
+        "cooldown": 1,
+        "monster_message": "",
+        "condition": {
+          "and": [
+            { "math": [ "u_mon_species_nearby('SFLESH_FLESHLING_EX', 'radius': 64)", "==", "0" ] },
+            { "math": [ "u_mon_species_nearby('SFLESH_FLESHLING', 'radius': 64)", ">=", "2" ] }
+          ]
+        },
+        "allow_no_target": true
       }
     ],
     "flags": [ "SEES", "SMELLS", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "PACIFIST" ]
+  },
+  {
+    "id": "mon_sflesh_fleshling_med_ex",
+    "copy-from": "mon_sflesh_fleshling_med",
+    "looks_like": "mon_sflesh_fleshling_med",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "species": [ "SFLESH_FLESHLING_EX", "ABERRATION" ],
+    "proportional": { "hp": 1.5, "speed": 0.33 },
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "special_attacks": [
+      {
+        "id": "monspell_sflesh_fleshling_ex_initial",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_ex_initial" },
+        "cooldown": 1,
+        "monster_message": "",
+        "condition": { "not": { "u_has_effect": "eff_fleshling_splitcheck" } },
+        "allow_no_target": true
+      }
+    ]
   },
   {
     "id": "mon_sflesh_fleshling_big",
@@ -106,7 +293,7 @@
     "description": "A big slab of meat that's larger than a human. Will try to devour anything nearby.",
     "default_faction": "secro_flesh2",
     "bodytype": "blob",
-    "species": [ "SFLESH", "ABERRATION" ],
+    "species": [ "SFLESH_FLESHLING", "ABERRATION" ],
     "volume": "99500 ml",
     "weight": "640000 g",
     "hp": 80,
@@ -119,25 +306,91 @@
     "melee_skill": 5,
     "melee_dice": 4,
     "melee_dice_sides": 5,
+    "bleed_rate": 50,
     "melee_damage": [ { "damage_type": "cut", "amount": 5 } ],
     "harvest": "exempt",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away.", "eoc": "eoc_secro_mon_sflesh_fleshling_big_split" },
     "special_attacks": [
       {
+        "id": "monspell_secro_flesh_infect_target",
         "type": "spell",
-        "spell_data": { "id": "mon_sflesh_fleshling_big_devour" },
-        "cooldown": 125,
-        "monster_message": "<color_magenta>%1$s devours %3$s...</color>"
+        "spell_data": { "id": "secro_flesh_infect_target" },
+        "cooldown": 1,
+        "condition": {
+          "and": [
+            { "math": [ "u_hp('ALL') * 2", ">=", "n_hp('ALL')" ] },
+            { "not": { "npc_has_effect": "sflesh_infect_checked" } },
+            {
+              "math": [
+                "n_mon_species_nearby('CYBORG', 'ROBOT', 'HALLUCINATION', 'UNKNOWN', 'SECRODRAG', 'SFLESH', 'SFLESH_FLESHLING', 'SFLESH_FLESHLING_EX', 'radius': 0)",
+                "==",
+                "0"
+              ]
+            }
+          ]
+        },
+        "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+      },
+      {
+        "id": "monspell_sflesh_fleshling_big_check",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_big_check" },
+        "cooldown": 10,
+        "monster_message": "<color_magenta>%1$s latches at %3$s.</color>"
+      },
+      {
+        "id": "monspell_sflesh_fleshling_big_growth",
+        "type": "spell",
+        "spell_data": { "id": "secro_flesh_infect_fleshling5" },
+        "cooldown": 2,
+        "monster_message": "<color_yellow>%1$s grows in size!</color>",
+        "condition": { "math": [ "u_effect_intensity('sflesh_fleshling_growth')", ">", "32" ] },
+        "allow_no_target": true
+      },
+      {
+        "id": "monspell_sflesh_fleshling_big_ex",
+        "type": "spell",
+        "spell_data": { "id": "secro_flesh_infect_fleshling4_ex" },
+        "cooldown": 1,
+        "monster_message": "",
+        "condition": {
+          "and": [
+            { "math": [ "u_mon_species_nearby('SFLESH_FLESHLING_EX', 'radius': 64)", "==", "0" ] },
+            { "math": [ "u_mon_species_nearby('SFLESH_FLESHLING', 'radius': 64)", ">=", "2" ] }
+          ]
+        },
+        "allow_no_target": true
       }
     ],
     "flags": [ "SEES", "SMELLS", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "PACIFIST" ]
+  },
+  {
+    "id": "mon_sflesh_fleshling_big_ex",
+    "copy-from": "mon_sflesh_fleshling_big",
+    "looks_like": "mon_sflesh_fleshling_big",
+    "type": "MONSTER",
+    "default_faction": "secro_flesh",
+    "species": [ "SFLESH_FLESHLING_EX", "ABERRATION" ],
+    "proportional": { "hp": 1.5, "speed": 0.33 },
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
+    "special_attacks": [
+      {
+        "id": "monspell_sflesh_fleshling_ex_initial",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_ex_initial" },
+        "cooldown": 1,
+        "monster_message": "",
+        "condition": { "not": { "u_has_effect": "eff_fleshling_splitcheck" } },
+        "allow_no_target": true
+      }
+    ]
   },
   {
     "id": "mon_sflesh_fleshling_huge",
     "type": "MONSTER",
     "name": { "str": "flesh mound" },
     "description": "A humongous conglomeration of rotten flesh, as large as a moose. Its body has swollen and stretched out, and seem to slowly deteriorate, but its endless hunger still is apparent to its motion.",
-    "default_faction": "secro_flesh2",
+    "default_faction": "secro_flesh3",
     "bodytype": "blob",
     "species": [ "SFLESH", "ABERRATION" ],
     "volume": "386000 ml",
@@ -149,19 +402,82 @@
     "color": "light_red",
     "aggression": 100,
     "morale": 100,
-    "emit_fields": [ "emit_sflesh_fleshling_birth" ],
     "melee_skill": 8,
     "melee_dice": 7,
     "melee_dice_sides": 8,
+    "bleed_rate": 50,
     "melee_damage": [ { "damage_type": "cut", "amount": 8 } ],
     "harvest": "exempt",
     "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s melts away." },
     "special_attacks": [
       {
+        "id": "monspell_secro_flesh_infect_target",
         "type": "spell",
-        "spell_data": { "id": "mon_sflesh_fleshling_huge_devour" },
-        "cooldown": 150,
-        "monster_message": "<color_light_red>%1$s devours %3$s...</color>"
+        "spell_data": { "id": "secro_flesh_infect_target" },
+        "cooldown": 1,
+        "condition": {
+          "and": [
+            { "math": [ "u_hp('ALL') * 2", ">=", "n_hp('ALL')" ] },
+            { "not": { "npc_has_effect": "sflesh_infect_checked" } },
+            {
+              "math": [
+                "n_mon_species_nearby('CYBORG', 'ROBOT', 'HALLUCINATION', 'UNKNOWN', 'SECRODRAG', 'SFLESH', 'SFLESH_FLESHLING', 'SFLESH_FLESHLING_EX', 'radius': 0)",
+                "==",
+                "0"
+              ]
+            }
+          ]
+        },
+        "monster_message": "<color_yellow>%1$s spreads its flesh at %3$s!</color>"
+      },
+      {
+        "id": "monspell_sflesh_fleshling_huge_check",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_huge_check" },
+        "cooldown": 10,
+        "monster_message": "<color_light_red>%1$s devours %3$s!</color>"
+      },
+      {
+        "id": "monspell_sflesh_fleshling_huge_limit",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_huge_limit" },
+        "cooldown": 1,
+        "monster_message": "",
+        "condition": { "not": { "u_has_effect": "sflesh_fleshling_huge_limit" } },
+        "allow_no_target": true
+      },
+      {
+        "id": "monspell_sflesh_fleshling_huge_spawn",
+        "type": "spell",
+        "spell_data": { "id": "mon_sflesh_fleshling_huge_spawn" },
+        "cooldown": 60,
+        "monster_message": "",
+        "condition": {
+          "and": [
+            { "u_has_effect": "sflesh_fleshling_huge_limit" },
+            { "not": { "u_has_effect": "sflesh_fleshling_huge_spawned" } },
+            {
+              "math": [ "u_effect_intensity('sflesh_fleshling_huge_curlimit')", "<=", "u_effect_intensity('sflesh_fleshling_huge_limit')" ]
+            }
+          ]
+        },
+        "allow_no_target": true
+      },
+      {
+        "id": "monspell_sflesh_fleshling_huge_limitreach",
+        "type": "spell",
+        "spell_data": { "id": "sacrifice_spell" },
+        "cooldown": 1,
+        "monster_message": "",
+        "condition": {
+          "and": [
+            { "u_has_effect": "sflesh_fleshling_huge_limit" },
+            {
+              "math": [ "u_effect_intensity('sflesh_fleshling_huge_curlimit')", ">", "u_effect_intensity('sflesh_fleshling_huge_limit')" ]
+            }
+          ]
+        },
+        "allow_no_target": true
       }
     ],
     "flags": [ "SEES", "SMELLS", "WARM", "POISON", "NO_BREATHE", "STUN_IMMUNE", "PACIFIST" ]
