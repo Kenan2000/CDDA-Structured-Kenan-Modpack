@@ -276,28 +276,6 @@
     "display_field": false
   },
   {
-    "id": "fd_jolt_elec",
-    "//": "Hidden field for spawning purposes of jolt. Has to be its damaging electric discharges, but it doesn't work.",
-    "type": "field_type",
-    "intensity_levels": [
-      {
-        "name": "this is a bug",
-        "color": "black",
-        "monster_spawn_chance": 500,
-        "monster_spawn_count": 1,
-        "monster_spawn_radius": 1,
-        "monster_spawn_group": "GROUP_JOLT_BOLTS"
-      },
-      { "monster_spawn_chance": 250 },
-      { "monster_spawn_chance": 100 }
-    ],
-    "priority": -1,
-    "half_life": "1 turns",
-    "phase": "plasma",
-    "display_items": true,
-    "display_field": false
-  },
-  {
     "id": "fd_nix_fear",
     "type": "field_type",
     "intensity_levels": [
@@ -1218,7 +1196,14 @@
       {
         "name": "rotten stench",
         "color": "brown",
-        "effects": [ { "effect_id": "secro_dissed", "body_part": "mouth", "min_duration": "2 seconds", "max_duration": "4 seconds" } ]
+        "effects": [
+          {
+            "effect_id": "secro_fleshknot_poison",
+            "body_part": "mouth",
+            "min_duration": "1 seconds",
+            "max_duration": "3 seconds"
+          }
+        ]
       }
     ],
     "priority": -1,

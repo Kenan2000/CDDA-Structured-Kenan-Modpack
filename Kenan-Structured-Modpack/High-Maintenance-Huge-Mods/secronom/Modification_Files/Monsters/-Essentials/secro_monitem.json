@@ -1,54 +1,5 @@
 [
   {
-    "//": "Maximum of 2 clingers clinging on player's feet.",
-    "id": "clinger_clinging",
-    "type": "TOOL_ARMOR",
-    "name": { "str": "<color_magenta>clinger</color>" },
-    "description": "A filthy rotten creature that greatly hampers your reflexes. Activate to pull it off.",
-    "weight": "1300 g",
-    "volume": "500 ml",
-    "price": "0 cent",
-    "to_hit": -1,
-    "melee_damage": { "bash": 1 },
-    "material": [ "flesh" ],
-    "symbol": "⨨",
-    "color": "yellow",
-    "initial_charges": 1,
-    "max_charges": 1,
-    "turns_per_charge": 1,
-    "armor": [
-      {
-        "encumbrance": 40,
-        "coverage": 100,
-        "covers": [ "foot_l", "foot_r" ],
-        "material": [ "flesh" ],
-        "material_thickness": 1,
-        "environmental_protection": 0
-      }
-    ],
-    "warmth": 0,
-    "use_action": {
-      "type": "place_monster",
-      "monster_id": "mon_zombie_cling",
-      "difficulty": 999,
-      "hostile_msg": "The clinger detaches!",
-      "friendly_msg": "How the turntables:",
-      "place_randomly": true,
-      "skills": [ "dodge", "unarmed" ],
-      "moves": 125
-    },
-    "relic_data": {
-      "passive_effects": [
-        {
-          "has": "WORN",
-          "condition": "ALWAYS",
-          "values": [ { "value": "MOVE_COST", "add": 25 }, { "value": "DEXTERITY", "add": -2 } ]
-        }
-      ]
-    },
-    "flags": [ "PERSONAL", "FRAGILE", "BELTED", "NO_DROP", "NO_TAKEOFF" ]
-  },
-  {
     "//": "Eating this vile meat mends your body, even broken limbs! (not head and torso, ofc).",
     "id": "sflesh_bio",
     "copy-from": "flesh",

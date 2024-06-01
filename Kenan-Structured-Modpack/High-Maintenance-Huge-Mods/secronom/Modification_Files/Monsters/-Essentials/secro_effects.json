@@ -192,30 +192,11 @@
     "scaling_mods": { "str_mod": [ -0.9 ], "per_mod": [ -0.82 ], "dex_mod": [ -1.3 ], "int_mod": [ -1.65 ] }
   },
   {
-    "//": "Screamer uses invisible fields to apply this to players with no head protection. As it is a field, it can't go through closed windows and such.",
-    "type": "effect_type",
-    "id": "secro_dissed",
-    "name": [ "Dazzled" ],
-    "apply_message": "The resonating voice dazes you!",
-    "desc": [ "You're anxious to your surroundings!" ],
-    "miss_messages": [ [ "You can't focus on your actions!", 3 ] ],
-    "remove_message": "You are no longer dazed.",
-    "int_add_val": 2,
-    "int_dur_factor": "3 seconds",
-    "max_intensity": 100,
-    "int_decay_step": -5,
-    "int_decay_tick": 10,
-    "max_duration": 300,
-    "rating": "bad",
-    "base_mods": { "pain_min": [ 1 ], "pain_max": [ 2 ], "pain_chance": [ 30 ] },
-    "scaling_mods": { "per_mod": [ -0.04 ], "dex_mod": [ -0.08 ], "speed_mod": [ -0.16 ] }
-  },
-  {
     "type": "effect_type",
     "id": "secro_fleshmonger_abs",
     "name": [ "Absorption" ],
     "show_in_info": true,
-    "base_mods": { "hurt_min": [ -10 ] }
+    "enchantments": [ { "values": [ { "value": "REGEN_HP", "add": 10 } ] } ]
   },
   {
     "type": "effect_type",
@@ -973,7 +954,14 @@
     "int_add_val": 1,
     "int_decay_step": -20,
     "int_decay_tick": 3,
-    "base_mods": { "speed_mod": [ -3 ], "hurt_min": [ 1 ], "hurt_tick": [ 30 ], "pain_min": [ 1 ], "pain_chance": [ 30 ], "pain_tick": [ 10 ] },
+    "base_mods": {
+      "speed_mod": [ -3 ],
+      "hurt_min": [ 1 ],
+      "hurt_tick": [ 30 ],
+      "pain_min": [ 1 ],
+      "pain_chance": [ 30 ],
+      "pain_tick": [ 10 ]
+    },
     "scaling_mods": { "speed_mod": [ -1 ], "hurt_min": [ 0.05 ], "hurt_tick": [ -0.5 ], "pain_chance": [ -0.2 ] },
     "show_in_info": true
   },

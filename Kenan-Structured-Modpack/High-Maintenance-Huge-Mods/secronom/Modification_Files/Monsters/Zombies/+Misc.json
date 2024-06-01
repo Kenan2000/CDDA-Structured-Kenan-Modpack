@@ -1,6 +1,6 @@
 [
   {
-    "//": "Monsters that doesn't spawn directly in cities and has no upgrade paths (except the stray zombie). Rarely spawns in the wilds, in some parts of cities and/or other special conditions.",
+    "//": "Rarely spawns in the wilds, in some parts of cities and/or other special conditions.",
     "id": "mon_zombie_nautilus",
     "looks_like": "mon_zombie_mancroc",
     "type": "MONSTER",
@@ -146,94 +146,87 @@
     "upgrades": false
   },
   {
-    "//": "Summoner-type electric zed. Uses an aura to spawn minions.",
+    "//": "Aggro-type zed that also spawn bolts, spreading electricity even further.",
     "id": "mon_zombie_jolt",
+    "copy-from": "mon_zombie_nullfield",
     "type": "MONSTER",
     "name": { "str": "jolt" },
-    "description": "A pale corpse, obscure to its appearance. Flowing through its body is an immensive electric current.",
-    "default_faction": "zombie",
-    "bodytype": "human",
+    "description": "A pale corpse, obscure to its appearance. Flowing through its body is an immensive electric current, covering its vicinity in deadly thunderstorm.",
     "species": [ "ZOMBIE", "SECROZED_2" ],
-    "volume": "62500 ml",
-    "weight": "81500 g",
-    "hp": 185,
-    "speed": 30,
+    "hp": 260,
+    "speed": 35,
     "material": [ "flesh" ],
     "symbol": "⛤",
     "color": "cyan_white",
-    "aggression": 100,
-    "morale": 100,
-    "melee_skill": 4,
-    "melee_dice": 1,
-    "melee_dice_sides": 2,
-    "melee_damage": [ { "damage_type": "electric", "amount": 5 } ],
-    "vision_night": 2,
-    "luminance": 20,
-    "harvest": "zombie",
-    "emit_fields": [ "emit_jolt_ing", "emit_jolt_blanket" ],
+    "melee_damage": [ { "damage_type": "electric", "amount": 10 } ],
+    "vision_night": 4,
+    "luminance": 24,
+    "emit_fields": [ "emit_jolt_blanket" ],
     "special_when_hit": [ "ZAPBACK", 100 ],
-    "death_drops": "default_zombie_death_drops",
-    "flags": [ "SEES", "HEARS", "WARM", "POISON", "ELECTRIC", "NO_BREATHE", "REVIVES", "ELECTRIC_FIELD", "FILTHY" ]
+    "special_attacks": [
+      {
+        "id": "monspell_zombie_jolt_passive",
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_jolt_passive", "hit_self": true },
+        "cooldown": 10,
+        "condition": { "one_in_chance": 10 },
+        "allow_no_target": true,
+        "monster_message": ""
+      }
+    ],
+    "extend": { "flags": [ "HARDTOSHOOT" ] }
   },
   {
     "id": "mon_zombie_jolt_bolt_smol",
     "type": "MONSTER",
     "name": { "str": "bolt" },
-    "description": "An electric crackling ball, floating freely in the air.",
+    "description": "An electric spark, floating freely in the air.",
     "default_faction": "zombie",
-    "bodytype": "human",
-    "species": [ "UNKNOWN" ],
+    "bodytype": "blob",
+    "species": [ "HORROR" ],
     "volume": "3 ml",
     "weight": "3 g",
     "hp": 4,
-    "speed": 105,
+    "speed": 100,
     "material": [ "secro_null" ],
     "symbol": "○",
     "color": "cyan",
-    "aggression": 100,
-    "morale": 100,
+    "aggression": 0,
+    "morale": 0,
     "phase": "GAS",
     "melee_skill": 1,
     "melee_dice": 1,
     "melee_dice_sides": 1,
-    "vision_night": 11,
-    "dodge": 6,
-    "vision_day": 11,
     "luminance": 4,
     "emit_fields": [ "emit_bolt_crackle_smol" ],
-    "special_attacks": [ [ "DISAPPEAR", 75 ] ],
-    "special_when_hit": [ "ZAPBACK", 20 ],
+    "special_when_hit": [ "ZAPBACK", 100 ],
     "death_function": { "message": "The %s disintegrates!", "corpse_type": "NO_CORPSE" },
-    "flags": [ "SEES", "PACIFIST", "ACIDPROOF", "ELECTRIC", "NO_BREATHE", "FLIES" ]
+    "flags": [ "PACIFIST", "ACIDPROOF", "ELECTRIC", "NO_BREATHE", "FLIES", "NOHEAD", "HARDTOSHOOT" ]
   },
   {
     "id": "mon_zombie_jolt_bolt_big",
     "copy-from": "mon_zombie_jolt_bolt_smol",
     "type": "MONSTER",
-    "description": "A large, electric crackling ball, floating freely in the air.",
+    "description": "A large, electric spark, floating freely in the air.",
     "hp": 8,
-    "speed": 90,
     "symbol": "◯",
     "color": "light_blue",
     "vision_night": 15,
     "vision_day": 15,
     "luminance": 12,
-    "emit_fields": [ "emit_bolt_crackle_big" ],
-    "special_attacks": [ [ "DISAPPEAR", 150 ] ],
-    "special_when_hit": [ "ZAPBACK", 50 ]
+    "emit_fields": [ "emit_bolt_crackle_big" ]
   },
   {
-    "//": "Aggro-type zed that morphs into a lethal counterpart on-death.",
+    "//": "Aggro-type zed that morphs into its lethal counterpart at low health.",
     "id": "mon_zombie_fake_ichorus",
     "copy-from": "mon_zombie_base",
     "type": "MONSTER",
     "description": "A human body, swaying as it moves, an unstoppable rage visible in its oily red eyes.",
-    "species": [ "ZOMBIE", "SECROZED_1" ],
+    "proportional": { "hp": 3, "speed": 0.33 },
     "special_attacks": [
       {
         "type": "spell",
         "spell_data": { "id": "mon_zombie_fake_ichorus_poly" },
-        "cooldown": 1,
         "condition": { "math": [ "u_hp('ALL')", "<=", "50" ] },
         "allow_no_target": true,
         "monster_message": "<color_light_red>%1$s trembles!</color>"
@@ -245,7 +238,7 @@
     "id": "mon_zombie_ichorus",
     "type": "MONSTER",
     "name": { "str": "ichorus" },
-    "description": "Heaps of greenish flesh has replaced the head under its undulating bulbous torso.",
+    "description": "Heaps of greenish flesh has replaced this zombie's head underneath an undulating bulbous torso, dripping with endless stream of corrosive substance.",
     "default_faction": "zombie",
     "bodytype": "human",
     "species": [ "ZOMBIE", "SECROZED_2" ],
@@ -261,7 +254,7 @@
     "melee_skill": 6,
     "melee_dice": 6,
     "melee_dice_sides": 6,
-    "armor": { "bash": 10, "cut": 5, "bullet": 3, "stab": 3 },
+    "armor": { "bash": 12, "cut": 3, "bullet": 2, "stab": 2 },
     "dodge": 1,
     "attack_cost": 220,
     "melee_damage": [ { "damage_type": "acid", "amount": 6 } ],
@@ -288,17 +281,15 @@
     ]
   },
   {
-    "//": "Aggro-type zed that morphs into a lethal counterpart on-death.",
     "id": "mon_zombie_fake_psyrus",
     "copy-from": "mon_zombie_base",
     "type": "MONSTER",
     "description": "A human body, swaying as it moves, an unstoppable rage visible in its oily red eyes.",
-    "species": [ "ZOMBIE", "SECROZED_1" ],
+    "proportional": { "hp": 3, "speed": 0.33 },
     "special_attacks": [
       {
         "type": "spell",
         "spell_data": { "id": "mon_zombie_fake_psyrus_poly" },
-        "cooldown": 1,
         "condition": { "math": [ "u_hp('ALL')", "<=", "50" ] },
         "allow_no_target": true,
         "monster_message": "<color_light_red>%1$s trembles!</color>"
@@ -328,7 +319,7 @@
     "melee_dice_sides": 6,
     "melee_damage": [ { "damage_type": "cut", "amount": 6 } ],
     "armor": { "bash": 8, "cut": 4, "bullet": 4, "stab": 4 },
-    "dodge": 3,
+    "dodge": 2,
     "attack_cost": 180,
     "harvest": "zombie",
     "special_attacks": [ { "type": "bite", "cooldown": 4 }, { "id": "grab", "cooldown": 4 }, [ "scratch", 4 ] ],
@@ -406,49 +397,11 @@
     ]
   },
   {
-    "//": "Support-type zed. Becomes a worn item, bringing movement debuffs that lasts until it is removed. Its ability only affects the player, and nothing else. If it does the ability on something, the item is transferred onto you, no matter how far you are.",
-    "id": "mon_zombie_cling",
-    "type": "MONSTER",
-    "name": { "str": "clinger" },
-    "description": "Covered in foul stench, this ambiguously dreadful 4-legged creature dangles as it moves, grasping and gnawing anything in its surroundings.",
-    "default_faction": "zombie",
-    "bodytype": "dog",
-    "species": [ "ZOMBIE", "SECROZED_1" ],
-    "volume": "600 ml",
-    "weight": "1300 g",
-    "hp": 10,
-    "speed": 45,
-    "material": [ "flesh" ],
-    "symbol": "⨨",
-    "color": "yellow",
-    "aggression": 0,
-    "morale": 100,
-    "melee_skill": 1,
-    "melee_dice": 1,
-    "melee_dice_sides": 1,
-    "melee_damage": [ { "damage_type": "cut", "amount": 1 } ],
-    "dodge": 3,
-    "vision_day": 16,
-    "vision_night": 6,
-    "harvest": "zombie",
-    "anger_triggers": [ "PLAYER_CLOSE" ],
-    "special_attacks": [
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_zombie_cling_cling" },
-        "cooldown": 111,
-        "monster_message": "<color_yellow>%1$s lunges at %3$s!</color>"
-      }
-    ],
-    "death_function": { "message": "The %s disintegrates!", "corpse_type": "NO_CORPSE" },
-    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE", "REVIVES", "HARDTOSHOOT" ]
-  },
-  {
     "//": "Aggro-type zed. Like a shady zombie, but much stronger and tougher.",
     "id": "mon_zombie_nocturne",
     "type": "MONSTER",
     "name": { "str": "nocturne" },
-    "description": "Concealed in otherworldly shadows, this vicious corpse brings terror to its unfortunate prey. Sets of razor nails glow faintly in the darkness, and baneful eyes affixed to the void.",
+    "description": "A vicious corpse concealed in otherworldly shadows. You can only distinguish a set of razor-sharp nails glowing faintly through it.",
     "default_faction": "zombie",
     "bodytype": "human",
     "species": [ "ZOMBIE", "SECROZED_3" ],
@@ -594,7 +547,7 @@
     "regenerates": 20,
     "bleed_rate": 10,
     "death_function": {
-      "message": "The %s explodes in a shower of gore!",
+      "message": "The %s explodes into a shower of gore!",
       "corpse_type": "NO_CORPSE",
       "effect": { "id": "death_blood", "hit_self": true, "min_level": 3 }
     },
@@ -622,7 +575,7 @@
     "id": "mon_zombie_gorepit",
     "type": "MONSTER",
     "name": { "str": "gorepit" },
-    "description": "An eerie pit composed mostly of decaying flesh, with a distinctive huge gap revealing thousands of bones and other organic materials aligned in its wall. Thick, sinewy webbing supports a central bulbous orb that beats at a steady rate.",
+    "description": "An eerie pit composed mostly of decaying flesh, revealing thousands of bones and other organic materials aligned in its wall. Thick, sinewy webbing supports a central bulbous orb that beats at a steady rate.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "SECROZED_ULTIMATE" ],
     "diff": 50,
@@ -675,7 +628,7 @@
         "id": "monspell_zombie_gorepit_spawn_target",
         "spell_data": { "id": "mon_zombie_gorepit_spawn_target" },
         "cooldown": 38,
-        "monster_message": "<color_red>You feel the ground shaking as it originates from %1$s!</color>\n<color_yellow>%1$s sends a defeaning screech!</color>"
+        "monster_message": "<color_red>You feel the ground shaking.</color>\n<color_yellow>%1$s sends a defeaning screech!</color>"
       },
       {
         "type": "spell",
@@ -770,10 +723,10 @@
     "id": "mon_zombie_cordev",
     "type": "MONSTER",
     "name": { "str": "corrupted devourer" },
-    "description": "A colossal, humanoid corpse, distinct to its seemingly volatile, torsal lump, a headless top and a set of arm biters with swollen eyes united into them.",
+    "description": "A colossal, humanoid corpse, distinct to its seemingly volatile torsal lump and a headless top. a set of arm biters with swollen eyes united into them.",
     "default_faction": "zombie",
     "bodytype": "human",
-    "species": [ "ZOMBIE", "SECROZED_3", "ABERRATION" ],
+    "species": [ "ZOMBIE", "SECROZED_3" ],
     "volume": "970 L",
     "weight": "1125000 g",
     "hp": 1325,
@@ -833,11 +786,11 @@
     ]
   },
   {
-    "//": "Aggro-type zed aberration, extremely tough, durable and full of deadly ranged capabilities, unique to its drastic movement speed gain as long as it sees a target. One of the true end-game monsters.",
+    "//": "Aggro-type zed aberration. Appears in later years.",
     "id": "mon_zombie_fleshysnaky",
     "type": "MONSTER",
     "name": { "str": "flesilisk" },
-    "description": "A massive conglomeration of thick, gangrenous flesh, forming a snake-like figurine with its head resembling a dragon. Terrifyingly disastrous, its entire body is covered in bony scales and lies under it are spikes of similar material.",
+    "description": "A massive conglomeration of gangrenous flesh, forming a snake-like abomination. Its entire body is covered in bony spikes layered with scales of similar material.",
     "default_faction": "zombie",
     "bodytype": "snake",
     "species": [ "ZOMBIE", "SECROZED_ULTIMATE", "ABERRATION" ],
@@ -845,20 +798,18 @@
     "weight": "3300500 g",
     "hp": 2160,
     "speed": 40,
-    "diff": 100,
     "material": [ "flesh", "bone" ],
     "symbol": "⚶",
     "color": "magenta",
     "aggression": 100,
     "morale": 100,
-    "attack_cost": 675,
     "melee_skill": 10,
     "melee_dice": 8,
     "melee_dice_sides": 10,
-    "melee_damage": [ { "damage_type": "cut", "amount": 6 } ],
-    "armor": { "bash": 30, "cut": 34, "bullet": 27, "stab": 26 },
-    "vision_day": 23,
-    "vision_night": 3,
+    "melee_damage": [ { "damage_type": "cut", "amount": 13 } ],
+    "armor": { "bash": 50, "cut": 25, "bullet": 33, "stab": 33 },
+    "vision_day": 46,
+    "vision_night": 6,
     "harvest": "zombie",
     "weakpoints": [
       {
@@ -870,31 +821,59 @@
       }
     ],
     "special_attacks": [
-      {
-        "type": "spell",
-        "spell_data": { "id": "mon_zombie_fleshysnaky_devastate_check" },
-        "cooldown": 101,
-        "monster_message": "<color_yellow>%1$s slams at %3$s!</color>"
-      },
+      { "id": "secro_fleshysnaky_coil", "cooldown": 101 },
       {
         "type": "gun",
-        "cooldown": 101,
+        "cooldown": 11,
         "move_cost": 400,
         "gun_type": "fleshysnaky_bn_shower",
         "fake_skills": [ [ "gun", 1 ], [ "rifle", 1 ] ],
-        "ranges": [ [ 3, 4, "N" ] ],
+        "ranges": [ [ 3, 9, "N" ] ],
         "require_targeting_player": false,
         "require_targeting_npc": false,
         "require_targeting_monster": false,
-        "description": "The flesilisk coils and releases itself afterwards, flinging hundreds of bone needles!"
+        "description": "The flesilisk flings hundreds of bone needles!",
+        "condition": { "u_has_effect": "secro_zombie_fleshysnaky_coiling" }
       },
       {
-        "cooldown": 31,
+        "id": "smash",
+        "cooldown": 41,
+        "min_mul": 1.5,
+        "max_mul": 2,
+        "range": 2,
+        "hit_dmg_u": "%1$s swings its massive tail at your %2$s!\n<color_magenta>%1$s coils its body.</color>",
+        "hit_dmg_npc": "%1$s swings its tail at <npcname>!\n<color_magenta>%1$s coils its body.</color>",
+        "no_dmg_msg_u": "%1$s swings its tail at you, but fails to penetrate your armor!\n<color_magenta>%1$s coils its body.</color>",
+        "no_dmg_msg_npc": "%1$s swings its tail at <npcname>, but fails to penetrate their armor!\n<color_magenta>%1$s coils its body.</color>",
+        "condition": { "not": { "u_has_effect": "secro_zombie_fleshysnaky_coiling" } },
+        "self_effects_always": [ { "id": "secro_zombie_fleshysnaky_coiling", "duration": 10 } ]
+      },
+      { "id": "smash_fleshysnaky_rev", "cooldown": 41, "min_mul": 1.5, "max_mul": 2, "range": 2 },
+      {
+        "id": "monspell_zombie_fleshysnaky_devastate",
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_fleshysnaky_devastate" },
+        "cooldown": 101,
+        "monster_message": "<color_yellow>%1$s slams at %3$s!</color>",
+        "condition": { "not": { "u_has_effect": "secro_zombie_fleshysnaky_coiling" } }
+      },
+      {
+        "id": "monspell_zombie_fleshysnaky_bsbombard",
+        "type": "spell",
+        "spell_data": { "id": "mon_zombie_fleshysnaky_bsbombard" },
+        "cooldown": 11,
+        "monster_message": "<color_yellow>%1$s volleys bone needles at %3$s!</color>",
+        "condition": { "and": [ { "u_has_effect": "secro_zombie_fleshysnaky_coiling" }, { "math": [ "distance('u', 'npc')", ">", "9" ] } ] }
+      },
+      {
+        "type": "bite",
+        "cooldown": 11,
+        "move_cost": 111,
         "damage_max_instance": [
-          { "amount": 32, "armor_penetration": 5, "damage_type": "bash" },
-          { "amount": 16, "armor_penetration": 30, "damage_type": "stab" }
+          { "amount": 32, "armor_multiplier": 0.66, "damage_type": "bash" },
+          { "amount": 32, "armor_penetration": 32, "damage_type": "stab" }
         ],
-        "type": "bite"
+        "condition": { "not": { "u_has_effect": "secro_zombie_fleshysnaky_coiling" } }
       }
     ],
     "flags": [
@@ -915,11 +894,11 @@
     ]
   },
   {
-    "//": "Support-type zed who weakens the target by applying debuffs that intensifies for as long as it acquire LOS, while empowering nearby allies. Feeble, yet a great nuisance behind its meat wall. One of the true end-game monsters.",
+    "//": "Support-type zed. Appears in later years.",
     "id": "mon_zombie_akin",
     "type": "MONSTER",
     "name": { "str": "akin" },
-    "description": "A grotesquely baneful corpse, resonating pure dread in the air as it eagerly sways along its path. Visceral tendrils slither freely in its vicinity, acting like guides in sensing the unfortunate host.",
+    "description": "A grotesquely baneful corpse, resonating pure dread in the air as it eagerly sways along its path. Visceral tendrils slither freely in its vicinity, acting as guides in sensing unfortunate hosts.",
     "default_faction": "zombie",
     "bodytype": "human",
     "species": [ "ZOMBIE", "SECROZED_3" ],
@@ -969,7 +948,7 @@
     ]
   },
   {
-    "//": "Summoner-type monster that excels at quickly sending out agile minions. One of the true end-game monsters.",
+    "//": "Summoner-type monster. Appears in later years.",
     "id": "mon_zombie_equinox",
     "type": "MONSTER",
     "name": { "str": "equinox" },
@@ -1157,7 +1136,7 @@
     "flags": [ "SEES", "CLIMBS", "WARM", "STUMBLES", "NOHEAD", "POISON", "NO_BREATHE" ]
   },
   {
-    "//": "Aggro-type zed who's revival can be a great nuisance to the target. An end-game prize.",
+    "//": "Aggro-type zed. Appears in later years.",
     "id": "mon_zombie_relinquish",
     "type": "MONSTER",
     "name": { "str": "relinquished zombie" },
@@ -1187,7 +1166,6 @@
     "flags": [ "SEES", "SMELLS", "HEARS", "STUMBLES", "WARM", "POISON", "NO_BREATHE" ]
   },
   {
-    "//": "An OP version rises from killing the weakling! This zombie constantly becomes stronger after its revival, and if it gathers too much, one should stay away from getting a direct hit.",
     "id": "mon_zombie_relinquish_revived",
     "type": "MONSTER",
     "name": { "str": "resolute zombie" },
