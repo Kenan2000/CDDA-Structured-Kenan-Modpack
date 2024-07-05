@@ -4,8 +4,8 @@
     "type": "effect_type",
     "show_in_info": true,
     "id": "gud_burn",
-    "name": [ "Lava Burning", "Lava Burning", "Lava Burning" ],
-    "desc": [ "You are burning due to standing in lava!" ],
+    "name": [ "Lava or Acid Burning", "Lava or Acid Burning", "Lava or Acid Burning" ],
+    "desc": [ "You are burning due to standing in lava or acid!" ],
     "rating": "bad",
     "max_intensity": 1,
     "max_duration": 3,
@@ -73,7 +73,7 @@
     ],
     "name": [ "Herb Cleansing" ],
     "desc": [
-      "You have taken some healing herbs.  It appears to have panacea-like effects along with radioation cleansing properties slowly cleansing your body of radiation; if you take more of it, you'll be able to speed up the process."
+      "You have taken some healing herb.  It appears to have panacea-like effects along with radiation cleansing properties slowly cleansing your body of radiation; if you take more of it, you'll be able to speed up the process."
     ],
     "max_intensity": 1,
     "base_mods": { "rad_chance": [ 180 ], "rad_min": [ -4 ], "rad_max": [ -3 ], "h_mod_chance": [ 1000 ], "vomit_chance": [ 10000 ] },
@@ -90,13 +90,68 @@
   {
     "type": "effect_type",
     "id": "herb_stun",
-    "name": [ "Mild Herb Stun", "Moderate Herb Stun", "Strong Herb Stun", "Intense Herb Stun", "Uber-Intense Herb Stun" ],
-    "desc": [ "Herb stuns you!" ],
-    "max_intensity": 6,
-    "max_effective_intensity": 6,
+    "name": [ "Mild Herb Stun", "Moderate Herb Stun", "Strong Herb Stun", "Powerful Herb Stun", "Intense Herb Stun" ],
+    "desc": [
+      "You have taken some healing herb.  It appears to have pretty strong stunning, dizzying effects; these effects are temporary, but if you take more of it right away, they will stack."
+    ],
+    "max_intensity": 5,
+    "max_effective_intensity": 5,
     "int_add_val": 1,
-    "base_mods": { "speed_mod": [ -9 ], "per_mod": [ -1 ], "dex_mod": [ -1 ] },
-    "scaling_mods": { "speed_mod": [ -9 ], "per_mod": [ -1 ], "dex_mod": [ -1 ] }
+    "base_mods": { "speed_mod": [ -10 ], "per_mod": [ -2 ], "dex_mod": [ -2 ] },
+    "scaling_mods": { "speed_mod": [ -10 ], "per_mod": [ -2 ], "dex_mod": [ -2 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "spray_cleanse",
+    "removes_effects": [
+      "fungus",
+      "flu",
+      "dermatik",
+      "bloodworms",
+      "paincysts",
+      "brainworms",
+      "tapeworm",
+      "bleed",
+      "hypovolemia",
+      "blind",
+      "poison",
+      "stung",
+      "badpoison",
+      "foodpoison",
+      "paralyzepoison",
+      "tetanus",
+      "infected",
+      "asthma",
+      "common_cold"
+    ],
+    "name": [ "Spray Cleansing" ],
+    "desc": [
+      "You have sprayed yourself with some healing spray.  It appears to have panacea-like effects along with radiation cleansing properties slowly cleansing your body of radiation; if you spray yourself more with it, you'll be able to speed up the process."
+    ],
+    "max_intensity": 1,
+    "base_mods": { "rad_chance": [ 180 ], "rad_min": [ -4 ], "rad_max": [ -3 ], "h_mod_chance": [ 1000 ], "vomit_chance": [ 10000 ] },
+    "scaling_mods": {
+      "h_mod_min": [ 0 ],
+      "h_mod_max": [ 2 ],
+      "h_mod_chance": [ 100 ],
+      "vomit_chance": [ -1000 ],
+      "rad_chance": [ 180 ],
+      "rad_min": [ -0.7 ],
+      "rad_max": [ -0.9 ]
+    }
+  },
+  {
+    "type": "effect_type",
+    "id": "spray_stun",
+    "name": [ "Mild Spray Stun", "Moderate Spray Stun", "Strong Spray Stun", "Powerful Spray Stun", "Intense Spray Stun" ],
+    "desc": [
+      "You have sprayed yourself with some healing spray.  It appears to have pretty strong stunning, dizzying effects; these effects are temporary, but if you spray yourself with more of it right away, they will stack."
+    ],
+    "max_intensity": 5,
+    "max_effective_intensity": 5,
+    "int_add_val": 1,
+    "base_mods": { "speed_mod": [ -10 ], "per_mod": [ -2 ], "dex_mod": [ -2 ] },
+    "scaling_mods": { "speed_mod": [ -10 ], "per_mod": [ -2 ], "dex_mod": [ -2 ] }
   },
   {
     "type": "effect_type",
@@ -105,6 +160,6 @@
     "blocks_effects": [ "bleed", "hypovolemia" ],
     "name": [ "Bleeding Immunity" ],
     "max_intensity": 1,
-    "max_duration": 17400
+    "max_duration": 21900
   }
 ]

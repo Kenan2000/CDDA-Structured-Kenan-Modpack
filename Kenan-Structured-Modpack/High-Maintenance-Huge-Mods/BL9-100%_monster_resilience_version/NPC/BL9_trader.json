@@ -6,10 +6,10 @@
     "responses": [
       { "text": "[BUY WEAPONS]", "topic": "TALK_BL9_TRADER_BUY1" },
       { "text": "[BUY ARMOR]", "topic": "TALK_BL9_TRADER_BUY2" },
-      { "text": "[BUY MODIFIERS]", "topic": "TALK_BL9_TRADER_BUY3" },
-      { "text": "[BUY ADVANCED MODIFIERS]", "topic": "TALK_BL9_TRADER_BUY4" },
-      { "text": "[BUY RESOURCES]", "topic": "TALK_BL9_TRADER_BUY5" },
-      { "text": "[BUY MANHACKS]", "topic": "TALK_BL9_TRADER_BUY6" },
+      { "text": "[BUY RESOURCES]", "topic": "TALK_BL9_TRADER_BUY3" },
+      { "text": "[BUY EXCHANGE CURRENCIES]", "topic": "TALK_BL9_TRADER_BUY4" },
+      { "text": "[BUY ROBOTS]", "topic": "TALK_BL9_TRADER_BUY5" },
+      { "text": "[BUY HEALING SPRAYS]", "topic": "TALK_BL9_TRADER_BUY6" },
       { "text": "[ASK QUESTIONS]", "topic": "TALK_BL9_TRADER_GUIDE1" },
       { "text": "[GOODBYE]", "topic": "TALK_TRADER_GOODBYE" }
     ]
@@ -31,308 +31,160 @@
         ]
       },
       {
-        "text": "[156Pcomb] *BL9-infused pistol MKii*",
+        "text": "[105Pcomb] *BL9-infused pistol MKii*",
         "condition": { "and": [ { "u_has_item": "BL9_pistol" }, { "not": { "u_has_item": "BL9_pistol_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 156 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 105 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "9mmBL9mk2mag", "count": 3 },
-            { "u_sell_item": "platcoincomb", "count": 156 },
-            { "npc_consume_item": "platcoincomb", "count": 156 },
+            { "u_sell_item": "platcoincomb", "count": 105 },
+            { "npc_consume_item": "platcoincomb", "count": 105 },
             { "u_spawn_item": "BL9_pistol_mk2", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[131Gcomb] *BL9-infused submachine gun*",
+        "text": "[88Gcomb] *BL9-infused submachine gun*",
         "condition": { "not": { "u_has_item": "BL9_smg" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 131 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 88 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "9mmBL9smgmag", "count": 3 },
-            { "u_sell_item": "goldcoincomb", "count": 131 },
-            { "npc_consume_item": "goldcoincomb", "count": 131 },
+            { "u_sell_item": "goldcoincomb", "count": 88 },
+            { "npc_consume_item": "goldcoincomb", "count": 88 },
             { "u_spawn_item": "BL9_smg", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[237Pcomb] *BL9-infused submachine gun MK ii*",
+        "text": "[159Pcomb] *BL9-infused submachine gun MK ii*",
         "condition": { "and": [ { "u_has_item": "BL9_smg" }, { "not": { "u_has_item": "BL9_smg_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 237 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 159 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "BL9_smg_mk2", "count": 1 },
             { "u_spawn_item": "9mmBL9smgmk2mag", "count": 3 },
-            { "u_sell_item": "platcoincomb", "count": 237 },
-            { "npc_consume_item": "platcoincomb", "count": 237 }
+            { "u_sell_item": "platcoincomb", "count": 159 },
+            { "npc_consume_item": "platcoincomb", "count": 159 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[223Gcomb] *BL9-infused sniper rifle*",
+        "text": "[151Gcomb] *BL9-infused sniper rifle*",
         "condition": { "not": { "u_has_item": "BL9_sniper" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 223 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 151 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "308BL9mag", "count": 3 },
-            { "u_sell_item": "goldcoincomb", "count": 223 },
-            { "npc_consume_item": "goldcoincomb", "count": 223 },
+            { "u_sell_item": "goldcoincomb", "count": 151 },
+            { "npc_consume_item": "goldcoincomb", "count": 151 },
             { "u_spawn_item": "BL9_sniper", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[501Pcomb] *BL9-infused sniper rifle MK ii*",
+        "text": "[338Pcomb] *BL9-infused sniper rifle MK ii*",
         "condition": { "and": [ { "u_has_item": "BL9_sniper" }, { "not": { "u_has_item": "BL9_sniper_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 338 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "BL9_sniper_mk2", "count": 1 },
             { "u_spawn_item": "308BL9mk2mag", "count": 3 },
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 }
+            { "u_sell_item": "platcoincomb", "count": 338 },
+            { "npc_consume_item": "platcoincomb", "count": 338 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[201Gcomb] *BL9-infused automatic rifle*",
+        "text": "[151Gcomb] *BL9-infused automatic rifle*",
         "condition": { "not": { "u_has_item": "BL9_auto" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 201 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 151 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "556223BL9mag", "count": 3 },
-            { "u_sell_item": "goldcoincomb", "count": 201 },
-            { "npc_consume_item": "goldcoincomb", "count": 201 },
+            { "u_sell_item": "goldcoincomb", "count": 151 },
+            { "npc_consume_item": "goldcoincomb", "count": 151 },
             { "u_spawn_item": "BL9_auto", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[397Pcomb] *BL9-infused automatic rifle MK ii*",
+        "text": "[268Pcomb] *BL9-infused automatic rifle MK ii*",
         "condition": { "and": [ { "u_has_item": "BL9_auto" }, { "not": { "u_has_item": "BL9_auto_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 397 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 268 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "BL9_auto_mk2", "count": 1 },
             { "u_spawn_item": "556223BL9mk2mag", "count": 3 },
-            { "u_sell_item": "platcoincomb", "count": 397 },
-            { "npc_consume_item": "platcoincomb", "count": 397 }
+            { "u_sell_item": "platcoincomb", "count": 268 },
+            { "npc_consume_item": "platcoincomb", "count": 268 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[165Gcomb] *BL9-infused shotgun*",
+        "text": "[115Gcomb] *BL9-infused shotgun*",
         "condition": { "not": { "u_has_item": "BL9_shotgun" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 165 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 115 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 165 },
-            { "npc_consume_item": "goldcoincomb", "count": 165 },
+            { "u_sell_item": "goldcoincomb", "count": 115 },
+            { "npc_consume_item": "goldcoincomb", "count": 115 },
             { "u_spawn_item": "BL9_shotgun", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[315Pcomb] *BL9-infused shotgun MK ii*",
+        "text": "[216Pcomb] *BL9-infused shotgun MK ii*",
         "condition": { "and": [ { "u_has_item": "BL9_shotgun" }, { "not": { "u_has_item": "BL9_shotgun_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 315 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 216 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "BL9_shotgun_mk2", "count": 1 },
-            { "u_sell_item": "platcoincomb", "count": 315 },
-            { "npc_consume_item": "platcoincomb", "count": 315 }
+            { "u_sell_item": "platcoincomb", "count": 216 },
+            { "npc_consume_item": "platcoincomb", "count": 216 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[216Gcomb] *BL9-infused magnum*",
+        "text": "[151Gcomb] *BL9-infused magnum*",
         "condition": { "not": { "u_has_item": "BL9_magnum" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 216 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 216 },
-            { "npc_consume_item": "goldcoincomb", "count": 216 },
-            { "u_spawn_item": "BL9_magnum", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[435Pcomb] *BL9-infused magnum MK ii*",
-        "condition": { "and": [ { "u_has_item": "BL9_magnum" }, { "not": { "u_has_item": "BL9_magnum_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 435 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_spawn_item": "BL9_magnum_mk2", "count": 1 },
-            { "u_sell_item": "platcoincomb", "count": 435 },
-            { "npc_consume_item": "platcoincomb", "count": 435 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[305Gcomb] *BL9-infused sprayer*",
-        "condition": { "not": { "u_has_item": "BL9_sprayer" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 305 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 305 },
-            { "npc_consume_item": "goldcoincomb", "count": 305 },
-            { "u_spawn_item": "tank_BL9", "count": 3 },
-            { "u_spawn_item": "BL9_sprayer", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[595Pcomb] *BL9-infused sprayer MK ii*",
-        "condition": { "and": [ { "u_has_item": "BL9_sprayer" }, { "not": { "u_has_item": "BL9_sprayer_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 595 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_spawn_item": "BL9_sprayer_mk2", "count": 1 },
-            { "u_spawn_item": "tank_BL9_mk2", "count": 3 },
-            { "u_sell_item": "platcoincomb", "count": 595 },
-            { "npc_consume_item": "platcoincomb", "count": 595 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[305Gcomb] *BL9-infused melting sprayer*",
-        "condition": { "not": { "u_has_item": "BL9_melting_sprayer" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 305 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 305 },
-            { "npc_consume_item": "goldcoincomb", "count": 305 },
-            { "u_spawn_item": "tankm_BL9", "count": 3 },
-            { "u_spawn_item": "BL9_melting_sprayer", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[595Pcomb] *BL9-infused melting sprayer MK ii*",
-        "condition": { "and": [ { "u_has_item": "BL9_melting_sprayer" }, { "not": { "u_has_item": "BL9_melting_sprayer_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 595 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_spawn_item": "BL9_melting_sprayer_mk2", "count": 1 },
-            { "u_spawn_item": "tankm_BL9_mk2", "count": 3 },
-            { "u_sell_item": "platcoincomb", "count": 595 },
-            { "npc_consume_item": "platcoincomb", "count": 595 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[397Gcomb] *BL9-infused railgun*",
-        "condition": { "not": { "u_has_item": "BL9_railgun" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 397 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_spawn_item": "railBL9mag", "count": 3 },
-            { "u_sell_item": "goldcoincomb", "count": 397 },
-            { "npc_consume_item": "goldcoincomb", "count": 397 },
-            { "u_spawn_item": "BL9_railgun", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[709Pcomb] *BL9-infused railgun MK ii*",
-        "condition": { "and": [ { "u_has_item": "BL9_railgun" }, { "not": { "u_has_item": "BL9_railgun_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 709 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_spawn_item": "BL9_railgun_mk2", "count": 1 },
-            { "u_spawn_item": "railBL9mk2mag", "count": 3 },
-            { "u_sell_item": "platcoincomb", "count": 709 },
-            { "npc_consume_item": "platcoincomb", "count": 709 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[223Gcomb] *BL9-infused launcher*",
-        "condition": { "not": { "u_has_item": "BL9_launcher" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 223 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 223 },
-            { "npc_consume_item": "goldcoincomb", "count": 223 },
-            { "u_spawn_item": "40BL9mag", "count": 3 },
-            { "u_spawn_item": "BL9_launcher", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9-infused launcher MK ii*",
-        "condition": { "and": [ { "u_has_item": "BL9_launcher" }, { "not": { "u_has_item": "BL9_launcher_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_spawn_item": "BL9_launcher_mk2", "count": 1 },
-            { "u_spawn_item": "40_BL9mk2mag", "count": 3 },
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[151Gcomb] *BL9-infused bow*",
-        "condition": { "not": { "u_has_item": "BL9_bow" } },
         "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 151 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_sell_item": "goldcoincomb", "count": 151 },
             { "npc_consume_item": "goldcoincomb", "count": 151 },
-            { "u_spawn_item": "BL9_bow", "count": 1 }
+            { "u_spawn_item": "BL9_magnum", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[300Pcomb] *BL9-infused bow MK ii*",
-        "condition": { "and": [ { "u_has_item": "BL9_bow" }, { "not": { "u_has_item": "BL9_bow_mk2" } } ] },
+        "text": "[300Pcomb] *BL9-infused magnum MK ii*",
+        "condition": { "and": [ { "u_has_item": "BL9_magnum" }, { "not": { "u_has_item": "BL9_magnum_mk2" } } ] },
         "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 300 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_spawn_item": "BL9_bow_mk2", "count": 1 },
+            { "u_spawn_item": "BL9_magnum_mk2", "count": 1 },
             { "u_sell_item": "platcoincomb", "count": 300 },
             { "npc_consume_item": "platcoincomb", "count": 300 }
           ]
@@ -340,34 +192,182 @@
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[183Gcomb] *BL9-infused crossbow*",
-        "condition": { "not": { "u_has_item": "BL9_crossbow" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 183 } } },
+        "text": "[221Gcomb] *BL9-infused sprayer*",
+        "condition": { "not": { "u_has_item": "BL9_sprayer" } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 221 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 183 },
-            { "npc_consume_item": "goldcoincomb", "count": 183 },
+            { "u_sell_item": "goldcoincomb", "count": 221 },
+            { "npc_consume_item": "goldcoincomb", "count": 221 },
+            { "u_spawn_item": "tank_BL9", "count": 3 },
+            { "u_spawn_item": "BL9_sprayer", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[398Pcomb] *BL9-infused sprayer MK ii*",
+        "condition": { "and": [ { "u_has_item": "BL9_sprayer" }, { "not": { "u_has_item": "BL9_sprayer_mk2" } } ] },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 398 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_spawn_item": "BL9_sprayer_mk2", "count": 1 },
+            { "u_spawn_item": "tank_BL9_mk2", "count": 3 },
+            { "u_sell_item": "platcoincomb", "count": 398 },
+            { "npc_consume_item": "platcoincomb", "count": 398 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[221Gcomb] *BL9-infused melting sprayer*",
+        "condition": { "not": { "u_has_item": "BL9_melting_sprayer" } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 221 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "goldcoincomb", "count": 221 },
+            { "npc_consume_item": "goldcoincomb", "count": 221 },
+            { "u_spawn_item": "tankm_BL9", "count": 3 },
+            { "u_spawn_item": "BL9_melting_sprayer", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[398Pcomb] *BL9-infused melting sprayer MK ii*",
+        "condition": { "and": [ { "u_has_item": "BL9_melting_sprayer" }, { "not": { "u_has_item": "BL9_melting_sprayer_mk2" } } ] },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 398 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_spawn_item": "BL9_melting_sprayer_mk2", "count": 1 },
+            { "u_spawn_item": "tankm_BL9_mk2", "count": 3 },
+            { "u_sell_item": "platcoincomb", "count": 398 },
+            { "npc_consume_item": "platcoincomb", "count": 398 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[268Gcomb] *BL9-infused railgun*",
+        "condition": { "not": { "u_has_item": "BL9_railgun" } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 268 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_spawn_item": "railBL9mag", "count": 3 },
+            { "u_sell_item": "goldcoincomb", "count": 268 },
+            { "npc_consume_item": "goldcoincomb", "count": 268 },
+            { "u_spawn_item": "BL9_railgun", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[501Pcomb] *BL9-infused railgun MK ii*",
+        "condition": { "and": [ { "u_has_item": "BL9_railgun" }, { "not": { "u_has_item": "BL9_railgun_mk2" } } ] },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_spawn_item": "BL9_railgun_mk2", "count": 1 },
+            { "u_spawn_item": "railBL9mk2mag", "count": 3 },
+            { "u_sell_item": "platcoincomb", "count": 501 },
+            { "npc_consume_item": "platcoincomb", "count": 501 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[168Gcomb] *BL9-infused launcher*",
+        "condition": { "not": { "u_has_item": "BL9_launcher" } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 168 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "goldcoincomb", "count": 168 },
+            { "npc_consume_item": "goldcoincomb", "count": 168 },
+            { "u_spawn_item": "40BL9mag", "count": 3 },
+            { "u_spawn_item": "BL9_launcher", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[399Pcomb] *BL9-infused launcher MK ii*",
+        "condition": { "and": [ { "u_has_item": "BL9_launcher" }, { "not": { "u_has_item": "BL9_launcher_mk2" } } ] },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 399 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_spawn_item": "BL9_launcher_mk2", "count": 1 },
+            { "u_spawn_item": "40_BL9mk2mag", "count": 3 },
+            { "u_sell_item": "platcoincomb", "count": 399 },
+            { "npc_consume_item": "platcoincomb", "count": 399 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[105Gcomb] *BL9-infused bow*",
+        "condition": { "not": { "u_has_item": "BL9_bow" } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 105 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "goldcoincomb", "count": 105 },
+            { "npc_consume_item": "goldcoincomb", "count": 105 },
+            { "u_spawn_item": "BL9_bow", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[201Pcomb] *BL9-infused bow MK ii*",
+        "condition": { "and": [ { "u_has_item": "BL9_bow" }, { "not": { "u_has_item": "BL9_bow_mk2" } } ] },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 201 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_spawn_item": "BL9_bow_mk2", "count": 1 },
+            { "u_sell_item": "platcoincomb", "count": 201 },
+            { "npc_consume_item": "platcoincomb", "count": 201 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[123Gcomb] *BL9-infused crossbow*",
+        "condition": { "not": { "u_has_item": "BL9_crossbow" } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 123 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "goldcoincomb", "count": 123 },
+            { "npc_consume_item": "goldcoincomb", "count": 123 },
             { "u_spawn_item": "BL9_crossbow", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[371Pcomb] *BL9-infused crossbow MK ii*",
+        "text": "[251Pcomb] *BL9-infused crossbow MK ii*",
         "condition": { "and": [ { "u_has_item": "BL9_crossbow" }, { "not": { "u_has_item": "BL9_crossbow_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 371 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 251 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "BL9_crossbow_mk2", "count": 1 },
-            { "u_sell_item": "platcoincomb", "count": 371 },
-            { "npc_consume_item": "platcoincomb", "count": 371 }
+            { "u_sell_item": "platcoincomb", "count": 251 },
+            { "npc_consume_item": "platcoincomb", "count": 251 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
-      { "text": "[BUY ARMOR]", "topic": "TALK_BL9_TRADER_BUY2" },
+      { "text": "Let me see what else you have on sale", "topic": "TALK_BL9_TRADER" },
       { "text": "[GOODBYE]", "topic": "TALK_DONE" }
     ]
   },
@@ -377,111 +377,139 @@
     "dynamic_line": "Got a selection of GOOD things on sale, stranger...",
     "responses": [
       {
-        "text": "[153Gcomb] *BL9-infused survivor helmet*",
+        "text": "[105Gcomb] *BL9-infused survivor helmet*",
         "condition": { "not": { "u_has_item": "BL9_survivorhelmet" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 153 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 153 },
-            { "npc_consume_item": "goldcoincomb", "count": 153 },
-            { "u_spawn_item": "BL9_survivorhelmet", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[210Pcomb] *BL9-infused survivor helmet MK ii*",
-        "condition": { "and": [ { "u_has_item": "BL9_survivorhelmet" }, { "not": { "u_has_item": "BL9_survivorhelmet_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 210 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 210 },
-            { "npc_consume_item": "platcoincomb", "count": 210 },
-            { "u_spawn_item": "BL9_survivorhelmet_mk2", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[105Gcomb] *BL9-infused survivor cargo pants*",
-        "condition": { "not": { "u_has_item": "BL9_survivorpants" } },
         "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 105 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_sell_item": "goldcoincomb", "count": 105 },
             { "npc_consume_item": "goldcoincomb", "count": 105 },
+            { "u_spawn_item": "BL9_survivorhelmet", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[153Pcomb] *BL9-infused survivor helmet MK ii*",
+        "condition": { "and": [ { "u_has_item": "BL9_survivorhelmet" }, { "not": { "u_has_item": "BL9_survivorhelmet_mk2" } } ] },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 153 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "platcoincomb", "count": 153 },
+            { "npc_consume_item": "platcoincomb", "count": 153 },
+            { "u_spawn_item": "BL9_survivorhelmet_mk2", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[79Gcomb] *BL9-infused survivor cargo pants*",
+        "condition": { "not": { "u_has_item": "BL9_survivorpants" } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 79 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "goldcoincomb", "count": 79 },
+            { "npc_consume_item": "goldcoincomb", "count": 79 },
             { "u_spawn_item": "BL9_survivorpants", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[183Pcomb] *BL9-infused survivor cargo pants MK ii*",
+        "text": "[123Pcomb] *BL9-infused survivor cargo pants MK ii*",
         "condition": { "and": [ { "u_has_item": "BL9_survivorpants" }, { "not": { "u_has_item": "BL9_survivorpants_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 183 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 123 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "BL9_survivorpants_mk2", "count": 1 },
-            { "u_sell_item": "platcoincomb", "count": 183 },
-            { "npc_consume_item": "platcoincomb", "count": 183 }
+            { "u_sell_item": "platcoincomb", "count": 123 },
+            { "npc_consume_item": "platcoincomb", "count": 123 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[123Gcomb] *BL9-infused survivor suit*",
+        "text": "[88Gcomb] *BL9-infused survivor suit*",
         "condition": { "not": { "u_has_item": "BL9_survivorsuit" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 123 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 88 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 123 },
-            { "npc_consume_item": "goldcoincomb", "count": 123 },
+            { "u_sell_item": "goldcoincomb", "count": 88 },
+            { "npc_consume_item": "goldcoincomb", "count": 88 },
             { "u_spawn_item": "BL9_survivorsuit", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[223Pcomb] *BL9-infused survivor suit MK ii*",
+        "text": "[153Pcomb] *BL9-infused survivor suit MK ii*",
         "condition": { "and": [ { "u_has_item": "BL9_survivorsuit" }, { "not": { "u_has_item": "BL9_survivorsuit_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 223 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 153 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "BL9_survivorsuit_mk2", "count": 1 },
-            { "u_sell_item": "platcoincomb", "count": 223 },
-            { "npc_consume_item": "platcoincomb", "count": 223 }
+            { "u_sell_item": "platcoincomb", "count": 153 },
+            { "npc_consume_item": "platcoincomb", "count": 153 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[73Gcomb] *Pair of BL9-infused survivor gloves*",
+        "text": "[53Gcomb] *Pair of BL9-infused survivor gloves*",
         "condition": { "not": { "u_has_item": "BL9_survivorgloves" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 73 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 53 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 73 },
-            { "npc_consume_item": "goldcoincomb", "count": 73 },
+            { "u_sell_item": "goldcoincomb", "count": 53 },
+            { "npc_consume_item": "goldcoincomb", "count": 53 },
             { "u_spawn_item": "BL9_survivorgloves", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[115Pcomb] *Pair of BL9-infused survivor gloves MK ii*",
+        "text": "[88Pcomb] *Pair of BL9-infused survivor gloves MK ii*",
         "condition": { "and": [ { "u_has_item": "BL9_survivorgloves" }, { "not": { "u_has_item": "BL9_survivorgloves_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 115 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 88 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "BL9_survivorgloves_mk2", "count": 1 },
+            { "u_sell_item": "platcoincomb", "count": 88 },
+            { "npc_consume_item": "platcoincomb", "count": 88 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[73Gcomb] *Pair of BL9-infused survivor boots*",
+        "condition": { "not": { "u_has_item": "BL9_survivorboots" } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 73 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "goldcoincomb", "count": 73 },
+            { "npc_consume_item": "goldcoincomb", "count": 73 },
+            { "u_spawn_item": "BL9_survivorboots", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[115Pcomb] *Pair of BL9-infused survivor boots MK ii*",
+        "condition": { "and": [ { "u_has_item": "BL9_survivorboots" }, { "not": { "u_has_item": "BL9_survivorboots_mk2" } } ] },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 115 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_spawn_item": "BL9_survivorboots_mk2", "count": 1 },
             { "u_sell_item": "platcoincomb", "count": 115 },
             { "npc_consume_item": "platcoincomb", "count": 115 }
           ]
@@ -489,745 +517,382 @@
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[96Gcomb] *Pair of BL9-infused survivor boots*",
-        "condition": { "not": { "u_has_item": "BL9_survivorboots" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 96 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 96 },
-            { "npc_consume_item": "goldcoincomb", "count": 96 },
-            { "u_spawn_item": "BL9_survivorboots", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[151Pcomb] *Pair of BL9-infused survivor boots MK ii*",
-        "condition": { "and": [ { "u_has_item": "BL9_survivorboots" }, { "not": { "u_has_item": "BL9_survivorboots_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 151 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_spawn_item": "BL9_survivorboots_mk2", "count": 1 },
-            { "u_sell_item": "platcoincomb", "count": 151 },
-            { "npc_consume_item": "platcoincomb", "count": 151 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[179Gcomb] *BL9-infused body armor*",
+        "text": "[123Gcomb] *BL9-infused body armor*",
         "condition": { "not": { "u_has_item": "BL9_survivorbodyarmor" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 179 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 123 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 179 },
-            { "npc_consume_item": "goldcoincomb", "count": 179 },
+            { "u_sell_item": "goldcoincomb", "count": 123 },
+            { "npc_consume_item": "goldcoincomb", "count": 123 },
             { "u_spawn_item": "BL9_survivorbodyarmor", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[300Pcomb] *BL9-infused body armor MK ii*",
+        "text": "[201Pcomb] *BL9-infused body armor MK ii*",
         "condition": { "and": [ { "u_has_item": "BL9_survivorbodyarmor" }, { "not": { "u_has_item": "BL9_survivorbodyarmor_mk2" } } ] },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 300 } } },
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 201 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
             { "u_spawn_item": "BL9_survivorbodyarmor_mk2", "count": 1 },
-            { "u_sell_item": "platcoincomb", "count": 300 },
-            { "npc_consume_item": "platcoincomb", "count": 300 }
+            { "u_sell_item": "platcoincomb", "count": 201 },
+            { "npc_consume_item": "platcoincomb", "count": 201 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
-      { "text": "[BUY MODIFIERS]", "topic": "TALK_BL9_TRADER_BUY3" },
+      { "text": "Let me see what else you have on sale", "topic": "TALK_BL9_TRADER" },
       { "text": "[GOODBYE]", "topic": "TALK_DONE" }
     ]
   },
   {
     "id": "TALK_BL9_TRADER_BUY3",
     "type": "talk_topic",
-    "dynamic_line": "Got a selection of GOOD things on sale, stranger...",
+    "dynamic_line": "These resources are used to craft ammo along with weapons of an incredibly high quality, these wannabe conquerors drop them but I can sell them as well, stranger...",
     "responses": [
       {
-        "text": "[300Gcomb] *BL9 Strengthening Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_str1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
+        "text": "[53Gcomb] *1000 BL9 Samples*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 53 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_str1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Endurance Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_str_endurance1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_str_endurance1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Tentacle Stab Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_str_tentacle_stab1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_str_tentacle_stab1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Tentacle Hit Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_str_tentacle_hit1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_str_tentacle_hit1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Armored Skin Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_str_armoredskin1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_str_armoredskin1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Dexterousness Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_dex1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_dex1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Energeticness Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_dex_energeticness1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_dex_energeticness1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Deftness Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_dex_deftness1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_dex_deftness1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Agility Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_dex_agility1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_dex_agility1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Healthiness Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_hp1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_hp1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Regeneration Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_hp_regen1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_hp_regen1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Wakeful Mind Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_hp_wakeful_mind1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_hp_wakeful_mind1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Amplified Metabolism Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_hp_amplified_metabolism1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_hp_amplified_metabolism1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Insightfulness Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_per1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_per1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Elevated Sense Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_per_elevatedsense1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_per_elevatedsense1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Stealth Aura Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_per_stealthaura1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_per_stealthaura1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Intelligence Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_int1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_int1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[300Gcomb] *BL9 Aptitude Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_int_aptitude1_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 300 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 300 },
-            { "npc_consume_item": "goldcoincomb", "count": 300 },
-            { "u_spawn_item": "BL9_int_aptitude1_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      { "text": "[BUY ADVANCED MODIFIERS]", "topic": "TALK_BL9_TRADER_BUY4" },
-      { "text": "[GOODBYE]", "topic": "TALK_DONE" }
-    ]
-  },
-  {
-    "id": "TALK_BL9_TRADER_BUY4",
-    "type": "talk_topic",
-    "dynamic_line": "Got a selection of GOOD things on sale, stranger...",
-    "responses": [
-      {
-        "text": "[501Pcomb] *BL9 Advanced Strengthening Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_str2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_str2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Endurance Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_str_endurance2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_str_endurance2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Tentacle Stab Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_str_tentacle_stab2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_str_tentacle_stab2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Tentacle Hit Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_str_tentacle_hit2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_str_tentacle_hit2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Armored Skin Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_str_armoredskin2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_str_armoredskin2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Dexterousness Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_dex2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_dex2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Energeticness Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_dex_energeticness2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_dex_energeticness2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Deftness Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_dex_deftness2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_dex_deftness2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Agility Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_dex_agility2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_dex_agility2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Healthiness Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_hp2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_hp2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Regeneration Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_hp_regen2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_hp_regen2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Wakeful Mind Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_hp_wakeful_mind2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_hp_wakeful_mind2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Amplified Metabolism Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_hp_amplified_metabolism2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_hp_amplified_metabolism2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Insightfulness Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_per2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_per2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Elevated Sense Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_per_elevatedsense2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_per_elevatedsense2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Stealth Aura Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_per_stealthaura2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_per_stealthaura2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Intelligence Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_int2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_int2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[501Pcomb] *BL9 Advanced Aptitude Modifier*",
-        "condition": { "not": { "u_has_item": "BL9_int_aptitude2_modifier" } },
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 501 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 501 },
-            { "npc_consume_item": "platcoincomb", "count": 501 },
-            { "u_spawn_item": "BL9_int_aptitude2_modifier", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      { "text": "[BUY ARMOR]", "topic": "TALK_BL9_TRADER_BUY2" },
-      { "text": "[GOODBYE]", "topic": "TALK_DONE" }
-    ]
-  },
-  {
-    "id": "TALK_BL9_TRADER_BUY5",
-    "type": "talk_topic",
-    "dynamic_line": "What are you buying?",
-    "responses": [
-      {
-        "text": "[10Gcomb] *1000 BL9 Samples*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 10 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 10 },
-            { "npc_consume_item": "goldcoincomb", "count": 10 },
+            { "u_sell_item": "goldcoincomb", "count": 53 },
+            { "npc_consume_item": "goldcoincomb", "count": 53 },
             { "u_spawn_item": "BL9_sample", "count": 1000 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[30Gcomb] *1000 BL9 Samples MK ii*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 30 } } },
+        "text": "[100Gcomb] *1000 BL9 Samples MK ii*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 100 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 30 },
-            { "npc_consume_item": "goldcoincomb", "count": 30 },
+            { "u_sell_item": "goldcoincomb", "count": 100 },
+            { "npc_consume_item": "goldcoincomb", "count": 100 },
             { "u_spawn_item": "BL9_sample_mk2", "count": 1000 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[10Pcomb] *1000 BL9 Samples MK ii*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 10 } } },
+        "text": "[53Pcomb] *1000 BL9 Samples MK ii*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 53 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "platcoincomb", "count": 10 },
-            { "npc_consume_item": "platcoincomb", "count": 10 },
+            { "u_sell_item": "platcoincomb", "count": 53 },
+            { "npc_consume_item": "platcoincomb", "count": 53 },
             { "u_spawn_item": "BL9_sample_mk2", "count": 1000 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[30Pcomb] *1000 BL9 Samples MK iii*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 30 } } },
+        "text": "[73Pcomb] *1000 BL9 Samples MK iii*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 73 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "platcoincomb", "count": 30 },
-            { "npc_consume_item": "platcoincomb", "count": 30 },
+            { "u_sell_item": "platcoincomb", "count": 73 },
+            { "npc_consume_item": "platcoincomb", "count": 73 },
             { "u_spawn_item": "BL9_sample_mk3", "count": 1000 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[51Pcomb] *1000 BL9 Samples MK iv*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 51 } } },
+        "text": "[100Pcomb] *1000 BL9 Samples MK iv*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 100 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "platcoincomb", "count": 51 },
-            { "npc_consume_item": "platcoincomb", "count": 51 },
+            { "u_sell_item": "platcoincomb", "count": 100 },
+            { "npc_consume_item": "platcoincomb", "count": 100 },
             { "u_spawn_item": "BL9_sample_mk4", "count": 1000 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
-      { "text": "[BUY MANHACKS]", "topic": "TALK_BL9_TRADER_BUY6" },
+      { "text": "Let me see what else you have on sale", "topic": "TALK_BL9_TRADER" },
       { "text": "[GOODBYE]", "topic": "TALK_DONE" }
     ]
   },
   {
-    "id": "TALK_BL9_TRADER_BUY6",
+    "id": "TALK_BL9_TRADER_BUY4",
     "type": "talk_topic",
-    "dynamic_line": "What are you buying?",
+    "dynamic_line": "Gold for Platinum or Platinum for Gold as exchange, rates are not equal though, so that you can earn them yourself to know their value",
     "responses": [
       {
-        "text": "[3Gcomb] *BL9 Manhack MK i*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 3 } } },
+        "text": "[8Gcomb] *1 Platinum Combination*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 8 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 3 },
-            { "npc_consume_item": "goldcoincomb", "count": 3 },
+            { "u_sell_item": "goldcoincomb", "count": 8 },
+            { "npc_consume_item": "goldcoincomb", "count": 8 },
+            { "u_spawn_item": "platcoincomb", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[8Pcomb] *8 Gold Combinations*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 8 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "platcoincomb", "count": 8 },
+            { "npc_consume_item": "platcoincomb", "count": 8 },
+            { "u_spawn_item": "goldcoincomb", "count": 8 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      { "text": "Let me see what else you have on sale", "topic": "TALK_BL9_TRADER" },
+      { "text": "[GOODBYE]", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_BL9_TRADER_BUY5",
+    "type": "talk_topic",
+    "dynamic_line": "That's a great choice, these are BL9-infused robots which can protect you but to own them I ask you to package crafted chassis with coins, these types of chassis are made out of scrap with coins together, whereas electronic parts along with BL9 samples I have myself from my own sources",
+    "responses": [
+      {
+        "text": "[5Gcomb packaged with BL9 Manhack Chassis] *BL9 Manhack MK i*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_manhack_chassis_gold_mk1", "count": 1 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "BL9_manhack_chassis_gold_mk1", "count": 1 },
+            { "npc_consume_item": "BL9_manhack_chassis_gold_mk1", "count": 1 },
             { "u_spawn_item": "bot_manhack_BL9_mk1", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[9Gcomb] *BL9 Manhack MK ii*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 9 } } },
+        "text": "[3Pcomb packaged with BL9 Manhack Chassis] *BL9 Manhack MK i*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_manhack_chassis_plat_mk1", "count": 1 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 9 },
-            { "npc_consume_item": "goldcoincomb", "count": 9 },
-            { "u_spawn_item": "bot_manhack_BL9_mk2", "count": 1 }
-          ]
-        },
-        "failure": { "topic": "BL9_trader_nocash" }
-      },
-      {
-        "text": "[3Pcomb] *BL9 Manhack MK i*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 3 } } },
-        "success": {
-          "topic": "BL9_trader_ty",
-          "effect": [
-            { "u_sell_item": "platcoincomb", "count": 3 },
-            { "npc_consume_item": "platcoincomb", "count": 3 },
+            { "u_sell_item": "BL9_manhack_chassis_plat_mk1", "count": 1 },
+            { "npc_consume_item": "BL9_manhack_chassis_plat_mk1", "count": 1 },
             { "u_spawn_item": "bot_manhack_BL9_mk1", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[5Pcomb] *BL9 Manhack MK ii*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 5 } } },
+        "text": "[5Gcomb packaged with BL9 UGV Chassis] *BL9 UGV MK i*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_ugv_chassis_gold_mk1", "count": 1 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "platcoincomb", "count": 5 },
-            { "npc_consume_item": "platcoincomb", "count": 5 },
+            { "u_sell_item": "BL9_ugv_chassis_gold_mk1", "count": 1 },
+            { "npc_consume_item": "BL9_ugv_chassis_gold_mk1", "count": 1 },
+            { "u_spawn_item": "bot_ugv_BL9_mk1", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[3Pcomb packaged with BL9 UGV Chassis] *BL9 UGV MK i*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_ugv_chassis_plat_mk1", "count": 1 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "BL9_ugv_chassis_plat_mk1", "count": 1 },
+            { "npc_consume_item": "BL9_ugv_chassis_plat_mk1", "count": 1 },
+            { "u_spawn_item": "bot_ugv_BL9_mk1", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[8Gcomb packaged with BL9 Manhack Chassis] *BL9 Manhack MK ii*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_manhack_chassis_gold_mk2", "count": 1 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "BL9_manhack_chassis_gold_mk2", "count": 1 },
+            { "npc_consume_item": "BL9_manhack_chassis_gold_mk2", "count": 1 },
             { "u_spawn_item": "bot_manhack_BL9_mk2", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[10Pcomb] *BL9 Manhack Mark iii*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 10 } } },
+        "text": "[5Pcomb packaged with BL9 Manhack Chassis] *BL9 Manhack MK ii*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_manhack_chassis_plat_mk2", "count": 1 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "platcoincomb", "count": 10 },
-            { "npc_consume_item": "platcoincomb", "count": 10 },
+            { "u_sell_item": "BL9_manhack_chassis_plat_mk2", "count": 1 },
+            { "npc_consume_item": "BL9_manhack_chassis_plat_mk2", "count": 1 },
+            { "u_spawn_item": "bot_manhack_BL9_mk2", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[8Gcomb packaged with BL9 UGV Chassis] *BL9 UGV MK ii*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_ugv_chassis_gold_mk2", "count": 1 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "BL9_ugv_chassis_gold_mk2", "count": 1 },
+            { "npc_consume_item": "BL9_ugv_chassis_gold_mk2", "count": 1 },
+            { "u_spawn_item": "bot_ugv_BL9_mk2", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[5Pcomb packaged with BL9 UGV Chassis] *BL9 UGV MK ii*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_ugv_chassis_plat_mk2", "count": 1 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "BL9_ugv_chassis_plat_mk2", "count": 1 },
+            { "npc_consume_item": "BL9_ugv_chassis_plat_mk2", "count": 1 },
+            { "u_spawn_item": "bot_ugv_BL9_mk2", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[8Pcomb packaged with BL9 Advanced Manhack Chassis] *BL9 Manhack MK iii*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_advanced_manhack_chassis_plat_mk3", "count": 1 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "BL9_advanced_manhack_chassis_plat_mk3", "count": 1 },
+            { "npc_consume_item": "BL9_advanced_manhack_chassis_plat_mk3", "count": 1 },
             { "u_spawn_item": "bot_manhack_BL9_mk3", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[15Pcomb] *BL9 Manhack Mark iv*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 15 } } },
+        "text": "[8Pcomb packaged with BL9 Advanced UGV Chassis] *BL9 UGV MK iii*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_advanced_ugv_chassis_plat_mk3", "count": 1 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "platcoincomb", "count": 15 },
-            { "npc_consume_item": "platcoincomb", "count": 15 },
+            { "u_sell_item": "BL9_advanced_ugv_chassis_plat_mk3", "count": 1 },
+            { "npc_consume_item": "BL9_advanced_ugv_chassis_plat_mk3", "count": 1 },
+            { "u_spawn_item": "bot_ugv_BL9_mk3", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[9Pcomb packaged with BL9 Advanced Manhack Chassis] *BL9 Manhack MK iv*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_advanced_manhack_chassis_plat_mk4", "count": 1 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "BL9_advanced_manhack_chassis_plat_mk4", "count": 1 },
+            { "npc_consume_item": "BL9_advanced_manhack_chassis_plat_mk4", "count": 1 },
             { "u_spawn_item": "bot_manhack_BL9_mk4", "count": 1 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
-      { "text": "[BUY WEAPONS]", "topic": "TALK_BL9_TRADER_BUY1" },
+      {
+        "text": "[9Pcomb packaged with BL9 Advanced UGV Chassis] *BL9 UGV MK iv*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "BL9_advanced_ugv_chassis_plat_mk4", "count": 1 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "BL9_advanced_ugv_chassis_plat_mk4", "count": 1 },
+            { "npc_consume_item": "BL9_advanced_ugv_chassis_plat_mk4", "count": 1 },
+            { "u_spawn_item": "bot_ugv_BL9_mk4", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      { "text": "Let me see what else you have on sale", "topic": "TALK_BL9_TRADER" },
+      { "text": "[GOODBYE]", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "id": "TALK_BL9_TRADER_BUY6",
+    "type": "talk_topic",
+    "dynamic_line": "We should keep ourselves safe, healthy hopefully so I have things, in addition to armor, that can do that very easily, these are healing sprays, stranger...",
+    "responses": [
+      {
+        "text": "[3Gcomb] *1 Mild Healing Spray*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 3 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "goldcoincomb", "count": 3 },
+            { "npc_consume_item": "goldcoincomb", "count": 3 },
+            { "u_spawn_item": "mild_healing_spray", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[1Pcomb] *1 Mild Healing Spray*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 1 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "platcoincomb", "count": 1 },
+            { "npc_consume_item": "platcoincomb", "count": 1 },
+            { "u_spawn_item": "mild_healing_spray", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[5Gcomb] *1 Medium Healing Spray*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 5 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "goldcoincomb", "count": 5 },
+            { "npc_consume_item": "goldcoincomb", "count": 5 },
+            { "u_spawn_item": "medium_healing_spray", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[3Pcomb] *1 Medium Healing Spray*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 3 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "platcoincomb", "count": 3 },
+            { "npc_consume_item": "platcoincomb", "count": 3 },
+            { "u_spawn_item": "medium_healing_spray", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      {
+        "text": "[5Pcomb] *1 Strong Healing Spray*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 5 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "platcoincomb", "count": 5 },
+            { "npc_consume_item": "platcoincomb", "count": 5 },
+            { "u_spawn_item": "strong_healing_spray", "count": 1 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nocash" }
+      },
+      { "text": "Let me see what else you have on sale", "topic": "TALK_BL9_TRADER" },
       { "text": "[GOODBYE]", "topic": "TALK_DONE" }
     ]
   },
@@ -1235,13 +900,13 @@
     "type": "talk_topic",
     "id": "BL9_trader_ty",
     "dynamic_line": "Thank you! Maybe some more?",
-    "responses": [ { "text": "Sure.", "topic": "TALK_BL9_TRADER_BUY1" }, { "text": "Sorry.", "topic": "TALK_DONE" } ]
+    "responses": [ { "text": "Sure.", "topic": "TALK_BL9_TRADER" }, { "text": "No, thank you.", "topic": "TALK_DONE" } ]
   },
   {
     "type": "talk_topic",
     "id": "BL9_trader_nocash",
     "dynamic_line": "Not enough cash, stranger!",
-    "responses": [ { "text": "Sorry.", "topic": "TALK_BL9_TRADER_BUY1" } ]
+    "responses": [ { "text": "Sorry.", "topic": "TALK_BL9_TRADER" } ]
   },
   {
     "id": "TALK_TRADER_GOODBYE",
@@ -1252,14 +917,17 @@
   {
     "id": "TALK_BL9_TRADER_GUIDE1",
     "type": "talk_topic",
-    "dynamic_line": "I've got a selection of GOOD things on sale, stranger, BL9-infused handcrafted weapons, quite precious durable armor, resources, ability modifiers AND EVEN BL9-infused manhacks - but it's the gold and platinum that I seek from you in return...",
+    "dynamic_line": "I've got a selection of GOOD things on sale, stranger, BL9-infused handcrafted weapons, quite precious durable armor, resources, BL9-infused robots, healing sprays - but it's the gold and platinum, some scrap as well, if you want to own robots, that I seek from you in return...",
     "responses": [
       {
         "text": "Can you explain to me what do you sell? How do I craft ammo? Do you know if there is even stronger gear that you don't sell?",
         "topic": "TALK_BL9_TRADER_GUIDE2"
       },
-      { "text": "How do I buy items and new Tier gear from you?", "topic": "TALK_BL9_TRADER_GUIDE3" },
-      { "text": "Where can I find gold and platinum?", "topic": "TALK_BL9_TRADER_GUIDE4" },
+      { "text": "How do I buy items and new Tier weapons, armor from you?", "topic": "TALK_BL9_TRADER_GUIDE3" },
+      {
+        "text": "You look like you have seen a lot of things, have you had any adventures that you can tell me about?",
+        "topic": "TALK_BL9_TRADER_GUIDE4"
+      },
       {
         "text": "Are there any other sane people who are also involved with BL9 work?",
         "topic": "TALK_BL9_TRADER_GUIDE5"
@@ -1280,38 +948,50 @@
         ]
       },
       { "text": "How do I repair BL9-infused items?", "topic": "TALK_BL9_TRADER_GUIDE10" },
-      { "text": "Actually, I'll check what's on sale today...", "topic": "TALK_BL9_TRADER" }
+      { "text": "Actually, I'll check what you have on sale...", "topic": "TALK_BL9_TRADER" }
     ]
   },
   {
     "id": "TALK_BL9_TRADER_GUIDE2",
     "type": "talk_topic",
-    "dynamic_line": "Stranger, I sell BL9-infused weapons, armor, resources, modifiers, BL9-infused manhacks which are of a VERY high quality! These all use benevolent version of BL9 so it's not that weaponized vile thing these factions use. Modifiers provide you with mutations that are mutually inclusive with other ones, if you are into experimental mutagens. Manhacks are your flying allies, which can smash, attack from range, stun your enemies. You craft ammo according to 'BL9' recipes in your PDA or Notebook or whatever. They have fabrication, mechanics skill requirements, with initial requirement of level 3 of each along with further requirement of level 5 of each for even stronger ammo. You use BL9 samples resources to do that, which can be found as loot from enemies, which I also sell. It's true, stranger, there is gear so rare in some places that even I would not sell it to anyone! I will tell you about it if you ask me where these places are, maybe I have some copies of maps, stranger",
-    "responses": [ { "text": "Thank you!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
+    "dynamic_line": "Stranger, I sell BL9-infused weapons, armor, resources, BL9-infused robots, healing sprays which are of a VERY high quality! These all use benevolent version of BL9 so it's not that weaponized vile thing these factions use. BL9-infused robots are your air, ground allies, which can smash, attack from range, stun your enemies. You craft ammo, various melee weapons as well, according to 'BL9' recipes in your PDA or Notebook or whatever. Initial types of ammo, melee weapons have no fabrication, mechanics skill requirements, but further have requirements of level 5 of each along with level 8 of each for even stronger ammo along with melee weapons. You use BL9 samples resources to do that, which can be found as loot from enemies, which I also sell. It's true, stranger, there is gear so rare in some places that even I would not sell it to anyone! I will tell you about it if you ask me where these places are, maybe I have some copies of maps, stranger",
+    "responses": [ { "text": "Thank you! I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   },
   {
     "id": "TALK_BL9_TRADER_GUIDE3",
     "type": "talk_topic",
-    "dynamic_line": "With gold and platinum coin COMBINATIONs of course! Check your 'BL9' recipes. You need to collect gold and platinum coins, then craft these combinations - each combination of gold or platinum requires 100 pieces of the CORRESPONDING type - 100 gold is needed to craft 1 gold coin combination, 100 platinum is needed to craft 1 platinum coin combination, stranger! To buy Tier 2 weapons, armor you need to have the Tier 1 variant of the same type of a weapon, armor in your inventory as well",
-    "responses": [ { "text": "Thank you!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
+    "dynamic_line": "With gold and platinum coin COMBINATIONs of course! Check your 'BL9' recipes. You collect gold and platinum coins, then craft these combinations - each combination of gold or platinum requires 100 pieces of the CORRESPONDING type - 100 gold is needed to craft 1 gold coin combination, 100 platinum is needed to craft 1 platinum coin combination, stranger! To buy Tier 2 weapons, armor you need to have the Tier 1 variant of the same type of a weapon, armor in your inventory as well",
+    "responses": [ { "text": "Thank you! I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   },
   {
     "id": "TALK_BL9_TRADER_GUIDE4",
     "type": "talk_topic",
-    "dynamic_line": "Look around yourself, stranger, it's scattered ALL across the world - you can find it in all kinds of locations that are associated with BL9 - biomes, anomalies, secret military locations, soldiers and cultists carry it, use it, whereas aliens search for it, use it - the patrols, the list goes on and on, stranger...",
-    "responses": [ { "text": "Thank you!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
+    "dynamic_line": "That's so kind of you to ask, stranger! I have had a lot of adventures during my time in Spain which is a wonderful country with a great language, but there were some creepy things there! Creepy zombified villagers in gloomy villages, cannibalistic cultists in a true madman's castle, heavily armed militia on an island of a terrorist mutant! Castle along with Island that these conquerors mooks built here are merely imitations. I met some great people there too! Espagnol scientist, buffed up American looking mercenary, agile American looking agent even. Scientist got killed after he tried to atone for his unethical experiments because he was doing work for these terrorists. Buffed up soldier was an arrogant wanker, who, as I have later learned, did work for these terrorists too, he was killed when he tried to kill that agile American agent.\n \n    Now, stranger, American agent was a very fine, sleek man, a dream of women, a dream of some men too! Like in that song, this story would have been nothing if there had not been a woman or a girl! There were two fine women, but I found one more pleasant to be around than other. American looking president's daughter, who was kidnapped, along with an American Asian spy of some sorts.",
+    "responses": [ { "text": "Go on...", "topic": "TALK_BL9_TRADER_GUIDE4_1" } ]
+  },
+  {
+    "id": "TALK_BL9_TRADER_GUIDE4_1",
+    "type": "talk_topic",
+    "dynamic_line": "Well, former was a very sweet, friendly girl, had that innocent but strong look of an honest, respectable woman in her eyes, not an arrogant like of some rich brat. It was pleasant to be around her. But latter? She was spreading that aura of a dangerous attraction, manipulativeness. It would be hard to avoid her temptations, how alluring she is, if you don't think rationally. I didn't like her much. Type of a woman who would cut someone's throat while pretending to be a friend or even like said someone or whatever lies manipulators say. I can sound harsh towards her, she did help that agent many times but she did work for that genocidal maniac! But agent with president's daughter? These two made me feel at home there, I am sure that these two are safe somewhere out there, like boulder puncher with his military partner along with his sister as well!\n \n    Then I moved here because I've heard of world agencies investigating XEDRA experiments. You know, I thought that a single city would be destroyed with a nuke, like with That City, but some wanker in their leadership likely forced these scientists not only to wear ridiculous ties, but also to do more and more interdimensional experiments which resulted in this mess.",
+    "responses": [ { "text": "Go on...", "topic": "TALK_BL9_TRADER_GUIDE4_2" } ]
+  },
+  {
+    "id": "TALK_BL9_TRADER_GUIDE4_2",
+    "type": "talk_topic",
+    "dynamic_line": "It's no wonder that questionable ethics of XEDRA's leadership have resulted in all of this, like I have said! We've got all of these hostiles because of them, including these invaders. The struggle of survival against The Blob creatures, the tension that can surface between survivors, some of whom can tear each other apart for food or rations. Luckily, based on rumors from madness going on in Eastern Europe between alien forces, there are stories of an interloper with a crowbar who contributes to getting us out of this pit with each blast he makes at these interdimensional militaristic wankers, to get our power up again. \n \n    I don't believe in that whatever forces 'Alliance' along with rebels fight there against are our benefactors. They are just as horrible as 'Alliance', negotiating with them is like standing in sandtraps that they devised themselves to try to make us fall for them. So let's just hope that this one particular anticitizen with a crowbar will be able to help his rebels to get rid of both 'Alliance' along with these other sleek alien forces, I mean, they have already destroyed their citadel from what I have heard. Now, that was a long story, but we've got our own fight to continue for the sake of each of us, for the sake humanity, stranger",
+    "responses": [ { "text": "Interesting! I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   },
   {
     "id": "TALK_BL9_TRADER_GUIDE5",
     "type": "talk_topic",
     "dynamic_line": "Hmm, stranger, there is this adventurer mate, always moving around, scattering some kind of intel, seeks for survivors that can help with some work that requires lots of combat skills. This mate introduced me to the knowledge of the secret benevolent type of BL9 research organization, the GOOD kind of it, stranger, they want to restore civilization, help people survive, create medicine, build shelters, help people to procreate, they work discreetly yet they actually help with building, protecting communities of survivors",
-    "responses": [ { "text": "Interesting!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
+    "responses": [ { "text": "Interesting! I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   },
   {
     "id": "TALK_BL9_TRADER_GUIDE6",
     "type": "talk_topic",
-    "dynamic_line": "My role? Oh, stranger, I'm merely a survivor, an avid rarity and treasure collector that knows...ways around BL9 and it's carriers, how though?Oh, that's a long story, I don't want to bore the freak outta you, stranger...",
-    "responses": [ { "text": "Interesting!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
+    "dynamic_line": "My role? Oh, stranger, I'm merely a survivor, an avid rarity and treasure collector that knows...ways around BL9 and some of it's vile carriers, but from more intelligent ones I have to hide, because, you know, I support this benevolent organization that helps all of us to survive, though, I also try to gain profit from skilled adventurers like you, of course! Now, how do I have such relations with each of these factions, though? That's a long story, I don't want to bore the freak outta you, stranger...",
+    "responses": [ { "text": "Interesting! I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   },
   {
     "id": "TALK_BL9_TRADER_GUIDE7",
@@ -1323,18 +1003,18 @@
     "id": "TALK_BL9_TRADER_GUIDE8",
     "type": "talk_topic",
     "dynamic_line": "Hmm, stranger, you think these communities of survivors survive by themselves not knowing how to build? Not only this benevolent organization does it's best to use BL9 as a universal material to craft medicine, armor, weapons for survivors to use, they even create these shelters for survivors including you along with me to be able to form communities which can restore civilization hopefully. They also salvage, restore any advanced alien tech that can be valuable for them along with survivors. Stranger, I've even heard of 'Alliance' members turning to rebels siding with this organization as well",
-    "responses": [ { "text": "Interesting!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
+    "responses": [ { "text": "Interesting! I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   },
   {
     "id": "TALK_BL9_TRADER_GUIDE9",
     "type": "talk_topic",
     "dynamic_line": "You have a bright mind, stranger! Now, of course, I advise you to go to BL9 Safety Bases first to have proper access to information, to live in comfort to get used to better living conditions, also to be much more tactical, much more strategic, because areas outside of them will be gradually filled with their military, getting stronger and stronger. That's just my advice for you if you want to listen. We still need to get progressively stronger as well to be able to counter them which is why you can always ask me for directions. Now, because you insist, you can have these copies of maps for free. Stranger, it's very important that you at least try to collect gear from these hostile forces places, because their lousy patrols gradually evolve into military forces, like I have said. They evolve from cultists with beasts to soldiers with alien militia along with walking amalgamations, so make sure to collect gear, stranger",
-    "responses": [ { "text": "Interesting!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
+    "responses": [ { "text": "Interesting! I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   },
   {
     "id": "TALK_BL9_TRADER_GUIDE10",
     "type": "talk_topic",
     "dynamic_line": "GOOD QUESTION - for this you need to use the BL9-infused soldering iron - as a repairing tool, BL9 samples - as materials used for repairing, and you need to have sufficiently high fabrication skills, of course. In case you somehow break or loose your weapons, armor or the BL9-infused soldering iron - DON'T WORRY - you can easily buy the said items again from me whereas acquire the BL9-infused soldering iron for free",
-    "responses": [ { "text": "Thank you!I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
+    "responses": [ { "text": "Thank you! I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   }
 ]

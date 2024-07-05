@@ -27,7 +27,7 @@
     "vision_day": 30,
     "vision_night": 5,
     "death_drops": "BL9_Drops_Cult",
-    "hp": 118,
+    "hp": 121,
     "flags": [ "SEES", "GRABS", "SMELLS", "HEARS", "BASHES", "GOODHEARING", "STUMBLES", "WARM", "FILTHY", "NO_BREATHE", "REVIVES" ],
     "anger_triggers": [ "PLAYER_CLOSE", "HURT" ],
     "harvest": "zombie",
@@ -82,7 +82,6 @@
       "WARM",
       "BASHES",
       "DESTROYS",
-      "POISON",
       "ATTACKMON",
       "NO_BREATHE",
       "REVIVES",
@@ -105,7 +104,7 @@
     "hp": 205,
     "speed": 100,
     "attack_effs": [ { "id": "BL9_bleed_immun", "duration": 15, "bp": "torso" } ],
-    "melee_damage": [ { "damage_type": "cut", "amount": 7, "armor_penetration": 8 } ],
+    "melee_damage": [ { "damage_type": "cut", "amount": 7, "armor_penetration": 9 } ],
     "material": [ "flesh" ],
     "symbol": "Z",
     "color": "brown_green",
@@ -145,7 +144,7 @@
       }
     ],
     "death_drops": "BL9_Drops_Clawer",
-    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "POISON", "NO_BREATHE", "REVIVES", "PUSH_MON", "FILTHY" ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "NO_BREATHE", "REVIVES", "PUSH_MON", "FILTHY" ]
   },
   {
     "id": "mon_BL9_assassin",
@@ -224,7 +223,6 @@
       "WARM",
       "BASHES",
       "GROUP_BASH",
-      "POISON",
       "NO_BREATHE",
       "NIGHT_INVISIBILITY",
       "PUSH_MON"
@@ -350,7 +348,7 @@
   },
   {
     "id": "mon_BL9_inhrav_6",
-    "looks_like": "mon_mi_go_surgeon",
+    "looks_like": "mon_mi_go_myrmidon",
     "type": "MONSTER",
     "name": { "str": "Inhravtidius Super Soldier" },
     "description": "Inhravtidius Mutant Amalgamation with all of it's typical traits: thick armor-like carapace on it's torso, 2 spiked antennas, protruding from it's strangely shaped head, countless amount of eyes, 2 spiked tentacles, emerging from sides of this creature, 4 medium-sized crustacean legs, 2 pincers in the place of it's arms. What distinguishes this creature from other Amalgamations is that it is bigger, faster, seems to be trained as an experimental soldier. It holds a strange organic-looking gun in one of it's pincers",
@@ -373,8 +371,9 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 1 }, { "damage_type": "stab", "amount": 14, "armor_penetration": 11 } ],
     "dodge": 3,
     "armor": { "bash": 10, "cut": 10, "bullet": 10 },
-    "death_drops": "BL9_Drops_Aliens_Amalgamations",
+    "death_drops": "BL9_Drops_Aliens_Super_Soldiers",
     "special_attacks": [
+      [ "BIO_OP_TAKEDOWN", 22 ],
       {
         "type": "monster_attack",
         "attack_type": "melee",
@@ -453,8 +452,9 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 15, "armor_penetration": 11 } ],
     "dodge": 3,
     "armor": { "bash": 10, "cut": 10, "bullet": 10 },
-    "death_drops": "BL9_Drops_Aliens_Amalgamations",
+    "death_drops": "BL9_Drops_Aliens_Super_Soldiers",
     "special_attacks": [
+      [ "BIO_OP_TAKEDOWN", 22 ],
       {
         "type": "monster_attack",
         "attack_type": "melee",
@@ -533,8 +533,9 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 17, "armor_penetration": 14 } ],
     "dodge": 3,
     "armor": { "bash": 12, "cut": 12, "bullet": 12 },
-    "death_drops": "BL9_Drops_Aliens_Amalgamations",
+    "death_drops": "BL9_Drops_Aliens_Super_Soldiers",
     "special_attacks": [
+      [ "BIO_OP_TAKEDOWN", 22 ],
       {
         "type": "monster_attack",
         "attack_type": "melee",
@@ -613,8 +614,9 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 2 }, { "damage_type": "stab", "amount": 15, "armor_penetration": 15 } ],
     "dodge": 3,
     "armor": { "bash": 12, "cut": 12, "bullet": 12 },
-    "death_drops": "BL9_Drops_Aliens_Amalgamations",
+    "death_drops": "BL9_Drops_Aliens_Super_Soldiers",
     "special_attacks": [
+      [ "BIO_OP_TAKEDOWN", 22 ],
       {
         "type": "monster_attack",
         "attack_type": "melee",
@@ -693,8 +695,9 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 2 }, { "damage_type": "bash", "amount": 15, "armor_penetration": 15 } ],
     "dodge": 3,
     "armor": { "bash": 12, "cut": 12, "bullet": 12 },
-    "death_drops": "BL9_Drops_Aliens_Amalgamations",
+    "death_drops": "BL9_Drops_Aliens_Dominators_Regular_Super_Soldiers",
     "special_attacks": [
+      [ "BIO_OP_TAKEDOWN", 22 ],
       {
         "type": "monster_attack",
         "attack_type": "melee",
@@ -839,7 +842,7 @@
         "miss_msg_npc": "The %s swings it's limb at <npcname>, but they dodge!"
       }
     ],
-    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "POISON", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
   },
   {
     "id": "mon_BL9_regen_spiky",
@@ -909,7 +912,7 @@
         "miss_msg_npc": "The %s impales <npcname>, but they dodge!"
       }
     ],
-    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "POISON", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
   },
   {
     "id": "mon_BL9_chimera",
@@ -1196,8 +1199,9 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 2 }, { "damage_type": "bash", "amount": 17, "armor_penetration": 15 } ],
     "dodge": 3,
     "armor": { "bash": 15, "cut": 15, "bullet": 15 },
-    "death_drops": "BL9_Drops_Aliens_Amalgamations",
+    "death_drops": "BL9_Drops_Aliens_Dominators_Tough_Super_Soldiers",
     "special_attacks": [
+      [ "BIO_OP_TAKEDOWN", 22 ],
       {
         "type": "monster_attack",
         "attack_type": "melee",
@@ -1315,8 +1319,9 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 2 }, { "damage_type": "bash", "amount": 17, "armor_penetration": 17 } ],
     "dodge": 3,
     "armor": { "bash": 15, "cut": 15, "bullet": 15 },
-    "death_drops": "BL9_Drops_Aliens_Amalgamations",
+    "death_drops": "BL9_Drops_Aliens_Dominators_Tough_Super_Soldiers",
     "special_attacks": [
+      [ "BIO_OP_TAKEDOWN", 22 ],
       {
         "type": "monster_attack",
         "attack_type": "melee",
@@ -1434,8 +1439,9 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 2 }, { "damage_type": "bash", "amount": 17, "armor_penetration": 21 } ],
     "dodge": 3,
     "armor": { "bash": 21, "cut": 21, "bullet": 21 },
-    "death_drops": "BL9_Drops_Aliens_Amalgamations",
+    "death_drops": "BL9_Drops_Aliens_Dominators_Tough_Super_Soldiers",
     "special_attacks": [
+      [ "BIO_OP_TAKEDOWN", 22 ],
       {
         "type": "monster_attack",
         "attack_type": "melee",
@@ -1553,8 +1559,9 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 2 }, { "damage_type": "bash", "amount": 21, "armor_penetration": 25 } ],
     "dodge": 3,
     "armor": { "bash": 21, "cut": 21, "bullet": 21 },
-    "death_drops": "BL9_Drops_Aliens_Amalgamations",
+    "death_drops": "BL9_Drops_Aliens_Dominators_Tough_Super_Soldiers",
     "special_attacks": [
+      [ "BIO_OP_TAKEDOWN", 22 ],
       {
         "type": "monster_attack",
         "attack_type": "melee",
