@@ -6,7 +6,7 @@
     "responses": [
       { "text": "[BUY WEAPONS]", "topic": "TALK_BL9_TRADER_BUY1" },
       { "text": "[BUY ARMOR]", "topic": "TALK_BL9_TRADER_BUY2" },
-      { "text": "[BUY RESOURCES]", "topic": "TALK_BL9_TRADER_BUY3" },
+      { "text": "[BUY CONVERT RESOURCES]", "topic": "TALK_BL9_TRADER_BUY3" },
       { "text": "[BUY EXCHANGE CURRENCIES]", "topic": "TALK_BL9_TRADER_BUY4" },
       { "text": "[BUY ROBOTS]", "topic": "TALK_BL9_TRADER_BUY5" },
       { "text": "[BUY HEALING SPRAYS]", "topic": "TALK_BL9_TRADER_BUY6" },
@@ -551,7 +551,7 @@
   {
     "id": "TALK_BL9_TRADER_BUY3",
     "type": "talk_topic",
-    "dynamic_line": "These resources are used to craft ammo along with weapons of an incredibly high quality, these wannabe conquerors drop them but I can sell them as well, stranger...",
+    "dynamic_line": "These resources are used to craft ammo along with weapons of an incredibly high quality, these wannabe conquerors drop them but I can sell them as well, I also know value of scrap metal in our times, so I convert chunks of steel to scrap metal for free using one of my machines, stranger...",
     "responses": [
       {
         "text": "[53Gcomb] *1000 BL9 Samples*",
@@ -618,6 +618,19 @@
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
+      {
+        "text": "[20 chunks of steel] *100 scrap metal*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "steel_chunk", "count": 20 } } },
+        "success": {
+          "topic": "BL9_trader_ty",
+          "effect": [
+            { "u_sell_item": "steel_chunk", "count": 20 },
+            { "npc_consume_item": "steel_chunk", "count": 20 },
+            { "u_spawn_item": "scrap", "count": 100 }
+          ]
+        },
+        "failure": { "topic": "BL9_trader_nomaterials" }
+      },
       { "text": "Let me see what else you have on sale", "topic": "TALK_BL9_TRADER" },
       { "text": "[GOODBYE]", "topic": "TALK_DONE" }
     ]
@@ -628,27 +641,27 @@
     "dynamic_line": "Gold for Platinum or Platinum for Gold as exchange, rates are not equal though, so that you can earn them yourself to know their value",
     "responses": [
       {
-        "text": "[8Gcomb] *1 Platinum Combination*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 8 } } },
+        "text": "[88Gcomb] *11 Platinum Combinations*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "goldcoincomb", "count": 88 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "goldcoincomb", "count": 8 },
-            { "npc_consume_item": "goldcoincomb", "count": 8 },
-            { "u_spawn_item": "platcoincomb", "count": 1 }
+            { "u_sell_item": "goldcoincomb", "count": 88 },
+            { "npc_consume_item": "goldcoincomb", "count": 88 },
+            { "u_spawn_item": "platcoincomb", "count": 11 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
       },
       {
-        "text": "[8Pcomb] *8 Gold Combinations*",
-        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 8 } } },
+        "text": "[36Pcomb] *36 Gold Combinations*",
+        "trial": { "type": "CONDITION", "condition": { "u_has_items": { "item": "platcoincomb", "count": 36 } } },
         "success": {
           "topic": "BL9_trader_ty",
           "effect": [
-            { "u_sell_item": "platcoincomb", "count": 8 },
-            { "npc_consume_item": "platcoincomb", "count": 8 },
-            { "u_spawn_item": "goldcoincomb", "count": 8 }
+            { "u_sell_item": "platcoincomb", "count": 36 },
+            { "npc_consume_item": "platcoincomb", "count": 36 },
+            { "u_spawn_item": "goldcoincomb", "count": 36 }
           ]
         },
         "failure": { "topic": "BL9_trader_nocash" }
@@ -660,7 +673,7 @@
   {
     "id": "TALK_BL9_TRADER_BUY5",
     "type": "talk_topic",
-    "dynamic_line": "That's a great choice, these are BL9-infused robots which can protect you but to own them I ask you to package crafted chassis with coins, these types of chassis are made out of scrap with coins together, whereas electronic parts along with BL9 samples I have myself from my own sources",
+    "dynamic_line": "That's a great choice, these are BL9-infused robots which can protect you but to own them I ask you to package crafted chassis with coins, these types of chassis are made out of scrap with coins together, whereas electronic parts along with BL9 samples along with a machine to put it all together I have myself from my own sources",
     "responses": [
       {
         "text": "[5Gcomb packaged with BL9 Manhack Chassis] *BL9 Manhack MK i*",
@@ -909,6 +922,12 @@
     "responses": [ { "text": "Sorry.", "topic": "TALK_BL9_TRADER" } ]
   },
   {
+    "type": "talk_topic",
+    "id": "BL9_trader_nomaterials",
+    "dynamic_line": "I only convert them in bulk, stranger!",
+    "responses": [ { "text": "I will try to bring more of them.", "topic": "TALK_BL9_TRADER" } ]
+  },
+  {
     "id": "TALK_TRADER_GOODBYE",
     "type": "talk_topic",
     "dynamic_line": "Come back anytime...",
@@ -917,7 +936,7 @@
   {
     "id": "TALK_BL9_TRADER_GUIDE1",
     "type": "talk_topic",
-    "dynamic_line": "I've got a selection of GOOD things on sale, stranger, BL9-infused handcrafted weapons, quite precious durable armor, resources, BL9-infused robots, healing sprays - but it's the gold and platinum, some scrap as well, if you want to own robots, that I seek from you in return...",
+    "dynamic_line": "I've got a selection of GOOD things on sale, stranger, BL9-infused handcrafted weapons, quite precious durable armor, resources, some of which I convert too, BL9-infused robots, healing sprays - but it's the gold and platinum, some scrap as well, if you want to own robots, that I seek from you in return...",
     "responses": [
       {
         "text": "Can you explain to me what do you sell? How do I craft ammo? Do you know if there is even stronger gear that you don't sell?",
@@ -954,7 +973,7 @@
   {
     "id": "TALK_BL9_TRADER_GUIDE2",
     "type": "talk_topic",
-    "dynamic_line": "Stranger, I sell BL9-infused weapons, armor, resources, BL9-infused robots, healing sprays which are of a VERY high quality! These all use benevolent version of BL9 so it's not that weaponized vile thing these factions use. BL9-infused robots are your air, ground allies, which can smash, attack from range, stun your enemies. You craft ammo, various melee weapons as well, according to 'BL9' recipes in your PDA or Notebook or whatever. Initial types of ammo, melee weapons have no fabrication, mechanics skill requirements, but further have requirements of level 5 of each along with level 8 of each for even stronger ammo along with melee weapons. You use BL9 samples resources to do that, which can be found as loot from enemies, which I also sell. It's true, stranger, there is gear so rare in some places that even I would not sell it to anyone! I will tell you about it if you ask me where these places are, maybe I have some copies of maps, stranger",
+    "dynamic_line": "Stranger, I sell BL9-infused weapons, armor, resources, some of which I convert too, BL9-infused robots, healing sprays which are of a VERY high quality! These all use benevolent version of BL9 so it's not that weaponized vile thing these factions use. BL9-infused robots are air, ground allies, which can smash, attack from range, stun your enemies. You craft ammo, various melee weapons as well, according to 'BL9' recipes in your PDA or Notebook or whatever. Initial types of ammo, melee weapons have no fabrication, mechanics skill requirements, but further have requirements of level 5 of each along with level 8 of each for even stronger ammo along with melee weapons. You use BL9 samples resources to do that, which can be found as loot from enemies, which I also sell. It's true, stranger, there is gear so rare in some places that even I would not sell it to anyone! I will tell you about it if you ask me where these places are, maybe I have some copies of maps, stranger",
     "responses": [ { "text": "Thank you! I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   },
   {
@@ -1018,3 +1037,4 @@
     "responses": [ { "text": "Thank you! I've got more questions...", "topic": "TALK_BL9_TRADER_GUIDE1" } ]
   }
 ]
+
