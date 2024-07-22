@@ -38,7 +38,7 @@
     "looks_like": "mon_zombie_hulk",
     "type": "MONSTER",
     "name": { "str": "BL9 Giant" },
-    "description": "A result of one of many horrible inhumane and devilish experiments conducted by 'THEM' - 23 feet tall giant buff humanoid that has basically lost all of it's intelligence and was so unsafe and violent that the cult had to isolate them and keep them locked up in some distant inaccessible areas in giant cages",
+    "description": "A result of one of many horrible inhumane and vile experiments conducted by 'THEM' - 23 feet tall giant buff humanoid that has basically lost all of it's intelligence and was so unsafe and violent that the cult had to isolate them and keep them locked up in some distant inaccessible areas in giant cages",
     "default_faction": "BL9_cultists",
     "bodytype": "human",
     "species": [ "ZOMBIE", "HUMAN" ],
@@ -59,18 +59,18 @@
     "melee_dice_sides": 1,
     "dodge": 2,
     "armor": { "bash": 5, "cut": 5, "bullet": 5 },
-    "vision_day": 50,
-    "vision_night": 4,
+    "vision_day": 30,
+    "vision_night": 5,
     "harvest": "zombie",
     "special_attacks": [
       { "id": "crushing_blow" },
       {
         "type": "spell",
         "spell_data": { "id": "mon_giant_random" },
-        "cooldown": 17,
+        "cooldown": 15,
         "monster_message": "<color_red>%1$s is going wild at %3$s!</color>"
       },
-      [ "SMASH", 17 ],
+      [ "SMASH", 15 ],
       [ "BIO_OP_TAKEDOWN", 22 ]
     ],
     "death_drops": "mon_zombie_hulk_death_drops",
@@ -95,7 +95,7 @@
     "looks_like": "mon_zombie_predator",
     "type": "MONSTER",
     "name": { "str": "Blind Clawer" },
-    "description": "Tall augmented human host of the BL9, they call it 'The Clawer' due to it being armed with razor sharp mechanical claws that it's capable of activating at will, in order to constrain indiscriminate killing power, it's eyelids were stitched together, though it's loss of sight led to increased hearing making them formidable opponents even when blind",
+    "description": "Tall augmented human host of the BL9, they call it 'The Clawer' due to it being armed with razor sharp mechanical claws that it's capable of activating at will, in order to constrain indiscriminate killing power, it's eyelids were stitched together, though, BL9 has still managed to retain some of their sight making them not fully blind",
     "default_faction": "BL9_cultists",
     "bodytype": "human",
     "species": [ "ZOMBIE", "HUMAN" ],
@@ -115,8 +115,8 @@
     "melee_dice_sides": 1,
     "dodge": 3,
     "armor": { "bash": 5, "cut": 5, "bullet": 5 },
-    "vision_day": 45,
-    "vision_night": 15,
+    "vision_day": 1,
+    "vision_night": 1,
     "harvest": "zombie",
     "emit_fields": [ "emit_clawer_blind" ],
     "path_settings": { "max_dist": 5 },
@@ -125,7 +125,7 @@
       {
         "type": "spell",
         "spell_data": { "id": "mon_clawer_charge_target_random" },
-        "cooldown": 17,
+        "cooldown": 15,
         "monster_message": "<color_red>%1$s charges at %3$s!</color>"
       },
       { "id": "impale" },
@@ -144,7 +144,7 @@
       }
     ],
     "death_drops": "BL9_Drops_Clawer",
-    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "NO_BREATHE", "REVIVES", "PUSH_MON", "FILTHY" ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GOODHEARING", "NO_BREATHE", "REVIVES", "PUSH_MON", "FILTHY" ]
   },
   {
     "id": "mon_BL9_assassin",
@@ -157,7 +157,7 @@
     "volume": "62500 ml",
     "weight": "81500 g",
     "hp": 400,
-    "speed": 115,
+    "speed": 151,
     "attack_effs": [ { "id": "BL9_bleed_immun", "duration": 15, "bp": "torso" } ],
     "melee_damage": [
       { "damage_type": "stab", "amount": 5, "armor_penetration": 5 },
@@ -172,7 +172,7 @@
     "melee_dice": 1,
     "harvest": "zombie",
     "melee_dice_sides": 1,
-    "dodge": 4,
+    "dodge": 5,
     "armor": { "bash": 6, "cut": 9, "bullet": 9 },
     "death_drops": "BL9_Drops_Assassin",
     "special_attacks": [
@@ -216,17 +216,7 @@
         "miss_msg_npc": "The %s slams <npcname>, but they dodge!"
       }
     ],
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "WARM",
-      "BASHES",
-      "GROUP_BASH",
-      "NO_BREATHE",
-      "NIGHT_INVISIBILITY",
-      "PUSH_MON"
-    ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "NIGHT_INVISIBILITY", "PUSH_MON" ]
   },
   {
     "id": "mon_BL9_twisted_one",
@@ -333,18 +323,7 @@
         "monster_message": "<color_light_red>%1$s sends a tentacle towards %3$s!</color>"
       }
     ],
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "WARM",
-      "BASHES",
-      "GROUP_BASH",
-      "POISON",
-      "NO_BREATHE",
-      "NIGHT_INVISIBILITY",
-      "PUSH_MON"
-    ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "POISON", "NO_BREATHE", "NIGHT_INVISIBILITY", "PUSH_MON" ]
   },
   {
     "id": "mon_BL9_inhrav_6",
@@ -795,12 +774,12 @@
     "looks_like": "mon_zombie_hollow",
     "type": "MONSTER",
     "name": { "str": "BL9 Regenerator" },
-    "description": " An experimental pale mutant with skinny limbs and dreadful visage. it's strong regenerative prowess is an offset to it's fragile body.",
+    "description": " An experimental pale mutant with skinny limbs and dreadful visage. It's strong regenerative prowess is an offset to it's fragile body.",
     "default_faction": "BL9_military",
     "species": [ "ZOMBIE", "MUTANT" ],
     "volume": "62500 ml",
     "weight": "81500 g",
-    "hp": 129,
+    "hp": 199,
     "speed": 70,
     "attack_effs": [ { "id": "BL9_bleed_immun", "duration": 15, "bp": "torso" } ],
     "melee_damage": [ { "damage_type": "bash", "amount": 6, "armor_penetration": 7 } ],
@@ -814,7 +793,7 @@
     "harvest": "zombie",
     "melee_dice_sides": 1,
     "dodge": 2,
-    "regenerates": 15,
+    "regenerates": 10,
     "death_drops": "BL9_Drops_Regen",
     "special_attacks": [
       {
@@ -840,7 +819,8 @@
         "no_dmg_msg_npc": "The %1$s tries to slam <npcname>, but fails to penetrate their armor!",
         "miss_msg_u": "The %s swings it's limb at you, but you dodge!",
         "miss_msg_npc": "The %s swings it's limb at <npcname>, but they dodge!"
-      }
+      },
+      { "id": "ranged_pull", "cooldown": 12 }
     ],
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
   },
@@ -849,12 +829,12 @@
     "looks_like": "mon_charred_nightmare",
     "type": "MONSTER",
     "name": { "str": "BL9 Iron Maiden" },
-    "description": "An experimental mutant with several spikes emerging from it's body. Shares similarities to regenerador, but it seems to take full control of it's protrusions.",
+    "description": "An experimental mutant with several spikes emerging from it's body. Similarities to regenerator, but it seems to take full control of it's protrusions.",
     "default_faction": "BL9_military",
     "species": [ "MUTANT", "ZOMBIE" ],
     "volume": "62500 ml",
     "weight": "81500 g",
-    "hp": 153,
+    "hp": 236,
     "speed": 70,
     "attack_effs": [ { "id": "BL9_bleed_immun", "duration": 15, "bp": "torso" } ],
     "melee_damage": [ { "damage_type": "stab", "amount": 6, "armor_penetration": 7 } ],
@@ -868,7 +848,7 @@
     "harvest": "zombie",
     "melee_dice_sides": 1,
     "dodge": 2,
-    "regenerates": 23,
+    "regenerates": 11,
     "death_drops": "BL9_Drops_Regen",
     "special_attacks": [
       {
@@ -901,7 +881,7 @@
       {
         "type": "monster_attack",
         "attack_type": "melee",
-        "cooldown": 11,
+        "cooldown": 10,
         "move_cost": 150,
         "damage_max_instance": [ { "damage_type": "stab", "amount": 14, "armor_penetration": 12 } ],
         "hit_dmg_u": "The %1$s impales you with it's spiky protrusions!",
@@ -910,7 +890,8 @@
         "no_dmg_msg_npc": "The %1$s tries to impale <npcname>, but fails to penetrate their armor!",
         "miss_msg_u": "The %s impales you, but you dodge!",
         "miss_msg_npc": "The %s impales <npcname>, but they dodge!"
-      }
+      },
+      { "id": "ranged_pull", "cooldown": 12 }
     ],
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
   },
@@ -963,20 +944,10 @@
         "spell_data": { "id": "twisted_one_tentwhip" },
         "cooldown": 9,
         "monster_message": "<color_light_red>%1$s sends a tentacle towards %3$s!</color>"
-      }
+      },
+      { "id": "ranged_pull", "cooldown": 12 }
     ],
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "WARM",
-      "BASHES",
-      "GROUP_BASH",
-      "POISON",
-      "NO_BREATHE",
-      "NIGHT_INVISIBILITY",
-      "PUSH_MON"
-    ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "POISON", "NO_BREATHE", "NIGHT_INVISIBILITY", "PUSH_MON" ]
   },
   {
     "id": "mon_BL9_chimera_mutated",
@@ -1027,20 +998,10 @@
         "spell_data": { "id": "chimera_mutated_pincerpinch" },
         "cooldown": 12,
         "monster_message": "<color_light_red>%1$s slashes %3$s with it's pincer!</color>"
-      }
+      },
+      { "id": "ranged_pull", "cooldown": 9 }
     ],
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "WARM",
-      "BASHES",
-      "GROUP_BASH",
-      "POISON",
-      "NO_BREATHE",
-      "NIGHT_INVISIBILITY",
-      "PUSH_MON"
-    ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "POISON", "NO_BREATHE", "NIGHT_INVISIBILITY", "PUSH_MON" ]
   },
   {
     "id": "mon_BL9_general_mutated",
@@ -1093,18 +1054,7 @@
         "monster_message": "<color_light_red>%1$s leaps at %3$s!</color> and slashes wildly"
       }
     ],
-    "flags": [
-      "SEES",
-      "HEARS",
-      "SMELLS",
-      "WARM",
-      "BASHES",
-      "GROUP_BASH",
-      "POISON",
-      "NO_BREATHE",
-      "NIGHT_INVISIBILITY",
-      "PUSH_MON"
-    ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "POISON", "NO_BREATHE", "NIGHT_INVISIBILITY", "PUSH_MON" ]
   },
   {
     "id": "mon_BL9_vile_one",
@@ -1561,7 +1511,7 @@
     "armor": { "bash": 21, "cut": 21, "bullet": 21 },
     "death_drops": "BL9_Drops_Aliens_Dominators_Tough_Super_Soldiers",
     "special_attacks": [
-      [ "BIO_OP_TAKEDOWN", 22 ], 
+      [ "BIO_OP_TAKEDOWN", 22 ],
       {
         "type": "monster_attack",
         "attack_type": "melee",
