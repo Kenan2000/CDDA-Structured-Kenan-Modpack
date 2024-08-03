@@ -79,7 +79,7 @@
     "count": 1,
     "stack_size": 1,
     "damage": { "damage_type": "stab", "amount": 75 },
-    "extend": { "effects": [ "FRAG" ] }
+    "extend": { "effects": [ "EXPLOSIVE_GRENADE" ] }
   },
   {
     "id": "h_projectile",
@@ -115,7 +115,8 @@
     "count": 10,
     "ammo_type": "harpoon",
     "damage": { "damage_type": "stab", "amount": 40, "armor_penetration": 10 },
-    "effects": [ "RECOVER_3", "NEVER_MISFIRES" ]
+    "recovery_chance": 3,
+    "effects": [ "NEVER_MISFIRES" ]
   },
   {
     "abstract": "hbolt_generic",
@@ -180,7 +181,7 @@
     "description": "An IED composed of a container filled with a payload material affixed to the end of a large ballista bolt.  Intended to be fired from a specialized launcher.  This one is designed to spray the immediate area with deadly shrapnel.",
     "weight": "4816 g",
     "price": "8 USD",
-    "extend": { "effects": [ "FRAG" ] }
+    "extend": { "effects": [ "EXPLOSIVE_GRENADE" ] }
   },
   {
     "id": "hbolt_metal",
@@ -198,7 +199,7 @@
     "ammo_type": "hbolt",
     "range": 10,
     "damage": { "damage_type": "stab", "amount": 35, "armor_penetration": 35 },
-    "effects": [ "RECOVER_3" ]
+    "recovery_chance": 3
   },
   {
     "id": "hbolt_nuke",
@@ -235,7 +236,7 @@
     "ammo_type": "hbolt",
     "range": 10,
     "damage": { "damage_type": "stab", "amount": 20, "armor_penetration": 20 },
-    "effects": [ "RECOVER_5" ]
+    "recovery_chance": 5
   },
   {
     "id": "rebar_rail",
@@ -455,7 +456,8 @@
     "ammo_type": "h_projectile",
     "range": 3,
     "damage": { "damage_type": "stab", "amount": 50 },
-    "effects": [ "RECOVER_20", "LARGE_BEANBAG" ]
+    "recovery_chance": 20,
+    "effects": [ "LARGE_BEANBAG" ]
   },
   {
     "id": "ripdisk",
@@ -473,7 +475,8 @@
     "ammo_type": "ripdisk",
     "range": 6,
     "damage": { "damage_type": "stab", "amount": 25, "armor_penetration": 5 },
-    "effects": [ "RECOVER_3", "NEVER_MISFIRES" ]
+    "recovery_chance": 3,
+    "effects": [ "NEVER_MISFIRES" ]
   },
   {
     "id": "shards",
@@ -502,6 +505,7 @@
     "range": 6,
     "damage": { "damage_type": "stab", "amount": 23 },
     "dispersion": 30,
-    "effects": [ "RECOVER_10", "BEANBAG" ]
+    "recovery_chance": 10,
+    "effects": [ "BEANBAG" ]
   }
 ]

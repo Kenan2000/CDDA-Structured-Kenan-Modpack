@@ -27,11 +27,11 @@
     "special_attacks": [
       {
         "type": "spell",
-		"id": "monspell_zombie_tendrils_sprint_check",
+        "id": "monspell_zombie_tendrils_sprint_check",
         "spell_data": { "id": "mon_zombie_tendrils_sprint_check" },
         "cooldown": 130,
         "monster_message": "<color_yellow>%1$s's movement became erratic!</color>",
-		"condition": { "math": [ "distance('u', 'npc')", ">=", "7" ] }
+        "condition": { "math": [ "distance('u', 'npc')", ">=", "7" ] }
       },
       { "type": "bite", "cooldown": 7, "damage_max_instance": [ { "damage_type": "stab", "armor_penetration": 10 } ] },
       [ "secro_tendrilgrip", 30 ],
@@ -80,11 +80,11 @@
     "special_attacks": [
       {
         "type": "spell",
-		"id": "monspell_zombie_tendrils_sprint_check",
+        "id": "monspell_zombie_tendrils_sprint_check",
         "spell_data": { "id": "mon_zombie_tendrils_sprint_check" },
         "cooldown": 150,
         "monster_message": "<color_yellow>%1$s's movement became erratic!</color>",
-		"condition": { "math": [ "distance('u', 'npc')", ">=", "7" ] }
+        "condition": { "math": [ "distance('u', 'npc')", ">=", "7" ] }
       },
       {
         "type": "bite",
@@ -113,11 +113,11 @@
     "special_attacks": [
       {
         "type": "spell",
-		"id": "monspell_zombie_tendrils_sprint_check",
+        "id": "monspell_zombie_tendrils_sprint_check",
         "spell_data": { "id": "mon_zombie_tendrils_sprint_check" },
         "cooldown": 80,
         "monster_message": "<color_yellow>%1$s's movement became erratic!</color>",
-		"condition": { "math": [ "distance('u', 'npc')", ">=", "7" ] }
+        "condition": { "math": [ "distance('u', 'npc')", ">=", "7" ] }
       },
       { "type": "bite", "cooldown": 6, "damage_max_instance": [ { "damage_type": "stab", "armor_penetration": 10 } ] },
       [ "secro_tendrilswing", 4 ],
@@ -153,19 +153,19 @@
     "special_attacks": [
       {
         "type": "spell",
-		"id": "monspell_zombie_tentawraith_tentgrasp_check",
+        "id": "monspell_zombie_tentawraith_tentgrasp_check",
         "spell_data": { "id": "mon_zombie_tentawraith_tentgrasp_check" },
         "cooldown": 28,
         "monster_message": "<color_yellow>%1$s's tentacles envelop the surroundings!</color>"
       },
       {
         "type": "spell",
-		"id": "monspell_zombie_tentawraith_summon_target",
+        "id": "monspell_zombie_tentawraith_summon_target",
         "spell_data": { "id": "mon_zombie_tentawraith_summon_target" },
         "cooldown": 45,
         "monster_message": "<color_yellow>Several tentacles of %1$s pierces into the ground!</color>"
-	  },
-	  {
+      },
+      {
         "type": "gun",
         "cooldown": 20,
         "move_cost": 66,
@@ -180,7 +180,7 @@
       [ "secro_tendrilslam", 32 ],
       [ "secro_tendrilstab", 26 ],
       { "id": "ranged_pull", "cooldown": 20 },
-      [ "STRETCH_ATTACK", 17 ],
+      { "id": "stretch_attack", "cooldown": 17 },
       [ "secro_tendrilgrip", 11 ],
       { "type": "bite", "cooldown": 7, "damage_max_instance": [ { "damage_type": "cut", "armor_penetration": 12 } ] }
     ],
@@ -219,7 +219,7 @@
     ],
     "vision_night": 10,
     "armor": { "bash": 6, "cut": 4, "bullet": 4, "acid": 4, "heat": 2 },
-    "special_attacks": [ [ "STRETCH_ATTACK", 19 ] ],
+    "special_attacks": [ { "id": "stretch_attack", "cooldown": 19 } ],
     "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s disappears into the ground." },
     "flags": [ "IMMOBILE", "SEES", "HEARS", "SMELLS", "WARM", "POISON", "NO_BREATHE" ]
   }
