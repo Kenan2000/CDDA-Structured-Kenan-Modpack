@@ -219,35 +219,7 @@
     "dodge": 3,
     "armor": { "bash": 5, "cut": 5, "bullet": 5 },
     "death_drops": "BL9_Drops_Worm",
-    "special_attacks": [
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 7, "armor_penetration": 10 } ],
-        "hit_dmg_u": "The %1$s stretches out it's worm-like body swinging at you with it wildly!",
-        "hit_dmg_npc": "The %1$s stretches out it's worm-like body swinging at <npcname> with it wildly!",
-        "no_dmg_msg_u": "The %1$s stretches out it's worm-like body trying to swing at you with it wildly, but fails to damage your armor!",
-        "no_dmg_msg_npc": "The %1$s stretches out it's worm-like body trying to swing at <npcname> with it wildly, but fails to damage their armor!",
-        "miss_msg_u": "The %s streches out it's worm-like body trying to swing at you with it wildly, but you dodge!",
-        "miss_msg_npc": "The %s stretches out it's worm-like body trying to swing at <npcname> with it wildly, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 215,
-        "accuracy": 12,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 10, "armor_penetration": 11 } ],
-        "hit_dmg_u": "The %1$s devours you!",
-        "hit_dmg_npc": "The %1$s devours <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to devour you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to devour <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s devours you, but you step aside!",
-        "miss_msg_npc": "The %s devours <npcname>, but they dodge!"
-      }
-    ],
+    "special_attacks": [ { "id": "mutant_2_stretch" }, { "id": "mutant_2_devour" } ],
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
   },
   {
@@ -390,7 +362,7 @@
     "looks_like": "mon_zombie_necro",
     "type": "MONSTER",
     "name": { "str": "Armed BL9-Cultist - Patrol Leader" },
-    "description": "A zealot in long red robes wearing a strange skull mask infused with the BL9. It appears to be sentient, having all characteristics of a normal person except for strangely solemn gaze, disturbingly pale skin and bloodshot eyes indicating the presence of artificially modified BL9 to make them more violent, obedient,  their motive is to kill those that didn't accept the blessing of their \"dios\", this one is armed with a sword and it seems to know how to use it well.",
+    "description": "A zealot in long red robes wearing a strange skull mask infused with the BL9 who carries a lot of coins. It appears to be sentient, having all characteristics of a normal person except for strangely solemn gaze, disturbingly pale skin and bloodshot eyes indicating the presence of artificially modified BL9 to make them more violent, obedient,  their motive is to kill those that didn't accept the blessing of their \"dios\", this one is armed with a sword and it seems to know how to use it well.",
     "default_faction": "BL9_cultists",
     "species": [ "ZOMBIE", "HUMAN" ],
     "volume": "62500 ml",
@@ -402,13 +374,13 @@
     "color": "brown",
     "aggression": 100,
     "morale": 100,
-    "melee_skill": 6,
+    "melee_skill": 5,
     "melee_dice": 1,
     "harvest": "zombie",
     "melee_dice_sides": 2,
     "attack_effs": [ { "id": "BL9_bleed_immun", "duration": 15, "bp": "torso" } ],
     "melee_damage": [ { "damage_type": "cut", "amount": 4, "armor_penetration": 6 } ],
-    "dodge": 4,
+    "dodge": 5,
     "armor": { "bash": 5, "cut": 5, "bullet": 5 },
     "special_attacks": [ [ "PARROT", 21 ] ],
     "death_drops": "BL9_Drops_Cultistpatrollead",
@@ -850,10 +822,10 @@
   },
   {
     "id": "mon_BL9_military_patrolleader",
-    "looks_like": "mon_zombie_soldier_blackops_1",
+    "looks_like": "mon_bl9_military_shockrod",
     "type": "MONSTER",
     "name": { "str": "Armed BL9-Mercenary - Patrol Leader" },
-    "description": "An armored mercenary with a calculating look wearing a sleek combat armor infused with the BL9. It appears to be sentient, having all characteristics of a normal person except for strangely aggressive and bothered look on it's face, seemingly faster reflexes and bloodshot eyes indicating the presence of artificially modified BL9 to make them more violent, obedient,  they will do their best to stop any intruder that managed to infiltrate their compound, this one is armed with a bayonet and it obviously knows how to use it well",
+    "description": "An armored mercenary with a calculating look wearing a sleek combat armor infused with the BL9 who carries a lot of coins. It appears to be sentient, having all characteristics of a normal person except for strangely aggressive and bothered look on it's face, seemingly faster reflexes and bloodshot eyes indicating the presence of artificially modified BL9 to make them more violent, obedient,  they will do their best to stop any intruder that managed to infiltrate their compound, this one is armed with a shock-rod and it obviously knows how to use it well",
     "default_faction": "BL9_military",
     "species": [ "ZOMBIE", "HUMAN" ],
     "volume": "62500 ml",
@@ -870,9 +842,9 @@
     "harvest": "zombie",
     "melee_dice_sides": 2,
     "attack_effs": [ { "id": "BL9_bleed_immun", "duration": 15, "bp": "torso" } ],
-    "melee_damage": [ { "damage_type": "cut", "amount": 1 }, { "damage_type": "stab", "amount": 6, "armor_penetration": 12 } ],
-    "dodge": 4,
-    "armor": { "bash": 5, "cut": 5, "bullet": 5 },
+    "melee_damage": [ { "damage_type": "bash", "amount": 1 }, { "damage_type": "electric", "amount": 5, "armor_penetration": 12 } ],
+    "dodge": 5,
+    "armor": { "bash": 10, "cut": 10, "bullet": 10 },
     "special_attacks": [ [ "PARROT", 21 ] ],
     "death_drops": "BL9_Drops_Militarypatrollead",
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
@@ -952,35 +924,7 @@
     "dodge": 3,
     "armor": { "bash": 9, "cut": 9, "bullet": 9 },
     "death_drops": "BL9_Drops_Wormevo",
-    "special_attacks": [
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 9,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 14, "armor_penetration": 15 } ],
-        "hit_dmg_u": "The %1$s stretches out it's worm-like body swinging at you with it wildly!",
-        "hit_dmg_npc": "The %1$s stretches out it's worm-like body swinging at <npcname> with it wildly!",
-        "no_dmg_msg_u": "The %1$s stretches out it's worm-like body trying to swing at you with it wildly, but fails to damage your armor!",
-        "no_dmg_msg_npc": "The %1$s stretches out it's worm-like body trying to swing at <npcname> with it wildly, but fails to damage their armor!",
-        "miss_msg_u": "The %s streches out it's worm-like body trying to swing at you with it wildly, but you dodge!",
-        "miss_msg_npc": "The %s stretches out it's worm-like body trying to swing at <npcname> with it wildly, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 245,
-        "accuracy": 12,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 17, "armor_penetration": 17 } ],
-        "hit_dmg_u": "The %1$s devours you!",
-        "hit_dmg_npc": "The %1$s devours <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to devour you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to devour <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s devours you, but you step aside!",
-        "miss_msg_npc": "The %s devours <npcname>, but they dodge!"
-      }
-    ],
+    "special_attacks": [ { "id": "mutant_2_evo_stretch" }, { "id": "mutant_2_evo_devour" } ],
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
   },
   {
@@ -1316,5 +1260,56 @@
     ],
     "death_drops": "BL9_Drops_Military",
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
+  },
+  {
+    "id": "mon_BL9_tsmilitary2_patrolleader",
+    "looks_like": "mon_zombie_soldier_blackops_2",
+    "type": "MONSTER",
+    "name": { "str": "Armed 'True Superiors' BL9-Soldier - Patrol Leader" },
+    "description": "An armored professional soldier with a very calculating look wearing a sleek hi-tech combat suit infused with the BL9 who carries a lot of coins. It appears to be sentient, having all characteristics of a normal person except for strangely aggressive and bothered look on it's face, evidently faster reflexes and bloodshot eyes indicating the presence of artificially modified BL9 to make them more violent, obedient,  they will do their best to stop any intruder that managed to infiltrate their compound, this one is armed with an energy machine gun, pack of strange energy grenades and it obviously knows how to use them well.",
+    "default_faction": "BL9_military",
+    "species": [ "ZOMBIE", "HUMAN" ],
+    "volume": "62500 ml",
+    "weight": "81500 g",
+    "hp": 448,
+    "speed": 75,
+    "material": [ "hflesh" ],
+    "symbol": "@",
+    "color": "brown",
+    "aggression": 100,
+    "morale": 100,
+    "melee_skill": 8,
+    "melee_dice": 1,
+    "harvest": "zombie",
+    "melee_dice_sides": 2,
+    "attack_effs": [ { "id": "BL9_bleed_immun", "duration": 15, "bp": "torso" } ],
+    "melee_damage": [ { "damage_type": "bash", "amount": 5, "armor_penetration": 12 } ],
+    "dodge": 5,
+    "armor": { "bash": 15, "cut": 15, "bullet": 15 },
+    "special_attacks": [
+      [ "PARROT", 21 ],
+      {
+        "type": "gun",
+        "cooldown": 10,
+        "move_cost": 1000,
+        "gun_type": "mongun_BL9_energy2",
+        "fake_skills": [ [ "gun", 8 ], [ "rifle", 8 ] ],
+        "fake_dex": 8,
+        "fake_per": 8,
+        "require_targeting_player": false,
+        "description": "The ganados fires it's energy machine gun!",
+        "ranges": [ [ 2, 11, "DEFAULT" ] ]
+      },
+      {
+        "type": "spell",
+        "spell_data": { "id": "tsmilitary_energy_grenade2" },
+        "cooldown": 12,
+        "monster_message": "<color_light_red>%1$s throws a strange energy grenade which explodes violently upon reaching %3$s!</color>"
+      }
+    ],
+    "death_drops": "BL9_Drops_TSpatrollead",
+    "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
   }
+
+
 ]

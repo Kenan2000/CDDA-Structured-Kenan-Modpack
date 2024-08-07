@@ -234,15 +234,16 @@
     "harvest": "zombie",
     "special_attacks": [
       {
-		"id": "monspell_secro_veinstalk_initial",
+        "id": "monspell_secro_veinstalk_initial",
         "type": "spell",
         "spell_data": { "id": "secro_veinstalk_initial" },
         "cooldown": 1,
         "monster_message": "",
-		"condition": { "not": { "u_has_effect": "secro_veinstalk_limit" } },
-		"allow_no_target": true
+        "condition": { "not": { "u_has_effect": "secro_veinstalk_limit" } },
+        "allow_no_target": true
       },
       {
+        "id": "monspell_secro_veinstalk_initial_other",
         "type": "spell",
         "spell_data": { "id": "mon_sflesh_veinstalk_spread_check" },
         "cooldown": 10,
@@ -260,13 +261,14 @@
     "default_faction": "secro_flesh",
     "extend": {
       "special_attacks": [
-	  {
-        "type": "spell",
-        "spell_data": { "id": "mon_sflesh_veinstalk_initial_convert" },
-        "cooldown": 1,
-        "allow_no_target": true,
-        "monster_message": "<color_yellow>%1$s twitches."
-      }
+        {
+          "id": "monspell_secro_sflesh_veinstalk_initial",
+          "type": "spell",
+          "spell_data": { "id": "mon_sflesh_veinstalk_initial_convert" },
+          "cooldown": 1,
+          "allow_no_target": true,
+          "monster_message": "<color_yellow>%1$s twitches."
+        }
       ],
       "species": [ "SFLESH" ]
     }

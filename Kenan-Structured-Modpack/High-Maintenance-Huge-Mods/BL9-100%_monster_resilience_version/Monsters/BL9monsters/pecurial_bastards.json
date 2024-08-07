@@ -31,7 +31,7 @@
     "flags": [ "SEES", "GRABS", "SMELLS", "HEARS", "BASHES", "GOODHEARING", "STUMBLES", "WARM", "FILTHY", "NO_BREATHE", "REVIVES" ],
     "anger_triggers": [ "PLAYER_CLOSE", "HURT" ],
     "harvest": "zombie",
-    "special_attacks": [ [ "PARROT", 5 ], { "id": "chainsaw_swing" }, { "id": "chainsaw_thrust" } ]
+    "special_attacks": [ [ "PARROT", 5 ], { "id": "gonzalez_chainsaw_swing" }, { "id": "gonzalez_chainsaw_thrust" } ]
   },
   {
     "id": "mon_BL9_giant",
@@ -63,7 +63,7 @@
     "vision_night": 5,
     "harvest": "zombie",
     "special_attacks": [
-      { "id": "crushing_blow" },
+      { "id": "giant_crushing_blow" },
       {
         "type": "spell",
         "spell_data": { "id": "mon_giant_random" },
@@ -129,19 +129,7 @@
         "monster_message": "<color_red>%1$s charges at %3$s!</color>"
       },
       { "id": "impale" },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 100,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 14, "armor_penetration": 12 } ],
-        "hit_dmg_u": "The %1$s swings it's claws at you!",
-        "hit_dmg_npc": "The %1$s swings it's claws at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to swing it's claws at you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to swings it's claws at <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's claws at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's claws at <npcname>, but they dodge!"
-      }
+      { "id": "blind_clawer_claws" }
     ],
     "death_drops": "BL9_Drops_Clawer",
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GOODHEARING", "NO_BREATHE", "REVIVES", "PUSH_MON", "FILTHY" ]
@@ -178,43 +166,9 @@
     "special_attacks": [
       [ "PARROT", 5 ],
       { "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 11, "armor_penetration": 11 } ] },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 9,
-        "move_cost": 120,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 18, "armor_penetration": 12 } ],
-        "hit_dmg_u": "The %1$s thrusts it's tail at you!",
-        "hit_dmg_npc": "The %1$s thrusts it's tail at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to impale you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to impale <npcname>, but fails to penetrate their armor!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 80,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 16, "armor_penetration": 10 } ],
-        "hit_dmg_u": "The %1$s slashes with it's tail at you!",
-        "hit_dmg_npc": "The %1$s slashes <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to slash you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slash <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's tail at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's tail at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 9,
-        "move_cost": 150,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 18, "armor_penetration": 12 } ],
-        "hit_dmg_u": "The %1$s slams you!",
-        "hit_dmg_npc": "The %1$s slams <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to slam you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slam <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s slams you, but you dodge!",
-        "miss_msg_npc": "The %s slams <npcname>, but they dodge!"
-      }
+      { "id": "assassin_tail_thrust" },
+      { "id": "assassin_tail_slash" },
+      { "id": "assassin_tail_slam" }
     ],
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "NIGHT_INVISIBILITY", "PUSH_MON" ]
   },
@@ -250,72 +204,11 @@
     "special_attacks": [
       [ "PARROT", 5 ],
       { "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 13, "armor_multiplier": 1.29 } ] },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 9,
-        "move_cost": 120,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 22, "armor_penetration": 14 } ],
-        "hit_dmg_u": "The %1$s thrusts it's tail at you!",
-        "hit_dmg_npc": "The %1$s thrusts it's tail at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to impale you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to impale <npcname>, but fails to penetrate their armor!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 9,
-        "move_cost": 80,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 22, "armor_penetration": 15 } ],
-        "hit_dmg_u": "The %1$s slashes with it's tail at you!",
-        "hit_dmg_npc": "The %1$s slashes <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to slash you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slash <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's tail at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's tail at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 150,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 27, "armor_penetration": 16 } ],
-        "hit_dmg_u": "The %1$s slams you!",
-        "hit_dmg_npc": "The %1$s slams <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to slam you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slam <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s slams you, but you dodge!",
-        "miss_msg_npc": "The %s slams <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 18,
-        "move_cost": 200,
-        "damage_max_instance": [
-          { "damage_type": "bash", "amount": 15, "armor_penetration": 10 },
-          { "damage_type": "stab", "amount": 15, "armor_multiplier": 1.225 }
-        ],
-        "hit_dmg_u": "The %1$s crunches at you!",
-        "hit_dmg_npc": "The %1$s crunches at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to viciously bite you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to bite <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s crunches at you, but you step aside!",
-        "miss_msg_npc": "The %s crunches <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 11,
-        "move_cost": 25,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 23, "armor_penetration": 17 } ],
-        "hit_dmg_u": "The %1$s whips you with it's tentacle!",
-        "hit_dmg_npc": "The %1$s whips at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to whip you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to whip <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s whips a tentacle at you, but you dodge!",
-        "miss_msg_npc": "The %s whips at <npcname>, but they dodge!"
-      },
+      { "id": "twisted_one_tentacle_thrust" },
+      { "id": "twisted_one_tentacle_slash" },
+      { "id": "twisted_one_tentacle_slam" },
+      { "id": "twisted_one_crunch" },
+      { "id": "twisted_one_whip" },
       {
         "type": "spell",
         "spell_data": { "id": "twisted_one_tentwhip" },
@@ -353,32 +246,8 @@
     "death_drops": "BL9_Drops_Aliens_Super_Soldiers",
     "special_attacks": [
       [ "BIO_OP_TAKEDOWN", 22 ],
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 21, "armor_penetration": 14 } ],
-        "hit_dmg_u": "The %1$s pinches you with it's pincer!",
-        "hit_dmg_npc": "The %1$s pinches <npcname> with it's pincer!",
-        "no_dmg_msg_u": "The %1$s tries to pinch you with it's pincer, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pinch <npcname> with it's pincer, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s attempts to pinch you with it's pincer, but you dodge!",
-        "miss_msg_npc": "The %s attempts to pinch <npcname> with it's pincer, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 25, "armor_penetration": 10 } ],
-        "hit_dmg_u": "The %1$s swings it's spiked tentacles at you!",
-        "hit_dmg_npc": "The %1$s swings it's spiked tentacles at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to swing it's spiked tentacles at you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to swing it's spiked tentacles at <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked tentacles at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked tentacles at <npcname>, but they dodge!"
-      },
+      { "id": "inhrav_6_pincer" },
+      { "id": "inhrav_6_tentacles" },
       {
         "type": "gun",
         "cooldown": 12,
@@ -434,32 +303,8 @@
     "death_drops": "BL9_Drops_Aliens_Super_Soldiers",
     "special_attacks": [
       [ "BIO_OP_TAKEDOWN", 22 ],
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 22, "armor_penetration": 15 } ],
-        "hit_dmg_u": "The %1$s ferociously claws you!",
-        "hit_dmg_npc": "The %1$s ferociously claws <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to claw you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to claw <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's knifelike claw at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's knifelike claw at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 27, "armor_penetration": 11 } ],
-        "hit_dmg_u": "The %1$s swings it's whip-like tentacles at you!",
-        "hit_dmg_npc": "The %1$s swings it's whip-like tentacles at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to swing it's whip-like tentacles at you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to swing it's whip-like tentacles at <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's whip-like tentacles at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's whip-like tentacles at <npcname>, but they dodge!"
-      },
+      { "id": "yengn_6_claw" },
+      { "id": "yengn_6_tentacles" },
       {
         "type": "gun",
         "cooldown": 12,
@@ -515,32 +360,8 @@
     "death_drops": "BL9_Drops_Aliens_Super_Soldiers",
     "special_attacks": [
       [ "BIO_OP_TAKEDOWN", 22 ],
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 23, "armor_penetration": 17 } ],
-        "hit_dmg_u": "The %1$s ferociously claws you!",
-        "hit_dmg_npc": "The %1$s ferociously claws <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to claw you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to claw <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's knifelike claw at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's knifelike claw at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 28, "armor_penetration": 12 } ],
-        "hit_dmg_u": "The %1$s swings it's spiked tentacle tongue at you!",
-        "hit_dmg_npc": "The %1$s swings it's spiked tentacle tongue at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to swing it's spiked tentacle tongue at you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to swing it's spiked tentacle tongue at <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked tentacle tongue at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked tentacle tongue at <npcname>, but they dodge!"
-      },
+      { "id": "ulniv_6_claw" },
+      { "id": "ulniv_6_tongue" },
       {
         "type": "gun",
         "cooldown": 12,
@@ -596,32 +417,8 @@
     "death_drops": "BL9_Drops_Aliens_Super_Soldiers",
     "special_attacks": [
       [ "BIO_OP_TAKEDOWN", 22 ],
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 25, "armor_penetration": 17 } ],
-        "hit_dmg_u": "The %1$s pierces you with it's spiked legs!",
-        "hit_dmg_npc": "The %1$s pierces <npcname> with it's spiked legs!",
-        "no_dmg_msg_u": "The %1$s tries to pierce you with it's spiked legs, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pierce <npcname> with it's spiked legs, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked leg at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked leg at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 30, "armor_penetration": 15 } ],
-        "hit_dmg_u": "The %1$s swings wildly at you with it's tentacles!",
-        "hit_dmg_npc": "The %1$s swings wildly at <npcname> with it's tentacles!",
-        "no_dmg_msg_u": "The %1$s tries to swing at you with it's tentacles, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to swing at <npcname> with it's tentacles, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's tentacles at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's tentacles at <npcname>, but they dodge!"
-      },
+      { "id": "ezron_6_legs" },
+      { "id": "ezron_6_tentacles" },
       {
         "type": "gun",
         "cooldown": 12,
@@ -677,71 +474,11 @@
     "death_drops": "BL9_Drops_Aliens_Dominators_Regular_Super_Soldiers",
     "special_attacks": [
       [ "BIO_OP_TAKEDOWN", 22 ],
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 28, "armor_penetration": 15 } ],
-        "hit_dmg_u": "The %1$s pinches you with it's pincer!",
-        "hit_dmg_npc": "The %1$s pinches <npcname> with it's pincer!",
-        "no_dmg_msg_u": "The %1$s tries to pinch you with it's pincer, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pinch <npcname> with it's pincer, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s attempts to pinch you with it's pincer, but you dodge!",
-        "miss_msg_npc": "The %s attempts to pinch <npcname> with it's pincer, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 25, "armor_penetration": 18 } ],
-        "hit_dmg_u": "The %1$s ferociously claws you!",
-        "hit_dmg_npc": "The %1$s ferociously claws <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to claw you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to claw <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's knifelike claw at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's knifelike claw at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 28, "armor_penetration": 15 } ],
-        "hit_dmg_u": "The %1$s swings it's spiked tongue at you!",
-        "hit_dmg_npc": "The %1$s swings it's spiked tongue at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to swing it's spiked tongue at you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to swing it's spiked tongue at <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked tongue at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked tongue at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 25, "armor_penetration": 18 } ],
-        "hit_dmg_u": "The %1$s pierces you with it's spiked legs!",
-        "hit_dmg_npc": "The %1$s pierces <npcname> with it's spiked legs!",
-        "no_dmg_msg_u": "The %1$s tries to pierce you with it's spiked legs, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pierce <npcname> with it's spiked legs, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked leg at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked leg at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 30, "armor_penetration": 15 } ],
-        "hit_dmg_u": "The %1$s slams you with it's tentacles!",
-        "hit_dmg_npc": "The %1$s slams <npcname> with it's tentacles!",
-        "no_dmg_msg_u": "The %1$s tries to slam you with it's tentacles, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slam <npcname> with it's tentacles, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s tries to slam you with it's tentacles, but you dodge!",
-        "miss_msg_npc": "The %s tris to slam <npcname> with it's tentacles, but they dodge!"
-      },
+      { "id": "weapon_of_evolution1_pincer" },
+      { "id": "weapon_of_evolution1_claw" },
+      { "id": "weapon_of_evolution1_tongue" },
+      { "id": "weapon_of_evolution1_legs" },
+      { "id": "weapon_of_evolution1_tentacles" },
       {
         "type": "gun",
         "cooldown": 12,
@@ -795,33 +532,7 @@
     "dodge": 2,
     "regenerates": 10,
     "death_drops": "BL9_Drops_Regen",
-    "special_attacks": [
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 9,
-        "move_cost": 75,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 12, "armor_penetration": 10 } ],
-        "hit_dmg_u": "The %1$s gnaws at you!",
-        "hit_dmg_npc": "The %1$s gnaws <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to bite you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to bite <npcname>, but fails to penetrate their armor!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 100,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 14, "armor_penetration": 11 } ],
-        "hit_dmg_u": "The %1$s slams you!",
-        "hit_dmg_npc": "The %1$s slams <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to slam you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slam <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's limb at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's limb at <npcname>, but they dodge!"
-      },
-      { "id": "ranged_pull", "cooldown": 12 }
-    ],
+    "special_attacks": [ { "id": "regenerator_gnaw" }, { "id": "regenerator_slam" }, { "id": "ranged_pull", "cooldown": 12 } ],
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
   },
   {
@@ -851,46 +562,9 @@
     "regenerates": 11,
     "death_drops": "BL9_Drops_Regen",
     "special_attacks": [
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 9,
-        "move_cost": 75,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 12, "armor_penetration": 10 } ],
-        "hit_dmg_u": "The %1$s gnaws at you!",
-        "hit_dmg_npc": "The %1$s gnaws <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to bite you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to bite <npcname>, but fails to penetrate their armor!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 100,
-        "damage_max_instance": [
-          { "damage_type": "stab", "amount": 12, "armor_penetration": 15 },
-          { "damage_type": "bash", "amount": 2, "armor_penetration": 10 }
-        ],
-        "hit_dmg_u": "The %1$s slams you!",
-        "hit_dmg_npc": "The %1$s slams <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to slam you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slam <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's limb at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's limb at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 10,
-        "move_cost": 150,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 14, "armor_penetration": 12 } ],
-        "hit_dmg_u": "The %1$s impales you with it's spiky protrusions!",
-        "hit_dmg_npc": "The %1$s impales <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to impale you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to impale <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s impales you, but you dodge!",
-        "miss_msg_npc": "The %s impales <npcname>, but they dodge!"
-      },
+      { "id": "iron_maiden_gnaw" },
+      { "id": "iron_maiden_slam" },
+      { "id": "iron_maiden_impale" },
       { "id": "ranged_pull", "cooldown": 12 }
     ],
     "flags": [ "SEES", "HEARS", "SMELLS", "WARM", "BASHES", "GROUP_BASH", "NO_BREATHE", "GRABS", "PATH_AVOID_DANGER", "PUSH_MON" ]
@@ -926,19 +600,7 @@
     "death_drops": "BL9_Drops_Regen",
     "special_attacks": [
       { "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 12, "armor_multiplier": 1.15 } ] },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 11,
-        "move_cost": 225,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 40, "armor_penetration": 28 } ],
-        "hit_dmg_u": "The %1$s slams you with it's tentacle!",
-        "hit_dmg_npc": "The %1$s slams <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to slam you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slam <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s slams you, but you dodge!",
-        "miss_msg_npc": "The %s slams <npcname>, but they dodge!"
-      },
+      { "id": "chimera_tentacle" },
       {
         "type": "spell",
         "spell_data": { "id": "twisted_one_tentwhip" },
@@ -980,19 +642,7 @@
     "death_drops": "BL9_Drops_Chimeraevo",
     "special_attacks": [
       { "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 12, "armor_multiplier": 1.15 } ] },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 9,
-        "move_cost": 75,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 38, "armor_penetration": 28 } ],
-        "hit_dmg_u": "The %1$s slices you with it's pincer!",
-        "hit_dmg_npc": "The %1$s slices <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to slice you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slice <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s slices you, but you dodge!",
-        "miss_msg_npc": "The %s slices <npcname>, but they dodge!"
-      },
+      { "id": "chimera_mutated_pincer" },
       {
         "type": "spell",
         "spell_data": { "id": "chimera_mutated_pincerpinch" },
@@ -1089,32 +739,8 @@
     "special_attacks": [
       [ "PARROT", 5 ],
       { "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 15, "armor_multiplier": 1.15 } ] },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 9,
-        "move_cost": 75,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 60, "armor_penetration": 34 } ],
-        "hit_dmg_u": "The %1$s thrusts it's leg at you!",
-        "hit_dmg_npc": "The %1$s pierces <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to pierce you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pierce <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s thrusts it's leg at you, but you dodge!",
-        "miss_msg_npc": "The %s pierces <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 200,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 68, "armor_penetration": 34 } ],
-        "hit_dmg_u": "The %1$s bites you!",
-        "hit_dmg_npc": "The %1$s bites <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to bite you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to bite <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s bites you, but you dodge!",
-        "miss_msg_npc": "The %s bites <npcname>, but they dodge!"
-      },
+      { "id": "vile_one_leg" },
+      { "id": "vile_one_bite" },
       {
         "type": "spell",
         "spell_data": { "id": "vile_one_mandiblecrunch" },
@@ -1152,71 +778,11 @@
     "death_drops": "BL9_Drops_Aliens_Dominators_Regular_Super_Soldiers",
     "special_attacks": [
       [ "BIO_OP_TAKEDOWN", 22 ],
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 28, "armor_penetration": 21 } ],
-        "hit_dmg_u": "The %1$s pinches you with it's pincer!",
-        "hit_dmg_npc": "The %1$s pinches <npcname> with it's pincer!",
-        "no_dmg_msg_u": "The %1$s tries to pinch you with it's pincer, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pinch <npcname> with it's pincer, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s attempts to pinch you with it's pincer, but you dodge!",
-        "miss_msg_npc": "The %s attempts to pinch <npcname> with it's pincer, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 25, "armor_penetration": 24 } ],
-        "hit_dmg_u": "The %1$s ferociously claws you!",
-        "hit_dmg_npc": "The %1$s ferociously claws <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to claw you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to claw <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's knifelike claw at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's knifelike claw at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 28, "armor_penetration": 21 } ],
-        "hit_dmg_u": "The %1$s swings it's spiked tongue at you!",
-        "hit_dmg_npc": "The %1$s swings it's spiked tongue at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to swing it's spiked tongue at you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to swing it's spiked tongue at <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked tongue at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked tongue at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 25, "armor_penetration": 24 } ],
-        "hit_dmg_u": "The %1$s pierces you with it's spiked legs!",
-        "hit_dmg_npc": "The %1$s pierces <npcname> with it's spiked legs!",
-        "no_dmg_msg_u": "The %1$s tries to pierce you with it's spiked legs, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pierce <npcname> with it's spiked legs, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked leg at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked leg at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 30, "armor_penetration": 21 } ],
-        "hit_dmg_u": "The %1$s slams you with it's tentacles!",
-        "hit_dmg_npc": "The %1$s slams <npcname> with it's tentacles!",
-        "no_dmg_msg_u": "The %1$s tries to slam you with it's tentacles, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slam <npcname> with it's tentacles, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s tries to slam you with it's tentacles, but you dodge!",
-        "miss_msg_npc": "The %s tris to slam <npcname> with it's tentacles, but they dodge!"
-      },
+      { "id": "weapon_of_evolution2_pincer" },
+      { "id": "weapon_of_evolution2_claw" },
+      { "id": "weapon_of_evolution2_tongue" },
+      { "id": "weapon_of_evolution2_legs" },
+      { "id": "weapon_of_evolution2_tentacles" },
       {
         "type": "gun",
         "cooldown": 12,
@@ -1272,71 +838,11 @@
     "death_drops": "BL9_Drops_Aliens_Dominators_Tough_Super_Soldiers",
     "special_attacks": [
       [ "BIO_OP_TAKEDOWN", 22 ],
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 28, "armor_penetration": 24 } ],
-        "hit_dmg_u": "The %1$s pinches you with it's pincer!",
-        "hit_dmg_npc": "The %1$s pinches <npcname> with it's pincer!",
-        "no_dmg_msg_u": "The %1$s tries to pinch you with it's pincer, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pinch <npcname> with it's pincer, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s attempts to pinch you with it's pincer, but you dodge!",
-        "miss_msg_npc": "The %s attempts to pinch <npcname> with it's pincer, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 25, "armor_penetration": 27 } ],
-        "hit_dmg_u": "The %1$s ferociously claws you!",
-        "hit_dmg_npc": "The %1$s ferociously claws <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to claw you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to claw <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's knifelike claw at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's knifelike claw at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 28, "armor_penetration": 24 } ],
-        "hit_dmg_u": "The %1$s swings it's spiked tongue at you!",
-        "hit_dmg_npc": "The %1$s swings it's spiked tongue at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to swing it's spiked tongue at you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to swing it's spiked tongue at <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked tongue at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked tongue at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 25, "armor_penetration": 27 } ],
-        "hit_dmg_u": "The %1$s pierces you with it's spiked legs!",
-        "hit_dmg_npc": "The %1$s pierces <npcname> with it's spiked legs!",
-        "no_dmg_msg_u": "The %1$s tries to pierce you with it's spiked legs, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pierce <npcname> with it's spiked legs, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked leg at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked leg at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 30, "armor_penetration": 24 } ],
-        "hit_dmg_u": "The %1$s slams you with it's tentacles!",
-        "hit_dmg_npc": "The %1$s slams <npcname> with it's tentacles!",
-        "no_dmg_msg_u": "The %1$s tries to slam you with it's tentacles, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slam <npcname> with it's tentacles, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s tries to slam you with it's tentacles, but you dodge!",
-        "miss_msg_npc": "The %s tris to slam <npcname> with it's tentacles, but they dodge!"
-      },
+      { "id": "weapon_of_evolution3_pincer" },
+      { "id": "weapon_of_evolution3_claw" },
+      { "id": "weapon_of_evolution3_tongue" },
+      { "id": "weapon_of_evolution3_legs" },
+      { "id": "weapon_of_evolution3_tentacles" },
       {
         "type": "gun",
         "cooldown": 12,
@@ -1392,71 +898,11 @@
     "death_drops": "BL9_Drops_Aliens_Dominators_Tough_Super_Soldiers",
     "special_attacks": [
       [ "BIO_OP_TAKEDOWN", 22 ],
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 28, "armor_penetration": 24 } ],
-        "hit_dmg_u": "The %1$s pinches you with it's pincer!",
-        "hit_dmg_npc": "The %1$s pinches <npcname> with it's pincer!",
-        "no_dmg_msg_u": "The %1$s tries to pinch you with it's pincer, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pinch <npcname> with it's pincer, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s attempts to pinch you with it's pincer, but you dodge!",
-        "miss_msg_npc": "The %s attempts to pinch <npcname> with it's pincer, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 25, "armor_penetration": 27 } ],
-        "hit_dmg_u": "The %1$s ferociously claws you!",
-        "hit_dmg_npc": "The %1$s ferociously claws <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to claw you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to claw <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's knifelike claw at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's knifelike claw at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 28, "armor_penetration": 24 } ],
-        "hit_dmg_u": "The %1$s swings it's spiked tongue at you!",
-        "hit_dmg_npc": "The %1$s swings it's spiked tongue at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to swing it's spiked tongue at you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to swing it's spiked tongue at <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked tongue at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked tongue at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 25, "armor_penetration": 27 } ],
-        "hit_dmg_u": "The %1$s pierces you with it's spiked legs!",
-        "hit_dmg_npc": "The %1$s pierces <npcname> with it's spiked legs!",
-        "no_dmg_msg_u": "The %1$s tries to pierce you with it's spiked legs, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pierce <npcname> with it's spiked legs, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked leg at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked leg at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 30, "armor_penetration": 24 } ],
-        "hit_dmg_u": "The %1$s slams you with it's tentacles!",
-        "hit_dmg_npc": "The %1$s slams <npcname> with it's tentacles!",
-        "no_dmg_msg_u": "The %1$s tries to slam you with it's tentacles, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slam <npcname> with it's tentacles, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s tries to slam you with it's tentacles, but you dodge!",
-        "miss_msg_npc": "The %s tris to slam <npcname> with it's tentacles, but they dodge!"
-      },
+      { "id": "weapon_of_evolution4_pincer" },
+      { "id": "weapon_of_evolution4_claw" },
+      { "id": "weapon_of_evolution4_tongue" },
+      { "id": "weapon_of_evolution4_legs" },
+      { "id": "weapon_of_evolution4_tentacles" },
       {
         "type": "gun",
         "cooldown": 12,
@@ -1512,71 +958,11 @@
     "death_drops": "BL9_Drops_Aliens_Dominators_Tough_Super_Soldiers",
     "special_attacks": [
       [ "BIO_OP_TAKEDOWN", 22 ],
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 28, "armor_penetration": 27 } ],
-        "hit_dmg_u": "The %1$s pinches you with it's pincer!",
-        "hit_dmg_npc": "The %1$s pinches <npcname> with it's pincer!",
-        "no_dmg_msg_u": "The %1$s tries to pinch you with it's pincer, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pinch <npcname> with it's pincer, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s attempts to pinch you with it's pincer, but you dodge!",
-        "miss_msg_npc": "The %s attempts to pinch <npcname> with it's pincer, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 25, "armor_penetration": 30 } ],
-        "hit_dmg_u": "The %1$s ferociously claws you!",
-        "hit_dmg_npc": "The %1$s ferociously claws <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to claw you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to claw <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's knifelike claw at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's knifelike claw at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 28, "armor_penetration": 27 } ],
-        "hit_dmg_u": "The %1$s swings it's spiked tongue at you!",
-        "hit_dmg_npc": "The %1$s swings it's spiked tongue at <npcname>!",
-        "no_dmg_msg_u": "The %1$s tries to swing it's spiked tongue at you, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to swing it's spiked tongue at <npcname>, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked tongue at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked tongue at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 8,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 25, "armor_penetration": 30 } ],
-        "hit_dmg_u": "The %1$s pierces you with it's spiked legs!",
-        "hit_dmg_npc": "The %1$s pierces <npcname> with it's spiked legs!",
-        "no_dmg_msg_u": "The %1$s tries to pierce you with it's spiked legs, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to pierce <npcname> with it's spiked legs, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s swings it's spiked leg at you, but you dodge!",
-        "miss_msg_npc": "The %s swings it's spiked leg at <npcname>, but they dodge!"
-      },
-      {
-        "type": "monster_attack",
-        "attack_type": "melee",
-        "cooldown": 12,
-        "move_cost": 140,
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 30, "armor_penetration": 27 } ],
-        "hit_dmg_u": "The %1$s slams you with it's tentacles!",
-        "hit_dmg_npc": "The %1$s slams <npcname> with it's tentacles!",
-        "no_dmg_msg_u": "The %1$s tries to slam you with it's tentacles, but fails to penetrate your armor!",
-        "no_dmg_msg_npc": "The %1$s tries to slam <npcname> with it's tentacles, but fails to penetrate their armor!",
-        "miss_msg_u": "The %s tries to slam you with it's tentacles, but you dodge!",
-        "miss_msg_npc": "The %s tris to slam <npcname> with it's tentacles, but they dodge!"
-      },
+      { "id": "weapon_of_evolution5_pincer" },
+      { "id": "weapon_of_evolution5_claw" },
+      { "id": "weapon_of_evolution5_tongue" },
+      { "id": "weapon_of_evolution5_legs" },
+      { "id": "weapon_of_evolution5_tentacles" },
       {
         "type": "gun",
         "cooldown": 12,
@@ -1605,3 +991,7 @@
     ]
   }
 ]
+
+
+
+
