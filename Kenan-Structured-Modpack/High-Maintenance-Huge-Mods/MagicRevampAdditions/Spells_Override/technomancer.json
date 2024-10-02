@@ -2,14 +2,27 @@
   {
     "id": "bless",
     "type": "SPELL",
-    "name": { "str": "Bless" },
+    "name": {
+      "str": "Bless"
+    },
     "description": "A spell of blessing that gives you energy and boosts your abilities.",
-    "valid_targets": [ "self", "ally" ],
-    "flags": [ "VERBAL", "SOMATIC", "NO_LEGS", "NO_PROJECTILE" ],
+    "valid_targets": [
+      "self",
+      "ally"
+    ],
+    "flags": [
+      "ENHANCEMENT_SPELL",
+      "VERBAL",
+      "SOMATIC",
+      "NO_LEGS",
+      "NO_PROJECTILE"
+    ],
     "effect": "attack",
     "effect_str": "bless",
     "shape": "blast",
-    "affected_body_parts": [ "torso" ],
+    "affected_body_parts": [
+      "torso"
+    ],
     "base_casting_time": 100,
     "base_energy_cost": 100,
     "energy_source": "MANA",
@@ -25,19 +38,33 @@
     "//": "duration is in moves",
     "min_duration": 6000,
     "max_duration": 50000,
-    "duration_increment": 1200
+    "duration_increment": 1200,
+    "extra_effects": [
+      {
+        "id": "eoc_enhancement_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "invisibility",
     "type": "SPELL",
-    "name": { "str": "Invisibility" },
+    "name": {
+      "str": "Invisibility"
+    },
     "description": "Creates a magical field that hides your visual presence to others.  Colloquially known as invisibility, but without all the science mumbo jumbo.",
     "message": "To the outside world, your body fades away and you cease to exist!",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "effect": "attack",
     "effect_str": "invisibility",
     "shape": "blast",
-    "flags": [ "NO_PROJECTILE" ],
+    "flags": [
+      "ENHANCEMENT_SPELL",
+      "SILENT",
+      "SOMATIC"
+    ],
     "spell_class": "TECHNOMANCER",
     "difficulty": 4,
     "base_casting_time": 100,
@@ -46,15 +73,30 @@
     "min_duration": 1250,
     "max_duration": 9000,
     "duration_increment": 250,
-    "max_level": 30
+    "max_level": 30,
+    "extra_effects": [
+      {
+        "id": "eoc_enhancement_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "holy_blade",
     "type": "SPELL",
-    "name": { "str": "Holy Blade" },
+    "name": {
+      "str": "Holy Blade"
+    },
     "description": "This blade of light will cut through any evil it makes contact with!",
-    "valid_targets": [ "self" ],
-    "flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "VERBAL",
+      "NO_LEGS",
+      "CONCENTRATE"
+    ],
     "min_range": 0,
     "max_range": 0,
     "min_damage": 1,
@@ -71,15 +113,32 @@
     "max_level": 22,
     "spell_class": "TECHNOMANCER",
     "energy_source": "MANA",
-    "learn_spells": { "holy_blade_plus": 15 }
+    "learn_spells": {
+      "holy_blade_plus": 15
+    },
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "holy_blade_plus",
     "type": "SPELL",
-    "name": { "str": "Enhanced Mage Blade" },
+    "name": {
+      "str": "Enhanced Mage Blade"
+    },
     "description": "This blade of light will cut through any evil it makes contact with!  Now you know this spell like the back of your hand, and start to design your own version.",
-    "valid_targets": [ "self" ],
-    "flags": [ "VERBAL", "NO_LEGS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "VERBAL",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "min_range": 0,
     "max_range": 0,
     "min_damage": 1,
@@ -95,15 +154,31 @@
     "difficulty": 9,
     "max_level": 37,
     "spell_class": "TECHNOMANCER",
-    "energy_source": "MANA"
+    "energy_source": "MANA",
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "spirit_armor",
     "type": "SPELL",
-    "name": { "str": "Spiritual Armor" },
+    "name": {
+      "str": "Spiritual Armor"
+    },
     "description": "Evil will not make it through your defenses if your faith is strong enough!",
-    "valid_targets": [ "self" ],
-    "flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE", "SOMATIC" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "VERBAL",
+      "NO_LEGS",
+      "CONCENTRATE",
+      "SOMATIC"
+    ],
     "min_range": 0,
     "max_range": 0,
     "min_damage": 1,
@@ -120,15 +195,33 @@
     "min_duration": 24000,
     "max_duration": 520000,
     "duration_increment": 24000,
-    "learn_spells": { "spirit_armor_plus": 15 }
+    "learn_spells": {
+      "spirit_armor_plus": 15
+    },
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "spirit_armor_plus",
     "type": "SPELL",
-    "name": { "str": "Enhanced Mage Armor" },
+    "name": {
+      "str": "Enhanced Mage Armor"
+    },
     "description": "Evil will not make it through your defenses if your faith is strong enough!  Now you know this spell like the back of your hand, and start to design your own version.",
-    "valid_targets": [ "self" ],
-    "flags": [ "VERBAL", "NO_LEGS", "SOMATIC" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "VERBAL",
+      "NO_LEGS",
+      "SOMATIC",
+      "NO_FAIL"
+    ],
     "min_range": 0,
     "max_range": 0,
     "min_damage": 1,
@@ -148,15 +241,30 @@
     "energy_increment": -14,
     "min_duration": 360000,
     "max_duration": 3220000,
-    "duration_increment": 72000
+    "duration_increment": 72000,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "create_atomic_lamp",
     "type": "SPELL",
-    "name": { "str": "Lamp" },
+    "name": {
+      "str": "Lamp"
+    },
     "description": "Creates a magical lamp.",
-    "valid_targets": [ "none" ],
-    "flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE" ],
+    "valid_targets": [
+      "none"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "VERBAL",
+      "NO_LEGS",
+      "CONCENTRATE"
+    ],
     "min_range": 0,
     "max_range": 0,
     "min_damage": 1,
@@ -172,20 +280,37 @@
     "base_energy_cost": 750,
     "min_duration": 100000,
     "max_duration": 1500000,
-    "duration_increment": 45000
+    "duration_increment": 45000,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "recover_bionic_power",
     "type": "SPELL",
-    "name": { "str": "Manatricity" },
+    "name": {
+      "str": "Manatricity"
+    },
     "description": "You have found a way to convert your spiritual energy into power you can use for your bionics.",
-    "valid_targets": [ "self" ],
-    "flags": [ "NO_LEGS", "NO_HANDS", "SOMATIC", "VERBAL", "SILENT" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "RESTORATION_SPELL",
+      "NO_LEGS",
+      "NO_HANDS",
+      "SOMATIC",
+      "VERBAL",
+      "SILENT"
+    ],
     "min_damage": 250,
-    "damage_increment": 50.0,
+    "damage_increment": 50,
     "max_damage": 22500,
     "base_energy_cost": 250,
-    "energy_increment": 50.0,
+    "energy_increment": 50,
     "final_energy_cost": 22500,
     "max_level": 37,
     "spell_class": "TECHNOMANCER",
@@ -194,14 +319,24 @@
     "shape": "blast",
     "energy_source": "MANA",
     "difficulty": 6,
-    "base_casting_time": 1000
+    "base_casting_time": 1000,
+    "extra_effects": [
+      {
+        "id": "eoc_restoration_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "create_rune_technomancer",
     "type": "SPELL",
-    "name": { "str": "Technomancer Rune" },
+    "name": {
+      "str": "Technomancer Rune"
+    },
     "description": "This ritual creates a small pebble attuned to Technomancers.  You can use the rune as a catalyst for recipes.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -216,42 +351,80 @@
     "max_level": 0,
     "spell_class": "TECHNOMANCER",
     "energy_source": "MANA",
-    "flags": [ "PERMANENT", "NO_LEGS", "CONCENTRATE" ]
+    "flags": [
+      "CHANNELING_SPELL",
+      "PERMANENT",
+      "NO_LEGS",
+      "CONCENTRATE"
+    ],
+    "extra_effects": [
+      {
+        "id": "eoc_channeling_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "taze",
     "type": "SPELL",
-    "name": { "str": "Taze" },
+    "name": {
+      "str": "Taze"
+    },
     "description": "This spell creates a very short range bolt of electricity to shock your foes.",
-    "valid_targets": [ "hostile", "ground", "ally" ],
-    "flags": [ "NO_LEGS", "LOUD", "SOMATIC", "NO_HANDS" ],
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "NO_LEGS",
+      "LOUD",
+      "SOMATIC",
+      "NO_HANDS"
+    ],
     "effect": "attack",
     "shape": "blast",
     "spell_class": "TECHNOMANCER",
     "energy_source": "BIONIC",
     "difficulty": 1,
     "base_casting_time": 100,
-    "casting_time_increment": -1.0,
+    "casting_time_increment": -1,
     "final_casting_time": 70,
     "base_energy_cost": 50,
-    "energy_increment": -1.0,
+    "energy_increment": -1,
     "final_energy_cost": 20,
     "max_level": 30,
     "damage_type": "electric",
     "min_damage": 10,
     "max_damage": 45,
-    "damage_increment": 1.0,
+    "damage_increment": 1,
     "min_range": 1,
     "max_range": 6,
-    "range_increment": 0.2
+    "range_increment": 0.2,
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "quantum_tunnel_lesser",
     "type": "SPELL",
-    "name": { "str": "Lesser Quantum Tunnel" },
+    "name": {
+      "str": "Lesser Quantum Tunnel"
+    },
     "description": "This spell manipulates some quantum something or other to tunnel you through a short distance of space, and even matter, unfortunately there's that whole uncertainty thing as to where you come out.  It leaves you a little dazed on the other side as you reorient yourself.",
-    "valid_targets": [ "none" ],
-    "flags": [ "NO_LEGS", "NO_HANDS", "SILENT" ],
+    "valid_targets": [
+      "none"
+    ],
+    "flags": [
+      "CONVEYANCE_SPELL",
+      "NO_LEGS",
+      "NO_HANDS",
+      "SILENT"
+    ],
     "effect": "short_range_teleport",
     "effect_str": "dazed",
     "shape": "blast",
@@ -260,10 +433,10 @@
     "difficulty": 2,
     "max_level": 30,
     "base_casting_time": 100,
-    "casting_time_increment": -1.0,
+    "casting_time_increment": -1,
     "final_casting_time": 70,
     "base_energy_cost": 100,
-    "energy_increment": -1.0,
+    "energy_increment": -1,
     "final_energy_cost": 70,
     "min_aoe": 4,
     "max_aoe": 1,
@@ -272,15 +445,30 @@
     "max_range": 15,
     "range_increment": 0.25,
     "min_duration": 100,
-    "max_duration": 100
+    "max_duration": 100,
+    "extra_effects": [
+      {
+        "id": "eoc_conveyance_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "synaptic_stimulation",
     "type": "SPELL",
-    "name": { "str": "Synaptic Stimulation" },
+    "name": {
+      "str": "Synaptic Stimulation"
+    },
     "description": "This spell stimulates the synapses in your brain beyond normal processing speeds, giving you a large boost in mental processing capability, including enhancing your reflexes, speed, and raw intellectual power.  Use responsibly!",
-    "valid_targets": [ "self" ],
-    "flags": [ "NO_LEGS", "VERBAL", "NO_PROJECTILE" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "ENHANCEMENT_SPELL",
+      "NO_LEGS",
+      "VERBAL",
+      "NO_PROJECTILE"
+    ],
     "effect": "attack",
     "effect_str": "synaptic_stim",
     "shape": "blast",
@@ -292,19 +480,37 @@
     "casting_time_increment": -2.5,
     "final_casting_time": 425,
     "base_energy_cost": 500,
-    "energy_increment": -5.0,
+    "energy_increment": -5,
     "final_energy_cost": 350,
     "min_duration": 7000,
     "max_duration": 298000,
-    "duration_increment": 10000
+    "duration_increment": 10000,
+    "extra_effects": [
+      {
+        "id": "eoc_enhancement_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "laze",
     "type": "SPELL",
-    "name": { "str": "Laze" },
+    "name": {
+      "str": "Laze"
+    },
     "description": "You concentrate and release a focused beam of photons at a target, also known as a laser.",
-    "valid_targets": [ "hostile", "ground", "ally" ],
-    "flags": [ "NO_LEGS", "LOUD", "SOMATIC", "NO_PROJECTILE" ],
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "NO_LEGS",
+      "LOUD",
+      "SOMATIC",
+      "NO_PROJECTILE"
+    ],
     "effect": "attack",
     "shape": "blast",
     "spell_class": "TECHNOMANCER",
@@ -312,10 +518,10 @@
     "difficulty": 3,
     "max_level": 30,
     "base_casting_time": 100,
-    "casting_time_increment": -1.0,
+    "casting_time_increment": -1,
     "final_casting_time": 70,
     "base_energy_cost": 150,
-    "energy_increment": -2.0,
+    "energy_increment": -2,
     "final_energy_cost": 90,
     "min_damage": 15,
     "max_damage": 90,
@@ -323,15 +529,30 @@
     "damage_type": "heat",
     "min_range": 10,
     "max_range": 35,
-    "range_increment": 1.0
+    "range_increment": 1,
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "animated_blade",
     "type": "SPELL",
-    "name": { "str": "Animated Blade" },
+    "name": {
+      "str": "Animated Blade"
+    },
     "description": "This spell conjures flying animated blades that will cut your enemies down to size.  Into small pieces that is.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "SOMATIC", "VERBAL", "CONCENTRATE" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "SOMATIC",
+      "VERBAL",
+      "CONCENTRATE"
+    ],
     "effect": "summon",
     "effect_str": "mon_animated_blade",
     "shape": "blast",
@@ -340,10 +561,10 @@
     "difficulty": 6,
     "max_level": 37,
     "base_casting_time": 200,
-    "casting_time_increment": -3.0,
+    "casting_time_increment": -3,
     "final_casting_time": 100,
     "base_energy_cost": 350,
-    "energy_increment": -7.0,
+    "energy_increment": -7,
     "final_energy_cost": 100,
     "min_damage": 1,
     "max_damage": 3,
@@ -355,15 +576,30 @@
     "max_aoe": 3,
     "min_duration": 7000,
     "max_duration": 221000,
-    "duration_increment": 7000
+    "duration_increment": 7000,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "mirror_image",
     "type": "SPELL",
-    "name": { "str": "Mirror Image" },
+    "name": {
+      "str": "Mirror Image"
+    },
     "description": "This spell manipulates light into barely tangible duplicates of a living being, a magical hologram in short.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "SOMATIC", "VERBAL", "CONCENTRATE" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "SOMATIC",
+      "VERBAL",
+      "CONCENTRATE"
+    ],
     "effect": "summon",
     "effect_str": "mon_mirror_image",
     "shape": "blast",
@@ -372,10 +608,10 @@
     "difficulty": 4,
     "max_level": 30,
     "base_casting_time": 150,
-    "casting_time_increment": -2.0,
+    "casting_time_increment": -2,
     "final_casting_time": 100,
     "base_energy_cost": 200,
-    "energy_increment": -3.0,
+    "energy_increment": -3,
     "final_energy_cost": 100,
     "min_damage": 1,
     "max_damage": 8,
@@ -387,16 +623,37 @@
     "max_aoe": 3,
     "min_duration": 3000,
     "max_duration": 9000,
-    "duration_increment": 200
+    "duration_increment": 200,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "holographic_transposition",
     "type": "SPELL",
-    "name": { "str": "Holographic Transposition" },
+    "name": {
+      "str": "Holographic Transposition"
+    },
     "description": "Allows you to swap places with a previously existing holographic image of yourself.  If the universe itself can't tell you apart, who could?",
-    "valid_targets": [ "hostile", "ally" ],
-    "targeted_monster_ids": [ "mon_mirror_image", "mon_hologram" ],
-    "flags": [ "NO_LEGS", "LOUD", "SOMATIC", "SWAP_POS", "NO_PROJECTILE" ],
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "targeted_monster_ids": [
+      "mon_mirror_image",
+      "mon_hologram"
+    ],
+    "flags": [
+      "CONVEYANCE_SPELL",
+      "NO_LEGS",
+      "LOUD",
+      "SOMATIC",
+      "SWAP_POS",
+      "NO_PROJECTILE"
+    ],
     "effect": "attack",
     "shape": "blast",
     "spell_class": "TECHNOMANCER",
@@ -404,22 +661,37 @@
     "difficulty": 3,
     "max_level": 30,
     "base_casting_time": 100,
-    "casting_time_increment": -2.0,
+    "casting_time_increment": -2,
     "final_casting_time": 70,
     "base_energy_cost": 150,
-    "energy_increment": -3.0,
+    "energy_increment": -3,
     "final_energy_cost": 70,
     "min_range": 20,
     "max_range": 45,
-    "range_increment": 1.0
+    "range_increment": 1,
+    "extra_effects": [
+      {
+        "id": "eoc_conveyance_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "summon_floating_disk",
     "type": "SPELL",
-    "name": { "str": "Summon floating disk" },
+    "name": {
+      "str": "Summon floating disk"
+    },
     "description": "Summons a floating disk that is sworn to carry your burdens.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "SOMATIC", "VERBAL", "CONCENTRATE" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "SOMATIC",
+      "VERBAL",
+      "CONCENTRATE"
+    ],
     "effect": "summon_vehicle",
     "spell_class": "TECHNOMANCER",
     "energy_source": "MANA",
@@ -434,15 +706,30 @@
     "range_increment": 1,
     "min_duration": 300000,
     "max_duration": 16000000,
-    "duration_increment": 500000
+    "duration_increment": 500000,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "summon_magic_motorcycle",
     "type": "SPELL",
-    "name": { "str": "Summon Mojocycle" },
+    "name": {
+      "str": "Summon Mojocycle"
+    },
     "description": "You're not a cowboy, but on a steel horse you ride regardless.",
-    "valid_targets": [ "ground" ],
-    "flags": [ "SOMATIC", "VERBAL", "CONCENTRATE" ],
+    "valid_targets": [
+      "ground"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "SOMATIC",
+      "VERBAL",
+      "CONCENTRATE"
+    ],
     "effect": "summon_vehicle",
     "spell_class": "TECHNOMANCER",
     "energy_source": "MANA",
@@ -457,12 +744,20 @@
     "range_increment": 1,
     "min_duration": 240000,
     "max_duration": 2160000,
-    "duration_increment": 60000
+    "duration_increment": 60000,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "overcharge_burn",
     "type": "SPELL",
-    "name": { "str": "Overcharge Burn" },
+    "name": {
+      "str": "Overcharge Burn"
+    },
     "description": "The side effects of casting the overcharge spell.",
     "message": "",
     "effect": "spawn_item",
@@ -474,21 +769,34 @@
     "duration_increment": -10,
     "max_duration": 50,
     "max_level": 45,
-    "valid_targets": [ "none" ]
+    "valid_targets": [
+      "none"
+    ]
   },
   {
     "id": "overcharge_eyes",
     "type": "SPELL",
-    "name": { "str": "Optical Sneeze Beam" },
+    "name": {
+      "str": "Optical Sneeze Beam"
+    },
     "description": "You overcharge your internal batteries to send a semi-directed beam from your face.  The inventor of this spell must have had some weird sense of humor.",
     "message": "You overcharge your bionic energy through what ley lines you have left, and channel it through the center of your face.",
     "sound_description": "bzzzzzzt!",
     "sound_ambient": true,
     "effect": "attack",
     "shape": "cone",
-    "extra_effects": [ { "id": "overcharge_burn", "hit_self": true } ],
+    "extra_effects": [
+      {
+        "id": "overcharge_burn",
+        "hit_self": true
+      },
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ],
     "min_damage": 90,
-    "damage_increment": 5.0,
+    "damage_increment": 5,
     "max_damage": 300,
     "min_range": 8,
     "range_increment": 0.35,
@@ -505,16 +813,35 @@
     "max_level": 45,
     "base_casting_time": 120,
     "final_casting_time": 120,
-    "valid_targets": [ "hostile", "ground" ],
-    "flags": [ "LOUD", "VERBAL", "NO_HANDS", "NO_LEGS" ]
+    "valid_targets": [
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "LOUD",
+      "VERBAL",
+      "NO_HANDS",
+      "NO_LEGS"
+    ]
   },
   {
     "type": "SPELL",
-    "name": { "str": "X-ray Vision" },
+    "name": {
+      "str": "X-ray Vision"
+    },
     "id": "x-ray",
     "description": "You fire a cone of X-rays that magically allow you to see that area for a short time.",
-    "valid_targets": [ "hostile", "ground", "ally" ],
-    "flags": [ "CONCENTRATE", "IGNORE_WALLS" ],
+    "valid_targets": [
+      "hostile",
+      "ground",
+      "ally"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "CONCENTRATE",
+      "IGNORE_WALLS"
+    ],
     "effect": "attack",
     "shape": "cone",
     "field_id": "fd_clairvoyant",
@@ -534,18 +861,34 @@
     "base_casting_time": 175,
     "base_energy_cost": 550,
     "energy_source": "BIONIC",
-    "spell_class": "TECHNOMANCER"
+    "spell_class": "TECHNOMANCER",
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "type": "SPELL",
-    "name": { "str": "Knock" },
+    "name": {
+      "str": "Knock"
+    },
     "id": "knock",
     "description": "You channel magic into a force capable of opening doors.  This variant can only open wooden doors.",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "ter_transform",
     "effect_str": "unlock_doors",
     "shape": "blast",
-    "flags": [ "NO_LEGS", "SOMATIC", "CONCENTRATE", "NO_PROJECTILE" ],
+    "flags": [
+      "CHANNELING_SPELL",
+      "NO_LEGS",
+      "SOMATIC",
+      "CONCENTRATE",
+      "NO_PROJECTILE"
+    ],
     "max_level": 22,
     "base_casting_time": 1200,
     "final_casting_time": 980,
@@ -556,18 +899,34 @@
     "max_range": 6,
     "range_increment": 0.2,
     "energy_source": "MANA",
-    "spell_class": "TECHNOMANCER"
+    "spell_class": "TECHNOMANCER",
+    "extra_effects": [
+      {
+        "id": "eoc_channeling_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "type": "SPELL",
-    "name": { "str": "Improved Knock" },
+    "name": {
+      "str": "Improved Knock"
+    },
     "id": "improved_knock",
     "description": "You channel magic into a force capable of opening doors.  This variant can open any locked door.",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "ter_transform",
     "effect_str": "unlock_all_doors",
     "shape": "blast",
-    "flags": [ "NO_LEGS", "SOMATIC", "CONCENTRATE", "NO_PROJECTILE" ],
+    "flags": [
+      "CHANNELING_SPELL",
+      "NO_LEGS",
+      "SOMATIC",
+      "CONCENTRATE",
+      "NO_PROJECTILE"
+    ],
     "max_level": 22,
     "base_casting_time": 2600,
     "final_casting_time": 2270,
@@ -577,15 +936,32 @@
     "min_range": 6,
     "max_range": 6,
     "energy_source": "MANA",
-    "spell_class": "TECHNOMANCER"
+    "spell_class": "TECHNOMANCER",
+    "extra_effects": [
+      {
+        "id": "eoc_channeling_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "technomancer_knifeshot",
     "type": "SPELL",
-    "name": { "str": "Knifeshot" },
+    "name": {
+      "str": "Knifeshot"
+    },
     "description": "This spell generates a magnetic field around a knife, before launching it at high speed.",
-    "valid_targets": [ "hostile", "ally" ],
-    "flags": [ "CONCENTRATE", "SILENT", "SOMATIC" ],
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "CONCENTRATE",
+      "SILENT",
+      "SOMATIC",
+      "NO_HANDS"
+    ],
     "components": "spell_components_knifeshot",
     "effect": "attack",
     "shape": "blast",
@@ -599,7 +975,7 @@
     "base_energy_cost": 50,
     "min_damage": 30,
     "max_damage": 105,
-    "damage_increment": 2.0,
+    "damage_increment": 2,
     "damage_type": "stab",
     "min_range": 10,
     "max_range": 30,
@@ -607,15 +983,35 @@
     "min_pierce": 3,
     "max_pierce": 15,
     "pierce_increment": 0.35,
-    "learn_spells": { "technomancer_knifeshot_superior": 20 }
+    "learn_spells": {
+      "technomancer_knifeshot_superior": 20
+    },
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "technomancer_knifeshot_superior",
     "type": "SPELL",
-    "name": { "str": "Hypervelocity Knifeshot" },
+    "name": {
+      "str": "Hypervelocity Knifeshot"
+    },
     "description": "This spell goes even further beyond, launching a knife so fast it can pierce through targets.",
-    "valid_targets": [ "hostile", "ally" ],
-    "flags": [ "CONCENTRATE", "LOUD", "SOMATIC" ],
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "CONCENTRATE",
+      "LOUD",
+      "SOMATIC",
+      "NO_HANDS",
+      "NO_FAIL"
+    ],
     "components": "spell_components_knifeshot",
     "effect": "attack",
     "shape": "line",
@@ -631,15 +1027,30 @@
     "min_range": 9,
     "max_range": 9,
     "min_pierce": 20,
-    "max_pierce": 20
+    "max_pierce": 20,
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "technomancer_conjure_radio",
     "type": "SPELL",
-    "name": { "str": "Speak through the Aether" },
+    "name": {
+      "str": "Speak through the Aether"
+    },
     "description": "One of the most widely-known pre-modern technomantic spells, this allows technomancers to communicate at a distance.  Its use declined rapidly after Guglielmo Marconi invented the radio and suddenly everyone could listen in to their conversations.",
-    "valid_targets": [ "self" ],
-    "flags": [ "CONCENTRATE", "VERBAL", "SOMATIC" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "CONCENTRATE",
+      "VERBAL",
+      "SOMATIC"
+    ],
     "effect": "spawn_item",
     "effect_str": "technomancer_summoned_radio",
     "shape": "blast",
@@ -651,15 +1062,30 @@
     "duration_increment": 15000,
     "energy_source": "MANA",
     "base_casting_time": 6000,
-    "base_energy_cost": 450
+    "base_energy_cost": 450,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "technomancer_conjure_ups",
     "type": "SPELL",
-    "name": { "str": "Power Supply" },
+    "name": {
+      "str": "Power Supply"
+    },
     "description": "For the technomancer with no enhancements, this spell summons a power supply composed of pure mana that can be used to charge any compatible device.  It will continually recharge until the duration expires.",
-    "valid_targets": [ "self" ],
-    "flags": [ "CONCENTRATE", "VERBAL", "SOMATIC" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "CONCENTRATE",
+      "VERBAL",
+      "SOMATIC"
+    ],
     "effect": "spawn_item",
     "effect_str": "technomancer_summoned_ups",
     "shape": "blast",
@@ -673,15 +1099,31 @@
     "base_casting_time": 3000,
     "base_energy_cost": 600,
     "final_energy_cost": 900,
-    "energy_increment": 15
+    "energy_increment": 15,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "technomancer_welder",
     "type": "SPELL",
-    "name": { "str": "Voltaic Touch" },
+    "name": {
+      "str": "Voltaic Touch"
+    },
     "description": "Using the principles of what were once called \"voltaic arcs\", you can electrically heat metal hot enough to weld it together.",
-    "valid_targets": [ "self" ],
-    "flags": [ "CONCENTRATE", "VERBAL", "SOMATIC", "NO_EXPLOSION_SFX" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "CONCENTRATE",
+      "VERBAL",
+      "SOMATIC",
+      "NO_EXPLOSION_SFX"
+    ],
     "effect": "spawn_item",
     "effect_str": "technomancer_welder",
     "shape": "blast",
@@ -695,6 +1137,12 @@
     "duration_increment": 35000,
     "energy_source": "MANA",
     "base_energy_cost": 500,
-    "base_casting_time": 3000
+    "base_casting_time": 3000,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   }
 ]

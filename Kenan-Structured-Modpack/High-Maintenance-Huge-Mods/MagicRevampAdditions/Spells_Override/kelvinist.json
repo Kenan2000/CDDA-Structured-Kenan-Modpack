@@ -2,15 +2,25 @@
   {
     "id": "point_flare",
     "type": "SPELL",
-    "name": { "str": "Point Flare" },
+    "name": {
+      "str": "Point Flare"
+    },
     "description": "Causes an intense heat at the location, damaging the target.",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "CONCENTRATE", "SOMATIC", "LOUD", "NO_PROJECTILE" ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "CONCENTRATE",
+      "SOMATIC",
+      "LOUD",
+      "NO_PROJECTILE"
+    ],
     "effect": "attack",
     "shape": "blast",
     "damage_type": "heat",
     "min_damage": 16,
-    "damage_increment": 4.0,
+    "damage_increment": 4,
     "max_damage": 120,
     "min_range": 3,
     "range_increment": 0.5,
@@ -20,21 +30,37 @@
     "difficulty": 4,
     "max_level": 22,
     "base_casting_time": 300,
-    "energy_source": "MANA"
+    "energy_source": "MANA",
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "nova_flare",
     "type": "SPELL",
-    "name": { "str": "Nova Flare" },
+    "name": {
+      "str": "Nova Flare"
+    },
     "description": "Causes an intense heat at the location, greatly damaging the target.",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "CONCENTRATE", "SOMATIC", "LOUD", "NO_PROJECTILE" ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "CONCENTRATE",
+      "SOMATIC",
+      "LOUD",
+      "NO_PROJECTILE"
+    ],
     "components": "spell_components_nova_flare",
     "effect": "attack",
     "shape": "blast",
     "damage_type": "heat",
     "min_damage": 45,
-    "damage_increment": 6.0,
+    "damage_increment": 6,
     "max_damage": 201,
     "min_range": 3,
     "range_increment": 0.5,
@@ -44,15 +70,28 @@
     "difficulty": 8,
     "max_level": 24,
     "base_casting_time": 300,
-    "energy_source": "MANA"
+    "energy_source": "MANA",
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "create_lighter",
     "type": "SPELL",
-    "name": { "str": "Finger Firelighter" },
+    "name": {
+      "str": "Finger Firelighter"
+    },
     "description": "Summons a small flame that does not burn you, but you can use it to light things on fire.  It seems to need you to have some intent to light things on fire, because you are able to put it in your pocket with no issue.",
-    "valid_targets": [ "none" ],
-    "flags": [ "NO_LEGS" ],
+    "valid_targets": [
+      "none"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "NO_LEGS"
+    ],
     "effect": "spawn_item",
     "effect_str": "finger_firelighter",
     "shape": "blast",
@@ -66,17 +105,34 @@
     "energy_source": "MANA",
     "base_casting_time": 250,
     "final_casting_time": 50,
-    "casting_time_increment": -20.0,
+    "casting_time_increment": -20,
     "base_energy_cost": 65,
-    "difficulty": 0
+    "difficulty": 0,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "ice_spike",
     "type": "SPELL",
-    "name": { "str": "Ice Spike" },
+    "name": {
+      "str": "Ice Spike"
+    },
     "description": "Causes jagged icicles to form in the air above the target, falling and damaging it.",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "CONCENTRATE", "SOMATIC", "LOUD", "VERBAL", "NO_PROJECTILE" ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "CONCENTRATE",
+      "SOMATIC",
+      "LOUD",
+      "VERBAL",
+      "NO_PROJECTILE"
+    ],
     "effect": "attack",
     "shape": "blast",
     "damage_type": "cold",
@@ -91,53 +147,88 @@
     "spell_class": "KELVINIST",
     "base_casting_time": 200,
     "energy_source": "MANA",
-    "base_energy_cost": 100
+    "base_energy_cost": 100,
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "fireball",
     "type": "SPELL",
-    "name": { "str": "Fireball" },
+    "name": {
+      "str": "Fireball"
+    },
     "description": "You hurl a pea-sized glowing orb that when reaches its target or an obstacle produces a pressure-less blast of searing heat.",
     "effect": "attack",
     "shape": "blast",
-    "valid_targets": [ "self", "ally", "hostile", "ground" ],
-    "flags": [ "SOMATIC", "VERBAL", "NO_LEGS", "IGNITE_FLAMMABLE" ],
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "SOMATIC",
+      "VERBAL",
+      "NO_LEGS",
+      "IGNITE_FLAMMABLE"
+    ],
     "max_level": 30,
     "min_damage": 24,
     "max_damage": 102,
-    "damage_increment": 2.0,
+    "damage_increment": 2,
     "min_aoe": 3,
     "max_aoe": 7,
     "aoe_increment": 0.1,
     "min_range": 6,
     "max_range": 30,
-    "range_increment": 1.0,
+    "range_increment": 1,
     "spell_class": "KELVINIST",
     "base_casting_time": 200,
     "base_energy_cost": 350,
     "energy_source": "MANA",
     "difficulty": 4,
-    "damage_type": "heat"
+    "damage_type": "heat",
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "cone_cold",
     "type": "SPELL",
-    "name": { "str": "Cone of Cold" },
+    "name": {
+      "str": "Cone of Cold"
+    },
     "description": "You blast a cone of frigid air toward the target.",
     "effect": "attack",
     "shape": "cone",
-    "valid_targets": [ "ally", "hostile", "ground" ],
-    "flags": [ "SOMATIC", "VERBAL" ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "SOMATIC",
+      "VERBAL"
+    ],
     "max_level": 30,
     "min_damage": 24,
     "max_damage": 102,
-    "damage_increment": 2.0,
+    "damage_increment": 2,
     "min_aoe": 30,
     "max_aoe": 90,
     "aoe_increment": 1.4,
     "min_range": 6,
     "max_range": 30,
-    "range_increment": 1.0,
+    "range_increment": 1,
     "spell_class": "KELVINIST",
     "base_casting_time": 200,
     "base_energy_cost": 350,
@@ -147,76 +238,129 @@
     "min_field_intensity": 0,
     "max_field_intensity": 4,
     "field_intensity_increment": 0.5,
-    "damage_type": "cold"
+    "damage_type": "cold",
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "burning_hands",
     "type": "SPELL",
-    "name": { "str": "Burning Hands" },
+    "name": {
+      "str": "Burning Hands"
+    },
     "description": "You're pretty sure you saw this in a game somewhere.  You fire a short-range cone of fire.",
     "effect": "attack",
     "shape": "cone",
-    "valid_targets": [ "ally", "hostile", "ground" ],
-    "flags": [ "SOMATIC", "VERBAL", "IGNITE_FLAMMABLE", "NO_HANDS" ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "SOMATIC",
+      "VERBAL",
+      "IGNITE_FLAMMABLE",
+      "NO_HANDS"
+    ],
     "max_level": 30,
     "min_damage": 8,
     "max_damage": 95,
-    "damage_increment": 4.0,
+    "damage_increment": 4,
     "min_range": 3,
     "max_range": 8,
     "range_increment": 0.25,
     "min_aoe": 25,
     "max_aoe": 90,
-    "aoe_increment": 5.0,
+    "aoe_increment": 5,
     "spell_class": "KELVINIST",
     "base_casting_time": 100,
     "base_energy_cost": 150,
     "energy_source": "MANA",
     "difficulty": 2,
-    "damage_type": "heat"
+    "damage_type": "heat",
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "frost_spray",
     "type": "SPELL",
-    "name": { "str": "Frost Spray" },
+    "name": {
+      "str": "Frost Spray"
+    },
     "description": "You're pretty sure you saw this in a game somewhere.  You fire a short-range cone of ice and cold.",
     "effect": "attack",
     "effect_str": "cold",
     "shape": "cone",
-    "affected_body_parts": [ "torso" ],
-    "valid_targets": [ "ally", "hostile", "ground" ],
-    "flags": [ "SOMATIC", "VERBAL", "NO_HANDS" ],
+    "affected_body_parts": [
+      "torso"
+    ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "SOMATIC",
+      "VERBAL",
+      "NO_HANDS"
+    ],
     "max_level": 30,
     "min_damage": 8,
     "max_damage": 95,
-    "damage_increment": 4.0,
+    "damage_increment": 4,
     "min_range": 3,
     "max_range": 8,
     "range_increment": 0.25,
     "min_aoe": 25,
     "max_aoe": 90,
-    "aoe_increment": 5.0,
+    "aoe_increment": 5,
     "spell_class": "KELVINIST",
     "base_casting_time": 100,
     "base_energy_cost": 100,
     "energy_source": "MANA",
     "difficulty": 2,
-    "damage_type": "cold"
+    "damage_type": "cold",
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "chilling_touch",
     "type": "SPELL",
-    "name": { "str": "Chilling Touch" },
+    "name": {
+      "str": "Chilling Touch"
+    },
     "description": "Freezes the touched target with intense cold.",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "SOMATIC", "NO_PROJECTILE" ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "SOMATIC",
+      "NO_PROJECTILE"
+    ],
     "effect": "attack",
     "effect_str": "cold",
     "shape": "blast",
-    "affected_body_parts": [ "torso" ],
+    "affected_body_parts": [
+      "torso"
+    ],
     "damage_type": "cold",
     "min_damage": 3,
-    "damage_increment": 4.0,
+    "damage_increment": 4,
     "max_damage": 60,
     "min_range": 1,
     "max_range": 1,
@@ -225,15 +369,31 @@
     "difficulty": 1,
     "max_level": 15,
     "base_casting_time": 100,
-    "energy_source": "MANA"
+    "energy_source": "MANA",
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "glide_ice",
     "type": "SPELL",
-    "name": { "str": "Glide on Ice" },
+    "name": {
+      "str": "Glide on Ice"
+    },
     "description": "Encases your feet in a magical coating of ice, allowing you to glide along smooth surfaces faster.",
-    "valid_targets": [ "none" ],
-    "flags": [ "VERBAL", "NO_HANDS", "NO_LEGS", "CONCENTRATE" ],
+    "valid_targets": [
+      "none"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "VERBAL",
+      "NO_HANDS",
+      "NO_LEGS",
+      "CONCENTRATE"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -248,15 +408,33 @@
     "min_duration": 24000,
     "max_duration": 520000,
     "duration_increment": 24000,
-    "learn_spells": { "glide_ice_plus": 15 }
+    "learn_spells": {
+      "glide_ice_plus": 15
+    },
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "glide_ice_plus",
     "type": "SPELL",
-    "name": { "str": "Enhanced Glide on Ice" },
+    "name": {
+      "str": "Enhanced Glide on Ice"
+    },
     "description": "Encases your feet in a magical coating of ice, allowing you to glide along smooth surfaces faster.",
-    "valid_targets": [ "none" ],
-    "flags": [ "VERBAL", "NO_HANDS", "NO_LEGS" ],
+    "valid_targets": [
+      "none"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "VERBAL",
+      "NO_HANDS",
+      "NO_LEGS",
+      "NO_FAIL"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -274,43 +452,78 @@
     "energy_increment": -2,
     "min_duration": 360000,
     "max_duration": 14500000,
-    "duration_increment": 360000
+    "duration_increment": 360000,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "hoary_blast",
     "type": "SPELL",
-    "name": { "str": "Hoary Blast" },
+    "name": {
+      "str": "Hoary Blast"
+    },
     "description": "You project a glowing white crystal of ice and it explodes on impact into a blossom of shattering cold.",
     "effect": "attack",
     "effect_str": "cold",
     "shape": "blast",
-    "affected_body_parts": [ "torso" ],
-    "valid_targets": [ "self", "ally", "hostile", "ground" ],
-    "flags": [ "SOMATIC", "VERBAL", "NO_LEGS" ],
+    "affected_body_parts": [
+      "torso"
+    ],
+    "valid_targets": [
+      "self",
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "SOMATIC",
+      "VERBAL",
+      "NO_LEGS"
+    ],
     "max_level": 30,
     "min_damage": 24,
     "max_damage": 102,
-    "damage_increment": 2.0,
+    "damage_increment": 2,
     "min_aoe": 3,
     "max_aoe": 8,
     "aoe_increment": 0.1,
     "min_range": 6,
     "max_range": 30,
-    "range_increment": 1.0,
+    "range_increment": 1,
     "spell_class": "KELVINIST",
     "base_casting_time": 200,
     "base_energy_cost": 350,
     "energy_source": "MANA",
     "difficulty": 4,
-    "damage_type": "cold"
+    "damage_type": "cold",
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "ice_shield",
     "type": "SPELL",
-    "name": { "str": "Ice Shield" },
+    "name": {
+      "str": "Ice Shield"
+    },
     "description": "Creates a magical shield of ice on your arm, you can defend yourself with it in melee combat and use it to bash.",
-    "valid_targets": [ "none" ],
-    "flags": [ "NO_LEGS", "CONCENTRATE", "VERBAL" ],
+    "valid_targets": [
+      "none"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "NO_LEGS",
+      "CONCENTRATE",
+      "VERBAL"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -325,15 +538,32 @@
     "min_duration": 24000,
     "max_duration": 520000,
     "duration_increment": 24000,
-    "learn_spells": { "ice_shield_plus": 15 }
+    "learn_spells": {
+      "ice_shield_plus": 15
+    },
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "ice_shield_plus",
     "type": "SPELL",
-    "name": { "str": "Enhanced Ice Shield" },
+    "name": {
+      "str": "Enhanced Ice Shield"
+    },
     "description": "Creates a magical shield of ice on your arm, you can defend yourself with it in melee combat and use it to bash.  Now you know this spell like the back of your hand, and start to design your own version.",
-    "valid_targets": [ "self" ],
-    "flags": [ "NO_LEGS", "VERBAL" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "NO_LEGS",
+      "VERBAL",
+      "NO_FAIL"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -351,19 +581,42 @@
     "energy_increment": -2,
     "min_duration": 360000,
     "max_duration": 14500000,
-    "duration_increment": 360000
+    "duration_increment": 360000,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "frost_armor",
     "type": "SPELL",
-    "name": { "str": "Frost Armor" },
+    "name": {
+      "str": "Frost Armor"
+    },
     "description": "Covers you in a thin layer of magical ice to protect you from harm.",
-    "valid_targets": [ "self" ],
-    "flags": [ "NO_LEGS", "CONCENTRATE", "VERBAL", "SOMATIC" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "NO_LEGS",
+      "CONCENTRATE",
+      "VERBAL",
+      "SOMATIC"
+    ],
     "effect": "spawn_item",
     "effect_str": "armor_frost",
     "shape": "blast",
-    "affected_body_parts": [ "head", "torso", "leg_l", "leg_r", "arm_r", "arm_l" ],
+    "affected_body_parts": [
+      "head",
+      "torso",
+      "leg_l",
+      "leg_r",
+      "arm_r",
+      "arm_l"
+    ],
     "energy_source": "MANA",
     "spell_class": "KELVINIST",
     "difficulty": 5,
@@ -373,19 +626,44 @@
     "min_duration": 24000,
     "max_duration": 520000,
     "duration_increment": 24000,
-    "learn_spells": { "frost_armor_plus": 15 }
+    "learn_spells": {
+      "frost_armor_plus": 15
+    },
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "frost_armor_plus",
     "type": "SPELL",
-    "name": { "str": "Enhanced Frost Armor" },
+    "name": {
+      "str": "Enhanced Frost Armor"
+    },
     "description": "Covers you in a thin layer of magical ice to attack the enemies nearby.",
-    "valid_targets": [ "self" ],
-    "flags": [ "NO_LEGS", "VERBAL", "SOMATIC" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "NO_LEGS",
+      "VERBAL",
+      "SOMATIC",
+      "NO_FAIL"
+    ],
     "effect": "spawn_item",
     "effect_str": "armor_frost",
     "shape": "blast",
-    "affected_body_parts": [ "head", "torso", "leg_l", "leg_r", "arm_r", "arm_l" ],
+    "affected_body_parts": [
+      "head",
+      "torso",
+      "leg_l",
+      "leg_r",
+      "arm_r",
+      "arm_l"
+    ],
     "energy_source": "MANA",
     "spell_class": "KELVINIST",
     "difficulty": 5,
@@ -398,14 +676,24 @@
     "energy_increment": -14,
     "min_duration": 360000,
     "max_duration": 14500000,
-    "duration_increment": 72000
+    "duration_increment": 72000,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "create_rune_kelvinist",
     "type": "SPELL",
-    "name": { "str": "Kelvinist Rune" },
+    "name": {
+      "str": "Kelvinist Rune"
+    },
     "description": "This ritual creates a small pebble attuned to Kelvinists.  You can use the rune as a catalyst for recipes.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -420,15 +708,34 @@
     "max_level": 0,
     "spell_class": "KELVINIST",
     "energy_source": "MANA",
-    "flags": [ "PERMANENT", "NO_LEGS", "CONCENTRATE" ]
+    "flags": [
+      "CHANNELING_SPELL",
+      "PERMANENT",
+      "NO_LEGS",
+      "CONCENTRATE"
+    ],
+    "extra_effects": [
+      {
+        "id": "eoc_channeling_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "kelvinist_summon_flamesword",
     "type": "SPELL",
-    "name": { "str": "Flamesword" },
+    "name": {
+      "str": "Flamesword"
+    },
     "description": "This spell ignites a wooden sword, creating a flaming blade able to burn, bruise, and chop.",
-    "valid_targets": [ "none" ],
-    "flags": [ "NO_LEGS" ],
+    "valid_targets": [
+      "none"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "NO_LEGS",
+      "SOMATIC"
+    ],
     "effect": "spawn_item",
     "effect_str": "flamesword",
     "shape": "blast",
@@ -444,15 +751,32 @@
     "base_casting_time": 250,
     "base_energy_cost": 300,
     "difficulty": 4,
-    "learn_spells": { "kelvinist_summon_flamesword_plus": 15 }
+    "learn_spells": {
+      "kelvinist_summon_flamesword_plus": 15
+    },
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "kelvinist_summon_flamesword_plus",
     "type": "SPELL",
-    "name": { "str": "Enhanced Flamesword" },
+    "name": {
+      "str": "Enhanced Flamesword"
+    },
     "description": "This spell ignites a wooden sword, creating a flaming blade able to burn, bruise, and chop.  Now you know this spell like the back of your hand, and start to design your own version.",
-    "valid_targets": [ "self" ],
-    "flags": [ "NO_LEGS", "NO_HANDS" ],
+    "valid_targets": [
+      "self"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "NO_LEGS",
+      "NO_HANDS",
+      "NO_FAIL"
+    ],
     "effect": "spawn_item",
     "effect_str": "flamesword",
     "shape": "blast",
@@ -471,22 +795,39 @@
     "base_energy_cost": 300,
     "final_energy_cost": 100,
     "energy_increment": -8,
-    "difficulty": 6
+    "difficulty": 6,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "kelvinist_flamebreath",
     "type": "SPELL",
-    "name": { "str": "Flamebreath" },
+    "name": {
+      "str": "Flamebreath"
+    },
     "description": "This spell ignites dust scattered in the air, creating a cone of flame.  The hot ashes can cling to targets, causing additional burns over time.",
     "effect": "attack",
     "shape": "cone",
-    "valid_targets": [ "ally", "hostile", "ground" ],
-    "flags": [ "SOMATIC", "CONCENTRATE", "IGNITE_FLAMMABLE" ],
+    "valid_targets": [
+      "ally",
+      "hostile",
+      "ground"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "SOMATIC",
+      "CONCENTRATE",
+      "IGNITE_FLAMMABLE"
+    ],
     "components": "spell_components_flamebreath",
     "max_level": 15,
     "min_damage": 25,
     "max_damage": 67,
-    "damage_increment": 2.0,
+    "damage_increment": 2,
     "min_dot": 2,
     "max_dot": 7,
     "dot_increment": 0.3,
@@ -504,15 +845,31 @@
     "base_energy_cost": 200,
     "energy_source": "MANA",
     "difficulty": 5,
-    "damage_type": "heat"
+    "damage_type": "heat",
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "freezing_touch",
     "type": "SPELL",
-    "name": { "str": "Freezing Touch" },
+    "name": {
+      "str": "Freezing Touch"
+    },
     "description": "Your hands freeze anything they touch at temperatures so cold it slows down your foes.",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "NO_PROJECTILE", "SILENT", "NO_HANDS", "NO_HANDS" ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "NO_PROJECTILE",
+      "SILENT",
+      "NO_HANDS",
+      "NO_HANDS"
+    ],
     "effect": "attack",
     "effect_str": "slow_freeze_effect",
     "shape": "blast",
@@ -533,16 +890,31 @@
     "base_casting_time": 150,
     "final_casting_time": 60,
     "casting_time_increment": -6,
-    "energy_source": "MANA"
+    "energy_source": "MANA",
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "kelvinist_anti_cold",
     "type": "SPELL",
-    "name": { "str": "Cloak of Warmth" },
+    "name": {
+      "str": "Cloak of Warmth"
+    },
     "description": "Heat the nearby air, keeping you warm and providing some protection against ice and cold.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "spell_class": "KELVINIST",
-    "flags": [ "CONCENTRATE", "VERBAL", "SOMATIC" ],
+    "flags": [
+      "ENHANCEMENT_SPELL",
+      "CONCENTRATE",
+      "VERBAL",
+      "SOMATIC"
+    ],
     "effect": "attack",
     "effect_str": "effect_kelvinist_anti_cold",
     "shape": "blast",
@@ -553,16 +925,31 @@
     "duration_increment": 99000,
     "energy_source": "MANA",
     "base_energy_cost": 450,
-    "base_casting_time": 1500
+    "base_casting_time": 1500,
+    "extra_effects": [
+      {
+        "id": "eoc_enhancement_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "kelvinist_anti_heat",
     "type": "SPELL",
-    "name": { "str": "Cloak of Chill" },
+    "name": {
+      "str": "Cloak of Chill"
+    },
     "description": "Cool the nearby air, keeping you cool and providing some protection against heat and flame.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "spell_class": "KELVINIST",
-    "flags": [ "CONCENTRATE", "VERBAL", "SOMATIC" ],
+    "flags": [
+      "ENHANCEMENT_SPELL",
+      "CONCENTRATE",
+      "VERBAL",
+      "SOMATIC"
+    ],
     "effect": "attack",
     "effect_str": "effect_kelvinist_anti_heat",
     "shape": "blast",
@@ -573,6 +960,12 @@
     "duration_increment": 99000,
     "energy_source": "MANA",
     "base_energy_cost": 450,
-    "base_casting_time": 1500
+    "base_casting_time": 1500,
+    "extra_effects": [
+      {
+        "id": "eoc_enhancement_setup",
+        "hit_self": true
+      }
+    ]
   }
 ]

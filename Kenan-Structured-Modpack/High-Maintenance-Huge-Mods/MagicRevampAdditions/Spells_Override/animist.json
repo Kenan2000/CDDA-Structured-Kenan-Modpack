@@ -2,12 +2,16 @@
   {
     "id": "smite",
     "type": "SPELL",
-    "name": { "str": "Smite" },
+    "name": {
+      "str": "Smite"
+    },
     "description": "Evil has become pervasive throughout the world.  Let your power be the light that shines in the darkness!",
-    "valid_targets": [ "hostile" ],
+    "valid_targets": [
+      "hostile"
+    ],
     "min_damage": 10,
     "max_damage": 300,
-    "damage_increment": 15.0,
+    "damage_increment": 15,
     "min_range": 1,
     "max_range": 1,
     "effect": "attack",
@@ -21,18 +25,33 @@
     "spell_class": "ANIMIST",
     "difficulty": 8,
     "max_level": 22,
-    "damage_type": "pure",
-    "flags": [ "VERBAL", "SOMATIC", "LOUD" ],
+    "damage_type": "light",
+    "flags": [
+      "EVOCATION_SPELL",
+      "VERBAL",
+      "LOUD",
+      "NO_HANDS"
+    ],
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ],
     "energy_source": "MANA"
   },
   {
     "id": "recover_mana",
     "type": "SPELL",
-    "name": { "str": "Life Conversion" },
+    "name": {
+      "str": "Life Conversion"
+    },
     "description": "You channel your life force itself into your spiritual energy.  You spend hp to regain mana.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "min_damage": 90,
-    "damage_increment": 15.0,
+    "damage_increment": 15,
     "max_damage": 1000,
     "max_level": 50,
     "effect": "recover_energy",
@@ -42,18 +61,35 @@
     "energy_source": "MANA",
     "components": "spell_components_rune_animist",
     "base_casting_time": 500,
-    "flags": [ "SOMATIC", "VERBAL", "SILENT", "NO_LEGS", "CONSUMES_RUNES" ],
+    "flags": [
+      "CHANNELING_SPELL",
+      "SOMATIC",
+      "VERBAL",
+      "SILENT",
+      "NO_LEGS",
+      "CONSUMES_RUNES"
+    ],
+    "extra_effects": [
+      {
+        "id": "eoc_channeling_setup",
+        "hit_self": true
+      }
+    ],
     "difficulty": 3
   },
   {
     "id": "recover_pain",
     "type": "SPELL",
-    "name": { "str": "Mind over Pain" },
+    "name": {
+      "str": "Mind over Pain"
+    },
     "description": "With an intense ritual that resembles crossfit, you manage to put some of your pain at bay.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "min_damage": 10,
     "max_damage": 150,
-    "damage_increment": 2.0,
+    "damage_increment": 2,
     "max_level": 67,
     "spell_class": "ANIMIST",
     "effect": "recover_energy",
@@ -62,25 +98,48 @@
     "energy_source": "STAMINA",
     "base_casting_time": 50000,
     "base_energy_cost": 5000,
-    "energy_increment": 500.0,
-    "flags": [ "SOMATIC", "VERBAL", "PAIN_NORESIST" ],
+    "energy_increment": 500,
+    "flags": [
+      "RESTORATION_SPELL",
+      "SOMATIC",
+      "VERBAL",
+      "PAIN_NORESIST"
+    ],
+    "extra_effects": [
+      {
+        "id": "eoc_restoration_setup",
+        "hit_self": true
+      }
+    ],
     "final_energy_cost": 10000
   },
   {
     "id": "necrotic_gaze",
     "type": "SPELL",
-    "name": { "str": "Necrotic Gaze" },
+    "name": {
+      "str": "Necrotic Gaze"
+    },
     "description": "You use the power of your own blood to imbue necrotic energy into your gaze, damaging the target you look at.",
-    "valid_targets": [ "hostile" ],
+    "valid_targets": [
+      "hostile"
+    ],
     "effect": "attack",
     "shape": "line",
     "spell_class": "ANIMIST",
     "energy_source": "MANA",
-    "flags": [ "NO_LEGS", "CONCENTRATE", "SOMATIC", "NO_HANDS", "CONSUMES_RUNES" ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "NO_LEGS",
+      "CONCENTRATE",
+      "SOMATIC",
+      "NO_PROJECTILE",
+      "NO_HANDS",
+      "CONSUMES_RUNES"
+    ],
     "components": "spell_components_rune_animist",
     "min_damage": 10,
     "max_damage": 300,
-    "damage_increment": 6.0,
+    "damage_increment": 6,
     "min_range": 3,
     "max_range": 8,
     "range_increment": 0.1,
@@ -90,14 +149,24 @@
     "min_aoe": 1,
     "max_aoe": 3,
     "aoe_increment": 0.1,
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ],
     "damage_type": "biological"
   },
   {
     "id": "create_rune_animist",
     "type": "SPELL",
-    "name": { "str": "Animist Rune" },
+    "name": {
+      "str": "Animist Rune"
+    },
     "description": "This ritual creates a small pebble attuned to Animists.  You can use the rune as a catalyst for recipes.",
-    "valid_targets": [ "self" ],
+    "valid_targets": [
+      "self"
+    ],
     "min_damage": 1,
     "max_damage": 1,
     "effect": "spawn_item",
@@ -112,15 +181,40 @@
     "max_level": 0,
     "spell_class": "ANIMIST",
     "energy_source": "MANA",
-    "flags": [ "PERMANENT", "NO_LEGS", "CONCENTRATE" ]
+    "//": "I'm not sure if this should train anything, since it's an innate ability.",
+    "extra_effects": [
+      {
+        "id": "eoc_channeling_setup",
+        "hit_self": true
+      }
+    ],
+    "flags": [
+      "CHANNELING_SPELL",
+      "PERMANENT",
+      "NO_LEGS",
+      "CONCENTRATE"
+    ]
   },
   {
     "id": "soulrend",
     "type": "SPELL",
-    "name": { "str": "Soulrend" },
+    "name": {
+      "str": "Soulrend"
+    },
     "description": "Violently tears the spirit from the body, and bounds the resulting shade to your will.",
-    "valid_targets": [ "hostile", "ally" ],
-    "flags": [ "NO_LEGS", "LOUD", "SOMATIC", "POLYMORPH_GROUP", "FRIENDLY_POLY", "NO_HANDS" ],
+    "valid_targets": [
+      "hostile",
+      "ally"
+    ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "NO_LEGS",
+      "LOUD",
+      "SOMATIC",
+      "POLYMORPH_GROUP",
+      "FRIENDLY_POLY",
+      "NO_HANDS"
+    ],
     "effect": "targeted_polymorph",
     "effect_str": "GROUP_POLYMORPH_SHADOW",
     "shape": "blast",
@@ -132,20 +226,38 @@
     "damage_increment": 2.5,
     "max_level": 60,
     "base_casting_time": 200,
-    "casting_time_increment": -2.0,
+    "casting_time_increment": -2,
     "final_casting_time": 80,
     "base_energy_cost": 200,
     "min_range": 3,
     "max_range": 9,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ],
     "range_increment": 0.2
   },
   {
     "id": "disruption_bolt",
     "type": "SPELL",
-    "name": { "str": "Disruption Bolt" },
+    "name": {
+      "str": "Disruption Bolt"
+    },
     "description": "Release a resonant bolt of spiritual energy at a nearby target.  It will disrupt the natural link between matter and animus, causing heavy but never lethal damage.",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "VERBAL", "SOMATIC", "NO_LEGS", "PERCENTAGE_DAMAGE", "SILENT", "NO_PROJECTILE" ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "VERBAL",
+      "SOMATIC",
+      "NO_LEGS",
+      "PERCENTAGE_DAMAGE",
+      "SILENT",
+      "NO_PROJECTILE"
+    ],
     "min_damage": 35,
     "damage_type": "pure",
     "damage_increment": 1,
@@ -154,7 +266,7 @@
     "range_increment": 0.5,
     "max_range": 66,
     "base_energy_cost": 150,
-    "energy_increment": -5.0,
+    "energy_increment": -5,
     "final_energy_cost": 50,
     "spell_class": "ANIMIST",
     "difficulty": 3,
@@ -163,15 +275,32 @@
     "energy_source": "MANA",
     "shape": "blast",
     "effect": "attack",
-    "learn_spells": { "soulrend": 20 }
+    "learn_spells": {
+      "soulrend": 20
+    },
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "banishment_lesser",
     "type": "SPELL",
-    "name": { "str": "Lesser Banishment" },
+    "name": {
+      "str": "Lesser Banishment"
+    },
     "description": "Banish a monster to the lesser-known nether dimension.  If a monster is more powerful than you can handle, the spell drains your life force to make up the difference.",
-    "valid_targets": [ "hostile" ],
-    "flags": [ "SOMATIC", "VERBAL", "NO_HANDS" ],
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "CONVEYANCE_SPELL",
+      "SOMATIC",
+      "VERBAL",
+      "NO_HANDS"
+    ],
     "effect": "banishment",
     "shape": "blast",
     "min_damage": 40,
@@ -184,18 +313,32 @@
     "difficulty": 9,
     "max_level": 37,
     "base_casting_time": 100,
-    "energy_source": "MANA"
+    "energy_source": "MANA",
+    "extra_effects": [
+      {
+        "id": "eoc_conveyance_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "summon_wisps",
     "type": "SPELL",
-    "name": { "str": "Ignus Fatuus" },
+    "name": {
+      "str": "Ignus Fatuus"
+    },
     "description": "Summons ghostly foxfire worked from living marsh vapor, to lead your enemies astray.  With more experience, this spell can conjure multiple ghost lights.",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "effect": "summon",
     "effect_str": "mon_wisp",
     "shape": "blast",
-    "flags": [ "LOUD", "SOMATIC" ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "LOUD",
+      "SOMATIC"
+    ],
     "energy_source": "MANA",
     "spell_class": "ANIMIST",
     "difficulty": 2,
@@ -212,17 +355,34 @@
     "range_increment": 0.16,
     "min_duration": 6000,
     "max_duration": 90000,
-    "duration_increment": 2160
+    "duration_increment": 2160,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "bleed",
     "type": "SPELL",
-    "name": { "str": "Bleed" },
+    "name": {
+      "str": "Bleed"
+    },
     "description": "With a shout and a gesture, the target starts bleeding from old wounds.",
-    "valid_targets": [ "hostile" ],
+    "valid_targets": [
+      "hostile"
+    ],
     "effect": "attack",
     "shape": "blast",
-    "flags": [ "VERBAL", "SOMATIC", "NO_LEGS", "NO_PROJECTILE", "NO_HANDS" ],
+    "flags": [
+      "EVOCATION_SPELL",
+      "VERBAL",
+      "SOMATIC",
+      "NO_LEGS",
+      "NO_PROJECTILE",
+      "NO_HANDS"
+    ],
     "energy_source": "MANA",
     "spell_class": "ANIMIST",
     "difficulty": 2,
@@ -241,19 +401,35 @@
     "duration_increment": 20,
     "min_dot": 2,
     "max_dot": 76,
-    "dot_increment": 2
+    "dot_increment": 2,
+    "extra_effects": [
+      {
+        "id": "eoc_evocation_setup",
+        "hit_self": true
+      }
+    ]
   },
   {
     "id": "animist_summon_watcher",
     "type": "SPELL",
-    "name": { "str": "Summon Watcher Spirit" },
+    "name": {
+      "str": "Summon Watcher Spirit"
+    },
     "description": "Summon a watcher spirit, whose senses overlap with your own and through whose eyes you can see.  Although they are spirits, they are fragile and dissipate easily in the face of any assault.",
-    "flags": [ "SOMATIC", "CONCENTRATE", "VERBAL", "NO_PROJECTILE" ],
+    "flags": [
+      "CONJURATION_SPELL",
+      "SOMATIC",
+      "CONCENTRATE",
+      "VERBAL",
+      "NO_PROJECTILE"
+    ],
     "spell_class": "ANIMIST",
     "effect": "summon",
     "effect_str": "mon_watcher_spirit",
     "shape": "blast",
-    "valid_targets": [ "ground" ],
+    "valid_targets": [
+      "ground"
+    ],
     "difficulty": 3,
     "max_level": 22,
     "min_damage": 1,
@@ -266,6 +442,12 @@
     "duration_increment": 24000,
     "energy_source": "MANA",
     "base_casting_time": 500,
-    "base_energy_cost": 150
+    "base_energy_cost": 150,
+    "extra_effects": [
+      {
+        "id": "eoc_summon_setup",
+        "hit_self": true
+      }
+    ]
   }
 ]
